@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBank MSRA — The UK's Most Trusted MSRA Question Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🩺</div>
+    <div class="nav-logo-name">Med<em>Bank</em></div>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#free-trial">Free trial</a>
+  </div>
+  <div class="nav-ctas">
+    <a href="app.html" class="btn btn-ghost">Log in</a>
+    <a href="#free-trial" class="btn btn-amber">Try free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-badge fade-up"><span class="hero-badge-dot"></span>⚡ The UK's #1 MSRA Question Bank</div>
+  <h1 class="hero-h1 fade-up delay-1">
+    <span class="line1">Pass your MSRA.</span>
+    <span class="line2">The first time.</span>
+  </h1>
+  <p class="hero-sub fade-up delay-2">Over 3,200 clinical and SJT questions built by senior clinicians. Detailed explanations, live leaderboards, and adaptive scoring to get you to Band 4.</p>
+  <div class="hero-actions fade-up delay-3">
+    <a href="#free-trial" class="btn btn-amber">Start free trial — 20 questions →</a>
+    <a href="app.html" class="btn btn-ghost">See the platform</a>
+  </div>
+  <div class="hero-social-proof fade-up delay-4">
+    <div class="avatars">
+      <div>JW</div><div>RP</div><div>SC</div><div>AO</div><div>+</div>
+    </div>
+    <div>
+      <div class="proof-text"><strong>4,821 doctors</strong> passed with MedBank</div>
+      <div class="stars">★★★★★ <span style="color:var(--text2);font-size:12px">4.9 / 5.0</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-n">3,200+</div><div class="stat-l">Unique questions</div></div>
+  <div class="stat-div"></div>
+  <div class="stat-item"><div class="stat-n">4,821</div><div class="stat-l">Registered doctors</div></div>
+  <div class="stat-div"></div>
+  <div class="stat-item"><div class="stat-n">94%</div><div class="stat-l">Pass rate (Band 3+)</div></div>
+  <div class="stat-div"></div>
+  <div class="stat-item"><div class="stat-n">71%</div><div class="stat-l">Reach Band 4</div></div>
+  <div class="stat-div"></div>
+  <div class="stat-item"><div class="stat-n">12</div><div class="stat-l">CPS topic areas</div></div>
+</div>
+
+<!-- FREE TRIAL SECTION -->
+<div class="trial-section" id="free-trial">
+  <div class="trial-wrap">
+    <div class="trial-header">
+      <div class="trial-pill">🎯 Free trial — no card required</div>
+      <h2 class="section-h2">Try <span>20 real questions</span> for free</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">10 Clinical Problem Solving questions and 10 Situational Judgement scenarios — the same quality you get with a full subscription.</p>
+      <div class="trial-tabs">
+        <button class="trial-tab active" id="tabCPS" onclick="switchTrialTab('cps')">🔬 Clinical (10 Qs)</button>
+        <button class="trial-tab" id="tabSJT" onclick="switchTrialTab('sjt')">⚖️ SJT / PD (10 Qs)</button>
+      </div>
+    </div>
+    <div class="trial-arena">
+      <div class="trial-topbar">
+        <div class="trial-progress">
+          <div class="trial-q-label">Question</div>
+          <div class="trial-q-num" id="trialQNum">1</div>
+          <div class="trial-q-of" id="trialQOf">/ 10</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="font-size:12px;color:var(--text3)" id="trialTabLabel">Clinical Problem Solving</div>
+          <div class="trial-score-chip">
+            <div class="trial-score-val" id="trialScore">0</div>
+            <div class="trial-score-lbl">/ <span id="trialScoreOf">0</span> correct</div>
+          </div>
+        </div>
+      </div>
+      <div class="trial-pbar"><div class="trial-pbar-fill" id="trialPBar" style="width:0%"></div></div>
+      <div class="trial-body" id="trialBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="features-wrap">
+    <div class="section-tag">What you get</div>
+    <h2 class="section-h2">Everything you need to <span>score Band 4</span></h2>
+    <p class="section-sub">Built by consultants, FY doctors, and MSRA specialists — every question is clinically accurate and exam-relevant.</p>
+    <div class="features-grid">
+      <div class="feat-card fc1"><div class="feat-ico">📋</div><div class="feat-title">3,200+ Expert Questions</div><div class="feat-body">Covering all 12 CPS clinical domains and every SJT professional attribute. Updated annually to match the current MSRA blueprint.</div><span class="feat-tag">CPS · SJT</span></div>
+      <div class="feat-card fc2"><div class="feat-ico">🧠</div><div class="feat-title">Deep Clinical Explanations</div><div class="feat-body">Every question has a referenced explanation written by consultants — not just the answer, but why each distractor is wrong.</div><span class="feat-tag" style="background:rgba(217,119,6,.1);color:var(--amber2)">Written by clinicians</span></div>
+      <div class="feat-card fc3"><div class="feat-ico">📈</div><div class="feat-title">Smart Progress Tracking</div><div class="feat-body">See your accuracy by topic, track your Band score over time, and get AI-powered focus recommendations for your weakest areas.</div><span class="feat-tag" style="background:rgba(124,58,237,.1);color:#a78bfa">Adaptive</span></div>
+      <div class="feat-card fc4"><div class="feat-ico">⏱️</div><div class="feat-title">Full MSRA Mock Exams</div><div class="feat-body">Timed 136-question mocks with the exact same structure as the real exam — 86 CPS questions in 75 minutes, 50 PD in 95 minutes.</div><span class="feat-tag" style="background:rgba(5,150,105,.1);color:var(--emerald)">Exam-realistic</span></div>
+      <div class="feat-card fc5"><div class="feat-ico">⚡</div><div class="feat-title">Quick Fire Wednesday</div><div class="feat-body">Compete live against doctors nationwide. Answer 20 questions as fast as possible. Weekly leaderboard resets every Wednesday at midnight.</div><span class="feat-tag" style="background:rgba(225,29,72,.1);color:#fb7185">Weekly live event</span></div>
+      <div class="feat-card fc6"><div class="feat-ico">🎴</div><div class="feat-title">Active Recall Flashcards</div><div class="feat-body">Spaced repetition flashcards for key facts, drug doses, and management algorithms. Rate each card to prioritise your weak spots.</div><span class="feat-tag">Spaced repetition</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw-section" id="how-it-works">
+  <div class="hiw-wrap">
+    <div>
+      <div class="section-tag">How it works</div>
+      <h2 class="section-h2">From <span>sign-up to Band 4</span></h2>
+      <p class="section-sub">Most doctors reach Band 4 in 6–10 weeks using MedBank daily. Here's the system that works.</p>
+      <div class="hiw-steps">
+        <div class="hiw-step"><div class="step-num">1</div><div><div class="step-title">Take the 20-question free trial</div><div class="step-body">No credit card. No commitment. Get a feel for the real question quality and see your starting score across CPS and SJT.</div></div></div>
+        <div class="hiw-step"><div class="step-num">2</div><div><div class="step-title">Identify your weak topics</div><div class="step-body">Your dashboard highlights where you're losing marks. Focus there first — the platform tells you exactly which topics to prioritise.</div></div></div>
+        <div class="hiw-step"><div class="step-num">3</div><div><div class="step-title">Practice daily in short sessions</div><div class="step-body">20–40 questions a day is enough. Read every explanation — even for answers you got right. This is where the learning happens.</div></div></div>
+        <div class="hiw-step"><div class="step-num">4</div><div><div class="step-title">Sit a full mock 2 weeks before</div><div class="step-body">Under timed conditions. Review every error. Repeat until you're consistently hitting 83%+. Then sit the real thing with confidence.</div></div></div>
+      </div>
+    </div>
+    <div class="hiw-visual">
+      <div class="hiw-vis-top">
+        <div class="vis-dot" style="background:#ff5f57"></div>
+        <div class="vis-dot" style="background:#febc2e;margin-left:5px"></div>
+        <div class="vis-dot" style="background:#28c840;margin-left:5px"></div>
+        <div style="margin-left:12px;font-size:12px;color:var(--text3)">MedBank — Dashboard</div>
+      </div>
+      <div class="vis-score-row">
+        <div class="vis-stat"><div class="vis-val" style="color:var(--cyan)">76%</div><div class="vis-lbl">Your score</div></div>
+        <div class="vis-stat"><div class="vis-val" style="color:var(--text3)">71.7%</div><div class="vis-lbl">Platform avg</div></div>
+        <div class="vis-stat"><div class="vis-val" style="color:var(--amber2)">#12</div><div class="vis-lbl">Global rank</div></div>
+        <div class="vis-stat"><div class="vis-val" style="color:var(--emerald)">🔥7</div><div class="vis-lbl">Day streak</div></div>
+      </div>
+      <div class="vis-bars">
+        <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:12px">Topic Progress</div>
+        <div class="vis-bar-row"><div class="vis-bar-label"><span>Cardiovascular</span><span style="color:var(--emerald)">82%</span></div><div class="vis-bar-track"><div class="vis-bar-fill" style="width:82%;background:linear-gradient(90deg,var(--rose),#fb7185)"></div></div></div>
+        <div class="vis-bar-row"><div class="vis-bar-label"><span>Respiratory</span><span style="color:var(--cyan)">71%</span></div><div class="vis-bar-track"><div class="vis-bar-fill" style="width:71%;background:linear-gradient(90deg,var(--cyan),var(--cyan2))"></div></div></div>
+        <div class="vis-bar-row"><div class="vis-bar-label"><span>Neurology</span><span style="color:var(--violet)">67%</span></div><div class="vis-bar-track"><div class="vis-bar-fill" style="width:67%;background:linear-gradient(90deg,var(--violet),#a78bfa)"></div></div></div>
+        <div class="vis-bar-row"><div class="vis-bar-label"><span>Paediatrics</span><span style="color:var(--amber)">45%</span></div><div class="vis-bar-track"><div class="vis-bar-fill" style="width:45%;background:linear-gradient(90deg,var(--amber),var(--amber2))"></div></div></div>
+        <div class="vis-bar-row"><div class="vis-bar-label"><span>Musculoskeletal</span><span style="color:var(--rose)">37%</span></div><div class="vis-bar-track"><div class="vis-bar-fill" style="width:37%;background:linear-gradient(90deg,var(--emerald),#34d399)"></div></div></div>
+      </div>
+      <div style="padding:0 20px 20px">
+        <div style="background:rgba(5,150,105,.08);border:1px solid rgba(5,150,105,.2);border-radius:var(--r-sm);padding:12px 16px;font-size:13px;color:var(--emerald);">
+          📈 At this rate you'll reach <strong>Band 4 in ~3 weeks</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="testi-wrap">
+    <div class="section-tag">Doctor stories</div>
+    <h2 class="section-h2">Trusted by doctors <span>across the UK</span></h2>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-quote">"</div><div class="testi-text">I'd failed the MSRA once before. MedBank completely changed how I approached revision. The explanations are genuinely consultant-level — not the watered-down stuff I'd seen elsewhere.</div><div class="testi-author"><div class="testi-av">SC</div><div><div class="testi-name">Dr. S. Chen</div><div class="testi-role">FY2, now ST2 Cardiology</div><div class="testi-band">✅ Band 4 — second attempt</div></div></div></div>
+      <div class="testi-card" style="border-color:rgba(8,145,178,.25)"><div class="testi-quote" style="color:var(--amber2)">"</div><div class="testi-text">The Quick Fire Wednesday feature is honestly what made me faster under pressure. I went from 42 seconds per question down to 28 seconds over two months. Night and day difference.</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,var(--amber),var(--rose))">JW</div><div><div class="testi-name">Dr. J. Williams</div><div class="testi-role">FY2, Emergency Medicine</div><div class="testi-band">✅ Top 1% nationally</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">"</div><div class="testi-text">The SJT questions are the most realistic I've seen. Every scenario made me think "this actually could happen on a ward." My PD score jumped from 68% to 81% in six weeks.</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,var(--violet),var(--cyan))">AO</div><div><div class="testi-name">Dr. A. Okafor</div><div class="testi-role">FY1, starting GP training</div><div class="testi-band">✅ Band 4 first attempt</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-wrap">
+    <div class="section-tag" style="text-align:center">Simple pricing</div>
+    <h2 class="section-h2" style="text-align:center">One exam. <span>One clear price.</span></h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto">No hidden fees. Cancel anytime. Every plan includes the free trial.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-plan">Free Trial</div>
+        <div class="price-desc">Get a genuine feel for the platform before committing a penny.</div>
+        <div class="price-amount"><div class="price-curr">£</div><div class="price-num">0</div></div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feat"><span class="pf-check">✓</span>10 CPS clinical questions</div>
+          <div class="price-feat"><span class="pf-check">✓</span>10 SJT professional dilemmas</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Full explanations for all 20</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Score breakdown by paper</div>
+          <div class="price-feat" style="opacity:.35"><span>✗</span>&nbsp;Full 3,200+ question library</div>
+          <div class="price-feat" style="opacity:.35"><span>✗</span>&nbsp;Mock exams &amp; leaderboard</div>
+        </div>
+        <a href="#free-trial" class="btn btn-ghost">Start free trial →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most popular</div>
+        <div class="price-plan">3-Month Access</div>
+        <div class="price-desc">The right amount of time to reach Band 4 with focused daily revision.</div>
+        <div class="price-amount"><div class="price-curr">£</div><div class="price-num" style="color:var(--cyan2)">49</div><div class="price-per">&nbsp;/ 3 months</div></div>
+        <div style="font-size:12px;color:var(--text3);margin-top:-16px;margin-bottom:20px">That's £16.33/month — less than a textbook</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feat"><span class="pf-check">✓</span>All 3,200+ questions — CPS &amp; SJT</div>
+          <div class="price-feat"><span class="pf-check">✓</span>12 full MSRA mock exams</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Live global leaderboard</div>
+          <div class="price-feat"><span class="pf-check">✓</span>⚡ Quick Fire Wednesday events</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Smart focus recommendations</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Score progression &amp; analytics</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Flashcard deck — all topics</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Email support from clinicians</div>
+        </div>
+        <a href="#free-trial" class="btn btn-cyan">Get 3-month access →</a>
+        <div class="free-tag">Starts with the 20-question free trial</div>
+      </div>
+      <div class="price-card">
+        <div class="price-plan">Full Year</div>
+        <div class="price-desc">Preparing early or sitting multiple times? Unlimited access for a full year.</div>
+        <div class="price-amount"><div class="price-curr">£</div><div class="price-num">79</div><div class="price-per">&nbsp;/ year</div></div>
+        <div style="font-size:12px;color:var(--emerald);margin-top:-16px;margin-bottom:20px">Save £19 vs monthly</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feat"><span class="pf-check">✓</span>Everything in 3-month plan</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Unlimited mock exam attempts</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Early access to new questions</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Priority support</div>
+          <div class="price-feat"><span class="pf-check">✓</span>Annual question set updates</div>
+        </div>
+        <a href="#free-trial" class="btn btn-ghost">Get full year access →</a>
+        <div class="free-tag">Starts with the 20-question free trial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-section">
+  <div class="cta-wrap">
+    <h2 class="cta-h2">Ready to pass your MSRA <span>first time?</span></h2>
+    <p class="cta-sub">Start with 20 free questions right now. No sign-up, no card — just real MSRA questions and honest explanations.</p>
+    <div class="cta-btns">
+      <a href="#free-trial" class="btn btn-amber">Try 20 questions free →</a>
+      <a href="app.html" class="btn btn-ghost">Explore the full platform</a>
+    </div>
+    <div class="cta-note">Join 4,821 doctors already using MedBank · 94% pass rate</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Med<em>Bank</em> <span style="color:var(--text3);font-size:12px;font-family:var(--font-b);font-weight:400">MSRA Question Bank</span></div>
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+    <a href="app.html">Dashboard →</a>
+  </div>
+  <div class="footer-copy">© 2026 MedBank Ltd. All rights reserved.</div>
+</footer>
+
+<script src="js/landing.js"></script>
+</body>
+</html>
