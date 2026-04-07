@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Ossify</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+
+:root {
+  --ink: #0a0f1a;
+  --ink2: #1a2235;
+  --ink3: #2d3a52;
+  --slate: #4a5568;
+  --muted: #718096;
+  --muted2: #a0aec0;
+  --border: rgba(10,15,26,0.08);
+  --border2: rgba(10,15,26,0.05);
+  --surface: #ffffff;
+  --surface2: #f8f9fc;
+  --surface3: #f1f4f9;
+  --gold: #b8860b;
+  --gold2: #d4a017;
+  --gold-lt: rgba(184,134,11,0.08);
+  --gold-glow: rgba(184,134,11,0.2);
+  --teal: #0d7377;
+  --teal2: #14a085;
+  --teal-lt: rgba(13,115,119,0.07);
+  --rose: #c0392b;
+  --font-d: 'Fraunces', Georgia, serif;
+  --font-b: 'DM Sans', system-ui, sans-serif;
+  --r: 16px;
+  --r-sm: 10px;
+  --r-xs: 6px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-b);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAVIGATION ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  height: 68px;
+  display: flex; align-items: center;
+  padding: 0 48px;
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--ink);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #fff; font-weight: 700;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+}
+.nav-links a {
+  color: var(--slate);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: var(--r-xs);
+  transition: all 0.18s;
+}
+.nav-links a:hover { color: var(--ink); background: var(--surface3); }
+.nav-links a.active { color: var(--ink); font-weight: 600; }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: var(--r-xs);
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: var(--font-b);
+}
+.nav-cta:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
+
+/* ── PAGE WRAPPER ── */
+.page-wrap { padding-top: 68px; }
+
+/* ── COMMON ELEMENTS ── */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-family: var(--font-b);
+}
+.section-title {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 17px;
+  color: var(--slate);
+  max-width: 580px;
+  line-height: 1.7;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-b);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 11px 24px;
+  border-radius: var(--r-xs);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: var(--ink); background: var(--surface3); }
+.btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 16px var(--gold-glow); }
+.btn-gold:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 6px 24px var(--gold-glow); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px; color: var(--muted);
+}
+.footer-logo { font-family: var(--font-d); font-weight: 500; color: var(--ink); font-size: 18px; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--ink); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-up { animation: fadeUp 0.7s ease both; }
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.2s; }
+.d3 { animation-delay: 0.3s; }
+.d4 { animation-delay: 0.4s; }
+.d5 { animation-delay: 0.5s; }
+
+@media (max-width: 900px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+}
+
+</style>
+<style>
+.pricing-hero {
+  padding: 100px 48px 72px;
+  text-align: center;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.pricing-hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -1.8px;
+  color: var(--ink);
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+.pricing-hero h1 em { font-style: italic; color: var(--gold); }
+.pricing-hero p { font-size: 17px; color: var(--slate); max-width: 500px; margin: 0 auto; line-height: 1.65; }
+
+/* PRICING CARDS */
+.pricing-section {
+  padding: 80px 48px 100px;
+  background: var(--surface);
+}
+.pricing-inner { max-width: 1000px; margin: 0 auto; }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-top: 0;
+}
+.price-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 36px 32px 32px;
+  position: relative;
+  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+}
+.price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.price-card.featured {
+  border-color: var(--ink);
+  box-shadow: var(--shadow);
+  background: var(--ink);
+  color: #fff;
+}
+.price-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 3px 11px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.price-name {
+  font-family: var(--font-d);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.price-card.featured .price-name { color: #fff; }
+.price-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+.price-card.featured .price-desc { color: rgba(255,255,255,0.5); }
+.price-amount {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.price-currency {
+  font-family: var(--font-d);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--slate);
+  align-self: flex-start;
+  margin-top: 10px;
+}
+.price-card.featured .price-currency { color: rgba(255,255,255,0.5); }
+.price-number {
+  font-family: var(--font-d);
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--ink);
+}
+.price-card.featured .price-number { color: #fff; }
+.price-period {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.price-card.featured .price-period { color: rgba(255,255,255,0.4); }
+.price-note {
+  font-size: 12px;
+  color: var(--teal);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.price-card.featured .price-note { color: rgba(255,255,255,0.45); }
+.price-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 22px 0;
+}
+.price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 28px;
+}
+.price-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--slate);
+  line-height: 1.5;
+}
+.price-card.featured .price-features li { color: rgba(255,255,255,0.7); }
+.pf-check {
+  color: var(--teal);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.price-card.featured .pf-check { color: #4dd0c4; }
+.price-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: var(--r-xs);
+  font-family: var(--font-b);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.price-cta-outline {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--ink);
+}
+.price-cta-outline:hover { border-color: var(--ink); background: var(--surface3); }
+.price-cta-featured {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+.price-cta-featured:hover { background: #f0f0f0; transform: translateY(-1px); }
+
+/* GUARANTEE */
+.guarantee {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* FAQ STRIP */
+.pricing-faq {
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
+  padding: 72px 48px;
+}
+.pricing-faq-inner { max-width: 720px; margin: 0 auto; }
+.pricing-faq h2 {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 36px;
+}
+.pfaq-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pfaq-item:last-child { border-bottom: none; }
+.pfaq-q { font-weight: 600; font-size: 14.5px; color: var(--ink); margin-bottom: 7px; }
+.pfaq-a { font-size: 14px; color: var(--slate); line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .pricing-hero, .pricing-section, .pricing-faq { padding-left: 20px; padding-right: 20px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">O</div>
+      Ossify
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About Ossify</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="keys-to-success.html">Keys to Success</a>
+      <a href="faq.html">MSRA FAQ</a>
+    </div>
+    <a href="pricing.html" class="nav-cta">Get started →</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <section class="pricing-hero">
+    <div class="eyebrow fade-up">Simple pricing</div>
+    <h1 class="fade-up d1">One exam.<br><em>One clear price.</em></h1>
+    <p class="fade-up d2">No hidden fees. No auto-renewals. Pay once, access everything.<br>We don't offer a free trial — every question on Ossify is individually written and clinically reviewed. Giving that away for free would undermine the standard we hold ourselves to.</p>
+  </section>
+
+  <section class="pricing-section">
+    <div class="pricing-inner">
+      <div class="pricing-grid">
+
+        <!-- 3 MONTHS -->
+        <div class="price-card fade-up d1">
+          <div class="price-name">3 Months</div>
+          <div class="price-desc">A focused preparation window for doctors close to exam date.</div>
+          <div class="price-amount">
+            <span class="price-currency">£</span>
+            <span class="price-number">20</span>
+          </div>
+          <div class="price-period">3 months access</div>
+          <div class="price-note">~£6.67 / month</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><span class="pf-check">✓</span>Full question bank — 1,200+ questions</li>
+            <li><span class="pf-check">✓</span>All 12 CPS clinical topic areas</li>
+            <li><span class="pf-check">✓</span>Professional Dilemmas paper</li>
+            <li><span class="pf-check">✓</span>All 4 revision modes</li>
+            <li><span class="pf-check">✓</span>Performance dashboard</li>
+            <li><span class="pf-check">✓</span>Deep clinical explanations</li>
+          </ul>
+          <a href="login.html?plan=3month" class="price-cta price-cta-outline">Get 3 months access →</a>
+        </div>
+
+        <!-- 6 MONTHS — FEATURED -->
+        <div class="price-card featured fade-up d2">
+          <div class="price-badge">Most popular</div>
+          <div class="price-name">6 Months</div>
+          <div class="price-desc">The recommended preparation window for most candidates.</div>
+          <div class="price-amount">
+            <span class="price-currency">£</span>
+            <span class="price-number">25</span>
+          </div>
+          <div class="price-period">6 months access</div>
+          <div class="price-note">~£4.17 / month — best value</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><span class="pf-check">✓</span>Everything in 3-month plan</li>
+            <li><span class="pf-check">✓</span>More time to space your revision</li>
+            <li><span class="pf-check">✓</span>Ideal for interleaving strategy</li>
+            <li><span class="pf-check">✓</span>Revisit weak areas multiple times</li>
+            <li><span class="pf-check">✓</span>Run multiple timed mock exams</li>
+            <li><span class="pf-check">✓</span>Full spaced repetition cycle</li>
+          </ul>
+          <a href="login.html?plan=6month" class="price-cta price-cta-featured">Get 6 months access →</a>
+        </div>
+
+        <!-- 1 YEAR -->
+        <div class="price-card fade-up d3">
+          <div class="price-name">1 Year</div>
+          <div class="price-desc">Preparing early, or sitting across multiple specialty rounds.</div>
+          <div class="price-amount">
+            <span class="price-currency">£</span>
+            <span class="price-number">40</span>
+          </div>
+          <div class="price-period">12 months access</div>
+          <div class="price-note">~£3.33 / month</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><span class="pf-check">✓</span>Everything in 6-month plan</li>
+            <li><span class="pf-check">✓</span>Full year of revision access</li>
+            <li><span class="pf-check">✓</span>Prepare across multiple sittings</li>
+            <li><span class="pf-check">✓</span>Maximum spaced repetition benefit</li>
+            <li><span class="pf-check">✓</span>New question content as added</li>
+            <li><span class="pf-check">✓</span>Most thorough preparation window</li>
+          </ul>
+          <a href="login.html?plan=1year" class="price-cta price-cta-outline">Get 1 year access →</a>
+        </div>
+
+      </div>
+
+      <div class="guarantee fade-up d4">
+        <span>🔒</span>
+        <span>Secure payment · Instant access · No auto-renewal · All plans include full access to 1,200+ questions</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI FAQ -->
+  <section class="pricing-faq">
+    <div class="pricing-faq-inner">
+      <h2>Common questions.</h2>
+      <div class="pfaq-item">
+        <div class="pfaq-q">What's included in every plan?</div>
+        <div class="pfaq-a">Every plan includes full access to the complete Ossify question bank — all 1,200+ questions across both papers, all 4 revision modes, your personal performance dashboard, and all clinical explanations. There are no tiered features.</div>
+      </div>
+      <div class="pfaq-item">
+        <div class="pfaq-q">Can I switch plans or upgrade?</div>
+        <div class="pfaq-a">Yes. If you purchase a shorter plan and wish to extend, contact us and we'll apply the difference towards your upgrade.</div>
+      </div>
+      <div class="pfaq-item">
+        <div class="pfaq-q">Which plan should I choose?</div>
+        <div class="pfaq-a">Most candidates benefit most from the 6-month plan. It gives you enough time to work through the question bank systematically, revisit weak areas using spaced repetition, and run multiple timed mocks before exam day.</div>
+      </div>
+      <div class="pfaq-item">
+        <div class="pfaq-q">Why is there no free trial?</div>
+        <div class="pfaq-a">Every question on Ossify is individually written by practising doctors, peer-reviewed for clinical accuracy, and refined through multiple rounds of editorial checks. That level of quality takes significant time and expertise to produce. Offering questions freely — even a subset — would mean distributing content that represents hundreds of hours of clinical work, and it would attract users who are not genuinely committed to their preparation. We believe in a straightforward arrangement: you pay for access, and in return you get a question bank that has been built to the highest possible standard. That standard is the product. It doesn't need a free sample to justify itself.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Ossify</div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="keys-to-success.html">Keys to Success</a>
+      <a href="faq.html">MSRA FAQ</a>
+    </div>
+    <div>© 2026 Ossify. All rights reserved.</div>
+  </footer>
+
+</div>
+</body>
+</html>

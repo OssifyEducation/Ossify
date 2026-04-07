@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question Bank — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--ink:#0a0f1a;--ink2:#1a2235;--slate:#4a5568;--muted:#718096;--border:rgba(10,15,26,0.08);--surface:#fff;--surface2:#f8f9fc;--surface3:#f1f4f9;--gold:#b8860b;--gold2:#d4a017;--gold-lt:rgba(184,134,11,0.07);--teal:#0d7377;--teal2:#14a085;--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--r-xs:6px;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow:0 4px 20px rgba(0,0,0,0.08);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased;}
+.sidebar{width:240px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;z-index:50;}
+.sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:10px;}
+.logo-mark{width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;flex-shrink:0;}
+.logo-name{font-family:var(--font-d);font-size:19px;font-weight:600;color:#fff;}
+.nav-section{padding:16px 12px 4px;}
+.nav-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);padding:0 8px;margin-bottom:4px;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r-xs);color:rgba(255,255,255,0.48);font-size:13.5px;font-weight:500;cursor:pointer;transition:all 0.18s;margin-bottom:1px;text-decoration:none;border:1px solid transparent;}
+.nav-item:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85);}
+.nav-item.active{background:rgba(184,134,11,0.18);color:var(--gold);border-color:rgba(184,134,11,0.2);}
+.nav-ico{font-size:15px;width:18px;text-align:center;flex-shrink:0;}
+.sidebar-footer{margin-top:auto;padding:14px;border-top:1px solid rgba(255,255,255,0.07);}
+.user-row{display:flex;align-items:center;gap:10px;padding:8px;border-radius:var(--r-xs);}
+.user-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--teal));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.user-name{font-size:13px;font-weight:600;color:#e2e8f0;}
+.sign-out-btn{width:100%;margin-top:8px;padding:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r-xs);color:rgba(255,255,255,0.4);font-size:12px;font-family:var(--font-b);cursor:pointer;transition:all 0.18s;}
+.sign-out-btn:hover{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);}
+.main{margin-left:240px;flex:1;}
+.topbar{background:rgba(248,249,252,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
+.page-title{font-family:var(--font-d);font-size:19px;font-weight:500;color:var(--ink);}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:var(--r-xs);font-family:var(--font-b);font-size:13.5px;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;}
+.btn-dark{background:var(--ink);color:#fff;}
+.btn-dark:hover{background:var(--ink2);}
+.btn-outline{background:var(--surface);color:var(--slate);border:1px solid var(--border);}
+.btn-outline:hover{border-color:var(--ink);color:var(--ink);}
+.content{padding:28px 32px;}
+
+/* FILTERS */
+.filter-bar{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;align-items:center;}
+.filter-label{font-size:13px;color:var(--muted);font-weight:500;}
+.filter-btn{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--surface);color:var(--slate);transition:all 0.18s;font-family:var(--font-b);}
+.filter-btn:hover,.filter-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+/* TOPIC CARDS */
+.topics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.topic-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px;cursor:pointer;transition:all 0.22s;text-decoration:none;display:block;position:relative;overflow:hidden;}
+.topic-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.topic-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(184,134,11,0.3);}
+.tc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.tc-ico{font-size:28px;}
+.tc-badge{font-size:11px;font-weight:700;letter-spacing:0.5px;padding:3px 10px;border-radius:20px;background:var(--surface3);color:var(--muted);}
+.tc-title{font-family:var(--font-d);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:5px;}
+.tc-meta{font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.55;}
+.tc-track{height:4px;background:var(--surface3);border-radius:4px;overflow:hidden;margin-bottom:6px;}
+.tc-fill{height:100%;border-radius:4px;}
+.tc-pct{font-size:11.5px;color:var(--muted);}
+.tc-themes{margin-top:12px;padding-top:12px;border-top:1px solid rgba(10,15,26,0.05);}
+.tc-themes-lbl{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.tc-theme-pills{display:flex;flex-wrap:wrap;gap:5px;}
+.tc-theme-pill{font-size:11px;padding:2px 8px;background:var(--surface3);border-radius:10px;color:var(--muted);}
+
+/* LOCKED STATE */
+.locked-overlay{position:absolute;inset:0;background:rgba(248,249,252,0.92);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:var(--r);gap:8px;}
+.locked-ico{font-size:24px;}
+.locked-txt{font-size:13px;font-weight:600;color:var(--slate);}
+.locked-link{font-size:12px;color:var(--gold);text-decoration:underline;cursor:pointer;}
+
+/* SECTION HDR */
+.section-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;}
+.section-hdr h2{font-family:var(--font-d);font-size:22px;font-weight:500;color:var(--ink);}
+.section-hdr p{font-size:13px;color:var(--muted);}
+
+/* COMING SOON BANNER */
+.coming-soon{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:16px;}
+.cs-ico{font-size:24px;}
+.cs-title{font-weight:600;font-size:14px;color:var(--ink);margin-bottom:3px;}
+.cs-sub{font-size:13px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">O</div>
+    <div class="logo-name">Ossify</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item" href="dashboard.html"><span class="nav-ico">📊</span>Dashboard</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Revision</div>
+    <a class="nav-item active" href="question-bank.html"><span class="nav-ico">📚</span>Question Bank</a>
+    <a class="nav-item" href="practice.html"><span class="nav-ico">✏️</span>Practice</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Account</div>
+    <a class="nav-item" href="account.html"><span class="nav-ico">👤</span>My Account</a>
+    <a class="nav-item" href="pricing.html"><span class="nav-ico">💳</span>Subscription</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Help</div>
+    <a class="nav-item" href="keys-to-success.html" target="_blank"><span class="nav-ico">🔑</span>Keys to Success</a>
+    <a class="nav-item" href="faq.html" target="_blank"><span class="nav-ico">❓</span>MSRA FAQ</a>
+  </div>
+  <div class="sidebar-footer">
+    <div class="user-row">
+      <div class="user-av" id="userAv">?</div>
+      <div><div class="user-name" id="userName">Loading…</div></div>
+    </div>
+    <button class="sign-out-btn" onclick="signOut()">Sign out</button>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="page-title">Question Bank</div>
+    <a href="practice.html" class="btn btn-dark">✏️ Start Practice →</a>
+  </div>
+  <div class="content">
+
+    <div class="section-hdr">
+      <h2>Available Topics</h2>
+      <p id="topicCount">Loading…</p>
+    </div>
+
+    <div class="filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="filterTopics('all',this)">All topics</button>
+      <button class="filter-btn" onclick="filterTopics('SBA',this)">SBA only</button>
+      <button class="filter-btn" onclick="filterTopics('EMQ',this)">EMQ only</button>
+    </div>
+
+    <div class="coming-soon">
+      <div class="cs-ico">🔜</div>
+      <div><div class="cs-title">6 more topics coming soon</div><div class="cs-sub">Cardiovascular, Dermatology, Endocrinology, Gastroenterology, Infectious Disease, and Musculoskeletal questions are in preparation.</div></div>
+    </div>
+
+    <div class="topics-grid" id="topicsGrid">
+      <div style="grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);">Loading topics…</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+const TOPIC_META={
+  'Paediatrics':{ico:'👶',color:'#ea580c',themes:['Viral Exanthems','Neonatal Jaundice','Limp in Children','Respiratory Conditions','Congenital Heart','Abdominal Emergencies']},
+  'Pharmacology & Therapeutics':{ico:'💊',color:'#0891b2',themes:['Drug Side Effects','Drug Interactions','Overdose & Antidotes','Special Populations','Antimicrobials','Analgesia']},
+  'Psychiatry / Neurology':{ico:'🧠',color:'#7c3aed',themes:['Psychiatric Diagnoses','Headache','Dementia','Seizures','Stroke Localisation','Movement Disorders']},
+  'Renal / Urology':{ico:'🫘',color:'#0d7377',themes:['Acute Kidney Injury','Scrotal Pathology','Electrolytes','Kidney Stones','Glomerular Disease','Acid-Base']},
+  'Reproductive':{ico:'🤰',color:'#db2777',themes:['Vaginal Discharge','Antepartum Haemorrhage','Contraception','Early Pregnancy','Obstetric Emergencies','Menstrual Disorders']},
+  'Respiratory':{ico:'🫁',color:'#059669',themes:['ABG Interpretation','Chest X-ray','Causes of Cough','Lung Cancer','Pleural Effusion','Pneumonia']},
+};
+
+let isPaid=false, currentFilter='all';
+
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  const user=session.user;
+  const name=user.user_metadata?.full_name||user.email.split('@')[0];
+  document.getElementById('userName').textContent=name;
+  document.getElementById('userAv').textContent=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  const{data:profile}=await sb.from('profiles').select('*').eq('id',user.id).single();
+  isPaid=profile?.subscription_status==='active';
+  renderTopics();
+}
+
+function renderTopics(){
+  const topics=Object.entries(TOPIC_META);
+  document.getElementById('topicCount').textContent=`${topics.length} topics · 1,200 questions`;
+  document.getElementById('topicsGrid').innerHTML=topics.map(([name,meta])=>{
+    const locked=!isPaid;
+    return `
+    <div class="topic-card" style="position:relative;" onclick="${locked?'window.location.href=\"pricing.html\"':`window.location.href='practice.html?topic=${encodeURIComponent(name)}'`}">
+      <div class="tc-top">
+        <div class="tc-ico">${meta.ico}</div>
+        <div class="tc-badge">100 Qs</div>
+      </div>
+      <div class="tc-title">${name}</div>
+      <div class="tc-meta">50 Single Best Answers · 50 Extended Matching Questions<br>Aligned to MSRA blueprint · FY2 level</div>
+      <div class="tc-track"><div class="tc-fill" style="width:0%;background:${meta.color}"></div></div>
+      <div class="tc-pct">0% complete</div>
+      <div class="tc-themes">
+        <div class="tc-themes-lbl">EMQ Themes</div>
+        <div class="tc-theme-pills">${meta.themes.map(t=>`<span class="tc-theme-pill">${t}</span>`).join('')}</div>
+      </div>
+      ${locked?`<div class="locked-overlay"><div class="locked-ico">🔒</div><div class="locked-txt">Upgrade to unlock</div><div class="locked-link">View pricing →</div></div>`:''}
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:${meta.color};border-radius:14px 14px 0 0;"></div>
+    </div>`;
+  }).join('');
+}
+
+function filterTopics(type,btn){
+  currentFilter=type;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+init();
+</script>
+</body>
+</html>
