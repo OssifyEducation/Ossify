@@ -123,7 +123,7 @@ body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:v
 
     <div class="section-hdr">
       <h2>Available Topics</h2>
-      <p id="topicCount">Loading…</p>
+      <p id="topicCount">12 topics · 1,200 questions</p>
     </div>
 
     <div class="filter-bar">
@@ -133,10 +133,7 @@ body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:v
       <button class="filter-btn" onclick="filterTopics('EMQ',this)">EMQ only</button>
     </div>
 
-    <div class="coming-soon">
-      <div class="cs-ico">🔜</div>
-      <div><div class="cs-title">6 more topics coming soon</div><div class="cs-sub">Cardiovascular, Dermatology, Endocrinology, Gastroenterology, Infectious Disease, and Musculoskeletal questions are in preparation.</div></div>
-    </div>
+
 
     <div class="topics-grid" id="topicsGrid">
       <div style="grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);">Loading topics…</div>
@@ -151,12 +148,18 @@ const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
 const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 const TOPIC_META={
-  'Paediatrics':{ico:'👶',color:'#ea580c',themes:['Viral Exanthems','Neonatal Jaundice','Limp in Children','Respiratory Conditions','Congenital Heart','Abdominal Emergencies']},
-  'Pharmacology & Therapeutics':{ico:'💊',color:'#0891b2',themes:['Drug Side Effects','Drug Interactions','Overdose & Antidotes','Special Populations','Antimicrobials','Analgesia']},
-  'Psychiatry / Neurology':{ico:'🧠',color:'#7c3aed',themes:['Psychiatric Diagnoses','Headache','Dementia','Seizures','Stroke Localisation','Movement Disorders']},
-  'Renal / Urology':{ico:'🫘',color:'#0d7377',themes:['Acute Kidney Injury','Scrotal Pathology','Electrolytes','Kidney Stones','Glomerular Disease','Acid-Base']},
-  'Reproductive':{ico:'🤰',color:'#db2777',themes:['Vaginal Discharge','Antepartum Haemorrhage','Contraception','Early Pregnancy','Obstetric Emergencies','Menstrual Disorders']},
-  'Respiratory':{ico:'🫁',color:'#059669',themes:['ABG Interpretation','Chest X-ray','Causes of Cough','Lung Cancer','Pleural Effusion','Pneumonia']},
+  'Paediatrics':{ico:'👶',color:'#ea580c',themes:['Viral Exanthems', 'Neonatal Jaundice', 'Limp in Children', 'Respiratory Conditions', 'Congenital Heart', 'Abdominal Emergencies']},
+  'Pharmacology & Therapeutics':{ico:'💊',color:'#0891b2',themes:['Drug Side Effects', 'Drug Interactions', 'Overdose & Antidotes', 'Special Populations', 'Antimicrobials', 'Analgesia']},
+  'Psychiatry / Neurology':{ico:'🧠',color:'#7c3aed',themes:['Psychiatric Diagnoses', 'Headache', 'Dementia', 'Seizures', 'Stroke Localisation', 'Movement Disorders']},
+  'Renal / Urology':{ico:'🫘',color:'#0d7377',themes:['Acute Kidney Injury', 'Scrotal Pathology', 'Electrolytes', 'Kidney Stones', 'Glomerular Disease', 'Acid-Base']},
+  'Reproductive':{ico:'🤰',color:'#db2777',themes:['Vaginal Discharge', 'Antepartum Haemorrhage', 'Contraception', 'Early Pregnancy', 'Obstetric Emergencies', 'Menstrual Disorders']},
+  'Respiratory':{ico:'🫁',color:'#059669',themes:['ABG Interpretation', 'Chest X-ray', 'Causes of Cough', 'Lung Cancer', 'Pleural Effusion', 'Pneumonia']},
+  'Cardiovascular':{ico:'❤️',color:'#e11d48',themes:['ECG Diagnosis', 'Murmur Identification', 'Causes of Chest Pain', 'Heart Failure', 'Hypertension', 'Cardiac Investigations']},
+  'Dermatology / ENT / Eyes':{ico:'👁️',color:'#7c2d12',themes:['Skin Lesion Diagnosis', 'Red Eye', 'Hearing Loss', 'Dermatological Emergencies', 'Common Rashes', 'Visual Loss']},
+  'Endocrinology / Metabolic':{ico:'⚗️',color:'#ca8a04',themes:['Thyroid Disorders', 'Diabetes Complications', 'Adrenal Disorders', 'Calcium Disorders', 'Pituitary Disorders', 'Hypoglycaemia']},
+  'Gastroenterology / Nutrition':{ico:'🫀',color:'#16a34a',themes:['Abdominal Pain', 'GI Bleeding', 'Liver Disease', 'Dysphagia', 'IBD Management', 'Jaundice']},
+  'Infectious Disease / Haematology / Immunology / Allergies / Genetics':{ico:'🦠',color:'#6d28d9',themes:['Anaemia', 'Coagulation Disorders', 'Infectious Organisms', 'Immunodeficiency', 'Haematological Malignancies', 'Transfusion Reactions']},
+  'Musculoskeletal':{ico:'🦴',color:'#b45309',themes:['Joint Pain', 'Back Pain', 'Hip Pain in Children', 'Upper Limb Injuries', 'Connective Tissue Disease', 'Fracture Complications']},
 };
 
 let isPaid=false, currentFilter='all';

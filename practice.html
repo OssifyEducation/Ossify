@@ -142,8 +142,8 @@ const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
 const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-const TOPICS=['Paediatrics','Pharmacology & Therapeutics','Psychiatry / Neurology','Renal / Urology','Reproductive','Respiratory'];
-const TOPIC_ICO={'Paediatrics':'👶','Pharmacology & Therapeutics':'💊','Psychiatry / Neurology':'🧠','Renal / Urology':'🫘','Reproductive':'🤰','Respiratory':'🫁'};
+const TOPICS=['Paediatrics', 'Pharmacology & Therapeutics', 'Psychiatry / Neurology', 'Renal / Urology', 'Reproductive', 'Respiratory', 'Cardiovascular', 'Dermatology / ENT / Eyes', 'Endocrinology / Metabolic', 'Gastroenterology / Nutrition', 'Infectious Disease / Haematology / Immunology / Allergies / Genetics', 'Musculoskeletal'];
+const TOPIC_ICO={'Paediatrics':'👶','Pharmacology & Therapeutics':'💊','Psychiatry / Neurology':'🧠','Renal / Urology':'🫘','Reproductive':'🤰','Respiratory':'🫁','Cardiovascular':'❤️','Dermatology / ENT / Eyes':'👁️','Endocrinology / Metabolic':'⚗️','Gastroenterology / Nutrition':'🫀','Infectious Disease / Haematology / Immunology / Allergies / Genetics':'🦠','Musculoskeletal':'🦴'};
 
 let user=null, isPaid=false;
 let questions=[], currentIdx=0, selectedOpt=null, answered=false;
@@ -153,6 +153,33 @@ let startTime=null;
 
 const urlParams=new URLSearchParams(window.location.search);
 const urlTopic=urlParams.get('topic');
+
+function formatExplanation(text) {
+  if (!text) return '';
+  // Split into lines and format Why A/B/C/D/E sections
+  let html = text;
+  // Bold "Why X is correct/incorrect:" patterns
+  html = html.replace(/(Why [A-J] is correct[^:]*:)/g, '<strong style="color:var(--teal)">$1</strong>');
+  html = html.replace(/(Why [A-J] is incorrect[^:]*:)/g, '<strong style="color:var(--rose)">$1</strong>');
+  html = html.replace(/(Why [A-J] is wrong[^:]*:)/g, '<strong style="color:var(--rose)">$1</strong>');
+  // Split on Why X lines to create blocks
+  const parts = html.split(/
+(?=<strong)/);
+  if (parts.length > 1) {
+    return parts.map((part, i) => {
+      const isCorrect = part.includes('color:var(--teal)');
+      const isWrong = part.includes('color:var(--rose)');
+      const bg = isCorrect ? 'background:rgba(13,115,119,0.06);border-left:3px solid var(--teal);' 
+                : isWrong ? 'background:rgba(192,57,43,0.04);border-left:3px solid rgba(192,57,43,0.3);'
+                : '';
+      const style = bg ? `style="padding:8px 12px;border-radius:0 4px 4px 0;margin-bottom:8px;${bg}"` : '';
+      return `<div ${style}>${part.trim()}</div>`;
+    }).join('');
+  }
+  // Fallback: plain newlines to <br>
+  return html.replace(/
+/g, '<br>');
+}
 
 async function init(){
   const{data:{session}}=await sb.auth.getSession();
@@ -307,7 +334,7 @@ async function submitAnswer(){
   });
   if(mode==='tutor'){
     document.getElementById('expl').classList.add('show');
-    document.getElementById('explBody').textContent=q.explanation;
+    document.getElementById('explBody').innerHTML=formatExplanation(q.explanation);
   }
   document.getElementById('submitBtn').style.display='none';
   document.getElementById('nextBtn').style.display='inline-flex';
