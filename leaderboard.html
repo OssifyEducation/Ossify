@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="css/app-shell.css">
+<style>
+.lb-hero{background:linear-gradient(130deg,#0a0f1a,#1a2235);border-radius:var(--r);padding:28px 32px;margin-bottom:20px;position:relative;overflow:hidden;}
+.lb-hero::after{content:'🏆';position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:80px;opacity:0.07;}
+.lb-hero-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;}
+.lb-hero-title{font-family:var(--font-d);font-size:26px;font-weight:400;color:#fff;margin-bottom:6px;}
+.lb-hero-sub{font-size:13px;color:rgba(255,255,255,0.4);max-width:500px;line-height:1.6;}
+.lb-tabs{display:flex;gap:0;background:var(--surface3);border:1px solid var(--border);border-radius:var(--r-sm);padding:4px;width:fit-content;margin-bottom:20px;}
+.lb-tab{padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted);border:none;background:none;font-family:var(--font-b);transition:all 0.18s;}
+.lb-tab.active{background:var(--ink);color:#fff;}
+.lb-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);}
+.lb-search{padding:13px 22px;border-bottom:1px solid rgba(10,15,26,0.05);}
+.lb-search input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 14px;color:var(--ink);font-family:var(--font-b);font-size:13px;outline:none;transition:border-color 0.2s;}
+.lb-search input:focus{border-color:var(--gold);}
+.lb-search input::placeholder{color:var(--muted);}
+.lb-header{display:grid;grid-template-columns:50px 1fr 100px 100px 80px;padding:10px 22px;font-size:11px;color:var(--muted);border-bottom:1px solid rgba(10,15,26,0.05);text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+.lb-row{display:grid;grid-template-columns:50px 1fr 100px 100px 80px;padding:13px 22px;border-bottom:1px solid rgba(10,15,26,0.04);align-items:center;transition:background 0.15s;}
+.lb-row:last-child{border-bottom:none;}
+.lb-row:hover{background:var(--surface2);}
+.lb-row.me{background:rgba(184,134,11,0.06);border-left:3px solid var(--gold);}
+.lb-rank{font-family:var(--font-d);font-size:15px;font-weight:500;color:var(--muted);display:flex;align-items:center;gap:4px;}
+.lb-rank.gold{color:#d97706;}.lb-rank.silver{color:#64748b;}.lb-rank.bronze{color:#92400e;}
+.lb-user{display:flex;align-items:center;gap:12px;}
+.lb-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.lb-name{font-weight:600;font-size:14px;color:var(--ink);}
+.lb-username{font-size:11.5px;color:var(--muted);}
+.lb-info{font-size:11.5px;color:var(--muted);}
+.lb-score{font-family:var(--font-d);font-size:17px;font-weight:400;color:var(--teal);}
+.lb-answered{font-size:13.5px;color:var(--slate);font-weight:500;}
+.lb-streak{display:flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:var(--amber);}
+.podium{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:12px;margin-bottom:20px;align-items:end;}
+.podium-item{text-align:center;padding:20px 16px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);}
+.podium-item.first{background:linear-gradient(160deg,rgba(184,134,11,0.1),var(--surface));border-color:rgba(184,134,11,0.3);padding-top:28px;}
+.podium-medal{font-size:32px;margin-bottom:8px;}
+.podium-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;margin:0 auto 8px;}
+.podium-name{font-weight:700;font-size:14px;color:var(--ink);margin-bottom:2px;}
+.podium-username{font-size:12px;color:var(--muted);margin-bottom:6px;}
+.podium-score{font-family:var(--font-d);font-size:20px;font-weight:400;color:var(--teal);}
+.podium-lbl{font-size:11px;color:var(--muted);}
+.empty-state{text-align:center;padding:48px;color:var(--muted);font-size:14px;}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><div class="logo-mark">O</div><div class="logo-name">Ossify</div></div>
+  <div class="nav-section"><div class="nav-label">Overview</div>
+    <a class="nav-item" href="dashboard.html"><span class="nav-ico">📊</span>Dashboard</a>
+    <a class="nav-item active" href="leaderboard.html"><span class="nav-ico">🏆</span>Leaderboard</a>
+  </div>
+  <div class="nav-section"><div class="nav-label">Revision</div>
+    <a class="nav-item" href="question-bank.html"><span class="nav-ico">📚</span>Question Bank</a>
+    <a class="nav-item" href="practice.html"><span class="nav-ico">✏️</span>Practice</a>
+    <a class="nav-item" href="weekly.html"><span class="nav-ico">⚡</span>Weekly Challenge<span class="nav-badge-new">NEW</span></a>
+    <a class="nav-item" href="duel.html"><span class="nav-ico">⚔️</span>Head-to-Head Duel</a>
+  </div>
+  <div class="nav-section"><div class="nav-label">Account</div>
+    <a class="nav-item" href="account.html"><span class="nav-ico">👤</span>My Profile</a>
+    <a class="nav-item" href="pricing.html"><span class="nav-ico">💳</span>Subscription</a>
+  </div>
+  <div class="nav-section"><div class="nav-label">Help</div>
+    <a class="nav-item" href="keys-to-success.html" target="_blank"><span class="nav-ico">🔑</span>Keys to Success</a>
+    <a class="nav-item" href="faq.html" target="_blank"><span class="nav-ico">❓</span>MSRA FAQ</a>
+  </div>
+  <div class="sidebar-footer">
+    <div class="user-row"><div class="user-av" id="userAv">?</div><div><div class="user-name" id="userName">Loading…</div><div class="user-sub" id="userUsername"></div></div></div>
+    <div class="streak-pill" id="sidebarStreak">🔥 0 day streak</div>
+    <button class="sign-out-btn" onclick="signOut()">Sign out</button>
+  </div>
+</aside>
+<div class="main">
+  <div class="topbar">
+    <div class="page-title">Leaderboard</div>
+    <div class="topbar-right">
+      <div class="topbar-streak" id="topbarStreak">🔥 0</div>
+      <div class="topbar-xp" id="topbarXp">⭐ 0 XP</div>
+      <a href="practice.html" class="btn btn-dark">✏️ Practice →</a>
+    </div>
+  </div>
+  <div class="content">
+    <div class="lb-hero">
+      <div class="lb-hero-tag">Global Rankings</div>
+      <div class="lb-hero-title">🏆 Leaderboard</div>
+      <div class="lb-hero-sub">Ranked by accuracy across all answered questions. Updated in real time.</div>
+    </div>
+    <div class="lb-tabs">
+      <button class="lb-tab active" onclick="switchTab('accuracy',this)">By Accuracy</button>
+      <button class="lb-tab" onclick="switchTab('answered',this)">By Questions Done</button>
+      <button class="lb-tab" onclick="switchTab('streak',this)">By Streak</button>
+      <button class="lb-tab" onclick="switchTab('xp',this)">By XP</button>
+    </div>
+    <div id="podiumWrap"></div>
+    <div class="lb-card">
+      <div class="lb-search"><input type="text" placeholder="🔍  Search by name, username, or hospital trust…" id="lbSearch" oninput="filterLb()"></div>
+      <div class="lb-header"><div>Rank</div><div>Doctor</div><div>Accuracy</div><div>Questions</div><div>Streak</div></div>
+      <div id="lbList"><div class="empty-state">Loading leaderboard…</div></div>
+    </div>
+  </div>
+</div>
+<script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const COLORS=['#e11d48','#0891b2','#7c3aed','#059669','#d97706','#db2777','#0d7377','#6d28d9','#ca8a04','#b45309'];
+let allUsers=[], myId=null, sortMode='accuracy';
+
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  myId=session.user.id;
+  const name=session.user.user_metadata?.full_name||session.user.email.split('@')[0];
+  document.getElementById('userAv').textContent=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userName').textContent=name;
+  const{data:profile}=await sb.from('profiles').select('*').eq('id',myId).single();
+  if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
+  document.getElementById('topbarStreak').textContent=`🔥 ${profile?.current_streak||0}`;
+  document.getElementById('topbarXp').textContent=`⭐ ${profile?.xp||0} XP`;
+  document.getElementById('sidebarStreak').textContent=`🔥 ${profile?.current_streak||0} day streak`;
+  await loadLeaderboard();
+}
+
+async function loadLeaderboard(){
+  // Get all profiles with stats
+  const{data:profiles}=await sb.from('profiles').select('id,email,username,full_name,role,hospital_trust,total_correct,total_answered,current_streak,best_streak,xp').order('xp',{ascending:false}).limit(100);
+  if(!profiles?.length){document.getElementById('lbList').innerHTML='<div class="empty-state">No users yet — be the first to practice!</div>';return;}
+  allUsers=profiles.map((p,i)=>({
+    ...p,
+    name:p.full_name||p.email?.split('@')[0]||'Doctor',
+    accuracy:p.total_answered>0?Math.round((p.total_correct/p.total_answered)*100):0,
+    isMe:p.id===myId,
+    color:COLORS[i%COLORS.length],
+  }));
+  renderLeaderboard();
+}
+
+function renderLeaderboard(){
+  const sorted=[...allUsers].sort((a,b)=>{
+    if(sortMode==='accuracy')return b.accuracy-a.accuracy;
+    if(sortMode==='answered')return b.total_answered-a.total_answered;
+    if(sortMode==='streak')return b.current_streak-a.current_streak;
+    if(sortMode==='xp')return b.xp-a.xp;
+    return 0;
+  });
+  // Podium top 3
+  const top3=sorted.slice(0,3);
+  const medals=['🥇','🥈','🥉'];
+  const podiumOrder=top3.length>=3?[top3[1],top3[0],top3[2]]:[...top3];
+  document.getElementById('podiumWrap').innerHTML=top3.length<2?'':
+  `<div class="podium">${podiumOrder.map((u,pi)=>{
+    const rank=top3.indexOf(u);
+    return`<div class="podium-item ${rank===0?'first':''}">
+      <div class="podium-medal">${medals[rank]}</div>
+      <div class="podium-av" style="background:${u.color}">${(u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div>
+      <div class="podium-name">${u.name}</div>
+      <div class="podium-username">${u.username?'@'+u.username:u.role||''}</div>
+      <div class="podium-score">${sortMode==='accuracy'?u.accuracy+'%':sortMode==='answered'?u.total_answered:sortMode==='streak'?u.current_streak+'d':u.xp+' XP'}</div>
+      <div class="podium-lbl">${sortMode==='accuracy'?'Accuracy':sortMode==='answered'?'Questions':sortMode==='streak'?'Streak':'XP'}</div>
+    </div>`;
+  }).join('')}</div>`;
+
+  const q=document.getElementById('lbSearch').value.toLowerCase();
+  const filtered=q?sorted.filter(u=>(u.name||'').toLowerCase().includes(q)||(u.username||'').toLowerCase().includes(q)||(u.hospital_trust||'').toLowerCase().includes(q)):sorted;
+  document.getElementById('lbList').innerHTML=filtered.map((u,i)=>{
+    const rank=sorted.indexOf(u)+1;
+    const rankCls=rank===1?'gold':rank===2?'silver':rank===3?'bronze':'';
+    const rankIco=rank===1?'🥇':rank===2?'🥈':rank===3?'🥉':rank;
+    return`<div class="lb-row ${u.isMe?'me':''}">
+      <div class="lb-rank ${rankCls}">${rankIco}</div>
+      <div class="lb-user">
+        <div class="lb-av" style="background:${u.color}">${(u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div>
+        <div>
+          <div class="lb-name">${u.name}${u.isMe?' <span style="font-size:10px;background:rgba(184,134,11,0.12);color:var(--gold);padding:1px 7px;border-radius:10px;font-weight:700">You</span>':''}</div>
+          <div class="lb-info">${u.username?'@'+u.username+' · ':''} ${u.role||''} ${u.hospital_trust?'· '+u.hospital_trust:''}</div>
+        </div>
+      </div>
+      <div class="lb-score">${u.accuracy}%</div>
+      <div class="lb-answered">${u.total_answered}</div>
+      <div class="lb-streak">🔥 ${u.current_streak}</div>
+    </div>`;
+  }).join('')||'<div class="empty-state">No results found.</div>';
+}
+
+function switchTab(mode,btn){sortMode=mode;document.querySelectorAll('.lb-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderLeaderboard();}
+function filterLb(){renderLeaderboard();}
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+init();
+</script>
+</body>
+</html>

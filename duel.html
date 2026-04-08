@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Head-to-Head Duel — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="css/app-shell.css">
+<style>
+.duel-hero{background:linear-gradient(130deg,#1a0010 0%,#2d0a20 50%,#0d1f3c 100%);border-radius:var(--r);padding:32px;margin-bottom:20px;position:relative;overflow:hidden;border:1px solid rgba(225,29,72,0.2);}
+.duel-hero::after{content:'⚔️';position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:90px;opacity:0.08;}
+.dh-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;}
+.dh-title{font-family:var(--font-d);font-size:30px;font-weight:400;color:#fff;margin-bottom:8px;}
+.dh-title span{font-style:italic;color:rgba(225,29,72,0.8);}
+.dh-sub{font-size:14px;color:rgba(255,255,255,0.45);max-width:500px;line-height:1.65;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);}
+.card-hdr{padding:14px 20px 12px;border-bottom:1px solid rgba(10,15,26,0.05);display:flex;align-items:center;justify-content:space-between;}
+.card-title{font-family:var(--font-d);font-size:15px;font-weight:500;color:var(--ink);}
+.card-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.card-body{padding:16px 20px;}
+.search-user{display:flex;gap:10px;margin-bottom:16px;}
+.search-user input{flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:var(--font-b);font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s;}
+.search-user input:focus{border-color:var(--rose);}
+.user-result{display:flex;align-items:center;gap:12px;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;transition:all 0.18s;margin-bottom:8px;}
+.user-result:hover,.user-result.selected{border-color:var(--rose);background:rgba(225,29,72,0.04);}
+.ur-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;background:linear-gradient(135deg,var(--rose),#7c3aed);}
+.ur-name{font-weight:600;font-size:14px;color:var(--ink);}
+.ur-meta{font-size:12px;color:var(--muted);}
+.challenge-btn{background:linear-gradient(135deg,var(--rose),#be123c);color:#fff;border:none;border-radius:var(--r-sm);padding:13px 28px;font-family:var(--font-d);font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 16px rgba(225,29,72,0.3);display:block;width:100%;margin-top:12px;}
+.challenge-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(225,29,72,0.4);}
+.challenge-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+.duel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;transition:all 0.18s;}
+.duel-card:hover{border-color:var(--rose);box-shadow:var(--shadow-sm);}
+.dc-user{display:flex;align-items:center;gap:10px;}
+.dc-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rose),#7c3aed);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.dc-name{font-weight:600;font-size:13.5px;color:var(--ink);}
+.dc-meta{font-size:12px;color:var(--muted);}
+.dc-status{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.st-pending{background:var(--amber-lt);color:var(--amber);}
+.st-won{background:var(--teal-lt);color:var(--teal);}
+.st-lost{background:var(--rose-lt);color:var(--rose);}
+.st-draw{background:var(--surface3);color:var(--muted);}
+.accept-btn{background:var(--teal);color:#fff;border:none;border-radius:var(--r-xs);padding:7px 16px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;transition:all 0.18s;}
+.accept-btn:hover{background:var(--teal2);}
+.play-btn{background:var(--rose);color:#fff;border:none;border-radius:var(--r-xs);padding:7px 16px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;transition:all 0.18s;}
+.play-btn:hover{background:#be123c;}
+/* Game */
+.game-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;max-width:700px;margin:0 auto;}
+.game-hdr{padding:16px 22px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.game-q-num{font-family:var(--font-d);font-size:18px;color:var(--ink);}
+.game-timer{font-family:var(--font-d);font-size:22px;color:var(--rose);background:rgba(225,29,72,0.06);border:1px solid rgba(225,29,72,0.15);border-radius:var(--r-sm);padding:6px 16px;}
+.game-body{padding:24px;}
+.q-stem{font-size:15.5px;line-height:1.75;color:var(--ink2);margin-bottom:20px;}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
+.opt{display:flex;align-items:flex-start;gap:13px;padding:12px 16px;border-radius:var(--r-sm);border:1.5px solid var(--border);cursor:pointer;transition:all 0.15s;}
+.opt:hover{border-color:var(--rose);background:rgba(225,29,72,0.04);}
+.opt.sel{border-color:var(--rose);background:rgba(225,29,72,0.06);}
+.opt.corr{border-color:var(--teal);background:var(--teal-lt);}
+.opt.incorr{border-color:var(--rose);background:var(--rose-lt);opacity:0.7;}
+.opt-letter{width:28px;height:28px;border-radius:50%;background:var(--surface3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted);flex-shrink:0;}
+.opt.sel .opt-letter{background:var(--rose);color:#fff;border-color:var(--rose);}
+.opt.corr .opt-letter{background:var(--teal);color:#fff;border-color:var(--teal);}
+.opt.incorr .opt-letter{background:var(--rose);color:#fff;}
+.opt-txt{font-size:14px;color:var(--slate);line-height:1.55;padding-top:3px;}
+.game-actions{display:flex;justify-content:flex-end;gap:10px;padding:0 24px 20px;}
+.result-wrap{max-width:500px;margin:40px auto;text-align:center;}
+.result-vs{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:24px;}
+.rv-col{text-align:center;}
+.rv-av{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#fff;margin:0 auto 8px;}
+.rv-name{font-size:13.5px;font-weight:600;color:var(--ink);}
+.rv-score{font-family:var(--font-d);font-size:36px;font-weight:400;letter-spacing:-1px;}
+.rv-vs{font-family:var(--font-d);font-size:18px;color:var(--muted);}
+.rv-winner{font-size:12px;font-weight:700;margin-top:4px;}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><div class="logo-mark">O</div><div class="logo-name">Ossify</div></div>
+  <div class="nav-section"><div class="nav-label">Overview</div>
+    <a class="nav-item" href="dashboard.html"><span class="nav-ico">📊</span>Dashboard</a>
+    <a class="nav-item" href="leaderboard.html"><span class="nav-ico">🏆</span>Leaderboard</a>
+  </div>
+  <div class="nav-section"><div class="nav-label">Revision</div>
+    <a class="nav-item" href="question-bank.html"><span class="nav-ico">📚</span>Question Bank</a>
+    <a class="nav-item" href="practice.html"><span class="nav-ico">✏️</span>Practice</a>
+    <a class="nav-item" href="weekly.html"><span class="nav-ico">⚡</span>Weekly Challenge<span class="nav-badge-new">NEW</span></a>
+    <a class="nav-item active" href="duel.html"><span class="nav-ico">⚔️</span>Head-to-Head Duel</a>
+  </div>
+  <div class="nav-section"><div class="nav-label">Account</div>
+    <a class="nav-item" href="account.html"><span class="nav-ico">👤</span>My Profile</a>
+  </div>
+  <div class="sidebar-footer">
+    <div class="user-row"><div class="user-av" id="userAv">?</div><div><div class="user-name" id="userName">Loading…</div></div></div>
+    <div class="streak-pill" id="sidebarStreak">🔥 0</div>
+    <button class="sign-out-btn" onclick="signOut()">Sign out</button>
+  </div>
+</aside>
+<div class="main">
+  <div class="topbar">
+    <div class="page-title">Head-to-Head Duel</div>
+    <div class="topbar-right">
+      <div class="topbar-streak" id="topbarStreak">🔥 0</div>
+      <div class="topbar-xp" id="topbarXp">⭐ 0 XP</div>
+    </div>
+  </div>
+  <div class="content" id="mainContent"><div class="loading-full">Loading duels…</div></div>
+</div>
+<script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let user=null, selectedOpponent=null, duelQuestions=[], duelId=null;
+let currentQ=0, score=0, answeredCount=0, selected=null, isAnswered=false;
+let startTime=null, elapsed=0, timerInterval=null;
+
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  user=session.user;
+  const name=user.user_metadata?.full_name||user.email.split('@')[0];
+  document.getElementById('userAv').textContent=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userName').textContent=name;
+  const{data:p}=await sb.from('profiles').select('*').eq('id',user.id).single();
+  document.getElementById('topbarStreak').textContent=`🔥 ${p?.current_streak||0}`;
+  document.getElementById('topbarXp').textContent=`⭐ ${p?.xp||0} XP`;
+  document.getElementById('sidebarStreak').textContent=`🔥 ${p?.current_streak||0}`;
+  await renderLobby();
+}
+
+async function renderLobby(){
+  const{data:myDuels}=await sb.from('duels').select('*').or(`challenger_id.eq.${user.id},opponent_id.eq.${user.id}`).order('created_at',{ascending:false}).limit(20);
+  const allIds=[...new Set((myDuels||[]).flatMap(d=>[d.challenger_id,d.opponent_id]))].filter(id=>id!==user.id);
+  const{data:duelProfiles}=allIds.length?await sb.from('profiles').select('id,full_name,username,hospital_trust').in('id',allIds):{data:[]};
+  const pm={};(duelProfiles||[]).forEach(p=>pm[p.id]=p);
+
+  document.getElementById('mainContent').innerHTML=`
+  <div class="duel-hero">
+    <div class="dh-tag">Competitive · Head-to-Head</div>
+    <div class="dh-title">Challenge a <span>Colleague.</span></div>
+    <div class="dh-sub">Find another Ossify user by their username. You'll both answer the same 10 questions. The one with higher accuracy (then speed) wins — and earns the Duel Victor badge.</div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-hdr"><div class="card-title">⚔️ New Duel</div><div class="card-sub">Search by username</div></div>
+      <div class="card-body">
+        <div class="search-user">
+          <input type="text" id="usernameSearch" placeholder="Enter username (without @)…">
+          <button class="btn btn-dark" onclick="searchUser()">Search</button>
+        </div>
+        <div id="searchResults"></div>
+        <button class="challenge-btn" id="challengeBtn" disabled onclick="createDuel()">⚔️ Send Challenge →</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-hdr"><div class="card-title">Your Duels</div><div class="card-sub">${(myDuels||[]).length} total</div></div>
+      <div class="card-body">
+        ${!(myDuels?.length)?`<div style="text-align:center;padding:20px;color:var(--muted);font-size:13.5px;">No duels yet. Challenge someone to get started.</div>`:
+        (myDuels||[]).map(d=>{
+          const isChallenger=d.challenger_id===user.id;
+          const oppId=isChallenger?d.opponent_id:d.challenger_id;
+          const opp=pm[oppId]||{};
+          const oppName=opp.full_name||'Unknown Doctor';
+          let status='';let statusCls='';let action='';
+          if(d.status==='pending'&&!isChallenger){status='Awaiting your response';statusCls='st-pending';action=`<button class="accept-btn" onclick="acceptDuel('${d.id}',${JSON.stringify(d.question_ids)})">Accept →</button>`;}
+          else if(d.status==='pending'&&isChallenger){status='Awaiting response';statusCls='st-pending';}
+          else if(d.status==='challenger_done'&&!isChallenger){status='Your turn';statusCls='st-pending';action=`<button class="play-btn" onclick="playDuel('${d.id}',${JSON.stringify(d.question_ids)},false)">Play →</button>`;}
+          else if(d.status==='completed'){
+            const myScore=isChallenger?d.challenger_score:d.opponent_score;
+            const theirScore=isChallenger?d.opponent_score:d.challenger_score;
+            if(myScore>theirScore){status='You won! 🏆';statusCls='st-won';}
+            else if(myScore<theirScore){status='You lost';statusCls='st-lost';}
+            else{status='Draw';statusCls='st-draw';}
+          } else{status='In progress';statusCls='st-pending';}
+          return`<div class="duel-card"><div class="dc-user"><div class="dc-av">${oppName.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div><div><div class="dc-name">${oppName}</div><div class="dc-meta">${opp.username?'@'+opp.username:''} ${opp.hospital_trust||''}</div></div></div><div style="display:flex;align-items:center;gap:10px;"><span class="dc-status ${statusCls}">${status}</span>${action}</div></div>`;
+        }).join('')}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-hdr"><div class="card-title">📋 How Duels Work</div></div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      ${[['🔍','Find by username','Search for any Ossify user by their @username and send a challenge.'],['📋','Same 10 questions','You both answer the same 10 randomly selected questions.'],['⏱️','Speed matters','Higher accuracy wins. If tied, the faster time wins.'],['🏅','Win XP and badges','Win a duel and earn the Duel Victor badge (75 XP).']].map(([ico,t,d])=>`<div style="display:flex;gap:12px;"><div style="font-size:20px;flex-shrink:0;">${ico}</div><div><div style="font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:3px;">${t}</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55;">${d}</div></div></div>`).join('')}
+    </div>
+  </div>`;
+}
+
+async function searchUser(){
+  const q=document.getElementById('usernameSearch').value.trim().replace('@','');
+  if(!q){return;}
+  const{data}=await sb.from('profiles').select('id,full_name,username,role,hospital_trust').ilike('username',`%${q}%`).neq('id',user.id).limit(5);
+  const resultsEl=document.getElementById('searchResults');
+  if(!data?.length){resultsEl.innerHTML='<div style="font-size:13px;color:var(--muted);padding:8px 0;">No users found with that username.</div>';return;}
+  resultsEl.innerHTML=data.map(u=>`<div class="user-result" onclick="selectOpponent('${u.id}','${u.full_name||'Doctor'}','${u.username||''}','${u.hospital_trust||''}')"><div class="ur-av">${(u.full_name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div><div><div class="ur-name">${u.full_name||'Doctor'}</div><div class="ur-meta">${u.username?'@'+u.username:''} ${u.hospital_trust||''}</div></div></div>`).join('');
+}
+
+function selectOpponent(id,name,username,trust){
+  selectedOpponent={id,name,username,trust};
+  document.querySelectorAll('.user-result').forEach(el=>el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  document.getElementById('challengeBtn').disabled=false;
+  document.getElementById('challengeBtn').textContent=`⚔️ Challenge @${username||name} →`;
+}
+
+async function createDuel(){
+  if(!selectedOpponent)return;
+  const{data:qs}=await sb.from('questions').select('id').limit(100);
+  const qIds=qs.sort(()=>Math.random()-0.5).slice(0,10).map(q=>q.id);
+  const{data:duel}=await sb.from('duels').insert({challenger_id:user.id,opponent_id:selectedOpponent.id,question_ids:qIds,status:'pending'}).select().single();
+  if(duel){alert(`Challenge sent to ${selectedOpponent.name}! They'll see it when they next log in.`);await renderLobby();}
+}
+
+async function acceptDuel(duelId,qIds){
+  await sb.from('duels').update({status:'accepted'}).eq('id',duelId);
+  playDuel(duelId,qIds,false);
+}
+
+async function playDuel(dId,qIds,isChallenger){
+  duelId=dId;
+  const{data:qs}=await sb.from('questions').select('*').in('id',qIds);
+  duelQuestions=qs;currentQ=0;score=0;answeredCount=0;selected=null;isAnswered=false;
+  startTime=Date.now();elapsed=0;
+  if(timerInterval)clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{elapsed=Math.floor((Date.now()-startTime)/1000);const el=document.getElementById('duelTimer');if(el){const m=Math.floor(elapsed/60);const s=elapsed%60;el.textContent=`${m}:${String(s).padStart(2,'0')}`;} },1000);
+  renderDuelQuestion();
+}
+
+function renderDuelQuestion(){
+  if(currentQ>=duelQuestions.length){finishDuel();return;}
+  selected=null;isAnswered=false;
+  const q=duelQuestions[currentQ];
+  const opts=Array.isArray(q.options)?q.options:JSON.parse(q.options||'[]');
+  document.getElementById('mainContent').innerHTML=`
+  <div class="game-wrap">
+    <div class="game-hdr">
+      <div class="game-q-num">⚔️ Question ${currentQ+1} <span style="font-size:13px;color:var(--muted)">/ ${duelQuestions.length}</span></div>
+      <div class="game-timer" id="duelTimer">0:00</div>
+    </div>
+    <div style="height:4px;background:var(--surface3);"><div style="height:100%;width:${(currentQ/duelQuestions.length)*100}%;background:linear-gradient(90deg,var(--rose),#7c3aed);transition:width 0.3s;"></div></div>
+    <div class="game-body">
+      <div style="display:flex;gap:8px;margin-bottom:12px;"><span style="padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;background:var(--rose-lt);color:var(--rose);border:1px solid rgba(225,29,72,0.2);">${q.type}</span><span style="padding:3px 11px;border-radius:20px;font-size:11px;background:var(--surface3);color:var(--muted);">${q.topic}</span></div>
+      <div class="q-stem">${q.stem}</div>
+      <div class="opts" id="duelOpts">${opts.map((o,i)=>`<div class="opt" id="do${i}" onclick="duelSelect(${i})"><div class="opt-letter">${String.fromCharCode(65+i)}</div><div class="opt-txt">${o}</div></div>`).join('')}</div>
+      <div class="game-actions">
+        <button class="btn btn-outline" id="duelSubmit" onclick="duelSubmit(${q.correct_answer})">Submit →</button>
+        <button class="btn btn-dark" id="duelNext" style="display:none" onclick="duelNextQ()">Next →</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function duelSelect(i){if(isAnswered)return;selected=i;document.querySelectorAll('.opt').forEach((o,j)=>o.classList.toggle('sel',i===j));}
+function duelSubmit(correct){
+  if(selected===null){alert('Select an answer.');return;}
+  isAnswered=true;answeredCount++;
+  if(selected===correct)score++;
+  document.querySelectorAll('.opt').forEach((o,i)=>{if(i===correct)o.classList.add('corr');else if(i===selected&&selected!==correct)o.classList.add('incorr');});
+  document.getElementById('duelSubmit').style.display='none';
+  document.getElementById('duelNext').style.display='inline-flex';
+}
+function duelNextQ(){currentQ++;renderDuelQuestion();}
+
+async function finishDuel(){
+  clearInterval(timerInterval);
+  const{data:duel}=await sb.from('duels').select('*').eq('id',duelId).single();
+  const isChallenger=duel?.challenger_id===user.id;
+  let updateData={};
+  if(isChallenger){updateData={challenger_score:score,challenger_time:elapsed,status:'challenger_done'};}
+  else{
+    const newStatus=duel?.challenger_score!==null?'completed':'opponent_done';
+    updateData={opponent_score:score,opponent_time:elapsed,status:newStatus};
+  }
+  await sb.from('duels').update(updateData).eq('id',duelId);
+  // Award duel winner badge if completed
+  if(updateData.status==='completed'){
+    const myScore=isChallenger?score:duel?.challenger_score;
+    const theirScore=isChallenger?duel?.challenger_score:score;
+    if(myScore>theirScore){
+      await sb.from('user_badges').upsert({user_id:user.id,badge_key:'duel_winner'},{onConflict:'user_id,badge_key'});
+    }
+  }
+  const pct=Math.round((score/duelQuestions.length)*100);
+  const mins=Math.floor(elapsed/60);const secs=elapsed%60;
+  document.getElementById('mainContent').innerHTML=`
+  <div class="result-wrap">
+    <div style="font-size:48px;margin-bottom:14px;">${pct>=70?'🏆':'💪'}</div>
+    <div style="font-family:var(--font-d);font-size:26px;color:var(--ink);margin-bottom:8px;">Your duel score</div>
+    <div style="font-size:14px;color:var(--slate);margin-bottom:24px;line-height:1.65;">Your result has been saved. ${updateData.status==='completed'?'Both players have completed the duel — check the leaderboard to see who won.':'Waiting for your opponent to complete their attempt.'}</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;">
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;text-align:center;"><div style="font-family:var(--font-d);font-size:24px;color:var(--teal)">${score}/${duelQuestions.length}</div><div style="font-size:11px;color:var(--muted);margin-top:3px">Correct</div></div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;text-align:center;"><div style="font-family:var(--font-d);font-size:24px;color:var(--violet)">${pct}%</div><div style="font-size:11px;color:var(--muted);margin-top:3px">Accuracy</div></div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;text-align:center;"><div style="font-family:var(--font-d);font-size:22px;color:var(--amber)">${mins}m ${String(secs).padStart(2,'0')}s</div><div style="font-size:11px;color:var(--muted);margin-top:3px">Time</div></div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;">
+      <a href="duel.html" class="btn btn-dark">⚔️ Back to Duels</a>
+      <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+    </div>
+  </div>`;
+}
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+init();
+</script>
+</body>
+</html>

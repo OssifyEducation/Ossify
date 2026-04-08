@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirming your account — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--ink:#0a0f1a;--slate:#4a5568;--muted:#718096;--border:rgba(10,15,26,0.09);--surface:#fff;--surface2:#f8f9fc;--gold:#b8860b;--gold2:#d4a017;--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--rose:#c0392b;--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--shadow:0 4px 20px rgba(0,0,0,0.08);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 800px 600px at 30% 20%,rgba(184,134,11,0.05) 0%,transparent 70%),radial-gradient(ellipse 600px 500px at 80% 80%,rgba(13,115,119,0.04) 0%,transparent 70%);pointer-events:none;}
+
+.wrap{width:100%;max-width:480px;position:relative;z-index:1;text-align:center;}
+
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:36px;}
+.logo-mark{width:38px;height:38px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;font-weight:700;}
+.logo-name{font-family:var(--font-d);font-size:24px;font-weight:600;color:var(--ink);}
+
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:48px 40px;box-shadow:var(--shadow);}
+
+/* STATES */
+.state{display:none;}
+.state.active{display:block;}
+
+/* LOADING */
+.spinner{width:44px;height:44px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 20px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-title{font-family:var(--font-d);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px;}
+.loading-sub{font-size:14px;color:var(--muted);}
+
+/* SUCCESS */
+.success-ico{font-size:56px;margin-bottom:16px;}
+.success-title{font-family:var(--font-d);font-size:28px;font-weight:400;color:var(--ink);letter-spacing:-0.5px;margin-bottom:10px;}
+.success-sub{font-size:15px;color:var(--slate);line-height:1.65;margin-bottom:28px;max-width:360px;margin-left:auto;margin-right:auto;}
+.success-name{font-weight:600;color:var(--gold);}
+
+.btn{display:inline-flex;align-items:center;gap:7px;padding:13px 30px;border-radius:7px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;}
+.btn-dark{background:var(--ink);color:#fff;}
+.btn-dark:hover{background:#1a2235;transform:translateY(-1px);box-shadow:var(--shadow);}
+
+.divider{height:1px;background:var(--border);margin:24px 0;}
+
+.next-steps{text-align:left;display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:14px;}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted);flex-shrink:0;margin-top:1px;}
+.step-title{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.step-sub{font-size:12.5px;color:var(--muted);line-height:1.55;}
+
+/* ERROR */
+.error-ico{font-size:48px;margin-bottom:16px;}
+.error-title{font-family:var(--font-d);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:10px;}
+.error-sub{font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:24px;}
+.error-detail{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#dc2626;margin-bottom:20px;text-align:left;}
+
+.back-link{text-align:center;margin-top:20px;font-size:13px;color:var(--muted);}
+.back-link a{color:var(--slate);text-decoration:none;}
+.back-link a:hover{color:var(--ink);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="index.html" class="logo">
+    <div class="logo-mark">O</div>
+    <div class="logo-name">Ossify</div>
+  </a>
+
+  <div class="card">
+
+    <!-- LOADING STATE -->
+    <div class="state active" id="stateLoading">
+      <div class="spinner"></div>
+      <div class="loading-title">Confirming your account…</div>
+      <div class="loading-sub">This will only take a moment.</div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="state" id="stateSuccess">
+      <div class="success-ico">✅</div>
+      <div class="success-title">You're confirmed, <span class="success-name" id="successName">Doctor</span>.</div>
+      <div class="success-sub">Your Ossify account is active. You're ready to start your MSRA preparation.</div>
+      <a href="dashboard.html" class="btn btn-dark">Go to your dashboard →</a>
+      <div class="divider"></div>
+      <div class="next-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Browse the question bank</div>
+            <div class="step-sub">1,200 questions across all 12 MSRA clinical topic areas — SBA and EMQ formats.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Start with your weakest topics</div>
+            <div class="step-sub">Your dashboard will track accuracy by topic so you know exactly where to focus.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Read the Keys to Success</div>
+            <div class="step-sub">Evidence-based revision principles that make the difference between Band 3 and Band 4.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div class="state" id="stateError">
+      <div class="error-ico">⚠️</div>
+      <div class="error-title">Something went wrong.</div>
+      <div class="error-sub">We weren't able to confirm your account. This usually happens if the confirmation link has expired (they're valid for 24 hours) or has already been used.</div>
+      <div class="error-detail" id="errorDetail"></div>
+      <a href="login.html" class="btn btn-dark">Back to login →</a>
+    </div>
+
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Ossify</a>
+  </div>
+
+</div>
+
+<script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+function show(id){
+  document.querySelectorAll('.state').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+async function handleConfirmation(){
+  // Supabase puts the tokens in the URL hash after redirect
+  const hash=window.location.hash;
+  const params=new URLSearchParams(hash.replace('#',''));
+  const accessToken=params.get('access_token');
+  const refreshToken=params.get('refresh_token');
+  const type=params.get('type'); // 'signup' or 'recovery'
+
+  // Also check query string (some Supabase versions use this)
+  const qParams=new URLSearchParams(window.location.search);
+  const tokenHash=qParams.get('token_hash') || params.get('token_hash');
+  const qType=qParams.get('type') || type;
+
+  try {
+    let session=null;
+
+    if(accessToken && refreshToken){
+      // Direct token in URL hash
+      const{data,error}=await sb.auth.setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken
+      });
+      if(error) throw error;
+      session=data.session;
+    } else if(tokenHash){
+      // PKCE flow - verify OTP
+      const{data,error}=await sb.auth.verifyOtp({
+        token_hash: tokenHash,
+        type: qType || 'signup'
+      });
+      if(error) throw error;
+      session=data.session;
+    } else {
+      // Check if already logged in (user clicked link while logged in)
+      const{data:{session:existing}}=await sb.auth.getSession();
+      if(existing){
+        session=existing;
+      } else {
+        throw new Error('No confirmation token found. Please check your email for the confirmation link, or request a new one.');
+      }
+    }
+
+    if(session){
+      const name=session.user?.user_metadata?.full_name || session.user?.email?.split('@')[0] || 'Doctor';
+      const firstName=name.split(' ')[0];
+      document.getElementById('successName').textContent=firstName;
+      show('stateSuccess');
+
+      // Auto-redirect to dashboard after 6 seconds if they don't click
+      setTimeout(()=>{ window.location.href='dashboard.html'; }, 6000);
+    }
+
+  } catch(err){
+    document.getElementById('errorDetail').textContent=err.message || 'Unknown error';
+    show('stateError');
+  }
+}
+
+handleConfirmation();
+</script>
+</body>
+</html>

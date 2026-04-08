@@ -139,6 +139,10 @@ async function init(){
   const expDate=profile?.subscription_expires_at?new Date(profile.subscription_expires_at).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'—';
   const planName=profile?.subscription_plan?{['3month']:'3-Month Access',['6month']:'6-Month Access',['1year']:'1-Year Access'}[profile.subscription_plan]||profile.subscription_plan:'Free';
 
+  // Load and render badges
+  const{data:earnedBadges}=await sb.from('user_badges').select('badge_key').eq('user_id',user.id);
+  const earnedKeys=new Set((earnedBadges||[]).map(b=>b.badge_key));
+  const ALL_BADGES=[{key:'first_correct',name:'First Blood',ico:'🎯',desc:'Got your first correct answer'},{key:'streak_3',name:'On a Roll',ico:'🔥',desc:'3-day streak'},{key:'streak_7',name:'Week Warrior',ico:'🔥',desc:'7-day streak'},{key:'streak_30',name:'Iron Discipline',ico:'💎',desc:'30-day streak'},{key:'q_50',name:'Getting Started',ico:'📋',desc:'50 questions answered'},{key:'q_100',name:'Century',ico:'💯',desc:'100 questions answered'},{key:'q_500',name:'Dedicated',ico:'⭐',desc:'500 questions answered'},{key:'perfect_10',name:'Perfect Ten',ico:'✨',desc:'100% on a 10-question session'},{key:'accuracy_80',name:'Sharp Mind',ico:'🧠',desc:'80%+ overall accuracy'},{key:'top_10',name:'Top 10',ico:'🥈',desc:'Global top 10'},{key:'weekly_winner',name:'Weekly Champion',ico:'🏆',desc:'Won weekly challenge'},{key:'duel_winner',name:'Duel Victor',ico:'⚔️',desc:'Won a head-to-head duel'}];
   document.getElementById('mainContent').innerHTML=`
   <!-- PROFILE -->
   <div class="card">
@@ -156,6 +160,9 @@ async function init(){
       <div class="info-grid">
         <div class="form-group"><label>Full name</label><input type="text" id="nameInput" value="${name}"></div>
         <div class="form-group"><label>Email</label><input type="email" value="${user.email}" disabled style="background:var(--surface3);color:var(--muted);"></div>
+        <div class="form-group"><label>Username <span style="font-size:11px;color:var(--muted);font-weight:400;">(visible on leaderboard)</span></label><input type="text" id="usernameInput" value="${profile?.username||''}" placeholder="e.g. drpatel92" maxlength="30"></div>
+        <div class="form-group"><label>Current role</label><input type="text" id="roleInput" value="${profile?.role||''}" placeholder="e.g. FY2, ST3 General Practice, SHO…"></div>
+        <div class="form-group" style="grid-column:1/-1"><label>Hospital trust</label><input type="text" id="trustInput" value="${profile?.hospital_trust||''}" placeholder="e.g. King's College Hospital NHS Foundation Trust"></div>
       </div>
       <button class="btn btn-dark" onclick="updateProfile()">Save changes</button>
     </div>
@@ -211,6 +218,14 @@ async function init(){
     </div>
   </div>
 
+  <!-- BADGES -->
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-hdr"><div class="card-title">🎖️ Badges & Achievements</div></div>
+    <div class="card-body">
+      <div id="badgesDisplay" style="display:flex;flex-wrap:wrap;gap:10px;"></div>
+    </div>
+  </div>
+
   <!-- DANGER ZONE -->
   <div class="danger-zone">
     <div><div class="dz-title">Sign out everywhere</div><div class="dz-sub">Sign out of all active sessions on all devices.</div></div>
@@ -219,11 +234,27 @@ async function init(){
   `;
 }
 
+// Render badges after page loads
+setTimeout(()=>{
+  const bd=document.getElementById('badgesDisplay');
+  if(bd){bd.innerHTML=ALL_BADGES.map(b=>`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 12px;background:${earnedKeys.has(b.key)?'var(--surface2)':'var(--surface3)'};border:1px solid ${earnedKeys.has(b.key)?'var(--gold)':'var(--border)'};border-radius:9px;min-width:72px;text-align:center;opacity:${earnedKeys.has(b.key)?1:0.3};filter:${earnedKeys.has(b.key)?'none':'grayscale(1)'};cursor:default;" title="${b.desc}"><div style="font-size:22px;">${b.ico}</div><div style="font-size:10px;font-weight:700;color:var(--slate);line-height:1.3;">${b.name}</div></div>`).join('');}
+},100);
+
 async function updateProfile(){
   const name=document.getElementById('nameInput').value.trim();
+  const username=document.getElementById('usernameInput')?.value.trim().toLowerCase().replace(/[^a-z0-9_]/g,'');
+  const role=document.getElementById('roleInput')?.value.trim();
+  const trust=document.getElementById('trustInput')?.value.trim();
   if(!name)return;
+  const{data:{session}}=await sb.auth.getSession();
   const{error}=await sb.auth.updateUser({data:{full_name:name}});
-  if(error){document.getElementById('profileError').textContent=error.message;document.getElementById('profileError').classList.add('show');}
+  const{error:pe}=await sb.from('profiles').update({
+    full_name:name,
+    ...(username&&{username}),
+    ...(role&&{role}),
+    ...(trust&&{hospital_trust:trust}),
+  }).eq('id',session.user.id);
+  if(error||pe){document.getElementById('profileError').textContent=(error||pe).message;document.getElementById('profileError').classList.add('show');}
   else{document.getElementById('profileSuccess').textContent='Profile updated.';document.getElementById('profileSuccess').classList.add('show');setTimeout(()=>document.getElementById('profileSuccess').classList.remove('show'),3000);}
 }
 

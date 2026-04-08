@@ -341,6 +341,12 @@ async function submitAnswer(){
   updateNav();
   // Save to Supabase
   await sb.from('user_progress').insert({user_id:user.id,question_id:q.id,answered_correctly:isCorrect,time_taken:timeTaken,flagged:false});
+  // Update profile totals for leaderboard
+  const{data:currentProfile}=await sb.from('profiles').select('total_answered,total_correct,xp').eq('id',user.id).single();
+  const newAnswered=(currentProfile?.total_answered||0)+1;
+  const newCorrect=(currentProfile?.total_correct||0)+(isCorrect?1:0);
+  const xpGain=isCorrect?5:1;
+  await sb.from('profiles').update({total_answered:newAnswered,total_correct:newCorrect,xp:(currentProfile?.xp||0)+xpGain}).eq('id',user.id);
 }
 
 function nextQuestion(){currentIdx++;if(currentIdx>=questions.length)showComplete();else renderQuestion();}

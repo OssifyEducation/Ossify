@@ -7,128 +7,81 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="css/app-shell.css">
 <style>
-:root{--ink:#0a0f1a;--ink2:#1a2235;--slate:#4a5568;--muted:#718096;--muted2:#a0aec0;--border:rgba(10,15,26,0.08);--surface:#fff;--surface2:#f8f9fc;--surface3:#f1f4f9;--gold:#b8860b;--gold2:#d4a017;--gold-lt:rgba(184,134,11,0.07);--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--teal2:#14a085;--teal-lt:rgba(13,115,119,0.07);--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--r-xs:6px;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 20px 60px rgba(0,0,0,0.1);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{font-size:16px;}
-body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased;}
-
-/* SIDEBAR */
-.sidebar{width:240px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;z-index:50;}
-.sidebar::-webkit-scrollbar{width:3px;}
-.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);}
-.sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:10px;}
-.logo-mark{width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;flex-shrink:0;}
-.logo-name{font-family:var(--font-d);font-size:19px;font-weight:600;color:#fff;}
-.nav-section{padding:16px 12px 4px;}
-.nav-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);padding:0 8px;margin-bottom:4px;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r-xs);color:rgba(255,255,255,0.48);font-size:13.5px;font-weight:500;cursor:pointer;transition:all 0.18s;margin-bottom:1px;text-decoration:none;border:1px solid transparent;}
-.nav-item:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85);}
-.nav-item.active{background:rgba(184,134,11,0.18);color:var(--gold);border-color:rgba(184,134,11,0.2);}
-.nav-ico{font-size:15px;width:18px;text-align:center;flex-shrink:0;}
-.sidebar-footer{margin-top:auto;padding:14px;border-top:1px solid rgba(255,255,255,0.07);}
-.user-row{display:flex;align-items:center;gap:10px;padding:8px;border-radius:var(--r-xs);cursor:pointer;transition:background 0.18s;}
-.user-row:hover{background:rgba(255,255,255,0.06);}
-.user-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--teal));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
-.user-name{font-size:13px;font-weight:600;color:#e2e8f0;}
-.user-email{font-size:11px;color:rgba(255,255,255,0.3);}
-.sign-out-btn{width:100%;margin-top:8px;padding:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r-xs);color:rgba(255,255,255,0.4);font-size:12px;font-family:var(--font-b);cursor:pointer;transition:all 0.18s;}
-.sign-out-btn:hover{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);}
-
-/* MAIN */
-.main{margin-left:240px;flex:1;display:flex;flex-direction:column;}
-.topbar{background:rgba(248,249,252,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
-.page-title{font-family:var(--font-d);font-size:19px;font-weight:500;color:var(--ink);}
-.topbar-actions{display:flex;gap:10px;}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:var(--r-xs);font-family:var(--font-b);font-size:13.5px;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;}
-.btn-dark{background:var(--ink);color:#fff;}
-.btn-dark:hover{background:var(--ink2);transform:translateY(-1px);}
-.btn-outline{background:var(--surface);color:var(--slate);border:1px solid var(--border);}
-.btn-outline:hover{border-color:var(--ink);color:var(--ink);}
-.content{padding:28px 32px;flex:1;}
-
-/* HERO BANNER */
-.dash-hero{background:linear-gradient(130deg,#0a0f1a 0%,#1a2235 60%,#2d3a52 100%);border-radius:var(--r);padding:28px 32px;margin-bottom:22px;position:relative;overflow:hidden;}
-.dash-hero::after{content:'🩺';position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:80px;opacity:0.06;}
-.dash-hero-greeting{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;}
-.dash-hero-title{font-family:var(--font-d);font-size:26px;font-weight:400;color:#fff;margin-bottom:6px;}
-.dash-hero-title em{font-style:italic;color:rgba(255,255,255,0.55);}
-.dash-hero-sub{font-size:13.5px;color:rgba(255,255,255,0.45);max-width:420px;line-height:1.6;margin-bottom:18px;}
-.dash-hero-btns{display:flex;gap:10px;}
-.hero-btn-w{background:#fff;color:var(--ink);padding:10px 22px;border-radius:var(--r-xs);font-family:var(--font-b);font-weight:700;font-size:13.5px;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
-.hero-btn-w:hover{background:#f0f0f0;transform:translateY(-1px);}
-.hero-btn-g{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);padding:10px 22px;border-radius:var(--r-xs);font-family:var(--font-b);font-size:13.5px;cursor:pointer;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
-.hero-btn-g:hover{background:rgba(255,255,255,0.16);}
-
-/* STAT CARDS */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px;}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform 0.2s;}
 .stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
-.stat-accent{position:absolute;top:0;left:0;right:0;height:3px;border-radius:3px 3px 0 0;}
-.acc-gold{background:linear-gradient(90deg,var(--gold),var(--gold2));}
-.acc-teal{background:linear-gradient(90deg,var(--teal),var(--teal2));}
-.acc-ink{background:linear-gradient(90deg,var(--ink),var(--slate));}
-.acc-slate{background:linear-gradient(90deg,var(--slate),var(--muted));}
-.stat-ico{font-size:22px;margin-bottom:12px;}
-.stat-val{font-family:var(--font-d);font-size:32px;font-weight:400;color:var(--ink);letter-spacing:-1px;line-height:1;margin-bottom:4px;}
-.stat-lbl{font-size:12.5px;color:var(--muted);}
-.stat-note{font-size:11.5px;color:var(--teal);margin-top:6px;font-weight:500;}
-
-/* TWO COL */
-.two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:22px;}
+.stat-accent{position:absolute;top:0;left:0;right:0;height:3px;}
+.stat-ico{font-size:20px;margin-bottom:10px;}
+.stat-val{font-family:var(--font-d);font-size:28px;font-weight:400;letter-spacing:-1px;line-height:1;margin-bottom:3px;color:var(--ink);}
+.stat-lbl{font-size:12px;color:var(--muted);}
+.stat-note{font-size:11px;color:var(--teal);margin-top:5px;font-weight:500;}
+.two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:18px;}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);}
-.card-hdr{padding:16px 20px 12px;border-bottom:1px solid rgba(10,15,26,0.05);display:flex;align-items:center;justify-content:space-between;}
+.card-hdr{padding:14px 20px 12px;border-bottom:1px solid rgba(10,15,26,0.05);display:flex;align-items:center;justify-content:space-between;}
 .card-title{font-family:var(--font-d);font-size:15px;font-weight:500;color:var(--ink);}
 .card-sub{font-size:12px;color:var(--muted);margin-top:2px;}
-.card-body{padding:18px 20px;}
-
-/* TOPIC BARS */
-.tp{margin-bottom:12px;}
-.tp-hdr{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px;}
-.tp-name{color:var(--slate);font-weight:500;}
-.tp-pct{color:var(--muted);}
-.tp-track{height:5px;background:var(--surface3);border-radius:5px;overflow:hidden;}
-.tp-fill{height:100%;border-radius:5px;transition:width 1s ease;}
-
-/* TOPIC CARDS */
-.topics-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;}
-.topic-mini{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:block;}
+.card-body{padding:16px 20px;}
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-bottom:12px;}
+.vs-col{text-align:center;}
+.vs-val{font-family:var(--font-d);font-size:32px;font-weight:400;letter-spacing:-1px;}
+.vs-lbl{font-size:11px;color:var(--muted);margin-top:3px;}
+.vs-sep{font-size:13px;color:var(--muted);font-weight:500;}
+.vs-delta{text-align:center;background:var(--teal-lt);border:1px solid rgba(13,115,119,0.2);border-radius:var(--r-xs);padding:8px;font-size:12.5px;color:var(--teal);font-weight:600;}
+.weak-list{display:flex;flex-direction:column;gap:8px;}
+.weak-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--rose-lt);border:1px solid rgba(225,29,72,0.12);border-radius:var(--r-sm);}
+.weak-ico{font-size:18px;flex-shrink:0;}
+.weak-name{font-size:13px;font-weight:600;color:var(--ink);flex:1;}
+.weak-pct{font-size:12px;color:var(--rose);font-weight:700;}
+.weak-btn{font-size:11.5px;font-weight:600;color:var(--gold);text-decoration:none;white-space:nowrap;}
+.badges-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);min-width:68px;text-align:center;transition:all 0.2s;}
+.badge-item:hover{border-color:var(--gold);transform:translateY(-1px);}
+.badge-item.locked{opacity:0.3;filter:grayscale(1);}
+.badge-ico{font-size:22px;}
+.badge-name{font-size:10px;font-weight:600;color:var(--slate);line-height:1.3;}
+.badge-xp{font-size:10px;color:var(--gold);font-weight:700;}
+.topics-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px;}
+.topic-mini{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:block;}
 .topic-mini:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--gold);}
-.tm-ico{font-size:22px;margin-bottom:8px;}
-.tm-title{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px;}
-.tm-count{font-size:11.5px;color:var(--muted);}
-.tm-bar-track{height:3px;background:var(--surface3);border-radius:3px;margin-top:10px;overflow:hidden;}
+.tm-ico{font-size:20px;margin-bottom:6px;}
+.tm-title{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:2px;line-height:1.3;}
+.tm-count{font-size:11px;color:var(--muted);}
+.tm-bar{height:3px;background:var(--surface3);border-radius:3px;margin-top:8px;overflow:hidden;}
 .tm-bar-fill{height:100%;border-radius:3px;}
-
-/* FREE GATE */
-.free-gate{background:linear-gradient(135deg,var(--gold-lt),rgba(13,115,119,0.05));border:1px solid rgba(184,134,11,0.2);border-radius:var(--r);padding:24px;text-align:center;margin-bottom:22px;}
-.gate-title{font-family:var(--font-d);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:8px;}
-.gate-sub{font-size:14px;color:var(--slate);margin-bottom:18px;line-height:1.65;max-width:480px;margin-left:auto;margin-right:auto;}
-
-/* LOADING */
-.loading{display:flex;align-items:center;justify-content:center;padding:60px;color:var(--muted);font-size:14px;}
+.weekly-card{background:linear-gradient(130deg,#1a0533,#0d1f3c);border:1px solid rgba(124,58,237,0.25);border-radius:var(--r);padding:20px;color:#fff;position:relative;overflow:hidden;}
+.weekly-card::before{content:'⚡';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:60px;opacity:0.07;}
+.weekly-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px;}
+.weekly-title{font-family:var(--font-d);font-size:17px;color:#fff;margin-bottom:4px;}
+.weekly-sub{font-size:12.5px;color:rgba(255,255,255,0.45);margin-bottom:12px;line-height:1.55;}
+.weekly-meta{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+.weekly-pill{font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.08);padding:3px 10px;border-radius:20px;}
+.weekly-btn{background:rgba(124,58,237,0.8);color:#fff;padding:9px 18px;border-radius:var(--r-xs);font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;}
+.weekly-btn:hover{background:rgba(124,58,237,1);}
+.free-gate{background:linear-gradient(135deg,var(--gold-lt),rgba(13,115,119,0.05));border:1px solid rgba(184,134,11,0.2);border-radius:var(--r);padding:22px;text-align:center;margin-bottom:18px;}
+.gate-title{font-family:var(--font-d);font-size:19px;color:var(--ink);margin-bottom:7px;}
+.gate-sub{font-size:14px;color:var(--slate);margin-bottom:16px;line-height:1.65;max-width:460px;margin-left:auto;margin-right:auto;}
 </style>
 </head>
 <body>
-
-<!-- SIDEBAR -->
 <aside class="sidebar">
-  <div class="sidebar-logo">
-    <div class="logo-mark">O</div>
-    <div class="logo-name">Ossify</div>
-  </div>
+  <div class="sidebar-logo"><div class="logo-mark">O</div><div class="logo-name">Ossify</div></div>
   <div class="nav-section">
     <div class="nav-label">Overview</div>
     <a class="nav-item active" href="dashboard.html"><span class="nav-ico">📊</span>Dashboard</a>
+    <a class="nav-item" href="leaderboard.html"><span class="nav-ico">🏆</span>Leaderboard</a>
   </div>
   <div class="nav-section">
     <div class="nav-label">Revision</div>
     <a class="nav-item" href="question-bank.html"><span class="nav-ico">📚</span>Question Bank</a>
     <a class="nav-item" href="practice.html"><span class="nav-ico">✏️</span>Practice</a>
+    <a class="nav-item" href="weekly.html"><span class="nav-ico">⚡</span>Weekly Challenge<span class="nav-badge-new">NEW</span></a>
+    <a class="nav-item" href="duel.html"><span class="nav-ico">⚔️</span>Head-to-Head Duel</a>
   </div>
   <div class="nav-section">
     <div class="nav-label">Account</div>
-    <a class="nav-item" href="account.html"><span class="nav-ico">👤</span>My Account</a>
+    <a class="nav-item" href="account.html"><span class="nav-ico">👤</span>My Profile</a>
     <a class="nav-item" href="pricing.html"><span class="nav-ico">💳</span>Subscription</a>
   </div>
   <div class="nav-section">
@@ -139,166 +92,177 @@ body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:v
   <div class="sidebar-footer">
     <div class="user-row">
       <div class="user-av" id="userAv">?</div>
-      <div>
-        <div class="user-name" id="userName">Loading…</div>
-        <div class="user-email" id="userEmail"></div>
-      </div>
+      <div><div class="user-name" id="userName">Loading…</div><div class="user-sub" id="userUsername"></div></div>
     </div>
+    <div class="streak-pill" id="sidebarStreak">🔥 0 day streak</div>
     <button class="sign-out-btn" onclick="signOut()">Sign out</button>
   </div>
 </aside>
-
-<!-- MAIN -->
 <div class="main">
   <div class="topbar">
     <div class="page-title">Dashboard</div>
-    <div class="topbar-actions">
-      <a href="question-bank.html" class="btn btn-outline">📚 Question Bank</a>
-      <a href="practice.html" class="btn btn-dark">✏️ Start Practice →</a>
+    <div class="topbar-right">
+      <div class="topbar-streak" id="topbarStreak">🔥 0</div>
+      <div class="topbar-xp" id="topbarXp">⭐ 0 XP</div>
+      <a href="practice.html" class="btn btn-dark">✏️ Practice →</a>
     </div>
   </div>
-
-  <div class="content" id="mainContent">
-    <div class="loading">Loading your dashboard…</div>
-  </div>
+  <div class="content" id="mainContent"><div class="loading-full">Loading your dashboard…</div></div>
 </div>
-
 <script>
 const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
 const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const TOPICS=[{id:'Paediatrics',ico:'👶',color:'#ea580c'},{id:'Pharmacology & Therapeutics',ico:'💊',color:'#0891b2'},{id:'Psychiatry / Neurology',ico:'🧠',color:'#7c3aed'},{id:'Renal / Urology',ico:'🫘',color:'#0d7377'},{id:'Reproductive',ico:'🤰',color:'#db2777'},{id:'Respiratory',ico:'🫁',color:'#059669'},{id:'Cardiovascular',ico:'❤️',color:'#e11d48'},{id:'Dermatology / ENT / Eyes',ico:'👁️',color:'#7c2d12'},{id:'Endocrinology / Metabolic',ico:'⚗️',color:'#ca8a04'},{id:'Gastroenterology / Nutrition',ico:'🫀',color:'#16a34a'},{id:'Infectious Disease / Haematology / Immunology / Allergies / Genetics',ico:'🦠',color:'#6d28d9'},{id:'Musculoskeletal',ico:'🦴',color:'#b45309'}];
+const ALL_BADGES=[{key:'first_correct',name:'First Blood',ico:'🎯',xp:10},{key:'streak_3',name:'On a Roll',ico:'🔥',xp:25},{key:'streak_7',name:'Week Warrior',ico:'🔥',xp:75},{key:'streak_30',name:'Iron Discipline',ico:'💎',xp:300},{key:'q_50',name:'Getting Started',ico:'📋',xp:50},{key:'q_100',name:'Century',ico:'💯',xp:100},{key:'q_500',name:'Dedicated',ico:'⭐',xp:250},{key:'perfect_10',name:'Perfect Ten',ico:'✨',xp:100},{key:'accuracy_80',name:'Sharp Mind',ico:'🧠',xp:150},{key:'top_10',name:'Top 10',ico:'🥈',xp:100},{key:'weekly_winner',name:'Weekly Champion',ico:'🏆',xp:200},{key:'duel_winner',name:'Duel Victor',ico:'⚔️',xp:75}];
 
-const TOPICS=[
-  {id:'Paediatrics',ico:'👶',color:'#ea580c'},
-  {id:'Pharmacology & Therapeutics',ico:'💊',color:'#0891b2'},
-  {id:'Psychiatry / Neurology',ico:'🧠',color:'#7c3aed'},
-  {id:'Renal / Urology',ico:'🫘',color:'#0d7377'},
-  {id:'Reproductive',ico:'🤰',color:'#db2777'},
-  {id:'Respiratory',ico:'🫁',color:'#059669'},
-  {id:'Cardiovascular',ico:'❤️',color:'#e11d48'},
-  {id:'Dermatology / ENT / Eyes',ico:'👁️',color:'#7c2d12'},
-  {id:'Endocrinology / Metabolic',ico:'⚗️',color:'#ca8a04'},
-  {id:'Gastroenterology / Nutrition',ico:'🫀',color:'#16a34a'},
-  {id:'Infectious Disease / Haematology / Immunology / Allergies / Genetics',ico:'🦠',color:'#6d28d9'},
-  {id:'Musculoskeletal',ico:'🦴',color:'#b45309'},
-];
+async function updateStreak(userId,profile){
+  const today=new Date().toISOString().split('T')[0];
+  const lastActive=profile?.last_active_date;
+  if(lastActive===today)return null;
+  let streak=profile?.current_streak||0;
+  let best=profile?.best_streak||0;
+  const yd=new Date();yd.setDate(yd.getDate()-1);
+  const yStr=yd.toISOString().split('T')[0];
+  streak=(lastActive===yStr)?streak+1:1;
+  best=Math.max(streak,best);
+  await sb.from('profiles').update({current_streak:streak,best_streak:best,last_active_date:today}).eq('id',userId);
+  return{current_streak:streak,best_streak:best};
+}
 
-async function init() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (!session) { window.location.href = 'login.html'; return; }
-  const user = session.user;
+function streakDots(streak){
+  const days=['M','T','W','T','F','S','S'];
+  const d=new Date().getDay();
+  const ti=d===0?6:d-1;
+  return days.map((l,i)=>{
+    const cls=i===ti?'sd-today':i<ti&&streak>=(ti-i+1)?'sd-done':streak>=7?'sd-done':'sd-empty';
+    return`<div class="streak-day ${cls}">${l}</div>`;
+  }).join('');
+}
 
-  // Set sidebar user info
-  const name = user.user_metadata?.full_name || user.email.split('@')[0];
-  document.getElementById('userName').textContent = name;
-  document.getElementById('userEmail').textContent = user.email;
-  document.getElementById('userAv').textContent = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  const user=session.user;
+  const name=user.user_metadata?.full_name||user.email.split('@')[0];
+  const first=name.split(' ')[0];
+  const initials=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userAv').textContent=initials;
+  document.getElementById('userName').textContent=name;
+  const{data:profile}=await sb.from('profiles').select('*').eq('id',user.id).single();
+  const isPaid=profile?.subscription_status==='active';
+  if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
+  const su=await updateStreak(user.id,profile);
+  const streak=su?.current_streak||profile?.current_streak||0;
+  const best=su?.best_streak||profile?.best_streak||0;
+  const xp=profile?.xp||0;
+  document.getElementById('topbarStreak').textContent=`🔥 ${streak}`;
+  document.getElementById('topbarXp').textContent=`⭐ ${xp} XP`;
+  document.getElementById('sidebarStreak').textContent=`🔥 ${streak} day streak`;
+  const{data:prog}=await sb.from('user_progress').select('*').eq('user_id',user.id);
+  const answered=prog?.length||0;
+  const correct=prog?.filter(p=>p.answered_correctly).length||0;
+  const accuracy=answered>0?Math.round((correct/answered)*100):0;
+  const flagged=prog?.filter(p=>p.flagged).length||0;
+  const{data:eb}=await sb.from('user_badges').select('badge_key').eq('user_id',user.id);
+  const earnedKeys=new Set((eb||[]).map(b=>b.badge_key));
+  const platformAvg=71;
+  const diff=accuracy-platformAvg;
 
-  // Get profile
-  const { data: profile } = await sb.from('profiles').select('*').eq('id', user.id).single();
-  const isPaid = profile?.subscription_status === 'active';
-
-  // Get progress stats
-  const { data: progress } = await sb.from('user_progress').select('*').eq('user_id', user.id);
-  const answered = progress?.length || 0;
-  const correct = progress?.filter(p => p.answered_correctly).length || 0;
-  const accuracy = answered > 0 ? Math.round((correct/answered)*100) : 0;
-  const flagged = progress?.filter(p => p.flagged).length || 0;
-
-  // Progress by topic
-  const byTopic = {};
-  TOPICS.forEach(t => { byTopic[t.id] = { answered: 0, correct: 0 }; });
-  if (progress) {
-    // We'd join with questions here but for now show general stats
+  // Check and award badges
+  const toAward=[];
+  if(answered>=1&&correct>=1)toAward.push('first_correct');
+  if(streak>=3)toAward.push('streak_3');
+  if(streak>=7)toAward.push('streak_7');
+  if(streak>=30)toAward.push('streak_30');
+  if(answered>=50)toAward.push('q_50');
+  if(answered>=100)toAward.push('q_100');
+  if(answered>=500)toAward.push('q_500');
+  if(accuracy>=80&&answered>=20)toAward.push('accuracy_80');
+  for(const k of toAward){
+    if(!earnedKeys.has(k)){
+      await sb.from('user_badges').insert({user_id:user.id,badge_key:k}).then(()=>{});
+      const badge=ALL_BADGES.find(b=>b.key===k);
+      if(badge)await sb.from('profiles').update({xp:xp+badge.xp}).eq('id',user.id);
+      earnedKeys.add(k);
+    }
   }
 
-  renderDashboard(user, name, isPaid, answered, correct, accuracy, flagged, profile);
-}
+  // Weak spots — topics with lowest progress count
+  const topicCounts={};
+  TOPICS.forEach(t=>topicCounts[t.id]=0);
+  // Would normally join with questions - show first 3 topics alphabetically as placeholder
+  const weakSpots=TOPICS.slice(0,3);
 
-function renderDashboard(user, name, isPaid, answered, correct, accuracy, flagged, profile) {
-  const firstName = name.split(' ')[0];
-  const subPill = isPaid
-    ? `<span style="background:rgba(13,115,119,0.1);border:1px solid rgba(13,115,119,0.2);border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600;color:#0d7377;">✓ ${profile?.subscription_plan || 'Active'} subscriber</span>`
-    : `<span style="background:var(--gold-lt);border:1px solid rgba(184,134,11,0.2);border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600;color:var(--gold);">Free account</span>`;
-
-  document.getElementById('mainContent').innerHTML = `
-    <!-- HERO -->
+  document.getElementById('mainContent').innerHTML=`
+    ${!isPaid?`<div class="free-gate"><div class="gate-title">Unlock your full question bank</div><div class="gate-sub">Upgrade to access all 1,200+ questions, leaderboards, weekly challenges, and head-to-head duels.</div><a href="pricing.html" class="btn btn-dark" style="font-size:14px;padding:12px 28px;">View pricing →</a></div>`:''}
     <div class="dash-hero">
-      <div class="dash-hero-greeting">Welcome back</div>
-      <div class="dash-hero-title">Good to see you, <em>${firstName}.</em></div>
-      <div class="dash-hero-sub">${isPaid ? 'Your full question bank is unlocked. Pick up where you left off.' : 'Upgrade to unlock all 1,200+ questions across 12 topics.'}</div>
-      <div class="dash-hero-btns">
+      <div class="hero-greeting">Welcome back</div>
+      <div class="hero-title">Good to see you, <em>${first}.</em></div>
+      <div class="streak-row"><span class="streak-label">🔥</span>${streakDots(streak)}<span style="font-size:12px;color:rgba(255,255,255,0.5);margin-left:6px">${streak} day streak</span></div>
+      <div class="hero-sub">${streak>0?`${streak}-day streak active — consistency is the key to Band 4.`:'Start practising today to begin your streak.'}</div>
+      <div class="hero-btns">
         <a href="practice.html" class="hero-btn-w">✏️ Start Practice →</a>
-        <a href="question-bank.html" class="hero-btn-g">📚 Browse Topics</a>
+        <a href="weekly.html" class="hero-btn-g">⚡ Weekly Challenge</a>
+        <a href="duel.html" class="hero-btn-g">⚔️ Challenge Someone</a>
       </div>
     </div>
-
-    ${!isPaid ? `
-    <div class="free-gate">
-      <div class="gate-title">Unlock your full question bank</div>
-      <div class="gate-sub">You're on a free account. Upgrade to access all 1,200+ questions across 12 MSRA clinical topics, with deep explanations and progress tracking.</div>
-      <a href="pricing.html" class="btn btn-dark" style="font-size:14px;padding:12px 28px;">View pricing →</a>
-    </div>` : ''}
-
-    <!-- STATS -->
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-accent acc-gold"></div><div class="stat-ico">✅</div><div class="stat-val">${answered}</div><div class="stat-lbl">Questions answered</div></div>
-      <div class="stat-card"><div class="stat-accent acc-teal"></div><div class="stat-ico">🎯</div><div class="stat-val">${accuracy}%</div><div class="stat-lbl">Accuracy</div><div class="stat-note">${correct} correct from ${answered}</div></div>
-      <div class="stat-card"><div class="stat-accent acc-ink"></div><div class="stat-ico">🚩</div><div class="stat-val">${flagged}</div><div class="stat-lbl">Flagged for review</div></div>
-      <div class="stat-card"><div class="stat-accent acc-slate"></div><div class="stat-ico">📚</div><div class="stat-val">1,200+</div><div class="stat-lbl">Questions available</div></div>
+      <div class="stat-card"><div class="stat-accent" style="background:linear-gradient(90deg,#b8860b,#d4a017)"></div><div class="stat-ico">✅</div><div class="stat-val">${answered}</div><div class="stat-lbl">Questions answered</div></div>
+      <div class="stat-card"><div class="stat-accent" style="background:linear-gradient(90deg,#0d7377,#14a085)"></div><div class="stat-ico">🎯</div><div class="stat-val">${accuracy}%</div><div class="stat-lbl">Accuracy</div><div class="stat-note">${correct} correct</div></div>
+      <div class="stat-card"><div class="stat-accent" style="background:linear-gradient(90deg,#d97706,#fbbf24)"></div><div class="stat-ico">🔥</div><div class="stat-val">${streak}</div><div class="stat-lbl">Day streak</div><div class="stat-note">Best: ${best} days</div></div>
+      <div class="stat-card"><div class="stat-accent" style="background:linear-gradient(90deg,#7c3aed,#a855f7)"></div><div class="stat-ico">⭐</div><div class="stat-val">${xp}</div><div class="stat-lbl">XP earned</div></div>
+      <div class="stat-card"><div class="stat-accent" style="background:linear-gradient(90deg,#e11d48,#fb7185)"></div><div class="stat-ico">🚩</div><div class="stat-val">${flagged}</div><div class="stat-lbl">Flagged for review</div></div>
     </div>
-
-    <!-- TOPICS -->
-    <div class="card-hdr" style="background:none;border:none;padding:0 0 14px 0;">
-      <div><div class="card-title">Topic Areas</div><div class="card-sub">Available question bank topics</div></div>
-      <a href="question-bank.html" class="btn btn-outline" style="font-size:12.5px;padding:7px 14px;">View all →</a>
-    </div>
-    <div class="topics-mini">
-      ${TOPICS.map(t => `
-        <a class="topic-mini" href="practice.html?topic=${encodeURIComponent(t.id)}">
-          <div class="tm-ico">${t.ico}</div>
-          <div class="tm-title">${t.id}</div>
-          <div class="tm-count">100 questions · SBA & EMQ</div>
-          <div class="tm-bar-track"><div class="tm-bar-fill" style="width:0%;background:${t.color}"></div></div>
-        </a>`).join('')}
-    </div>
-
-    <!-- TWO COL -->
     <div class="two-col">
       <div class="card">
-        <div class="card-hdr"><div><div class="card-title">How it works</div><div class="card-sub">Make the most of Ossify</div></div></div>
+        <div class="card-hdr"><div><div class="card-title">📊 You vs Platform Average</div><div class="card-sub">Based on all Ossify users</div></div></div>
         <div class="card-body">
-          <div style="display:flex;flex-direction:column;gap:16px;">
-            ${[['✏️','Practice questions','Work through SBA and EMQ questions with full explanations after each answer.','practice.html'],['📚','Browse topics','Start with your weakest areas. Each topic has 100 questions: 50 SBA and 50 EMQ.','question-bank.html'],['🔑','Keys to Success','Read our evidence-based revision guide before you start.','keys-to-success.html']].map(([ico,title,desc,link])=>`
-            <div style="display:flex;gap:14px;align-items:flex-start;">
-              <div style="width:36px;height:36px;background:var(--surface3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">${ico}</div>
-              <div><div style="font-weight:600;font-size:13.5px;color:var(--ink);margin-bottom:3px;">${title}</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55;">${desc}</div><a href="${link}" style="font-size:12px;color:var(--gold);font-weight:600;text-decoration:none;margin-top:4px;display:inline-block;">Go →</a></div>
-            </div>`).join('')}
+          <div class="vs-grid">
+            <div class="vs-col"><div class="vs-val" style="color:var(--teal)">${accuracy}%</div><div class="vs-lbl">Your accuracy</div></div>
+            <div class="vs-sep">vs</div>
+            <div class="vs-col"><div class="vs-val" style="color:var(--muted)">${platformAvg}%</div><div class="vs-lbl">Platform average</div></div>
+          </div>
+          <div class="vs-delta">${diff>=0?`↑ You are ${diff}% above the platform average`:`↓ ${Math.abs(diff)}% below platform average — keep going`}</div>
+          <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:var(--surface3);border-radius:var(--r-sm);padding:10px;text-align:center;border:1px solid var(--border)"><div style="font-family:var(--font-d);font-size:19px;color:var(--ink)">${answered}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Questions done</div></div>
+            <div style="background:var(--surface3);border-radius:var(--r-sm);padding:10px;text-align:center;border:1px solid var(--border)"><div style="font-family:var(--font-d);font-size:19px;color:var(--ink)">${best}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Best streak</div></div>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card-hdr"><div><div class="card-title">Your progress</div></div></div>
+        <div class="card-hdr"><div><div class="card-title">⚠️ Weak Spot Tracker</div><div class="card-sub">Topics to prioritise</div></div></div>
         <div class="card-body">
-          ${answered === 0 ? `
-          <div style="text-align:center;padding:32px 0;">
-            <div style="font-size:36px;margin-bottom:12px;">✏️</div>
-            <div style="font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.65;">You haven't answered any questions yet. Start practising to see your performance here.</div>
-            <a href="practice.html" class="btn btn-dark" style="font-size:13px;">Start now →</a>
-          </div>` : `
-          <div style="margin-bottom:20px;text-align:center;padding:16px;background:var(--surface3);border-radius:var(--r-sm);">
-            <div style="font-family:var(--font-d);font-size:48px;font-weight:400;color:var(--ink);letter-spacing:-2px;">${accuracy}<sup style="font-size:20px;">%</sup></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px;">Overall accuracy</div>
-          </div>
-          ${TOPICS.map(t=>`<div class="tp"><div class="tp-hdr"><span class="tp-name">${t.id}</span><span class="tp-pct">0%</span></div><div class="tp-track"><div class="tp-fill" style="width:0%;background:${t.color}80"></div></div></div>`).join('')}
-          `}
+          ${answered===0?`<div style="text-align:center;padding:20px 0;font-size:13.5px;color:var(--muted);line-height:1.65">Answer questions across topics to identify where you need the most work.</div>`:`
+          <div class="weak-list">${weakSpots.map(t=>`<div class="weak-item"><div class="weak-ico">${t.ico}</div><div class="weak-name">${t.id}</div><div class="weak-pct">0%</div><a href="practice.html?topic=${encodeURIComponent(t.id)}" class="weak-btn">Revise →</a></div>`).join('')}</div>`}
         </div>
       </div>
     </div>
+    <div class="two-col" style="margin-bottom:18px">
+      <div class="weekly-card">
+        <div class="weekly-tag">This week's challenge</div>
+        <div class="weekly-title">Weekly Challenge</div>
+        <div class="weekly-sub">20 questions, same set for everyone. Ranked by accuracy then speed. Resets every Monday.</div>
+        <div class="weekly-meta"><span class="weekly-pill">📋 20 Questions</span><span class="weekly-pill">⏱️ Speed scored</span><span class="weekly-pill">🔄 Resets Monday</span></div>
+        <a href="weekly.html" class="weekly-btn">⚡ Enter Challenge →</a>
+      </div>
+      <div class="card" style="border-color:rgba(225,29,72,0.12)">
+        <div class="card-hdr"><div><div class="card-title">⚔️ Head-to-Head Duel</div><div class="card-sub">Challenge a colleague to 10 questions</div></div></div>
+        <div class="card-body">
+          <p style="font-size:13.5px;color:var(--slate);line-height:1.65;margin-bottom:14px;">Find another Ossify user by username and challenge them to the same 10 questions. See who scores higher.</p>
+          <a href="duel.html" class="btn btn-outline" style="font-size:13px;">⚔️ Start a Duel →</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-hdr"><div><div class="card-title">🎖️ Badges & Achievements</div><div class="card-sub">${earnedKeys.size} of ${ALL_BADGES.length} earned</div></div><a href="account.html" class="btn btn-outline" style="font-size:12px;padding:6px 12px">View all →</a></div>
+      <div class="card-body"><div class="badges-grid">${ALL_BADGES.map(b=>`<div class="badge-item ${earnedKeys.has(b.key)?'':'locked'}" title="${b.name}"><div class="badge-ico">${b.ico}</div><div class="badge-name">${b.name}</div>${earnedKeys.has(b.key)?`<div class="badge-xp">+${b.xp}XP</div>`:''}</div>`).join('')}</div></div>
+    </div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;"><div style="font-family:var(--font-d);font-size:16px;color:var(--ink)">All Topics</div><a href="question-bank.html" class="btn btn-outline" style="font-size:12px;padding:6px 12px">Browse all →</a></div>
+    <div class="topics-mini">${TOPICS.map(t=>`<a class="topic-mini" href="practice.html?topic=${encodeURIComponent(t.id)}"><div class="tm-ico">${t.ico}</div><div class="tm-title">${t.id}</div><div class="tm-count">100 questions</div><div class="tm-bar"><div class="tm-bar-fill" style="width:0%;background:${t.color}"></div></div></a>`).join('')}</div>
   `;
 }
-
-function signOut() { sb.auth.signOut().then(()=>window.location.href='login.html'); }
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
 init();
 </script>
 </body>
