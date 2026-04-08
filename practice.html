@@ -181,6 +181,36 @@ function formatExplanation(text) {
 /g, '<br>');
 }
 
+async function testConnection(){
+  document.getElementById('appRoot').innerHTML='<div class="loading-full" style="flex-direction:column;gap:8px;">Testing connection…</div>';
+  try {
+    // Test 1: auth
+    const{data:{session}}=await sb.auth.getSession();
+    const authOk=!!session;
+    
+    // Test 2: profiles readable
+    const{data:profile,error:pe}=await sb.from('profiles').select('id,subscription_status').eq('id',session?.user?.id).single();
+    
+    // Test 3: questions table accessible (count only)
+    const{count,error:qe}=await sb.from('questions').select('*',{count:'exact',head:true});
+    
+    document.getElementById('appRoot').innerHTML=`<div style="max-width:500px;margin:40px auto;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:14px;font-size:13.5px;line-height:2;">
+      <div style="font-family:var(--font-d);font-size:17px;margin-bottom:16px;">🔍 Database Diagnostics</div>
+      <div>${authOk?'✅':'❌'} Logged in: ${session?.user?.email||'no session'}</div>
+      <div>${profile?'✅':'❌'} Profile readable: subscription_status = <strong>${profile?.subscription_status||'null'}</strong> ${pe?'(error: '+pe.message+')':''}</div>
+      <div>${qe?'❌':'✅'} Questions table: ${qe?'ERROR — '+qe.message:(count>0?count+' rows found':'0 rows — table is empty!')}</div>
+      <div style="margin-top:16px;font-size:12px;color:var(--muted)">If questions shows 0 rows, run ossify_questions_fixed.sql and ossify_questions_batch2.sql in Supabase.</div>
+      <div style="margin-top:16px;"><button onclick="showSetup()" class="btn btn-outline" style="font-size:13px;">← Back</button></div>
+    </div>`;
+  } catch(e) {
+    document.getElementById('appRoot').innerHTML=`<div style="max-width:400px;margin:40px auto;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:14px;">
+      <div style="color:var(--rose);font-weight:600;margin-bottom:8px;">❌ Connection error</div>
+      <div style="font-size:13px;color:var(--muted)">${e.message}</div>
+      <div style="margin-top:16px;"><button onclick="showSetup()" class="btn btn-outline" style="font-size:13px;">← Back</button></div>
+    </div>`;
+  }
+}
+
 async function init(){
   const{data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='login.html';return;}
@@ -225,6 +255,7 @@ function showSetup(){
       ${[['all','All types'],['SBA','SBA only'],['EMQ','EMQ only']].map(([id,label])=>`<button class="topic-btn ${qType===id?'active':''}" onclick="setQType('${id}')">${label}</button>`).join('')}
     </div>
     <button onclick="startSession()" class="btn btn-dark" style="font-size:15px;padding:13px 36px;">Start session →</button>
+      <button onclick="testConnection()" class="btn btn-outline" style="font-size:13px;padding:10px 20px;margin-top:8px;">🔍 Test database connection</button>
   </div>`;
 }
 
@@ -233,24 +264,35 @@ function setTopic(t){topic=t;showSetup();}
 function setQType(t){qType=t;showSetup();}
 
 async function startSession(){
-  document.getElementById('appRoot').innerHTML='<div class="loading-full">Loading questions…</div>';
-  let query=sb.from('questions').select('*');
+  document.getElementById('appRoot').innerHTML='<div class="loading-full" style="flex-direction:column;gap:10px;">Loading questions…<div id="loadDebug" style="font-size:11px;color:var(--muted)"></div></div>';
+  
+  // Debug: verify session is still valid
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  
+  let query=sb.from('questions').select('id,paper,topic,type,domain,question_id,emq_theme,stem,options,correct_answer,explanation');
   if(topic) query=query.eq('topic',topic);
   if(qType!=='all') query=query.eq('type',qType);
   query=query.limit(20);
+  
   const{data,error}=await query;
+  
   if(error){
-    document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;">
-      <div>⚠️ Could not load questions.</div>
-      <div style="font-size:12px;color:var(--muted)">${error.message}</div>
-      <a href="dashboard.html" style="color:var(--gold);font-size:13px;">← Back to dashboard</a>
+    document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;text-align:center;">
+      <div style="font-size:32px;">⚠️</div>
+      <div style="font-weight:600;font-size:15px;color:var(--ink)">Could not load questions</div>
+      <div style="font-size:13px;color:var(--muted);background:var(--surface3);padding:10px 16px;border-radius:8px;max-width:400px;">${error.message} (code: ${error.code||'unknown'})</div>
+      <div style="font-size:12px;color:var(--muted)">Hint: Run the RLS fix in Supabase SQL Editor</div>
+      <button onclick="showSetup()" style="background:var(--gold);color:#fff;border:none;padding:10px 20px;border-radius:7px;cursor:pointer;font-family:var(--font-b);font-weight:600;">← Change selection</button>
     </div>`;
     return;
   }
   if(!data?.length){
-    document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;">
-      <div>No questions found for this selection.</div>
-      <div style="font-size:12px;color:var(--muted)">Try selecting a different topic or question type.</div>
+    document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;text-align:center;">
+      <div style="font-size:32px;">📭</div>
+      <div style="font-weight:600;font-size:15px;color:var(--ink)">No questions found</div>
+      <div style="font-size:13px;color:var(--muted)">Topic: "${topic||'All'}" · Type: ${qType}<br>The questions table may be empty or the filter returned nothing.</div>
+      <div style="font-size:12px;color:var(--muted);background:var(--surface3);padding:8px 14px;border-radius:8px;">Check Supabase → Table Editor → questions to confirm rows exist</div>
       <button onclick="showSetup()" style="background:var(--gold);color:#fff;border:none;padding:10px 20px;border-radius:7px;cursor:pointer;font-family:var(--font-b);font-weight:600;">← Change selection</button>
     </div>`;
     return;
