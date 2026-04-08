@@ -1,0 +1,460 @@
+<!DOCTYPE html><!-- Ossify Practice v3 build:1775678179 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice — Ossify</title>
+<!-- build:2026-04-08T19:59:59.262695 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--ink:#0a0f1a;--ink2:#1a2235;--slate:#4a5568;--muted:#718096;--border:rgba(10,15,26,0.08);--surface:#fff;--surface2:#f8f9fc;--surface3:#f1f4f9;--gold:#b8860b;--gold2:#d4a017;--gold-lt:rgba(184,134,11,0.07);--teal:#0d7377;--teal2:#14a085;--teal-lt:rgba(13,115,119,0.08);--rose:#c0392b;--rose-lt:rgba(192,57,43,0.07);--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--r-xs:6px;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow:0 4px 20px rgba(0,0,0,0.08);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;}
+
+/* TOP NAV */
+.practice-nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 32px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.pnav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.pnav-logo-mark{width:28px;height:28px;background:var(--ink);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700;}
+.pnav-logo-name{font-family:var(--font-d);font-size:17px;font-weight:600;color:var(--ink);}
+.pnav-center{display:flex;align-items:center;gap:16px;}
+.pnav-progress{display:flex;align-items:center;gap:10px;}
+.pnav-q{font-family:var(--font-d);font-size:15px;font-weight:500;color:var(--ink);}
+.pnav-of{font-size:13px;color:var(--muted);}
+.pbar-wrap{width:160px;height:5px;background:var(--surface3);border-radius:5px;overflow:hidden;}
+.pbar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:5px;transition:width 0.4s ease;}
+.pnav-score{display:flex;align-items:center;gap:6px;background:var(--teal-lt);border:1px solid rgba(13,115,119,0.2);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:600;color:var(--teal);}
+.pnav-right{display:flex;gap:8px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--r-xs);font-family:var(--font-b);font-size:13px;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;}
+.btn-outline{background:var(--surface);color:var(--slate);border:1px solid var(--border);}
+.btn-outline:hover{border-color:var(--ink);color:var(--ink);}
+.btn-dark{background:var(--ink);color:#fff;}
+.btn-dark:hover{background:var(--ink2);}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:var(--gold2);}
+
+/* LAYOUT */
+.practice-layout{display:grid;grid-template-columns:1fr 340px;gap:20px;max-width:1200px;margin:0 auto;padding:24px 32px;align-items:start;}
+
+/* QUESTION PANEL */
+.q-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);}
+.q-meta{display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid rgba(10,15,26,0.05);background:var(--surface2);}
+.q-badge{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;}
+.badge-sba{background:var(--teal-lt);color:var(--teal);border:1px solid rgba(13,115,119,0.2);}
+.badge-emq{background:var(--gold-lt);color:var(--gold);border:1px solid rgba(184,134,11,0.2);}
+.badge-topic{background:var(--surface3);color:var(--muted);}
+.badge-domain{background:var(--surface3);color:var(--slate);}
+.q-body{padding:24px 24px 20px;}
+.emq-option-list{background:var(--surface3);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 18px;margin-bottom:20px;}
+.emq-ol-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;}
+.emq-ol-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;}
+.emq-ol-item{font-size:13.5px;color:var(--slate);padding:3px 0;}
+.emq-ol-item strong{color:var(--ink);}
+.q-stem{font-size:15.5px;line-height:1.75;color:var(--ink2);margin-bottom:22px;}
+.q-instruction{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:14px;font-style:italic;}
+.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
+.opt{display:flex;align-items:flex-start;gap:13px;padding:13px 16px;border-radius:var(--r-sm);border:1.5px solid var(--border);cursor:pointer;transition:all 0.16s;background:var(--surface);}
+.opt:hover:not(.disabled){border-color:var(--gold);background:var(--gold-lt);}
+.opt.sel{border-color:var(--gold);background:var(--gold-lt);}
+.opt.corr{border-color:var(--teal)!important;background:var(--teal-lt)!important;}
+.opt.incorr{border-color:var(--rose)!important;background:var(--rose-lt)!important;opacity:0.75;}
+.opt.disabled{cursor:default;}
+.opt-letter{width:28px;height:28px;border-radius:50%;background:var(--surface3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;color:var(--muted);transition:all 0.16s;}
+.opt.sel .opt-letter{background:var(--gold);border-color:var(--gold);color:#fff;}
+.opt.corr .opt-letter{background:var(--teal);border-color:var(--teal);color:#fff;}
+.opt.incorr .opt-letter{background:var(--rose);border-color:var(--rose);color:#fff;}
+.opt-txt{font-size:14px;color:var(--slate);line-height:1.55;padding-top:3px;}
+.q-actions{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid rgba(10,15,26,0.05);}
+
+/* EXPLANATION */
+.expl{border-top:1px solid rgba(13,115,119,0.2);background:rgba(13,115,119,0.03);padding:20px 24px;display:none;}
+.expl.show{display:block;}
+.expl-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+.expl-body{font-size:14px;color:var(--slate);line-height:1.8;}
+
+/* SIDEBAR PANEL */
+.side-panel{display:flex;flex-direction:column;gap:14px;}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-sm);}
+.info-title{font-family:var(--font-d);font-size:14px;font-weight:500;color:var(--ink);margin-bottom:12px;}
+.info-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid rgba(10,15,26,0.04);}
+.info-row:last-child{border-bottom:none;}
+.info-key{color:var(--muted);}
+.info-val{font-weight:600;color:var(--ink);}
+.mode-select{display:flex;flex-direction:column;gap:6px;}
+.mode-btn{padding:10px 14px;border-radius:var(--r-sm);border:1.5px solid var(--border);cursor:pointer;font-family:var(--font-b);font-size:13px;font-weight:500;color:var(--slate);transition:all 0.18s;text-align:left;background:var(--surface);}
+.mode-btn:hover,.mode-btn.active{border-color:var(--ink);background:var(--ink);color:#fff;}
+.mode-btn-title{font-weight:600;font-size:13px;display:block;margin-bottom:2px;}
+.mode-btn-desc{font-size:11.5px;opacity:0.65;}
+
+/* SETUP SCREEN */
+.setup-screen{max-width:640px;margin:60px auto;padding:0 32px;text-align:center;}
+.setup-title{font-family:var(--font-d);font-size:36px;font-weight:400;letter-spacing:-1px;color:var(--ink);margin-bottom:10px;}
+.setup-sub{font-size:15px;color:var(--slate);margin-bottom:36px;line-height:1.65;}
+.setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;text-align:left;}
+.setup-card{background:var(--surface);border:2px solid var(--border);border-radius:var(--r);padding:20px;cursor:pointer;transition:all 0.2s;}
+.setup-card:hover,.setup-card.active{border-color:var(--gold);background:var(--gold-lt);}
+.setup-card-ico{font-size:22px;margin-bottom:8px;}
+.setup-card-title{font-weight:700;font-size:14px;color:var(--ink);margin-bottom:4px;}
+.setup-card-desc{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.topic-select{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px;text-align:left;}
+.topic-btn{padding:10px 12px;border-radius:var(--r-sm);border:1.5px solid var(--border);cursor:pointer;font-size:12.5px;font-weight:600;color:var(--slate);transition:all 0.18s;background:var(--surface);font-family:var(--font-b);}
+.topic-btn:hover,.topic-btn.active{border-color:var(--ink);background:var(--ink);color:#fff;}
+
+/* COMPLETE SCREEN */
+.complete-screen{max-width:580px;margin:60px auto;padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);text-align:center;box-shadow:var(--shadow);}
+.complete-ico{font-size:56px;margin-bottom:16px;}
+.complete-title{font-family:var(--font-d);font-size:30px;font-weight:400;color:var(--ink);letter-spacing:-0.5px;margin-bottom:8px;}
+.complete-sub{font-size:15px;color:var(--slate);margin-bottom:28px;}
+.complete-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+.cs-stat{background:var(--surface2);border-radius:var(--r-sm);padding:16px;border:1px solid var(--border);}
+.cs-val{font-family:var(--font-d);font-size:30px;font-weight:400;letter-spacing:-1px;margin-bottom:4px;}
+.cs-lbl{font-size:11px;color:var(--muted);}
+.loading-full{display:flex;align-items:center;justify-content:center;height:60vh;font-size:14px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<nav class="practice-nav">
+  <a href="dashboard.html" class="pnav-logo">
+    <div class="pnav-logo-mark">O</div>
+    <div class="pnav-logo-name">Ossify</div>
+  </a>
+  <div class="pnav-center" id="navCenter" style="display:none">
+    <div class="pnav-progress">
+      <div class="pnav-q" id="navQNum">1</div>
+      <div class="pnav-of" id="navQOf">/ 0</div>
+      <div class="pbar-wrap"><div class="pbar-fill" id="navPBar" style="width:0%"></div></div>
+    </div>
+    <div class="pnav-score">✅ <span id="navScore">0</span> correct</div>
+  </div>
+  <div class="pnav-right">
+    <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+    <button class="btn btn-outline" onclick="flagQuestion()">🚩 Flag</button>
+  </div>
+</nav>
+
+<div id="appRoot">
+  <div class="loading-full">Loading…</div>
+</div>
+
+<script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+const TOPICS=['Paediatrics', 'Pharmacology & Therapeutics', 'Psychiatry / Neurology', 'Renal / Urology', 'Reproductive', 'Respiratory', 'Cardiovascular', 'Dermatology / ENT / Eyes', 'Endocrinology / Metabolic', 'Gastroenterology / Nutrition', 'Infectious Disease / Haematology / Immunology / Allergies / Genetics', 'Musculoskeletal'];
+const TOPIC_ICO={'Paediatrics':'👶','Pharmacology & Therapeutics':'💊','Psychiatry / Neurology':'🧠','Renal / Urology':'🫘','Reproductive':'🤰','Respiratory':'🫁','Cardiovascular':'❤️','Dermatology / ENT / Eyes':'👁️','Endocrinology / Metabolic':'⚗️','Gastroenterology / Nutrition':'🫀','Infectious Disease / Haematology / Immunology / Allergies / Genetics':'🦠','Musculoskeletal':'🦴'};
+
+let user=null, isPaid=false;
+let questions=[], currentIdx=0, selectedOpt=null, answered=false;
+let sessionScore=0, sessionAnswered=0;
+let mode='tutor', topic='', qType='all';
+let startTime=null;
+
+const urlParams=new URLSearchParams(window.location.search);
+const urlTopic=urlParams.get('topic');
+
+function formatExplanation(text) {
+  if (!text) return '';
+  // Split into lines and format Why A/B/C/D/E sections
+  let html = text;
+  // Bold "Why X is correct/incorrect:" patterns
+  html = html.replace(/(Why [A-J] is correct[^:]*:)/g, '<strong style="color:var(--teal)">$1</strong>');
+  html = html.replace(/(Why [A-J] is incorrect[^:]*:)/g, '<strong style="color:var(--rose)">$1</strong>');
+  html = html.replace(/(Why [A-J] is wrong[^:]*:)/g, '<strong style="color:var(--rose)">$1</strong>');
+  // Split on Why X lines to create blocks
+  const parts = html.split(/\n(?=<strong)/);
+  if (parts.length > 1) {
+    return parts.map((part, i) => {
+      const isCorrect = part.includes('color:var(--teal)');
+      const isWrong = part.includes('color:var(--rose)');
+      const bg = isCorrect ? 'background:rgba(13,115,119,0.06);border-left:3px solid var(--teal);' 
+                : isWrong ? 'background:rgba(192,57,43,0.04);border-left:3px solid rgba(192,57,43,0.3);'
+                : '';
+      const style = bg ? `style="padding:8px 12px;border-radius:0 4px 4px 0;margin-bottom:8px;${bg}"` : '';
+      return `<div ${style}>${part.trim()}</div>`;
+    }).join('');
+  }
+  // Fallback: plain newlines to <br>
+  return html.replace(/\n/g, '<br>');
+}
+
+async function testConnection(){
+  document.getElementById('appRoot').innerHTML='<div class="loading-full" style="flex-direction:column;gap:8px;">Testing connection…</div>';
+  try {
+    // Test 1: auth
+    const{data:{session}}=await sb.auth.getSession();
+    const authOk=!!session;
+    
+    // Test 2: profiles readable
+    const{data:profile,error:pe}=await sb.from('profiles').select('id,subscription_status').eq('id',session?.user?.id).single();
+    
+    // Test 3: questions table accessible (count only)
+    const{count,error:qe}=await sb.from('questions').select('*',{count:'exact',head:true});
+    
+    document.getElementById('appRoot').innerHTML=`<div style="max-width:500px;margin:40px auto;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:14px;font-size:13.5px;line-height:2;">
+      <div style="font-family:var(--font-d);font-size:17px;margin-bottom:16px;">🔍 Database Diagnostics</div>
+      <div>${authOk?'✅':'❌'} Logged in: ${session?.user?.email||'no session'}</div>
+      <div>${profile?'✅':'❌'} Profile readable: subscription_status = <strong>${profile?.subscription_status||'null'}</strong> ${pe?'(error: '+pe.message+')':''}</div>
+      <div>${qe?'❌':'✅'} Questions table: ${qe?'ERROR — '+qe.message:(count>0?count+' rows found':'0 rows — table is empty!')}</div>
+      <div style="margin-top:16px;font-size:12px;color:var(--muted)">If questions shows 0 rows, run ossify_questions_fixed.sql and ossify_questions_batch2.sql in Supabase.</div>
+      <div style="margin-top:16px;"><button onclick="showSetup()" class="btn btn-outline" style="font-size:13px;">← Back</button></div>
+    </div>`;
+  } catch(e) {
+    document.getElementById('appRoot').innerHTML=`<div style="max-width:400px;margin:40px auto;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:14px;">
+      <div style="color:var(--rose);font-weight:600;margin-bottom:8px;">❌ Connection error</div>
+      <div style="font-size:13px;color:var(--muted)">${e.message}</div>
+      <div style="margin-top:16px;"><button onclick="showSetup()" class="btn btn-outline" style="font-size:13px;">← Back</button></div>
+    </div>`;
+  }
+}
+
+async function init(){
+  try{
+    const{data:{session}}=await sb.auth.getSession();
+    if(!session){window.location.href='login.html';return;}
+    user=session.user;
+    // Try to get profile but don't block on failure
+    const profileResult=await Promise.race([
+      sb.from('profiles').select('id,subscription_status').eq('id',user.id).single(),
+      new Promise(r=>setTimeout(()=>r({data:{subscription_status:'active'},error:null}),3000))
+    ]);
+    const profile=profileResult?.data;
+    isPaid=profile?.subscription_status==='active';
+    if(!isPaid){
+      document.getElementById('appRoot').innerHTML=`
+      <div class="setup-screen">
+        <div style="font-size:40px;margin-bottom:16px;">🔒</div>
+        <div class="setup-title">Upgrade to Practice</div>
+        <div class="setup-sub">Access to practice questions requires an active Ossify subscription.</div>
+        <a href="pricing.html" class="btn btn-dark" style="font-size:15px;padding:13px 32px;">View pricing →</a>
+        <div style="margin-top:14px;"><a href="dashboard.html" style="font-size:13px;color:var(--muted);text-decoration:underline;">Back to dashboard</a></div>
+      </div>`;
+      return;
+    }
+    if(urlTopic&&TOPICS.includes(urlTopic)){topic=urlTopic;startSession();}
+    else showSetup();
+  }catch(e){
+    // If anything fails, still show setup
+    user=user||{id:'unknown'};
+    isPaid=true;
+    showSetup();
+  }
+}
+
+function showSetup(){
+  document.getElementById('appRoot').innerHTML=`
+  <div class="setup-screen">
+    <div class="setup-title">Start a practice session.</div>
+    <div class="setup-sub">Choose your mode and topic, then begin.</div>
+    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:left;">Revision mode</div>
+    <div class="setup-grid">
+      ${[['tutor','💡 Tutor Mode','See explanations immediately after each answer. Best for active learning.'],['timed','⏱️ Timed Mode','Simulate exam pressure. Explanations shown after completing the session.']].map(([id,title,desc])=>`
+      <div class="setup-card ${mode===id?'active':''}" onclick="setMode('${id}')">
+        <div class="setup-card-title">${title}</div>
+        <div class="setup-card-desc">${desc}</div>
+      </div>`).join('')}
+    </div>
+    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:left;">Topic</div>
+    <div class="topic-select">
+      <button class="topic-btn ${topic===''?'active':''}" onclick="setTopic('')">All topics</button>
+      ${TOPICS.map(t=>`<button class="topic-btn ${topic===t?'active':''}" onclick="setTopic('${t.replace(/'/g,"\\'")}'">${TOPIC_ICO[t]||''} ${t}</button>`).join('')}
+    </div>
+    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:left;">Question type</div>
+    <div style="display:flex;gap:8px;margin-bottom:28px;">
+      ${[['all','All types'],['SBA','SBA only'],['EMQ','EMQ only']].map(([id,label])=>`<button class="topic-btn ${qType===id?'active':''}" onclick="setQType('${id}')">${label}</button>`).join('')}
+    </div>
+    <button onclick="startSession()" class="btn btn-dark" style="font-size:15px;padding:13px 36px;">Start session →</button>
+      <button onclick="testConnection()" class="btn btn-outline" style="font-size:13px;padding:10px 20px;margin-top:8px;">🔍 Test database connection</button>
+  </div>`;
+}
+
+function setMode(m){mode=m;showSetup();}
+function setTopic(t){topic=t;showSetup();}
+function setQType(t){qType=t;showSetup();}
+
+async function startSession(){
+  document.getElementById('appRoot').innerHTML='<div class="loading-full" style="flex-direction:column;gap:10px;">Loading questions…<div id="loadDebug" style="font-size:11px;color:var(--muted)"></div></div>';
+  
+  // Debug: verify session is still valid
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  
+  let query=sb.from('questions').select('id,paper,topic,type,domain,question_id,emq_theme,stem,options,correct_answer,explanation');
+  if(topic) query=query.eq('topic',topic);
+  if(qType!=='all') query=query.eq('type',qType);
+  query=query.limit(20);
+  
+  const{data,error}=await query;
+  
+  if(error){
+    document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;text-align:center;">
+      <div style="font-size:32px;">⚠️</div>
+      <div style="font-weight:600;font-size:15px;color:var(--ink)">Could not load questions</div>
+      <div style="font-size:13px;color:var(--muted);background:var(--surface3);padding:10px 16px;border-radius:8px;max-width:400px;">${error.message} (code: ${error.code||'unknown'})</div>
+      <div style="font-size:12px;color:var(--muted)">Hint: Run the RLS fix in Supabase SQL Editor</div>
+      <button onclick="showSetup()" style="background:var(--gold);color:#fff;border:none;padding:10px 20px;border-radius:7px;cursor:pointer;font-family:var(--font-b);font-weight:600;">← Change selection</button>
+    </div>`;
+    return;
+  }
+  if(!data?.length){
+    document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;text-align:center;">
+      <div style="font-size:32px;">📭</div>
+      <div style="font-weight:600;font-size:15px;color:var(--ink)">No questions found</div>
+      <div style="font-size:13px;color:var(--muted)">Topic: "${topic||'All'}" · Type: ${qType}<br>The questions table may be empty or the filter returned nothing.</div>
+      <div style="font-size:12px;color:var(--muted);background:var(--surface3);padding:8px 14px;border-radius:8px;">Check Supabase → Table Editor → questions to confirm rows exist</div>
+      <button onclick="showSetup()" style="background:var(--gold);color:#fff;border:none;padding:10px 20px;border-radius:7px;cursor:pointer;font-family:var(--font-b);font-weight:600;">← Change selection</button>
+    </div>`;
+    return;
+  }
+  questions=shuffle(data);
+  currentIdx=0;sessionScore=0;sessionAnswered=0;selectedOpt=null;answered=false;
+  document.getElementById('navCenter').style.display='flex';
+  updateNav();
+  renderQuestion();
+}
+
+function shuffle(arr){return arr.sort(()=>Math.random()-0.5);}
+
+function renderQuestion(){
+  const q=questions[currentIdx];
+  if(!q){showComplete();return;}
+  selectedOpt=null;answered=false;startTime=Date.now();
+  updateNav();
+  const isEMQ=q.type==='EMQ';
+  const opts=Array.isArray(q.options)?q.options:JSON.parse(q.options||'[]');
+  document.getElementById('appRoot').innerHTML=`
+  <div class="practice-layout">
+    <div class="q-panel">
+      <div class="q-meta">
+        <span class="q-badge ${isEMQ?'badge-emq':'badge-sba'}">${q.type}</span>
+        <span class="q-badge badge-topic">${q.topic}</span>
+        <span class="q-badge badge-domain">${q.domain||'General'}</span>
+      </div>
+      <div class="q-body">
+        ${isEMQ&&q.emq_theme?`<div class="emq-option-list"><div class="emq-ol-title">Option list — ${q.emq_theme}</div><div class="emq-ol-grid">${opts.map((o,i)=>`<div class="emq-ol-item"><strong>${String.fromCharCode(65+i)}.</strong> ${o}</div>`).join('')}</div></div>`:''}
+        <div class="q-stem">${q.stem}</div>
+        ${isEMQ?'<div class="q-instruction">Select the single most appropriate answer from the list above.</div>':''}
+        <div class="opts" id="optList">
+          ${opts.map((o,i)=>`
+          <div class="opt" id="opt${i}" onclick="selectOpt(${i})">
+            <div class="opt-letter">${String.fromCharCode(65+i)}</div>
+            <div class="opt-txt">${isEMQ?`<strong>${String.fromCharCode(65+i)}.</strong> ${o}`:o}</div>
+          </div>`).join('')}
+        </div>
+      </div>
+      <div class="expl" id="expl">
+        <div class="expl-title">✅ Explanation</div>
+        <div class="expl-body" id="explBody"></div>
+      </div>
+      <div class="q-actions">
+        <button class="btn btn-outline" onclick="showSetup()">← Change session</button>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-gold" id="submitBtn" onclick="submitAnswer()">Submit answer →</button>
+          <button class="btn btn-dark" id="nextBtn" style="display:none" onclick="nextQuestion()">${currentIdx<questions.length-1?'Next →':'See results →'}</button>
+        </div>
+      </div>
+    </div>
+    <div class="side-panel">
+      <div class="info-card">
+        <div class="info-title">Session info</div>
+        <div class="info-row"><span class="info-key">Mode</span><span class="info-val">${mode==='tutor'?'💡 Tutor':'⏱️ Timed'}</span></div>
+        <div class="info-row"><span class="info-key">Topic</span><span class="info-val">${topic||'All topics'}</span></div>
+        <div class="info-row"><span class="info-key">Question</span><span class="info-val">${currentIdx+1} / ${questions.length}</span></div>
+        <div class="info-row"><span class="info-key">Score</span><span class="info-val" style="color:var(--teal)">${sessionScore} / ${sessionAnswered} correct</span></div>
+        <div class="info-row"><span class="info-key">ID</span><span class="info-val" style="font-size:11px;color:var(--muted)">${q.question_id||q.id}</span></div>
+      </div>
+      <div class="info-card">
+        <div class="info-title">Tips for this question</div>
+        <div style="font-size:13px;color:var(--slate);line-height:1.7;">
+          ${mode==='tutor'?'<strong>Tutor mode:</strong> Take your time. The explanation will show immediately after you submit.':'<strong>Timed mode:</strong> Work at exam pace — around 50 seconds per question.'}
+          ${isEMQ?'<br><br><strong>EMQ tip:</strong> Read all options before selecting. Each option can be used more than once.':''}
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function selectOpt(i){
+  if(answered)return;
+  selectedOpt=i;
+  document.querySelectorAll('.opt').forEach((el,j)=>el.classList.toggle('sel',i===j));
+}
+
+async function submitAnswer(){
+  if(selectedOpt===null){alert('Please select an answer first.');return;}
+  answered=true;
+  const q=questions[currentIdx];
+  const opts=Array.isArray(q.options)?q.options:JSON.parse(q.options||'[]');
+  const correct=q.correct_answer;
+  const isCorrect=selectedOpt===correct;
+  const timeTaken=Math.round((Date.now()-startTime)/1000);
+  sessionAnswered++;
+  if(isCorrect)sessionScore++;
+  document.querySelectorAll('.opt').forEach((el,i)=>{
+    el.classList.add('disabled');
+    if(i===correct)el.classList.add('corr');
+    else if(i===selectedOpt&&!isCorrect)el.classList.add('incorr');
+  });
+  if(mode==='tutor'){
+    document.getElementById('expl').classList.add('show');
+    document.getElementById('explBody').innerHTML=formatExplanation(q.explanation);
+  }
+  document.getElementById('submitBtn').style.display='none';
+  document.getElementById('nextBtn').style.display='inline-flex';
+  updateNav();
+  // Save to Supabase
+  await sb.from('user_progress').insert({user_id:user.id,question_id:q.id,answered_correctly:isCorrect,time_taken:timeTaken,flagged:false});
+  // Update profile totals for leaderboard
+  const{data:currentProfile}=await sb.from('profiles').select('total_answered,total_correct,xp').eq('id',user.id).single();
+  const newAnswered=(currentProfile?.total_answered||0)+1;
+  const newCorrect=(currentProfile?.total_correct||0)+(isCorrect?1:0);
+  const xpGain=isCorrect?5:1;
+  await sb.from('profiles').update({total_answered:newAnswered,total_correct:newCorrect,xp:(currentProfile?.xp||0)+xpGain}).eq('id',user.id);
+}
+
+function nextQuestion(){currentIdx++;if(currentIdx>=questions.length)showComplete();else renderQuestion();}
+
+function showComplete(){
+  document.getElementById('navCenter').style.display='none';
+  const pct=sessionAnswered>0?Math.round((sessionScore/sessionAnswered)*100):0;
+  const emoji=pct>=80?'🏆':pct>=60?'📈':'💪';
+  document.getElementById('appRoot').innerHTML=`
+  <div style="max-width:580px;margin:60px auto;padding:0 32px;">
+  <div class="complete-screen">
+    <div class="complete-ico">${emoji}</div>
+    <div class="complete-title">${pct>=80?'Excellent work!':pct>=60?'Good session!':'Keep going!'}</div>
+    <div class="complete-sub">You answered ${sessionAnswered} questions in this session.</div>
+    <div class="complete-stats">
+      <div class="cs-stat"><div class="cs-val" style="color:var(--teal)">${sessionScore}/${sessionAnswered}</div><div class="cs-lbl">Correct</div></div>
+      <div class="cs-stat"><div class="cs-val" style="color:var(--ink)">${pct}%</div><div class="cs-lbl">Accuracy</div></div>
+      <div class="cs-stat"><div class="cs-val" style="color:var(--gold)">${pct>=83?'Band 4':pct>=66?'Band 3':'Band 2'}</div><div class="cs-lbl">Est. Band</div></div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <button onclick="startSession()" class="btn btn-dark">🔁 New session</button>
+      <a href="question-bank.html" class="btn btn-outline">📚 Browse topics</a>
+      <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+    </div>
+  </div>
+  </div>`;
+}
+
+async function flagQuestion(){
+  const q=questions[currentIdx];
+  if(!q)return;
+  await sb.from('user_progress').upsert({user_id:user.id,question_id:q.id,flagged:true},{onConflict:'user_id,question_id'});
+  alert('Question flagged for review.');
+}
+
+function updateNav(){
+  document.getElementById('navQNum').textContent=Math.min(currentIdx+1,questions.length);
+  document.getElementById('navQOf').textContent=`/ ${questions.length}`;
+  document.getElementById('navPBar').style.width=questions.length?`${(currentIdx/questions.length)*100}%`:'0%';
+  document.getElementById('navScore').textContent=`${sessionScore} / ${sessionAnswered}`;
+}
+
+init();
+</script>
+</body>
+</html>
