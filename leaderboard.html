@@ -112,31 +112,6 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-err.show{display:block;}
 </style>
 <style>
-.lb-tabs{display:flex;gap:0;background:var(--mist);border:1px solid var(--leaf);border-radius:9px;padding:3px;width:fit-content;margin-bottom:16px;}
-.lb-tab{padding:7px 18px;border-radius:7px;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border:none;background:none;font-family:var(--font-sans);transition:all 0.15s;}
-.lb-tab.active{background:#fff;color:var(--forest);}
-.lb-hero{background:var(--forest-deep);border-radius:12px;padding:20px 24px;margin-bottom:16px;position:relative;overflow:hidden;}
-.lb-hero-ring{position:absolute;right:-20px;top:-20px;width:100px;height:100px;border-radius:50%;border:1px solid rgba(74,140,74,0.1);}
-.lb-hero h2{font-family:var(--font-serif);font-size:20px;font-weight:500;color:#e8f4e8;margin-bottom:4px;}
-.lb-hero p{font-size:12.5px;color:rgba(255,255,255,0.3);}
-.lb-search input{width:100%;padding:9px 14px;border:1px solid var(--leaf);border-radius:9px;font-family:var(--font-sans);font-size:13px;color:var(--ink);background:#fff;outline:none;}
-.lb-search input:focus{border-color:var(--sage);}
-.lb-search{padding:11px 14px;border-bottom:1px solid var(--leaf);}
-.lb-header{display:grid;grid-template-columns:48px 1fr 90px 90px 70px;padding:9px 14px;font-size:10.5px;color:var(--muted);border-bottom:1px solid var(--leaf);letter-spacing:0.5px;}
-.lb-row{display:grid;grid-template-columns:48px 1fr 90px 90px 70px;padding:11px 14px;border-bottom:1px solid rgba(0,0,0,0.03);align-items:center;transition:background 0.12s;}
-.lb-row:last-child{border-bottom:none;}
-.lb-row:hover{background:var(--mist);}
-.lb-row.me{background:#e2f0de;border-left:3px solid var(--sage);}
-.lb-rank{font-family:var(--font-serif);font-size:15px;font-weight:400;color:var(--muted);}
-.lb-rank.gold{color:#b8860b;}.lb-rank.silver{color:#64748b;}.lb-rank.bronze{color:#92400e;}
-.lb-user{display:flex;align-items:center;gap:10px;}
-.lb-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;}
-.lb-name{font-size:13.5px;font-weight:500;color:var(--forest);}
-.lb-info{font-size:11px;color:var(--muted);}
-.lb-score{font-family:var(--font-serif);font-size:16px;font-weight:400;color:var(--sage);}
-.lb-answered{font-size:13px;color:var(--moss);font-weight:500;}
-.lb-streak{font-size:12px;font-weight:600;color:var(--amber);display:flex;align-items:center;gap:3px;}
-.lb-streak svg{width:11px;height:11px;fill:none;stroke:var(--amber);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .podium{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:10px;margin-bottom:14px;align-items:end;}
 .pod-item{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:16px;text-align:center;}
 .pod-item.first{background:#e2f0de;border-color:var(--sage-l);}
@@ -144,14 +119,37 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .pod-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:#fff;margin:0 auto 7px;}
 .pod-name{font-size:13px;font-weight:600;color:var(--forest);}
 .pod-score{font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--sage);}
+.lb-hero{background:var(--forest-deep);border-radius:12px;padding:20px 24px;margin-bottom:14px;position:relative;overflow:hidden;}
+.lb-hero-ring{position:absolute;right:-20px;top:-20px;width:100px;height:100px;border-radius:50%;border:1px solid rgba(74,140,74,0.1);}
+.lb-hero h2{font-family:var(--font-serif);font-size:20px;font-weight:500;color:#e8f4e8;margin-bottom:4px;}
+.lb-hero p{font-size:12px;color:rgba(255,255,255,0.3);}
+.lb-tabs{display:flex;gap:0;background:var(--mist);border:1px solid var(--leaf);border-radius:9px;padding:3px;width:fit-content;margin-bottom:14px;}
+.lb-tab{padding:7px 16px;border-radius:7px;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border:none;background:none;font-family:var(--font-sans);transition:all 0.15s;}
+.lb-tab.active{background:#fff;color:var(--forest);}
+.lb-sort-btn{padding:7px 16px;border-radius:7px;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border:none;background:none;font-family:var(--font-sans);transition:all 0.15s;}
+.lb-sort-btn.active{background:#fff;color:var(--forest);}
+.lb-search{padding:11px 14px;border-bottom:1px solid var(--leaf);}
+.lb-search input{width:100%;padding:8px 14px;border:1px solid var(--leaf);border-radius:8px;font-family:var(--font-sans);font-size:13px;color:var(--ink);background:var(--mist);outline:none;}
+.lb-search input:focus{border-color:var(--sage);background:#fff;}
+.lb-header{display:grid;grid-template-columns:52px 1fr 80px 90px 60px;padding:9px 14px;font-size:10.5px;color:var(--muted);border-bottom:1px solid var(--leaf);text-transform:uppercase;letter-spacing:0.5px;}
+.lb-row{display:grid;grid-template-columns:52px 1fr 80px 90px 60px;padding:11px 14px;border-bottom:1px solid rgba(0,0,0,0.03);align-items:center;transition:background 0.12s;}
+.lb-row:last-child{border-bottom:none;}
+.lb-row:hover{background:var(--mist);}
+.lb-row.me{background:#e2f0de;border-left:3px solid var(--sage);}
+.lb-rank{font-family:var(--font-serif);font-size:15px;font-weight:400;color:var(--muted);}
+.lb-rank.gold{color:#b8860b;} .lb-rank.silver{color:#64748b;} .lb-rank.bronze{color:#92400e;}
+.lb-user{display:flex;align-items:center;gap:10px;}
+.lb-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;flex-shrink:0;}
+.lb-name{font-size:13.5px;font-weight:500;color:var(--forest);}
+.lb-info{font-size:11px;color:var(--muted);}
+.lb-score{font-family:var(--font-serif);font-size:16px;font-weight:400;color:var(--sage);}
+.lb-answered{font-size:13px;font-weight:500;color:var(--moss);}
+.lb-streak{font-size:12px;font-weight:600;color:var(--amber);display:flex;align-items:center;gap:3px;}
 </style>
 </head>
 <body>
 <aside class="sb">
-  <div class="sb-logo">
-    <div class="sb-mark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-    <div class="sb-name">Ossify</div>
-  </div>
+  <div class="sb-logo"><div class="sb-mark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sb-name">Ossify</div></div>
   <div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
     <a class="nv on" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a></div>
   <div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="question-bank.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Question Bank</a>
@@ -167,7 +165,7 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
   </div>
   <div class="sb-foot">
     <div class="sb-av-row"><div class="sb-av" id="userAv">?</div><div><div class="sb-uname" id="userName">Loading…</div><div class="sb-usub" id="userUsername"></div></div></div>
-    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day streak</div>
+    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:var(--sage-pale);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
     <button class="sb-signout" onclick="signOut()">Sign out</button>
   </div>
 </aside>
@@ -175,14 +173,152 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
   <div class="topbar">
     <div class="tb-title">Leaderboard</div>
     <div class="tb-r">
-      <div class="chip chip-g" id="topbarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day</div>
-      <div class="chip chip-t" id="topbarXp"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>0 XP</div>
+      <div class="chip chip-g" id="topbarStreak"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--forest-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
+      <div class="chip chip-t" id="topbarXp"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--teal-d);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
       <a href="practice.html" class="btn-cta"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
     </div>
   </div>
-  <div class="content" id="lbContent"><div class="loading-full">Loading…</div></div>
+  <div class="content" id="mainContent"><div class="loading-full">Loading leaderboard…</div></div>
 </div>
+
 <script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+let currentSort='accuracy';
+let allEntries=[];
+let currentUserId=null;
+
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  const user=session.user;
+  currentUserId=user.id;
+  const name=user.user_metadata?.full_name||user.email.split('@')[0];
+  const initials=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userAv').textContent=initials;
+  document.getElementById('userName').textContent=name;
+
+  const{data:profile}=await sb.from('profiles').select('*').eq('id',user.id).single();
+  const streak=profile?.current_streak||0;
+  const xp=profile?.xp||0;
+  if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
+  document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:var(--sage-pale);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
+  document.getElementById('topbarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--forest-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day`;
+  document.getElementById('topbarXp').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--teal-d);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${xp} XP`;
+
+  await loadLeaderboard();
+}
+
+async function loadLeaderboard(){
+  const el=document.getElementById('mainContent');
+  el.innerHTML='<div class="loading-full">Loading leaderboard…</div>';
+
+  // Fetch all profiles with progress data
+  const{data:profiles,error}=await sb.from('profiles').select('id,username,xp,current_streak,total_correct,total_answered').limit(200);
+  if(error||!profiles){el.innerHTML='<div class="loading-full" style="color:var(--red);">Error loading leaderboard.</div>';return;}
+
+  // Build entries
+  allEntries=profiles.map(p=>{
+    const answered=p.total_answered||0;
+    const correct=p.total_correct||0;
+    const accuracy=answered>0?Math.round((correct/answered)*100):0;
+    const name=p.username?'@'+p.username:'Anonymous';
+    const initials=p.username?p.username.slice(0,2).toUpperCase():'??';
+    const colors=['#2a5a2a','#1a4a3a','#2a6b5a','#4a8c4a','#0d7377','#3b6d11'];
+    const color=colors[Math.abs(hashStr(name))%colors.length];
+    return{id:p.id,name,initials,color,answered,correct,accuracy,streak:p.current_streak||0,xp:p.xp||0,isUser:p.id===currentUserId};
+  }).filter(e=>e.answered>0);
+
+  renderLeaderboard();
+}
+
+function hashStr(s){let h=0;for(let i=0;i<s.length;i++){h=Math.imul(31,h)+s.charCodeAt(i)|0;}return h;}
+
+function sortBy(mode){
+  currentSort=mode;
+  document.querySelectorAll('.lb-sort-btn').forEach(b=>b.classList.toggle('active',b.dataset.sort===mode));
+  renderLeaderboard();
+}
+
+function renderLeaderboard(){
+  const sorted=[...allEntries].sort((a,b)=>{
+    if(currentSort==='accuracy')return b.accuracy-a.accuracy||b.answered-a.answered;
+    if(currentSort==='questions')return b.answered-a.answered;
+    if(currentSort==='streak')return b.streak-a.streak;
+    if(currentSort==='xp')return b.xp-a.xp;
+    return 0;
+  });
+
+  const q=document.getElementById('lbSearch')?.value.toLowerCase()||'';
+  const filtered=q?sorted.filter(u=>u.name.toLowerCase().includes(q)):sorted;
+  const ranked=filtered.map((u,i)=>({...u,rank:i+1}));
+
+  // Find current user
+  const myRank=ranked.findIndex(u=>u.isUser);
+  const top3=ranked.slice(0,3);
+
+  const medal=['🥇','🥈','🥉'];
+  const rankClass=['gold','silver','bronze'];
+
+  const podiumHtml=top3.length?`
+  <div class="podium">
+    ${[top3[1],top3[0],top3[2]].filter(Boolean).map((u,i)=>{
+      const realRank=u.rank;
+      const podClass=realRank===1?'first':'';
+      return `<div class="pod-item ${podClass}" style="order:${realRank===1?1:realRank===2?0:2}">
+        <div class="pod-medal">${medal[realRank-1]||realRank}</div>
+        <div class="pod-av" style="background:${u.color};">${u.initials}</div>
+        <div class="pod-name">${u.name}${u.isUser?' (you)':''}</div>
+        <div class="pod-score">${currentSort==='accuracy'?u.accuracy+'%':currentSort==='questions'?u.answered+' Qs':currentSort==='streak'?u.streak+'d':u.xp+' XP'}</div>
+      </div>`;
+    }).join('')}
+  </div>`:'';
+
+  const rowsHtml=ranked.slice(0,100).map(u=>`
+  <div class="lb-row${u.isUser?' me':''}">
+    <div class="lb-rank ${u.rank<=3?rankClass[u.rank-1]:''}">${u.rank<=3?medal[u.rank-1]:u.rank}</div>
+    <div class="lb-user">
+      <div class="lb-av" style="background:${u.color};">${u.initials}</div>
+      <div>
+        <div class="lb-name">${u.name}${u.isUser?'<span style="font-size:10px;background:#e2f0de;color:var(--forest-mid);padding:1px 7px;border-radius:10px;margin-left:6px;font-weight:600;">You</span>':''}</div>
+        <div class="lb-info">${u.answered} questions · ${u.accuracy}% accuracy</div>
+      </div>
+    </div>
+    <div class="lb-score">${u.accuracy}%</div>
+    <div class="lb-answered">${u.answered}</div>
+    <div class="lb-streak"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:var(--amber);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>${u.streak}</div>
+  </div>`).join('');
+
+  document.getElementById('mainContent').innerHTML=`
+  <div class="lb-hero">
+    <div class="lb-hero-ring"></div>
+    <div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:7px;">Community</div>
+    <h2>Leaderboard</h2>
+    <p>${ranked.length} doctors competing · You are ${myRank>=0?'#'+(myRank+1):'not yet ranked'}</p>
+  </div>
+
+  <div class="lb-tabs">
+    <button class="lb-tab lb-sort-btn ${currentSort==='accuracy'?'active':''}" data-sort="accuracy" onclick="sortBy('accuracy')">Accuracy</button>
+    <button class="lb-tab lb-sort-btn ${currentSort==='questions'?'active':''}" data-sort="questions" onclick="sortBy('questions')">Questions</button>
+    <button class="lb-tab lb-sort-btn ${currentSort==='streak'?'active':''}" data-sort="streak" onclick="sortBy('streak')">Streak</button>
+    <button class="lb-tab lb-sort-btn ${currentSort==='xp'?'active':''}" data-sort="xp" onclick="sortBy('xp')">XP</button>
+  </div>
+
+  ${podiumHtml}
+
+  <div class="card">
+    <div class="lb-search"><input id="lbSearch" placeholder="Search by username…" oninput="renderLeaderboard()"></div>
+    <div class="lb-header">
+      <span>Rank</span><span>Doctor</span><span>Accuracy</span><span>Questions</span><span>Streak</span>
+    </div>
+    ${rowsHtml||'<div style="padding:24px;text-align:center;color:var(--muted);font-size:13px;">No results found</div>'}
+  </div>`;
+}
+
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+init();
 
 </script>
 </body>

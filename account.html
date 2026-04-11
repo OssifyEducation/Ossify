@@ -111,13 +111,25 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-err.show{display:block;}
 </style>
 <style>
-.acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.acc-card{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:20px;}
-.acc-card-title{font-family:var(--font-serif);font-size:16px;font-weight:500;color:var(--forest);margin-bottom:16px;}
-.danger-zone{background:#fff6f6;border:1px solid var(--red-b);border-radius:12px;padding:20px;margin-top:14px;}
+.acc-wrap{max-width:640px;}
+.acc-section{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:20px;margin-bottom:14px;}
+.acc-section-title{font-family:var(--font-serif);font-size:17px;font-weight:500;color:var(--forest);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--leaf);}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px;}
+.form-group input{width:100%;padding:10px 14px;border:1px solid var(--leaf);border-radius:9px;font-family:var(--font-sans);font-size:14px;color:var(--ink);outline:none;transition:border-color 0.15s;}
+.form-group input:focus{border-color:var(--sage);}
+.save-btn{background:var(--sage);color:#fff;border:none;border-radius:9px;padding:10px 22px;font-family:var(--font-sans);font-size:13.5px;font-weight:500;cursor:pointer;transition:all 0.15s;}
+.save-btn:hover{background:var(--forest-mid);}
+.msg-ok{background:#e2f0de;border:1px solid var(--sage-l);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--forest-mid);margin-bottom:12px;display:none;}
+.msg-ok.show{display:block;}
+.msg-err{background:var(--red-l);border:1px solid var(--red-b);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--red);margin-bottom:12px;display:none;}
+.msg-err.show{display:block;}
+.danger-zone{background:#fff6f6;border:1px solid var(--red-b);border-radius:12px;padding:20px;margin-bottom:14px;}
 .dz-title{font-size:14px;font-weight:600;color:var(--red);margin-bottom:4px;}
-.dz-sub{font-size:13px;color:var(--moss);margin-bottom:12px;}
+.dz-sub{font-size:13px;color:var(--moss);margin-bottom:12px;line-height:1.6;}
 .btn-danger{background:var(--red);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-family:var(--font-sans);font-size:13px;font-weight:500;cursor:pointer;}
+.sub-badge{display:inline-flex;align-items:center;gap:6px;background:#e2f0de;border:1px solid var(--sage-l);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:500;color:var(--forest-mid);margin-bottom:14px;}
+.sub-badge svg{width:14px;height:14px;fill:none;stroke:var(--sage);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 </style>
 </head>
 <body>
@@ -138,24 +150,139 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
   </div>
   <div class="sb-foot">
     <div class="sb-av-row"><div class="sb-av" id="userAv">?</div><div><div class="sb-uname" id="userName">Loading…</div><div class="sb-usub" id="userUsername"></div></div></div>
-    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day streak</div>
+    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:var(--sage-pale);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
     <button class="sb-signout" onclick="signOut()">Sign out</button>
   </div>
 </aside>
 <div class="main">
-  <div class="topbar">
-    <div class="tb-title">My Profile</div>
-    <div class="tb-r">
-      <div class="chip chip-g" id="topbarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day</div>
-      <div class="chip chip-t" id="topbarXp"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>0 XP</div>
-      <a href="practice.html" class="btn-cta"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
-    </div>
-  </div>
-  <div class="content" id="mainContent"><div class="loading-full">Loading…</div></div>
+  <div class="topbar"><div class="tb-title">My Profile</div><div class="tb-r">
+      <div class="chip chip-g" id="topbarStreak"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--forest-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
+      <div class="chip chip-t" id="topbarXp"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--teal-d);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
+      </div></div>
+  <div class="content" id="mainContent"><div class="acc-wrap" id="accContent"><div class="loading-full">Loading profile…</div></div></div>
 </div>
 <script>
-function signOut(){const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);sb.auth.signOut().then(()=>window.location.href='login.html');}
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  const user=session.user;
+  const name=user.user_metadata?.full_name||user.email.split('@')[0];
+  document.getElementById('userName').textContent=name;
+  document.getElementById('userAv').textContent=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  const{data:profile}=await sb.from('profiles').select('*').eq('id',user.id).single();
+  const{data:progress}=await sb.from('user_progress').select('*').eq('user_id',user.id);
+  const answered=progress?.length||0;
+  const correct=progress?.filter(p=>p.answered_correctly).length||0;
+  const accuracy=answered>0?Math.round((correct/answered)*100):0;
+  const flagged=progress?.filter(p=>p.flagged).length||0;
+  const isPaid=profile?.subscription_status==='active';
+  const expDate=profile?.subscription_expires_at?new Date(profile.subscription_expires_at).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'—';
+  const planName=profile?.subscription_plan?{['3month']:'3-Month Access',['6month']:'6-Month Access',['1year']:'1-Year Access'}[profile.subscription_plan]||profile.subscription_plan:'Free';
+
+  document.getElementById('mainContent').innerHTML=`
+  <!-- PROFILE -->
+  <div class="card">
+    <div class="card-hdr"><div class="card-title">Profile</div></div>
+    <div class="card-body">
+      <div class="profile-row">
+        <div class="profile-av-lg">${name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div>
+        <div>
+          <div class="profile-name">${name}</div>
+          <div class="profile-email">${user.email}</div>
+        </div>
+      </div>
+      <div class="success-msg" id="profileSuccess"></div>
+      <div class="error-msg" id="profileError"></div>
+      <div class="info-grid">
+        <div class="form-group"><label>Full name</label><input type="text" id="nameInput" value="${name}"></div>
+        <div class="form-group"><label>Email</label><input type="email" value="${user.email}" disabled style="background:var(--surface3);color:var(--muted);"></div>
+      </div>
+      <button class="btn btn-dark" onclick="updateProfile()">Save changes</button>
+    </div>
+  </div>
+
+  <!-- SUBSCRIPTION -->
+  <div class="card">
+    <div class="card-hdr"><div class="card-title">Subscription</div></div>
+    <div class="card-body">
+      <div class="sub-status">
+        <div class="sub-ico">${isPaid?'✅':'??'}</div>
+        <div style="flex:1">
+          <div class="sub-plan">${isPaid?planName:'Free Account'}</div>
+          <div class="sub-detail">${isPaid?`Access expires: ${expDate}`:'No active subscription'}</div>
+        </div>
+        <div><span class="${isPaid?'sub-badge-active':'sub-badge-free'}">${isPaid?'Active':'Free'}</span></div>
+      </div>
+      ${isPaid?`
+      <p style="font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:16px;">Your subscription gives you full access to all ${isPaid?'600+':'0'} questions across all available topics. New topics will be added to your account automatically.</p>
+      <a href="pricing.html" class="btn btn-outline">Manage subscription →</a>
+      `:`
+      <p style="font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:18px;">Upgrade to unlock all 600+ MSRA practice questions across 6 topics (more coming soon), with full explanations and progress tracking.</p>
+      <a href="pricing.html" class="btn btn-gold">View plans & pricing →</a>
+      `}
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="card">
+    <div class="card-hdr"><div class="card-title">Your statistics</div></div>
+    <div class="card-body">
+      <div class="stat-row">
+        <div class="stat-box"><div class="sb-val">${answered}</div><div class="sb-lbl">Answered</div></div>
+        <div class="stat-box"><div class="sb-val" style="color:var(--teal)">${accuracy}%</div><div class="sb-lbl">Accuracy</div></div>
+        <div class="stat-box"><div class="sb-val" style="color:var(--gold)">${correct}</div><div class="sb-lbl">Correct</div></div>
+        <div class="stat-box"><div class="sb-val" style="color:var(--rose)">${flagged}</div><div class="sb-lbl">Flagged</div></div>
+      </div>
+      <a href="practice.html" class="btn btn-dark">✏️ Continue practising →</a>
+    </div>
+  </div>
+
+  <!-- PASSWORD -->
+  <div class="card">
+    <div class="card-hdr"><div class="card-title">Change password</div></div>
+    <div class="card-body">
+      <div class="success-msg" id="pwSuccess"></div>
+      <div class="error-msg" id="pwError"></div>
+      <div class="info-grid">
+        <div class="form-group"><label>New password</label><input type="password" id="pw1" placeholder="At least 8 characters"></div>
+        <div class="form-group"><label>Confirm password</label><input type="password" id="pw2" placeholder="Repeat new password"></div>
+      </div>
+      <button class="btn btn-outline" onclick="updatePassword()">Update password</button>
+    </div>
+  </div>
+
+  <!-- DANGER ZONE -->
+  <div class="danger-zone">
+    <div><div class="dz-title">Sign out everywhere</div><div class="dz-sub">Sign out of all active sessions on all devices.</div></div>
+    <button class="btn-danger" onclick="signOut()">Sign out</button>
+  </div>
+  `;
+}
+
+async function updateProfile(){
+  const name=document.getElementById('nameInput').value.trim();
+  if(!name)return;
+  const{error}=await sb.auth.updateUser({data:{full_name:name}});
+  if(error){document.getElementById('profileError').textContent=error.message;document.getElementById('profileError').classList.add('show');}
+  else{document.getElementById('profileSuccess').textContent='Profile updated.';document.getElementById('profileSuccess').classList.add('show');setTimeout(()=>document.getElementById('profileSuccess').classList.remove('show'),3000);}
+}
+
+async function updatePassword(){
+  const pw1=document.getElementById('pw1').value;
+  const pw2=document.getElementById('pw2').value;
+  if(!pw1||pw1.length<8)return showPwError('Password must be at least 8 characters.');
+  if(pw1!==pw2)return showPwError('Passwords do not match.');
+  const{error}=await sb.auth.updateUser({password:pw1});
+  if(error)showPwError(error.message);
+  else{document.getElementById('pwSuccess').textContent='Password updated.';document.getElementById('pwSuccess').classList.add('show');document.getElementById('pw1').value='';document.getElementById('pw2').value='';}
+}
+function showPwError(msg){document.getElementById('pwError').textContent=msg;document.getElementById('pwError').classList.add('show');}
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+init();
 </script>
 </body>
 </html>

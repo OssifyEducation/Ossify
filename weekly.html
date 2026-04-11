@@ -111,14 +111,36 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-err{background:var(--red-l);border:1px solid var(--red-b);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--red);margin-bottom:13px;display:none;}
 .alert-err.show{display:block;}
 </style>
-
+<style>
+.wk-hero{background:var(--forest-deep);border-radius:12px;padding:22px 26px;margin-bottom:16px;position:relative;overflow:hidden;}
+.wk-hero::after{content:'';position:absolute;right:10px;top:50%;transform:translateY(-50%);width:80px;height:80px;border-radius:50%;background:rgba(74,140,74,0.08);}
+.wk-hero-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:7px;}
+.wk-hero h2{font-family:var(--font-serif);font-size:22px;font-weight:500;color:#e8f4e8;margin-bottom:6px;}
+.wk-hero p{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.6;max-width:480px;}
+.wk-meta{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.wk-pill{font-size:11px;font-weight:500;background:rgba(74,140,74,0.15);border:0.5px solid rgba(74,140,74,0.3);color:var(--sage-pale);padding:4px 11px;border-radius:20px;}
+.wk-btn{background:var(--sage);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-family:var(--font-sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+.wk-btn svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.wk-btn:hover{background:var(--forest-mid);}
+.wk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.q-card{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+.q-stem{font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:16px;font-weight:500;}
+.q-opts{display:flex;flex-direction:column;gap:8px;}
+.q-opt{padding:10px 14px;border:1.5px solid var(--leaf);border-radius:9px;font-size:14px;color:var(--moss);cursor:pointer;transition:all 0.15s;background:#fff;}
+.q-opt:hover{border-color:var(--sage);color:var(--ink);}
+.q-opt.selected{border-color:var(--sage);background:#e2f0de;color:var(--forest);}
+.q-opt.correct{border-color:var(--sage);background:#e2f0de;color:var(--forest);}
+.q-opt.wrong{border-color:var(--red);background:var(--red-l);color:var(--red);}
+.q-exp{background:var(--mist);border-left:3px solid var(--sage);padding:14px 16px;border-radius:0 9px 9px 0;margin-top:14px;font-size:13.5px;color:var(--moss);line-height:1.7;}
+.wk-results{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:24px;text-align:center;}
+.countdown{font-family:var(--font-serif);font-size:28px;font-weight:400;color:var(--forest);margin:10px 0;}
+.pbar-wrap{height:6px;background:var(--mist);border-radius:3px;overflow:hidden;margin-bottom:16px;}
+.pbar-fill{height:100%;background:var(--sage);border-radius:3px;transition:width 0.3s;}
+</style>
 </head>
 <body>
 <aside class="sb">
-  <div class="sb-logo">
-    <div class="sb-mark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-    <div class="sb-name">Ossify</div>
-  </div>
+  <div class="sb-logo"><div class="sb-mark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sb-name">Ossify</div></div>
   <div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
     <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a></div>
   <div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="question-bank.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Question Bank</a>
@@ -134,7 +156,7 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
   </div>
   <div class="sb-foot">
     <div class="sb-av-row"><div class="sb-av" id="userAv">?</div><div><div class="sb-uname" id="userName">Loading…</div><div class="sb-usub" id="userUsername"></div></div></div>
-    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day streak</div>
+    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:var(--sage-pale);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
     <button class="sb-signout" onclick="signOut()">Sign out</button>
   </div>
 </aside>
@@ -142,13 +164,202 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
   <div class="topbar">
     <div class="tb-title">Weekly Challenge</div>
     <div class="tb-r">
-      <div class="chip chip-g" id="topbarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day</div>
-      <div class="chip chip-t" id="topbarXp"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>0 XP</div>
+      <div class="chip chip-g" id="topbarStreak"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--forest-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
+      <div class="chip chip-t" id="topbarXp"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--teal-d);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
+      
     </div>
   </div>
-  <div class="content" id="mainContent"><div class="loading-full">Loading…</div></div>
+  <div class="content" id="mainContent"><div class="loading-full">Loading weekly challenge…</div></div>
 </div>
+
 <script>
+
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+let user=null, profile=null, questions=[], currentQ=0, score=0, answered=0, selected=null, isAnswered=false;
+let startTime=null, elapsed=0, timerInterval=null;
+
+function getWeekStart(){
+  const d=new Date();
+  const day=d.getDay();
+  const diff=d.getDate()-day+(day===0?-6:1);
+  const mon=new Date(d.setDate(diff));
+  return mon.toISOString().split('T')[0];
+}
+
+function getCountdown(){
+  const now=new Date();
+  const next=new Date(now);
+  const day=now.getDay();
+  const daysUntilMon=day===1?7:(8-day)%7;
+  next.setDate(now.getDate()+daysUntilMon);
+  next.setHours(0,0,0,0);
+  const diff=next-now;
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  return{d,h,m};
+}
+
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){window.location.href='login.html';return;}
+  user=session.user;
+  const name=user.user_metadata?.full_name||user.email.split('@')[0];
+  document.getElementById('userAv').textContent=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userName').textContent=name;
+  const{data:p}=await sb.from('profiles').select('*').eq('id',user.id).single();
+  profile=p;
+  document.getElementById('topbarStreak').textContent=`?? ${p?.current_streak||0}`;
+  document.getElementById('topbarXp').textContent=`⭐ ${p?.xp||0} XP`;
+  document.getElementById('sidebarStreak').textContent=`?? ${p?.current_streak||0}`;
+
+  const weekStart=getWeekStart();
+  // Check if already completed this week
+  const{data:entry}=await sb.from('weekly_entries').select('*').eq('user_id',user.id).eq('week_start',weekStart).single();
+  // Get or create weekly challenge
+  let{data:challenge}=await sb.from('weekly_challenges').select('*').eq('week_start',weekStart).single();
+  if(!challenge){
+    // Create new weekly challenge — pick 20 random question IDs
+    const{data:qs}=await sb.from('questions').select('id').limit(200);
+    if(!qs?.length){showError();return;}
+    const shuffled=qs.sort(()=>Math.random()-0.5).slice(0,20);
+    const qIds=shuffled.map(q=>q.id);
+    const{data:newChallenge}=await sb.from('weekly_challenges').insert({week_start:weekStart,question_ids:qIds}).select().single();
+    challenge=newChallenge;
+  }
+  // Load weekly leaderboard
+  const{data:entries}=await sb.from('weekly_entries').select('*').eq('week_start',weekStart).order('score',{ascending:false}).limit(50);
+  const{data:allProfiles}=await sb.from('profiles').select('id,username,full_name,hospital_trust').in('id',(entries||[]).map(e=>e.user_id));
+  const profileMap={};(allProfiles||[]).forEach(p=>profileMap[p.id]=p);
+
+  renderLobby(challenge, entry, entries, profileMap, weekStart);
+}
+
+function renderLobby(challenge, myEntry, entries, profileMap, weekStart){
+  const cd=getCountdown();
+  const colors=['#e11d48','#0891b2','#7c3aed','#059669','#d97706','#db2777'];
+  const medals=['??','??','??'];
+  document.getElementById('mainContent').innerHTML=`
+  <div class="weekly-hero">
+    <div class="wh-tag">Weekly · Resets every Monday</div>
+    <div class="wh-title">Weekly <span>Challenge</span></div>
+    <div class="wh-sub">20 questions — the same set for every Ossify user this week. Ranked by accuracy, then speed. Complete it before Monday to appear on the leaderboard.</div>
+    <div class="wh-meta"><span class="wh-pill">?? 20 Questions</span><span class="wh-pill">⏱️ Speed matters</span><span class="wh-pill">?? Same for everyone</span><span class="wh-pill">?? Weekly leaderboard</span></div>
+    <div class="countdown"><div class="cd-unit"><div class="cd-num">${cd.d}</div><div class="cd-lbl">Days</div></div><div class="cd-sep">:</div><div class="cd-unit"><div class="cd-num">${String(cd.h).padStart(2,'0')}</div><div class="cd-lbl">Hours</div></div><div class="cd-sep">:</div><div class="cd-unit"><div class="cd-num">${String(cd.m).padStart(2,'0')}</div><div class="cd-lbl">Mins</div></div><div style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.4)">until reset</div></div>
+    ${myEntry?`<div style="background:rgba(13,115,119,0.2);border:1px solid rgba(13,115,119,0.3);border-radius:var(--r-sm);padding:10px 16px;color:#4dd0c4;font-size:13.5px;font-weight:600;display:inline-block;">✅ You've completed this week's challenge — score: ${myEntry.score}/${myEntry.total}</div>`:`<button class="start-btn" onclick="startChallenge(${JSON.stringify(challenge?.question_ids||[])})">⚡ Start Challenge →</button>`}
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-hdr"><div><div class="card-title">?? This Week's Leaderboard</div><div class="card-sub">Week of ${weekStart}</div></div></div>
+      <div>
+        ${!entries?.length?`<div style="padding:32px;text-align:center;color:var(--muted);font-size:14px;">No entries yet — be the first to complete this week's challenge!</div>`:`
+        <div style="display:grid;grid-template-columns:40px 1fr 80px 70px;padding:10px 20px;font-size:11px;color:var(--muted);border-bottom:1px solid rgba(10,15,26,0.05);text-transform:uppercase;letter-spacing:1px;"><div>Rank</div><div>Doctor</div><div>Score</div><div>Time</div></div>
+        ${entries.map((e,i)=>{
+          const p=profileMap[e.user_id]||{};
+          const name=p.full_name||'Doctor';
+          const mins=Math.floor(e.time_taken/60);
+          const secs=e.time_taken%60;
+          return`<div class="lb-row ${e.user_id===user.id?'me':''}">
+            <div class="lb-rank">${i<3?medals[i]:i+1}</div>
+            <div class="lb-user"><div class="lb-av" style="background:${colors[i%colors.length]}">${name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div><div><div class="lb-name">${name}${e.user_id===user.id?' <span style="font-size:10px;background:rgba(124,58,237,0.12);color:var(--violet);padding:1px 7px;border-radius:10px;font-weight:700">You</span>':''}</div><div class="lb-meta">${p.hospital_trust||''}</div></div></div>
+            <div class="lb-score">${e.score}/${e.total}</div>
+            <div class="lb-time">${mins}m ${String(secs).padStart(2,'0')}s</div>
+          </div>`;
+        }).join('')}`}
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-hdr"><div class="card-title">?? How It Works</div></div>
+      <div class="card-body" style="display:flex;flex-direction:column;gap:14px;">
+        ${[['⚡','Same questions for everyone','Every Ossify user gets the same 20 questions each week — so the leaderboard is a true measure of skill.'],['⏱️','Speed is a tiebreaker','If two doctors score the same accuracy, the faster one ranks higher.'],['??','Win badges and XP','Top the weekly leaderboard and earn the Weekly Champion badge (200 XP).'],['??','Resets every Monday','New questions every Monday at midnight. Your history is saved.']].map(([ico,t,d])=>`<div style="display:flex;gap:12px;align-items:flex-start;"><div style="font-size:20px;flex-shrink:0;margin-top:2px;">${ico}</div><div><div style="font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:3px;">${t}</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55;">${d}</div></div></div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+async function startChallenge(qIds){
+  if(!qIds?.length){alert('No questions available for this week yet.');return;}
+  const{data:qs}=await sb.from('questions').select('*').in('id',qIds);
+  if(!qs?.length){alert('Could not load questions.');return;}
+  questions=qs;currentQ=0;score=0;answered=0;selected=null;isAnswered=false;
+  startTime=Date.now();elapsed=0;
+  if(timerInterval)clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{elapsed=Math.floor((Date.now()-startTime)/1000);const el=document.getElementById('timerDisplay');if(el){const m=Math.floor(elapsed/60);const s=elapsed%60;el.textContent=`${m}:${String(s).padStart(2,'0')}`;} },1000);
+  renderQuestion();
+}
+
+function renderQuestion(){
+  if(currentQ>=questions.length){finishChallenge();return;}
+  selected=null;isAnswered=false;
+  const q=questions[currentQ];
+  const opts=Array.isArray(q.options)?q.options:JSON.parse(q.options||'[]');
+  document.getElementById('mainContent').innerHTML=`
+  <div class="game-wrap">
+    <div class="game-hdr">
+      <div class="game-q-info">
+        <div class="game-q-num">${currentQ+1} <span style="font-size:13px;color:var(--muted)">/ ${questions.length}</span></div>
+        <div style="width:160px;height:5px;background:var(--surface3);border-radius:5px;overflow:hidden;"><div style="height:100%;width:${(currentQ/questions.length)*100}%;background:linear-gradient(90deg,var(--violet),#a855f7);border-radius:5px;transition:width 0.3s;"></div></div>
+        <div style="font-size:12px;color:var(--muted)">Score: ${score}/${answered}</div>
+      </div>
+      <div class="game-timer" id="timerDisplay">0:00</div>
+    </div>
+    <div class="game-body">
+      <div style="display:flex;gap:8px;margin-bottom:14px;"><span style="padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;background:var(--violet-lt);color:var(--violet);border:1px solid rgba(124,58,237,0.2);">${q.type}</span><span style="padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;background:var(--surface3);color:var(--muted);">${q.topic}</span></div>
+      <div class="q-stem">${q.stem}</div>
+      <div class="opts" id="optList">
+        ${opts.map((o,i)=>`<div class="opt" id="wo${i}" onclick="selectOpt(${i})"><div class="opt-letter">${String.fromCharCode(65+i)}</div><div class="opt-txt">${o}</div></div>`).join('')}
+      </div>
+      <div class="game-actions">
+        <button class="btn btn-outline" onclick="selectOpt(selected===null?0:selected);submitAnswer(${q.correct_answer})" id="submitBtn">Submit →</button>
+        <button class="btn btn-violet" id="nextBtn" style="display:none" onclick="nextQ()">Next →</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function selectOpt(i){if(isAnswered)return;selected=i;document.querySelectorAll('.opt').forEach((o,j)=>o.classList.toggle('sel',i===j));}
+function submitAnswer(correct){
+  if(selected===null){alert('Select an answer first.');return;}
+  isAnswered=true;answered++;
+  if(selected===correct)score++;
+  document.querySelectorAll('.opt').forEach((o,i)=>{o.classList.add('disabled');if(i===correct)o.classList.add('corr');else if(i===selected&&selected!==correct)o.classList.add('incorr');});
+  document.getElementById('submitBtn').style.display='none';
+  document.getElementById('nextBtn').style.display='inline-flex';
+}
+function nextQ(){currentQ++;renderQuestion();}
+
+async function finishChallenge(){
+  clearInterval(timerInterval);
+  const weekStart=getWeekStart();
+  await sb.from('weekly_entries').upsert({user_id:user.id,week_start:weekStart,score,total:questions.length,time_taken:elapsed},{onConflict:'user_id,week_start'});
+  // Award XP
+  await sb.from('profiles').update({xp:(profile?.xp||0)+score*5}).eq('id',user.id);
+  const pct=Math.round((score/questions.length)*100);
+  const emoji=pct>=80?'??':pct>=60?'⚡':'??';
+  const mins=Math.floor(elapsed/60);const secs=elapsed%60;
+  document.getElementById('mainContent').innerHTML=`
+  <div class="results-wrap">
+    <div class="results-ico">${emoji}</div>
+    <div class="results-title">${pct>=80?'Excellent!':pct>=60?'Well done!':'Good effort!'}</div>
+    <div class="results-sub">You've completed this week's challenge. Your result has been saved to the leaderboard.</div>
+    <div class="results-stats">
+      <div class="rs"><div class="rs-val" style="color:var(--teal)">${score}/${questions.length}</div><div class="rs-lbl">Correct</div></div>
+      <div class="rs"><div class="rs-val" style="color:var(--violet)">${pct}%</div><div class="rs-lbl">Accuracy</div></div>
+      <div class="rs"><div class="rs-val" style="color:var(--amber)">${mins}m ${String(secs).padStart(2,'0')}s</div><div class="rs-lbl">Time</div></div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="leaderboard.html" class="btn btn-dark">?? View Leaderboard →</a>
+      <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+    </div>
+  </div>`;
+}
+
+function showError(){document.getElementById('mainContent').innerHTML='<div class="loading-full">Could not load challenge. <a href="dashboard.html" style="color:var(--gold);margin-left:8px;">← Back</a></div>';}
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+init();
 
 </script>
 </body>
