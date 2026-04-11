@@ -208,7 +208,7 @@ body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:v
   </div>
   <div class="pnav-right">
     <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
-    <button class="btn btn-outline" onclick="flagQuestion()">🚩 Flag</button>
+    <button class="btn btn-outline" onclick="flagQuestion()">Flag</button>
   </div>
 </nav>
 
@@ -270,7 +270,7 @@ function renderAIBox(question){
     </div>
     <div class="ai-box-body" id="aiBoxBody">
       <div class="ai-presets">
-        <div class="ai-preset" onclick="askAI('Explain this using a simple analogy or memory aid')">💡 Give me a memory aid</div>
+        <div class="ai-preset" onclick="askAI('Explain this using a simple analogy or memory aid')">Give me a memory aid</div>
         <div class="ai-preset" onclick="askAI('Describe a real clinical scenario where a doctor would encounter this')">🏥 Clinical scenario</div>
         <div class="ai-preset" onclick="askAI('Explain the underlying mechanism in simple terms')">⚙️ Underlying mechanism</div>
         <div class="ai-preset" onclick="askAI('What are the top 3 exam tips for this topic?')">📋 Exam tips</div>
@@ -505,7 +505,7 @@ async function showSetup(){
 
     <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:left;">Mode</div>
     <div class="setup-grid">
-      ${[['tutor','💡 Tutor Mode','See explanations immediately after each answer.'],['timed','⏱️ Timed Mode','Simulate exam pressure. Explanations after the session.']].map(([id,title,desc])=>`
+      ${[['tutor','Tutor Mode','See explanations immediately after each answer.'],['timed',' Timed Mode','Simulate exam pressure. Explanations after the session.']].map(([id,title,desc])=>`
       <div class="setup-card ${mode===id?'active':''}" onclick="setMode('${id}')">
         <div class="setup-card-title">${title}</div>
         <div class="setup-card-desc">${desc}</div>
@@ -514,7 +514,7 @@ async function showSetup(){
 
     <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:left;">Topic <span style="font-style:normal;letter-spacing:0;text-transform:none;font-size:11px;background:var(--violet-lt);color:var(--violet);padding:2px 8px;border-radius:10px;margin-left:6px;">Adaptive ✦</span></div>
     <div class="topic-select">
-      <button class="topic-btn ${topic===''?'active':''}" onclick="setTopic('')">🎯 Adaptive (recommended)</button>
+      <button class="topic-btn ${topic===''?'active':''}" onclick="setTopic('')">Adaptive (recommended)</button>
       ${TOPICS.map(t=>{
         const a=acc[t]??50;
         const bar=a<60?'🔴':a<80?'🟡':'🟢';
@@ -570,7 +570,7 @@ async function startSpacedSession(){
   const qs=await getSpacedRepQuestions();
   if(!qs?.length){
     document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;text-align:center;">
-      <div style="font-size:32px;">✅</div>
+      <div style="font-size:32px;">✓</div>
       <div style="font-weight:600;">You're all caught up!</div>
       <div style="font-size:13px;color:var(--muted)">No questions due for review right now.</div>
       <button onclick="startSession()" class="btn btn-dark">Start normal session →</button>
@@ -633,7 +633,7 @@ function renderQuestion(){
         </div>
       </div>
       <div class="expl" id="expl">
-        <div class="expl-title">✅ Explanation</div>
+        <div class="expl-title">Explanation</div>
         <div class="expl-body" id="explBody"></div>
         ${renderAIBox(q)}
       </div>
@@ -648,7 +648,7 @@ function renderQuestion(){
     <div class="side-panel">
       <div class="info-card">
         <div class="info-title">Session info</div>
-        <div class="info-row"><span class="info-key">Mode</span><span class="info-val">${mode==='tutor'?'💡 Tutor':'⏱️ Timed'}</span></div>
+        <div class="info-row"><span class="info-key">Mode</span><span class="info-val">${mode==='tutor'?'Tutor':' Timed'}</span></div>
         <div class="info-row"><span class="info-key">Session</span><span class="info-val">${sessionMode==='spaced'?'🔁 Spaced review':'✦ Adaptive'}</span></div>
         <div class="info-row"><span class="info-key">Topic</span><span class="info-val" style="font-size:12px;">${topic||'Adaptive mix'}</span></div>
         <div class="info-row"><span class="info-key">Progress</span><span class="info-val">${currentIdx+1} / ${questions.length}</span></div>
@@ -656,7 +656,7 @@ function renderQuestion(){
       </div>
       ${adaptiveSidebar}
       <div class="info-card">
-        <div class="info-title" style="margin-bottom:8px;">💡 Tips</div>
+        <div class="info-title" style="margin-bottom:8px;">Tips</div>
         <div style="font-size:12.5px;color:var(--slate);line-height:1.7;">
           ${mode==='tutor'?'<strong>Tutor mode:</strong> Read the explanation carefully after each question — then use the AI tutor to ask for a simpler explanation or memory aid.':'<strong>Timed mode:</strong> Work at exam pace — around 50 seconds per question. Explanations appear at the end.'}
           ${isEMQ?'<br><br><strong>EMQ:</strong> Read all options first, then match to the scenario.':''}
@@ -753,7 +753,7 @@ function showComplete(){
         return`<div style="border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;margin-bottom:10px;background:var(--surface);">
           <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">Q${i+1} · ${q.topic}</div>
           <div style="font-size:14px;color:var(--ink2);margin-bottom:10px;">${q.stem.substring(0,120)}${q.stem.length>120?'…':''}</div>
-          <div style="font-size:13px;color:var(--teal);font-weight:600;">✅ ${String.fromCharCode(65+q.correct_answer)}. ${opts[q.correct_answer]||''}</div>
+          <div style="font-size:13px;color:var(--teal);font-weight:600;">${String.fromCharCode(65+q.correct_answer)}. ${opts[q.correct_answer]||''}</div>
           <div style="margin-top:10px;font-size:13px;color:var(--slate);">${formatExplanation(q.explanation)}</div>
         </div>`;
       }).join('')}
@@ -854,7 +854,7 @@ function renderAIBox(question){
     </div>
     <div class="ai-box-body" id="aiBoxBody">
       <div class="ai-presets">
-        <div class="ai-preset" onclick="askAI('Explain this using a simple analogy or memory aid')">💡 Give me a memory aid</div>
+        <div class="ai-preset" onclick="askAI('Explain this using a simple analogy or memory aid')">Give me a memory aid</div>
         <div class="ai-preset" onclick="askAI('Describe a real clinical scenario where a doctor would encounter this')">🏥 Clinical scenario</div>
         <div class="ai-preset" onclick="askAI('Explain the underlying mechanism in simple terms')">⚙️ Underlying mechanism</div>
         <div class="ai-preset" onclick="askAI('What are the top 3 exam tips for this topic?')">📋 Exam tips</div>
@@ -1089,7 +1089,7 @@ async function showSetup(){
 
     <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:left;">Mode</div>
     <div class="setup-grid">
-      ${[['tutor','💡 Tutor Mode','See explanations immediately after each answer.'],['timed','⏱️ Timed Mode','Simulate exam pressure. Explanations after the session.']].map(([id,title,desc])=>`
+      ${[['tutor','Tutor Mode','See explanations immediately after each answer.'],['timed',' Timed Mode','Simulate exam pressure. Explanations after the session.']].map(([id,title,desc])=>`
       <div class="setup-card ${mode===id?'active':''}" onclick="setMode('${id}')">
         <div class="setup-card-title">${title}</div>
         <div class="setup-card-desc">${desc}</div>
@@ -1098,7 +1098,7 @@ async function showSetup(){
 
     <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;text-align:left;">Topic <span style="font-style:normal;letter-spacing:0;text-transform:none;font-size:11px;background:var(--violet-lt);color:var(--violet);padding:2px 8px;border-radius:10px;margin-left:6px;">Adaptive ✦</span></div>
     <div class="topic-select">
-      <button class="topic-btn ${topic===''?'active':''}" onclick="setTopic('')">🎯 Adaptive (recommended)</button>
+      <button class="topic-btn ${topic===''?'active':''}" onclick="setTopic('')">Adaptive (recommended)</button>
       ${TOPICS.map(t=>{
         const a=acc[t]??50;
         const bar=a<60?'🔴':a<80?'🟡':'🟢';
@@ -1154,7 +1154,7 @@ async function startSpacedSession(){
   const qs=await getSpacedRepQuestions();
   if(!qs?.length){
     document.getElementById('appRoot').innerHTML=`<div class="loading-full" style="flex-direction:column;gap:12px;text-align:center;">
-      <div style="font-size:32px;">✅</div>
+      <div style="font-size:32px;">✓</div>
       <div style="font-weight:600;">You're all caught up!</div>
       <div style="font-size:13px;color:var(--muted)">No questions due for review right now.</div>
       <button onclick="startSession()" class="btn btn-dark">Start normal session →</button>
@@ -1217,7 +1217,7 @@ function renderQuestion(){
         </div>
       </div>
       <div class="expl" id="expl">
-        <div class="expl-title">✅ Explanation</div>
+        <div class="expl-title">Explanation</div>
         <div class="expl-body" id="explBody"></div>
         ${renderAIBox(q)}
       </div>
@@ -1232,7 +1232,7 @@ function renderQuestion(){
     <div class="side-panel">
       <div class="info-card">
         <div class="info-title">Session info</div>
-        <div class="info-row"><span class="info-key">Mode</span><span class="info-val">${mode==='tutor'?'💡 Tutor':'⏱️ Timed'}</span></div>
+        <div class="info-row"><span class="info-key">Mode</span><span class="info-val">${mode==='tutor'?'Tutor':' Timed'}</span></div>
         <div class="info-row"><span class="info-key">Session</span><span class="info-val">${sessionMode==='spaced'?'🔁 Spaced review':'✦ Adaptive'}</span></div>
         <div class="info-row"><span class="info-key">Topic</span><span class="info-val" style="font-size:12px;">${topic||'Adaptive mix'}</span></div>
         <div class="info-row"><span class="info-key">Progress</span><span class="info-val">${currentIdx+1} / ${questions.length}</span></div>
@@ -1240,7 +1240,7 @@ function renderQuestion(){
       </div>
       ${adaptiveSidebar}
       <div class="info-card">
-        <div class="info-title" style="margin-bottom:8px;">💡 Tips</div>
+        <div class="info-title" style="margin-bottom:8px;">Tips</div>
         <div style="font-size:12.5px;color:var(--slate);line-height:1.7;">
           ${mode==='tutor'?'<strong>Tutor mode:</strong> Read the explanation carefully after each question — then use the AI tutor to ask for a simpler explanation or memory aid.':'<strong>Timed mode:</strong> Work at exam pace — around 50 seconds per question. Explanations appear at the end.'}
           ${isEMQ?'<br><br><strong>EMQ:</strong> Read all options first, then match to the scenario.':''}
@@ -1337,7 +1337,7 @@ function showComplete(){
         return`<div style="border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;margin-bottom:10px;background:var(--surface);">
           <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">Q${i+1} · ${q.topic}</div>
           <div style="font-size:14px;color:var(--ink2);margin-bottom:10px;">${q.stem.substring(0,120)}${q.stem.length>120?'…':''}</div>
-          <div style="font-size:13px;color:var(--teal);font-weight:600;">✅ ${String.fromCharCode(65+q.correct_answer)}. ${opts[q.correct_answer]||''}</div>
+          <div style="font-size:13px;color:var(--teal);font-weight:600;">${String.fromCharCode(65+q.correct_answer)}. ${opts[q.correct_answer]||''}</div>
           <div style="margin-top:10px;font-size:13px;color:var(--slate);">${formatExplanation(q.explanation)}</div>
         </div>`;
       }).join('')}

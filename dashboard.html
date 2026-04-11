@@ -6,7 +6,8 @@
 <title>Dashboard — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>:root{
+<style>
+:root{
   --pu-dark:#3d1f7a;
   --pu-mid:#7c5cbf;
   --pu-light:#a78bfa;
@@ -187,53 +188,68 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-ok.show{display:block;}
 .alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--red);margin-bottom:13px;display:none;}
 .alert-err.show{display:block;}
-</style>
-<style>
+
+
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px;}
 .two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-bottom:14px;}
 .topics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px;}
-.topic-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:10px;padding:12px;cursor:pointer;text-decoration:none;display:block;transition:all 0.15s;}
+.topic-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:10px;padding:12px;text-decoration:none;display:block;transition:all 0.15s;}
 .topic-card:hover{border-color:var(--pu-light);transform:translateY(-1px);}
+.topic-name{font-size:12px;font-weight:600;color:var(--pu-dark);margin-bottom:1px;line-height:1.3;}
+.topic-count{font-size:10.5px;color:var(--muted);margin-bottom:6px;}
+.badges-wrap{display:flex;flex-wrap:wrap;gap:10px;}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.badge-ico-wrap{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.badge-ico-wrap svg{width:18px;height:18px;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.badge-name{font-size:9px;color:var(--muted);text-align:center;max-width:60px;line-height:1.3;}
+.badge-item.locked .badge-ico-wrap{filter:grayscale(1);opacity:0.25;}
+
 </style>
 </head>
 <body>
-<aside class="sb">
-  <div class="sb-logo" style="padding:16px 14px 14px;"><svg width="90" height="34" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div><div class="sb-name">Ossify</div></div>
-  <div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv on" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
-    <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a></div>
-  <div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="question-bank.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Question Bank</a>
-    <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
-    <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
-    <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head Duel</a></div>
-  <div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
-    <a class="nv" href="pricing.html"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscription</a></div>
-  <div class="sb-sec">
-    <div class="sb-lbl">Help</div>
+<aside class="sb"><div class="sb-logo" style="padding:14px;"><svg width="90" height="34" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div><div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv on" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a><a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a><div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a><a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a><a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a><div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a></div><div class="sb-sec"><div class="sb-lbl">Help</div>
     <a class="nv" href="keys-to-success.html" target="_blank"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
     <a class="nv" href="faq.html" target="_blank"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
-  </div>
-  <div class="sb-foot">
+    <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
+    </div><div class="sb-foot">
     <div class="sb-av-row"><div class="sb-av" id="userAv">?</div><div><div class="sb-uname" id="userName">Loading…</div><div class="sb-usub" id="userUsername"></div></div></div>
-    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
+    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
     <button class="sb-signout" onclick="signOut()">Sign out</button>
-  </div>
-</aside>
+    </div></aside>
 <div class="main">
   <div class="topbar">
     <div class="tb-title">Dashboard</div>
     <div class="tb-r">
-      <div class="chip chip-pk" id="topbarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
-      <div class="chip chip-pu" id="topbarXp"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
+      <div class="chip chip-pk" id="topbarStreak"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
+      <div class="chip chip-pu" id="topbarXp"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
       <a href="practice.html" class="btn-cta"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
     </div>
   </div>
-  <div class="content" id="mainContent"><div class="loading-full">Loading your dashboard…</div></div>
+  <div class="content" id="pageContent">
+    <div class="loading-full">Loading your dashboard…</div>
+  </div>
 </div>
 <script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
 
-const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
-const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function updateTopbar(profile){
+  const streak = profile?.current_streak||0;
+  const xp = profile?.xp||0;
+  document.getElementById('topbarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day`;
+  document.getElementById('topbarXp').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${xp} XP`;
+  document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
+}
+function setUserInfo(name, username){
+  const initials = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userAv').textContent = initials;
+  document.getElementById('userName').textContent = name;
+  if(username) document.getElementById('userUsername').textContent = '@'+username;
+}
+
+
+
+
 const TOPICS=[{id:'Paediatrics',ico:'👶',color:'#ea580c'},{id:'Pharmacology & Therapeutics',ico:'💊',color:'#0891b2'},{id:'Psychiatry / Neurology',ico:'🧠',color:'#7c3aed'},{id:'Renal / Urology',ico:'🫘',color:'#0d7377'},{id:'Reproductive',ico:'🤰',color:'#db2777'},{id:'Respiratory',ico:'🫁',color:'#059669'},{id:'Cardiovascular',ico:'❤️',color:'#e11d48'},{id:'Dermatology / ENT / Eyes',ico:'👁️',color:'#7c2d12'},{id:'Endocrinology / Metabolic',ico:'⚗️',color:'#ca8a04'},{id:'Gastroenterology / Nutrition',ico:'🫀',color:'#16a34a'},{id:'Infectious Disease / Haematology / Immunology / Allergies / Genetics',ico:'🦠',color:'#6d28d9'},{id:'Musculoskeletal',ico:'🦴',color:'#b45309'}];
 const ALL_BADGES=[{key:'first_correct',name:'First Blood',ico:'🎯',xp:10},{key:'streak_3',name:'On a Roll',ico:'🔥',xp:25},{key:'streak_7',name:'Week Warrior',ico:'🔥',xp:75},{key:'streak_30',name:'Iron Discipline',ico:'💎',xp:300},{key:'q_50',name:'Getting Started',ico:'📋',xp:50},{key:'q_100',name:'Century',ico:'💯',xp:100},{key:'q_500',name:'Dedicated',ico:'⭐',xp:250},{key:'perfect_10',name:'Perfect Ten',ico:'✨',xp:100},{key:'accuracy_80',name:'Sharp Mind',ico:'🧠',xp:150},{key:'top_10',name:'Top 10',ico:'🥈',xp:100},{key:'weekly_winner',name:'Weekly Champion',ico:'🏆',xp:200},{key:'duel_winner',name:'Duel Victor',ico:'⚔️',xp:75}];
 
@@ -369,14 +385,15 @@ async function init(){
       </div>
     </div>
   </div>
-  <div class="sec-row"><div class="sec-h">All topics</div><a href="question-bank.html" class="sec-a">Browse all →</a></div>
+  <div class="sec-row"><div class="sec-h">All topics</div><a href="practice.html" class="sec-a">Browse all →</a></div>
   <div class="topics-grid" style="margin-bottom:14px;">
     ${TOPICS.map(t=>`<a href="practice.html?topic=${encodeURIComponent(t.id)}" class="topic-card"><div class="topic-name">${t.id}</div><div class="topic-count">100 questions</div><div class="tp-bar"><div class="tp-fill" style="width:0%;background:var(--pu-mid);"></div></div></a>`).join('')}
   </div>
 `
 }
-function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+
 init();
+
 
 </script>
 </body>

@@ -6,7 +6,8 @@
 <title>Weekly Challenge — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>:root{
+<style>
+:root{
   --pu-dark:#3d1f7a;
   --pu-mid:#7c5cbf;
   --pu-light:#a78bfa;
@@ -187,47 +188,110 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-ok.show{display:block;}
 .alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--red);margin-bottom:13px;display:none;}
 .alert-err.show{display:block;}
-</style>
 
+
+.wk-hero{background:var(--pu-dark);border-radius:14px;padding:22px 26px;margin-bottom:16px;position:relative;overflow:hidden;}
+.wk-hero::after{content:'';position:absolute;right:-10px;top:-10px;width:100px;height:100px;border-radius:50%;background:rgba(167,139,250,0.1);}
+.wk-hero-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:6px;}
+.wk-hero h2{font-family:var(--font-serif);font-size:22px;color:#fff;margin-bottom:6px;}
+.wk-hero p{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.6;max-width:500px;}
+.wk-meta{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.wk-pill{font-size:11px;font-weight:500;background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);padding:4px 11px;border-radius:20px;display:flex;align-items:center;gap:5px;}
+.wk-pill svg{width:12px;height:12px;fill:none;stroke:rgba(255,255,255,0.6);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.wk-countdown{background:rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;margin-top:14px;display:flex;align-items:center;gap:8px;}
+.wk-countdown svg{width:15px;height:15px;fill:none;stroke:var(--pu-light);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.wk-countdown-text{font-size:13px;color:rgba(255,255,255,0.7);}
+.wk-countdown-time{font-family:var(--font-serif);font-size:16px;color:var(--pu-light);font-weight:400;}
+.wk-main-btn{background:var(--pu-light);color:var(--pu-dark);border:none;border-radius:10px;padding:12px 24px;font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all 0.15s;margin-top:14px;text-decoration:none;}
+.wk-main-btn:hover{background:#fff;}
+.wk-main-btn svg{width:14px;height:14px;fill:none;stroke:var(--pu-dark);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.wk-main-btn.disabled{opacity:0.4;cursor:not-allowed;}
+.wk-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+.wk-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;}
+.wk-card-hdr{padding:14px 18px 12px;border-bottom:0.5px solid var(--lav-border);display:flex;align-items:center;gap:8px;}
+.wk-card-hdr svg{width:16px;height:16px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.wk-card-title{font-size:14px;font-weight:600;color:var(--pu-dark);}
+.wk-card-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.wk-lb-row{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:0.5px solid rgba(180,150,220,0.1);}
+.wk-lb-row:last-child{border-bottom:none;}
+.wk-lb-rank{font-size:13px;font-weight:600;color:var(--muted);width:24px;flex-shrink:0;}
+.wk-lb-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#fff;flex-shrink:0;}
+.wk-lb-name{font-size:13px;font-weight:500;color:var(--pu-dark);flex:1;}
+.wk-lb-score{font-size:13px;font-weight:600;color:var(--pu-mid);}
+.wk-how-item{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:0.5px solid rgba(180,150,220,0.1);}
+.wk-how-item:last-child{border-bottom:none;}
+.wk-how-ico{width:32px;height:32px;border-radius:8px;background:var(--pu-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wk-how-ico svg{width:15px;height:15px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.wk-how-title{font-size:13px;font-weight:600;color:var(--pu-dark);margin-bottom:2px;}
+.wk-how-desc{font-size:12px;color:var(--moss);line-height:1.5;}
+/* Question UI */
+.q-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;padding:20px;margin-bottom:14px;}
+.q-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.q-num{font-size:12px;font-weight:600;color:var(--muted);}
+.q-topic{font-size:11px;background:var(--pu-pale);color:var(--pu-mid);padding:3px 10px;border-radius:20px;}
+.q-stem{font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:18px;font-weight:500;}
+.q-opts{display:flex;flex-direction:column;gap:8px;}
+.q-opt{padding:12px 16px;border:1.5px solid var(--lav-border);border-radius:10px;font-size:14px;color:var(--moss);cursor:pointer;transition:all 0.15s;background:#fff;text-align:left;font-family:var(--font-sans);}
+.q-opt:hover:not(:disabled){border-color:var(--pu-light);background:var(--pu-pale);color:var(--pu-dark);}
+.q-opt.selected{border-color:var(--pu-mid);background:var(--pu-pale);color:var(--pu-dark);}
+.q-opt.correct{border-color:#2a5a2a;background:#e2f4e2;color:#1a3a1a;}
+.q-opt.wrong{border-color:var(--red);background:var(--pk-pale);color:var(--red);}
+.q-exp{background:var(--pu-pale);border-left:3px solid var(--pu-mid);padding:14px 16px;border-radius:0 10px 10px 0;margin-top:14px;font-size:13.5px;color:var(--pu-dark);line-height:1.7;}
+.q-nav{display:flex;align-items:center;justify-content:space-between;margin-top:12px;}
+.btn-next{background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:10px 22px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);}
+.progress-bar-wrap{height:5px;background:var(--pu-pale);border-radius:5px;overflow:hidden;margin-bottom:16px;}
+.progress-bar-fill{height:100%;background:var(--pu-mid);border-radius:5px;transition:width 0.3s;}
+.wk-results{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;padding:32px;text-align:center;}
+.wk-results h2{font-family:var(--font-serif);font-size:28px;color:var(--pu-dark);margin-bottom:8px;}
+.wk-results .score{font-family:var(--font-serif);font-size:56px;color:var(--pu-mid);font-weight:400;line-height:1;margin:16px 0 8px;}
+.wk-results p{font-size:15px;color:var(--moss);}
+
+</style>
 </head>
 <body>
-<aside class="sb">
-  <div class="sb-logo" style="padding:16px 14px 14px;"><svg width="90" height="34" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div><div class="sb-name">Ossify</div></div>
-  <div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
-    <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a></div>
-  <div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="question-bank.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Question Bank</a>
-    <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
-    <a class="nv on" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
-    <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head Duel</a></div>
-  <div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
-    <a class="nv" href="pricing.html"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscription</a></div>
-  <div class="sb-sec">
-    <div class="sb-lbl">Help</div>
+<aside class="sb"><div class="sb-logo" style="padding:14px;"><svg width="90" height="34" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div><div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a><a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a><div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a><a class="nv on" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a><a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a><div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a></div><div class="sb-sec"><div class="sb-lbl">Help</div>
     <a class="nv" href="keys-to-success.html" target="_blank"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
     <a class="nv" href="faq.html" target="_blank"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
-  </div>
-  <div class="sb-foot">
+    <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
+    </div><div class="sb-foot">
     <div class="sb-av-row"><div class="sb-av" id="userAv">?</div><div><div class="sb-uname" id="userName">Loading…</div><div class="sb-usub" id="userUsername"></div></div></div>
-    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
+    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
     <button class="sb-signout" onclick="signOut()">Sign out</button>
-  </div>
-</aside>
+    </div></aside>
 <div class="main">
   <div class="topbar">
     <div class="tb-title">Weekly Challenge</div>
     <div class="tb-r">
-      <div class="chip chip-pk" id="topbarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
-      <div class="chip chip-pu" id="topbarXp"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
+      <div class="chip chip-pk" id="topbarStreak"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
+      <div class="chip chip-pu" id="topbarXp"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
       
     </div>
   </div>
-  <div class="content" id="mainContent"><div class="loading-full">Loading…</div></div>
+  <div class="content" id="pageContent">
+    
+  </div>
 </div>
 <script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
 
-const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
-const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function updateTopbar(profile){
+  const streak = profile?.current_streak||0;
+  const xp = profile?.xp||0;
+  document.getElementById('topbarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day`;
+  document.getElementById('topbarXp').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${xp} XP`;
+  document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
+}
+function setUserInfo(name, username){
+  const initials = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userAv').textContent = initials;
+  document.getElementById('userName').textContent = name;
+  if(username) document.getElementById('userUsername').textContent = '@'+username;
+}
+
+
+
+
 
 let user=null, profile=null, questions=[], currentQ=0, score=0, answered=0, selected=null, isAnswered=false;
 let startTime=null, elapsed=0, timerInterval=null;
@@ -289,57 +353,83 @@ async function init(){
   renderLobby(challenge, entry, entries, profileMap, weekStart);
 }
 
-function renderLobby(challenge, myEntry, entries, profileMap, weekStart){
-  const cd=getCountdown();
-  const colors=['#e11d48','#0891b2','#7c3aed','#059669','#d97706','#db2777'];
-  const medals=['🥇','🥈','🥉'];
-  document.getElementById('mainContent').innerHTML=`
-  <div class="weekly-hero">
-    <div class="wh-tag">Weekly · Resets every Monday</div>
-    <div class="wh-title">Weekly <span>Challenge</span></div>
-    <div class="wh-sub">20 questions — the same set for every Ossify user this week. Ranked by accuracy, then speed. Complete it before Monday to appear on the leaderboard.</div>
-    <div class="wh-meta"><span class="wh-pill">📋 20 Questions</span><span class="wh-pill">⏱️ Speed matters</span><span class="wh-pill">🌍 Same for everyone</span><span class="wh-pill">🏆 Weekly leaderboard</span></div>
-    <div class="countdown"><div class="cd-unit"><div class="cd-num">${cd.d}</div><div class="cd-lbl">Days</div></div><div class="cd-sep">:</div><div class="cd-unit"><div class="cd-num">${String(cd.h).padStart(2,'0')}</div><div class="cd-lbl">Hours</div></div><div class="cd-sep">:</div><div class="cd-unit"><div class="cd-num">${String(cd.m).padStart(2,'0')}</div><div class="cd-lbl">Mins</div></div><div style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.4)">until reset</div></div>
-    ${myEntry?`<div style="background:rgba(13,115,119,0.2);border:1px solid rgba(13,115,119,0.3);border-radius:var(--r-sm);padding:10px 16px;color:#4dd0c4;font-size:13.5px;font-weight:600;display:inline-block;">✅ You've completed this week's challenge — score: ${myEntry.score}/${myEntry.total}</div>`:`<button class="start-btn" onclick="startChallenge(${JSON.stringify(challenge?.question_ids||[])})">⚡ Start Challenge →</button>`}
-  </div>
-  <div class="two-col">
-    <div class="card">
-      <div class="card-hdr"><div><div class="card-title">🏆 This Week's Leaderboard</div><div class="card-sub">Week of ${weekStart}</div></div></div>
-      <div>
-        ${!entries?.length?`<div style="padding:32px;text-align:center;color:var(--muted);font-size:14px;">No entries yet — be the first to complete this week's challenge!</div>`:`
-        <div style="display:grid;grid-template-columns:40px 1fr 80px 70px;padding:10px 20px;font-size:11px;color:var(--muted);border-bottom:1px solid rgba(10,15,26,0.05);text-transform:uppercase;letter-spacing:1px;"><div>Rank</div><div>Doctor</div><div>Score</div><div>Time</div></div>
-        ${entries.map((e,i)=>{
-          const p=profileMap[e.user_id]||{};
-          const name=p.full_name||'Doctor';
-          const mins=Math.floor(e.time_taken/60);
-          const secs=e.time_taken%60;
-          return`<div class="lb-row ${e.user_id===user.id?'me':''}">
-            <div class="lb-rank">${i<3?medals[i]:i+1}</div>
-            <div class="lb-user"><div class="lb-av" style="background:${colors[i%colors.length]}">${name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div><div><div class="lb-name">${name}${e.user_id===user.id?' <span style="font-size:10px;background:rgba(124,58,237,0.12);color:var(--violet);padding:1px 7px;border-radius:10px;font-weight:700">You</span>':''}</div><div class="lb-meta">${p.hospital_trust||''}</div></div></div>
-            <div class="lb-score">${e.score}/${e.total}</div>
-            <div class="lb-time">${mins}m ${String(secs).padStart(2,'0')}s</div>
-          </div>`;
-        }).join('')}`}
-      </div>
+function renderLobby(challenge, entry, weeklyLb){
+  const now=new Date();
+  const weekStart=getWeekStart();
+  const weekEnd=new Date(weekStart);
+  weekEnd.setDate(weekEnd.getDate()+7);
+  const timeLeft=weekEnd-now;
+  const days=Math.floor(timeLeft/(1000*60*60*24));
+  const hours=Math.floor((timeLeft%(1000*60*60*24))/(1000*60*60));
+  const mins=Math.floor((timeLeft%(1000*60*60))/(1000*60));
+  const countdownStr=`${days}d ${hours}h ${mins}m remaining`;
+  const weekLabel=weekStart.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  const done=!!entry;
+  const lbRows=(weeklyLb||[]).slice(0,5).map((e,i)=>{
+    const initials=(e.profiles?.full_name||e.profiles?.email||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+    const cols=['#7c5cbf','#9b6fd4','#6366f1','#818cf8','#a78bfa'];
+    return`<div class="wk-lb-row">
+      <div class="wk-lb-rank">${i+1<=3?['🥇','🥈','🥉'][i]:i+1}</div>
+      <div class="wk-lb-av" style="background:${cols[i%cols.length]}">${initials}</div>
+      <div class="wk-lb-name">${e.profiles?.full_name||e.profiles?.email?.split('@')[0]||'Doctor'}</div>
+      <div class="wk-lb-score">${e.score}%</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('pageContent').innerHTML=`
+  <div class="wk-hero">
+    <div class="wk-hero-tag">Weekly · Resets every Monday</div>
+    <h2>Weekly Challenge</h2>
+    <p>20 questions — the same set for every Ossify user this week. Ranked by accuracy, then speed. Complete it before Monday to appear on the leaderboard.</p>
+    <div class="wk-meta">
+      <div class="wk-pill"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> 20 Questions</div>
+      <div class="wk-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Speed matters</div>
+      <div class="wk-pill"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Same for everyone</div>
+      <div class="wk-pill"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Weekly leaderboard</div>
     </div>
-    <div class="card">
-      <div class="card-hdr"><div class="card-title">📋 How It Works</div></div>
-      <div class="card-body" style="display:flex;flex-direction:column;gap:14px;">
-        ${[['⚡','Same questions for everyone','Every Ossify user gets the same 20 questions each week — so the leaderboard is a true measure of skill.'],['⏱️','Speed is a tiebreaker','If two doctors score the same accuracy, the faster one ranks higher.'],['🏆','Win badges and XP','Top the weekly leaderboard and earn the Weekly Champion badge (200 XP).'],['🔄','Resets every Monday','New questions every Monday at midnight. Your history is saved.']].map(([ico,t,d])=>`<div style="display:flex;gap:12px;align-items:flex-start;"><div style="font-size:20px;flex-shrink:0;margin-top:2px;">${ico}</div><div><div style="font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:3px;">${t}</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55;">${d}</div></div></div>`).join('')}
+    <div class="wk-countdown">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="wk-countdown-text">Week of ${weekLabel} &nbsp;·&nbsp; <span class="wk-countdown-time">${countdownStr}</span></div>
+    </div>
+    ${!done?`<button class="wk-main-btn" onclick="startChallenge()">
+      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Start Challenge
+    </button>`:`<div class="wk-main-btn disabled">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      Completed this week — ${entry.score}% accuracy
+    </div>`}
+  </div>
+  <div class="wk-grid">
+    <div class="wk-card">
+      <div class="wk-card-hdr">
+        <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        <div><div class="wk-card-title">This week's leaderboard</div><div class="wk-card-sub">Week of ${weekLabel}</div></div>
+      </div>
+      ${lbRows||'<div class="empty-state" style="padding:24px;">No entries yet — be the first!</div>'}
+    </div>
+    <div class="wk-card">
+      <div class="wk-card-hdr">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div><div class="wk-card-title">How it works</div></div>
+      </div>
+      <div class="wk-how-item">
+        <div class="wk-how-ico"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+        <div><div class="wk-how-title">Same questions for everyone</div><div class="wk-how-desc">Every Ossify user gets the same 20 questions each week — so the leaderboard is a true measure of skill.</div></div>
+      </div>
+      <div class="wk-how-item">
+        <div class="wk-how-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><div class="wk-how-title">Speed is a tiebreaker</div><div class="wk-how-desc">If two doctors score the same accuracy, the faster one ranks higher.</div></div>
+      </div>
+      <div class="wk-how-item">
+        <div class="wk-how-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div><div class="wk-how-title">Win badges and XP</div><div class="wk-how-desc">Top the weekly leaderboard and earn the Weekly Champion badge (200 XP).</div></div>
+      </div>
+      <div class="wk-how-item">
+        <div class="wk-how-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div><div class="wk-how-title">Resets every Monday</div><div class="wk-how-desc">New questions every Monday at midnight. Your history is saved.</div></div>
       </div>
     </div>
   </div>`;
-}
-
-async function startChallenge(qIds){
-  if(!qIds?.length){alert('No questions available for this week yet.');return;}
-  const{data:qs}=await sb.from('questions').select('*').in('id',qIds);
-  if(!qs?.length){alert('Could not load questions.');return;}
-  questions=qs;currentQ=0;score=0;answered=0;selected=null;isAnswered=false;
-  startTime=Date.now();elapsed=0;
-  if(timerInterval)clearInterval(timerInterval);
-  timerInterval=setInterval(()=>{elapsed=Math.floor((Date.now()-startTime)/1000);const el=document.getElementById('timerDisplay');if(el){const m=Math.floor(elapsed/60);const s=elapsed%60;el.textContent=`${m}:${String(s).padStart(2,'0')}`;} },1000);
-  renderQuestion();
 }
 
 function renderQuestion(){
@@ -409,8 +499,9 @@ async function finishChallenge(){
 }
 
 function showError(){document.getElementById('mainContent').innerHTML='<div class="loading-full">Could not load challenge. <a href="dashboard.html" style="color:var(--gold);margin-left:8px;">← Back</a></div>';}
-function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+
 init();
+
 
 </script>
 </body>

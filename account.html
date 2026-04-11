@@ -6,7 +6,8 @@
 <title>My Profile — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>:root{
+<style>
+:root{
   --pu-dark:#3d1f7a;
   --pu-mid:#7c5cbf;
   --pu-light:#a78bfa;
@@ -187,195 +188,280 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-ok.show{display:block;}
 .alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--red);margin-bottom:13px;display:none;}
 .alert-err.show{display:block;}
-</style>
 
+
+.acc-layout{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:start;}
+.acc-sidenav{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;position:sticky;top:72px;}
+.acc-sidenav-item{display:flex;align-items:center;gap:9px;padding:11px 16px;font-size:13px;font-weight:500;color:var(--moss);cursor:pointer;border-left:2px solid transparent;transition:all 0.15s;}
+.acc-sidenav-item svg{width:15px;height:15px;fill:none;stroke:var(--moss);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.acc-sidenav-item:hover{color:var(--pu-dark);background:var(--pu-ultra);}
+.acc-sidenav-item.active{color:var(--pu-mid);border-left-color:var(--pu-mid);background:var(--pu-pale);}
+.acc-sidenav-item.active svg{stroke:var(--pu-mid);}
+.acc-section{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;margin-bottom:14px;}
+.acc-section-hdr{padding:16px 20px;border-bottom:0.5px solid var(--lav-border);}
+.acc-section-title{font-size:15px;font-weight:600;color:var(--pu-dark);}
+.acc-section-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.acc-section-body{padding:20px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.form-group input{width:100%;padding:10px 14px;border:1px solid var(--lav-border);border-radius:9px;font-size:14px;color:var(--ink);font-family:var(--font-sans);outline:none;background:#fff;transition:border-color 0.15s;}
+.form-group input:focus{border-color:var(--pu-mid);}
+.form-group input:disabled{background:var(--lav);color:var(--muted);}
+.form-group input::placeholder{color:var(--muted);}
+.btn-save{background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:10px 22px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+.btn-save:hover{background:var(--pu-dark);}
+.btn-save svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.btn-outline-sm{background:none;color:var(--moss);border:1px solid var(--lav-border);border-radius:9px;padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all 0.15s;}
+.btn-outline-sm:hover{border-color:var(--pu-light);color:var(--pu-dark);}
+.acc-alert{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none;}
+.acc-alert.ok{background:var(--pu-pale);border:1px solid var(--pu-light);color:var(--pu-dark);}
+.acc-alert.err{background:var(--pk-pale);border:1px solid var(--pk-border);color:var(--red);}
+.acc-alert.show{display:block;}
+/* Subscription */
+.plan-card{border-radius:12px;padding:18px 20px;margin-bottom:14px;position:relative;overflow:hidden;}
+.plan-card.free{background:var(--lav);border:1px solid var(--lav-border);}
+.plan-card.paid{background:var(--pu-dark);border:none;}
+.plan-card.paid::after{content:'';position:absolute;right:-10px;top:-10px;width:80px;height:80px;border-radius:50%;background:rgba(167,139,250,0.15);}
+.plan-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:10px;}
+.plan-badge.free{background:var(--lav-border);color:var(--muted);}
+.plan-badge.paid{background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);}
+.plan-name{font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--pu-dark);margin-bottom:4px;}
+.plan-name.paid{color:#fff;}
+.plan-desc{font-size:13px;color:var(--moss);}
+.plan-desc.paid{color:rgba(255,255,255,0.5);}
+.plan-features{list-style:none;margin:14px 0;display:flex;flex-direction:column;gap:8px;}
+.plan-features li{display:flex;align-items:center;gap:8px;font-size:13px;}
+.plan-features li.included{color:var(--pu-dark);}
+.plan-features li.included svg{stroke:var(--pu-mid);}
+.plan-features li.locked{color:var(--muted);}
+.plan-features li.locked svg{stroke:var(--muted);}
+.plan-features.paid li{color:rgba(255,255,255,0.8);}
+.plan-features.paid li svg{stroke:var(--pu-light);}
+.plan-features li svg{width:14px;height:14px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.plan-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.btn-upgrade{background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:10px 22px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+.btn-upgrade:hover{background:var(--pu-dark);}
+.btn-upgrade svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.btn-upgrade-ghost{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.15);border-radius:9px;padding:10px 20px;font-size:13.5px;font-family:var(--font-sans);cursor:pointer;transition:all 0.15s;}
+.btn-upgrade-ghost:hover{background:rgba(255,255,255,0.18);}
+.pricing-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
+.mini-plan{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:12px;padding:16px;text-align:center;}
+.mini-plan.featured{border:2px solid var(--pu-light);background:#fff;}
+.mini-plan-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px;}
+.mini-plan-price{font-family:var(--font-serif);font-size:28px;color:var(--pu-dark);line-height:1;}
+.mini-plan-period{font-size:11px;color:var(--muted);margin-bottom:10px;}
+.mini-plan-btn{display:block;background:var(--pu-mid);color:#fff;border:none;border-radius:8px;padding:8px;font-size:12.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);text-decoration:none;transition:all 0.15s;}
+.mini-plan.featured .mini-plan-btn{background:var(--pu-dark);}
+.mini-plan-btn:hover{opacity:0.85;}
+.danger-section{background:#fff6f8;border:1px solid var(--pk-border);border-radius:12px;padding:16px 20px;}
+.danger-title{font-size:13.5px;font-weight:600;color:var(--red);margin-bottom:4px;}
+.danger-desc{font-size:13px;color:var(--moss);margin-bottom:12px;line-height:1.6;}
+.btn-danger{background:var(--red);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font-sans);}
+
+</style>
 </head>
 <body>
-<aside class="sb">
-  <div class="sb-logo" style="padding:16px 14px 14px;"><svg width="90" height="34" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div><div class="sb-name">Ossify</div></div>
-  <div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
-    <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a></div>
-  <div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="question-bank.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Question Bank</a>
-    <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
-    <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
-    <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head Duel</a></div>
-  <div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv on" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
-    <a class="nv" href="pricing.html"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscription</a></div>
-  <div class="sb-sec">
-    <div class="sb-lbl">Help</div>
+<aside class="sb"><div class="sb-logo" style="padding:14px;"><svg width="90" height="34" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div><div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a><a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a><div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a><a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a><a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a><div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv on" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a></div><div class="sb-sec"><div class="sb-lbl">Help</div>
     <a class="nv" href="keys-to-success.html" target="_blank"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
     <a class="nv" href="faq.html" target="_blank"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
-  </div>
-  <div class="sb-foot">
+    <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
+    </div><div class="sb-foot">
     <div class="sb-av-row"><div class="sb-av" id="userAv">?</div><div><div class="sb-uname" id="userName">Loading…</div><div class="sb-usub" id="userUsername"></div></div></div>
-    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
+    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day streak</div>
     <button class="sb-signout" onclick="signOut()">Sign out</button>
-  </div>
-</aside>
+    </div></aside>
 <div class="main">
   <div class="topbar">
     <div class="tb-title">My Profile</div>
     <div class="tb-r">
-      <div class="chip chip-pk" id="topbarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
-      <div class="chip chip-pu" id="topbarXp"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
+      <div class="chip chip-pk" id="topbarStreak"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
+      <div class="chip chip-pu" id="topbarXp"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
       
     </div>
   </div>
-  <div class="content" id="mainContent"><div class="loading-full">Loading…</div></div>
+  <div class="content" id="pageContent">
+    
+<div class="acc-layout">
+  <div class="acc-sidenav">
+    <div class="acc-sidenav-item active" onclick="showSection('profile')"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</div>
+    <div class="acc-sidenav-item" onclick="showSection('password')"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Password</div>
+    <div class="acc-sidenav-item" onclick="showSection('subscription')"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscription</div>
+    <div class="acc-sidenav-item" onclick="showSection('danger')"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Danger zone</div>
+  </div>
+  <div>
+    <!-- Profile -->
+    <div class="acc-section" data-section id="sec-profile">
+      <div class="acc-section-hdr"><div class="acc-section-title">Personal information</div><div class="acc-section-sub">Update your name, username, role and hospital.</div></div>
+      <div class="acc-section-body">
+        <div id="profileAlert" class="acc-alert"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Full name</label><input id="fName" type="text" placeholder="Dr. Jane Smith"></div>
+          <div class="form-group"><label>Username</label><input id="fUsername" type="text" placeholder="drjanesmith"></div>
+        </div>
+        <div class="form-group"><label>Email address</label><input id="fEmail" type="email" disabled></div>
+        <div class="form-row">
+          <div class="form-group"><label>Role / grade</label><input id="fRole" type="text" placeholder="FY2"></div>
+          <div class="form-group"><label>Hospital trust</label><input id="fHospital" type="text" placeholder="King's College Hospital NHS Trust"></div>
+        </div>
+        <button class="btn-save" id="saveProfileBtn" onclick="saveProfile()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Save changes</button>
+      </div>
+    </div>
+    <!-- Password -->
+    <div class="acc-section" data-section id="sec-password" style="display:none;">
+      <div class="acc-section-hdr"><div class="acc-section-title">Change password</div><div class="acc-section-sub">Choose a strong password of at least 8 characters.</div></div>
+      <div class="acc-section-body">
+        <div id="pwAlert" class="acc-alert"></div>
+        <div class="form-group"><label>New password</label><input id="fNewPw" type="password" placeholder="At least 8 characters"></div>
+        <div class="form-group"><label>Confirm new password</label><input id="fConfirmPw" type="password" placeholder="Repeat your new password"></div>
+        <button class="btn-save" onclick="updatePassword()"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Update password</button>
+      </div>
+    </div>
+    <!-- Subscription -->
+    <div class="acc-section" data-section id="sec-subscription" style="display:none;">
+      <div class="acc-section-hdr"><div class="acc-section-title">Subscription &amp; billing</div><div class="acc-section-sub">Manage your plan and access.</div></div>
+      <div class="acc-section-body"><div id="subContent"><div style="color:var(--muted);font-size:14px;">Loading…</div></div></div>
+    </div>
+    <!-- Danger -->
+    <div class="acc-section" data-section id="sec-danger" style="display:none;">
+      <div class="acc-section-hdr"><div class="acc-section-title">Danger zone</div><div class="acc-section-sub">Irreversible actions — proceed with care.</div></div>
+      <div class="acc-section-body">
+        <div class="danger-section">
+          <div class="danger-title">Delete account</div>
+          <div class="danger-desc">Permanently deletes your account, all progress, badges, and data. This cannot be undone. If you have an active subscription, please contact us first.</div>
+          <button class="btn-danger" onclick="if(confirm('Are you sure? This cannot be undone.'))alert('Please contact support to delete your account.')">Delete my account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
 </div>
 <script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
 
-const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
-const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function updateTopbar(profile){
+  const streak = profile?.current_streak||0;
+  const xp = profile?.xp||0;
+  document.getElementById('topbarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day`;
+  document.getElementById('topbarXp').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${xp} XP`;
+  document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
+}
+function setUserInfo(name, username){
+  const initials = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userAv').textContent = initials;
+  document.getElementById('userName').textContent = name;
+  if(username) document.getElementById('userUsername').textContent = '@'+username;
+}
+
+
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let myId=null;
 
 async function init(){
   const{data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='login.html';return;}
-  const user=session.user;
-  const name=user.user_metadata?.full_name||user.email.split('@')[0];
-  document.getElementById('userName').textContent=name;
-  document.getElementById('userAv').textContent=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
-  const{data:profile}=await sb.from('profiles').select('*').eq('id',user.id).single();
-  const{data:progress}=await sb.from('user_progress').select('*').eq('user_id',user.id);
-  const answered=progress?.length||0;
-  const correct=progress?.filter(p=>p.answered_correctly).length||0;
-  const accuracy=answered>0?Math.round((correct/answered)*100):0;
-  const flagged=progress?.filter(p=>p.flagged).length||0;
-  const isPaid=profile?.subscription_status==='active';
-  const expDate=profile?.subscription_expires_at?new Date(profile.subscription_expires_at).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'—';
-  const planName=profile?.subscription_plan?{['3month']:'3-Month Access',['6month']:'6-Month Access',['1year']:'1-Year Access'}[profile.subscription_plan]||profile.subscription_plan:'Free';
-
-  // Load and render badges
-  const{data:earnedBadges}=await sb.from('user_badges').select('badge_key').eq('user_id',user.id);
-  const earnedKeys=new Set((earnedBadges||[]).map(b=>b.badge_key));
-  const ALL_BADGES=[{key:'first_correct',name:'First Blood',ico:'🎯',desc:'Got your first correct answer'},{key:'streak_3',name:'On a Roll',ico:'🔥',desc:'3-day streak'},{key:'streak_7',name:'Week Warrior',ico:'🔥',desc:'7-day streak'},{key:'streak_30',name:'Iron Discipline',ico:'💎',desc:'30-day streak'},{key:'q_50',name:'Getting Started',ico:'📋',desc:'50 questions answered'},{key:'q_100',name:'Century',ico:'💯',desc:'100 questions answered'},{key:'q_500',name:'Dedicated',ico:'⭐',desc:'500 questions answered'},{key:'perfect_10',name:'Perfect Ten',ico:'✨',desc:'100% on a 10-question session'},{key:'accuracy_80',name:'Sharp Mind',ico:'🧠',desc:'80%+ overall accuracy'},{key:'top_10',name:'Top 10',ico:'🥈',desc:'Global top 10'},{key:'weekly_winner',name:'Weekly Champion',ico:'🏆',desc:'Won weekly challenge'},{key:'duel_winner',name:'Duel Victor',ico:'⚔️',desc:'Won a head-to-head duel'}];
-  document.getElementById('mainContent').innerHTML=`
-  <!-- PROFILE -->
-  <div class="card">
-    <div class="card-hdr"><div class="card-title">Profile</div></div>
-    <div class="card-body">
-      <div class="profile-row">
-        <div class="profile-av-lg">${name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div>
-        <div>
-          <div class="profile-name">${name}</div>
-          <div class="profile-email">${user.email}</div>
-        </div>
-      </div>
-      <div class="success-msg" id="profileSuccess"></div>
-      <div class="error-msg" id="profileError"></div>
-      <div class="info-grid">
-        <div class="form-group"><label>Full name</label><input type="text" id="nameInput" value="${name}"></div>
-        <div class="form-group"><label>Email</label><input type="email" value="${user.email}" disabled style="background:var(--surface3);color:var(--muted);"></div>
-        <div class="form-group"><label>Username <span style="font-size:11px;color:var(--muted);font-weight:400;">(visible on leaderboard)</span></label><input type="text" id="usernameInput" value="${profile?.username||''}" placeholder="e.g. drpatel92" maxlength="30"></div>
-        <div class="form-group"><label>Current role</label><input type="text" id="roleInput" value="${profile?.role||''}" placeholder="e.g. FY2, ST3 General Practice, SHO…"></div>
-        <div class="form-group" style="grid-column:1/-1"><label>Hospital trust</label><input type="text" id="trustInput" value="${profile?.hospital_trust||''}" placeholder="e.g. King's College Hospital NHS Foundation Trust"></div>
-      </div>
-      <button class="btn btn-dark" onclick="updateProfile()">Save changes</button>
-    </div>
-  </div>
-
-  <!-- SUBSCRIPTION -->
-  <div class="card">
-    <div class="card-hdr"><div class="card-title">Subscription</div></div>
-    <div class="card-body">
-      <div class="sub-status">
-        <div class="sub-ico">${isPaid?'✅':'🔒'}</div>
-        <div style="flex:1">
-          <div class="sub-plan">${isPaid?planName:'Free Account'}</div>
-          <div class="sub-detail">${isPaid?`Access expires: ${expDate}`:'No active subscription'}</div>
-        </div>
-        <div><span class="${isPaid?'sub-badge-active':'sub-badge-free'}">${isPaid?'Active':'Free'}</span></div>
-      </div>
-      ${isPaid?`
-      <p style="font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:16px;">Your subscription gives you full access to all ${isPaid?'1,200+':'0'} questions across all available topics. New topics will be added to your account automatically.</p>
-      <a href="pricing.html" class="btn btn-outline">Manage subscription →</a>
-      `:`
-      <p style="font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:18px;">Upgrade to unlock all 1,200+ MSRA practice questions across 6 topics (more coming soon), with full explanations and progress tracking.</p>
-      <a href="pricing.html" class="btn btn-gold">View plans & pricing →</a>
-      `}
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="card">
-    <div class="card-hdr"><div class="card-title">Your statistics</div></div>
-    <div class="card-body">
-      <div class="stat-row">
-        <div class="stat-box"><div class="sb-val">${answered}</div><div class="sb-lbl">Answered</div></div>
-        <div class="stat-box"><div class="sb-val" style="color:var(--teal)">${accuracy}%</div><div class="sb-lbl">Accuracy</div></div>
-        <div class="stat-box"><div class="sb-val" style="color:var(--gold)">${correct}</div><div class="sb-lbl">Correct</div></div>
-        <div class="stat-box"><div class="sb-val" style="color:var(--rose)">${flagged}</div><div class="sb-lbl">Flagged</div></div>
-      </div>
-      <a href="practice.html" class="btn btn-dark">✏️ Continue practising →</a>
-    </div>
-  </div>
-
-  <!-- PASSWORD -->
-  <div class="card">
-    <div class="card-hdr"><div class="card-title">Change password</div></div>
-    <div class="card-body">
-      <div class="success-msg" id="pwSuccess"></div>
-      <div class="error-msg" id="pwError"></div>
-      <div class="info-grid">
-        <div class="form-group"><label>New password</label><input type="password" id="pw1" placeholder="At least 8 characters"></div>
-        <div class="form-group"><label>Confirm password</label><input type="password" id="pw2" placeholder="Repeat new password"></div>
-      </div>
-      <button class="btn btn-outline" onclick="updatePassword()">Update password</button>
-    </div>
-  </div>
-
-  <!-- BADGES -->
-  <div class="card" style="margin-bottom:20px;">
-    <div class="card-hdr"><div class="card-title">🎖️ Badges & Achievements</div></div>
-    <div class="card-body">
-      <div id="badgesDisplay" style="display:flex;flex-wrap:wrap;gap:10px;"></div>
-    </div>
-  </div>
-
-  <!-- DANGER ZONE -->
-  <div class="danger-zone">
-    <div><div class="dz-title">Sign out everywhere</div><div class="dz-sub">Sign out of all active sessions on all devices.</div></div>
-    <button class="btn-danger" onclick="signOut()">Sign out</button>
-  </div>
-  `;
+  myId=session.user.id;
+  const{data:profile}=await sb.from('profiles').select('*').eq('id',myId).single();
+  updateTopbar(profile);
+  const name=profile?.full_name||session.user.user_metadata?.full_name||session.user.email.split('@')[0];
+  setUserInfo(name, profile?.username);
+  if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
+  // Populate form
+  document.getElementById('fName').value=profile?.full_name||'';
+  document.getElementById('fUsername').value=profile?.username||'';
+  document.getElementById('fEmail').value=session.user.email||'';
+  document.getElementById('fRole').value=profile?.role||'';
+  document.getElementById('fHospital').value=profile?.hospital_trust||'';
+  // Subscription
+  const isPaid=profile?.plan&&profile.plan!=='free';
+  renderSubscription(isPaid, profile);
 }
 
-// Render badges after page loads
-setTimeout(()=>{
-  const bd=document.getElementById('badgesDisplay');
-  if(bd){bd.innerHTML=ALL_BADGES.map(b=>`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 12px;background:${earnedKeys.has(b.key)?'var(--surface2)':'var(--surface3)'};border:1px solid ${earnedKeys.has(b.key)?'var(--gold)':'var(--border)'};border-radius:9px;min-width:72px;text-align:center;opacity:${earnedKeys.has(b.key)?1:0.3};filter:${earnedKeys.has(b.key)?'none':'grayscale(1)'};cursor:default;" title="${b.desc}"><div style="font-size:22px;">${b.ico}</div><div style="font-size:10px;font-weight:700;color:var(--slate);line-height:1.3;">${b.name}</div></div>`).join('');}
-},100);
+function showSection(id){
+  document.querySelectorAll('.acc-section[data-section]').forEach(s=>s.style.display='none');
+  document.querySelectorAll('.acc-sidenav-item').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+id).style.display='block';
+  document.querySelector(`[onclick="showSection('${id}')"]`).classList.add('active');
+}
 
-async function updateProfile(){
-  const name=document.getElementById('nameInput').value.trim();
-  const username=document.getElementById('usernameInput')?.value.trim().toLowerCase().replace(/[^a-z0-9_]/g,'');
-  const role=document.getElementById('roleInput')?.value.trim();
-  const trust=document.getElementById('trustInput')?.value.trim();
-  if(!name)return;
-  const{data:{session}}=await sb.auth.getSession();
-  const{error}=await sb.auth.updateUser({data:{full_name:name}});
-  const{error:pe}=await sb.from('profiles').update({
-    full_name:name,
-    ...(username&&{username}),
-    ...(role&&{role}),
-    ...(trust&&{hospital_trust:trust}),
-  }).eq('id',session.user.id);
-  if(error||pe){document.getElementById('profileError').textContent=(error||pe).message;document.getElementById('profileError').classList.add('show');}
-  else{document.getElementById('profileSuccess').textContent='Profile updated.';document.getElementById('profileSuccess').classList.add('show');setTimeout(()=>document.getElementById('profileSuccess').classList.remove('show'),3000);}
+async function saveProfile(){
+  const btn=document.getElementById('saveProfileBtn');
+  btn.textContent='Saving…'; btn.disabled=true;
+  const updates={full_name:document.getElementById('fName').value.trim(),username:document.getElementById('fUsername').value.trim().replace('@',''),role:document.getElementById('fRole').value.trim(),hospital_trust:document.getElementById('fHospital').value.trim(),updated_at:new Date().toISOString()};
+  const{error}=await sb.from('profiles').update(updates).eq('id',myId);
+  const alertEl=document.getElementById('profileAlert');
+  if(error){alertEl.textContent='Error: '+error.message;alertEl.className='acc-alert err show';}
+  else{alertEl.textContent='Profile saved successfully.';alertEl.className='acc-alert ok show';setTimeout(()=>alertEl.classList.remove('show'),3000);}
+  btn.innerHTML='<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Save changes'; btn.disabled=false;
 }
 
 async function updatePassword(){
-  const pw1=document.getElementById('pw1').value;
-  const pw2=document.getElementById('pw2').value;
-  if(!pw1||pw1.length<8)return showPwError('Password must be at least 8 characters.');
-  if(pw1!==pw2)return showPwError('Passwords do not match.');
-  const{error}=await sb.auth.updateUser({password:pw1});
-  if(error)showPwError(error.message);
-  else{document.getElementById('pwSuccess').textContent='Password updated.';document.getElementById('pwSuccess').classList.add('show');document.getElementById('pw1').value='';document.getElementById('pw2').value='';}
+  const p1=document.getElementById('fNewPw').value;
+  const p2=document.getElementById('fConfirmPw').value;
+  const alertEl=document.getElementById('pwAlert');
+  if(!p1||p1.length<8){alertEl.textContent='Password must be at least 8 characters.';alertEl.className='acc-alert err show';return;}
+  if(p1!==p2){alertEl.textContent='Passwords do not match.';alertEl.className='acc-alert err show';return;}
+  const{error}=await sb.auth.updateUser({password:p1});
+  if(error){alertEl.textContent='Error: '+error.message;alertEl.className='acc-alert err show';}
+  else{alertEl.textContent='Password updated successfully.';alertEl.className='acc-alert ok show';document.getElementById('fNewPw').value='';document.getElementById('fConfirmPw').value='';setTimeout(()=>alertEl.classList.remove('show'),3000);}
 }
-function showPwError(msg){document.getElementById('pwError').textContent=msg;document.getElementById('pwError').classList.add('show');}
-function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+
+function renderSubscription(isPaid, profile){
+  const container=document.getElementById('subContent');
+  if(isPaid){
+    container.innerHTML=`
+    <div class="plan-card paid">
+      <div class="plan-badge paid">Active plan</div>
+      <div class="plan-name paid">Ossify ${profile.plan||'Pro'}</div>
+      <div class="plan-desc paid">Full access to all questions, features, and revision modes.</div>
+      <ul class="plan-features paid">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1,200+ expert questions</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>All revision modes</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Leaderboard &amp; weekly challenges</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Head-to-head duels</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>AI tutor &amp; spaced repetition</li>
+      </ul>
+      <div class="plan-actions"><button class="btn-upgrade-ghost">Manage plan</button></div>
+    </div>`;
+  } else {
+    container.innerHTML=`
+    <div class="plan-card free">
+      <div class="plan-badge free">Free account</div>
+      <div class="plan-name">No active subscription</div>
+      <div class="plan-desc">Upgrade to unlock all 1,200+ questions and features.</div>
+      <ul class="plan-features" style="margin-top:12px;">
+        <li class="locked"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>1,200+ expert questions</li>
+        <li class="locked"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Weekly challenge &amp; leaderboard</li>
+        <li class="locked"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Head-to-head duels</li>
+        <li class="locked"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>AI tutor &amp; spaced repetition</li>
+      </ul>
+    </div>
+    <div class="pricing-cards">
+      <div class="mini-plan">
+        <div class="mini-plan-name">3 months</div>
+        <div class="mini-plan-price">£20</div>
+        <div class="mini-plan-period">one-time payment</div>
+        <a href="pricing.html?plan=3month" class="mini-plan-btn">Get access</a>
+      </div>
+      <div class="mini-plan featured">
+        <div class="mini-plan-name">6 months</div>
+        <div class="mini-plan-price">£35</div>
+        <div class="mini-plan-period">one-time payment</div>
+        <a href="pricing.html?plan=6month" class="mini-plan-btn">Get access</a>
+      </div>
+      <div class="mini-plan">
+        <div class="mini-plan-name">12 months</div>
+        <div class="mini-plan-price">£55</div>
+        <div class="mini-plan-period">one-time payment</div>
+        <a href="pricing.html?plan=1year" class="mini-plan-btn">Get access</a>
+      </div>
+    </div>`;
+  }
+}
+
 init();
 
 </script>
