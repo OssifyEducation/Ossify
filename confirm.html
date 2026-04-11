@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--ink:#0a0f1a;--slate:#4a5568;--muted:#718096;--border:rgba(10,15,26,0.09);--surface:#fff;--surface2:#f8f9fc;--gold:#b8860b;--gold2:#d4a017;--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--rose:#c0392b;--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--shadow:0 4px 20px rgba(0,0,0,0.08);}
+:root{--ink:#0a0f1a;--slate:#4a5568;--muted:#718096;--border:rgba(10,15,26,0.09);--surface:#fff;--surface2:#f8f9fc;--gold:#7c5cbf;--gold2:#a78bfa;--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--rose:#c0392b;--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--shadow:0 4px 20px rgba(0,0,0,0.08);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;}
 body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
@@ -27,7 +27,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .state.active{display:block;}
 
 /* LOADING */
-.spinner{width:44px;height:44px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 20px;}
+.spinner{width:44px;height:44px;border:3px solid var(--border);border-top-color:#7c5cbf;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 20px;}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-title{font-family:var(--font-d);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px;}
 .loading-sub{font-size:14px;color:var(--muted);}
@@ -36,7 +36,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .success-ico{font-size:56px;margin-bottom:16px;}
 .success-title{font-family:var(--font-d);font-size:28px;font-weight:400;color:var(--ink);letter-spacing:-0.5px;margin-bottom:10px;}
 .success-sub{font-size:15px;color:var(--slate);line-height:1.65;margin-bottom:28px;max-width:360px;margin-left:auto;margin-right:auto;}
-.success-name{font-weight:600;color:var(--gold);}
+.success-name{font-weight:600;color:#7c5cbf;}
 
 .btn{display:inline-flex;align-items:center;gap:7px;padding:13px 30px;border-radius:7px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;}
 .btn-dark{background:var(--ink);color:#fff;}
@@ -65,18 +65,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 <div class="wrap">
 
   <a href="index.html" class="logo">
-    <div class="logo-mark">O</div>
-    <div class="logo-name">Ossify</div>
-  </a>
-
-  <div class="card">
-
-    <!-- LOADING STATE -->
-    <div class="state active" id="stateLoading">
-      <div class="spinner"></div>
-      <div class="loading-title">Confirming your account…</div>
-      <div class="loading-sub">This will only take a moment.</div>
-    </div>
+    <div class="confirm-logo"><svg width="110" height="42" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div>
 
     <!-- SUCCESS STATE -->
     <div class="state" id="stateSuccess">

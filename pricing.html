@@ -4,541 +4,181 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
 
-:root {
-  --ink: #0a0f1a;
-  --ink2: #1a2235;
-  --ink3: #2d3a52;
-  --slate: #4a5568;
-  --muted: #718096;
-  --muted2: #a0aec0;
-  --border: rgba(10,15,26,0.08);
-  --border2: rgba(10,15,26,0.05);
-  --surface: #ffffff;
-  --surface2: #f8f9fc;
-  --surface3: #f1f4f9;
-  --gold: #b8860b;
-  --gold2: #d4a017;
-  --gold-lt: rgba(184,134,11,0.08);
-  --gold-glow: rgba(184,134,11,0.2);
-  --teal: #0d7377;
-  --teal2: #14a085;
-  --teal-lt: rgba(13,115,119,0.07);
-  --rose: #c0392b;
-  --font-d: 'Fraunces', Georgia, serif;
-  --font-b: 'DM Sans', system-ui, sans-serif;
-  --r: 16px;
-  --r-sm: 10px;
-  --r-xs: 6px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06);
+:root{
+  --pu-dark:#3d1f7a;      /* deep purple - primary text, headings */
+  --pu-mid:#7c5cbf;       /* mid purple - sidebar, CTAs */
+  --pu-light:#a78bfa;     /* light purple - accents, active states */
+  --pu-pale:#ede9fe;      /* pale purple - card tints */
+  --pu-ultra:#f5f0ff;     /* ultra pale - page bg tint */
+  --pk-mid:#f472b6;       /* pink - danger, weak spots */
+  --pk-pale:#fce7f0;      /* pale pink - danger backgrounds */
+  --pk-border:#f0a8c8;    /* pink border */
+  --lav:#f0eaff;          /* lavender page background */
+  --lav-card:rgba(255,255,255,0.78); /* frosted white card */
+  --lav-border:rgba(180,150,220,0.2); /* subtle purple border */
+  --ink:#3d1f7a;           /* primary text */
+  --moss:#7b6fa0;          /* secondary text */
+  --muted:#9b88c0;         /* muted text */
+  --red:#c0305a;           /* semantic danger */
+  --amber:#7a5500;         /* semantic caution */
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-sans:'Inter',system-ui,sans-serif;
 }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  background: var(--surface);
-  color: var(--ink);
-  font-family: var(--font-b);
-  font-size: 15px;
-  line-height: 1.7;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);-webkit-font-smoothing:antialiased;}
 
-/* ── NAVIGATION ── */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  height: 68px;
-  display: flex; align-items: center;
-  padding: 0 48px;
-}
-.nav-inner {
-  max-width: 1140px; margin: 0 auto; width: 100%;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-  font-family: var(--font-d);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--ink);
-  text-decoration: none;
-  letter-spacing: -0.5px;
-  display: flex; align-items: center; gap: 8px;
-}
-.nav-logo-mark {
-  width: 32px; height: 32px;
-  background: var(--ink);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; color: #fff; font-weight: 700;
-}
-.nav-links {
-  display: flex; align-items: center; gap: 4px;
-}
-.nav-links a {
-  color: var(--slate);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 7px 14px;
-  border-radius: var(--r-xs);
-  transition: all 0.18s;
-}
-.nav-links a:hover { color: var(--ink); background: var(--surface3); }
-.nav-links a.active { color: var(--ink); font-weight: 600; }
-.nav-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--ink);
-  color: #fff;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 9px 20px;
-  border-radius: var(--r-xs);
-  text-decoration: none;
-  transition: all 0.2s;
-  font-family: var(--font-b);
-}
-.nav-cta:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
 
-/* ── PAGE WRAPPER ── */
-.page-wrap { padding-top: 68px; }
+nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--lav-border);padding:0 48px;height:62px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.n-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.n-mark{width:34px;height:34px;background:var(--pu-mid);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.n-mark svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.n-name{font-family:var(--font-serif);font-size:20px;font-weight:500;color:var(--pu-dark);}
+.n-links{display:flex;align-items:center;gap:2px;}
+.n-links a{color:var(--moss);font-size:13.5px;font-weight:500;text-decoration:none;padding:7px 13px;border-radius:8px;transition:all 0.15s;}
+.n-links a:hover,.n-links a.active{color:var(--pu-dark);background:var(--pu-pale);}
+.n-auth{display:flex;align-items:center;gap:8px;}
+.n-login{color:var(--moss);font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 16px;border-radius:8px;border:1px solid var(--lav-border);transition:all 0.15s;}
+.n-login:hover{color:var(--pu-dark);border-color:var(--pu-light);}
+.n-signup{background:var(--pu-mid);color:#fff;font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 18px;border-radius:8px;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
+.n-signup:hover{background:var(--pu-dark);}
+.n-signup svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
-/* ── COMMON ELEMENTS ── */
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--gold);
-  margin-bottom: 14px;
-  font-family: var(--font-b);
-}
-.section-title {
-  font-family: var(--font-d);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -1px;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.section-sub {
-  font-size: 17px;
-  color: var(--slate);
-  max-width: 580px;
-  line-height: 1.7;
-}
-.btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--font-b);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 11px 24px;
-  border-radius: var(--r-xs);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn-dark { background: var(--ink); color: #fff; }
-.btn-dark:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
-.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
-.btn-outline:hover { border-color: var(--ink); background: var(--surface3); }
-.btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 16px var(--gold-glow); }
-.btn-gold:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 6px 24px var(--gold-glow); }
 
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 48px;
-  display: flex; align-items: center; justify-content: space-between;
-  font-size: 13px; color: var(--muted);
-}
-.footer-logo { font-family: var(--font-d); font-weight: 500; color: var(--ink); font-size: 18px; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--ink); }
+footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.f-logo{display:flex;align-items:center;gap:9px;}
+.f-mark{width:28px;height:28px;background:rgba(255,255,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.f-mark svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.f-name{font-family:var(--font-serif);font-size:17px;font-weight:500;color:#fff;}
+.f-copy{font-size:12px;color:rgba(255,255,255,0.3);}
+.f-links{display:flex;gap:20px;flex-wrap:wrap;}
+.f-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.15s;}
+.f-links a:hover{color:rgba(255,255,255,0.8);}
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.fade-up { animation: fadeUp 0.7s ease both; }
-.d1 { animation-delay: 0.1s; }
-.d2 { animation-delay: 0.2s; }
-.d3 { animation-delay: 0.3s; }
-.d4 { animation-delay: 0.4s; }
-.d5 { animation-delay: 0.5s; }
+.btn-primary{background:var(--pu-mid);color:#fff;font-size:14px;font-weight:500;padding:12px 24px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;border:none;cursor:pointer;font-family:var(--font-sans);}
+.btn-primary:hover{background:var(--pu-dark);}
+.btn-primary svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.btn-ghost-dk{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 22px;font-size:14px;text-decoration:none;transition:all 0.15s;}
+.btn-ghost-dk:hover{background:rgba(255,255,255,0.18);}
+.btn-outline{display:inline-flex;align-items:center;gap:6px;color:var(--pu-mid);font-size:13.5px;font-weight:500;text-decoration:none;padding:9px 18px;border-radius:8px;border:1px solid var(--lav-border);transition:all 0.15s;}
+.btn-outline:hover{border-color:var(--pu-light);background:var(--pu-pale);}
 
-@media (max-width: 900px) {
-  .nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
-}
 
-</style>
-<style>
-.pricing-hero {
-  padding: 100px 48px 72px;
-  text-align: center;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-}
-.pricing-hero h1 {
-  font-family: var(--font-d);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 400;
-  letter-spacing: -1.8px;
-  color: var(--ink);
-  margin-bottom: 14px;
-  line-height: 1.1;
-}
-.pricing-hero h1 em { font-style: italic; color: var(--gold); }
-.pricing-hero p { font-size: 17px; color: var(--slate); max-width: 500px; margin: 0 auto; line-height: 1.65; }
+.eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:var(--pu-mid);margin-bottom:10px;}
+.section-title{font-family:var(--font-serif);font-size:clamp(26px,3.5vw,40px);font-weight:500;color:var(--pu-dark);letter-spacing:-0.8px;line-height:1.2;margin-bottom:12px;}
+.section-title em{font-style:italic;color:var(--pu-mid);}
+.section-sub{font-size:15px;color:var(--moss);line-height:1.7;max-width:560px;}
 
-/* PRICING CARDS */
-.pricing-section {
-  padding: 80px 48px 100px;
-  background: var(--surface);
-}
-.pricing-inner { max-width: 1000px; margin: 0 auto; }
-.pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.08fr 1fr;
-  gap: 16px;
-  align-items: start;
-  margin-top: 0;
-}
-.price-card {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--r);
-  padding: 36px 32px 32px;
-  position: relative;
-  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
-}
-.price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.price-card.featured {
-  border-color: var(--ink);
-  box-shadow: var(--shadow);
-  background: var(--ink);
-  color: #fff;
-}
-.price-badge {
-  display: inline-block;
-  background: var(--gold);
-  color: #fff;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  padding: 3px 11px;
-  border-radius: 20px;
-  margin-bottom: 18px;
-}
-.price-name {
-  font-family: var(--font-d);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-.price-card.featured .price-name { color: #fff; }
-.price-desc {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 28px;
-  line-height: 1.5;
-}
-.price-card.featured .price-desc { color: rgba(255,255,255,0.5); }
-.price-amount {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  margin-bottom: 6px;
-}
-.price-currency {
-  font-family: var(--font-d);
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--slate);
-  align-self: flex-start;
-  margin-top: 10px;
-}
-.price-card.featured .price-currency { color: rgba(255,255,255,0.5); }
-.price-number {
-  font-family: var(--font-d);
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: -2px;
-  line-height: 1;
-  color: var(--ink);
-}
-.price-card.featured .price-number { color: #fff; }
-.price-period {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.price-card.featured .price-period { color: rgba(255,255,255,0.4); }
-.price-note {
-  font-size: 12px;
-  color: var(--teal);
-  margin-bottom: 24px;
-  font-weight: 500;
-}
-.price-card.featured .price-note { color: rgba(255,255,255,0.45); }
-.price-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 22px 0;
-}
-.price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
-.price-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-  margin-bottom: 28px;
-}
-.price-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 13.5px;
-  color: var(--slate);
-  line-height: 1.5;
-}
-.price-card.featured .price-features li { color: rgba(255,255,255,0.7); }
-.pf-check {
-  color: var(--teal);
-  font-size: 13px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.price-card.featured .pf-check { color: #4dd0c4; }
-.price-cta {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 12px;
-  border-radius: var(--r-xs);
-  font-family: var(--font-b);
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.price-cta-outline {
-  background: transparent;
-  border: 1.5px solid var(--border);
-  color: var(--ink);
-}
-.price-cta-outline:hover { border-color: var(--ink); background: var(--surface3); }
-.price-cta-featured {
-  background: #fff;
-  color: var(--ink);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-}
-.price-cta-featured:hover { background: #f0f0f0; transform: translateY(-1px); }
 
-/* GUARANTEE */
-.guarantee {
-  max-width: 1000px;
-  margin: 40px auto 0;
-  text-align: center;
-  font-size: 13.5px;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
+.page-hero{background:var(--pu-dark);padding:72px 48px 60px;position:relative;overflow:hidden;}
+.page-hero-ring{position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);}
+.page-hero-ring2{position:absolute;left:60%;bottom:-80px;width:200px;height:200px;border-radius:50%;background:rgba(124,92,191,0.2);}
+.page-hero h1{font-family:var(--font-serif);font-size:clamp(34px,5vw,52px);font-weight:500;color:#fff;letter-spacing:-1.2px;line-height:1.1;margin-bottom:14px;}
+.page-hero h1 em{font-style:italic;color:var(--pu-light);}
+.page-hero p{font-size:16px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:580px;}
 
-/* FAQ STRIP */
-.pricing-faq {
-  background: var(--surface2);
-  border-top: 1px solid var(--border);
-  padding: 72px 48px;
-}
-.pricing-faq-inner { max-width: 720px; margin: 0 auto; }
-.pricing-faq h2 {
-  font-family: var(--font-d);
-  font-size: 28px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -0.5px;
-  margin-bottom: 36px;
-}
-.pfaq-item {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-}
-.pfaq-item:last-child { border-bottom: none; }
-.pfaq-q { font-weight: 600; font-size: 14.5px; color: var(--ink); margin-bottom: 7px; }
-.pfaq-a { font-size: 14px; color: var(--slate); line-height: 1.65; }
 
-@media (max-width: 900px) {
-  .pricing-hero, .pricing-section, .pricing-faq { padding-left: 20px; padding-right: 20px; }
-  .pricing-grid { grid-template-columns: 1fr; }
-}
+.pricing-hero{background:var(--pu-dark);padding:72px 48px 60px;text-align:center;position:relative;overflow:hidden;}
+.pricing-hero-ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:400px;height:400px;border-radius:50%;border:1px solid rgba(167,139,250,0.06);}
+.pricing-hero h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,52px);font-weight:500;color:#fff;letter-spacing:-1.2px;line-height:1.1;margin-bottom:16px;}
+.pricing-hero h1 em{font-style:italic;color:var(--pu-light);}
+.pricing-hero p{font-size:16px;color:rgba(255,255,255,0.4);max-width:600px;margin:0 auto;line-height:1.7;}
+.pricing-sec{padding:64px 48px;background:var(--lav);}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;}
+.price-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:16px;padding:28px;}
+.price-card.featured{border:2px solid var(--pu-light);background:#fff;}
+.price-badge{display:inline-block;background:var(--pu-mid);color:#fff;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:12px;}
+.price-name{font-size:13px;font-weight:600;color:var(--moss);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;}
+.price-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:18px;}
+.price-amount{margin-bottom:4px;}
+.price-currency{font-size:22px;font-weight:600;color:var(--pu-dark);vertical-align:top;margin-top:8px;display:inline-block;}
+.price-number{font-family:var(--font-serif);font-size:52px;font-weight:500;color:var(--pu-dark);letter-spacing:-2px;line-height:1;}
+.price-period{font-size:12px;color:var(--muted);margin-bottom:22px;}
+.price-features{list-style:none;margin-bottom:22px;display:flex;flex-direction:column;gap:8px;}
+.price-features li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--moss);}
+.pf-check{width:16px;height:16px;background:var(--pu-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.pf-check svg{width:9px;height:9px;fill:none;stroke:var(--pu-mid);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.price-btn{display:block;text-align:center;padding:12px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.15s;}
+.price-btn-primary{background:var(--pu-mid);color:#fff;}
+.price-btn-primary:hover{background:var(--pu-dark);}
+.price-btn-outline{border:1px solid var(--lav-border);color:var(--moss);}
+.price-btn-outline:hover{border-color:var(--pu-light);color:var(--pu-dark);}
+.pricing-note{background:rgba(255,255,255,0.7);border-top:0.5px solid var(--lav-border);padding:40px 48px;text-align:center;}
+.pricing-note h3{font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--pu-dark);margin-bottom:10px;}
+.pricing-note p{font-size:14px;color:var(--moss);max-width:500px;margin:0 auto;line-height:1.7;}
+
 </style>
 </head>
 <body>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">O</div>
-      Ossify
-    </a>
-    <div class="nav-links">
-      <a href="about.html">About Ossify</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="pricing.html" class="active">Pricing</a>
-      <a href="keys-to-success.html">Keys to Success</a>
-      <a href="faq.html">MSRA FAQ</a>
-    </div>
-    <a href="pricing.html" class="nav-cta">Get started →</a>
+<nav>
+  <a href="index.html" class="n-logo" style="text-decoration:none;"><svg width="110" height="42" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="#7c5cbf"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#3d1f7a">Ossify</text></svg></a>
+  <div class="n-links"><a href="about.html">About</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="keys-to-success.html">Keys to success</a><a href="faq.html">MSRA FAQ</a></div>
+  <div class="n-auth">
+    <a href="login.html" class="n-login">Log in</a>
+    <a href="login.html?tab=signup" class="n-signup">Sign up<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 </nav>
 
-<div class="page-wrap">
-
-  <section class="pricing-hero">
-    <div class="eyebrow fade-up">Simple pricing</div>
-    <h1 class="fade-up d1">One exam.<br><em>One clear price.</em></h1>
-    <p class="fade-up d2">No hidden fees. No auto-renewals. Pay once, access everything.<br>We don't offer a free trial — every question on Ossify is individually written and clinically reviewed. Giving that away for free would undermine the standard we hold ourselves to.</p>
-  </section>
-
-  <section class="pricing-section">
-    <div class="pricing-inner">
-      <div class="pricing-grid">
-
-        <!-- 3 MONTHS -->
-        <div class="price-card fade-up d1">
-          <div class="price-name">3 Months</div>
-          <div class="price-desc">A focused preparation window for doctors close to exam date.</div>
-          <div class="price-amount">
-            <span class="price-currency">£</span>
-            <span class="price-number">20</span>
-          </div>
-          <div class="price-period">3 months access</div>
-          <div class="price-note">~£6.67 / month</div>
-          <div class="price-divider"></div>
-          <ul class="price-features">
-            <li><span class="pf-check">✓</span>Full question bank — 1,200+ questions</li>
-            <li><span class="pf-check">✓</span>All 12 CPS clinical topic areas</li>
-            <li><span class="pf-check">✓</span>Professional Dilemmas paper</li>
-            <li><span class="pf-check">✓</span>All 4 revision modes</li>
-            <li><span class="pf-check">✓</span>Performance dashboard</li>
-            <li><span class="pf-check">✓</span>Deep clinical explanations</li>
-          </ul>
-          <a href="login.html?plan=3month" class="price-cta price-cta-outline">Get 3 months access →</a>
-        </div>
-
-        <!-- 6 MONTHS — FEATURED -->
-        <div class="price-card featured fade-up d2">
-          <div class="price-badge">Most popular</div>
-          <div class="price-name">6 Months</div>
-          <div class="price-desc">The recommended preparation window for most candidates.</div>
-          <div class="price-amount">
-            <span class="price-currency">£</span>
-            <span class="price-number">25</span>
-          </div>
-          <div class="price-period">6 months access</div>
-          <div class="price-note">~£4.17 / month — best value</div>
-          <div class="price-divider"></div>
-          <ul class="price-features">
-            <li><span class="pf-check">✓</span>Everything in 3-month plan</li>
-            <li><span class="pf-check">✓</span>More time to space your revision</li>
-            <li><span class="pf-check">✓</span>Ideal for interleaving strategy</li>
-            <li><span class="pf-check">✓</span>Revisit weak areas multiple times</li>
-            <li><span class="pf-check">✓</span>Run multiple timed mock exams</li>
-            <li><span class="pf-check">✓</span>Full spaced repetition cycle</li>
-          </ul>
-          <a href="login.html?plan=6month" class="price-cta price-cta-featured">Get 6 months access →</a>
-        </div>
-
-        <!-- 1 YEAR -->
-        <div class="price-card fade-up d3">
-          <div class="price-name">1 Year</div>
-          <div class="price-desc">Preparing early, or sitting across multiple specialty rounds.</div>
-          <div class="price-amount">
-            <span class="price-currency">£</span>
-            <span class="price-number">40</span>
-          </div>
-          <div class="price-period">12 months access</div>
-          <div class="price-note">~£3.33 / month</div>
-          <div class="price-divider"></div>
-          <ul class="price-features">
-            <li><span class="pf-check">✓</span>Everything in 6-month plan</li>
-            <li><span class="pf-check">✓</span>Full year of revision access</li>
-            <li><span class="pf-check">✓</span>Prepare across multiple sittings</li>
-            <li><span class="pf-check">✓</span>Maximum spaced repetition benefit</li>
-            <li><span class="pf-check">✓</span>New question content as added</li>
-            <li><span class="pf-check">✓</span>Most thorough preparation window</li>
-          </ul>
-          <a href="login.html?plan=1year" class="price-cta price-cta-outline">Get 1 year access →</a>
-        </div>
-
-      </div>
-
-      <div class="guarantee fade-up d4">
-        <span>🔒</span>
-        <span>Secure payment · Instant access · No auto-renewal · All plans include full access to 1,200+ questions</span>
-      </div>
+<section class="pricing-hero">
+  <div class="pricing-hero-ring"></div>
+  <div class="eyebrow" style="color:rgba(196,181,253,0.7);">Simple pricing</div>
+  <h1>One exam.<br><em>One clear price.</em></h1>
+  <p>No hidden fees. No auto-renewals. Pay once, access everything. We don't offer a free trial — every question on Ossify is individually written and clinically reviewed.</p>
+</section>
+<section class="pricing-sec">
+  <div class="pricing-grid">
+    <div class="price-card">
+      
+      <div class="price-name">3 Months</div>
+      <div class="price-desc">A focused preparation window for doctors close to exam date.</div>
+      <div class="price-amount"><span class="price-currency">£</span><span class="price-number">20</span></div>
+      <div class="price-period">3 months access</div>
+      <ul class="price-features"><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Full question bank — 1,200+ questions</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓All 12 CPS clinical topic areas</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Professional Dilemmas paper</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓All 4 revision modes</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Performance dashboard</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Deep clinical explanations</li></ul>
+      <a href="login.html" class="price-btn price-btn-outline">Get started</a>
     </div>
-  </section>
-
-  <!-- MINI FAQ -->
-  <section class="pricing-faq">
-    <div class="pricing-faq-inner">
-      <h2>Common questions.</h2>
-      <div class="pfaq-item">
-        <div class="pfaq-q">What's included in every plan?</div>
-        <div class="pfaq-a">Every plan includes full access to the complete Ossify question bank — all 1,200+ questions across both papers, all 4 revision modes, your personal performance dashboard, and all clinical explanations. There are no tiered features.</div>
-      </div>
-      <div class="pfaq-item">
-        <div class="pfaq-q">Can I switch plans or upgrade?</div>
-        <div class="pfaq-a">Yes. If you purchase a shorter plan and wish to extend, contact us and we'll apply the difference towards your upgrade.</div>
-      </div>
-      <div class="pfaq-item">
-        <div class="pfaq-q">Which plan should I choose?</div>
-        <div class="pfaq-a">Most candidates benefit most from the 6-month plan. It gives you enough time to work through the question bank systematically, revisit weak areas using spaced repetition, and run multiple timed mocks before exam day.</div>
-      </div>
-      <div class="pfaq-item">
-        <div class="pfaq-q">Why is there no free trial?</div>
-        <div class="pfaq-a">Every question on Ossify is individually written by practising doctors, peer-reviewed for clinical accuracy, and refined through multiple rounds of editorial checks. That level of quality takes significant time and expertise to produce. Offering questions freely — even a subset — would mean distributing content that represents hundreds of hours of clinical work, and it would attract users who are not genuinely committed to their preparation. We believe in a straightforward arrangement: you pay for access, and in return you get a question bank that has been built to the highest possible standard. That standard is the product. It doesn't need a free sample to justify itself.</div>
-      </div>
+    <div class="price-card featured">
+      <div class="price-badge">Most popular</div>
+      <div class="price-name">6 Months</div>
+      <div class="price-desc">The recommended preparation window for most candidates.</div>
+      <div class="price-amount"><span class="price-currency">£</span><span class="price-number">25</span></div>
+      <div class="price-period">6 months access</div>
+      <ul class="price-features"><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Everything in 3-month plan</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓More time to space your revision</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Ideal for interleaving strategy</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Revisit weak areas multiple times</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Run multiple timed mock exams</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Full spaced repetition cycle</li></ul>
+      <a href="login.html" class="price-btn price-btn-primary">Get started</a>
     </div>
-  </section>
-
-  <footer>
-    <div class="footer-logo">Ossify</div>
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="keys-to-success.html">Keys to Success</a>
-      <a href="faq.html">MSRA FAQ</a>
+    <div class="price-card">
+      
+      <div class="price-name">1 Year</div>
+      <div class="price-desc">Preparing early, or sitting across multiple specialty rounds.</div>
+      <div class="price-amount"><span class="price-currency">£</span><span class="price-number">40</span></div>
+      <div class="price-period">12 months access</div>
+      <ul class="price-features"><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Everything in 6-month plan</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Full year of revision access</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Prepare across multiple sittings</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Maximum spaced repetition benefit</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓New question content as added</li></ul>
+      <a href="login.html" class="price-btn price-btn-outline">Get started</a>
     </div>
-    <div>© 2026 Ossify. All rights reserved.</div>
-  </footer>
-
+  </div>
+</section>
+<div class="pricing-note">
+  <h3>What's included in every plan</h3>
+  <p>Every Ossify plan gives you full access to the entire platform — there are no feature tiers or paywalled sections. The only difference between plans is the length of access.</p>
 </div>
+
+<footer>
+  <div class="f-logo"><svg width="110" height="42" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div>
+    <div class="f-name">Ossify</div>
+  </div>
+  <div class="f-links">
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="keys-to-success.html">Keys to success</a>
+    <a href="faq.html">MSRA FAQ</a>
+    <a href="login.html">Log in</a>
+  </div>
+  <div class="f-copy">© 2026 Ossify. All rights reserved.</div>
+</footer>
 </body>
 </html>

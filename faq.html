@@ -4,641 +4,280 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MSRA FAQ — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
 
-:root {
-  --ink: #0a0f1a;
-  --ink2: #1a2235;
-  --ink3: #2d3a52;
-  --slate: #4a5568;
-  --muted: #718096;
-  --muted2: #a0aec0;
-  --border: rgba(10,15,26,0.08);
-  --border2: rgba(10,15,26,0.05);
-  --surface: #ffffff;
-  --surface2: #f8f9fc;
-  --surface3: #f1f4f9;
-  --gold: #b8860b;
-  --gold2: #d4a017;
-  --gold-lt: rgba(184,134,11,0.08);
-  --gold-glow: rgba(184,134,11,0.2);
-  --teal: #0d7377;
-  --teal2: #14a085;
-  --teal-lt: rgba(13,115,119,0.07);
-  --rose: #c0392b;
-  --font-d: 'Fraunces', Georgia, serif;
-  --font-b: 'DM Sans', system-ui, sans-serif;
-  --r: 16px;
-  --r-sm: 10px;
-  --r-xs: 6px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06);
+:root{
+  --pu-dark:#3d1f7a;      /* deep purple - primary text, headings */
+  --pu-mid:#7c5cbf;       /* mid purple - sidebar, CTAs */
+  --pu-light:#a78bfa;     /* light purple - accents, active states */
+  --pu-pale:#ede9fe;      /* pale purple - card tints */
+  --pu-ultra:#f5f0ff;     /* ultra pale - page bg tint */
+  --pk-mid:#f472b6;       /* pink - danger, weak spots */
+  --pk-pale:#fce7f0;      /* pale pink - danger backgrounds */
+  --pk-border:#f0a8c8;    /* pink border */
+  --lav:#f0eaff;          /* lavender page background */
+  --lav-card:rgba(255,255,255,0.78); /* frosted white card */
+  --lav-border:rgba(180,150,220,0.2); /* subtle purple border */
+  --ink:#3d1f7a;           /* primary text */
+  --moss:#7b6fa0;          /* secondary text */
+  --muted:#9b88c0;         /* muted text */
+  --red:#c0305a;           /* semantic danger */
+  --amber:#7a5500;         /* semantic caution */
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-sans:'Inter',system-ui,sans-serif;
 }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  background: var(--surface);
-  color: var(--ink);
-  font-family: var(--font-b);
-  font-size: 15px;
-  line-height: 1.7;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);-webkit-font-smoothing:antialiased;}
 
-/* ── NAVIGATION ── */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  height: 68px;
-  display: flex; align-items: center;
-  padding: 0 48px;
-}
-.nav-inner {
-  max-width: 1140px; margin: 0 auto; width: 100%;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-  font-family: var(--font-d);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--ink);
-  text-decoration: none;
-  letter-spacing: -0.5px;
-  display: flex; align-items: center; gap: 8px;
-}
-.nav-logo-mark {
-  width: 32px; height: 32px;
-  background: var(--ink);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; color: #fff; font-weight: 700;
-}
-.nav-links {
-  display: flex; align-items: center; gap: 4px;
-}
-.nav-links a {
-  color: var(--slate);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 7px 14px;
-  border-radius: var(--r-xs);
-  transition: all 0.18s;
-}
-.nav-links a:hover { color: var(--ink); background: var(--surface3); }
-.nav-links a.active { color: var(--ink); font-weight: 600; }
-.nav-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--ink);
-  color: #fff;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 9px 20px;
-  border-radius: var(--r-xs);
-  text-decoration: none;
-  transition: all 0.2s;
-  font-family: var(--font-b);
-}
-.nav-cta:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
 
-/* ── PAGE WRAPPER ── */
-.page-wrap { padding-top: 68px; }
+nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--lav-border);padding:0 48px;height:62px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.n-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.n-mark{width:34px;height:34px;background:var(--pu-mid);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.n-mark svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.n-name{font-family:var(--font-serif);font-size:20px;font-weight:500;color:var(--pu-dark);}
+.n-links{display:flex;align-items:center;gap:2px;}
+.n-links a{color:var(--moss);font-size:13.5px;font-weight:500;text-decoration:none;padding:7px 13px;border-radius:8px;transition:all 0.15s;}
+.n-links a:hover,.n-links a.active{color:var(--pu-dark);background:var(--pu-pale);}
+.n-auth{display:flex;align-items:center;gap:8px;}
+.n-login{color:var(--moss);font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 16px;border-radius:8px;border:1px solid var(--lav-border);transition:all 0.15s;}
+.n-login:hover{color:var(--pu-dark);border-color:var(--pu-light);}
+.n-signup{background:var(--pu-mid);color:#fff;font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 18px;border-radius:8px;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
+.n-signup:hover{background:var(--pu-dark);}
+.n-signup svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
-/* ── COMMON ELEMENTS ── */
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--gold);
-  margin-bottom: 14px;
-  font-family: var(--font-b);
-}
-.section-title {
-  font-family: var(--font-d);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -1px;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.section-sub {
-  font-size: 17px;
-  color: var(--slate);
-  max-width: 580px;
-  line-height: 1.7;
-}
-.btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--font-b);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 11px 24px;
-  border-radius: var(--r-xs);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn-dark { background: var(--ink); color: #fff; }
-.btn-dark:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
-.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
-.btn-outline:hover { border-color: var(--ink); background: var(--surface3); }
-.btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 16px var(--gold-glow); }
-.btn-gold:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 6px 24px var(--gold-glow); }
 
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 48px;
-  display: flex; align-items: center; justify-content: space-between;
-  font-size: 13px; color: var(--muted);
-}
-.footer-logo { font-family: var(--font-d); font-weight: 500; color: var(--ink); font-size: 18px; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--ink); }
+footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.f-logo{display:flex;align-items:center;gap:9px;}
+.f-mark{width:28px;height:28px;background:rgba(255,255,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.f-mark svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.f-name{font-family:var(--font-serif);font-size:17px;font-weight:500;color:#fff;}
+.f-copy{font-size:12px;color:rgba(255,255,255,0.3);}
+.f-links{display:flex;gap:20px;flex-wrap:wrap;}
+.f-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.15s;}
+.f-links a:hover{color:rgba(255,255,255,0.8);}
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.fade-up { animation: fadeUp 0.7s ease both; }
-.d1 { animation-delay: 0.1s; }
-.d2 { animation-delay: 0.2s; }
-.d3 { animation-delay: 0.3s; }
-.d4 { animation-delay: 0.4s; }
-.d5 { animation-delay: 0.5s; }
+.btn-primary{background:var(--pu-mid);color:#fff;font-size:14px;font-weight:500;padding:12px 24px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;border:none;cursor:pointer;font-family:var(--font-sans);}
+.btn-primary:hover{background:var(--pu-dark);}
+.btn-primary svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.btn-ghost-dk{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 22px;font-size:14px;text-decoration:none;transition:all 0.15s;}
+.btn-ghost-dk:hover{background:rgba(255,255,255,0.18);}
+.btn-outline{display:inline-flex;align-items:center;gap:6px;color:var(--pu-mid);font-size:13.5px;font-weight:500;text-decoration:none;padding:9px 18px;border-radius:8px;border:1px solid var(--lav-border);transition:all 0.15s;}
+.btn-outline:hover{border-color:var(--pu-light);background:var(--pu-pale);}
 
-@media (max-width: 900px) {
-  .nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
-}
 
-</style>
-<style>
-.faq-hero {
-  padding: 100px 48px 72px;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-}
-.faq-hero-inner { max-width: 760px; }
-.faq-hero h1 {
-  font-family: var(--font-d);
-  font-size: clamp(40px, 5.5vw, 68px);
-  font-weight: 400;
-  letter-spacing: -2px;
-  color: var(--ink);
-  margin-bottom: 14px;
-  line-height: 1.1;
-}
-.faq-hero h1 em { font-style: italic; color: var(--gold); }
-.faq-hero p { font-size: 17px; color: var(--slate); line-height: 1.7; max-width: 580px; }
+.eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:var(--pu-mid);margin-bottom:10px;}
+.section-title{font-family:var(--font-serif);font-size:clamp(26px,3.5vw,40px);font-weight:500;color:var(--pu-dark);letter-spacing:-0.8px;line-height:1.2;margin-bottom:12px;}
+.section-title em{font-style:italic;color:var(--pu-mid);}
+.section-sub{font-size:15px;color:var(--moss);line-height:1.7;max-width:560px;}
 
-/* LAYOUT */
-.faq-layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 0;
-  max-width: 1140px;
-  margin: 0 auto;
-  align-items: start;
-}
-.faq-sidebar {
-  position: sticky;
-  top: 88px;
-  padding: 40px 24px 40px 48px;
-  border-right: 1px solid var(--border);
-}
-.faq-sidebar-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
-.faq-sidebar-links { display: flex; flex-direction: column; gap: 2px; }
-.faq-sidebar-links a {
-  font-size: 13px;
-  color: var(--slate);
-  text-decoration: none;
-  padding: 7px 12px;
-  border-radius: var(--r-xs);
-  transition: all 0.15s;
-  font-weight: 500;
-}
-.faq-sidebar-links a:hover { color: var(--ink); background: var(--surface3); }
 
-.faq-main { padding: 48px 48px 100px; }
+.page-hero{background:var(--pu-dark);padding:72px 48px 60px;position:relative;overflow:hidden;}
+.page-hero-ring{position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);}
+.page-hero-ring2{position:absolute;left:60%;bottom:-80px;width:200px;height:200px;border-radius:50%;background:rgba(124,92,191,0.2);}
+.page-hero h1{font-family:var(--font-serif);font-size:clamp(34px,5vw,52px);font-weight:500;color:#fff;letter-spacing:-1.2px;line-height:1.1;margin-bottom:14px;}
+.page-hero h1 em{font-style:italic;color:var(--pu-light);}
+.page-hero p{font-size:16px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:580px;}
 
-/* SECTIONS */
-.faq-section { margin-bottom: 60px; }
-.faq-section-title {
-  font-family: var(--font-d);
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -0.5px;
-  margin-bottom: 28px;
-  padding-bottom: 14px;
-  border-bottom: 2px solid var(--ink);
-}
-.faq-item {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
-}
-.faq-item:last-child { border-bottom: none; }
-.faq-q {
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--ink);
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-.faq-a {
-  font-size: 14px;
-  color: var(--slate);
-  line-height: 1.8;
-}
-.faq-a + .faq-a { margin-top: 12px; }
-.faq-list {
-  margin-top: 10px;
-  margin-left: 0;
-  list-style: none;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.faq-list li {
-  display: flex; gap: 10px; font-size: 14px; color: var(--slate); line-height: 1.65;
-}
-.faq-list li::before { content: '·'; color: var(--gold); font-weight: 700; flex-shrink: 0; font-size: 18px; line-height: 1.2; }
-.faq-list li strong { color: var(--ink); }
-.faq-indent {
-  margin-top: 10px; padding-left: 16px; border-left: 2px solid var(--border);
-  display: flex; flex-direction: column; gap: 8px;
-}
-.faq-indent li { font-size: 13.5px; color: var(--slate); list-style: none; padding: 4px 0; }
-.faq-note {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--r-sm);
-  padding: 14px 18px;
-  font-size: 13px;
-  color: var(--slate);
-  margin-top: 14px;
-  line-height: 1.65;
-}
-.faq-note strong { color: var(--ink); }
-.faq-highlight {
-  background: var(--gold-lt);
-  border: 1px solid var(--gold-glow);
-  border-radius: var(--r-sm);
-  padding: 12px 16px;
-  font-size: 13.5px;
-  color: var(--ink2);
-  margin-top: 12px;
-  line-height: 1.65;
-}
-a.faq-link { color: var(--teal); text-decoration: underline; font-size: 13px; }
 
-/* CONTACT BOX */
-.faq-contact {
-  background: var(--ink);
-  border-radius: var(--r);
-  padding: 32px;
-  margin-top: 48px;
-}
-.faq-contact h3 { font-family: var(--font-d); font-size: 20px; font-weight: 500; color: #fff; margin-bottom: 12px; }
-.faq-contact p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 8px; }
-.faq-contact a { color: rgba(255,255,255,0.7); font-size: 13.5px; }
+.faq-hero p{font-size:16px;color:rgba(255,255,255,0.38);max-width:560px;line-height:1.7;}
+.faq-layout{display:grid;grid-template-columns:220px 1fr;gap:0;max-width:1020px;margin:0 auto;padding:48px;}
+.faq-sidebar{padding-right:32px;}
+.faq-sidebar-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:12px;}
+.faq-sidebar a{display:block;font-size:13px;color:var(--moss);text-decoration:none;padding:7px 10px;border-radius:8px;margin-bottom:2px;transition:all 0.15s;}
+.faq-sidebar a:hover{color:var(--pu-dark);background:var(--pu-pale);}
+.faq-main{border-left:0.5px solid var(--lav-border);padding-left:40px;}
+.faq-section{margin-bottom:48px;}
+.faq-section-title{font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--pu-dark);margin-bottom:20px;padding-bottom:12px;border-bottom:0.5px solid var(--lav-border);}
+.faq-item{border-bottom:0.5px solid var(--lav-border);}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-size:14px;font-weight:600;color:var(--pu-dark);padding:16px 0 12px;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;line-height:1.4;}
+.faq-q svg{width:16px;height:16px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px;transition:transform 0.2s;}
+.faq-q.open svg{transform:rotate(45deg);}
+.faq-a{font-size:14px;color:var(--moss);line-height:1.8;padding-bottom:16px;display:none;}
+.faq-a.open{display:block;}
+.faq-a p{margin-bottom:10px;}
+.faq-a p:last-child{margin-bottom:0;}
+.res-box{background:var(--pu-pale);border:0.5px solid var(--pu-light);border-radius:12px;padding:18px;margin-top:24px;}
+.res-box h3{font-size:13px;font-weight:600;color:var(--pu-dark);margin-bottom:10px;}
+.res-box a{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--pu-mid);text-decoration:none;padding:4px 0;}
+.res-box a svg{width:12px;height:12px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 
-@media (max-width: 900px) {
-  .faq-hero, .faq-main { padding-left: 20px; padding-right: 20px; }
-  .faq-layout { grid-template-columns: 1fr; }
-  .faq-sidebar { display: none; }
-}
 </style>
 </head>
 <body>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">O</div>
-      Ossify
-    </a>
-    <div class="nav-links">
-      <a href="about.html">About Ossify</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="keys-to-success.html">Keys to Success</a>
-      <a href="faq.html" class="active">MSRA FAQ</a>
-    </div>
-    <a href="pricing.html" class="nav-cta">Get started →</a>
+<nav>
+  <a href="index.html" class="n-logo" style="text-decoration:none;"><svg width="110" height="42" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="#7c5cbf"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#3d1f7a">Ossify</text></svg></a>
+  <div class="n-links"><a href="about.html">About</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="keys-to-success.html">Keys to success</a><a href="faq.html">MSRA FAQ</a></div>
+  <div class="n-auth">
+    <a href="login.html" class="n-login">Log in</a>
+    <a href="login.html?tab=signup" class="n-signup">Sign up<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 </nav>
 
-<div class="page-wrap">
-
-  <section class="faq-hero">
-    <div class="faq-hero-inner fade-up">
-      <div class="eyebrow">Official MSRA guidance</div>
-      <h1>MSRA <em>FAQ.</em></h1>
-      <p>Everything you need to know about the Multi-Specialty Recruitment Assessment — exam structure, booking, scoring, and preparation. Compiled from NHS England official sources.</p>
+<section class="page-hero">
+  <div class="page-hero-ring"></div>
+  <div class="page-hero-ring2"></div>
+  <div class="eyebrow" style="color:rgba(196,181,253,0.7);">MSRA FAQ</div>
+  <h1>Common questions<br>about the <em>MSRA.</em></h1>
+  <p>Answers to the most common questions about the exam, the format, the scoring, and how to prepare effectively.</p>
+</section>
+<div class="faq-layout">
+  <div class="faq-sidebar">
+    <div class="faq-sidebar-title">Jump to section</div>
+    <a href="#what-is-the-msra-">What is the MSRA?</a>
+    <a href="#the-clinical-problem-solving-cps-paper">The Clinical Problem Solving (CPS) Paper</a>
+    <a href="#booking-registration">Booking &amp; Registration</a>
+    <a href="#on-the-day">On the Day</a>
+    <a href="#scores-outcomes">Scores &amp; Outcomes</a>
+    <a href="#preparation">Preparation</a>
+    <a href="#further-help">Further Help</a>
+    
+    <div class="res-box">
+      <h3>Official resources</h3>
+      <a href="https://medical.hee.nhs.uk/medical-training-recruitment/medical-specialty-training/multi-specialty-recruitment-assessment-msra" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 0 1 2h3"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>NHS HEE MSRA page</a>
+      <a href="https://www.pearsonvue.com/msra" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 0 1 2h3"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Pearson VUE booking</a>
     </div>
-  </section>
-
-  <div class="faq-layout">
-
-    <!-- SIDEBAR -->
-    <aside class="faq-sidebar">
-      <div class="faq-sidebar-title">Sections</div>
-      <div class="faq-sidebar-links">
-        <a href="#what-is">What is the MSRA?</a>
-        <a href="#cps">The CPS Paper</a>
-        <a href="#booking">Booking & Registration</a>
-        <a href="#day-of">On the Day</a>
-        <a href="#scores">Scores & Outcomes</a>
-        <a href="#prep">Preparation</a>
-        <a href="#help">Further Help</a>
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main class="faq-main">
-
-      <!-- SECTION 1 -->
-      <div class="faq-section" id="what-is">
-        <div class="faq-section-title">What is the MSRA?</div>
-
-        <div class="faq-item">
-          <div class="faq-q">What is the MSRA and who needs to take it?</div>
-          <div class="faq-a">The Multi-Specialty Recruitment Assessment (MSRA) is a computer-based test used in the selection process for a number of NHS medical specialty training programmes. It assesses the essential competences set out in the national person specification through clinical scenarios.</div>
-          <div class="faq-a">Specialties currently using the MSRA include General Practice, Core Psychiatry, Clinical Radiology, Emergency Medicine, and others. Check your target specialty's recruitment page to confirm whether the MSRA applies to you.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">How long is the MSRA?</div>
-          <div class="faq-a">The MSRA is 170 minutes in total and consists of two independently timed papers:</div>
-          <ul class="faq-list">
-            <li><strong>Professional Dilemmas (PD):</strong> 95 minutes (122 minutes with 25% extra time / 146 minutes with 50% extra time)</li>
-            <li><strong>Clinical Problem Solving (CPS):</strong> 75 minutes (93 minutes with 25% extra time / 109 minutes with 50% extra time)</li>
-          </ul>
-          <div class="faq-note">There is an optional 5-minute scheduled break between the two papers. Exceeding this break time automatically reduces the time available for the CPS paper.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What are the two papers in the MSRA?</div>
-          <div class="faq-a">The MSRA has two components:</div>
-          <ul class="faq-list" style="margin-top:14px">
-            <li>
-              <div>
-                <strong>Professional Dilemmas (PD) Paper</strong><br>
-                A Situational Judgement Test (SJT) with 50 questions. You assume the role of an F2 doctor and respond to workplace dilemmas. Questions assess three core professional competencies: Commitment to professionalism, Coping with pressure, and Working effectively in a team.<br>
-                Roughly half the questions are ranking tasks (rank 4–5 actions from most to least appropriate) and half are multiple-choice. There is no negative marking.
-              </div>
-            </li>
-            <li>
-              <div>
-                <strong>Clinical Problem Solving (CPS) Paper</strong><br>
-                Tests your ability to apply clinical knowledge and make clinical decisions in everyday practice. Questions are based on Foundation-level (FY2) clinical scenarios covering 12 topic areas. Contains 86 items split between Extended Matching Questions (EMQs) and Single Best Answers (SBAs). There is no negative marking.
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- SECTION 2 -->
-      <div class="faq-section" id="cps">
-        <div class="faq-section-title">The Clinical Problem Solving (CPS) Paper</div>
-
-        <div class="faq-item">
-          <div class="faq-q">What does the CPS paper test?</div>
-          <div class="faq-a">The CPS paper measures your ability to apply clinical knowledge and make clinical decisions in everyday practice. Importantly, it tests your ability to synthesise and apply medical knowledge — not just your ability to recall facts. All scenarios are based on Foundation (FY2) level clinical practice.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What clinical topics are covered in the CPS paper?</div>
-          <div class="faq-a">Each CPS test paper includes a balanced mix of scenarios across all 12 clinical topic areas:</div>
-          <ul class="faq-list">
-            <li>Cardiovascular</li>
-            <li>Dermatology / ENT / Eyes</li>
-            <li>Endocrinology / Metabolic</li>
-            <li>Gastroenterology / Nutrition</li>
-            <li>Infectious disease / Haematology / Immunology / Allergies / Genetics</li>
-            <li>Musculoskeletal</li>
-            <li>Paediatrics</li>
-            <li>Pharmacology and therapeutics</li>
-            <li>Psychiatry / Neurology</li>
-            <li>Renal / Urology</li>
-            <li>Reproductive</li>
-            <li>Respiratory</li>
-          </ul>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What competency domains does the CPS paper assess?</div>
-          <div class="faq-a">The CPS paper covers 5 core domains:</div>
-          <ul class="faq-list" style="margin-top:12px">
-            <li><strong>Investigation —</strong> Specific investigations carried out to obtain a more conclusive diagnosis or rule out possible causes.</li>
-            <li><strong>Diagnosis —</strong> Identification of a condition, disease or injury by evaluating the symptoms and signs presented by a patient.</li>
-            <li><strong>Emergency —</strong> Recognition of potential serious illness requiring an immediate response.</li>
-            <li><strong>Prescribing —</strong> Advising, authorising or reviewing the use of medicine or drugs as part of a patient's clinical management plan.</li>
-            <li><strong>Management (non-prescribing) —</strong> Advising, authorising or reviewing non-medicinal forms of treatment.</li>
-          </ul>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What question formats appear in the CPS paper?</div>
-          <div class="faq-a">There are 86 items in the CPS paper. Around half are Extended Matching Questions (EMQs) and the other half are Single Best Answers (SBAs).</div>
-          <div class="faq-note"><strong>Extended Matching Questions (EMQs):</strong> You are presented with a list of 7 to 10 plausible response options, followed by multiple separate clinical scenarios all linked to that same response set. For each scenario you select the single most appropriate answer. Each response option can be selected once, more than once, or not at all.</div>
-          <div class="faq-note" style="margin-top:8px"><strong>Single Best Answers (SBAs):</strong> You are given one clinical scenario and asked to select the single most appropriate answer from 5 to 8 plausible response options.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Is there negative marking in the CPS paper?</div>
-          <div class="faq-a">No. One mark is awarded for each correct answer. There is no negative marking, so all questions should be attempted.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">How are CPS questions developed and quality-assured?</div>
-          <div class="faq-a">CPS items are written by a well-established team of trained clinician item writers who develop new content annually. New items go through a rigorous multi-stage review process:</div>
-          <ul class="faq-list" style="margin-top:10px">
-            <li>Initial review by a nominated clinician</li>
-            <li>Further review and refinement by subject matter expert (SME) writers</li>
-            <li>Review for fairness, language accessibility (English Not First Language review), and absence of locality-specific knowledge</li>
-            <li>Piloting alongside the live operational test</li>
-            <li>Psychometric review by a statistician examining item difficulty, candidate differentiation, and differential item functioning</li>
-          </ul>
-          <div class="faq-a" style="margin-top:10px">Only items that perform satisfactorily across all these checks enter the operational item bank.</div>
-        </div>
-      </div>
-
-      <!-- SECTION 3 -->
-      <div class="faq-section" id="booking">
-        <div class="faq-section-title">Booking &amp; Registration</div>
-
-        <div class="faq-item">
-          <div class="faq-q">How do I register and book the MSRA?</div>
-          <div class="faq-a">You need a Pearson VUE account to book the MSRA. After applying through Oriel (<a href="https://www.oriel.nhs.uk" class="faq-link" target="_blank">oriel.nhs.uk</a>), eligible applicants receive an invitation to book via their Pearson VUE account. Book as early as possible — popular test centre slots fill up quickly.</div>
-          <div class="faq-highlight">From 2025, applicants can submit to a maximum of 5 different specialties.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">When is the MSRA held?</div>
-          <div class="faq-a">For Round 1 (2026 recruitment), two sittings are planned due to an anticipated rise in applicant numbers:</div>
-          <ul class="faq-list" style="margin-top:10px">
-            <li><strong>January 2026:</strong> Open to applicants for all specialties</li>
-            <li><strong>February 2026:</strong> Reserved for Core Psychiatry and/or General Practice applicants only</li>
-          </ul>
-          <div class="faq-a" style="margin-top:10px">If GP/Psychiatry applicant numbers exceed February capacity, some will be allocated to the January sitting. Confirmed sitting allocations are communicated after the application closing date.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Can I reschedule or cancel my booking?</div>
-          <div class="faq-a">Yes. Rescheduling and cancellations are managed through your Pearson VUE account. Check the NHS England MSRA pages for the specific deadlines that apply to your sitting, as late cancellations or missed tests may affect your application.</div>
-        </div>
-      </div>
-
-      <!-- SECTION 4 -->
-      <div class="faq-section" id="day-of">
-        <div class="faq-section-title">On the Day</div>
-
-        <div class="faq-item">
-          <div class="faq-q">What should I bring and what is not allowed?</div>
-          <div class="faq-a"><strong>You must bring:</strong> One original, valid, government-issued photo ID whose name matches your Pearson VUE account exactly. Expired IDs are accepted only with valid renewal documentation.</div>
-          <ul class="faq-list" style="margin-top:10px">
-            <li><strong>Not permitted in the testing room:</strong> Mobile phones, bags, notes, watches, or any personal items. Secure storage is typically available at the centre.</li>
-            <li><strong>Permitted:</strong> A clear glass of water. Eating, smoking, and chewing gum are prohibited.</li>
-          </ul>
-          <div class="faq-note">Arrive at least 15 minutes before your appointment. Late arrivals will not be admitted. Children are not allowed in assessment centres.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What happens on the day at the test centre?</div>
-          <div class="faq-a">On arrival you sign in and present your photo ID. Personal belongings are stored securely. You are escorted to a computer desk equipped with over-ear headphones (which can help block background noise). You will be given a whiteboard and pen for working — no paper is provided.</div>
-          <div class="faq-a">After 95 minutes, the PD paper ends and you receive an on-screen prompt offering the optional 5-minute break. If you take it, raise your hand so an invigilator can pause the test and let you out. If you exceed 5 minutes, the CPS paper timer starts automatically and the excess time is deducted.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Is remote testing available?</div>
-          <div class="faq-a">Remote testing via Pearson VUE's OnVUE platform is available in limited circumstances. Eligibility criteria apply and must be arranged through your Pearson VUE account. For OnVUE tests, any unauthorised break automatically ends your assessment with no re-sit option.</div>
-        </div>
-      </div>
-
-      <!-- SECTION 5 -->
-      <div class="faq-section" id="scores">
-        <div class="faq-section-title">Scores &amp; Outcomes</div>
-
-        <div class="faq-item">
-          <div class="faq-q">How is the MSRA scored?</div>
-          <div class="faq-a">Scores for each paper are normalised around a mean of 250 with a standard deviation of 40. Because of this normalisation, there is no fixed maximum score — your result is relative to the performance of your cohort.</div>
-          <div class="faq-a">Scores are also placed into bands 1 to 4. Achieving a band of 1 in either paper means you have not met the minimum acceptable standard and your application will not progress further.</div>
-          <div class="faq-note">The weighting given to each paper differs by specialty. For example: General Practice and Core Psychiatry weight the PD paper more heavily. Emergency Medicine weights PD and CPS equally.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What score do I need to pass?</div>
-          <div class="faq-a">There is no single universal pass mark. Scoring thresholds and band definitions vary by specialty. For Core Psychiatry, a minimum raw score of 186 in each paper is required to be considered appointable. For GP, band 1 in either paper means automatic non-progression. Always check your target specialty's recruitment page for the current threshold.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Can I appeal my MSRA result?</div>
-          <div class="faq-a">No. Your MSRA outcome is final and cannot be reviewed, re-marked, or disputed. There is no appeals process.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Can I transfer a previous MSRA score to a new application?</div>
-          <div class="faq-a">This depends on the specialty:</div>
-          <ul class="faq-list" style="margin-top:10px">
-            <li><strong>Core Psychiatry:</strong> Score transfer is available within a 12-month recruitment cycle, provided the recruitment process is unchanged. You must opt in at the point of application — this cannot be changed after submission. If you transfer, your rank may go up or down depending on the new cohort's performance.</li>
-            <li><strong>General Practice (Round 1 / August intake):</strong> Score transfer is not available — you must sit the MSRA in that round's window. If you re-sit, the re-sit outcome supersedes your original score; you cannot revert to a higher earlier score. The decision to re-sit must be made at the point of application and cannot be changed afterwards.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- SECTION 6 -->
-      <div class="faq-section" id="prep">
-        <div class="faq-section-title">Preparation</div>
-
-        <div class="faq-item">
-          <div class="faq-q">Is there an official practice paper?</div>
-          <div class="faq-a">Yes. NHS England publishes an official MSRA practice paper with an answer key and rationales, available on the NHS Medical Hub publications page. This is the best starting point for understanding the question format and standard expected.</div>
-          <div class="faq-a">Pearson VUE also offers a generic test-taking demo to help you familiarise yourself with the on-screen controls and layout before your test.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What is the best way to prepare for the PD paper?</div>
-          <div class="faq-a">The PD paper is an aptitude test, not a knowledge test. Preparation should focus on the three core competency areas: Commitment to professionalism, Coping with pressure, and Effective teamwork.</div>
-          <div class="faq-a">Align your thinking with GMC guidance and NHS England frameworks — question writers work from these official sources. Practise SJT-style ranking and multiple-choice questions to build exam technique. A key point: ranking answers treat each option as an independent, discrete action — not as steps in a chronological sequence.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What is the best way to prepare for the CPS paper?</div>
-          <div class="faq-a">The CPS paper tests applied clinical knowledge, not rote recall. Focus on understanding and synthesising clinical presentations across all 12 topic areas rather than memorising facts in isolation.</div>
-          <ul class="faq-list" style="margin-top:10px">
-            <li>Timed question practice (EMQ and SBA formats)</li>
-            <li>Reviewing detailed answer rationales to understand clinical reasoning</li>
-            <li>Practising time management (75 minutes for 86 questions)</li>
-            <li>Prioritising the 5 core domains: Investigation, Diagnosis, Emergency, Prescribing, and Management</li>
-            <li>Targeting high-yield topics relevant to your specialty if aiming to maximise domain-specific performance</li>
-          </ul>
-          <div class="faq-highlight" style="margin-top:12px">Using a question bank that mirrors the EMQ and SBA formats — and covers all 12 clinical topic areas — is one of the most effective preparation strategies.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Are there accommodations for candidates with disabilities?</div>
-          <div class="faq-a">Yes. Additional time is available in line with the Equality Act 2010 disability accommodation requirements. Standard adjustments are:</div>
-          <ul class="faq-list" style="margin-top:10px">
-            <li><strong>+25%:</strong> PD 122 minutes / CPS 93 minutes</li>
-            <li><strong>+50%:</strong> PD 146 minutes / CPS 109 minutes</li>
-          </ul>
-          <div class="faq-a" style="margin-top:10px">Contact the MSRA team at <a href="mailto:england.msra@nhs.net" class="faq-link">england.msra@nhs.net</a> to discuss your requirements as early as possible.</div>
-        </div>
-      </div>
-
-      <!-- SECTION 7 -->
-      <div class="faq-section" id="help">
-        <div class="faq-section-title">Further Help</div>
-
-        <div class="faq-item">
-          <div class="faq-q">Who do I contact if I have a query not covered here?</div>
-          <div class="faq-a">For applicant and resident doctor queries:</div>
-          <ul class="faq-list" style="margin-top:10px">
-            <li>Freshdesk support portal: <a href="https://nhs-help.freshdesk.com/support/home" class="faq-link" target="_blank">nhs-help.freshdesk.com</a></li>
-            <li>Email: <a href="mailto:england.msra@nhs.net" class="faq-link">england.msra@nhs.net</a></li>
-          </ul>
-        </div>
-
-        <div class="faq-contact">
-          <h3>Official MSRA Resources</h3>
-          <p>All MSRA guidance is maintained by NHS England. For the most current information, refer to the official sources below.</p>
-          <p><a href="https://medical.hee.nhs.uk/medical-training-recruitment/medical-specialty-training/multi-specialty-recruitment-assessment-msra" target="_blank">→ NHS England MSRA overview page</a></p>
-          <p><a href="https://medical.hee.nhs.uk/medical-training-recruitment/medical-specialty-training/multi-specialty-recruitment-assessment-msra/whats-in-the-msra/clinical-problem-solving-paper" target="_blank">→ CPS paper detail</a></p>
-          <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.3)">Source: NHS England / HEE MSRA official pages (accessed April 2026)</p>
-        </div>
-      </div>
-
-    </main>
   </div>
-
-  <footer>
-    <div class="footer-logo">Ossify</div>
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="keys-to-success.html">Keys to Success</a>
-      <a href="faq.html">MSRA FAQ</a>
+  <div class="faq-main">    <div class="faq-section" id="what-is-the-msra-">
+      <div class="faq-section-title">What is the MSRA?</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What is the MSRA and who needs to take it?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>The Multi-Specialty Recruitment Assessment (MSRA) is a computer-based test used in the selection process for a number of NHS medical specialty training programmes. It assesses the essential competences set out in the national person specification through clinical scenarios.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">How long is the MSRA?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>The MSRA is 170 minutes in total and consists of two independently timed papers:</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What are the two papers in the MSRA?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>The MSRA has two components:</p></div>
+      </div>
     </div>
-    <div>© 2026 Ossify. All rights reserved.</div>
-  </footer>
-
+    <div class="faq-section" id="the-clinical-problem-solving-cps-paper">
+      <div class="faq-section-title">The Clinical Problem Solving (CPS) Paper</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What does the CPS paper test?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>The CPS paper measures your ability to apply clinical knowledge and make clinical decisions in everyday practice. Importantly, it tests your ability to synthesise and apply medical knowledge — not just your ability to recall facts. All scenarios are based on Foundation (FY2) level clinical practice.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What clinical topics are covered in the CPS paper?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Each CPS test paper includes a balanced mix of scenarios across all 12 clinical topic areas:</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What competency domains does the CPS paper assess?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>The CPS paper covers 5 core domains:</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What question formats appear in the CPS paper?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>There are 86 items in the CPS paper. Around half are Extended Matching Questions (EMQs) and the other half are Single Best Answers (SBAs).</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Is there negative marking in the CPS paper?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>No. One mark is awarded for each correct answer. There is no negative marking, so all questions should be attempted.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">How are CPS questions developed and quality-assured?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>CPS items are written by a well-established team of trained clinician item writers who develop new content annually. New items go through a rigorous multi-stage review process:</p></div>
+      </div>
+    </div>
+    <div class="faq-section" id="booking-registration">
+      <div class="faq-section-title">Booking &amp; Registration</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">How do I register and book the MSRA?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>You need a Pearson VUE account to book the MSRA. After applying through Oriel (<a href="https://www.oriel.nhs.uk" class="faq-link" target="_blank">oriel.nhs.uk</a>), eligible applicants receive an invitation to book via their Pearson VUE account. Book as early as possible — popular test centre slots fill up quickly.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">When is the MSRA held?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>For Round 1 (2026 recruitment), two sittings are planned due to an anticipated rise in applicant numbers:</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Can I reschedule or cancel my booking?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Yes. Rescheduling and cancellations are managed through your Pearson VUE account. Check the NHS England MSRA pages for the specific deadlines that apply to your sitting, as late cancellations or missed tests may affect your application.</p></div>
+      </div>
+    </div>
+    <div class="faq-section" id="on-the-day">
+      <div class="faq-section-title">On the Day</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What should I bring and what is not allowed?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p><strong>You must bring:</strong> One original, valid, government-issued photo ID whose name matches your Pearson VUE account exactly. Expired IDs are accepted only with valid renewal documentation.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What happens on the day at the test centre?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>On arrival you sign in and present your photo ID. Personal belongings are stored securely. You are escorted to a computer desk equipped with over-ear headphones (which can help block background noise). You will be given a whiteboard and pen for working — no paper is provided.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Is remote testing available?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Remote testing via Pearson VUE's OnVUE platform is available in limited circumstances. Eligibility criteria apply and must be arranged through your Pearson VUE account. For OnVUE tests, any unauthorised break automatically ends your assessment with no re-sit option.</p></div>
+      </div>
+    </div>
+    <div class="faq-section" id="scores-outcomes">
+      <div class="faq-section-title">Scores &amp; Outcomes</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">How is the MSRA scored?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Scores for each paper are normalised around a mean of 250 with a standard deviation of 40. Because of this normalisation, there is no fixed maximum score — your result is relative to the performance of your cohort.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What score do I need to pass?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>There is no single universal pass mark. Scoring thresholds and band definitions vary by specialty. For Core Psychiatry, a minimum raw score of 186 in each paper is required to be considered appointable. For GP, band 1 in either paper means automatic non-progression. Always check your target specialty's recruitment page for the current threshold.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Can I appeal my MSRA result?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>No. Your MSRA outcome is final and cannot be reviewed, re-marked, or disputed. There is no appeals process.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Can I transfer a previous MSRA score to a new application?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>This depends on the specialty:</p></div>
+      </div>
+    </div>
+    <div class="faq-section" id="preparation">
+      <div class="faq-section-title">Preparation</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Is there an official practice paper?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Yes. NHS England publishes an official MSRA practice paper with an answer key and rationales, available on the NHS Medical Hub publications page. This is the best starting point for understanding the question format and standard expected.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What is the best way to prepare for the PD paper?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>The PD paper is an aptitude test, not a knowledge test. Preparation should focus on the three core competency areas: Commitment to professionalism, Coping with pressure, and Effective teamwork.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">What is the best way to prepare for the CPS paper?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>The CPS paper tests applied clinical knowledge, not rote recall. Focus on understanding and synthesising clinical presentations across all 12 topic areas rather than memorising facts in isolation.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Are there accommodations for candidates with disabilities?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Yes. Additional time is available in line with the Equality Act 2010 disability accommodation requirements. Standard adjustments are:</p></div>
+      </div>
+    </div>
+    <div class="faq-section" id="further-help">
+      <div class="faq-section-title">Further Help</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Who do I contact if I have a query not covered here?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>For applicant and resident doctor queries:</p></div>
+      </div>
+    </div>
 </div>
+</div>
+<script>
+function toggle(el){var w=el.classList.contains("open");document.querySelectorAll(".faq-q.open").forEach(function(q){q.classList.remove("open");q.nextElementSibling.classList.remove("open");});if(!w){el.classList.add("open");el.nextElementSibling.classList.add("open");}}
+</script>
+
+<footer>
+  <div class="f-logo"><svg width="110" height="42" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div>
+    <div class="f-name">Ossify</div>
+  </div>
+  <div class="f-links">
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="keys-to-success.html">Keys to success</a>
+    <a href="faq.html">MSRA FAQ</a>
+    <a href="login.html">Log in</a>
+  </div>
+  <div class="f-copy">© 2026 Ossify. All rights reserved.</div>
+</footer>
 </body>
 </html>

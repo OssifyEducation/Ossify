@@ -4,102 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Log in — Ossify</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--ink:#0a0f1a;--ink2:#1a2235;--slate:#4a5568;--muted:#718096;--border:rgba(10,15,26,0.09);--surface:#fff;--surface2:#f8f9fc;--surface3:#f1f4f9;--gold:#b8860b;--gold2:#d4a017;--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:12px;--r-sm:8px;--shadow:0 4px 20px rgba(0,0,0,0.08);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;}
-body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 800px 600px at 30% 20%,rgba(184,134,11,0.05) 0%,transparent 70%),radial-gradient(ellipse 600px 500px at 80% 80%,rgba(13,115,119,0.04) 0%,transparent 70%);pointer-events:none;}
-.login-wrap{width:100%;max-width:440px;position:relative;z-index:1;}
-.login-logo{text-align:center;margin-bottom:32px;}
-.login-logo a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;}
-.logo-mark{width:38px;height:38px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;font-weight:700;}
-.logo-name{font-family:var(--font-d);font-size:24px;font-weight:600;color:var(--ink);}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:36px;box-shadow:var(--shadow);}
-.card-title{font-family:var(--font-d);font-size:26px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-0.5px;}
-.card-sub{font-size:14px;color:var(--muted);margin-bottom:28px;}
-.tabs{display:flex;background:var(--surface3);border-radius:var(--r-sm);padding:4px;margin-bottom:28px;}
-.tab{flex:1;padding:9px;text-align:center;border-radius:6px;font-size:13.5px;font-weight:600;cursor:pointer;transition:all 0.2s;color:var(--muted);border:none;background:none;font-family:var(--font-b);}
-.tab.active{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,0.1);}
-.form-group{margin-bottom:16px;}
-label{display:block;font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:6px;}
-input{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:var(--font-b);font-size:14px;color:var(--ink);background:#fff;outline:none;transition:border-color 0.2s;}
-input:focus{border-color:var(--gold);}
+:root{--pu-dark:#3d1f7a;--pu-mid:#7c5cbf;--pu-light:#a78bfa;--pu-pale:#ede9fe;--lav:#f0eaff;--lav-border:rgba(180,150,220,0.22);--pk-pale:#fce7f0;--pk-border:#f0a8c8;--red:#c0305a;--ink:#3d1f7a;--moss:#7b6fa0;--muted:#9b88c0;--font-serif:'Fraunces',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);background:var(--lav);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;-webkit-font-smoothing:antialiased;position:relative;overflow:hidden;}
+body::before{content:'';position:fixed;inset:0;background:var(--pu-mid);clip-path:polygon(0 0,100% 0,100% 38%,0 52%);pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;background:#9b6fd4;opacity:0.2;pointer-events:none;z-index:0;}
+.wrap{width:100%;max-width:420px;position:relative;z-index:1;}
+.logo{display:flex;align-items:center;gap:9px;margin-bottom:28px;}
+.logo-mark{width:36px;height:36px;background:rgba(255,255,255,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.logo-name{font-family:var(--font-serif);font-size:21px;font-weight:500;color:#fff;}
+.card{background:#fff;border:0.5px solid var(--lav-border);border-radius:16px;padding:28px;box-shadow:0 8px 32px rgba(61,31,122,0.12);}
+.tabs{display:flex;gap:0;background:var(--lav);border-radius:9px;padding:3px;margin-bottom:22px;}
+.tab{flex:1;padding:8px;border-radius:7px;border:none;background:none;font-family:var(--font-sans);font-size:13.5px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.15s;}
+.tab.active{background:#fff;color:var(--pu-dark);box-shadow:0 1px 4px rgba(61,31,122,0.1);}
+.plan-badge{background:var(--pu-pale);color:var(--pu-dark);font-size:12px;font-weight:500;padding:6px 12px;border-radius:8px;margin-bottom:16px;text-align:center;display:none;}
+.form-group{margin-bottom:14px;}
+label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px;}
+input[type=email],input[type=password],input[type=text]{width:100%;padding:10px 14px;border:1px solid var(--lav-border);border-radius:9px;font-family:var(--font-sans);font-size:14px;color:var(--ink);background:#fff;outline:none;transition:border-color 0.15s;}
+input:focus{border-color:var(--pu-mid);}
 input::placeholder{color:var(--muted);}
-.input-hint{font-size:12px;color:var(--muted);margin-top:5px;}
-.btn-submit{width:100%;padding:13px;background:var(--ink);color:#fff;border:none;border-radius:var(--r-sm);font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:4px;}
-.btn-submit:hover{background:var(--ink2);transform:translateY(-1px);box-shadow:var(--shadow);}
-.btn-submit:disabled{opacity:0.55;cursor:not-allowed;transform:none;}
-.error-msg{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--r-sm);padding:11px 14px;font-size:13.5px;color:#dc2626;margin-bottom:16px;display:none;}
-.error-msg.show{display:block;}
-.success-msg{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r-sm);padding:11px 14px;font-size:13.5px;color:#16a34a;margin-bottom:16px;display:none;}
-.success-msg.show{display:block;}
-.terms{font-size:12px;color:var(--muted);text-align:center;margin-top:16px;line-height:1.6;}
-.terms a{color:var(--slate);text-decoration:underline;}
-.back-link{text-align:center;margin-top:20px;font-size:13px;color:var(--muted);}
-.back-link a{color:var(--slate);text-decoration:none;font-weight:500;}
-.back-link a:hover{color:var(--ink);}
-.plan-badge{background:var(--gold-glow);border:1px solid rgba(184,134,11,0.25);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--ink2);line-height:1.6;display:none;}
-.plan-badge strong{color:var(--gold);}
+.form-footer{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.forgot-link{font-size:12.5px;color:var(--moss);text-decoration:none;cursor:pointer;}
+.forgot-link:hover{color:var(--pu-mid);}
+.btn-submit{width:100%;background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:12px;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;transition:all 0.15s;}
+.btn-submit:hover{background:var(--pu-dark);}
+.alert{padding:9px 13px;border-radius:8px;font-size:13px;margin-bottom:12px;display:none;}
+.alert.show{display:block;}
+.alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);color:var(--red);}
+.alert-ok{background:var(--pu-pale);border:1px solid var(--pu-light);color:var(--pu-dark);}
+.back-link{text-align:center;margin-top:16px;font-size:13px;color:var(--moss);}
+.back-link a{color:rgba(255,255,255,0.7);text-decoration:none;}
+.back-link a:hover{color:#fff;}
+#forgotForm{display:none;}
+.input-hint{font-size:11px;color:var(--muted);margin-top:4px;}
 </style>
 </head>
 <body>
-<div class="login-wrap">
-  <div class="login-logo">
-    <a href="index.html">
-      <div class="logo-mark">O</div>
-      <div class="logo-name">Ossify</div>
-    </a>
-  </div>
+<div class="wrap">
+  <div class="logo"><svg width="110" height="42" viewBox="0 0 110 42" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="10,10 21,5 32,10 21,15" fill="rgba(255,255,255,0.75)"/><line x1="32" y1="10" x2="32" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="32" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div>
   <div class="card">
-    <div class="card-title">Welcome back.</div>
-    <div class="card-sub">Sign in to your account or create a new one.</div>
     <div class="tabs">
       <button class="tab active" onclick="switchTab('login')">Log in</button>
       <button class="tab" onclick="switchTab('signup')">Create account</button>
     </div>
-    <div class="plan-badge" id="planBadge">🎓 You're signing up for <strong id="planName">6-Month Access</strong>. Complete your account to continue.</div>
-    <div class="error-msg" id="errorMsg"></div>
-    <div class="success-msg" id="successMsg"></div>
-
-    <!-- LOGIN -->
+    <div id="planBadge" class="plan-badge"></div>
+    <div id="errorMsg" class="alert alert-err"></div>
+    <div id="successMsg" class="alert alert-ok"></div>
     <div id="loginForm">
-      <div class="form-group"><label>Email address</label><input type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email"></div>
+      <div class="form-group"><label>Email address</label><input type="email" id="loginEmail" placeholder="your@nhs.net" autocomplete="email"></div>
       <div class="form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password"></div>
+      <div class="form-footer"><div></div><span class="forgot-link" onclick="showForgot()">Forgot password?</span></div>
       <button class="btn-submit" id="loginBtn" onclick="handleLogin()">Log in →</button>
-      <div style="text-align:center;margin-top:14px;"><a href="#" onclick="showForgot()" style="font-size:13px;color:var(--muted);text-decoration:underline;">Forgot password?</a></div>
     </div>
-
-    <!-- SIGNUP -->
     <div id="signupForm" style="display:none">
       <div class="form-group"><label>Full name</label><input type="text" id="signupName" placeholder="Dr. Jane Smith" autocomplete="name"></div>
       <div class="form-group"><label>Email address</label><input type="email" id="signupEmail" placeholder="your@nhs.net" autocomplete="email"></div>
       <div class="form-group"><label>Password</label><input type="password" id="signupPassword" placeholder="At least 8 characters" autocomplete="new-password"><div class="input-hint">Minimum 8 characters</div></div>
       <button class="btn-submit" id="signupBtn" onclick="handleSignup()">Create account →</button>
-      <div class="terms">By creating an account you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</div>
+      <div style="text-align:center;margin-top:14px;"><a href="#" onclick="switchTab('login')" style="font-size:13px;color:var(--moss);text-decoration:underline;">Back to login</a></div>
     </div>
-
-    <!-- FORGOT -->
-    <div id="forgotForm" style="display:none">
-      <p style="font-size:14px;color:var(--slate);margin-bottom:18px;line-height:1.65">Enter your email and we'll send you a reset link.</p>
-      <div class="form-group"><label>Email address</label><input type="email" id="forgotEmail" placeholder="your@email.com"></div>
+    <div id="forgotForm">
+      <p style="font-size:14px;color:var(--moss);margin-bottom:16px;line-height:1.6;">Enter your email and we'll send a reset link.</p>
+      <div class="form-group"><label>Email address</label><input type="email" id="forgotEmail" placeholder="your@nhs.net"></div>
       <button class="btn-submit" onclick="handleForgot()">Send reset link →</button>
-      <div style="text-align:center;margin-top:14px;"><a href="#" onclick="switchTab('login')" style="font-size:13px;color:var(--muted);text-decoration:underline;">Back to login</a></div>
+      <div style="margin-top:12px;text-align:center;"><span class="forgot-link" onclick="switchTab('login')">← Back to log in</span></div>
     </div>
   </div>
   <div class="back-link"><a href="index.html">← Back to Ossify</a></div>
 </div>
-
 <script>
+
 const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
 const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 sb.auth.getSession().then(({data:{session}})=>{if(session)window.location.href='dashboard.html';});
 const urlParams=new URLSearchParams(window.location.search);
 const plan=urlParams.get('plan');
+if(urlParams.get('tab')==='signup')switchTab('signup');
 if(plan){const names={'3month':'3-Month Access','6month':'6-Month Access','1year':'1-Year Access'};document.getElementById('planName').textContent=names[plan]||plan;document.getElementById('planBadge').style.display='block';switchTab('signup');}
 if(urlParams.get('tab')==='signup')switchTab('signup');
 function switchTab(tab){document.getElementById('loginForm').style.display=tab==='login'?'block':'none';document.getElementById('signupForm').style.display=tab==='signup'?'block':'none';document.getElementById('forgotForm').style.display='none';document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',(tab==='login'&&i===0)||(tab==='signup'&&i===1)));clearMessages();}
@@ -135,6 +120,7 @@ async function handleForgot(){
   if(error)showError(error.message);else showSuccess('Reset link sent — check your inbox.');
 }
 document.addEventListener('keydown',e=>{if(e.key!=='Enter')return;if(document.getElementById('loginForm').style.display!=='none')handleLogin();else if(document.getElementById('signupForm').style.display!=='none')handleSignup();});
+
 </script>
 </body>
 </html>
