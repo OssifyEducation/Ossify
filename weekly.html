@@ -1,388 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weekly Challenge — Ossify</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap');
-:root{--ink:#0a0f1a;--ink2:#1a2235;--slate:#4a5568;--muted:#718096;--muted2:#a0aec0;--border:rgba(10,15,26,0.08);--surface:#fff;--surface2:#f8f9fc;--surface3:#f1f4f9;--gold:#b8860b;--gold2:#d4a017;--gold-lt:rgba(184,134,11,0.07);--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--teal2:#14a085;--teal-lt:rgba(13,115,119,0.07);--violet:#7c3aed;--violet-lt:rgba(124,58,237,0.07);--rose:#e11d48;--rose-lt:rgba(225,29,72,0.06);--amber:#d97706;--amber-lt:rgba(217,119,6,0.08);--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--r-xs:6px;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow:0 4px 20px rgba(0,0,0,0.08);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased;}
+:root{--forest:#0f1f0f;--forest-deep:#1a3a1a;--forest-mid:#2a5a2a;--sage:#4a8c4a;--sage-l:#7ab87a;--sage-pale:#a8d5a2;--mist:#f2f6f0;--leaf:#dde8d8;--leaf-mid:#c8d8c4;--red:#8b2020;--red-l:#fee2e2;--red-b:#fca5a5;--amber:#7a5500;--amber-l:#fef3c0;--teal-d:#1a4a3a;--teal-m:#2a6b5a;--teal-l:#e0f0ea;--ink:#1a2e1a;--moss:#5a7a5a;--muted:#8aaa8a;--font-serif:'Fraunces',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--mist);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased;}
 
 /* SIDEBAR */
-.sidebar{width:240px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;z-index:50;}
-.sidebar::-webkit-scrollbar{width:3px;}
-.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);}
-.sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:10px;}
-.logo-mark{width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;flex-shrink:0;}
-.logo-name{font-family:var(--font-d);font-size:19px;font-weight:600;color:#fff;}
-.nav-section{padding:16px 12px 4px;}
-.nav-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);padding:0 8px;margin-bottom:4px;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r-xs);color:rgba(255,255,255,0.48);font-size:13.5px;font-weight:500;cursor:pointer;transition:all 0.18s;margin-bottom:1px;text-decoration:none;border:1px solid transparent;}
-.nav-item:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85);}
-.nav-item.active{background:rgba(184,134,11,0.18);color:var(--gold);border-color:rgba(184,134,11,0.2);}
-.nav-ico{font-size:15px;width:18px;text-align:center;flex-shrink:0;}
-.nav-badge-new{background:var(--rose);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:10px;margin-left:auto;}
-.sidebar-footer{margin-top:auto;padding:14px;border-top:1px solid rgba(255,255,255,0.07);}
-.user-row{display:flex;align-items:center;gap:10px;padding:8px;border-radius:var(--r-xs);}
-.user-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--teal));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
-.user-name{font-size:13px;font-weight:600;color:#e2e8f0;}
-.user-sub{font-size:11px;color:rgba(255,255,255,0.3);}
-.streak-pill{display:flex;align-items:center;gap:5px;background:rgba(217,119,6,0.15);border:1px solid rgba(217,119,6,0.25);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:700;color:#fbbf24;margin-top:6px;width:fit-content;}
-.sign-out-btn{width:100%;margin-top:8px;padding:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r-xs);color:rgba(255,255,255,0.4);font-size:12px;font-family:var(--font-b);cursor:pointer;transition:all 0.18s;}
-.sign-out-btn:hover{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);}
+.sb{width:220px;flex-shrink:0;background:var(--forest);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;}
+.sb::-webkit-scrollbar{width:3px;}
+.sb::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);}
+.sb-logo{padding:18px 14px 16px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:10px;}
+.sb-mark{width:32px;height:32px;background:var(--forest-mid);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sb-mark svg{width:17px;height:17px;fill:none;stroke:var(--sage-pale);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.sb-name{font-family:var(--font-serif);font-size:19px;font-weight:500;color:#e8f4e8;}
+.sb-sec{padding:14px 10px 2px;}
+.sb-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:0 8px;margin-bottom:4px;}
+.nv{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:12.5px;color:rgba(255,255,255,0.38);margin-bottom:1px;text-decoration:none;cursor:pointer;transition:all 0.15s;border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans);}
+.nv svg{width:14px;height:14px;fill:none;stroke:rgba(255,255,255,0.38);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.nv:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.7);}
+.nv:hover svg{stroke:rgba(255,255,255,0.7);}
+.nv.on{background:rgba(74,140,74,0.2);color:var(--sage-pale);}
+.nv.on svg{stroke:var(--sage-pale);}
+.nv-new{background:#6b1a1a;color:#fca5a5;font-size:8px;font-weight:700;padding:2px 6px;border-radius:8px;margin-left:auto;}
+.sb-foot{margin-top:auto;padding:12px 10px;border-top:1px solid rgba(255,255,255,0.06);}
+.sb-av-row{display:flex;align-items:center;gap:9px;padding:6px 8px;}
+.sb-av{width:32px;height:32px;border-radius:50%;background:var(--forest-mid);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--sage-pale);flex-shrink:0;}
+.sb-uname{font-size:12px;font-weight:500;color:#c8e8c8;}
+.sb-usub{font-size:10px;color:rgba(255,255,255,0.22);}
+.sb-streak{display:inline-flex;align-items:center;gap:5px;background:rgba(74,140,74,0.12);border:0.5px solid rgba(74,140,74,0.3);border-radius:20px;padding:3px 9px;font-size:11px;font-weight:500;color:var(--sage-pale);margin-top:5px;}
+.sb-streak svg{width:11px;height:11px;fill:none;stroke:var(--sage-pale);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.sb-signout{width:100%;margin-top:7px;padding:7px;background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.08);border-radius:7px;color:rgba(255,255,255,0.3);font-size:11.5px;font-family:var(--font-sans);cursor:pointer;transition:all 0.15s;}
+.sb-signout:hover{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);}
 
 /* MAIN */
-.main{margin-left:240px;flex:1;}
-.topbar{background:rgba(248,249,252,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
-.page-title{font-family:var(--font-d);font-size:19px;font-weight:500;color:var(--ink);}
-.topbar-right{display:flex;align-items:center;gap:10px;}
-.topbar-streak{display:flex;align-items:center;gap:6px;background:rgba(217,119,6,0.08);border:1px solid rgba(217,119,6,0.2);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--amber);}
-.topbar-xp{display:flex;align-items:center;gap:6px;background:var(--violet-lt);border:1px solid rgba(124,58,237,0.15);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--violet);}
-.content{padding:24px 32px;}
+.main{margin-left:220px;flex:1;display:flex;flex-direction:column;}
+.topbar{background:#fff;border-bottom:1px solid var(--leaf);padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
+.tb-title{font-family:var(--font-serif);font-size:18px;font-weight:500;color:var(--forest);}
+.tb-r{display:flex;align-items:center;gap:8px;}
+.chip{display:flex;align-items:center;gap:5px;border-radius:20px;padding:5px 13px;font-size:11.5px;font-weight:500;}
+.chip svg{width:12px;height:12px;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.chip-g{background:#e2f0de;color:var(--forest-mid);border:0.5px solid var(--sage-l);}
+.chip-g svg{stroke:var(--forest-mid);}
+.chip-t{background:var(--teal-l);color:var(--teal-d);border:0.5px solid #5aaa8a;}
+.chip-t svg{stroke:var(--teal-d);}
+.btn-cta{background:var(--forest-mid);color:#fff;border-radius:9px;padding:8px 16px;font-size:12.5px;font-weight:500;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--font-sans);transition:all 0.15s;}
+.btn-cta:hover{background:var(--forest);}
+.btn-cta svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.btn-outline{background:#fff;color:var(--moss);border:1px solid var(--leaf);border-radius:9px;padding:7px 14px;font-size:12.5px;font-weight:500;cursor:pointer;text-decoration:none;font-family:var(--font-sans);display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+.btn-outline:hover{border-color:var(--sage);color:var(--ink);}
+.btn-outline svg{width:13px;height:13px;fill:none;stroke:var(--moss);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.content{padding:20px 24px;flex:1;}
 .loading-full{display:flex;align-items:center;justify-content:center;height:60vh;font-size:14px;color:var(--muted);}
 
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:var(--r-xs);font-family:var(--font-b);font-size:13.5px;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;}
-.btn-dark{background:var(--ink);color:#fff;}
-.btn-dark:hover{background:var(--ink2);transform:translateY(-1px);}
-.btn-outline{background:var(--surface);color:var(--slate);border:1px solid var(--border);}
-.btn-outline:hover{border-color:var(--ink);color:var(--ink);}
-.btn-gold{background:var(--gold);color:#fff;box-shadow:0 4px 14px var(--gold-glow);}
-.btn-gold:hover{background:var(--gold2);}
-.btn-violet{background:var(--violet);color:#fff;}
-.btn-violet:hover{background:#6d28d9;}
+/* CARDS */
+.card{background:#fff;border:1px solid var(--leaf);border-radius:12px;overflow:hidden;}
+.card-hdr{padding:13px 16px 11px;border-bottom:1px solid #eef4ec;display:flex;align-items:center;justify-content:space-between;}
+.card-title{font-size:13.5px;font-weight:600;color:var(--forest);display:flex;align-items:center;gap:6px;}
+.card-title svg{width:14px;height:14px;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.card-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.card-body{padding:14px 16px;}
 
 /* HERO BANNER */
-.dash-hero{background:linear-gradient(130deg,#0a0f1a 0%,#1a2235 60%,#2d3a52 100%);border-radius:var(--r);padding:26px 32px;margin-bottom:20px;position:relative;overflow:hidden;}
-.dash-hero::after{content:'🩺';position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:80px;opacity:0.06;}
-.hero-greeting{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;}
-.hero-title{font-family:var(--font-d);font-size:24px;font-weight:400;color:#fff;margin-bottom:6px;}
-.hero-title em{font-style:italic;color:rgba(255,255,255,0.5);}
-.hero-sub{font-size:13px;color:rgba(255,255,255,0.4);max-width:420px;line-height:1.6;margin-bottom:16px;}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
-.hero-btn-w{background:#fff;color:var(--ink);padding:10px 22px;border-radius:var(--r-xs);font-family:var(--font-b);font-weight:700;font-size:13.5px;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
-.hero-btn-w:hover{background:#f0f0f0;transform:translateY(-1px);}
-.hero-btn-g{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);padding:10px 22px;border-radius:var(--r-xs);font-family:var(--font-b);font-size:13.5px;cursor:pointer;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
-.hero-btn-g:hover{background:rgba(255,255,255,0.18);}
+.dash-hero{background:var(--forest-deep);border-radius:12px;padding:22px 26px;margin-bottom:16px;position:relative;overflow:hidden;}
+.dh-orb1{position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(74,140,74,0.1);}
+.dh-orb2{position:absolute;right:60px;bottom:-30px;width:80px;height:80px;border-radius:50%;background:rgba(42,90,42,0.12);}
+.hero-greeting{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:7px;}
+.hero-title{font-family:var(--font-serif);font-size:22px;font-weight:500;color:#e8f4e8;margin-bottom:4px;}
+.hero-title em{font-style:italic;color:rgba(255,255,255,0.38);}
+.streak-dots{display:flex;align-items:center;gap:4px;margin-bottom:9px;}
+.s-dot{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;}
+.sd-on{background:rgba(74,140,74,0.3);color:var(--sage-pale);}
+.sd-now{background:rgba(74,140,74,0.1);border:1.5px dashed rgba(74,140,74,0.35);color:rgba(255,255,255,0.3);}
+.sd-off{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.15);}
+.hero-sub{font-size:12.5px;color:rgba(255,255,255,0.3);margin-bottom:14px;line-height:1.55;}
+.hero-acts{display:flex;gap:8px;flex-wrap:wrap;}
+.ha-w{background:#fff;color:var(--forest);border-radius:8px;padding:8px 16px;font-size:12.5px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
+.ha-w:hover{background:var(--mist);}
+.ha-w svg{width:13px;height:13px;fill:none;stroke:var(--forest);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.ha-g{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.55);border:0.5px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;font-size:12.5px;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.ha-g svg{width:13px;height:13px;fill:none;stroke:rgba(255,255,255,0.55);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 
-/* STREAK DOTS */
-.streak-row{display:flex;align-items:center;gap:6px;margin-bottom:12px;}
-.streak-label{font-size:12px;color:rgba(255,255,255,0.4);margin-right:4px;}
-.streak-day{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;}
-.sd-done{background:rgba(217,119,6,0.3);color:#fbbf24;}
-.sd-today{background:rgba(217,119,6,0.1);border:1.5px dashed rgba(217,119,6,0.4);color:rgba(255,255,255,0.5);}
-.sd-empty{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.2);}
+/* STAT CARDS */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px;}
+.sc{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:13px;position:relative;overflow:hidden;}
+.sc-stripe{position:absolute;top:0;left:0;right:0;height:3px;}
+.sc-ico{width:27px;height:27px;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-bottom:9px;}
+.sc-ico svg{width:14px;height:14px;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.sc-val{font-family:var(--font-serif);font-size:24px;font-weight:400;color:var(--forest);line-height:1;margin-bottom:2px;letter-spacing:-0.5px;}
+.sc-lbl{font-size:10.5px;color:var(--muted);}
+.sc-note{font-size:10px;font-weight:500;margin-top:3px;}
 
-/* FORM */
-.form-group{margin-bottom:16px;}
-label{display:block;font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:6px;}
-input,select,textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:var(--font-b);font-size:14px;color:var(--ink);background:#fff;outline:none;transition:border-color 0.2s;}
-input:focus,select:focus,textarea:focus{border-color:var(--gold);}
+/* TOPIC BARS */
+.tp-bar{height:3px;background:#eef4ec;border-radius:3px;overflow:hidden;margin-top:7px;}
+.tp-fill{height:100%;border-radius:3px;}
+
+/* FORM ELEMENTS */
+input,select,textarea{width:100%;padding:10px 14px;border:1px solid var(--leaf);border-radius:9px;font-family:var(--font-sans);font-size:14px;color:var(--ink);background:#fff;outline:none;transition:border-color 0.15s;}
+input:focus,select:focus,textarea:focus{border-color:var(--sage);}
 input::placeholder,textarea::placeholder{color:var(--muted);}
-
-/* ALERTS */
-.success-msg{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r-sm);padding:10px 14px;font-size:13px;color:#16a34a;margin-bottom:14px;display:none;}
-.success-msg.show{display:block;}
-.error-msg{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--r-sm);padding:10px 14px;font-size:13px;color:#dc2626;margin-bottom:14px;display:none;}
-.error-msg.show{display:block;}
-
+label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.form-group{margin-bottom:16px;}
+.alert-ok{background:#e2f0de;border:1px solid var(--sage-l);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--forest-mid);margin-bottom:13px;display:none;}
+.alert-ok.show{display:block;}
+.alert-err{background:var(--red-l);border:1px solid var(--red-b);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--red);margin-bottom:13px;display:none;}
+.alert-err.show{display:block;}
 </style>
-<style>
-.weekly-hero{background:linear-gradient(130deg,#1a0533 0%,#0d1f3c 60%,#1a1040 100%);border-radius:var(--r);padding:32px;margin-bottom:20px;position:relative;overflow:hidden;border:1px solid rgba(124,58,237,0.2);}
-.weekly-hero::after{content:'⚡';position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:100px;opacity:0.07;}
-.wh-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;}
-.wh-title{font-family:var(--font-d);font-size:30px;font-weight:400;color:#fff;margin-bottom:8px;}
-.wh-title span{font-style:italic;color:rgba(124,58,237,0.8);}
-.wh-sub{font-size:14px;color:rgba(255,255,255,0.45);max-width:520px;line-height:1.65;margin-bottom:20px;}
-.wh-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
-.wh-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:6px 14px;font-size:12.5px;color:rgba(255,255,255,0.65);font-weight:600;}
-.countdown{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-sm);padding:14px 18px;display:inline-flex;align-items:center;gap:16px;margin-bottom:20px;}
-.cd-unit{text-align:center;}
-.cd-num{font-family:var(--font-d);font-size:24px;font-weight:400;color:#fff;line-height:1;}
-.cd-lbl{font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
-.cd-sep{font-size:20px;color:rgba(255,255,255,0.2);align-self:flex-start;margin-top:4px;}
-.start-btn{background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;border-radius:var(--r-sm);padding:14px 32px;font-family:var(--font-d);font-size:16px;font-weight:500;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(124,58,237,0.4);text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
-.start-btn:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(124,58,237,0.5);}
-.start-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
-.two-col{display:grid;grid-template-columns:1fr 360px;gap:16px;align-items:start;}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);}
-.card-hdr{padding:14px 20px 12px;border-bottom:1px solid rgba(10,15,26,0.05);display:flex;align-items:center;justify-content:space-between;}
-.card-title{font-family:var(--font-d);font-size:15px;font-weight:500;color:var(--ink);}
-.card-sub{font-size:12px;color:var(--muted);margin-top:2px;}
-.card-body{padding:16px 20px;}
-.lb-row{display:grid;grid-template-columns:40px 1fr 80px 80px;padding:11px 20px;border-bottom:1px solid rgba(10,15,26,0.04);align-items:center;transition:background 0.15s;}
-.lb-row:last-child{border-bottom:none;}
-.lb-row:hover{background:var(--surface2);}
-.lb-row.me{background:rgba(124,58,237,0.05);border-left:3px solid var(--violet);}
-.lb-rank{font-family:var(--font-d);font-size:14px;color:var(--muted);}
-.lb-user{display:flex;align-items:center;gap:10px;}
-.lb-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
-.lb-name{font-size:13.5px;font-weight:600;color:var(--ink);}
-.lb-meta{font-size:11px;color:var(--muted);}
-.lb-score{font-family:var(--font-d);font-size:15px;color:var(--teal);text-align:right;}
-.lb-time{font-size:12px;color:var(--muted);text-align:right;}
-.completed-banner{background:var(--teal-lt);border:1px solid rgba(13,115,119,0.2);border-radius:var(--r-sm);padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px;}
-.cb-ico{font-size:28px;}
-.cb-title{font-weight:700;font-size:14px;color:var(--teal);margin-bottom:3px;}
-.cb-sub{font-size:13px;color:var(--slate);}
-/* GAME */
-.game-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
-.game-hdr{padding:16px 22px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-.game-q-info{display:flex;align-items:center;gap:12px;}
-.game-q-num{font-family:var(--font-d);font-size:18px;color:var(--ink);}
-.game-pbar{height:4px;background:var(--surface3);}
-.game-pbar-fill{height:100%;background:linear-gradient(90deg,var(--violet),#a855f7);transition:width 0.4s ease;}
-.game-timer{font-family:var(--font-d);font-size:22px;font-weight:400;color:var(--violet);background:var(--violet-lt);border:1px solid rgba(124,58,237,0.2);border-radius:var(--r-sm);padding:6px 16px;}
-.game-body{padding:24px;}
-.q-stem{font-size:15.5px;line-height:1.75;color:var(--ink2);margin-bottom:20px;}
-.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
-.opt{display:flex;align-items:flex-start;gap:13px;padding:12px 16px;border-radius:var(--r-sm);border:1.5px solid var(--border);cursor:pointer;transition:all 0.15s;background:var(--surface);}
-.opt:hover{border-color:var(--violet);background:var(--violet-lt);}
-.opt.sel{border-color:var(--violet);background:var(--violet-lt);}
-.opt.corr{border-color:var(--teal);background:var(--teal-lt);}
-.opt.incorr{border-color:var(--rose);background:var(--rose-lt);opacity:0.7;}
-.opt-letter{width:28px;height:28px;border-radius:50%;background:var(--surface3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted);flex-shrink:0;}
-.opt.sel .opt-letter{background:var(--violet);color:#fff;border-color:var(--violet);}
-.opt.corr .opt-letter{background:var(--teal);color:#fff;border-color:var(--teal);}
-.opt.incorr .opt-letter{background:var(--rose);color:#fff;border-color:var(--rose);}
-.opt-txt{font-size:14px;color:var(--slate);line-height:1.55;padding-top:3px;}
-.game-actions{display:flex;justify-content:flex-end;gap:10px;padding:0 24px 20px;}
-.results-wrap{max-width:520px;margin:40px auto;text-align:center;}
-.results-ico{font-size:56px;margin-bottom:14px;}
-.results-title{font-family:var(--font-d);font-size:28px;color:var(--ink);letter-spacing:-0.5px;margin-bottom:8px;}
-.results-sub{font-size:15px;color:var(--slate);margin-bottom:24px;}
-.results-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
-.rs{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;}
-.rs-val{font-family:var(--font-d);font-size:26px;font-weight:400;letter-spacing:-1px;}
-.rs-lbl{font-size:11px;color:var(--muted);margin-top:3px;}
-</style>
+
 </head>
 <body>
-<aside class="sidebar">
-  <div class="sidebar-logo"><div class="logo-mark">O</div><div class="logo-name">Ossify</div></div>
-  <div class="nav-section"><div class="nav-label">Overview</div>
-    <a class="nav-item" href="dashboard.html"><span class="nav-ico">📊</span>Dashboard</a>
-    <a class="nav-item" href="leaderboard.html"><span class="nav-ico">🏆</span>Leaderboard</a>
+<aside class="sb">
+  <div class="sb-logo">
+    <div class="sb-mark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="sb-name">Ossify</div>
   </div>
-  <div class="nav-section"><div class="nav-label">Revision</div>
-    <a class="nav-item" href="question-bank.html"><span class="nav-ico">📚</span>Question Bank</a>
-    <a class="nav-item" href="practice.html"><span class="nav-ico">✏️</span>Practice</a>
-    <a class="nav-item active" href="weekly.html"><span class="nav-ico">⚡</span>Weekly Challenge<span class="nav-badge-new">NEW</span></a>
-    <a class="nav-item" href="duel.html"><span class="nav-ico">⚔️</span>Head-to-Head Duel</a>
+  <div class="sb-sec"><div class="sb-lbl">Overview</div><a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+    <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a></div>
+  <div class="sb-sec"><div class="sb-lbl">Revision</div><a class="nv" href="question-bank.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Question Bank</a>
+    <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
+    <a class="nv on" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
+    <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head Duel</a></div>
+  <div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
+    <a class="nv" href="pricing.html"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Subscription</a></div>
+  <div class="sb-sec">
+    <div class="sb-lbl">Help</div>
+    <a class="nv" href="keys-to-success.html" target="_blank"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+    <a class="nv" href="faq.html" target="_blank"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
   </div>
-  <div class="nav-section"><div class="nav-label">Account</div>
-    <a class="nav-item" href="account.html"><span class="nav-ico">👤</span>My Profile</a>
-  </div>
-  <div class="nav-section"><div class="nav-label">Help</div>
-    <a class="nav-item" href="keys-to-success.html" target="_blank"><span class="nav-ico">🔑</span>Keys to Success</a>
-  </div>
-  <div class="sidebar-footer">
-    <div class="user-row"><div class="user-av" id="userAv">?</div><div><div class="user-name" id="userName">Loading…</div></div></div>
-    <div class="streak-pill" id="sidebarStreak">🔥 0</div>
-    <button class="sign-out-btn" onclick="signOut()">Sign out</button>
+  <div class="sb-foot">
+    <div class="sb-av-row"><div class="sb-av" id="userAv">?</div><div><div class="sb-uname" id="userName">Loading…</div><div class="sb-usub" id="userUsername"></div></div></div>
+    <div class="sb-streak" id="sidebarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day streak</div>
+    <button class="sb-signout" onclick="signOut()">Sign out</button>
   </div>
 </aside>
 <div class="main">
   <div class="topbar">
-    <div class="page-title">Weekly Challenge</div>
-    <div class="topbar-right">
-      <div class="topbar-streak" id="topbarStreak">🔥 0</div>
-      <div class="topbar-xp" id="topbarXp">⭐ 0 XP</div>
+    <div class="tb-title">Weekly Challenge</div>
+    <div class="tb-r">
+      <div class="chip chip-g" id="topbarStreak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>0 day</div>
+      <div class="chip chip-t" id="topbarXp"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>0 XP</div>
     </div>
   </div>
-  <div class="content" id="mainContent"><div class="loading-full">Loading challenge…</div></div>
+  <div class="content" id="mainContent"><div class="loading-full">Loading…</div></div>
 </div>
 <script>
-const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
-const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-let user=null, profile=null, questions=[], currentQ=0, score=0, answered=0, selected=null, isAnswered=false;
-let startTime=null, elapsed=0, timerInterval=null;
-
-function getWeekStart(){
-  const d=new Date();
-  const day=d.getDay();
-  const diff=d.getDate()-day+(day===0?-6:1);
-  const mon=new Date(d.setDate(diff));
-  return mon.toISOString().split('T')[0];
-}
-
-function getCountdown(){
-  const now=new Date();
-  const next=new Date(now);
-  const day=now.getDay();
-  const daysUntilMon=day===1?7:(8-day)%7;
-  next.setDate(now.getDate()+daysUntilMon);
-  next.setHours(0,0,0,0);
-  const diff=next-now;
-  const d=Math.floor(diff/86400000);
-  const h=Math.floor((diff%86400000)/3600000);
-  const m=Math.floor((diff%3600000)/60000);
-  return{d,h,m};
-}
-
-async function init(){
-  const{data:{session}}=await sb.auth.getSession();
-  if(!session){window.location.href='login.html';return;}
-  user=session.user;
-  const name=user.user_metadata?.full_name||user.email.split('@')[0];
-  document.getElementById('userAv').textContent=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
-  document.getElementById('userName').textContent=name;
-  const{data:p}=await sb.from('profiles').select('*').eq('id',user.id).single();
-  profile=p;
-  document.getElementById('topbarStreak').textContent=`🔥 ${p?.current_streak||0}`;
-  document.getElementById('topbarXp').textContent=`⭐ ${p?.xp||0} XP`;
-  document.getElementById('sidebarStreak').textContent=`🔥 ${p?.current_streak||0}`;
-
-  const weekStart=getWeekStart();
-  // Check if already completed this week
-  const{data:entry}=await sb.from('weekly_entries').select('*').eq('user_id',user.id).eq('week_start',weekStart).single();
-  // Get or create weekly challenge
-  let{data:challenge}=await sb.from('weekly_challenges').select('*').eq('week_start',weekStart).single();
-  if(!challenge){
-    // Create new weekly challenge — pick 20 random question IDs
-    const{data:qs}=await sb.from('questions').select('id').limit(200);
-    if(!qs?.length){showError();return;}
-    const shuffled=qs.sort(()=>Math.random()-0.5).slice(0,20);
-    const qIds=shuffled.map(q=>q.id);
-    const{data:newChallenge}=await sb.from('weekly_challenges').insert({week_start:weekStart,question_ids:qIds}).select().single();
-    challenge=newChallenge;
-  }
-  // Load weekly leaderboard
-  const{data:entries}=await sb.from('weekly_entries').select('*').eq('week_start',weekStart).order('score',{ascending:false}).limit(50);
-  const{data:allProfiles}=await sb.from('profiles').select('id,username,full_name,hospital_trust').in('id',(entries||[]).map(e=>e.user_id));
-  const profileMap={};(allProfiles||[]).forEach(p=>profileMap[p.id]=p);
-
-  renderLobby(challenge, entry, entries, profileMap, weekStart);
-}
-
-function renderLobby(challenge, myEntry, entries, profileMap, weekStart){
-  const cd=getCountdown();
-  const colors=['#e11d48','#0891b2','#7c3aed','#059669','#d97706','#db2777'];
-  const medals=['🥇','🥈','🥉'];
-  document.getElementById('mainContent').innerHTML=`
-  <div class="weekly-hero">
-    <div class="wh-tag">Weekly · Resets every Monday</div>
-    <div class="wh-title">Weekly <span>Challenge</span></div>
-    <div class="wh-sub">20 questions — the same set for every Ossify user this week. Ranked by accuracy, then speed. Complete it before Monday to appear on the leaderboard.</div>
-    <div class="wh-meta"><span class="wh-pill">📋 20 Questions</span><span class="wh-pill">⏱️ Speed matters</span><span class="wh-pill">🌍 Same for everyone</span><span class="wh-pill">🏆 Weekly leaderboard</span></div>
-    <div class="countdown"><div class="cd-unit"><div class="cd-num">${cd.d}</div><div class="cd-lbl">Days</div></div><div class="cd-sep">:</div><div class="cd-unit"><div class="cd-num">${String(cd.h).padStart(2,'0')}</div><div class="cd-lbl">Hours</div></div><div class="cd-sep">:</div><div class="cd-unit"><div class="cd-num">${String(cd.m).padStart(2,'0')}</div><div class="cd-lbl">Mins</div></div><div style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.4)">until reset</div></div>
-    ${myEntry?`<div style="background:rgba(13,115,119,0.2);border:1px solid rgba(13,115,119,0.3);border-radius:var(--r-sm);padding:10px 16px;color:#4dd0c4;font-size:13.5px;font-weight:600;display:inline-block;">✅ You've completed this week's challenge — score: ${myEntry.score}/${myEntry.total}</div>`:`<button class="start-btn" onclick="startChallenge(${JSON.stringify(challenge?.question_ids||[])})">⚡ Start Challenge →</button>`}
-  </div>
-  <div class="two-col">
-    <div class="card">
-      <div class="card-hdr"><div><div class="card-title">🏆 This Week's Leaderboard</div><div class="card-sub">Week of ${weekStart}</div></div></div>
-      <div>
-        ${!entries?.length?`<div style="padding:32px;text-align:center;color:var(--muted);font-size:14px;">No entries yet — be the first to complete this week's challenge!</div>`:`
-        <div style="display:grid;grid-template-columns:40px 1fr 80px 70px;padding:10px 20px;font-size:11px;color:var(--muted);border-bottom:1px solid rgba(10,15,26,0.05);text-transform:uppercase;letter-spacing:1px;"><div>Rank</div><div>Doctor</div><div>Score</div><div>Time</div></div>
-        ${entries.map((e,i)=>{
-          const p=profileMap[e.user_id]||{};
-          const name=p.full_name||'Doctor';
-          const mins=Math.floor(e.time_taken/60);
-          const secs=e.time_taken%60;
-          return`<div class="lb-row ${e.user_id===user.id?'me':''}">
-            <div class="lb-rank">${i<3?medals[i]:i+1}</div>
-            <div class="lb-user"><div class="lb-av" style="background:${colors[i%colors.length]}">${name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div><div><div class="lb-name">${name}${e.user_id===user.id?' <span style="font-size:10px;background:rgba(124,58,237,0.12);color:var(--violet);padding:1px 7px;border-radius:10px;font-weight:700">You</span>':''}</div><div class="lb-meta">${p.hospital_trust||''}</div></div></div>
-            <div class="lb-score">${e.score}/${e.total}</div>
-            <div class="lb-time">${mins}m ${String(secs).padStart(2,'0')}s</div>
-          </div>`;
-        }).join('')}`}
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-hdr"><div class="card-title">📋 How It Works</div></div>
-      <div class="card-body" style="display:flex;flex-direction:column;gap:14px;">
-        ${[['⚡','Same questions for everyone','Every Ossify user gets the same 20 questions each week — so the leaderboard is a true measure of skill.'],['⏱️','Speed is a tiebreaker','If two doctors score the same accuracy, the faster one ranks higher.'],['🏆','Win badges and XP','Top the weekly leaderboard and earn the Weekly Champion badge (200 XP).'],['🔄','Resets every Monday','New questions every Monday at midnight. Your history is saved.']].map(([ico,t,d])=>`<div style="display:flex;gap:12px;align-items:flex-start;"><div style="font-size:20px;flex-shrink:0;margin-top:2px;">${ico}</div><div><div style="font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:3px;">${t}</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55;">${d}</div></div></div>`).join('')}
-      </div>
-    </div>
-  </div>`;
-}
-
-async function startChallenge(qIds){
-  if(!qIds?.length){alert('No questions available for this week yet.');return;}
-  const{data:qs}=await sb.from('questions').select('*').in('id',qIds);
-  if(!qs?.length){alert('Could not load questions.');return;}
-  questions=qs;currentQ=0;score=0;answered=0;selected=null;isAnswered=false;
-  startTime=Date.now();elapsed=0;
-  if(timerInterval)clearInterval(timerInterval);
-  timerInterval=setInterval(()=>{elapsed=Math.floor((Date.now()-startTime)/1000);const el=document.getElementById('timerDisplay');if(el){const m=Math.floor(elapsed/60);const s=elapsed%60;el.textContent=`${m}:${String(s).padStart(2,'0')}`;} },1000);
-  renderQuestion();
-}
-
-function renderQuestion(){
-  if(currentQ>=questions.length){finishChallenge();return;}
-  selected=null;isAnswered=false;
-  const q=questions[currentQ];
-  const opts=Array.isArray(q.options)?q.options:JSON.parse(q.options||'[]');
-  document.getElementById('mainContent').innerHTML=`
-  <div class="game-wrap">
-    <div class="game-hdr">
-      <div class="game-q-info">
-        <div class="game-q-num">${currentQ+1} <span style="font-size:13px;color:var(--muted)">/ ${questions.length}</span></div>
-        <div style="width:160px;height:5px;background:var(--surface3);border-radius:5px;overflow:hidden;"><div style="height:100%;width:${(currentQ/questions.length)*100}%;background:linear-gradient(90deg,var(--violet),#a855f7);border-radius:5px;transition:width 0.3s;"></div></div>
-        <div style="font-size:12px;color:var(--muted)">Score: ${score}/${answered}</div>
-      </div>
-      <div class="game-timer" id="timerDisplay">0:00</div>
-    </div>
-    <div class="game-body">
-      <div style="display:flex;gap:8px;margin-bottom:14px;"><span style="padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;background:var(--violet-lt);color:var(--violet);border:1px solid rgba(124,58,237,0.2);">${q.type}</span><span style="padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;background:var(--surface3);color:var(--muted);">${q.topic}</span></div>
-      <div class="q-stem">${q.stem}</div>
-      <div class="opts" id="optList">
-        ${opts.map((o,i)=>`<div class="opt" id="wo${i}" onclick="selectOpt(${i})"><div class="opt-letter">${String.fromCharCode(65+i)}</div><div class="opt-txt">${o}</div></div>`).join('')}
-      </div>
-      <div class="game-actions">
-        <button class="btn btn-outline" onclick="selectOpt(selected===null?0:selected);submitAnswer(${q.correct_answer})" id="submitBtn">Submit →</button>
-        <button class="btn btn-violet" id="nextBtn" style="display:none" onclick="nextQ()">Next →</button>
-      </div>
-    </div>
-  </div>`;
-}
-
-function selectOpt(i){if(isAnswered)return;selected=i;document.querySelectorAll('.opt').forEach((o,j)=>o.classList.toggle('sel',i===j));}
-function submitAnswer(correct){
-  if(selected===null){alert('Select an answer first.');return;}
-  isAnswered=true;answered++;
-  if(selected===correct)score++;
-  document.querySelectorAll('.opt').forEach((o,i)=>{o.classList.add('disabled');if(i===correct)o.classList.add('corr');else if(i===selected&&selected!==correct)o.classList.add('incorr');});
-  document.getElementById('submitBtn').style.display='none';
-  document.getElementById('nextBtn').style.display='inline-flex';
-}
-function nextQ(){currentQ++;renderQuestion();}
-
-async function finishChallenge(){
-  clearInterval(timerInterval);
-  const weekStart=getWeekStart();
-  await sb.from('weekly_entries').upsert({user_id:user.id,week_start:weekStart,score,total:questions.length,time_taken:elapsed},{onConflict:'user_id,week_start'});
-  // Award XP
-  await sb.from('profiles').update({xp:(profile?.xp||0)+score*5}).eq('id',user.id);
-  const pct=Math.round((score/questions.length)*100);
-  const emoji=pct>=80?'🏆':pct>=60?'⚡':'💪';
-  const mins=Math.floor(elapsed/60);const secs=elapsed%60;
-  document.getElementById('mainContent').innerHTML=`
-  <div class="results-wrap">
-    <div class="results-ico">${emoji}</div>
-    <div class="results-title">${pct>=80?'Excellent!':pct>=60?'Well done!':'Good effort!'}</div>
-    <div class="results-sub">You've completed this week's challenge. Your result has been saved to the leaderboard.</div>
-    <div class="results-stats">
-      <div class="rs"><div class="rs-val" style="color:var(--teal)">${score}/${questions.length}</div><div class="rs-lbl">Correct</div></div>
-      <div class="rs"><div class="rs-val" style="color:var(--violet)">${pct}%</div><div class="rs-lbl">Accuracy</div></div>
-      <div class="rs"><div class="rs-val" style="color:var(--amber)">${mins}m ${String(secs).padStart(2,'0')}s</div><div class="rs-lbl">Time</div></div>
-    </div>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-      <a href="leaderboard.html" class="btn btn-dark">🏆 View Leaderboard →</a>
-      <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
-    </div>
-  </div>`;
-}
-
-function showError(){document.getElementById('mainContent').innerHTML='<div class="loading-full">Could not load challenge. <a href="dashboard.html" style="color:var(--gold);margin-left:8px;">← Back</a></div>';}
-function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
-init();
 </script>
 </body>
 </html>
