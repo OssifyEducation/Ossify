@@ -3,188 +3,460 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How it works — Ossify</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>How It Works — Ossify</title>
 <style>
-:root{--forest:#0f1f0f;--forest-deep:#1a3a1a;--forest-mid:#2a5a2a;--sage:#4a8c4a;--sage-l:#7ab87a;--sage-pale:#a8d5a2;--mist:#f2f6f0;--leaf:#dde8d8;--leaf-mid:#c8d8c4;--red:#8b2020;--red-l:#fee2e2;--amber:#7a5500;--amber-l:#fef3c0;--ink:#1a2e1a;--moss:#5a7a5a;--muted:#8aaa8a;--font-serif:'Fraunces',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font-sans);color:var(--ink);background:var(--mist);-webkit-font-smoothing:antialiased;}
-nav{background:#fff;border-bottom:1px solid var(--leaf);padding:0 48px;height:62px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.n-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.n-mark{width:34px;height:34px;background:var(--forest);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.n-mark svg{width:18px;height:18px;fill:none;stroke:var(--sage-pale);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.n-name{font-family:var(--font-serif);font-size:20px;font-weight:500;color:var(--forest);}
-.n-links{display:flex;align-items:center;gap:2px;}
-.n-links a{color:var(--moss);font-size:13.5px;font-weight:500;text-decoration:none;padding:7px 13px;border-radius:8px;transition:all 0.15s;}
-.n-links a:hover,.n-links a.active{color:var(--ink);background:var(--mist);}
-.n-right{display:flex;align-items:center;gap:8px;}
-.n-login{color:var(--moss);font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 16px;border-radius:8px;border:1px solid var(--leaf);transition:all 0.15s;}
-.n-login:hover{color:var(--ink);border-color:var(--sage-l);}
-.n-signup{background:var(--forest-mid);color:#fff;font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 18px;border-radius:8px;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
-.n-signup:hover{background:var(--forest);}
-.n-signup svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-footer{background:var(--forest);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.f-logo{display:flex;align-items:center;gap:9px;}
-.f-name{font-family:var(--font-serif);font-size:17px;font-weight:500;color:#c8e8c8;}
-.f-copy{font-size:12px;color:rgba(255,255,255,0.22);}
-.f-links{display:flex;gap:20px;flex-wrap:wrap;}
-.f-links a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.15s;}
-.f-links a:hover{color:var(--sage-pale);}
-.eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:var(--sage);margin-bottom:10px;}
-.section-title{font-family:var(--font-serif);font-size:clamp(26px,3.5vw,40px);font-weight:500;color:var(--forest);letter-spacing:-0.8px;line-height:1.2;margin-bottom:12px;}
-.section-title em{font-style:italic;color:var(--sage);}
-.section-sub{font-size:15px;color:var(--moss);line-height:1.7;max-width:560px;}
-.btn-primary{background:var(--sage);color:#fff;font-size:14px;font-weight:500;padding:12px 24px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;border:none;cursor:pointer;font-family:var(--font-sans);}
-.btn-primary:hover{background:var(--forest-mid);}
-.btn-outline-green{display:inline-flex;align-items:center;gap:6px;color:var(--forest-mid);font-size:13.5px;font-weight:500;text-decoration:none;padding:9px 18px;border-radius:8px;border:1px solid var(--leaf);transition:all 0.15s;}
-.btn-outline-green:hover{border-color:var(--sage);background:#fff;}
-.page-hero{background:var(--forest);padding:64px 48px 56px;position:relative;overflow:hidden;}
-.page-hero-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:10px;}
-.page-hero h1{font-family:var(--font-serif);font-size:clamp(32px,4vw,50px);font-weight:500;color:#e8f4e8;letter-spacing:-1px;line-height:1.12;margin-bottom:12px;}
-.page-hero h1 em{font-style:italic;color:var(--sage-l);}
-.page-hero p{font-size:16px;color:rgba(255,255,255,0.42);line-height:1.7;max-width:580px;}
-.page-hero-ring{position:absolute;right:-80px;top:-80px;width:360px;height:360px;border-radius:50%;border:1px solid rgba(74,140,74,0.08);}
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+
+:root {
+  --ink: #0a0f1a;
+  --ink2: #1a2235;
+  --ink3: #2d3a52;
+  --slate: #4a5568;
+  --muted: #718096;
+  --muted2: #a0aec0;
+  --border: rgba(10,15,26,0.08);
+  --border2: rgba(10,15,26,0.05);
+  --surface: #ffffff;
+  --surface2: #f8f9fc;
+  --surface3: #f1f4f9;
+  --gold: #b8860b;
+  --gold2: #d4a017;
+  --gold-lt: rgba(184,134,11,0.08);
+  --gold-glow: rgba(184,134,11,0.2);
+  --teal: #0d7377;
+  --teal2: #14a085;
+  --teal-lt: rgba(13,115,119,0.07);
+  --rose: #c0392b;
+  --font-d: 'Fraunces', Georgia, serif;
+  --font-b: 'DM Sans', system-ui, sans-serif;
+  --r: 16px;
+  --r-sm: 10px;
+  --r-xs: 6px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-b);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAVIGATION ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  height: 68px;
+  display: flex; align-items: center;
+  padding: 0 48px;
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--ink);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #fff; font-weight: 700;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+}
+.nav-links a {
+  color: var(--slate);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: var(--r-xs);
+  transition: all 0.18s;
+}
+.nav-links a:hover { color: var(--ink); background: var(--surface3); }
+.nav-links a.active { color: var(--ink); font-weight: 600; }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: var(--r-xs);
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: var(--font-b);
+}
+.nav-cta:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
+
+/* ── PAGE WRAPPER ── */
+.page-wrap { padding-top: 68px; }
+
+/* ── COMMON ELEMENTS ── */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-family: var(--font-b);
+}
+.section-title {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 17px;
+  color: var(--slate);
+  max-width: 580px;
+  line-height: 1.7;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-b);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 11px 24px;
+  border-radius: var(--r-xs);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark:hover { background: var(--ink2); transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: var(--ink); background: var(--surface3); }
+.btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 16px var(--gold-glow); }
+.btn-gold:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 6px 24px var(--gold-glow); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px; color: var(--muted);
+}
+.footer-logo { font-family: var(--font-d); font-weight: 500; color: var(--ink); font-size: 18px; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--ink); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-up { animation: fadeUp 0.7s ease both; }
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.2s; }
+.d3 { animation-delay: 0.3s; }
+.d4 { animation-delay: 0.4s; }
+.d5 { animation-delay: 0.5s; }
+
+@media (max-width: 900px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+}
+
 </style>
 <style>
-.hiw-hero{background:var(--forest);padding:72px 48px 60px;position:relative;overflow:hidden;}
-.hiw-hero h1{font-family:var(--font-serif);font-size:clamp(34px,5vw,52px);font-weight:500;color:#e8f4e8;letter-spacing:-1.2px;line-height:1.1;margin-bottom:14px;}
-.hiw-hero h1 em{font-style:italic;color:var(--sage-l);}
-.hiw-hero p{font-size:16px;color:rgba(255,255,255,0.42);line-height:1.7;max-width:580px;}
-.hiw-hero-ring{position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(74,140,74,0.08);}
-.steps-section{padding:64px 48px;background:var(--mist);}
-.step-block{display:grid;grid-template-columns:80px 1fr;gap:32px;max-width:860px;margin:0 auto 56px;padding-bottom:56px;border-bottom:1px solid var(--leaf);}
-.step-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
-.step-num{font-family:var(--font-serif);font-size:42px;font-weight:500;color:var(--sage);line-height:1;}
-.step-tag{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--sage);margin-bottom:8px;}
-.step-title{font-family:var(--font-serif);font-size:clamp(20px,2.5vw,28px);font-weight:500;color:var(--forest);margin-bottom:12px;letter-spacing:-0.3px;}
-.step-intro{font-size:15px;color:var(--moss);line-height:1.75;margin-bottom:20px;}
-.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.mode-card{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:16px;}
-.mode-name{font-size:13px;font-weight:600;color:var(--forest);margin-bottom:6px;display:flex;align-items:center;gap:7px;}
-.mode-name svg{width:15px;height:15px;fill:none;stroke:var(--sage);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
-.mode-desc{font-size:12.5px;color:var(--moss);line-height:1.6;}
-.bullet-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
-.bullet-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--moss);line-height:1.6;}
-.bullet-list li::before{content:'';width:16px;height:16px;border-radius:50%;background:#e2f0de;flex-shrink:0;margin-top:2px;display:flex;}
-.bullet-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);margin-top:7px;flex-shrink:0;}
-.dash-preview{background:#fff;border:1px solid var(--leaf);border-radius:12px;padding:20px;margin-top:16px;}
-.dp-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--leaf);}
-.dp-row:last-child{border-bottom:none;}
-.dp-topic{font-size:13px;font-weight:500;color:var(--forest);}
-.dp-bar-wrap{flex:1;height:5px;background:var(--mist);border-radius:5px;margin:0 16px;overflow:hidden;}
-.dp-bar{height:100%;border-radius:5px;}
-.dp-pct{font-size:12px;font-weight:600;}
+.page-hero {
+  padding: 100px 48px 80px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner { max-width: 760px; }
+.page-hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero p { font-size: 18px; color: var(--slate); line-height: 1.7; max-width: 600px; }
+
+/* STEPS */
+.steps-section {
+  padding: 80px 48px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.step-block {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0 40px;
+  padding: 52px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.step-block:last-child { border-bottom: none; }
+.step-num-col { padding-top: 4px; }
+.step-num {
+  font-family: var(--font-d);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.35;
+  line-height: 1;
+}
+.step-content { }
+.step-tag {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.step-title {
+  font-family: var(--font-d);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.8px;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.step-intro {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.75;
+  max-width: 600px;
+  margin-bottom: 28px;
+}
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 4px;
+}
+.mode-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 20px 22px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.mode-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.mode-name {
+  font-family: var(--font-d);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.mode-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.bullet-list li {
+  display: flex; gap: 14px; font-size: 15px; color: var(--slate); line-height: 1.65;
+}
+.bullet-list li::before {
+  content: '→';
+  color: var(--gold);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.dash-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 4px;
+}
+.dash-card {
+  background: var(--ink);
+  border-radius: var(--r-sm);
+  padding: 20px;
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.dash-card strong { display: block; color: #fff; font-size: 14px; margin-bottom: 5px; font-family: var(--font-d); font-weight: 500; }
+
+/* CLOSING */
+.hiw-closing {
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
+  padding: 80px 48px;
+  text-align: center;
+}
+.hiw-closing p {
+  font-size: 16px; color: var(--slate); max-width: 640px; margin: 0 auto 28px; line-height: 1.75;
+}
+.hiw-closing-quote {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  max-width: 700px;
+  margin: 0 auto 28px;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .page-hero, .steps-section, .hiw-closing { padding-left: 20px; padding-right: 20px; }
+  .step-block { grid-template-columns: 1fr; gap: 12px; }
+  .step-num { font-size: 36px; }
+  .mode-grid, .dash-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
-<nav>
-  <a href="index.html" class="n-logo">
-    <div class="n-mark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-    <div class="n-name">Ossify</div>
-  </a>
-  <div class="n-links">
-    <a href="about.html">About</a>
-    <a href="how-it-works.html">How it works</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="keys-to-success.html">Keys to success</a>
-    <a href="faq.html">MSRA FAQ</a>
-  </div>
-  <div class="n-right">
-    <a href="login.html" class="n-login">Log in</a>
-    <a href="login.html" class="n-signup">Sign up<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">O</div>
+      Ossify
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About Ossify</a>
+      <a href="how-it-works.html" class="active">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="keys-to-success.html">Keys to Success</a>
+      <a href="faq.html">MSRA FAQ</a>
+    </div>
+    <a href="pricing.html" class="nav-cta">Get started →</a>
   </div>
 </nav>
 
-<section class="hiw-hero">
-  <div class="hiw-hero-ring"></div>
-  <div class="eyebrow" style="color:rgba(168,213,162,0.7);">How it works</div>
-  <h1>Smart preparation,<br>built around <em>you.</em></h1>
-  <p>Everything on Ossify is designed to maximise learning — not just practice time. A structured revision system that adapts to your performance, identifies your weak spots, and helps you build deep, retrievable knowledge that holds up under exam pressure.</p>
-</section>
+<div class="page-wrap">
 
-<div class="steps-section">
-  <div class="step-block">
-    <div class="step-num">01</div>
-    <div>
-      <div class="step-tag">Step one</div>
-      <div class="step-title">Practise the way you learn best</div>
-      <div class="step-intro">Ossify gives you full control over how you revise. Whether you are working through a targeted topic, simulating full exam conditions, or reviewing material you have already covered, there is a mode built for it.</div>
-      <div class="mode-grid">
-        <div class="mode-card">
-          <div class="mode-name"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Timed exam mode</div>
-          <div class="mode-desc">Simulate the real MSRA under exam conditions. Fixed time limits, randomised questions, and a full performance breakdown at the end.</div>
-        </div>
-        <div class="mode-card">
-          <div class="mode-name"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Tutor mode</div>
-          <div class="mode-desc">Answer questions at your own pace with immediate, detailed explanations after each one. Ideal for active learning and understanding the reasoning.</div>
-        </div>
-        <div class="mode-card">
-          <div class="mode-name"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Topic mode</div>
-          <div class="mode-desc">Focus on specific clinical areas. Build confidence in your weak areas systematically before moving on to the next topic.</div>
-        </div>
-        <div class="mode-card">
-          <div class="mode-name"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>Revision mode</div>
-          <div class="mode-desc">Revisit questions you have flagged, answered incorrectly, or marked for review. Spaced repetition built in.</div>
+  <section class="page-hero">
+    <div class="page-hero-inner fade-up">
+      <div class="eyebrow">How it works</div>
+      <h1>Smart Preparation,<br>Built Around <em>You.</em></h1>
+      <p>Everything on Ossify is designed to maximise learning — not just practice time. Ossify is more than a question bank. It is a structured revision system that adapts to your performance, identifies your weak spots, and helps you build the kind of deep, retrievable knowledge that holds up under exam pressure.</p>
+    </div>
+  </section>
+
+  <div class="steps-section">
+
+    <!-- STEP 1 -->
+    <div class="step-block">
+      <div class="step-num-col"><div class="step-num">01</div></div>
+      <div class="step-content">
+        <div class="step-tag">Step one</div>
+        <div class="step-title">Practice the Way You Learn Best</div>
+        <div class="step-intro">Ossify gives you full control over how you revise. Whether you are working through a targeted topic, simulating full exam conditions, or reviewing material you have already covered, there is a mode built for it.</div>
+        <div class="mode-grid">
+          <div class="mode-card">
+            <div class="mode-name">⏱️ Timed Exam Mode</div>
+            <div class="mode-desc">Simulate the real MSRA under exam conditions. Fixed time limits, randomised questions, and a full performance breakdown at the end.</div>
+          </div>
+          <div class="mode-card">
+            <div class="mode-name">💡 Tutor Mode</div>
+            <div class="mode-desc">Answer questions at your own pace with immediate, detailed explanations after each one. Ideal for active learning and understanding the reasoning behind every answer.</div>
+          </div>
+          <div class="mode-card">
+            <div class="mode-name">📚 Topic Mode</div>
+            <div class="mode-desc">Focus on specific clinical areas or SJT themes. Build confidence in your weak areas systematically before moving on.</div>
+          </div>
+          <div class="mode-card">
+            <div class="mode-name">🔁 Revision Mode</div>
+            <div class="mode-desc">Revisit questions you have previously flagged, answered incorrectly, or marked for review. Spaced repetition built in.</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="step-block">
-    <div class="step-num">02</div>
-    <div>
-      <div class="step-tag">Step two</div>
-      <div class="step-title">Questions that actually teach you something</div>
-      <div class="step-intro">Every Ossify question is written by practising doctors and reviewed for clinical accuracy, exam relevance, and educational value. Our explanations go beyond telling you the correct answer.</div>
-      <div class="bullet-list">
-        <li><span class="bullet-dot" style="margin-top:7px;"></span><div><strong style="color:var(--forest);">Why the correct answer is right</strong> — the clinical reasoning, the guideline, the principle behind it.</div></li>
-        <li><span class="bullet-dot" style="margin-top:7px;"></span><div><strong style="color:var(--forest);">Why the distractors are wrong</strong> — addressing the exact misconceptions that trip candidates up.</div></li>
-        <li><span class="bullet-dot" style="margin-top:7px;"></span><div><strong style="color:var(--forest);">What to remember for similar questions</strong> — consolidating the learning so it transfers to new scenarios.</div></li>
+    <!-- STEP 2 -->
+    <div class="step-block">
+      <div class="step-num-col"><div class="step-num">02</div></div>
+      <div class="step-content">
+        <div class="step-tag">Step two</div>
+        <div class="step-title">Questions That Actually Teach You Something</div>
+        <div class="step-intro">Every Ossify question is written by practising doctors and reviewed for clinical accuracy, exam relevance, and educational value. We do not recycle old questions or generate content at volume for the sake of numbers.</div>
+        <p style="font-size:15px;color:var(--slate);margin-bottom:18px;line-height:1.7">Our explanations go beyond telling you the correct answer. They explain:</p>
+        <ul class="bullet-list">
+          <li><strong style="color:var(--ink)">Why the correct answer is right</strong> — the clinical reasoning, the guideline, the principle.</li>
+          <li><strong style="color:var(--ink)">Why the distractors are wrong</strong> — addressing the exact misconceptions that trip candidates up.</li>
+          <li><strong style="color:var(--ink)">What to remember for similar questions</strong> — consolidating the learning so it transfers to new scenarios.</li>
+        </ul>
+        <p style="font-size:14px;color:var(--muted);margin-top:20px;font-style:italic">The MSRA rewards understanding, not memorisation. Our questions are written with that in mind.</p>
       </div>
     </div>
-  </div>
 
-  <div class="step-block">
-    <div class="step-num">03</div>
-    <div>
-      <div class="step-tag">Step three</div>
-      <div class="step-title">Track your performance and close the gaps</div>
-      <div class="step-intro">Your performance dashboard shows you exactly where you stand — broken down by topic, question type, and accuracy trend. The weak spot tracker highlights where your score is most vulnerable.</div>
-      <div class="dash-preview">
-        <div class="dp-row"><div class="dp-topic">Cardiovascular</div><div class="dp-bar-wrap"><div class="dp-bar" style="width:74%;background:var(--sage);"></div></div><div class="dp-pct" style="color:var(--sage);">74%</div></div>
-        <div class="dp-row"><div class="dp-topic">Psychiatry &amp; Neurology</div><div class="dp-bar-wrap"><div class="dp-bar" style="width:58%;background:var(--amber);"></div></div><div class="dp-pct" style="color:var(--amber);">58%</div></div>
-        <div class="dp-row"><div class="dp-topic">Endocrinology</div><div class="dp-bar-wrap"><div class="dp-bar" style="width:34%;background:var(--red);"></div></div><div class="dp-pct" style="color:var(--red);">34%</div></div>
-        <div class="dp-row"><div class="dp-topic">Respiratory</div><div class="dp-bar-wrap"><div class="dp-bar" style="width:81%;background:var(--sage);"></div></div><div class="dp-pct" style="color:var(--sage);">81%</div></div>
+    <!-- STEP 3 -->
+    <div class="step-block">
+      <div class="step-num-col"><div class="step-num">03</div></div>
+      <div class="step-content">
+        <div class="step-tag">Step three</div>
+        <div class="step-title">Know Exactly Where You Stand</div>
+        <div class="step-intro">Your personal dashboard gives you a real-time picture of your performance across every domain of the MSRA. At a glance you can see:</div>
+        <div class="dash-grid">
+          <div class="dash-card"><strong>Overall score</strong>How it compares to the passing benchmark.</div>
+          <div class="dash-card"><strong>Performance by topic</strong>Broken down by clinical area and SJT theme.</div>
+          <div class="dash-card"><strong>Accuracy trend</strong>So you can see improvement as it happens.</div>
+          <div class="dash-card"><strong>Questions answered</strong>Flagged, complete, and still to tackle.</div>
+          <div class="dash-card"><strong>Predicted weak areas</strong>Based on your answer patterns across sessions.</div>
+          <div class="dash-card"><strong>No ambiguity</strong>Exactly where your revision time is best spent.</div>
+        </div>
       </div>
     </div>
+
+    <!-- STEP 4 -->
+    <div class="step-block">
+      <div class="step-num-col"><div class="step-num">04</div></div>
+      <div class="step-content">
+        <div class="step-tag">Step four</div>
+        <div class="step-title">Every Wrong Answer Is an Opportunity</div>
+        <div class="step-intro">When you get a question wrong on Ossify, the platform does not just move on. It logs it, surfaces it again at the optimal interval for retention, and tracks whether you have genuinely learned from the experience or are still making the same error.</div>
+        <p style="font-size:15px;color:var(--slate);line-height:1.75">This is revision that compounds. The more you use Ossify, the smarter it gets about where your time is best spent — and the more efficiently you improve.</p>
+      </div>
+    </div>
+
   </div>
 
-  <div class="step-block">
-    <div class="step-num">04</div>
-    <div>
-      <div class="step-tag">Step four</div>
-      <div class="step-title">Sit the exam with confidence</div>
-      <div class="step-intro">After working through 1,200 questions designed to mirror the real MSRA — in both format and difficulty — you will walk into the exam having already practised the scenarios that matter. That is what preparation should feel like.</div>
-      <div style="margin-top:16px;"><a href="login.html" class="btn-primary">Start your preparation →</a></div>
+  <!-- CLOSING -->
+  <section class="hiw-closing">
+    <p class="hiw-closing-quote">"Ossify is not about answering the most questions. It is about getting the most out of every question you answer."</p>
+    <p>That philosophy is built into every feature of the platform — from the question writing process to the way Revision Mode resurfaces your weak spots at precisely the right time.</p>
+    <a href="pricing.html" class="btn btn-dark">Start your preparation →</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Ossify</div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="keys-to-success.html">Keys to Success</a>
+      <a href="faq.html">MSRA FAQ</a>
     </div>
-  </div>
+    <div>© 2026 Ossify. All rights reserved.</div>
+  </footer>
+
 </div>
-
-<footer>
-  <div class="f-logo">
-    <div class="n-mark" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:var(--sage-pale);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-    <div class="f-name">Ossify</div>
-  </div>
-  <div class="f-links">
-    <a href="about.html">About</a>
-    <a href="how-it-works.html">How it works</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="keys-to-success.html">Keys to success</a>
-    <a href="faq.html">MSRA FAQ</a>
-    <a href="login.html">Log in</a>
-  </div>
-  <div class="f-copy">© 2026 Ossify. All rights reserved.</div>
-</footer>
 </body>
 </html>
