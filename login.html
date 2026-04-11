@@ -101,6 +101,7 @@ sb.auth.getSession().then(({data:{session}})=>{if(session)window.location.href='
 const urlParams=new URLSearchParams(window.location.search);
 const plan=urlParams.get('plan');
 if(plan){const names={'3month':'3-Month Access','6month':'6-Month Access','1year':'1-Year Access'};document.getElementById('planName').textContent=names[plan]||plan;document.getElementById('planBadge').style.display='block';switchTab('signup');}
+if(urlParams.get('tab')==='signup')switchTab('signup');
 function switchTab(tab){document.getElementById('loginForm').style.display=tab==='login'?'block':'none';document.getElementById('signupForm').style.display=tab==='signup'?'block':'none';document.getElementById('forgotForm').style.display='none';document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',(tab==='login'&&i===0)||(tab==='signup'&&i===1)));clearMessages();}
 function showForgot(){document.getElementById('loginForm').style.display='none';document.getElementById('forgotForm').style.display='block';clearMessages();}
 function showError(msg){const el=document.getElementById('errorMsg');el.textContent=msg;el.classList.add('show');document.getElementById('successMsg').classList.remove('show');}
