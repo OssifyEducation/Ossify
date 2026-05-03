@@ -293,6 +293,14 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .reasoning-intro h3{font-family:var(--font-serif);font-size:20px;color:#fff;margin-bottom:6px}
 .reasoning-intro p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65}
 
+/* Acronym tooltips */
+abbr.acr{text-decoration:underline dotted rgba(124,92,191,0.5);cursor:help;position:relative;white-space:nowrap}
+abbr.acr:hover::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);
+  background:#3d1f7a;color:#fff;font-size:11.5px;font-style:normal;font-weight:400;line-height:1.5;
+  padding:6px 10px;border-radius:8px;width:max-content;max-width:260px;white-space:normal;
+  box-shadow:0 4px 12px rgba(61,31,122,0.3);z-index:1000;pointer-events:none;font-family:Inter,system-ui,sans-serif}
+abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 1px);transform:translateX(-50%);
+  border:5px solid transparent;border-top-color:#3d1f7a;z-index:1001;pointer-events:none}
 </style>
 </head>
 <body>
@@ -547,56 +555,103 @@ function renderWhy(c){
 function renderMechanism(c){
   const el=document.getElementById('mechanism-content');if(!el)return;
   const nodes=c.stage2_nodes||c.map_nodes||[];
+
+  const diagram='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:20px 24px;margin-bottom:22px">'
+    +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#7c5cbf;margin-bottom:14px">How it all connects</div>'
+    +'<svg viewBox="0 0 700 270" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">'
+    +'<defs><marker id="arF" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#6366f1"/></marker>'
+    +'<marker id="arB" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#7c5cbf"/></marker>'
+    +'<marker id="arN" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f472b6"/></marker></defs>'
+    +'<rect x="8"   y="8"  width="130" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
+    +'<text x="73"  y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Myocardial insult</text>'
+    +'<text x="73"  y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Ischaemia · HTN · toxins</text>'
+    +'<line x1="138" y1="31" x2="162" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
+    +'<rect x="164" y="8"  width="144" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
+    +'<text x="236" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Ventricular dysfunction</text>'
+    +'<text x="236" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Systolic or diastolic</text>'
+    +'<line x1="308" y1="31" x2="332" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
+    +'<rect x="334" y="8"  width="130" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
+    +'<text x="399" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">↓ Cardiac output</text>'
+    +'<text x="399" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Insufficient for demands</text>'
+    +'<line x1="464" y1="31" x2="488" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
+    +'<rect x="490" y="8"  width="172" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="2.5"/>'
+    +'<text x="576" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Tissue hypoperfusion</text>'
+    +'<text x="576" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#6366f1">● Fatigue · oliguria · cold</text>'
+    +'<line x1="399" y1="54" x2="399" y2="78" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
+    +'<rect x="334" y="80" width="130" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="1.5"/>'
+    +'<text x="399" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">↑ Filling pressures</text>'
+    +'<text x="399" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">↑ LVEDP → pulm. venous HTN</text>'
+    +'<line x1="334" y1="103" x2="310" y2="103" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
+    +'<line x1="464" y1="103" x2="488" y2="103" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
+    +'<rect x="164" y="80" width="144" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="2.5"/>'
+    +'<text x="236" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Pulm. venous HTN</text>'
+    +'<text x="236" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">● Dyspnoea · orthopnoea · PND</text>'
+    +'<rect x="490" y="80" width="172" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="2.5"/>'
+    +'<text x="576" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Systemic congestion</text>'
+    +'<text x="576" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">● JVP · oedema · hepatomegaly</text>'
+    +'<line x1="399" y1="126" x2="399" y2="150" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arN)"/>'
+    +'<rect x="258" y="152" width="170" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
+    +'<text x="343" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Neurohormonal activation</text>'
+    +'<text x="343" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">RAAS · SNS · ADH</text>'
+    +'<line x1="428" y1="175" x2="452" y2="175" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arN)"/>'
+    +'<rect x="454" y="152" width="144" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
+    +'<text x="526" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Haemodynamic overload</text>'
+    +'<text x="526" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">↑ preload + ↑ afterload</text>'
+    +'<line x1="258" y1="175" x2="234" y2="175" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arN)"/>'
+    +'<rect x="56"  y="152" width="170" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
+    +'<text x="141" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Cardiac remodelling</text>'
+    +'<text x="141" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Fibrosis → worsening EF</text>'
+    +'<path d="M56 175 Q28 175 28 103 Q28 31 73 31" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3" fill="none" marker-end="url(#arN)"/>'
+    +'<text x="14" y="110" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#f472b6" transform="rotate(-90 14 110)">vicious cycle</text>'
+    +'<rect x="8" y="216" width="684" height="46" rx="6" fill="#f8f7ff"/>'
+    +'<circle cx="26"  cy="239" r="5" fill="#6366f1"/><text x="36"  y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Forward failure</text>'
+    +'<circle cx="140" cy="239" r="5" fill="#7c5cbf"/><text x="150" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Backward failure</text>'
+    +'<circle cx="260" cy="239" r="5" fill="#f472b6"/><text x="270" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Neurohormonal</text>'
+    +'<line x1="366" y1="239" x2="390" y2="239" stroke="#6366f1" stroke-width="2"/><text x="396" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Direct link</text>'
+    +'<line x1="450" y1="239" x2="474" y2="239" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3"/><text x="480" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Neurohormonal feedback</text>'
+    +'<circle cx="620" cy="239" r="5" fill="none" stroke="#3d1f7a" stroke-width="2"/><circle cx="620" cy="239" r="2" fill="#3d1f7a"/><text x="630" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">● Clinical sign</text>'
+    +'</svg></div>';
+
   if(!nodes.length){
-    el.innerHTML='<p style="color:var(--muted);padding:20px">Mechanism map coming soon.</p>';
+    el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
+      +'<div class="stage-actions"><button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
     return;
   }
 
-  // Legend
-  const legendHtml='<div style="margin-bottom:16px;display:flex;gap:6px;flex-wrap:wrap">'
+  const PILL='<div style="margin-bottom:20px;display:flex;gap:6px;flex-wrap:wrap">'
     +Object.entries(PATHWAY_COLOURS).map(([p,col])=>'<span style="font-size:11px;background:'+(PATHWAY_FILLS[p]||'#f5f5f5')+';color:'+col+';border:1px solid '+col+'44;padding:3px 10px;border-radius:20px;font-weight:600;cursor:pointer" data-pw="'+p+'" onclick="filterPathway(this.dataset.pw)" id="legend-'+p+'">'+p+'</span>').join('')
-    +'<span style="font-size:11px;background:#f5f5f5;color:#7b6fa0;border:1px solid #d4c6f0;padding:3px 10px;border-radius:20px;font-weight:600;cursor:pointer" onclick="filterPathway(null)">all</span>'
-    +'</div>';
+    +'<span style="font-size:11px;background:#f5f5f5;color:#7b6fa0;border:1px solid #d4c6f0;padding:3px 10px;border-radius:20px;font-weight:600;cursor:pointer" onclick="filterPathway(null)">all</span></div>';
 
-  // Build node cards — grouped by pathway
   const byPathway={};
-  nodes.forEach(n=>{
-    const pw=n.pathway||n.type||'event';
-    if(!byPathway[pw])byPathway[pw]=[];
-    byPathway[pw].push(n);
-  });
+  nodes.forEach(n=>{const pw=n.pathway||n.type||'event';if(!byPathway[pw])byPathway[pw]=[];byPathway[pw].push(n);});
 
-  const groupsHtml=Object.entries(byPathway).map(([pw,pwNodes])=>{
+  const tilesHtml=Object.entries(byPathway).map(([pw,pwNodes])=>{
     const col=PATHWAY_COLOURS[pw]||'#7c5cbf';
-    const fill=PATHWAY_FILLS[pw]||'#ede9fe';
-    const nodesHtml=pwNodes.map(n=>
-      '<div class="mech-node" id="mnode-'+n.id+'" data-pathway="'+pw+'" data-nid="'+n.id+'" onclick="toggleNode(this.dataset.nid)" style="'
-        +'background:#fff;border:2px solid '+col+';border-radius:12px;padding:12px 14px;cursor:pointer;'
-        +'transition:all 0.15s;position:relative;flex:1;min-width:160px;max-width:280px">'
-      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">'
-      +'<span style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.3">'+n.label+'</span>'
-      +(n.clinical?'<span title="Clinical relevance" style="flex-shrink:0;width:8px;height:8px;border-radius:50%;background:'+col+';margin-top:4px"></span>':'')
+    const t=pwNodes.map(n=>
+      '<div class="mech-node" id="mnode-'+n.id+'" data-pathway="'+pw+'" data-nid="'+n.id+'" onclick="toggleNode(this.dataset.nid)"'
+      +' style="background:#fff;border:2px solid '+col+';border-radius:12px;padding:14px 16px;cursor:pointer;transition:box-shadow 0.15s,background 0.15s">'
+      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
+      +'<span style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.35">'+n.label+'</span>'
+      +(n.clinical?'<span style="flex-shrink:0;background:'+col+';color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;margin-top:1px">Clinical</span>'
+        :'<span style="flex-shrink:0;color:'+col+';font-size:14px;opacity:0.45">▸</span>')
       +'</div>'
-      +'<div class="mnode-desc" id="mndesc-'+n.id+'" style="display:none;margin-top:8px;font-size:12px;color:#7b6fa0;line-height:1.6;border-top:1px solid '+col+'22;padding-top:8px">'+n.description+'</div>'
+      +'<div id="mndesc-'+n.id+'" style="display:none;margin-top:10px;font-size:12.5px;color:#7b6fa0;line-height:1.65;border-top:1px solid '+col+'22;padding-top:10px">'+expandAcronyms(n.description)+'</div>'
       +'</div>'
     ).join('');
-    return '<div style="margin-bottom:16px">'
-      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
-      +'<span style="width:10px;height:10px;border-radius:50%;background:'+col+';flex-shrink:0"></span>'
-      +'<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:'+col+'">'+pw.replace('_',' ')+'</span>'
-      +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10px;color:#7b6fa0;margin-left:4px">● = clinically relevant</span>':'')
+    return '<div style="margin-bottom:20px">'
+      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">'
+      +'<span style="width:22px;height:22px;border-radius:6px;background:'+col+'22;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><span style="width:8px;height:8px;border-radius:50%;background:'+col+'"></span></span>'
+      +'<span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:'+col+'">'+pw.replace('_',' ')+'</span>'
+      +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10.5px;color:#7b6fa0;margin-left:2px">— green badge = direct clinical relevance</span>':'')
       +'</div>'
-      +'<div style="display:flex;flex-wrap:wrap;gap:8px">'+nodesHtml+'</div>'
+      +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">'+t+'</div>'
       +'</div>';
   }).join('');
 
-  el.innerHTML=legendHtml
-    +'<div id="mechNodes">'+groupsHtml+'</div>'
-    +'<p style="font-size:11.5px;color:var(--muted);margin-top:8px">Click any node to reveal its description. Click pathway labels to filter.</p>'
-    +'<div class="stage-actions" style="margin-top:20px">'
-    +'<button class="btn-outline-sm" data-gs="why" onclick="goToStage(this.dataset.gs,true)">Back</button>'
-    +'<button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue to Clinical Picture <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>'
-    +'</div>';
+  el.innerHTML=diagram+PILL+'<div id="mechNodes">'+tilesHtml+'</div>'
+    +'<p style="font-size:11.5px;color:var(--muted);margin-top:4px;margin-bottom:20px">Click any tile to reveal its description. Click a pathway label to filter.</p>'
+    +'<div class="stage-actions"><button class="btn-outline-sm" data-gs="why" onclick="goToStage(this.dataset.gs,true)">Back</button>'
+    +'<button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue to Clinical Picture <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
 }
 
 function toggleNode(id){
@@ -618,48 +673,94 @@ function filterPathway(pw){
   });
 }
 
+
 function renderClinical(c){
   const el=document.getElementById('clinical-content');if(!el)return;
   const features=c.stage3_features||[];
   const invs=c.stage3_investigations||[];
   const mgmt=c.stage3_management||{};
-  let html='';
+
+  function secHdr(iconSvg,title,col){
+    return '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid '+col+'22">'
+      +'<div style="width:32px;height:32px;border-radius:9px;background:'+col+'18;display:flex;align-items:center;justify-content:center;flex-shrink:0">'+iconSvg+'</div>'
+      +'<span style="font-size:17px;font-weight:600;color:#3d1f7a;font-family:Georgia,serif">'+title+'</span></div>';
+  }
+
+  function clinTile(id,label,badge,badgeCol,badgeBg,detail){
+    return '<div id="ct-'+id+'" data-tid="'+id+'" onclick="toggleClinTile(this.dataset.tid)"'
+      +' style="background:#fff;border:0.5px solid rgba(180,150,220,0.3);border-radius:12px;padding:14px 16px;cursor:pointer;transition:box-shadow 0.15s,background 0.15s">'
+      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
+      +'<span style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.35">'+label+'</span>'
+      +(badge?'<span style="flex-shrink:0;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;background:'+badgeBg+';color:'+badgeCol+';white-space:nowrap;margin-top:1px">'+badge+'</span>':'<span style="color:#7b6fa0;font-size:14px;opacity:0.45">▸</span>')
+      +'</div>'
+      +'<div id="ct-detail-'+id+'" style="display:none;margin-top:10px;font-size:12.5px;color:#7b6fa0;line-height:1.65;border-top:1px solid rgba(180,150,220,0.2);padding-top:10px">'+expandAcronyms(detail)+'</div>'
+      +'</div>';
+  }
+
+  const ICON_SYM='<svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="#f472b6" stroke-width="1.5" stroke-linecap="round"><path d="M10 3a7 7 0 1 0 0 14A7 7 0 0 0 10 3z"/><line x1="10" y1="7" x2="10" y2="11"/><circle cx="10" cy="13.5" r=".7" fill="#f472b6" stroke="none"/></svg>';
+  const ICON_INV='<svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="#7c5cbf" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="9" r="5"/><line x1="13" y1="13" x2="17" y2="17"/></svg>';
+  const ICON_MGT='<svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="14" height="14" rx="3"/><line x1="7" y1="10" x2="13" y2="10"/><line x1="10" y1="7" x2="10" y2="13"/></svg>';
+
+  const PRI_COL={'essential':'#1a5a2a','important':'#7c5cbf','supplementary':'#94a3b8','bedside':'#d97706','first-line':'#1a5a2a','gold-standard':'#6366f1','routine':'#94a3b8'};
+  const PRI_BG= {'essential':'#e2f4e2','important':'#ede9fe','supplementary':'#f1f5f9','bedside':'#fef3c7','first-line':'#e2f4e2','gold-standard':'#e0e7ff','routine':'#f1f5f9'};
+
+  let symHtml='', invHtml='', mgtHtml='';
+
   if(features.length){
-    html+='<h4 style="font-size:14px;font-weight:600;color:#3d1f7a;margin-bottom:12px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#7c5cbf;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Clinical Features</h4>';
-    html+=features.map(f=>'<div style="padding:12px 16px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:10px;margin-bottom:8px">'
-      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-weight:600;color:#3d1f7a;font-size:13.5px">'+f.name+'</span>'
-      +'<span style="font-size:10px;background:'+(PATHWAY_FILLS[f.pathway]||'#ede9fe')+';color:'+(PATHWAY_COLOURS[f.pathway]||'#7c5cbf')+';padding:2px 7px;border-radius:10px">'+f.pathway+'</span></div>'
-      +'<div style="font-size:12px;color:#7b6fa0"><strong style="color:#3d1f7a">['+f.mechanism+']</strong> '+f.description+'</div></div>').join('');
+    const tiles=features.map((f,i)=>{
+      const col=PATHWAY_COLOURS[f.pathway]||'#7c5cbf';
+      const bg=PATHWAY_FILLS[f.pathway]||'#ede9fe';
+      return clinTile('sym'+i,f.name,f.pathway,col,bg,'<strong style="color:#3d1f7a">['+f.mechanism+']</strong> '+f.description);
+    }).join('');
+    symHtml='<div style="margin-bottom:32px">'+secHdr(ICON_SYM,'Symptoms','#f472b6')
+      +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
   }
+
   if(invs.length){
-    html+='<h4 style="font-size:14px;font-weight:600;color:#3d1f7a;margin:20px 0 12px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#7c5cbf;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Investigations</h4>';
-    html+=invs.map(i=>'<div style="padding:12px 16px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:10px;margin-bottom:8px">'
-      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-weight:600;color:#3d1f7a;font-size:13.5px">'+i.name+'</span>'
-      +'<span style="font-size:10px;background:#ede9fe;color:#7c5cbf;padding:2px 8px;border-radius:10px;font-weight:600">'+i.priority+'</span></div>'
-      +'<div style="font-size:13px;color:#7b6fa0;line-height:1.6">'+i.findings+'</div></div>').join('');
+    const tiles=invs.map((inv,i)=>clinTile(
+      'inv'+i,inv.name,
+      inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',
+      inv.findings
+    )).join('');
+    invHtml='<div style="margin-bottom:32px">'+secHdr(ICON_INV,'Investigations','#7c5cbf')
+      +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
   }
+
   if(Object.keys(mgmt).length){
-    html+='<h4 style="font-size:14px;font-weight:600;color:#3d1f7a;margin:20px 0 12px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#7c5cbf;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/></svg>Management</h4>';
-    const steps=mgmt.hfref_steps||mgmt.steps||[];
-    if(steps.length)html+=steps.map((s,i)=>'<div style="padding:12px 16px;background:#ede9fe;border-left:3px solid #7c5cbf;border-radius:0 10px 10px 0;margin-bottom:8px">'
-      +'<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:18px;height:18px;background:#7c5cbf;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0">'+(i+1)+'</span>'
-      +'<span style="font-weight:600;color:#3d1f7a;font-size:13.5px">'+(s.drug_class||s.action||s.phase||'Step')+'</span></div>'
-      +'<div style="font-size:12.5px;color:#7b6fa0;margin-left:24px">'+(s.examples||s.detail||'')+(s.mechanism?' — '+s.mechanism:'')+(s.monitoring||s.escalation?'<br><em>Monitoring: '+(s.monitoring||s.escalation)+'</em>':'')+'</div></div>').join('');
-    if(mgmt.symptom_relief){
-      html+='<div style="margin-top:12px"><strong style="font-size:12px;color:#7b6fa0;text-transform:uppercase;letter-spacing:1px">Symptom relief</strong></div>';
-      (mgmt.symptom_relief||[]).forEach(s=>{html+='<div style="padding:10px 14px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:9px;margin-top:6px;font-size:13px;color:#7b6fa0"><strong style="color:#3d1f7a">'+s.drug+'</strong> — '+s.examples+(s.note?' <em>('+s.note+')</em>':'')+'</div>';});
-    }
-    if(mgmt.devices&&mgmt.devices.length){
-      html+='<div style="margin-top:12px"><strong style="font-size:12px;color:#7b6fa0;text-transform:uppercase;letter-spacing:1px">Devices</strong></div>';
-      mgmt.devices.forEach(d=>{html+='<div style="padding:10px 14px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:9px;margin-top:6px;font-size:13px;color:#7b6fa0"><strong style="color:#3d1f7a">'+d.device+'</strong> — '+d.criteria+'</div>';});
-    }
-    if(mgmt.hfpef)html+='<div style="margin-top:12px;padding:14px 16px;background:#e2f4e2;border-left:3px solid #1a5a2a;border-radius:0 10px 10px 0"><div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#1a5a2a;margin-bottom:6px">HFpEF</div><div style="font-size:13px;color:#1a5a2a;line-height:1.65">'+mgmt.hfpef+'</div></div>';
-    if(mgmt.acute&&mgmt.acute.length){
-      html+='<div style="margin-top:14px;padding:14px 16px;background:#fce7f0;border-left:3px solid #c0305a;border-radius:0 10px 10px 0"><div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#c0305a;margin-bottom:8px">ACUTE MANAGEMENT</div>'
-        +mgmt.acute.map(a=>'<div style="font-size:13px;color:#c0305a;padding:3px 0">• '+a+'</div>').join('')+'</div>';
+    const mgtTiles=[];
+    (mgmt.hfref_steps||mgmt.steps||[]).forEach((s,i)=>{
+      const detail=(s.examples||s.detail||'')+(s.mechanism?' — <em>'+s.mechanism+'</em>':'')+(s.monitoring||s.escalation?'<br><strong>Monitor:</strong> '+(s.monitoring||s.escalation):'');
+      mgtTiles.push(clinTile('step'+i,s.drug_class||s.action||s.phase||('Step '+(i+1)),'Step '+(i+1),'#6366f1','#e0e7ff',detail));
+    });
+    (mgmt.symptom_relief||[]).forEach((s,i)=>{
+      mgtTiles.push(clinTile('sr'+i,s.drug||s.action||'Symptom relief','Symptom relief','#94a3b8','#f1f5f9',(s.examples||'')+(s.note?' — <em>'+s.note+'</em>':'')));
+    });
+    (mgmt.devices||[]).forEach((d,i)=>{
+      mgtTiles.push(clinTile('dev'+i,d.device,'Device','#d97706','#fef3c7',d.criteria));
+    });
+    (mgmt.additional||[]).forEach((a,i)=>{
+      mgtTiles.push(clinTile('add'+i,a.drug,'Add-on','#7c5cbf','#ede9fe',a.criteria));
+    });
+    if(mgmt.hfpef)mgtTiles.push(clinTile('hfpef','HFpEF management','HFpEF','#1a5a2a','#e2f4e2',mgmt.hfpef));
+    if(mgmt.acute&&mgmt.acute.length)mgtTiles.push(clinTile('acute','Acute pulmonary oedema','Acute','#c0305a','#fce7f0',mgmt.acute.map(a=>'<div style="padding:2px 0">• '+a+'</div>').join('')));
+    if(mgtTiles.length){
+      mgtHtml='<div style="margin-bottom:32px">'+secHdr(ICON_MGT,'Management','#6366f1')
+        +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+mgtTiles.join('')+'</div></div>';
     }
   }
-  el.innerHTML=html+'<div class="stage-actions"><button class="btn-outline-sm" data-gs="mechanism" onclick="goToStage(this.dataset.gs,true)">Back</button><button class="btn-primary-sm" data-cs="clinical_picture" onclick="completeStage(this.dataset.cs)">Continue to Test Yourself <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
+
+  el.innerHTML=symHtml+invHtml+mgtHtml
+    +'<div class="stage-actions"><button class="btn-outline-sm" data-gs="mechanism" onclick="goToStage(this.dataset.gs,true)">Back</button>'
+    +'<button class="btn-primary-sm" data-cs="clinical_picture" onclick="completeStage(this.dataset.cs)">Continue to Test Yourself <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
+}
+
+function toggleClinTile(id){
+  const d=document.getElementById('ct-detail-'+id);
+  const card=document.getElementById('ct-'+id);
+  if(!d)return;
+  const open=d.style.display!=='none';
+  d.style.display=open?'none':'block';
+  if(card){card.style.boxShadow=open?'none':'0 2px 14px rgba(124,92,191,0.18)';card.style.background=open?'#fff':'#faf8ff';}
 }
 
 function renderTestYourself(c){
@@ -797,6 +898,82 @@ function showError(msg){
   if(mm)mm.innerHTML='<div class="error-state"><h3>'+msg+'</h3><a href="domains.html" style="color:#7c5cbf;font-size:14px">Back to Domains</a></div>';
 }
 
+
+const ACRONYMS={
+  'CO':'Cardiac output — volume of blood pumped per minute (HR × stroke volume)',
+  'EF':'Ejection fraction — % of end-diastolic volume ejected per beat',
+  'HR':'Heart rate — beats per minute',
+  'SV':'Stroke volume — volume ejected per beat',
+  'LVEDP':'Left ventricular end-diastolic pressure — index of LV filling pressure',
+  'LVEDD':'Left ventricular end-diastolic dimension — marker of LV dilatation',
+  'LVEF':'Left ventricular ejection fraction',
+  'RVSP':'Right ventricular systolic pressure',
+  'JVP':'Jugular venous pressure — bedside marker of right-heart filling pressure',
+  'SBP':'Systolic blood pressure',
+  'HF':'Heart failure',
+  'HFrEF':'Heart Failure with reduced Ejection Fraction (EF <40%)',
+  'HFpEF':'Heart Failure with preserved Ejection Fraction (EF ≥50%)',
+  'HFmrEF':'Heart Failure with mildly reduced Ejection Fraction (EF 40–49%)',
+  'ADHF':'Acute decompensated heart failure',
+  'PND':'Paroxysmal nocturnal dyspnoea — waking breathless 1–2 hours after sleep due to fluid redistribution',
+  'BNP':'B-type natriuretic peptide — released by ventricular myocytes under wall stress; raised in HF',
+  'NT-proBNP':'N-terminal pro-BNP — inactive fragment with longer half-life than BNP',
+  'ECG':'Electrocardiogram',
+  'CXR':'Chest X-ray',
+  'CTR':'Cardiothoracic ratio — cardiac width / thoracic width; >0.5 = cardiomegaly',
+  'eGFR':'Estimated glomerular filtration rate — measure of renal function',
+  'AKI':'Acute kidney injury',
+  'ULN':'Upper limit of normal',
+  'RAAS':'Renin-angiotensin-aldosterone system — activated in low-output states to retain salt and water',
+  'SNS':'Sympathetic nervous system — activated in HF, causing tachycardia and vasoconstriction',
+  'ADH':'Antidiuretic hormone (vasopressin) — causes water retention',
+  'ACE':'Angiotensin-converting enzyme',
+  'ACEi':'ACE inhibitor (e.g. ramipril) — blocks angiotensin II; reduces preload, afterload, and fibrosis',
+  'ARB':'Angiotensin receptor blocker (e.g. losartan) — blocks angiotensin II receptor',
+  'ARNI':'Angiotensin receptor-neprilysin inhibitor — sacubitril/valsartan; replaces ACEi in symptomatic HFrEF',
+  'MRA':'Mineralocorticoid receptor antagonist (e.g. spironolactone) — blocks aldosterone',
+  'SGLT2i':'SGLT2 inhibitor (e.g. dapagliflozin) — reduces volume overload; direct cardiac benefit regardless of diabetes',
+  'GTN':'Glyceryl trinitrate — venodilator; reduces preload; use if SBP >100',
+  'LMWH':'Low molecular weight heparin — anticoagulant',
+  'ISDN':'Isosorbide dinitrate — nitrate vasodilator',
+  'CPAP':'Continuous positive airway pressure — non-invasive ventilation for acute pulmonary oedema',
+  'CRT':'Cardiac resynchronisation therapy — biventricular pacing for dyssynchrony (LBBB + low EF)',
+  'ICD':'Implantable cardioverter-defibrillator — prevents sudden cardiac death in low EF',
+  'AF':'Atrial fibrillation — most common arrhythmia in HF; causes irregularly irregular pulse',
+  'LBBB':'Left bundle branch block — QRS ≥120ms with specific morphology; required for CRT eligibility',
+  'LVH':'Left ventricular hypertrophy',
+  'SCD':'Sudden cardiac death — often ventricular arrhythmia; prevented by ICD',
+  'NYHA':'New York Heart Association class (I–IV) — grades exercise limitation in heart failure',
+  'HTN':'Hypertension — major risk factor for HF',
+  'ACS':'Acute coronary syndrome',
+  'WMA':'Wall motion abnormality — regional = ischaemic cause; global = non-ischaemic (e.g. cardiomyopathy)',
+  'MR':'Mitral regurgitation — backflow through mitral valve; common in dilated HF',
+  'RV':'Right ventricle',
+  'LV':'Left ventricle',
+  'LA':'Left atrium',
+  'SpO2':'Peripheral oxygen saturation measured by pulse oximetry',
+  'LVEDP':'Left ventricular end-diastolic pressure',
+  'GFR':'Glomerular filtration rate',
+  'TFTs':'Thyroid function tests',
+  'LFTs':'Liver function tests — often deranged in congestive hepatopathy',
+  'FBC':'Full blood count',
+  'IV':'Intravenous',
+};
+
+function expandAcronyms(text){
+  if(!text) return text;
+  var sorted=Object.keys(ACRONYMS).sort(function(a,b){return b.length-a.length;});
+  var out=text;
+  sorted.forEach(function(acr){
+    var tip=ACRONYMS[acr].replace(/"/g,'&quot;');
+    var re=new RegExp('\b('+acr.replace(/[-/+]/g,'\$&')+'s?)\b','g');
+    out=out.replace(re,function(match){
+      if(out.indexOf('class="acr"')>=0 && out.lastIndexOf('<abbr',out.indexOf(match))<out.lastIndexOf('</abbr>',out.indexOf(match))) return match;
+      return '<abbr class="acr" data-tip="'+tip+'">'+match+'</abbr>';
+    });
+  });
+  return out;
+}
 init();
 </script>
 </body>
