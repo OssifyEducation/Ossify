@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us — Ossify</title>
+<title>Course — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
+
 :root{
   --pu-dark:#3d1f7a;
   --pu-mid:#7c5cbf;
@@ -190,40 +191,75 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-err.show{display:block;}
 
 
-.contact-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:18px;align-items:start;}
-.contact-info{background:var(--pu-dark);border-radius:14px;padding:24px;position:relative;overflow:hidden;}
-.contact-info::after{content:'';position:absolute;right:-15px;bottom:-15px;width:100px;height:100px;border-radius:50%;background:rgba(167,139,250,0.12);}
-.contact-info h2{font-family:var(--font-serif);font-size:22px;color:#fff;margin-bottom:10px;}
-.contact-info p{font-size:13.5px;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:20px;}
-.contact-detail{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
-.contact-detail svg{width:16px;height:16px;fill:none;stroke:var(--pu-light);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:1px;}
-.contact-detail-label{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2px;}
-.contact-detail-val{font-size:13.5px;color:rgba(255,255,255,0.7);}
-.contact-form-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;}
-.contact-form-hdr{padding:16px 22px;border-bottom:0.5px solid var(--lav-border);}
-.contact-form-title{font-size:15px;font-weight:600;color:var(--pu-dark);}
-.contact-form-sub{font-size:12px;color:var(--muted);margin-top:2px;}
-.contact-form-body{padding:22px;}
-.cf-group{margin-bottom:16px;}
-.cf-group label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px;}
-.cf-group input,.cf-group textarea,.cf-group select{width:100%;padding:10px 14px;border:1px solid var(--lav-border);border-radius:9px;font-size:13.5px;color:var(--ink);font-family:var(--font-sans);outline:none;background:#fff;transition:border-color 0.15s;}
-.cf-group input:focus,.cf-group textarea:focus,.cf-group select:focus{border-color:var(--pu-mid);}
-.cf-group input::placeholder,.cf-group textarea::placeholder{color:var(--muted);}
-.cf-group textarea{resize:vertical;min-height:120px;line-height:1.6;}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.cf-error{font-size:12px;color:var(--red);margin-top:4px;display:none;}
-.cf-error.show{display:block;}
-.btn-send{background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:11px 26px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font-sans);display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;}
-.btn-send:hover{background:var(--pu-dark);}
-.btn-send:disabled{opacity:0.6;cursor:not-allowed;}
-.btn-send svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.cf-success{background:var(--pu-pale);border:1px solid var(--pu-light);border-radius:10px;padding:20px;text-align:center;display:none;}
-.cf-success.show{display:block;}
-.cf-success svg{width:32px;height:32px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:10px;}
-.cf-success h3{font-family:var(--font-serif);font-size:18px;color:var(--pu-dark);margin-bottom:6px;}
-.cf-success p{font-size:13.5px;color:var(--moss);}
-.cf-alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--red);margin-bottom:14px;display:none;}
-.cf-alert-err.show{display:block;}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px;}
+.two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-bottom:14px;}
+.topics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px;}
+.topic-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:10px;padding:12px;text-decoration:none;display:block;transition:all 0.15s;}
+.topic-card:hover{border-color:var(--pu-light);transform:translateY(-1px);}
+.topic-name{font-size:12px;font-weight:600;color:var(--pu-dark);margin-bottom:1px;line-height:1.3;}
+.topic-count{font-size:10.5px;color:var(--muted);margin-bottom:6px;}
+.badges-wrap{display:flex;flex-wrap:wrap;gap:10px;}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.badge-ico-wrap{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.badge-ico-wrap svg{width:18px;height:18px;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.badge-name{font-size:9px;color:var(--muted);text-align:center;max-width:60px;line-height:1.3;}
+.badge-item.locked .badge-ico-wrap{filter:grayscale(1);opacity:0.25;}
+
+
+
+.course-hero{background:var(--pu-dark);border-radius:14px;padding:22px 28px;margin-bottom:18px;position:relative;overflow:hidden;}
+.course-hero::after{content:'';position:absolute;right:-10px;top:-10px;width:100px;height:100px;border-radius:50%;background:rgba(167,139,250,0.1);}
+.course-hero-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:6px;}
+.course-hero h2{font-family:var(--font-serif);font-size:22px;color:#fff;margin-bottom:5px;}
+.course-hero p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;max-width:500px;}
+.course-hero-meta{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap;}
+.course-pill{font-size:11px;font-weight:500;background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.65);padding:4px 12px;border-radius:20px;}
+.course-prog-bar{height:5px;background:rgba(255,255,255,0.12);border-radius:5px;overflow:hidden;margin-top:14px;}
+.course-prog-fill{height:100%;background:var(--pu-light);border-radius:5px;transition:width 0.5s ease;}
+
+.continue-card{background:var(--lav-card);border:0.5px solid var(--pu-light);border-radius:14px;padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.continue-card-info h3{font-size:15px;font-weight:600;color:var(--pu-dark);margin-bottom:3px;}
+.continue-card-info p{font-size:13px;color:var(--moss);}
+.continue-card-meta{font-size:12px;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:8px;}
+.btn-continue{background:var(--pu-mid);color:#fff;border:none;border-radius:10px;padding:11px 24px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font-sans);text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all 0.15s;white-space:nowrap;}
+.btn-continue:hover{background:var(--pu-dark);}
+.btn-continue svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+.week-section{margin-bottom:14px;}
+.week-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:12px 12px 0 0;cursor:pointer;user-select:none;}
+.week-header-left{display:flex;align-items:center;gap:12px;}
+.week-badge{font-size:11px;font-weight:700;background:var(--pu-pale);color:var(--pu-mid);padding:4px 12px;border-radius:20px;}
+.week-badge.current{background:var(--pu-mid);color:#fff;}
+.week-badge.complete{background:#e2f4e2;color:#1a4a1a;}
+.week-title{font-size:14px;font-weight:600;color:var(--pu-dark);}
+.week-sub{font-size:12px;color:var(--muted);margin-top:1px;}
+.week-header-right{display:flex;align-items:center;gap:10px;}
+.week-pct{font-size:12.5px;font-weight:600;color:var(--pu-mid);}
+.week-chevron{width:18px;height:18px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.2s;}
+.week-chevron.open{transform:rotate(180deg);}
+.week-modules{border:0.5px solid var(--lav-border);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;display:none;}
+.week-modules.open{display:block;}
+
+.course-module-row{display:flex;align-items:center;gap:14px;padding:13px 18px;border-bottom:0.5px solid var(--lav-border);text-decoration:none;transition:background 0.12s;}
+.course-module-row:last-child{border-bottom:none;}
+.course-module-row:hover{background:var(--pu-ultra);}
+.cm-status{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cm-status svg{width:13px;height:13px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.cm-status.complete{background:var(--pu-mid);}
+.cm-status.complete svg{stroke:#fff;}
+.cm-status.in-progress{background:var(--pu-pale);border:2px solid var(--pu-mid);}
+.cm-status.in-progress svg{stroke:var(--pu-mid);}
+.cm-status.not-started{background:var(--lav);border:1.5px solid var(--lav-border);}
+.cm-status.not-started svg{stroke:var(--muted);}
+.cm-info{flex:1;}
+.cm-title{font-size:13.5px;font-weight:500;color:var(--pu-dark);}
+.cm-domain{font-size:11.5px;color:var(--muted);margin-top:2px;}
+.cm-time{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.cm-time svg{width:11px;height:11px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+
+.course-empty{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;padding:40px;text-align:center;}
+.course-empty h3{font-family:var(--font-serif);font-size:20px;color:var(--pu-dark);margin-bottom:8px;}
+.course-empty p{font-size:14px;color:var(--moss);line-height:1.7;max-width:440px;margin:0 auto 18px;}
 
 </style>
 </head>
@@ -237,7 +273,7 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
   </div>
   <div class="sb-sec">
     <div class="sb-lbl">Learn</div>
-    <a class="nv" href="course.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Course</a>
+    <a class="nv on" href="course.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Course</a>
     <a class="nv" href="domains.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>Domains</a>
     <a class="nv" href="search.html"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</a>
   </div>
@@ -255,7 +291,7 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
     <div class="sb-lbl">Help</div>
     <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
     <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
-    <a class="nv on" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
+    <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
   </div>
   <div class="sb-foot">
     <div class="sb-av-row">
@@ -271,148 +307,238 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 </aside>
 <div class="main">
   <div class="topbar">
-    <div class="tb-title">Contact Us</div>
+    <div class="tb-title">Course</div>
     <div class="tb-r">
-      <div class="chip chip-pk" id="topbarStreak"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 0 day</div>
-      <div class="chip chip-pu" id="topbarXp"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 0 XP</div>
+      <div class="chip chip-pk" id="topbarStreak"></div>
+      <div class="chip chip-pu" id="topbarXp"></div>
       
     </div>
   </div>
   <div class="content" id="mainContent">
-    
-<div class="contact-layout">
-  <div class="contact-info">
-    <h2>Get in touch.</h2>
-    <p>Have a question, found a bug, or want to suggest a feature? We read every message and usually respond within 24 hours.</p>
-    <div class="contact-detail">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      <div><div class="contact-detail-label">Email</div><div class="contact-detail-val">hello@ossify.co.uk</div></div>
-    </div>
-    <div class="contact-detail">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <div><div class="contact-detail-label">Response time</div><div class="contact-detail-val">Usually within 24 hours</div></div>
-    </div>
-    <div class="contact-detail">
-      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <div><div class="contact-detail-label">Found a bug?</div><div class="contact-detail-val">Include the page name and what you were doing — it helps us fix it faster.</div></div>
-    </div>
+<div class="course-hero">
+  <div class="course-hero-tag">Learn</div>
+  <h2>Course</h2>
+  <p>Your structured path to exam day. Work through each week in order — the sequence is designed so each module builds on the last.</p>
+  <div class="course-hero-meta" id="courseHeroMeta">
+    <span class="course-pill">Loading...</span>
   </div>
-  <div class="contact-form-card">
-    <div class="contact-form-hdr">
-      <div class="contact-form-title">Send us a message</div>
-      <div class="contact-form-sub">All fields required</div>
-    </div>
-    <div class="contact-form-body">
-      <div id="cfAlertErr" class="cf-alert-err"></div>
-      <div id="cfSuccess" class="cf-success">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        <h3>Message sent</h3>
-        <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
-      </div>
-      <div id="cfForm">
-        <div class="cf-row">
-          <div class="cf-group">
-            <label>Your name</label>
-            <input id="cfName" type="text" placeholder="Dr. Jane Smith">
-            <div id="cfNameErr" class="cf-error"></div>
-          </div>
-          <div class="cf-group">
-            <label>Email address</label>
-            <input id="cfEmail" type="email" placeholder="your@nhs.net">
-            <div id="cfEmailErr" class="cf-error"></div>
-          </div>
-        </div>
-        <div class="cf-group">
-          <label>Subject</label>
-          <select id="cfSubject">
-            <option value="general">General enquiry</option>
-            <option value="bug">Bug report</option>
-            <option value="feature">Feature request</option>
-            <option value="content">Question about content</option>
-            <option value="billing">Billing or account</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="cf-group">
-          <label>Message</label>
-          <textarea id="cfMsg" placeholder="Tell us what's on your mind…"></textarea>
-          <div id="cfMsgErr" class="cf-error"></div>
-        </div>
-        <button class="btn-send" id="sendBtn" onclick="submitForm()">
-          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          Send message
-        </button>
-      </div>
-    </div>
+  <div class="course-prog-bar" style="margin-top:14px;">
+    <div class="course-prog-fill" id="courseProgFill" style="width:0%;"></div>
   </div>
 </div>
 
-  </div>
+<div id="continueCard"></div>
+<div id="weeksContainer">
+  <div class="loading-full">Loading course...</div>
+</div>
+</div>
 </div>
 <script>
 const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
 
+function setUserInfo(name, username){
+  const i=(name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userAv').textContent=i;
+  document.getElementById('userName').textContent=name||'';
+  if(username)document.getElementById('userUsername').textContent='@'+username;
+}
 function updateTopbar(profile){
-  const streak = profile?.current_streak||0;
-  const xp = profile?.xp||0;
-  document.getElementById('topbarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day`;
-  document.getElementById('topbarXp').innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${xp} XP`;
+  const streak=profile?.current_streak||0, xp=profile?.xp||0;
+  const el=document.getElementById('topbarStreak');
+  const ex=document.getElementById('topbarXp');
+  if(el)el.innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day`;
+  if(ex)ex.innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${xp} XP`;
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
 }
-function setUserInfo(name, username){
-  const initials = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
-  document.getElementById('userAv').textContent = initials;
-  document.getElementById('userName').textContent = name;
-  if(username) document.getElementById('userUsername').textContent = '@'+username;
-}
 
 
+let myId=null, allModules=[], progByModule={}, currentWeek=1;
 
 async function init(){
   const{data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='login.html';return;}
-  const{data:profile}=await sb.from('profiles').select('*').eq('id',session.user.id).single();
+  myId=session.user.id;
+
+  const{data:profile}=await sb.from('profiles').select('*').eq('id',myId).single();
   updateTopbar(profile);
-  const name=profile?.full_name||session.user.user_metadata?.full_name||session.user.email.split('@')[0];
-  setUserInfo(name, profile?.username);
-  if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
-  // Pre-fill email
-  document.getElementById('cfEmail').value=session.user.email||'';
-  if(profile?.full_name)document.getElementById('cfName').value=profile.full_name;
+  setUserInfo(profile?.full_name||session.user.email.split('@')[0], profile?.username);
+
+  // Mark course started if not already
+  if(!profile?.course_started_at){
+    await sb.from('profiles').update({course_started_at:new Date().toISOString()}).eq('id',myId);
+  }
+
+  // Load all published course modules with domain info
+  const{data:mods}=await sb.from('modules')
+    .select('id,slug,title,difficulty_layer,estimated_minutes,course_week,course_position,domain:domain_id(name,slug,colour_hex)')
+    .eq('is_published',true)
+    .not('course_week','is',null)
+    .order('course_week')
+    .order('course_position');
+  allModules=mods||[];
+
+  // Load user progress
+  if(allModules.length){
+    const{data:prog}=await sb.from('user_module_progress')
+      .select('module_id,status,stages_completed')
+      .eq('user_id',myId)
+      .in('module_id',allModules.map(m=>m.id));
+    (prog||[]).forEach(p=>{progByModule[p.module_id]=p;});
+  }
+
+  // Work out current week: last week with any in-progress or first incomplete week
+  currentWeek=getCurrentWeek();
+
+  renderHero();
+  renderContinueCard();
+  renderWeeks();
 }
 
-function validate(){
-  let valid=true;
-  const name=document.getElementById('cfName').value.trim();
-  const email=document.getElementById('cfEmail').value.trim();
-  const msg=document.getElementById('cfMsg').value.trim();
-  const nameErr=document.getElementById('cfNameErr');
-  const emailErr=document.getElementById('cfEmailErr');
-  const msgErr=document.getElementById('cfMsgErr');
-  nameErr.classList.remove('show');emailErr.classList.remove('show');msgErr.classList.remove('show');
-  if(!name){nameErr.textContent='Please enter your name.';nameErr.classList.add('show');valid=false;}
-  if(!email||!/^[^@]+@[^@]+\.[^@]+$/.test(email)){emailErr.textContent='Please enter a valid email address.';emailErr.classList.add('show');valid=false;}
-  if(!msg||msg.length<10){msgErr.textContent='Please enter a message (at least 10 characters).';msgErr.classList.add('show');valid=false;}
-  return valid;
+function getCurrentWeek(){
+  if(!allModules.length) return 1;
+  const maxWeek=Math.max(...allModules.map(m=>m.course_week));
+  // Find first week that has incomplete modules
+  for(let w=1;w<=maxWeek;w++){
+    const wMods=allModules.filter(m=>m.course_week===w);
+    const allDone=wMods.every(m=>progByModule[m.id]?.status==='complete');
+    if(!allDone) return w;
+  }
+  return maxWeek; // all complete
 }
 
-async function submitForm(){
-  if(!validate())return;
-  const btn=document.getElementById('sendBtn');
-  const alertErr=document.getElementById('cfAlertErr');
-  alertErr.classList.remove('show');
-  btn.innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Sending…';
-  btn.disabled=true;
-  const name=document.getElementById('cfName').value.trim();
-  const email=document.getElementById('cfEmail').value.trim();
-  const subject=document.getElementById('cfSubject').value;
-  const msg=document.getElementById('cfMsg').value.trim();
-  // Insert into contact_submissions table (create if not exists, or just store locally)
-  const{error}=await sb.from('contact_submissions').insert({name,email,subject,message:msg,submitted_at:new Date().toISOString()}).catch(()=>({error:null}));
-  // Show success regardless (form sends even if table doesn't exist yet)
-  document.getElementById('cfForm').style.display='none';
-  document.getElementById('cfSuccess').classList.add('show');
+function renderHero(){
+  if(!allModules.length){
+    document.getElementById('courseHeroMeta').innerHTML='<span class="course-pill">Course content loading</span>';
+    document.getElementById('courseProgFill').style.width='0%';
+    return;
+  }
+  const maxWeek=Math.max(...allModules.map(m=>m.course_week));
+  const totalMods=allModules.length;
+  const done=allModules.filter(m=>progByModule[m.id]?.status==='complete').length;
+  const pct=Math.round((done/totalMods)*100);
+
+  document.getElementById('courseHeroMeta').innerHTML=`
+    <span class="course-pill">Week ${currentWeek} of ${maxWeek}</span>
+    <span class="course-pill">${done} of ${totalMods} modules complete</span>
+    <span class="course-pill">${pct}% complete</span>`;
+  document.getElementById('courseProgFill').style.width=pct+'%';
+}
+
+function renderContinueCard(){
+  const el=document.getElementById('continueCard');
+  // Find next incomplete module in sequence
+  const next=allModules.find(m=>progByModule[m.id]?.status!=='complete');
+  if(!next){
+    el.innerHTML=`<div class="continue-card">
+      <div class="continue-card-info">
+        <h3>Course complete</h3>
+        <p>You have completed all modules in the 14-week programme.</p>
+      </div>
+      <a href="domains.html" class="btn-continue">Browse domains<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>`;
+    return;
+  }
+  const status=progByModule[next.id]?.status||'not_started';
+  const actionLabel=status==='in_progress'?'Continue':'Start';
+  el.innerHTML=`<div class="continue-card">
+    <div class="continue-card-info">
+      <h3>${actionLabel}: ${next.title}</h3>
+      <p>${next.domain?.name||''}${status==='in_progress'?' — in progress':''}</p>
+      <div class="continue-card-meta">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ${next.estimated_minutes} min &nbsp;·&nbsp; Week ${next.course_week}
+      </div>
+    </div>
+    <a href="module.html?slug=${next.slug}&from=course" class="btn-continue">
+      ${actionLabel}
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>`;
+}
+
+function renderWeeks(){
+  const el=document.getElementById('weeksContainer');
+  if(!allModules.length){
+    el.innerHTML=`<div class="course-empty">
+      <h3>Course content coming soon</h3>
+      <p>The 14-week programme is being built. The first complete domain — Cardiovascular — will be available shortly. You can browse domains in the meantime.</p>
+      <a href="domains.html" class="btn-continue">Browse domains<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>`;
+    return;
+  }
+
+  const maxWeek=Math.max(...allModules.map(m=>m.course_week));
+  const STATUS_ICONS={
+    complete:`<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>`,
+    in_progress:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>`,
+    not_started:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>`,
+  };
+
+  let html='';
+  for(let w=1;w<=maxWeek;w++){
+    const wMods=allModules.filter(m=>m.course_week===w);
+    if(!wMods.length) continue;
+    const done=wMods.filter(m=>progByModule[m.id]?.status==='complete').length;
+    const allDone=done===wMods.length;
+    const pct=Math.round((done/wMods.length)*100);
+    const isCurrent=w===currentWeek;
+    const isPast=w<currentWeek;
+    const isFuture=w>currentWeek;
+
+    // Week label
+    let weekLabel=isCurrent?'This week':isPast?`Week ${w} — done`:w===currentWeek+1?'Next week':`Week ${w}`;
+    let badgeCls=isCurrent?'current':allDone?'complete':'';
+
+    // First domain of this week as subtitle
+    const domains=[...new Set(wMods.map(m=>m.domain?.name).filter(Boolean))];
+    const weekSub=domains.slice(0,2).join(', ')+(domains.length>2?` +${domains.length-2} more`:'');
+
+    // Auto-open current week and the one before
+    const isOpen=isCurrent||w===currentWeek-1;
+
+    html+=`<div class="week-section">
+      <div class="week-header" onclick="toggleWeek(${w})">
+        <div class="week-header-left">
+          <span class="week-badge ${badgeCls}">Week ${w}</span>
+          <div>
+            <div class="week-title">${weekLabel}</div>
+            <div class="week-sub">${weekSub}</div>
+          </div>
+        </div>
+        <div class="week-header-right">
+          ${wMods.length?`<span class="week-pct">${done}/${wMods.length}</span>`:''}
+          <svg class="week-chevron${isOpen?' open':''}" id="chevron-${w}" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="week-modules${isOpen?' open':''}" id="week-${w}">
+        ${wMods.map(m=>{
+          const status=progByModule[m.id]?.status||'not_started';
+          const statusCls=status.replace('_','-');
+          return`<a class="course-module-row" href="module.html?slug=${m.slug}&from=course">
+            <div class="cm-status ${statusCls}">${STATUS_ICONS[status]||STATUS_ICONS.not_started}</div>
+            <div class="cm-info">
+              <div class="cm-title">${m.title}</div>
+              <div class="cm-domain">${m.domain?.name||''}</div>
+            </div>
+            <div class="cm-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ${m.estimated_minutes} min
+            </div>
+          </a>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }
+  el.innerHTML=html;
+}
+
+function toggleWeek(w){
+  const el=document.getElementById(`week-${w}`);
+  const ch=document.getElementById(`chevron-${w}`);
+  const isOpen=el.classList.contains('open');
+  el.classList.toggle('open',!isOpen);
+  ch.classList.toggle('open',!isOpen);
 }
 
 init();
