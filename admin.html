@@ -2,354 +2,242 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ossify Content Admin</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
   --pu-dark:#3d1f7a;--pu-mid:#7c5cbf;--pu-light:#a78bfa;--pu-pale:#ede9fe;
   --pk-mid:#f472b6;--pk-pale:#fce7f0;--pk-border:#f0a8c8;
-  --lav:#f0eaff;--lav-card:#fff;--lav-border:rgba(180,150,220,0.25);
+  --lav:#f0eaff;--lav-border:rgba(180,150,220,0.25);
   --ink:#3d1f7a;--moss:#7b6fa0;--muted:#9b88c0;
   --red:#c0305a;--green:#1a5a2a;--green-l:#e2f4e2;
-  --font-sans:'Inter',system-ui,sans-serif;
-  --font-serif:'Georgia',serif;
+  --sans:'Inter',system-ui,sans-serif;--serif:'Georgia',serif;
 }
-body{font-family:var(--font-sans);background:#f0eaff;color:var(--ink);min-height:100vh;}
-
-/* Gate */
-#gate{position:fixed;inset:0;background:var(--pu-dark);display:flex;align-items:center;justify-content:center;z-index:1000;}
-.gate-card{background:#fff;border-radius:16px;padding:36px;width:360px;text-align:center;}
-.gate-card h1{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);margin-bottom:6px;}
-.gate-card p{font-size:13px;color:var(--muted);margin-bottom:20px;}
-.gate-card input{width:100%;padding:11px 14px;border:1px solid var(--lav-border);border-radius:9px;font-size:14px;outline:none;margin-bottom:12px;font-family:var(--font-sans);}
-.gate-card input:focus{border-color:var(--pu-mid);}
-.gate-card button{width:100%;background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font-sans);}
-.gate-err{color:var(--red);font-size:13px;margin-top:10px;padding:9px 12px;background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;display:none;text-align:left;line-height:1.5;}
-
-/* Layout */
-#app{display:none;min-height:100vh;}
-.app-header{background:var(--pu-dark);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;}
-.app-logo{font-family:var(--font-serif);font-size:18px;color:#fff;display:flex;align-items:center;gap:8px;}
-.app-logo span{background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.8);}
-.app-body{display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 52px);}
-
-/* Left panel */
-.left-panel{background:#fff;border-right:0.5px solid var(--lav-border);padding:0;overflow-y:auto;}
-.panel-section{padding:14px 16px;border-bottom:0.5px solid var(--lav-border);}
-.panel-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-select,input[type=text],input[type=number],input[type=password]{width:100%;padding:9px 12px;border:1px solid var(--lav-border);border-radius:8px;font-size:13px;color:var(--ink);font-family:var(--font-sans);outline:none;background:#fff;}
-select:focus,input:focus{border-color:var(--pu-mid);}
-.module-info{background:var(--lav);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:12px;line-height:1.6;}
-.module-info .layer-badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;margin-bottom:4px;}
-.layer-core{background:var(--pu-pale);color:var(--pu-mid);}
-.layer-exam_sharp{background:var(--pk-pale);color:var(--red);}
-.status-pub{color:var(--green);font-weight:600;}
-.status-draft{color:var(--muted);}
-
-/* Stage tabs */
-.stage-tabs{display:flex;flex-direction:column;gap:2px;padding:10px 12px;}
-.stage-tab{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--moss);border:none;background:none;text-align:left;width:100%;font-family:var(--font-sans);transition:all 0.12s;}
-.stage-tab:hover{background:var(--lav);}
-.stage-tab.active{background:var(--pu-pale);color:var(--pu-mid);font-weight:500;}
-.stage-tab.done .stage-dot{background:var(--pu-mid);}
-.stage-dot{width:8px;height:8px;border-radius:50%;background:var(--lav-border);flex-shrink:0;}
-.stage-num{width:20px;height:20px;border-radius:50%;background:var(--lav-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--muted);flex-shrink:0;}
-.stage-tab.active .stage-num{background:var(--pu-mid);color:#fff;}
-.stage-tab.done .stage-num{background:var(--pu-mid);color:#fff;}
-
-/* Actions */
-.action-panel{padding:14px 16px;display:flex;flex-direction:column;gap:8px;}
-.btn{width:100%;padding:10px;border:none;border-radius:9px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;justify-content:center;gap:6px;transition:all 0.15s;}
-.btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.btn-primary{background:var(--pu-mid);color:#fff;}
-.btn-primary:hover{background:var(--pu-dark);}
-.btn-success{background:#1a5a2a;color:#fff;}
-.btn-success:hover{background:#0f3a1a;}
-.btn-outline{background:none;color:var(--moss);border:1px solid var(--lav-border);}
-.btn-outline:hover{border-color:var(--pu-light);color:var(--pu-dark);}
-.btn-danger{background:none;color:var(--red);border:1px solid var(--pk-border);}
-.btn-danger:hover{background:var(--pk-pale);}
-.btn:disabled{opacity:0.5;cursor:not-allowed;}
-
-/* Right panel — editor */
-.right-panel{padding:24px 28px;overflow-y:auto;}
-.stage-editor{display:none;}
-.stage-editor.active{display:block;}
-.editor-header{margin-bottom:20px;}
-.editor-title{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);margin-bottom:4px;}
-.editor-sub{font-size:13px;color:var(--muted);}
-
-/* Field groups */
-.field-group{margin-bottom:18px;}
-.field-label{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;}
-.field-hint{font-size:11px;color:var(--muted);font-weight:400;}
-textarea{width:100%;padding:11px 14px;border:1px solid var(--lav-border);border-radius:9px;font-family:var(--font-sans);font-size:13.5px;color:var(--ink);outline:none;resize:vertical;line-height:1.65;}
-textarea:focus{border-color:var(--pu-mid);}
-.textarea-sm{min-height:80px;}
-.textarea-md{min-height:140px;}
-.textarea-lg{min-height:200px;}
-
-/* Objectives list */
-.obj-list{display:flex;flex-direction:column;gap:6px;}
-.obj-row{display:flex;gap:6px;align-items:flex-start;}
-.obj-row input{flex:1;}
-.btn-sm{padding:6px 10px;font-size:12px;border-radius:7px;border:none;cursor:pointer;font-family:var(--font-sans);}
-.btn-sm-add{background:var(--pu-pale);color:var(--pu-mid);}
-.btn-sm-del{background:var(--pk-pale);color:var(--red);}
-
-/* Sections (clinical picture) */
-.cp-sections{display:flex;flex-direction:column;gap:14px;}
-.cp-section{background:var(--lav);border:0.5px solid var(--lav-border);border-radius:12px;padding:14px;}
-.cp-section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-.cp-section-title{font-size:13px;font-weight:600;color:var(--pu-dark);}
-.cp-items{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
-.cp-item{display:grid;grid-template-columns:140px 1fr auto;gap:8px;align-items:start;}
-.cp-item input{font-size:12.5px;}
-.cp-item textarea{font-size:12.5px;min-height:52px;}
-.cp-guidelines{margin-top:10px;padding-top:10px;border-top:0.5px solid var(--lav-border);}
-.guideline-row{display:grid;grid-template-columns:100px 1fr auto;gap:8px;margin-bottom:6px;align-items:start;}
-
-/* Reasoning blocks */
-.rc-blocks{display:flex;flex-direction:column;gap:14px;}
-.rc-block{background:var(--lav);border:0.5px solid var(--lav-border);border-radius:12px;padding:14px;}
-.rc-block-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.rc-block-num{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
-
-/* JSON import */
-.import-zone{background:var(--lav);border:2px dashed var(--lav-border);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:all 0.15s;margin-bottom:16px;}
-.import-zone:hover{border-color:var(--pu-mid);background:var(--pu-pale);}
-.import-zone.dragover{border-color:var(--pu-mid);background:var(--pu-pale);}
-.import-zone p{font-size:13px;color:var(--muted);}
-.import-zone strong{color:var(--pu-mid);}
-
-/* Alert */
-.alert{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none;}
-.alert.show{display:block;}
-.alert-ok{background:var(--green-l);border:1px solid #a8d4a8;color:var(--green);}
-.alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);color:var(--red);}
-
-/* Course assignment */
-.course-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+body{font-family:var(--sans);background:#f0eaff;color:var(--ink);min-height:100vh}
+#gate{position:fixed;inset:0;background:var(--pu-dark);display:flex;align-items:center;justify-content:center;z-index:1000}
+.gc{background:#fff;border-radius:16px;padding:36px;width:380px;text-align:center}
+.gc h1{font-family:var(--serif);font-size:22px;color:var(--pu-dark);margin-bottom:6px}
+.gc p{font-size:13px;color:var(--muted);margin-bottom:20px}
+.gc input{width:100%;padding:11px 14px;border:1px solid var(--lav-border);border-radius:9px;font-size:14px;outline:none;margin-bottom:8px;font-family:var(--sans)}
+.gc input:focus{border-color:var(--pu-mid)}
+.gc button{width:100%;background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--sans);margin-top:4px}
+.gate-err{color:var(--red);font-size:12.5px;margin-top:10px;padding:9px 12px;background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;display:none;text-align:left;line-height:1.5}
+.gc-note{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6}
+#app{display:none;min-height:100vh}
+.hdr{background:var(--pu-dark);padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+.hdr-logo{font-family:var(--serif);font-size:17px;color:#fff;display:flex;align-items:center;gap:8px}
+.hdr-logo span{background:rgba(255,255,255,0.15);padding:2px 9px;border-radius:5px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.8)}
+.body{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 48px)}
+.lp{background:#fff;border-right:0.5px solid var(--lav-border);display:flex;flex-direction:column;overflow-y:auto}
+.ps{padding:12px 14px;border-bottom:0.5px solid var(--lav-border)}
+.pl{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+select,input[type=text],input[type=number]{width:100%;padding:8px 11px;border:1px solid var(--lav-border);border-radius:7px;font-size:12.5px;color:var(--ink);font-family:var(--sans);outline:none;background:#fff}
+select:focus,input:focus{border-color:var(--pu-mid)}
+.mod-info{background:var(--lav);border-radius:7px;padding:9px 11px;margin-top:7px;font-size:11.5px;line-height:1.7;display:none}
+.lbadge{display:inline-block;font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:10px}
+.lbc{background:var(--pu-pale);color:var(--pu-mid)}
+.lbe{background:var(--pk-pale);color:var(--red)}
+.lbf{background:#e2f4e2;color:#1a5a2a}
+.stabs{padding:8px 10px}
+.stab{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;cursor:pointer;font-size:12.5px;color:var(--moss);border:none;background:none;text-align:left;width:100%;font-family:var(--sans);margin-bottom:1px;transition:all 0.1s}
+.stab:hover{background:var(--lav)}
+.stab.active{background:var(--pu-pale);color:var(--pu-mid);font-weight:500}
+.stab.done .sn{background:var(--pu-mid);color:#fff}
+.sn{width:19px;height:19px;border-radius:50%;background:var(--lav-border);display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;color:var(--muted);flex-shrink:0}
+.stab.active .sn{background:var(--pu-mid);color:#fff}
+.ap{margin-top:auto;padding:12px 14px;border-top:0.5px solid var(--lav-border);display:flex;flex-direction:column;gap:7px}
+.btn{width:100%;padding:9px;border:none;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);display:flex;align-items:center;justify-content:center;gap:6px;transition:all 0.15s}
+.btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bp{background:var(--pu-mid);color:#fff}.bp:hover{background:var(--pu-dark)}
+.bok{background:#1a5a2a;color:#fff}.bok:hover{background:#0f3a1a}
+.bo{background:none;color:var(--moss);border:1px solid var(--lav-border)}.bo:hover{border-color:var(--pu-light);color:var(--pu-dark)}
+.bdel{background:none;color:var(--red);border:1px solid var(--pk-border)}.bdel:hover{background:var(--pk-pale)}
+.btn:disabled{opacity:0.45;cursor:not-allowed}
+.rp{padding:22px 28px;overflow-y:auto;background:var(--lav)}
+.se{display:none}.se.active{display:block}
+.eh{margin-bottom:18px}
+.et{font-family:var(--serif);font-size:21px;color:var(--pu-dark);margin-bottom:3px}
+.es{font-size:12.5px;color:var(--muted)}
+.fg{margin-bottom:15px}
+.fl{font-size:11.5px;font-weight:600;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;justify-content:space-between}
+.fh{font-size:10.5px;color:var(--muted);font-weight:400}
+textarea{width:100%;padding:10px 13px;border:1px solid var(--lav-border);border-radius:8px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;resize:vertical;line-height:1.65;background:#fff}
+textarea:focus{border-color:var(--pu-mid)}
+.tsm{min-height:70px}.tmd{min-height:120px}.tlg{min-height:200px}.txl{min-height:300px}
+.card{background:#fff;border:0.5px solid var(--lav-border);border-radius:11px;padding:14px;margin-bottom:12px}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.cl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.bsm{padding:5px 10px;font-size:11.5px;border-radius:6px;border:none;cursor:pointer;font-family:var(--sans)}
+.ba{background:var(--pu-pale);color:var(--pu-mid)}.bd{background:var(--pk-pale);color:var(--red)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.al{padding:9px 13px;border-radius:7px;font-size:12.5px;margin-bottom:13px;display:none;line-height:1.55}
+.al.show{display:block}
+.al-ok{background:var(--green-l);border:1px solid #a8d4a8;color:var(--green)}
+.al-err{background:var(--pk-pale);border:1px solid var(--pk-border);color:var(--red)}
+.iz{background:#fff;border:2px dashed var(--lav-border);border-radius:11px;padding:18px;margin-bottom:15px;display:none}
+.iz p{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+#welcome{text-align:center;padding:60px 20px;color:var(--muted)}
+#welcome svg{width:44px;height:44px;fill:none;stroke:var(--lav-border);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 14px;display:block}
 </style>
 </head>
 <body>
 
-<!-- Password gate -->
 <div id="gate">
-  <div class="gate-card">
+  <div class="gc">
     <h1>Ossify Admin</h1>
     <p>Content management — authorised access only</p>
-    <input type="email"    id="gateEmail"    placeholder="Email address"   style="margin-bottom:8px;" onkeydown="if(event.key==='Enter')document.getElementById('gatePassword').focus()">
-    <input type="password" id="gatePassword" placeholder="Ossify password"  style="margin-bottom:8px;" onkeydown="if(event.key==='Enter')document.getElementById('gateAdminPin').focus()">
-    <input type="password" id="gateAdminPin" placeholder="Admin PIN"        onkeydown="if(event.key==='Enter')checkGate()">
-    <button onclick="checkGate()" id="gateBtn" style="margin-top:12px;">Sign in</button>
-    <div class="gate-err" id="gateErr" style="display:none;"></div>
-    <div style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6;">
-      Sign in with your Ossify account credentials and the admin PIN.<br>
-      No Ossify account yet? <a href="login.html" target="_blank" style="color:var(--pu-mid);">Create one here first</a>, then return to this page.
-    </div>
+    <input type="email" id="gateEmail" placeholder="Email address">
+    <input type="password" id="gatePassword" placeholder="Ossify password">
+    <input type="password" id="gateAdminPin" placeholder="Admin PIN" onkeydown="if(event.key==='Enter')checkGate()">
+    <button onclick="checkGate()" id="gateBtn">Sign in</button>
+    <div class="gate-err" id="gateErr"></div>
+    <div class="gc-note">Requires an authorised Ossify account + admin PIN.<br>Contact info@ossify.co.uk for access.</div>
   </div>
 </div>
 
-<!-- Main app -->
 <div id="app">
-  <div class="app-header">
-    <div class="app-logo">
-      Ossify <span>Content Admin</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <div style="font-size:12px;color:rgba(255,255,255,0.4);" id="headerStatus">Select a module to begin</div>
-      <button onclick="signOut()" style="font-size:11px;color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;cursor:pointer;font-family:var(--font-sans);">Sign out</button>
+  <div class="hdr">
+    <div class="hdr-logo">Ossify <span>Content Admin</span></div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-size:11.5px;color:rgba(255,255,255,0.4)" id="hdrStatus">Select a module</span>
+      <button onclick="signOut()" style="font-size:11px;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px 11px;cursor:pointer;font-family:var(--sans)">Sign out</button>
     </div>
   </div>
 
-  <div class="app-body">
-    <!-- Left panel -->
-    <div class="left-panel">
+  <div class="body">
+    <div class="lp">
 
-      <div class="panel-section">
-        <div class="panel-label">Domain</div>
-        <select id="domainSelect" onchange="loadModules()">
-          <option value="">— select domain —</option>
-        </select>
+      <div class="ps">
+        <div class="pl">Domain</div>
+        <select id="domainSelect" onchange="loadModules()"><option value="">— domain —</option></select>
       </div>
 
-      <div class="panel-section">
-        <div class="panel-label">Module</div>
-        <select id="moduleSelect" onchange="loadModule()" disabled>
-          <option value="">— select module —</option>
-        </select>
-        <div class="module-info" id="moduleInfo" style="display:none;"></div>
+      <div class="ps">
+        <div class="pl">Module</div>
+        <select id="moduleSelect" onchange="loadModule()" disabled><option value="">— module —</option></select>
+        <div class="mod-info" id="modInfo"></div>
       </div>
 
-      <div class="panel-section">
-        <div class="panel-label">Stages</div>
-        <div class="stage-tabs" id="stageTabs">
-          <button class="stage-tab" onclick="showStage('why')" id="tab-why">
-            <div class="stage-num">1</div>Why
-          </button>
-          <button class="stage-tab" onclick="showStage('mechanism')" id="tab-mechanism">
-            <div class="stage-num">2</div>Mechanism
-          </button>
-          <button class="stage-tab" onclick="showStage('clinical_picture')" id="tab-clinical_picture">
-            <div class="stage-num">3</div>Clinical Picture
-          </button>
-          <button class="stage-tab" onclick="showStage('test_yourself')" id="tab-test_yourself">
-            <div class="stage-num">4</div>Test Yourself
-          </button>
-          <button class="stage-tab" onclick="showStage('reasoning_case')" id="tab-reasoning_case">
-            <div class="stage-num">5</div>Reasoning Case
-          </button>
+      <div class="ps">
+        <div class="pl">Subtitle</div>
+        <input type="text" id="modSubtitle" placeholder="e.g. Systolic and diastolic dysfunction" onblur="saveSubtitle()">
+      </div>
+
+      <div class="ps">
+        <div class="pl">Course position</div>
+        <div class="crow">
+          <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Week</div><input type="number" id="courseWeek" placeholder="1–14" min="1" max="14"></div>
+          <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Position</div><input type="number" id="coursePos" placeholder="1–10" min="1" max="10"></div>
         </div>
-      </div>
-
-      <div class="panel-section">
-        <div class="panel-label">Course position</div>
-        <div class="course-row">
-          <div>
-            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Week</div>
-            <input type="number" id="courseWeek" placeholder="1–14" min="1" max="14">
-          </div>
-          <div>
-            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Position</div>
-            <input type="number" id="coursePos" placeholder="1–10" min="1" max="10">
-          </div>
-        </div>
-        <button class="btn btn-outline" style="margin-top:8px;width:100%;" onclick="saveCoursePosition()">
-          <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        <button class="btn bo" style="margin-top:7px" onclick="saveCourse()">
+          <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
           Save position
         </button>
       </div>
 
-      <div class="action-panel">
-        <button class="btn btn-primary" onclick="importJSON()" id="btnImport">
+      <div class="stabs">
+        <div class="pl" style="padding:4px 4px 6px">Stages</div>
+        <button class="stab" onclick="showStage('why')" id="tab-why"><div class="sn">1</div>Why</button>
+        <button class="stab" onclick="showStage('mechanism')" id="tab-mechanism"><div class="sn">2</div>Mechanism</button>
+        <button class="stab" onclick="showStage('clinical_picture')" id="tab-clinical_picture"><div class="sn">3</div>Clinical Picture</button>
+        <button class="stab" onclick="showStage('test_yourself')" id="tab-test_yourself"><div class="sn">4</div>Test Yourself</button>
+        <button class="stab" onclick="showStage('reasoning_case')" id="tab-reasoning_case"><div class="sn">5</div>Reasoning Case</button>
+        <button class="stab" onclick="showStage('supplementary')" id="tab-supplementary"><div class="sn">6</div>Supplementary</button>
+      </div>
+
+      <div class="ap">
+        <button class="btn bp" onclick="showImport()">
           <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
           Import JSON
         </button>
-        <button class="btn btn-outline" onclick="validateAll()" id="btnValidate">
+        <button class="btn bo" onclick="validateAll()">
           <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           Validate
         </button>
-        <button class="btn btn-success" onclick="saveAndPublish()" id="btnPublish" disabled>
+        <button class="btn bok" onclick="saveAndPublish()" id="btnPublish" disabled>
           <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           Save &amp; Publish
         </button>
-        <button class="btn btn-outline" onclick="saveDraft()" id="btnDraft" disabled>
+        <button class="btn bo" onclick="saveDraft()" id="btnDraft" disabled>
           <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg>
           Save draft
         </button>
-        <button class="btn btn-danger" onclick="unpublish()" id="btnUnpublish" style="display:none;">
+        <button class="btn bdel" onclick="unpublish()" id="btnUnpublish" style="display:none">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
           Unpublish
         </button>
       </div>
-
     </div>
 
-    <!-- Right panel -->
-    <div class="right-panel">
-
-      <div id="alert-ok" class="alert alert-ok"></div>
-      <div id="alert-err" class="alert alert-err"></div>
-
-      <!-- Welcome state -->
-      <div id="welcomeState" style="text-align:center;padding:60px 20px;color:var(--muted);">
-        <svg viewBox="0 0 24 24" style="width:48px;height:48px;fill:none;stroke:var(--lav-border);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 16px;display:block;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        <p style="font-size:15px;margin-bottom:8px;">Select a domain and module to begin</p>
-        <p style="font-size:13px;">Or paste a JSON import to auto-fill all five stages at once</p>
-      </div>
+    <div class="rp">
+      <div id="alOk" class="al al-ok"></div>
+      <div id="alErr" class="al al-err"></div>
 
       <!-- Import zone -->
-      <div id="importZone" class="import-zone" style="display:none;"
-           ondrop="handleDrop(event)" ondragover="event.preventDefault();this.classList.add('dragover')"
-           ondragleave="this.classList.remove('dragover')">
-        <p><strong>Paste or drop Claude's JSON output here</strong></p>
-        <p>Or use the Import JSON button below</p>
-        <textarea id="importTextarea" style="width:100%;margin-top:12px;min-height:120px;background:#fff;display:none;" placeholder='{"slug":"...","why":{...},"mechanism":{...},...}'></textarea>
-        <button class="btn btn-primary" style="margin-top:10px;width:auto;padding:8px 20px;" onclick="parseImport()">Parse &amp; load</button>
+      <div id="importZone" class="iz">
+        <p><strong style="color:var(--pu-mid)">Paste Claude JSON output</strong> — all stages load automatically</p>
+        <textarea id="importTextarea" class="tmd" placeholder='{"slug":"heart-failure","stage1_script":"...","stage2_nodes":[...],...}'></textarea>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn bp" style="flex:1" onclick="parseImport()">Parse &amp; load</button>
+          <button class="btn bo" style="width:80px" onclick="document.getElementById('importZone').style.display='none'">Cancel</button>
+        </div>
+      </div>
+
+      <div id="welcome">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <p style="font-size:14px;margin-bottom:6px">Select a domain and module to begin</p>
+        <p style="font-size:12.5px">Or click Import JSON to paste Claude output directly</p>
       </div>
 
       <!-- Stage 1: Why -->
-      <div class="stage-editor" id="editor-why">
-        <div class="editor-header">
-          <div class="editor-title">Stage 1 — Why this matters</div>
-          <div class="editor-sub">The 90-second clinical framing. Mechanism-first. No bullet lists.</div>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Framing text <span class="field-hint">HTML allowed: &lt;strong&gt;, &lt;em&gt;, &lt;br&gt;</span></div>
-          <textarea class="textarea-lg" id="why-text" placeholder="Heart failure is two failures, not one..."></textarea>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Learning objectives <span class="field-hint">5 objectives, each starting with a verb</span></div>
-          <div class="obj-list" id="why-objectives"></div>
-          <button class="btn-sm btn-sm-add" onclick="addObjective()" style="margin-top:8px;">+ Add objective</button>
+      <div class="se" id="e-why">
+        <div class="eh"><div class="et">Stage 1 — Why this matters</div><div class="es">~500 word framing narrative. Mechanism-first.</div></div>
+        <div class="fg">
+          <div class="fl">stage1_script <span class="fh">Plain text, ~500 words</span></div>
+          <textarea id="why-text" class="txl" placeholder="Heart failure is not a diagnosis in itself..."></textarea>
         </div>
       </div>
 
       <!-- Stage 2: Mechanism -->
-      <div class="stage-editor" id="editor-mechanism">
-        <div class="editor-header">
-          <div class="editor-title">Stage 2 — The mechanism</div>
-          <div class="editor-sub">Pathophysiology prose + interactive map node/edge data</div>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Mechanism text <span class="field-hint">HTML allowed. Use &lt;br&gt;&lt;br&gt; for paragraph breaks.</span></div>
-          <textarea class="textarea-lg" id="mechanism-text" placeholder="The failing heart cannot maintain cardiac output..."></textarea>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Mechanism map — nodes JSON <span class="field-hint">Array of {id, label, type, x, y}</span></div>
-          <textarea class="textarea-md" id="mechanism-nodes" placeholder='[{"id":"co_fall","label":"Reduced CO","type":"cause","x":280,"y":40}]'></textarea>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Mechanism map — edges JSON <span class="field-hint">Array of {from, to}</span></div>
-          <textarea class="textarea-sm" id="mechanism-edges" placeholder='[{"from":"co_fall","to":"raas"}]'></textarea>
-        </div>
+      <div class="se" id="e-mechanism">
+        <div class="eh"><div class="et">Stage 2 — Mechanism map</div><div class="es">Nodes define the pathway — colour is determined by pathway type</div></div>
+        <div style="margin-bottom:14px"><span style="font-size:11px;background:#6366f122;color:#6366f1;border:1px solid #6366f155;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">forward</span><span style="font-size:11px;background:#7c5cbf22;color:#7c5cbf;border:1px solid #7c5cbf55;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">backward</span><span style="font-size:11px;background:#f472b622;color:#f472b6;border:1px solid #f472b655;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">neurohormonal</span><span style="font-size:11px;background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b55;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">electrical</span><span style="font-size:11px;background:#ef444422;color:#ef4444;border:1px solid #ef444455;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">embolic</span><span style="font-size:11px;background:#10b98122;color:#10b981;border:1px solid #10b98155;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">target_organ</span><span style="font-size:11px;background:#e879f922;color:#e879f9;border:1px solid #e879f955;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">event</span><span style="font-size:11px;background:#94a3b822;color:#94a3b8;border:1px solid #94a3b855;padding:3px 9px;border-radius:12px;font-weight:600;margin-right:4px;">predisposition</span></div>
+        <div id="s2nodes"></div>
+        <button class="bsm ba" onclick="addNode()">+ Add node</button>
       </div>
 
       <!-- Stage 3: Clinical Picture -->
-      <div class="stage-editor" id="editor-clinical_picture">
-        <div class="editor-header">
-          <div class="editor-title">Stage 3 — Clinical picture</div>
-          <div class="editor-sub">Sections: symptoms, examination, investigations, management, complications, prognosis</div>
-        </div>
-        <div class="cp-sections" id="cp-sections"></div>
-        <button class="btn btn-outline" onclick="addCPSection()" style="margin-top:10px;">+ Add section</button>
+      <div class="se" id="e-clinical_picture">
+        <div class="eh"><div class="et">Stage 3 — Clinical picture</div><div class="es">Features, investigations, and management</div></div>
+        <div class="fg"><div class="fl">Features (stage3_features)</div><div id="s3features"></div><button class="bsm ba" style="margin-top:7px" onclick="addFeature()">+ Add feature</button></div>
+        <div class="fg"><div class="fl">Investigations (stage3_investigations)</div><div id="s3invs"></div><button class="bsm ba" style="margin-top:7px" onclick="addInv()">+ Add investigation</button></div>
+        <div class="fg"><div class="fl">Management principles</div><textarea id="mechanism-text" class="tmd" placeholder="The four pillars of HFrEF pharmacotherapy..."></textarea></div>
+        <div class="fg"><div class="fl">Management steps</div><div id="s3steps"></div><button class="bsm ba" style="margin-top:7px" onclick="addStep()">+ Add step</button></div>
       </div>
 
       <!-- Stage 4: Test Yourself -->
-      <div class="stage-editor" id="editor-test_yourself">
-        <div class="editor-header">
-          <div class="editor-title">Stage 4 — Test yourself</div>
-          <div class="editor-sub">Question IDs are linked separately via the question bank</div>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Intro sentence</div>
-          <textarea class="textarea-sm" id="ty-intro" placeholder="These questions test your knowledge of..."></textarea>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Question IDs <span class="field-hint">One UUID per line — leave blank if not yet linked</span></div>
-          <textarea class="textarea-md" id="ty-questions" placeholder="Leave blank — questions linked via question bank tool"></textarea>
-        </div>
+      <div class="se" id="e-test_yourself">
+        <div class="eh"><div class="et">Stage 4 — Test yourself</div><div class="es">Exactly 10 questions. Each has 5 options, correct answer index (0–4), per-option explanations.</div></div>
+        <div id="s4qs"></div>
       </div>
 
       <!-- Stage 5: Reasoning Case -->
-      <div class="stage-editor" id="editor-reasoning_case">
-        <div class="editor-header">
-          <div class="editor-title">Stage 5 — Reasoning case</div>
-          <div class="editor-sub">4–5 progressive blocks. Each block reveals more clinical information.</div>
-        </div>
-        <div class="field-group">
-          <div class="field-label">Case title</div>
-          <input type="text" id="rc-title" placeholder="The breathless 67-year-old">
-        </div>
-        <div class="field-group">
-          <div class="field-label">Case intro</div>
-          <textarea class="textarea-sm" id="rc-intro" placeholder="Work through this case block by block..."></textarea>
-        </div>
-        <div class="rc-blocks" id="rc-blocks"></div>
-        <button class="btn btn-outline" onclick="addRCBlock()" style="margin-top:10px;">+ Add block</button>
+      <div class="se" id="e-reasoning_case">
+        <div class="eh"><div class="et">Stage 5 — Reasoning case</div><div class="es">Exactly 4 blocks. Each has multiple prompts and a model reasoning response.</div></div>
+        <div class="fg"><div class="fl">Case title</div><input type="text" id="rc-title" placeholder="The breathless 67-year-old"></div>
+        <div id="s5blocks"></div>
+      </div>
+
+      <!-- Stage 6: Supplementary -->
+      <div class="se" id="e-supplementary">
+        <div class="eh"><div class="et">Stage 6 — Supplementary cards</div><div class="es">Always 10 fact cards · 2–3 concept cards · 2–3 image cards</div></div>
+        <div class="fg"><div class="fl">Fact cards <span class="fh">Always 10</span></div><div id="s6facts"></div></div>
+        <div class="fg"><div class="fl">Concept cards <span class="fh">2–3</span></div><div id="s6concepts"></div><button class="bsm ba" style="margin-top:7px" onclick="addConcept()">+ Add concept card</button></div>
+        <div class="fg"><div class="fl">Image cards <span class="fh">2–3</span></div><div id="s6images"></div><button class="bsm ba" style="margin-top:7px" onclick="addImage()">+ Add image card</button></div>
       </div>
 
     </div>
@@ -357,533 +245,600 @@ textarea:focus{border-color:var(--pu-mid);}
 </div>
 
 <script>
-const SB_URL='https://judtpdikbidvccclftvq.supabase.co';const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
-const sb = window.supabase.createClient(SB_URL, SB_KEY);
+const SB_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SB_URL,SB_KEY);
+const ADMIN_PIN='21021995';
+const ALLOWED=['henryarmes@yahoo.com','kavindad@hotmail.com','info@ossify.co.uk'];
+const PATHWAYS=["forward", "backward", "neurohormonal", "electrical", "embolic", "target_organ", "event", "predisposition"];
 
+let curMod=null, currentStage='why';
+let stageData={why:{},mechanism:{},clinical_picture:{},test_yourself:{},reasoning_case:{},supplementary:{}};
 
-let currentModule = null;
-let currentStage = 'why';
-let stageData = {why:{},mechanism:{},clinical_picture:{},test_yourself:{},reasoning_case:{}};
-
-// ── GATE — two layers: admin PIN + Supabase auth ─────────────────────
-const ADMIN_PIN = '21021995';
-const ALLOWED_EMAILS = ['henryarmes@yahoo.com','kavindad@hotmail.com','info@ossify.co.uk'];
-
+// ── GATE ──────────────────────────────────────────────────────────────
 async function checkGate(){
-  const email    = document.getElementById('gateEmail').value.trim().toLowerCase();
-  const password = document.getElementById('gatePassword').value;
-  const pin      = document.getElementById('gateAdminPin').value;
-  const errEl    = document.getElementById('gateErr');
-  const btn      = document.getElementById('gateBtn');
-
-  errEl.style.display = 'none';
-
-  // Layer 1: admin PIN check (client-side, fast fail)
-  if(pin !== ADMIN_PIN){
-    errEl.textContent = 'Incorrect admin PIN.';
-    errEl.style.display = 'block';
-    return;
+  var email=document.getElementById('gateEmail').value.trim().toLowerCase();
+  var pass=document.getElementById('gatePassword').value;
+  var pin=document.getElementById('gateAdminPin').value;
+  var err=document.getElementById('gateErr');
+  var btn=document.getElementById('gateBtn');
+  err.style.display='none';
+  if(pin!==ADMIN_PIN){err.textContent='Incorrect admin PIN.';err.style.display='block';return;}
+  if(ALLOWED.indexOf(email)===-1){err.textContent='This email is not authorised.';err.style.display='block';return;}
+  btn.textContent='Signing in...';btn.disabled=true;
+  var res=await sb.auth.signInWithPassword({email:email,password:pass});
+  btn.textContent='Sign in';btn.disabled=false;
+  if(res.error){
+    var msg='Sign in failed: '+res.error.message;
+    if(res.error.message.indexOf('Invalid login')>=0) msg='Incorrect email or password. Make sure you have an account at ossify-pi.vercel.app/login.html';
+    err.innerHTML=msg;err.style.display='block';return;
   }
-
-  // Layer 2: email must be in allowlist
-  if(!ALLOWED_EMAILS.includes(email)){
-    errEl.textContent = 'This email address is not authorised for admin access.';
-    errEl.style.display = 'block';
-    return;
-  }
-
-  // Layer 3: Supabase authentication
-  btn.textContent = 'Signing in...';
-  btn.disabled = true;
-
-  const { data, error } = await sb.auth.signInWithPassword({ email, password });
-
-  btn.textContent = 'Sign in';
-  btn.disabled = false;
-
-  if(error){
-    // Give actionable error messages
-    let msg = 'Sign in failed: ' + error.message;
-    if(error.message.includes('Invalid login')){
-      msg = 'Incorrect email or password. Make sure you have an Ossify account — sign up at ossify-pi.vercel.app/login.html if you have not already.';
-    } else if(error.message.includes('Email not confirmed')){
-      msg = 'Please confirm your email address first — check your inbox for a confirmation email from Ossify.';
-    } else if(error.message.includes('Too many requests')){
-      msg = 'Too many failed attempts — please wait a few minutes and try again.';
-    }
-    errEl.innerHTML = msg;
-    errEl.style.display = 'block';
-    return;
-  }
-
-  // All three layers passed — open the app
-  document.getElementById('gate').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
+  openApp();
+}
+async function checkSession(){
+  var res=await sb.auth.getSession();
+  if(res.data&&res.data.session&&ALLOWED.indexOf(res.data.session.user.email)>=0) openApp();
+}
+function openApp(){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
   loadDomains();
 }
-
-// Check if already signed in (page refresh)
-async function checkExistingSession(){
-  const { data: { session } } = await sb.auth.getSession();
-  if(session && ALLOWED_EMAILS.includes(session.user.email)){
-    document.getElementById('gate').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    loadDomains();
-  }
+async function signOut(){
+  await sb.auth.signOut();
+  document.getElementById('gate').style.display='flex';
+  document.getElementById('app').style.display='none';
 }
-checkExistingSession();
+checkSession();
 
-// ── LOAD DATA ────────────────────────────────────────────────────────
+// ── DATA LOADING ──────────────────────────────────────────────────────
 async function loadDomains(){
-  const {data} = await sb.from('domains').select('id,slug,name,type').eq('is_active',true).order('display_order');
-  const sel = document.getElementById('domainSelect');
-  sel.innerHTML = '<option value="">— select domain —</option>';
-  (data||[]).forEach(d => {
-    const opt = document.createElement('option');
-    opt.value = d.slug;
-    opt.textContent = d.name + (d.type==='pdp' ? ' (PDP)' : '');
-    sel.appendChild(opt);
+  var res=await sb.from('domains').select('id,slug,name,type').eq('is_active',true).order('display_order');
+  if(res.error){showAlert('err','Could not load domains: '+res.error.message);return;}
+  var sel=document.getElementById('domainSelect');
+  sel.innerHTML='<option value="">— domain —</option>';
+  (res.data||[]).forEach(function(d){
+    var o=document.createElement('option');
+    o.value=d.slug;o.textContent=d.name+(d.type==='pdp'?' (PDP)':'');
+    sel.appendChild(o);
   });
 }
 
 async function loadModules(){
-  const domainSlug = document.getElementById('domainSelect').value;
-  const sel = document.getElementById('moduleSelect');
-  sel.innerHTML = '<option value="">— select module —</option>';
-  sel.disabled = true;
-  document.getElementById('moduleInfo').style.display = 'none';
-  if(!domainSlug) return;
-
-  const {data:domain} = await sb.from('domains').select('id').eq('slug',domainSlug).single();
-  if(!domain) return;
-
-  const {data:mods} = await sb.from('modules')
-    .select('id,slug,title,difficulty_layer,is_published,course_week,course_position')
-    .eq('domain_id', domain.id)
-    .order('title');
-
-  (mods||[]).forEach(m => {
-    const opt = document.createElement('option');
-    opt.value = m.slug;
-    opt.textContent = (m.is_published ? '✓ ' : '○ ') + m.title;
-    sel.appendChild(opt);
+  var slug=document.getElementById('domainSelect').value;
+  var sel=document.getElementById('moduleSelect');
+  sel.innerHTML='<option value="">Loading...</option>';sel.disabled=true;
+  document.getElementById('modInfo').style.display='none';
+  if(!slug){sel.innerHTML='<option value="">— module —</option>';return;}
+  var dRes=await sb.from('domains').select('id').eq('slug',slug).single();
+  if(dRes.error||!dRes.data){showAlert('err','Domain not found: '+slug);return;}
+  var mRes=await sb.from('modules')
+    .select('id,slug,title,subtitle,difficulty_layer,is_published,course_week,course_position')
+    .eq('domain_id',dRes.data.id).order('title');
+  if(mRes.error){showAlert('err','Could not load modules: '+mRes.error.message);return;}
+  sel.innerHTML='<option value="">— select module —</option>';
+  if(!mRes.data||mRes.data.length===0){
+    sel.innerHTML='<option value="">No modules found</option>';
+    sel.disabled=false;return;
+  }
+  mRes.data.forEach(function(m){
+    var o=document.createElement('option');
+    o.value=m.slug;o.textContent=(m.is_published?'✓ ':'○ ')+m.title;
+    sel.appendChild(o);
   });
-  sel.disabled = false;
+  sel.disabled=false;
 }
 
 async function loadModule(){
-  const slug = document.getElementById('moduleSelect').value;
-  if(!slug){ currentModule=null; return; }
-
-  const {data:mod} = await sb.from('modules')
-    .select('*,domain:domain_id(name)')
-    .eq('slug',slug).single();
-
-  currentModule = mod;
-  showModuleInfo(mod);
-  enableButtons(true);
-
+  var slug=document.getElementById('moduleSelect').value;
+  if(!slug){curMod=null;return;}
+  var res=await sb.from('modules').select('*').eq('slug',slug).single();
+  if(res.error||!res.data){showAlert('err','Module not found');return;}
+  curMod=res.data;
+  document.getElementById('hdrStatus').textContent=curMod.title;
+  document.getElementById('modSubtitle').value=curMod.subtitle||'';
+  document.getElementById('courseWeek').value=curMod.course_week||'';
+  document.getElementById('coursePos').value=curMod.course_position||'';
+  document.getElementById('btnPublish').disabled=false;
+  document.getElementById('btnDraft').disabled=false;
+  document.getElementById('btnUnpublish').style.display=curMod.is_published?'flex':'none';
+  showModInfo(curMod);
   // Load existing content
-  const {data:content} = await sb.from('module_content')
-    .select('*').eq('module_id',mod.id);
-
-  // Reset stage data
-  stageData = {why:{},mechanism:{},clinical_picture:{},test_yourself:{},reasoning_case:{}};
-  (content||[]).forEach(c => { stageData[c.stage] = c.content_json||{}; });
-
-  // Populate course position fields
-  document.getElementById('courseWeek').value = mod.course_week || '';
-  document.getElementById('coursePos').value = mod.course_position || '';
-
-  // Update tab done indicators
-  updateTabStatus(content||[]);
-
-  // Show first stage
+  var cRes=await sb.from('module_content').select('*').eq('module_id',curMod.id);
+  stageData={why:{},mechanism:{},clinical_picture:{},test_yourself:{},reasoning_case:{},supplementary:{}};
+  (cRes.data||[]).forEach(function(c){stageData[c.stage]=c.content_json||{}});
+  updateTabDots(cRes.data||[]);
+  document.getElementById('welcome').style.display='none';
   showStage('why');
-  document.getElementById('welcomeState').style.display = 'none';
-  document.getElementById('importZone').style.display = 'block';
-  document.getElementById('headerStatus').textContent = mod.title;
-
-  // Unpublish button
-  document.getElementById('btnUnpublish').style.display = mod.is_published ? 'flex' : 'none';
 }
 
-function showModuleInfo(mod){
-  const el = document.getElementById('moduleInfo');
-  const layerLabel = mod.difficulty_layer === 'core' ? 'Core MSRA' : 'Exam Sharp';
-  const layerCls = mod.difficulty_layer === 'core' ? 'layer-core' : 'layer-exam_sharp';
-  const pubStatus = mod.is_published
-    ? '<span class="status-pub">● Published</span>'
-    : '<span class="status-draft">○ Draft</span>';
-  el.innerHTML = `
-    <span class="layer-badge ${layerCls}">${layerLabel}</span><br>
-    ${pubStatus}<br>
-    <span style="color:var(--muted);">Slug: ${mod.slug}</span>
-    ${mod.course_week ? `<br><span style="color:var(--muted);">Week ${mod.course_week}, pos ${mod.course_position}</span>` : ''}
-  `;
-  el.style.display = 'block';
+function showModInfo(m){
+  var lmap={core:'Core MSRA',exam_sharp:'Exam Sharp',foundation:'Foundation'};
+  var lcls={core:'lbc',exam_sharp:'lbe',foundation:'lbf'};
+  var el=document.getElementById('modInfo');
+  el.innerHTML='<span class="lbadge '+lcls[m.difficulty_layer]+'">'+(lmap[m.difficulty_layer]||m.difficulty_layer)+'</span><br>'
+    +(m.is_published?'<span style="color:var(--green);font-weight:600">● Published</span>':'<span style="color:var(--muted)">○ Draft</span>')
+    +'<br><span style="color:var(--muted)">slug: '+m.slug+'</span>';
+  el.style.display='block';
 }
 
-function updateTabStatus(content){
-  const stages = ['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
-  const hasContent = {};
-  content.forEach(c => {
-    const d = c.content_json||{};
-    hasContent[c.stage] = Object.keys(d).length > 0;
-  });
-  stages.forEach(s => {
-    const tab = document.getElementById('tab-'+s);
-    tab.classList.toggle('done', !!hasContent[s]);
+function updateTabDots(content){
+  var stages=['why','mechanism','clinical_picture','test_yourself','reasoning_case','supplementary'];
+  var has={};
+  content.forEach(function(c){has[c.stage]=c.content_json&&Object.keys(c.content_json).length>0;});
+  stages.forEach(function(s){
+    var t=document.getElementById('tab-'+s);
+    if(t) t.classList.toggle('done',!!has[s]);
   });
 }
 
-function enableButtons(enabled){
-  document.getElementById('btnPublish').disabled = !enabled;
-  document.getElementById('btnDraft').disabled = !enabled;
-}
-
-// ── STAGE NAVIGATION ─────────────────────────────────────────────────
+// ── STAGE NAVIGATION ──────────────────────────────────────────────────
 function showStage(stage){
-  currentStage = stage;
-  document.querySelectorAll('.stage-editor').forEach(e => e.classList.remove('active'));
-  document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('editor-'+stage).classList.add('active');
-  document.getElementById('tab-'+stage).classList.add('active');
+  currentStage=stage;
+  document.querySelectorAll('.se').forEach(function(e){e.classList.remove('active')});
+  document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active')});
+  var el=document.getElementById('e-'+stage);
+  var tab=document.getElementById('tab-'+stage);
+  if(el) el.classList.add('active');
+  if(tab) tab.classList.add('active');
   populateStageEditor(stage);
 }
 
 function populateStageEditor(stage){
-  const d = stageData[stage] || {};
-  if(stage === 'why') populateWhy(d);
-  if(stage === 'mechanism') populateMechanism(d);
-  if(stage === 'clinical_picture') populateClinicalPicture(d);
-  if(stage === 'test_yourself') populateTestYourself(d);
-  if(stage === 'reasoning_case') populateReasoningCase(d);
+  var d=stageData[stage]||{};
+  if(stage==='why') popWhy(d);
+  else if(stage==='mechanism') popMechanism(d);
+  else if(stage==='clinical_picture') popClinical(d);
+  else if(stage==='test_yourself') popTest(d);
+  else if(stage==='reasoning_case') popReasoning(d);
+  else if(stage==='supplementary') popSupplementary(d);
 }
 
-// ── WHY STAGE ────────────────────────────────────────────────────────
-function populateWhy(d){
-  document.getElementById('why-text').value = d.text || '';
-  const container = document.getElementById('why-objectives');
-  container.innerHTML = '';
-  const objs = d.objectives || ['','','','',''];
-  objs.forEach((obj,i) => addObjectiveRow(obj, i));
-  if(!objs.length) addObjectiveRow('', 0);
-}
-function addObjective(){ addObjectiveRow('', document.getElementById('why-objectives').children.length); }
-function addObjectiveRow(text, idx){
-  const row = document.createElement('div');
-  row.className = 'obj-row';
-  row.innerHTML = `
-    <input type="text" value="${escHtml(text)}" placeholder="Objective ${idx+1} — starts with a verb">
-    <button class="btn-sm btn-sm-del" onclick="this.parentElement.remove()">✕</button>`;
-  document.getElementById('why-objectives').appendChild(row);
+// ── STAGE 1: WHY ──────────────────────────────────────────────────────
+function popWhy(d){
+  document.getElementById('why-text').value=d.stage1_script||d.text||'';
 }
 function collectWhy(){
-  const objs = [...document.querySelectorAll('#why-objectives .obj-row input')]
-    .map(i => i.value.trim()).filter(Boolean);
-  return { text: document.getElementById('why-text').value.trim(), objectives: objs };
+  return {stage1_script:document.getElementById('why-text').value.trim()};
 }
 
-// ── MECHANISM STAGE ──────────────────────────────────────────────────
-function populateMechanism(d){
-  document.getElementById('mechanism-text').value = d.text || '';
-  document.getElementById('mechanism-nodes').value = d.map_nodes ? JSON.stringify(d.map_nodes, null, 2) : '';
-  document.getElementById('mechanism-edges').value = d.map_edges ? JSON.stringify(d.map_edges, null, 2) : '';
+// ── STAGE 2: MECHANISM ────────────────────────────────────────────────
+function popMechanism(d){
+  var c=document.getElementById('s2nodes');c.innerHTML='';
+  var nodes=d.stage2_nodes||d.map_nodes||[];
+  nodes.forEach(function(n){c.appendChild(makeNodeEl(n))});
+  if(!nodes.length) addNode();
 }
+function makeNodeEl(n){
+  var div=document.createElement('div');div.className='card';
+  var pw=PATHWAYS.map(function(p){return '<option value="'+p+'"'+(n.pathway===p?' selected':'')+'>'+p+'</option>';}).join('');
+  div.innerHTML='<div class="ch"><span class="cl">Node</span><button class="bsm bd" onclick="this.closest(\'.card\').remove()">Remove</button></div>'
+    +'<div class="g2" style="margin-bottom:8px">'
+    +'<div><div class="fl">ID</div><input type="text" class="nid" value="'+esc(n.id||'')+'" placeholder="co_fall"></div>'
+    +'<div><div class="fl">Label (max 25 chars)</div><input type="text" class="nlabel" value="'+esc(n.label||'')+'" placeholder="Reduced CO"></div>'
+    +'</div>'
+    +'<div class="g2" style="margin-bottom:8px">'
+    +'<div><div class="fl">Pathway</div><select class="npathway">'+pw+'</select></div>'
+    +'<div><div class="fl">Clinical?</div><select class="nclinical"><option value="false"'+(n.clinical?'':' selected')+'>No</option><option value="true"'+(n.clinical?' selected':'')+'>Yes</option></select></div>'
+    +'</div>'
+    +'<div class="fl">Description</div>'
+    +'<textarea class="ndesc tsm">'+esc(n.description||'')+'</textarea>';
+  return div;
+}
+function addNode(){document.getElementById('s2nodes').appendChild(makeNodeEl({id:'',label:'',pathway:'event',description:'',clinical:false}))}
 function collectMechanism(){
-  let nodes = [], edges = [];
-  try { nodes = JSON.parse(document.getElementById('mechanism-nodes').value || '[]'); } catch(e){}
-  try { edges = JSON.parse(document.getElementById('mechanism-edges').value || '[]'); } catch(e){}
-  return { text: document.getElementById('mechanism-text').value.trim(), map_nodes: nodes, map_edges: edges };
-}
-
-// ── CLINICAL PICTURE STAGE ───────────────────────────────────────────
-const CP_TYPES = ['symptoms','examination','investigations','management','complications','prognosis'];
-function populateClinicalPicture(d){
-  const container = document.getElementById('cp-sections');
-  container.innerHTML = '';
-  (d.sections || []).forEach(sec => addCPSectionWithData(sec));
-  if(!(d.sections||[]).length) addCPSection();
-}
-function addCPSection(){ addCPSectionWithData({type:'symptoms',title:'',items:[{label:'',value:'',mechanism_link:false}],guidelines:[]}); }
-function addCPSectionWithData(sec){
-  const div = document.createElement('div');
-  div.className = 'cp-section';
-  const typeOpts = CP_TYPES.map(t => `<option value="${t}" ${sec.type===t?'selected':''}>${t}</option>`).join('');
-  const itemsHtml = (sec.items||[{label:'',value:'',mechanism_link:false}]).map(item => cpItemHtml(item)).join('');
-  const glHtml = (sec.guidelines||[]).map(g => guidelineHtml(g)).join('');
-  div.innerHTML = `
-    <div class="cp-section-hdr">
-      <div style="display:flex;gap:8px;align-items:center;">
-        <select class="cp-type" style="width:150px;">${typeOpts}</select>
-        <input type="text" class="cp-title" value="${escHtml(sec.title)}" placeholder="Section heading" style="width:200px;">
-      </div>
-      <button class="btn-sm btn-sm-del" onclick="this.closest('.cp-section').remove()">Remove section</button>
-    </div>
-    <div class="cp-items">${itemsHtml}</div>
-    <button class="btn-sm btn-sm-add" onclick="addCPItem(this)">+ Add item</button>
-    <div class="cp-guidelines">${glHtml}</div>
-    <button class="btn-sm btn-sm-add" onclick="addGuideline(this)" style="margin-top:6px;">+ Add guideline</button>`;
-  document.getElementById('cp-sections').appendChild(div);
-}
-function cpItemHtml(item){
-  return `<div class="cp-item">
-    <input type="text" class="cp-label" value="${escHtml(item.label||'')}" placeholder="Label">
-    <textarea class="cp-value" style="min-height:52px;font-size:12.5px;">${escHtml(item.value||'')}</textarea>
-    <button class="btn-sm btn-sm-del" onclick="this.closest('.cp-item').remove()">✕</button>
-  </div>`;
-}
-function addCPItem(btn){ btn.previousElementSibling.insertAdjacentHTML('beforeend', cpItemHtml({label:'',value:'',mechanism_link:false})); }
-function guidelineHtml(g){
-  return `<div class="guideline-row">
-    <input type="text" class="gl-source" value="${escHtml(g.source||'')}" placeholder="NICE NG106">
-    <textarea class="gl-text" style="min-height:52px;font-size:12.5px;">${escHtml(g.text||'')}</textarea>
-    <button class="btn-sm btn-sm-del" onclick="this.closest('.guideline-row').remove()">✕</button>
-  </div>`;
-}
-function addGuideline(btn){ btn.previousElementSibling.insertAdjacentHTML('beforeend', guidelineHtml({source:'',text:''})); }
-function collectClinicalPicture(){
-  const sections = [];
-  document.querySelectorAll('#cp-sections .cp-section').forEach(sec => {
-    const items = [];
-    sec.querySelectorAll('.cp-item').forEach(item => {
-      const label = item.querySelector('.cp-label').value.trim();
-      const value = item.querySelector('.cp-value').value.trim();
-      if(label||value) items.push({label,value,mechanism_link:false});
-    });
-    const guidelines = [];
-    sec.querySelectorAll('.guideline-row').forEach(row => {
-      const source = row.querySelector('.gl-source').value.trim();
-      const text = row.querySelector('.gl-text').value.trim();
-      if(source||text) guidelines.push({source,text});
-    });
-    sections.push({
-      type: sec.querySelector('.cp-type').value,
-      title: sec.querySelector('.cp-title').value.trim(),
-      items, guidelines
-    });
+  var nodes=Array.from(document.querySelectorAll('#s2nodes .card')).map(function(el){
+    return {id:el.querySelector('.nid').value.trim(),label:el.querySelector('.nlabel').value.trim(),
+      pathway:el.querySelector('.npathway').value,description:el.querySelector('.ndesc').value.trim(),
+      clinical:el.querySelector('.nclinical').value==='true'};
   });
-  return {sections};
+  return {stage2_nodes:nodes};
 }
 
-// ── TEST YOURSELF ────────────────────────────────────────────────────
-function populateTestYourself(d){
-  document.getElementById('ty-intro').value = d.intro || '';
-  document.getElementById('ty-questions').value = (d.question_ids||[]).join('\n');
+// ── STAGE 3: CLINICAL PICTURE ─────────────────────────────────────────
+function popClinical(d){
+  var fc=document.getElementById('s3features');fc.innerHTML='';
+  var ic=document.getElementById('s3invs');ic.innerHTML='';
+  var sc=document.getElementById('s3steps');sc.innerHTML='';
+  var features=d.stage3_features||[];
+  var invs=d.stage3_investigations||[];
+  var mgmt=d.stage3_management||{};
+  features.forEach(function(f){fc.appendChild(makeFeatEl(f))});
+  invs.forEach(function(i){ic.appendChild(makeInvEl(i))});
+  // Management principles — could be string or complex object
+  var principles='';
+  if(typeof mgmt==='string') principles=mgmt;
+  else if(mgmt.principles) principles=mgmt.principles;
+  else if(Object.keys(mgmt).length) principles=JSON.stringify(mgmt,null,2);
+  document.getElementById('mechanism-text').value=principles;
+  var steps=mgmt.steps||mgmt.hfref_steps||[];
+  steps.forEach(function(s){sc.appendChild(makeStepEl(s))});
 }
-function collectTestYourself(){
-  const ids = document.getElementById('ty-questions').value.split('\n').map(s=>s.trim()).filter(Boolean);
-  return { intro: document.getElementById('ty-intro').value.trim(), question_ids: ids };
+function makeFeatEl(f){
+  var div=document.createElement('div');div.className='card';
+  var pw=PATHWAYS.map(function(p){return '<option value="'+p+'"'+(f.pathway===p?' selected':'')+'>'+p+'</option>';}).join('');
+  div.innerHTML='<div class="ch"><span class="cl">Feature</span><button class="bsm bd" onclick="this.closest(\'.card\').remove()">Remove</button></div>'
+    +'<div class="g2" style="margin-bottom:8px">'
+    +'<div><div class="fl">Name</div><input type="text" class="fname" value="'+esc(f.name||'')+'" placeholder="Orthopnoea"></div>'
+    +'<div><div class="fl">Pathway</div><select class="fpathway">'+pw+'</select></div>'
+    +'</div>'
+    +'<div class="g2">'
+    +'<div><div class="fl">Mechanism</div><textarea class="fmech tsm">'+esc(f.mechanism||'')+'</textarea></div>'
+    +'<div><div class="fl">Description</div><textarea class="fdesc tsm">'+esc(f.description||'')+'</textarea></div>'
+    +'</div>';
+  return div;
 }
-
-// ── REASONING CASE ───────────────────────────────────────────────────
-function populateReasoningCase(d){
-  document.getElementById('rc-title').value = d.title || '';
-  document.getElementById('rc-intro').value = d.intro || '';
-  const container = document.getElementById('rc-blocks');
-  container.innerHTML = '';
-  (d.blocks || []).forEach((b,i) => addRCBlockWithData(b, i+1));
-  if(!(d.blocks||[]).length) addRCBlock();
+function addFeature(){document.getElementById('s3features').appendChild(makeFeatEl({name:'',pathway:'backward',mechanism:'',description:''}))}
+function makeInvEl(i){
+  var div=document.createElement('div');div.className='card';
+  var pri=['essential','important','supplementary'].map(function(p){return '<option value="'+p+'"'+(i.priority===p?' selected':'')+'>'+p+'</option>';}).join('');
+  div.innerHTML='<div class="ch"><span class="cl">Investigation</span><button class="bsm bd" onclick="this.closest(\'.card\').remove()">Remove</button></div>'
+    +'<div class="g3">'
+    +'<div><div class="fl">Name</div><input type="text" class="iname" value="'+esc(i.name||'')+'" placeholder="BNP"></div>'
+    +'<div><div class="fl">Priority</div><select class="ipri">'+pri+'</select></div>'
+    +'<div><div class="fl">Findings</div><input type="text" class="ifindings" value="'+esc(i.findings||'')+'" placeholder="BNP >400 = urgent echo"></div>'
+    +'</div>';
+  return div;
 }
-function addRCBlock(){ addRCBlockWithData({label:'',vignette:'',question:'',reveal:''}, document.getElementById('rc-blocks').children.length+1); }
-function addRCBlockWithData(b, num){
-  const div = document.createElement('div');
-  div.className = 'rc-block';
-  div.innerHTML = `
-    <div class="rc-block-hdr">
-      <div class="rc-block-num">Block ${num}</div>
-      <button class="btn-sm btn-sm-del" onclick="this.closest('.rc-block').remove()">Remove block</button>
-    </div>
-    <div class="field-group">
-      <div class="field-label">Label <span class="field-hint">e.g. "Block 1 — Presentation"</span></div>
-      <input type="text" class="rc-label" value="${escHtml(b.label||'')}">
-    </div>
-    <div class="field-group">
-      <div class="field-label">Vignette text</div>
-      <textarea class="rc-vignette textarea-md">${escHtml(b.vignette||'')}</textarea>
-    </div>
-    <div class="field-group">
-      <div class="field-label">Question / decision point</div>
-      <textarea class="rc-question textarea-sm">${escHtml(b.question||'')}</textarea>
-    </div>
-    <div class="field-group">
-      <div class="field-label">Model reveal</div>
-      <textarea class="rc-reveal textarea-md">${escHtml(b.reveal||'')}</textarea>
-    </div>`;
-  document.getElementById('rc-blocks').appendChild(div);
+function addInv(){document.getElementById('s3invs').appendChild(makeInvEl({name:'',priority:'essential',findings:''}))}
+function makeStepEl(s){
+  var div=document.createElement('div');div.className='card';
+  // s may be object with step/drug_class/examples/mechanism or phase/action/detail/escalation
+  var phase=s.phase||s.drug_class||'';
+  var action=s.action||s.examples||'';
+  var detail=s.detail||s.mechanism||s.note||'';
+  var escalation=s.escalation||s.monitoring||'';
+  div.innerHTML='<div class="ch"><span class="cl">Step</span><button class="bsm bd" onclick="this.closest(\'.card\').remove()">Remove</button></div>'
+    +'<div class="g2" style="margin-bottom:8px">'
+    +'<div><div class="fl">Phase / Drug class</div><input type="text" class="sphase" value="'+esc(phase)+'" placeholder="Acute / ACE inhibitor"></div>'
+    +'<div><div class="fl">Action / Examples</div><input type="text" class="saction" value="'+esc(action)+'" placeholder="Ramipril, enalapril"></div>'
+    +'</div>'
+    +'<div class="g2">'
+    +'<div><div class="fl">Detail / Mechanism</div><textarea class="sdetail tsm">'+esc(detail)+'</textarea></div>'
+    +'<div><div class="fl">Escalation / Monitoring</div><textarea class="sescalation tsm">'+esc(escalation)+'</textarea></div>'
+    +'</div>';
+  return div;
 }
-function collectReasoningCase(){
-  const blocks = [];
-  document.querySelectorAll('#rc-blocks .rc-block').forEach(b => {
-    blocks.push({
-      label:    b.querySelector('.rc-label').value.trim(),
-      vignette: b.querySelector('.rc-vignette').value.trim(),
-      question: b.querySelector('.rc-question').value.trim(),
-      reveal:   b.querySelector('.rc-reveal').value.trim(),
-    });
+function addStep(){document.getElementById('s3steps').appendChild(makeStepEl({phase:'',action:'',detail:'',escalation:''}))}
+function collectClinical(){
+  var features=Array.from(document.querySelectorAll('#s3features .card')).map(function(el){
+    return {name:el.querySelector('.fname').value.trim(),pathway:el.querySelector('.fpathway').value,
+      mechanism:el.querySelector('.fmech').value.trim(),description:el.querySelector('.fdesc').value.trim()};
   });
-  return {
-    title:  document.getElementById('rc-title').value.trim(),
-    intro:  document.getElementById('rc-intro').value.trim(),
-    blocks
-  };
+  var invs=Array.from(document.querySelectorAll('#s3invs .card')).map(function(el){
+    return {name:el.querySelector('.iname').value.trim(),priority:el.querySelector('.ipri').value,findings:el.querySelector('.ifindings').value.trim()};
+  });
+  var steps=Array.from(document.querySelectorAll('#s3steps .card')).map(function(el){
+    return {phase:el.querySelector('.sphase').value.trim(),action:el.querySelector('.saction').value.trim(),
+      detail:el.querySelector('.sdetail').value.trim(),escalation:el.querySelector('.sescalation').value.trim()};
+  });
+  return {stage3_features:features,stage3_investigations:invs,
+    stage3_management:{principles:document.getElementById('mechanism-text').value.trim(),steps:steps}};
 }
 
-// ── COLLECT ALL ──────────────────────────────────────────────────────
-function collectAllStages(){
-  return {
-    why:             collectWhy(),
-    mechanism:       collectMechanism(),
-    clinical_picture:collectClinicalPicture(),
-    test_yourself:   collectTestYourself(),
-    reasoning_case:  collectReasoningCase(),
-  };
+// ── STAGE 4: TEST YOURSELF ────────────────────────────────────────────
+function popTest(d){
+  var c=document.getElementById('s4qs');c.innerHTML='';
+  var qs=d.stage4_questions||[];
+  for(var i=0;i<10;i++) c.appendChild(makeQEl(qs[i]||{},i+1));
+}
+function makeQEl(q,num){
+  var div=document.createElement('div');div.className='card';div.id='q'+num;
+  var ansOpts=[0,1,2,3,4].map(function(i){return '<option value="'+i+'"'+(q.ans===i?' selected':'')+'>Option '+(i+1)+'</option>';}).join('');
+  var optFields=[0,1,2,3,4].map(function(i){
+    return '<div style="margin-bottom:6px"><div class="fl" style="font-size:10.5px">Option '+(i+1)+' text</div>'
+      +'<input type="text" class="qopt" data-idx="'+i+'" value="'+esc((q.opts||[])[i]||'')+'" placeholder="Option '+(i+1)+'"></div>'
+      +'<div style="margin-bottom:10px"><div class="fl" style="font-size:10.5px">Why option '+(i+1)+' is correct/incorrect</div>'
+      +'<textarea class="qwhy tsm" data-idx="'+i+'">'+esc((q.why||[])[i]||'')+'</textarea></div>';
+  }).join('');
+  div.innerHTML='<div class="ch"><span class="cl">Q'+num+'</span><span style="font-size:10px;color:var(--muted)">Question '+num+' of 10</span></div>'
+    +'<div class="fg"><div class="fl">Question stem</div><textarea class="qstem tmd">'+esc(q.q||'')+'</textarea></div>'
+    +'<div style="margin-bottom:10px"><div class="fl">Options (5 required)</div>'+optFields+'</div>'
+    +'<div class="g2" style="margin-bottom:10px">'
+    +'<div><div class="fl">Correct answer</div><select class="qans">'+ansOpts+'</select></div>'
+    +'<div><div class="fl">Memory hook (rem)</div><input type="text" class="qrem" value="'+esc(q.rem||'')+'" placeholder="Mnemonic or pearl"></div>'
+    +'</div>'
+    +'<div class="fg"><div class="fl">Explanation (em)</div><textarea class="qem tsm">'+esc(q.em||'')+'</textarea></div>';
+  return div;
+}
+function collectTest(){
+  var qs=Array.from(document.querySelectorAll('#s4qs .card')).map(function(el){
+    var opts=Array.from(el.querySelectorAll('.qopt')).map(function(i){return i.value.trim()});
+    var why=Array.from(el.querySelectorAll('.qwhy')).map(function(t){return t.value.trim()});
+    return {q:el.querySelector('.qstem').value.trim(),opts:opts,
+      ans:parseInt(el.querySelector('.qans').value),
+      em:el.querySelector('.qem').value.trim(),why:why,
+      rem:el.querySelector('.qrem').value.trim()};
+  });
+  return {stage4_questions:qs};
 }
 
-// ── VALIDATE ─────────────────────────────────────────────────────────
+// ── STAGE 5: REASONING CASE ───────────────────────────────────────────
+function popReasoning(d){
+  var vig=d.stage5_vignette||{};
+  document.getElementById('rc-title').value=vig.title||'';
+  var c=document.getElementById('s5blocks');c.innerHTML='';
+  var blocks=vig.blocks||[];
+  for(var i=0;i<4;i++) c.appendChild(makeBlockEl(blocks[i]||{},i+1));
+}
+function makeBlockEl(b,num){
+  var div=document.createElement('div');div.className='card';
+  var prompts=Array.isArray(b.prompts)?b.prompts.join('\n'):(b.prompts||b.question||'');
+  var reveal=b.model_reasoning||b.reveal||'';
+  if(typeof reveal==='object') reveal=JSON.stringify(reveal,null,2);
+  div.innerHTML='<div class="ch"><span class="cl">Block '+num+'</span><span style="font-size:10px;color:var(--muted)">Block '+num+' of 4</span></div>'
+    +'<div class="fg"><div class="fl">Title</div><input type="text" class="btitle" value="'+esc(b.title||'')+'" placeholder="Block '+num+' — Presentation"></div>'
+    +'<div class="fg"><div class="fl">Content / vignette</div><textarea class="bcontent tmd">'+esc(b.content||b.vignette||'')+'</textarea></div>'
+    +'<div class="fg"><div class="fl">Prompts <span class="fh">One per line</span></div><textarea class="bprompts tsm">'+esc(prompts)+'</textarea></div>'
+    +'<div class="fg"><div class="fl">Model reasoning</div><textarea class="breasoning tmd">'+esc(reveal)+'</textarea></div>';
+  return div;
+}
+function collectReasoning(){
+  var title=document.getElementById('rc-title').value.trim();
+  var blocks=Array.from(document.querySelectorAll('#s5blocks .card')).map(function(el,i){
+    var prompts=el.querySelector('.bprompts').value.split('\n').map(function(s){return s.trim()}).filter(Boolean);
+    return {block:i+1,title:el.querySelector('.btitle').value.trim(),
+      content:el.querySelector('.bcontent').value.trim(),prompts:prompts,
+      model_reasoning:el.querySelector('.breasoning').value.trim()};
+  });
+  return {stage5_vignette:{title:title,blocks:blocks}};
+}
+
+// ── STAGE 6: SUPPLEMENTARY ────────────────────────────────────────────
+function popSupplementary(d){
+  var fc=document.getElementById('s6facts');fc.innerHTML='';
+  var cc=document.getElementById('s6concepts');cc.innerHTML='';
+  var ic=document.getElementById('s6images');ic.innerHTML='';
+  var facts=d.fact_cards||[];
+  for(var i=0;i<10;i++) fc.appendChild(makeFactEl(facts[i]||{},i+1));
+  var concepts=d.concept_cards||[];
+  concepts.forEach(function(c,i){cc.appendChild(makeConceptEl(c,i+1))});
+  if(!concepts.length){addConcept();addConcept();}
+  var images=d.image_cards||[];
+  images.forEach(function(c,i){ic.appendChild(makeImageEl(c,i+1))});
+  if(!images.length){addImage();addImage();}
+}
+function makeFactEl(f,num){
+  var div=document.createElement('div');div.className='card';
+  div.innerHTML='<div class="ch"><span class="cl">Fact '+num+'</span><span style="font-size:10px;color:var(--muted)">'+num+' of 10</span></div>'
+    +'<div class="g2">'
+    +'<div><div class="fl">Q — front</div><textarea class="fq tsm">'+esc(f.q||'')+'</textarea></div>'
+    +'<div><div class="fl">A — back</div><textarea class="fa tsm">'+esc(f.a||'')+'</textarea></div>'
+    +'</div>';
+  return div;
+}
+function makeConceptEl(c,num){
+  var div=document.createElement('div');div.className='card';
+  var rubric=Array.isArray(c.rubric)?c.rubric.join('\n'):(c.rubric||'');
+  div.innerHTML='<div class="ch"><span class="cl">Concept '+num+'</span><button class="bsm bd" onclick="this.closest(\'.card\').remove()">Remove</button></div>'
+    +'<div class="fg"><div class="fl">Title</div><input type="text" class="ctitle" value="'+esc(c.title||'')+'" placeholder="Why ACE inhibitors reduce mortality"></div>'
+    +'<div class="fg"><div class="fl">Prompt</div><textarea class="cprompt tsm">'+esc(c.prompt||'')+'</textarea></div>'
+    +'<div class="fg"><div class="fl">Rubric (one point per line)</div><textarea class="crubric tsm">'+esc(rubric)+'</textarea></div>';
+  return div;
+}
+function addConcept(){
+  var c=document.getElementById('s6concepts');
+  if(c.children.length>=3){showAlert('err','Maximum 3 concept cards');return;}
+  c.appendChild(makeConceptEl({},c.children.length+1));
+}
+function makeImageEl(img,num){
+  var div=document.createElement('div');div.className='card';
+  div.innerHTML='<div class="ch"><span class="cl">Image '+num+'</span><button class="bsm bd" onclick="this.closest(\'.card\').remove()">Remove</button></div>'
+    +'<div class="fg"><div class="fl">Title</div><input type="text" class="ictitle" value="'+esc(img.title||'')+'" placeholder="Interpret this CXR"></div>'
+    +'<div class="fg"><div class="fl">image_prompt</div><textarea class="icimgprompt tsm">'+esc(img.image_prompt||'')+'</textarea></div>'
+    +'<div class="fg"><div class="fl">structured_prompt</div><textarea class="icstructured tsm">'+esc(img.structured_prompt||'')+'</textarea></div>'
+    +'<div class="fg"><div class="fl">model_answer</div><textarea class="icmodel tmd">'+esc(img.model_answer||'')+'</textarea></div>';
+  return div;
+}
+function addImage(){
+  var c=document.getElementById('s6images');
+  if(c.children.length>=3){showAlert('err','Maximum 3 image cards');return;}
+  c.appendChild(makeImageEl({},c.children.length+1));
+}
+function collectSupplementary(){
+  var facts=Array.from(document.querySelectorAll('#s6facts .card')).map(function(el){
+    return {q:el.querySelector('.fq').value.trim(),a:el.querySelector('.fa').value.trim()};
+  });
+  var concepts=Array.from(document.querySelectorAll('#s6concepts .card')).map(function(el){
+    var rubric=el.querySelector('.crubric').value.split('\n').map(function(s){return s.trim()}).filter(Boolean);
+    return {title:el.querySelector('.ctitle').value.trim(),prompt:el.querySelector('.cprompt').value.trim(),rubric:rubric};
+  });
+  var images=Array.from(document.querySelectorAll('#s6images .card')).map(function(el){
+    return {title:el.querySelector('.ictitle').value.trim(),image_prompt:el.querySelector('.icimgprompt').value.trim(),
+      structured_prompt:el.querySelector('.icstructured').value.trim(),model_answer:el.querySelector('.icmodel').value.trim()};
+  });
+  return {fact_cards:facts,concept_cards:concepts,image_cards:images};
+}
+
+// ── COLLECT ALL ───────────────────────────────────────────────────────
+function collectAll(){
+  return {why:collectWhy(),mechanism:collectMechanism(),clinical_picture:collectClinical(),
+    test_yourself:collectTest(),reasoning_case:collectReasoning(),supplementary:collectSupplementary()};
+}
+
+// ── VALIDATE ──────────────────────────────────────────────────────────
 function validateAll(){
-  const d = collectAllStages();
-  const errs = [];
-  if(!d.why.text) errs.push('Why: framing text is empty');
-  if(!d.why.objectives||d.why.objectives.length<3) errs.push('Why: need at least 3 objectives');
-  if(!d.mechanism.text) errs.push('Mechanism: text is empty');
-  if(!d.clinical_picture.sections||d.clinical_picture.sections.length<2) errs.push('Clinical Picture: need at least 2 sections');
-  if(!d.reasoning_case.title) errs.push('Reasoning Case: title missing');
-  if(!d.reasoning_case.blocks||d.reasoning_case.blocks.length<3) errs.push('Reasoning Case: need at least 3 blocks');
-  const emptyBlocks = (d.reasoning_case.blocks||[]).filter(b=>!b.vignette||!b.reveal);
-  if(emptyBlocks.length) errs.push('Reasoning Case: some blocks are missing vignette or reveal');
-  if(errs.length){
-    showAlert('err', errs.join('<br>'));
-  } else {
-    showAlert('ok', 'Validation passed — ready to save and publish');
-  }
-  return errs.length === 0;
+  var d=collectAll();var errs=[];
+  if(!d.why.stage1_script) errs.push('Stage 1: script is empty');
+  if(!d.mechanism.stage2_nodes||!d.mechanism.stage2_nodes.length) errs.push('Stage 2: no nodes');
+  if(!d.clinical_picture.stage3_features||!d.clinical_picture.stage3_features.length) errs.push('Stage 3: no features');
+  var qs=d.test_yourself.stage4_questions||[];
+  if(qs.length!==10) errs.push('Stage 4: need exactly 10 questions, have '+qs.length);
+  qs.forEach(function(q,i){
+    if(!q.q) errs.push('Stage 4 Q'+(i+1)+': missing stem');
+    if(!q.opts||q.opts.filter(Boolean).length!==5) errs.push('Stage 4 Q'+(i+1)+': need 5 options');
+  });
+  var blocks=(d.reasoning_case.stage5_vignette&&d.reasoning_case.stage5_vignette.blocks)||[];
+  if(blocks.length!==4) errs.push('Stage 5: need exactly 4 blocks, have '+blocks.length);
+  var facts=d.supplementary.fact_cards||[];
+  if(facts.length!==10) errs.push('Supplementary: need exactly 10 fact cards, have '+facts.length);
+  if(errs.length) showAlert('err',errs.join('<br>')); else showAlert('ok','Validation passed — ready to publish');
+  return errs.length===0;
 }
 
-// ── SAVE ─────────────────────────────────────────────────────────────
+// ── SAVE ──────────────────────────────────────────────────────────────
 async function saveStages(publish){
-  if(!currentModule){ showAlert('err','No module selected'); return false; }
-  const stages = collectAllStages();
-  const STAGES = ['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
-  for(const stage of STAGES){
-    const {error} = await sb.from('module_content').upsert({
-      module_id:    currentModule.id,
-      stage:        stage,
-      content_json: stages[stage],
-      display_order: STAGES.indexOf(stage)+1,
-      updated_at:   new Date().toISOString(),
-    }, {onConflict: 'module_id,stage'});
-    if(error){ showAlert('err','Error saving '+stage+': '+error.message); return false; }
+  if(!curMod){showAlert('err','No module selected');return false;}
+  var all=collectAll();
+  var STAGES=['why','mechanism','clinical_picture','test_yourself','reasoning_case','supplementary'];
+  for(var i=0;i<STAGES.length;i++){
+    var stage=STAGES[i];
+    var res=await sb.from('module_content').upsert({
+      module_id:curMod.id,stage:stage,content_json:all[stage],
+      display_order:i+1,updated_at:new Date().toISOString()
+    },{onConflict:'module_id,stage'});
+    if(res.error){showAlert('err','Error saving '+stage+': '+res.error.message);return false;}
   }
-  if(publish !== undefined){
-    const {error} = await sb.from('modules')
-      .update({is_published: publish, updated_at: new Date().toISOString()})
-      .eq('id', currentModule.id);
-    if(error){ showAlert('err','Error updating publish status: '+error.message); return false; }
-    currentModule.is_published = publish;
-    document.getElementById('btnUnpublish').style.display = publish ? 'flex' : 'none';
+  if(publish!==undefined){
+    var res2=await sb.from('modules').update({is_published:publish,updated_at:new Date().toISOString()}).eq('id',curMod.id);
+    if(res2.error){showAlert('err','Publish error: '+res2.error.message);return false;}
+    curMod.is_published=publish;
+    document.getElementById('btnUnpublish').style.display=publish?'flex':'none';
   }
-  updateTabStatus(STAGES.map(s=>({stage:s,content_json:stages[s]})));
-  showModuleInfo(currentModule);
+  showModInfo(curMod);
   return true;
 }
-
 async function saveAndPublish(){
   if(!validateAll()) return;
-  const btn = document.getElementById('btnPublish');
-  btn.textContent = 'Publishing...'; btn.disabled=true;
-  const ok = await saveStages(true);
-  if(ok) showAlert('ok','✓ Saved and published — '+currentModule.title+' is now live');
-  btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Save & Publish';
-  btn.disabled = false;
-  // Refresh module list to show updated status
-  loadModules().then(() => {
-    document.getElementById('moduleSelect').value = currentModule.slug;
-  });
+  var btn=document.getElementById('btnPublish');
+  btn.textContent='Publishing...';btn.disabled=true;
+  var ok=await saveStages(true);
+  if(ok) showAlert('ok','Published — '+curMod.title+' is now live');
+  btn.innerHTML='<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Save &amp; Publish';
+  btn.disabled=false;
+  await loadModules();document.getElementById('moduleSelect').value=curMod.slug;
 }
-
-async function saveDraft(){
-  const ok = await saveStages(undefined);
-  if(ok) showAlert('ok','Draft saved — not yet published');
-}
-
+async function saveDraft(){var ok=await saveStages(undefined);if(ok) showAlert('ok','Draft saved');}
 async function unpublish(){
-  if(!confirm('Unpublish '+currentModule.title+'? It will no longer appear on the site.')) return;
-  const ok = await saveStages(false);
-  if(ok) showAlert('ok','Unpublished — '+currentModule.title+' is no longer visible');
+  if(!confirm('Unpublish '+curMod.title+'?')) return;
+  var ok=await saveStages(false);if(ok) showAlert('ok','Unpublished');
+}
+async function saveSubtitle(){
+  if(!curMod) return;
+  await sb.from('modules').update({subtitle:document.getElementById('modSubtitle').value.trim(),updated_at:new Date().toISOString()}).eq('id',curMod.id);
+}
+async function saveCourse(){
+  if(!curMod){showAlert('err','No module selected');return;}
+  var week=parseInt(document.getElementById('courseWeek').value)||null;
+  var pos=parseInt(document.getElementById('coursePos').value)||null;
+  var res=await sb.from('modules').update({course_week:week,course_position:pos,updated_at:new Date().toISOString()}).eq('id',curMod.id);
+  if(!res.error) showAlert('ok',week?'Week '+week+', position '+pos+' saved':'Course position cleared');
 }
 
-// ── COURSE POSITION ──────────────────────────────────────────────────
-async function saveCoursePosition(){
-  if(!currentModule){ showAlert('err','No module selected'); return; }
-  const week = parseInt(document.getElementById('courseWeek').value)||null;
-  const pos  = parseInt(document.getElementById('coursePos').value)||null;
-  const {error} = await sb.from('modules')
-    .update({course_week: week, course_position: pos, updated_at: new Date().toISOString()})
-    .eq('id', currentModule.id);
-  if(error){ showAlert('err','Error saving course position: '+error.message); return; }
-  currentModule.course_week = week;
-  currentModule.course_position = pos;
-  showModuleInfo(currentModule);
-  showAlert('ok', week ? `Course position set: Week ${week}, position ${pos}` : 'Course position cleared');
+// ── IMPORT JSON ───────────────────────────────────────────────────────
+function showImport(){
+  document.getElementById('importZone').style.display='block';
+  document.getElementById('importTextarea').value='';
+  document.getElementById('importTextarea').focus();
 }
 
-// ── JSON IMPORT ──────────────────────────────────────────────────────
-function importJSON(){
-  const zone = document.getElementById('importZone');
-  const ta = document.getElementById('importTextarea');
-  zone.style.display = 'block';
-  ta.style.display = 'block';
-  ta.focus();
-}
-function handleDrop(e){
-  e.preventDefault();
-  this.classList.remove('dragover');
-  const text = e.dataTransfer.getData('text');
-  if(text){ document.getElementById('importTextarea').value = text; parseImport(); }
-}
 function parseImport(){
-  const raw = document.getElementById('importTextarea').value.trim();
-  if(!raw){ showAlert('err','Nothing to import'); return; }
-  let data;
-  try{ data = JSON.parse(raw); }
-  catch(e){ showAlert('err','Invalid JSON: '+e.message); return; }
-  const STAGES = ['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
-  let loaded = 0;
-  STAGES.forEach(s => {
-    if(data[s]){ stageData[s] = data[s]; loaded++; }
-  });
-  if(!loaded){ showAlert('err','No stage data found in JSON'); return; }
-  // Re-populate current stage
+  var ta=document.getElementById('importTextarea');
+  var raw=ta.value.trim();
+  if(!raw){showAlert('err','Nothing pasted — paste Claude JSON first');return;}
+
+  // Strip code fences
+  raw=raw.replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/```\s*$/,'').trim();
+
+  var data;
+  try{data=JSON.parse(raw);}
+  catch(e){showAlert('err','Invalid JSON: '+e.message);return;}
+
+  var loaded=0;
+
+  // Stage 1 — stage1_script at root OR nested under why/stage1
+  var whySrc=data.why||data.stage1||null;
+  if(whySrc){
+    stageData.why={stage1_script:whySrc.stage1_script||whySrc.text||whySrc.script||''};
+    loaded++;
+  } else if(data.stage1_script||data.text){
+    stageData.why={stage1_script:data.stage1_script||data.text||''};
+    loaded++;
+  }
+
+  // Stage 2 — stage2_nodes at root OR nested under mechanism/stage2
+  var mechSrc=data.mechanism||data.stage2||null;
+  if(mechSrc){
+    stageData.mechanism={stage2_nodes:mechSrc.stage2_nodes||mechSrc.nodes||mechSrc.map_nodes||[]};
+    loaded++;
+  } else if(data.stage2_nodes){
+    stageData.mechanism={stage2_nodes:data.stage2_nodes};
+    loaded++;
+  }
+
+  // Stage 3 — features/investigations/management at root OR nested
+  var clinSrc=data.clinical_picture||data.clinical||data.stage3||null;
+  var s3f=(clinSrc&&(clinSrc.stage3_features||clinSrc.features))||data.stage3_features||null;
+  var s3i=(clinSrc&&(clinSrc.stage3_investigations||clinSrc.investigations))||data.stage3_investigations||null;
+  var s3m=(clinSrc&&(clinSrc.stage3_management||clinSrc.management))||data.stage3_management||null;
+  if(s3f||s3i||s3m){
+    stageData.clinical_picture={
+      stage3_features:s3f||[],
+      stage3_investigations:s3i||[],
+      stage3_management:s3m||{principles:'',steps:[]}
+    };
+    loaded++;
+  }
+
+  // Stage 4 — stage4_questions at root OR nested
+  var testSrc=data.test_yourself||data.stage4||null;
+  var s4q=(testSrc&&(testSrc.stage4_questions||testSrc.questions))||data.stage4_questions||null;
+  if(s4q){
+    stageData.test_yourself={stage4_questions:s4q};
+    loaded++;
+  }
+
+  // Stage 5 — stage5_vignette at root OR nested
+  var rcSrc=data.reasoning_case||data.reasoning||data.stage5||null;
+  var rcVig=(rcSrc&&(rcSrc.stage5_vignette||rcSrc.vignette))||data.stage5_vignette||null;
+  if(!rcVig&&rcSrc&&rcSrc.blocks) rcVig=rcSrc;
+  if(rcVig){
+    var normBlocks=(rcVig.blocks||[]).map(function(b){
+      var mr=b.model_reasoning||b.reveal||'';
+      if(typeof mr==='object') mr=JSON.stringify(mr,null,2);
+      return {block:b.block,title:b.title||'',content:b.content||b.vignette||'',
+        prompts:b.prompts||[],model_reasoning:mr};
+    });
+    stageData.reasoning_case={stage5_vignette:{title:rcVig.title||'',blocks:normBlocks}};
+    loaded++;
+  }
+
+  // Supplementary — nested under supplementary/cards OR at root
+  var suppSrc=data.supplementary||data.cards||data.stage6||null;
+  if(suppSrc){
+    stageData.supplementary={
+      fact_cards:suppSrc.fact_cards||suppSrc.facts||[],
+      concept_cards:suppSrc.concept_cards||suppSrc.concepts||[],
+      image_cards:suppSrc.image_cards||suppSrc.images||[]
+    };
+    loaded++;
+  } else if(data.fact_cards){
+    stageData.supplementary={fact_cards:data.fact_cards,concept_cards:data.concept_cards||[],image_cards:data.image_cards||[]};
+    loaded++;
+  }
+
+  if(!loaded){
+    var keys=Object.keys(data).slice(0,12).join(', ');
+    showAlert('err','No stage data found.<br><strong>Keys in your JSON:</strong> '+keys+'<br>Expected: stage1_script, stage2_nodes, stage3_features, stage4_questions, stage5_vignette, supplementary');
+    return;
+  }
+
+  document.getElementById('importZone').style.display='none';
+  ta.value='';
   populateStageEditor(currentStage);
-  document.getElementById('importZone').style.display = 'none';
-  document.getElementById('importTextarea').value = '';
-  showAlert('ok', `Imported ${loaded} stages — review each stage then Save & Publish`);
+  showAlert('ok','Imported '+loaded+' stage'+(loaded!==1?'s':'')+' — review each tab then Save & Publish');
 }
 
-// ── UTILITIES ────────────────────────────────────────────────────────
-function showAlert(type, msg){
-  document.getElementById('alert-ok').classList.remove('show');
-  document.getElementById('alert-err').classList.remove('show');
-  const el = document.getElementById('alert-'+type);
-  el.innerHTML = msg;
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 6000);
+// ── UTILITIES ─────────────────────────────────────────────────────────
+function showAlert(type,msg){
+  document.getElementById('alOk').classList.remove('show');
+  document.getElementById('alErr').classList.remove('show');
+  var el=document.getElementById(type==='ok'?'alOk':'alErr');
+  el.innerHTML=msg;el.classList.add('show');
+  setTimeout(function(){el.classList.remove('show')},8000);
 }
-function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
-// Sign out
-async function signOut(){
-  await sb.auth.signOut();
-  document.getElementById('gate').style.display = 'flex';
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('gateEmail').value = '';
-  document.getElementById('gatePassword').value = '';
-  document.getElementById('gateAdminPin').value = '';
-}
-
-// Init
 document.getElementById('gateEmail').focus();
 </script>
 </body>
