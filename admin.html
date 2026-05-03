@@ -366,7 +366,7 @@ let currentStage = 'why';
 let stageData = {why:{},mechanism:{},clinical_picture:{},test_yourself:{},reasoning_case:{}};
 
 // ── GATE — two layers: admin PIN + Supabase auth ─────────────────────
-const ADMIN_PIN = 'ossify-admin-2026';
+const ADMIN_PIN = '21021995';
 const ALLOWED_EMAILS = ['henryarmes@yahoo.com','kavindad@hotmail.com','info@ossify.co.uk'];
 
 async function checkGate(){
@@ -670,12 +670,10 @@ function collectClinicalPicture(){
 // ── TEST YOURSELF ────────────────────────────────────────────────────
 function populateTestYourself(d){
   document.getElementById('ty-intro').value = d.intro || '';
-  document.getElementById('ty-questions').value = (d.question_ids||[]).join('
-');
+  document.getElementById('ty-questions').value = (d.question_ids||[]).join('\n');
 }
 function collectTestYourself(){
-  const ids = document.getElementById('ty-questions').value.split('
-').map(s=>s.trim()).filter(Boolean);
+  const ids = document.getElementById('ty-questions').value.split('\n').map(s=>s.trim()).filter(Boolean);
   return { intro: document.getElementById('ty-intro').value.trim(), question_ids: ids };
 }
 
