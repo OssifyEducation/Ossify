@@ -26,7 +26,7 @@ body{font-family:var(--font-sans);background:#f0eaff;color:var(--ink);min-height
 .gate-card input{width:100%;padding:11px 14px;border:1px solid var(--lav-border);border-radius:9px;font-size:14px;outline:none;margin-bottom:12px;font-family:var(--font-sans);}
 .gate-card input:focus{border-color:var(--pu-mid);}
 .gate-card button{width:100%;background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font-sans);}
-.gate-err{color:var(--red);font-size:13px;margin-top:8px;display:none;}
+.gate-err{color:var(--red);font-size:13px;margin-top:10px;padding:9px 12px;background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;display:none;text-align:left;line-height:1.5;}
 
 /* Layout */
 #app{display:none;min-height:100vh;}
@@ -146,7 +146,10 @@ textarea:focus{border-color:var(--pu-mid);}
     <input type="password" id="gateAdminPin" placeholder="Admin PIN"        onkeydown="if(event.key==='Enter')checkGate()">
     <button onclick="checkGate()" id="gateBtn" style="margin-top:12px;">Sign in</button>
     <div class="gate-err" id="gateErr" style="display:none;"></div>
-    <div style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6;">Access requires an authorised Ossify account and the admin PIN.<br>Contact info@ossify.co.uk to request access.</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6;">
+      Sign in with your Ossify account credentials and the admin PIN.<br>
+      No Ossify account yet? <a href="login.html" target="_blank" style="color:var(--pu-mid);">Create one here first</a>, then return to this page.
+    </div>
   </div>
 </div>
 
@@ -399,7 +402,16 @@ async function checkGate(){
   btn.disabled = false;
 
   if(error){
-    errEl.textContent = 'Sign in failed: ' + error.message;
+    // Give actionable error messages
+    let msg = 'Sign in failed: ' + error.message;
+    if(error.message.includes('Invalid login')){
+      msg = 'Incorrect email or password. Make sure you have an Ossify account — sign up at ossify-pi.vercel.app/login.html if you have not already.';
+    } else if(error.message.includes('Email not confirmed')){
+      msg = 'Please confirm your email address first — check your inbox for a confirmation email from Ossify.';
+    } else if(error.message.includes('Too many requests')){
+      msg = 'Too many failed attempts — please wait a few minutes and try again.';
+    }
+    errEl.innerHTML = msg;
     errEl.style.display = 'block';
     return;
   }
