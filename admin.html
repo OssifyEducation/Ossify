@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ossify Content Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --pu-dark:#3d1f7a;--pu-mid:#7c5cbf;--pu-light:#a78bfa;--pu-pale:#ede9fe;
+  --pk-mid:#f472b6;--pk-pale:#fce7f0;--pk-border:#f0a8c8;
+  --lav:#f0eaff;--lav-card:#fff;--lav-border:rgba(180,150,220,0.25);
+  --ink:#3d1f7a;--moss:#7b6fa0;--muted:#9b88c0;
+  --red:#c0305a;--green:#1a5a2a;--green-l:#e2f4e2;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --font-serif:'Georgia',serif;
+}
+body{font-family:var(--font-sans);background:#f0eaff;color:var(--ink);min-height:100vh;}
+
+/* Gate */
+#gate{position:fixed;inset:0;background:var(--pu-dark);display:flex;align-items:center;justify-content:center;z-index:1000;}
+.gate-card{background:#fff;border-radius:16px;padding:36px;width:360px;text-align:center;}
+.gate-card h1{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);margin-bottom:6px;}
+.gate-card p{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.gate-card input{width:100%;padding:11px 14px;border:1px solid var(--lav-border);border-radius:9px;font-size:14px;outline:none;margin-bottom:12px;font-family:var(--font-sans);}
+.gate-card input:focus{border-color:var(--pu-mid);}
+.gate-card button{width:100%;background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font-sans);}
+.gate-err{color:var(--red);font-size:13px;margin-top:8px;display:none;}
+
+/* Layout */
+#app{display:none;min-height:100vh;}
+.app-header{background:var(--pu-dark);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;}
+.app-logo{font-family:var(--font-serif);font-size:18px;color:#fff;display:flex;align-items:center;gap:8px;}
+.app-logo span{background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.8);}
+.app-body{display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 52px);}
+
+/* Left panel */
+.left-panel{background:#fff;border-right:0.5px solid var(--lav-border);padding:0;overflow-y:auto;}
+.panel-section{padding:14px 16px;border-bottom:0.5px solid var(--lav-border);}
+.panel-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+select,input[type=text],input[type=number],input[type=password]{width:100%;padding:9px 12px;border:1px solid var(--lav-border);border-radius:8px;font-size:13px;color:var(--ink);font-family:var(--font-sans);outline:none;background:#fff;}
+select:focus,input:focus{border-color:var(--pu-mid);}
+.module-info{background:var(--lav);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:12px;line-height:1.6;}
+.module-info .layer-badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;margin-bottom:4px;}
+.layer-core{background:var(--pu-pale);color:var(--pu-mid);}
+.layer-exam_sharp{background:var(--pk-pale);color:var(--red);}
+.status-pub{color:var(--green);font-weight:600;}
+.status-draft{color:var(--muted);}
+
+/* Stage tabs */
+.stage-tabs{display:flex;flex-direction:column;gap:2px;padding:10px 12px;}
+.stage-tab{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--moss);border:none;background:none;text-align:left;width:100%;font-family:var(--font-sans);transition:all 0.12s;}
+.stage-tab:hover{background:var(--lav);}
+.stage-tab.active{background:var(--pu-pale);color:var(--pu-mid);font-weight:500;}
+.stage-tab.done .stage-dot{background:var(--pu-mid);}
+.stage-dot{width:8px;height:8px;border-radius:50%;background:var(--lav-border);flex-shrink:0;}
+.stage-num{width:20px;height:20px;border-radius:50%;background:var(--lav-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--muted);flex-shrink:0;}
+.stage-tab.active .stage-num{background:var(--pu-mid);color:#fff;}
+.stage-tab.done .stage-num{background:var(--pu-mid);color:#fff;}
+
+/* Actions */
+.action-panel{padding:14px 16px;display:flex;flex-direction:column;gap:8px;}
+.btn{width:100%;padding:10px;border:none;border-radius:9px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;justify-content:center;gap:6px;transition:all 0.15s;}
+.btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.btn-primary{background:var(--pu-mid);color:#fff;}
+.btn-primary:hover{background:var(--pu-dark);}
+.btn-success{background:#1a5a2a;color:#fff;}
+.btn-success:hover{background:#0f3a1a;}
+.btn-outline{background:none;color:var(--moss);border:1px solid var(--lav-border);}
+.btn-outline:hover{border-color:var(--pu-light);color:var(--pu-dark);}
+.btn-danger{background:none;color:var(--red);border:1px solid var(--pk-border);}
+.btn-danger:hover{background:var(--pk-pale);}
+.btn:disabled{opacity:0.5;cursor:not-allowed;}
+
+/* Right panel — editor */
+.right-panel{padding:24px 28px;overflow-y:auto;}
+.stage-editor{display:none;}
+.stage-editor.active{display:block;}
+.editor-header{margin-bottom:20px;}
+.editor-title{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);margin-bottom:4px;}
+.editor-sub{font-size:13px;color:var(--muted);}
+
+/* Field groups */
+.field-group{margin-bottom:18px;}
+.field-label{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;}
+.field-hint{font-size:11px;color:var(--muted);font-weight:400;}
+textarea{width:100%;padding:11px 14px;border:1px solid var(--lav-border);border-radius:9px;font-family:var(--font-sans);font-size:13.5px;color:var(--ink);outline:none;resize:vertical;line-height:1.65;}
+textarea:focus{border-color:var(--pu-mid);}
+.textarea-sm{min-height:80px;}
+.textarea-md{min-height:140px;}
+.textarea-lg{min-height:200px;}
+
+/* Objectives list */
+.obj-list{display:flex;flex-direction:column;gap:6px;}
+.obj-row{display:flex;gap:6px;align-items:flex-start;}
+.obj-row input{flex:1;}
+.btn-sm{padding:6px 10px;font-size:12px;border-radius:7px;border:none;cursor:pointer;font-family:var(--font-sans);}
+.btn-sm-add{background:var(--pu-pale);color:var(--pu-mid);}
+.btn-sm-del{background:var(--pk-pale);color:var(--red);}
+
+/* Sections (clinical picture) */
+.cp-sections{display:flex;flex-direction:column;gap:14px;}
+.cp-section{background:var(--lav);border:0.5px solid var(--lav-border);border-radius:12px;padding:14px;}
+.cp-section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.cp-section-title{font-size:13px;font-weight:600;color:var(--pu-dark);}
+.cp-items{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.cp-item{display:grid;grid-template-columns:140px 1fr auto;gap:8px;align-items:start;}
+.cp-item input{font-size:12.5px;}
+.cp-item textarea{font-size:12.5px;min-height:52px;}
+.cp-guidelines{margin-top:10px;padding-top:10px;border-top:0.5px solid var(--lav-border);}
+.guideline-row{display:grid;grid-template-columns:100px 1fr auto;gap:8px;margin-bottom:6px;align-items:start;}
+
+/* Reasoning blocks */
+.rc-blocks{display:flex;flex-direction:column;gap:14px;}
+.rc-block{background:var(--lav);border:0.5px solid var(--lav-border);border-radius:12px;padding:14px;}
+.rc-block-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.rc-block-num{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+
+/* JSON import */
+.import-zone{background:var(--lav);border:2px dashed var(--lav-border);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:all 0.15s;margin-bottom:16px;}
+.import-zone:hover{border-color:var(--pu-mid);background:var(--pu-pale);}
+.import-zone.dragover{border-color:var(--pu-mid);background:var(--pu-pale);}
+.import-zone p{font-size:13px;color:var(--muted);}
+.import-zone strong{color:var(--pu-mid);}
+
+/* Alert */
+.alert{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none;}
+.alert.show{display:block;}
+.alert-ok{background:var(--green-l);border:1px solid #a8d4a8;color:var(--green);}
+.alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);color:var(--red);}
+
+/* Course assignment */
+.course-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+</style>
+</head>
+<body>
+
+<!-- Password gate -->
+<div id="gate">
+  <div class="gate-card">
+    <h1>Ossify Admin</h1>
+    <p>Content management — authorised access only</p>
+    <input type="email"    id="gateEmail"    placeholder="Email address"   style="margin-bottom:8px;" onkeydown="if(event.key==='Enter')document.getElementById('gatePassword').focus()">
+    <input type="password" id="gatePassword" placeholder="Ossify password"  style="margin-bottom:8px;" onkeydown="if(event.key==='Enter')document.getElementById('gateAdminPin').focus()">
+    <input type="password" id="gateAdminPin" placeholder="Admin PIN"        onkeydown="if(event.key==='Enter')checkGate()">
+    <button onclick="checkGate()" id="gateBtn" style="margin-top:12px;">Sign in</button>
+    <div class="gate-err" id="gateErr" style="display:none;"></div>
+    <div style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6;">Access requires an authorised Ossify account and the admin PIN.<br>Contact info@ossify.co.uk to request access.</div>
+  </div>
+</div>
+
+<!-- Main app -->
+<div id="app">
+  <div class="app-header">
+    <div class="app-logo">
+      Ossify <span>Content Admin</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);" id="headerStatus">Select a module to begin</div>
+      <button onclick="signOut()" style="font-size:11px;color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;cursor:pointer;font-family:var(--font-sans);">Sign out</button>
+    </div>
+  </div>
+
+  <div class="app-body">
+    <!-- Left panel -->
+    <div class="left-panel">
+
+      <div class="panel-section">
+        <div class="panel-label">Domain</div>
+        <select id="domainSelect" onchange="loadModules()">
+          <option value="">— select domain —</option>
+        </select>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-label">Module</div>
+        <select id="moduleSelect" onchange="loadModule()" disabled>
+          <option value="">— select module —</option>
+        </select>
+        <div class="module-info" id="moduleInfo" style="display:none;"></div>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-label">Stages</div>
+        <div class="stage-tabs" id="stageTabs">
+          <button class="stage-tab" onclick="showStage('why')" id="tab-why">
+            <div class="stage-num">1</div>Why
+          </button>
+          <button class="stage-tab" onclick="showStage('mechanism')" id="tab-mechanism">
+            <div class="stage-num">2</div>Mechanism
+          </button>
+          <button class="stage-tab" onclick="showStage('clinical_picture')" id="tab-clinical_picture">
+            <div class="stage-num">3</div>Clinical Picture
+          </button>
+          <button class="stage-tab" onclick="showStage('test_yourself')" id="tab-test_yourself">
+            <div class="stage-num">4</div>Test Yourself
+          </button>
+          <button class="stage-tab" onclick="showStage('reasoning_case')" id="tab-reasoning_case">
+            <div class="stage-num">5</div>Reasoning Case
+          </button>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-label">Course position</div>
+        <div class="course-row">
+          <div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Week</div>
+            <input type="number" id="courseWeek" placeholder="1–14" min="1" max="14">
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Position</div>
+            <input type="number" id="coursePos" placeholder="1–10" min="1" max="10">
+          </div>
+        </div>
+        <button class="btn btn-outline" style="margin-top:8px;width:100%;" onclick="saveCoursePosition()">
+          <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save position
+        </button>
+      </div>
+
+      <div class="action-panel">
+        <button class="btn btn-primary" onclick="importJSON()" id="btnImport">
+          <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+          Import JSON
+        </button>
+        <button class="btn btn-outline" onclick="validateAll()" id="btnValidate">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Validate
+        </button>
+        <button class="btn btn-success" onclick="saveAndPublish()" id="btnPublish" disabled>
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Save &amp; Publish
+        </button>
+        <button class="btn btn-outline" onclick="saveDraft()" id="btnDraft" disabled>
+          <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg>
+          Save draft
+        </button>
+        <button class="btn btn-danger" onclick="unpublish()" id="btnUnpublish" style="display:none;">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          Unpublish
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Right panel -->
+    <div class="right-panel">
+
+      <div id="alert-ok" class="alert alert-ok"></div>
+      <div id="alert-err" class="alert alert-err"></div>
+
+      <!-- Welcome state -->
+      <div id="welcomeState" style="text-align:center;padding:60px 20px;color:var(--muted);">
+        <svg viewBox="0 0 24 24" style="width:48px;height:48px;fill:none;stroke:var(--lav-border);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 16px;display:block;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <p style="font-size:15px;margin-bottom:8px;">Select a domain and module to begin</p>
+        <p style="font-size:13px;">Or paste a JSON import to auto-fill all five stages at once</p>
+      </div>
+
+      <!-- Import zone -->
+      <div id="importZone" class="import-zone" style="display:none;"
+           ondrop="handleDrop(event)" ondragover="event.preventDefault();this.classList.add('dragover')"
+           ondragleave="this.classList.remove('dragover')">
+        <p><strong>Paste or drop Claude's JSON output here</strong></p>
+        <p>Or use the Import JSON button below</p>
+        <textarea id="importTextarea" style="width:100%;margin-top:12px;min-height:120px;background:#fff;display:none;" placeholder='{"slug":"...","why":{...},"mechanism":{...},...}'></textarea>
+        <button class="btn btn-primary" style="margin-top:10px;width:auto;padding:8px 20px;" onclick="parseImport()">Parse &amp; load</button>
+      </div>
+
+      <!-- Stage 1: Why -->
+      <div class="stage-editor" id="editor-why">
+        <div class="editor-header">
+          <div class="editor-title">Stage 1 — Why this matters</div>
+          <div class="editor-sub">The 90-second clinical framing. Mechanism-first. No bullet lists.</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Framing text <span class="field-hint">HTML allowed: &lt;strong&gt;, &lt;em&gt;, &lt;br&gt;</span></div>
+          <textarea class="textarea-lg" id="why-text" placeholder="Heart failure is two failures, not one..."></textarea>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Learning objectives <span class="field-hint">5 objectives, each starting with a verb</span></div>
+          <div class="obj-list" id="why-objectives"></div>
+          <button class="btn-sm btn-sm-add" onclick="addObjective()" style="margin-top:8px;">+ Add objective</button>
+        </div>
+      </div>
+
+      <!-- Stage 2: Mechanism -->
+      <div class="stage-editor" id="editor-mechanism">
+        <div class="editor-header">
+          <div class="editor-title">Stage 2 — The mechanism</div>
+          <div class="editor-sub">Pathophysiology prose + interactive map node/edge data</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Mechanism text <span class="field-hint">HTML allowed. Use &lt;br&gt;&lt;br&gt; for paragraph breaks.</span></div>
+          <textarea class="textarea-lg" id="mechanism-text" placeholder="The failing heart cannot maintain cardiac output..."></textarea>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Mechanism map — nodes JSON <span class="field-hint">Array of {id, label, type, x, y}</span></div>
+          <textarea class="textarea-md" id="mechanism-nodes" placeholder='[{"id":"co_fall","label":"Reduced CO","type":"cause","x":280,"y":40}]'></textarea>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Mechanism map — edges JSON <span class="field-hint">Array of {from, to}</span></div>
+          <textarea class="textarea-sm" id="mechanism-edges" placeholder='[{"from":"co_fall","to":"raas"}]'></textarea>
+        </div>
+      </div>
+
+      <!-- Stage 3: Clinical Picture -->
+      <div class="stage-editor" id="editor-clinical_picture">
+        <div class="editor-header">
+          <div class="editor-title">Stage 3 — Clinical picture</div>
+          <div class="editor-sub">Sections: symptoms, examination, investigations, management, complications, prognosis</div>
+        </div>
+        <div class="cp-sections" id="cp-sections"></div>
+        <button class="btn btn-outline" onclick="addCPSection()" style="margin-top:10px;">+ Add section</button>
+      </div>
+
+      <!-- Stage 4: Test Yourself -->
+      <div class="stage-editor" id="editor-test_yourself">
+        <div class="editor-header">
+          <div class="editor-title">Stage 4 — Test yourself</div>
+          <div class="editor-sub">Question IDs are linked separately via the question bank</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Intro sentence</div>
+          <textarea class="textarea-sm" id="ty-intro" placeholder="These questions test your knowledge of..."></textarea>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Question IDs <span class="field-hint">One UUID per line — leave blank if not yet linked</span></div>
+          <textarea class="textarea-md" id="ty-questions" placeholder="Leave blank — questions linked via question bank tool"></textarea>
+        </div>
+      </div>
+
+      <!-- Stage 5: Reasoning Case -->
+      <div class="stage-editor" id="editor-reasoning_case">
+        <div class="editor-header">
+          <div class="editor-title">Stage 5 — Reasoning case</div>
+          <div class="editor-sub">4–5 progressive blocks. Each block reveals more clinical information.</div>
+        </div>
+        <div class="field-group">
+          <div class="field-label">Case title</div>
+          <input type="text" id="rc-title" placeholder="The breathless 67-year-old">
+        </div>
+        <div class="field-group">
+          <div class="field-label">Case intro</div>
+          <textarea class="textarea-sm" id="rc-intro" placeholder="Work through this case block by block..."></textarea>
+        </div>
+        <div class="rc-blocks" id="rc-blocks"></div>
+        <button class="btn btn-outline" onclick="addRCBlock()" style="margin-top:10px;">+ Add block</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const SB_URL='https://judtpdikbidvccclftvq.supabase.co';const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb = window.supabase.createClient(SB_URL, SB_KEY);
+
+
+let currentModule = null;
+let currentStage = 'why';
+let stageData = {why:{},mechanism:{},clinical_picture:{},test_yourself:{},reasoning_case:{}};
+
+// ── GATE — two layers: admin PIN + Supabase auth ─────────────────────
+const ADMIN_PIN = 'ossify-admin-2026';
+const ALLOWED_EMAILS = ['henryarmes@yahoo.com','kavindad@hotmail.com','info@ossify.co.uk'];
+
+async function checkGate(){
+  const email    = document.getElementById('gateEmail').value.trim().toLowerCase();
+  const password = document.getElementById('gatePassword').value;
+  const pin      = document.getElementById('gateAdminPin').value;
+  const errEl    = document.getElementById('gateErr');
+  const btn      = document.getElementById('gateBtn');
+
+  errEl.style.display = 'none';
+
+  // Layer 1: admin PIN check (client-side, fast fail)
+  if(pin !== ADMIN_PIN){
+    errEl.textContent = 'Incorrect admin PIN.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  // Layer 2: email must be in allowlist
+  if(!ALLOWED_EMAILS.includes(email)){
+    errEl.textContent = 'This email address is not authorised for admin access.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  // Layer 3: Supabase authentication
+  btn.textContent = 'Signing in...';
+  btn.disabled = true;
+
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+  btn.textContent = 'Sign in';
+  btn.disabled = false;
+
+  if(error){
+    errEl.textContent = 'Sign in failed: ' + error.message;
+    errEl.style.display = 'block';
+    return;
+  }
+
+  // All three layers passed — open the app
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  loadDomains();
+}
+
+// Check if already signed in (page refresh)
+async function checkExistingSession(){
+  const { data: { session } } = await sb.auth.getSession();
+  if(session && ALLOWED_EMAILS.includes(session.user.email)){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    loadDomains();
+  }
+}
+checkExistingSession();
+
+// ── LOAD DATA ────────────────────────────────────────────────────────
+async function loadDomains(){
+  const {data} = await sb.from('domains').select('id,slug,name,type').eq('is_active',true).order('display_order');
+  const sel = document.getElementById('domainSelect');
+  sel.innerHTML = '<option value="">— select domain —</option>';
+  (data||[]).forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d.slug;
+    opt.textContent = d.name + (d.type==='pdp' ? ' (PDP)' : '');
+    sel.appendChild(opt);
+  });
+}
+
+async function loadModules(){
+  const domainSlug = document.getElementById('domainSelect').value;
+  const sel = document.getElementById('moduleSelect');
+  sel.innerHTML = '<option value="">— select module —</option>';
+  sel.disabled = true;
+  document.getElementById('moduleInfo').style.display = 'none';
+  if(!domainSlug) return;
+
+  const {data:domain} = await sb.from('domains').select('id').eq('slug',domainSlug).single();
+  if(!domain) return;
+
+  const {data:mods} = await sb.from('modules')
+    .select('id,slug,title,difficulty_layer,is_published,course_week,course_position')
+    .eq('domain_id', domain.id)
+    .order('title');
+
+  (mods||[]).forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m.slug;
+    opt.textContent = (m.is_published ? '✓ ' : '○ ') + m.title;
+    sel.appendChild(opt);
+  });
+  sel.disabled = false;
+}
+
+async function loadModule(){
+  const slug = document.getElementById('moduleSelect').value;
+  if(!slug){ currentModule=null; return; }
+
+  const {data:mod} = await sb.from('modules')
+    .select('*,domain:domain_id(name)')
+    .eq('slug',slug).single();
+
+  currentModule = mod;
+  showModuleInfo(mod);
+  enableButtons(true);
+
+  // Load existing content
+  const {data:content} = await sb.from('module_content')
+    .select('*').eq('module_id',mod.id);
+
+  // Reset stage data
+  stageData = {why:{},mechanism:{},clinical_picture:{},test_yourself:{},reasoning_case:{}};
+  (content||[]).forEach(c => { stageData[c.stage] = c.content_json||{}; });
+
+  // Populate course position fields
+  document.getElementById('courseWeek').value = mod.course_week || '';
+  document.getElementById('coursePos').value = mod.course_position || '';
+
+  // Update tab done indicators
+  updateTabStatus(content||[]);
+
+  // Show first stage
+  showStage('why');
+  document.getElementById('welcomeState').style.display = 'none';
+  document.getElementById('importZone').style.display = 'block';
+  document.getElementById('headerStatus').textContent = mod.title;
+
+  // Unpublish button
+  document.getElementById('btnUnpublish').style.display = mod.is_published ? 'flex' : 'none';
+}
+
+function showModuleInfo(mod){
+  const el = document.getElementById('moduleInfo');
+  const layerLabel = mod.difficulty_layer === 'core' ? 'Core MSRA' : 'Exam Sharp';
+  const layerCls = mod.difficulty_layer === 'core' ? 'layer-core' : 'layer-exam_sharp';
+  const pubStatus = mod.is_published
+    ? '<span class="status-pub">● Published</span>'
+    : '<span class="status-draft">○ Draft</span>';
+  el.innerHTML = `
+    <span class="layer-badge ${layerCls}">${layerLabel}</span><br>
+    ${pubStatus}<br>
+    <span style="color:var(--muted);">Slug: ${mod.slug}</span>
+    ${mod.course_week ? `<br><span style="color:var(--muted);">Week ${mod.course_week}, pos ${mod.course_position}</span>` : ''}
+  `;
+  el.style.display = 'block';
+}
+
+function updateTabStatus(content){
+  const stages = ['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
+  const hasContent = {};
+  content.forEach(c => {
+    const d = c.content_json||{};
+    hasContent[c.stage] = Object.keys(d).length > 0;
+  });
+  stages.forEach(s => {
+    const tab = document.getElementById('tab-'+s);
+    tab.classList.toggle('done', !!hasContent[s]);
+  });
+}
+
+function enableButtons(enabled){
+  document.getElementById('btnPublish').disabled = !enabled;
+  document.getElementById('btnDraft').disabled = !enabled;
+}
+
+// ── STAGE NAVIGATION ─────────────────────────────────────────────────
+function showStage(stage){
+  currentStage = stage;
+  document.querySelectorAll('.stage-editor').forEach(e => e.classList.remove('active'));
+  document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('editor-'+stage).classList.add('active');
+  document.getElementById('tab-'+stage).classList.add('active');
+  populateStageEditor(stage);
+}
+
+function populateStageEditor(stage){
+  const d = stageData[stage] || {};
+  if(stage === 'why') populateWhy(d);
+  if(stage === 'mechanism') populateMechanism(d);
+  if(stage === 'clinical_picture') populateClinicalPicture(d);
+  if(stage === 'test_yourself') populateTestYourself(d);
+  if(stage === 'reasoning_case') populateReasoningCase(d);
+}
+
+// ── WHY STAGE ────────────────────────────────────────────────────────
+function populateWhy(d){
+  document.getElementById('why-text').value = d.text || '';
+  const container = document.getElementById('why-objectives');
+  container.innerHTML = '';
+  const objs = d.objectives || ['','','','',''];
+  objs.forEach((obj,i) => addObjectiveRow(obj, i));
+  if(!objs.length) addObjectiveRow('', 0);
+}
+function addObjective(){ addObjectiveRow('', document.getElementById('why-objectives').children.length); }
+function addObjectiveRow(text, idx){
+  const row = document.createElement('div');
+  row.className = 'obj-row';
+  row.innerHTML = `
+    <input type="text" value="${escHtml(text)}" placeholder="Objective ${idx+1} — starts with a verb">
+    <button class="btn-sm btn-sm-del" onclick="this.parentElement.remove()">✕</button>`;
+  document.getElementById('why-objectives').appendChild(row);
+}
+function collectWhy(){
+  const objs = [...document.querySelectorAll('#why-objectives .obj-row input')]
+    .map(i => i.value.trim()).filter(Boolean);
+  return { text: document.getElementById('why-text').value.trim(), objectives: objs };
+}
+
+// ── MECHANISM STAGE ──────────────────────────────────────────────────
+function populateMechanism(d){
+  document.getElementById('mechanism-text').value = d.text || '';
+  document.getElementById('mechanism-nodes').value = d.map_nodes ? JSON.stringify(d.map_nodes, null, 2) : '';
+  document.getElementById('mechanism-edges').value = d.map_edges ? JSON.stringify(d.map_edges, null, 2) : '';
+}
+function collectMechanism(){
+  let nodes = [], edges = [];
+  try { nodes = JSON.parse(document.getElementById('mechanism-nodes').value || '[]'); } catch(e){}
+  try { edges = JSON.parse(document.getElementById('mechanism-edges').value || '[]'); } catch(e){}
+  return { text: document.getElementById('mechanism-text').value.trim(), map_nodes: nodes, map_edges: edges };
+}
+
+// ── CLINICAL PICTURE STAGE ───────────────────────────────────────────
+const CP_TYPES = ['symptoms','examination','investigations','management','complications','prognosis'];
+function populateClinicalPicture(d){
+  const container = document.getElementById('cp-sections');
+  container.innerHTML = '';
+  (d.sections || []).forEach(sec => addCPSectionWithData(sec));
+  if(!(d.sections||[]).length) addCPSection();
+}
+function addCPSection(){ addCPSectionWithData({type:'symptoms',title:'',items:[{label:'',value:'',mechanism_link:false}],guidelines:[]}); }
+function addCPSectionWithData(sec){
+  const div = document.createElement('div');
+  div.className = 'cp-section';
+  const typeOpts = CP_TYPES.map(t => `<option value="${t}" ${sec.type===t?'selected':''}>${t}</option>`).join('');
+  const itemsHtml = (sec.items||[{label:'',value:'',mechanism_link:false}]).map(item => cpItemHtml(item)).join('');
+  const glHtml = (sec.guidelines||[]).map(g => guidelineHtml(g)).join('');
+  div.innerHTML = `
+    <div class="cp-section-hdr">
+      <div style="display:flex;gap:8px;align-items:center;">
+        <select class="cp-type" style="width:150px;">${typeOpts}</select>
+        <input type="text" class="cp-title" value="${escHtml(sec.title)}" placeholder="Section heading" style="width:200px;">
+      </div>
+      <button class="btn-sm btn-sm-del" onclick="this.closest('.cp-section').remove()">Remove section</button>
+    </div>
+    <div class="cp-items">${itemsHtml}</div>
+    <button class="btn-sm btn-sm-add" onclick="addCPItem(this)">+ Add item</button>
+    <div class="cp-guidelines">${glHtml}</div>
+    <button class="btn-sm btn-sm-add" onclick="addGuideline(this)" style="margin-top:6px;">+ Add guideline</button>`;
+  document.getElementById('cp-sections').appendChild(div);
+}
+function cpItemHtml(item){
+  return `<div class="cp-item">
+    <input type="text" class="cp-label" value="${escHtml(item.label||'')}" placeholder="Label">
+    <textarea class="cp-value" style="min-height:52px;font-size:12.5px;">${escHtml(item.value||'')}</textarea>
+    <button class="btn-sm btn-sm-del" onclick="this.closest('.cp-item').remove()">✕</button>
+  </div>`;
+}
+function addCPItem(btn){ btn.previousElementSibling.insertAdjacentHTML('beforeend', cpItemHtml({label:'',value:'',mechanism_link:false})); }
+function guidelineHtml(g){
+  return `<div class="guideline-row">
+    <input type="text" class="gl-source" value="${escHtml(g.source||'')}" placeholder="NICE NG106">
+    <textarea class="gl-text" style="min-height:52px;font-size:12.5px;">${escHtml(g.text||'')}</textarea>
+    <button class="btn-sm btn-sm-del" onclick="this.closest('.guideline-row').remove()">✕</button>
+  </div>`;
+}
+function addGuideline(btn){ btn.previousElementSibling.insertAdjacentHTML('beforeend', guidelineHtml({source:'',text:''})); }
+function collectClinicalPicture(){
+  const sections = [];
+  document.querySelectorAll('#cp-sections .cp-section').forEach(sec => {
+    const items = [];
+    sec.querySelectorAll('.cp-item').forEach(item => {
+      const label = item.querySelector('.cp-label').value.trim();
+      const value = item.querySelector('.cp-value').value.trim();
+      if(label||value) items.push({label,value,mechanism_link:false});
+    });
+    const guidelines = [];
+    sec.querySelectorAll('.guideline-row').forEach(row => {
+      const source = row.querySelector('.gl-source').value.trim();
+      const text = row.querySelector('.gl-text').value.trim();
+      if(source||text) guidelines.push({source,text});
+    });
+    sections.push({
+      type: sec.querySelector('.cp-type').value,
+      title: sec.querySelector('.cp-title').value.trim(),
+      items, guidelines
+    });
+  });
+  return {sections};
+}
+
+// ── TEST YOURSELF ────────────────────────────────────────────────────
+function populateTestYourself(d){
+  document.getElementById('ty-intro').value = d.intro || '';
+  document.getElementById('ty-questions').value = (d.question_ids||[]).join('
+');
+}
+function collectTestYourself(){
+  const ids = document.getElementById('ty-questions').value.split('
+').map(s=>s.trim()).filter(Boolean);
+  return { intro: document.getElementById('ty-intro').value.trim(), question_ids: ids };
+}
+
+// ── REASONING CASE ───────────────────────────────────────────────────
+function populateReasoningCase(d){
+  document.getElementById('rc-title').value = d.title || '';
+  document.getElementById('rc-intro').value = d.intro || '';
+  const container = document.getElementById('rc-blocks');
+  container.innerHTML = '';
+  (d.blocks || []).forEach((b,i) => addRCBlockWithData(b, i+1));
+  if(!(d.blocks||[]).length) addRCBlock();
+}
+function addRCBlock(){ addRCBlockWithData({label:'',vignette:'',question:'',reveal:''}, document.getElementById('rc-blocks').children.length+1); }
+function addRCBlockWithData(b, num){
+  const div = document.createElement('div');
+  div.className = 'rc-block';
+  div.innerHTML = `
+    <div class="rc-block-hdr">
+      <div class="rc-block-num">Block ${num}</div>
+      <button class="btn-sm btn-sm-del" onclick="this.closest('.rc-block').remove()">Remove block</button>
+    </div>
+    <div class="field-group">
+      <div class="field-label">Label <span class="field-hint">e.g. "Block 1 — Presentation"</span></div>
+      <input type="text" class="rc-label" value="${escHtml(b.label||'')}">
+    </div>
+    <div class="field-group">
+      <div class="field-label">Vignette text</div>
+      <textarea class="rc-vignette textarea-md">${escHtml(b.vignette||'')}</textarea>
+    </div>
+    <div class="field-group">
+      <div class="field-label">Question / decision point</div>
+      <textarea class="rc-question textarea-sm">${escHtml(b.question||'')}</textarea>
+    </div>
+    <div class="field-group">
+      <div class="field-label">Model reveal</div>
+      <textarea class="rc-reveal textarea-md">${escHtml(b.reveal||'')}</textarea>
+    </div>`;
+  document.getElementById('rc-blocks').appendChild(div);
+}
+function collectReasoningCase(){
+  const blocks = [];
+  document.querySelectorAll('#rc-blocks .rc-block').forEach(b => {
+    blocks.push({
+      label:    b.querySelector('.rc-label').value.trim(),
+      vignette: b.querySelector('.rc-vignette').value.trim(),
+      question: b.querySelector('.rc-question').value.trim(),
+      reveal:   b.querySelector('.rc-reveal').value.trim(),
+    });
+  });
+  return {
+    title:  document.getElementById('rc-title').value.trim(),
+    intro:  document.getElementById('rc-intro').value.trim(),
+    blocks
+  };
+}
+
+// ── COLLECT ALL ──────────────────────────────────────────────────────
+function collectAllStages(){
+  return {
+    why:             collectWhy(),
+    mechanism:       collectMechanism(),
+    clinical_picture:collectClinicalPicture(),
+    test_yourself:   collectTestYourself(),
+    reasoning_case:  collectReasoningCase(),
+  };
+}
+
+// ── VALIDATE ─────────────────────────────────────────────────────────
+function validateAll(){
+  const d = collectAllStages();
+  const errs = [];
+  if(!d.why.text) errs.push('Why: framing text is empty');
+  if(!d.why.objectives||d.why.objectives.length<3) errs.push('Why: need at least 3 objectives');
+  if(!d.mechanism.text) errs.push('Mechanism: text is empty');
+  if(!d.clinical_picture.sections||d.clinical_picture.sections.length<2) errs.push('Clinical Picture: need at least 2 sections');
+  if(!d.reasoning_case.title) errs.push('Reasoning Case: title missing');
+  if(!d.reasoning_case.blocks||d.reasoning_case.blocks.length<3) errs.push('Reasoning Case: need at least 3 blocks');
+  const emptyBlocks = (d.reasoning_case.blocks||[]).filter(b=>!b.vignette||!b.reveal);
+  if(emptyBlocks.length) errs.push('Reasoning Case: some blocks are missing vignette or reveal');
+  if(errs.length){
+    showAlert('err', errs.join('<br>'));
+  } else {
+    showAlert('ok', 'Validation passed — ready to save and publish');
+  }
+  return errs.length === 0;
+}
+
+// ── SAVE ─────────────────────────────────────────────────────────────
+async function saveStages(publish){
+  if(!currentModule){ showAlert('err','No module selected'); return false; }
+  const stages = collectAllStages();
+  const STAGES = ['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
+  for(const stage of STAGES){
+    const {error} = await sb.from('module_content').upsert({
+      module_id:    currentModule.id,
+      stage:        stage,
+      content_json: stages[stage],
+      display_order: STAGES.indexOf(stage)+1,
+      updated_at:   new Date().toISOString(),
+    }, {onConflict: 'module_id,stage'});
+    if(error){ showAlert('err','Error saving '+stage+': '+error.message); return false; }
+  }
+  if(publish !== undefined){
+    const {error} = await sb.from('modules')
+      .update({is_published: publish, updated_at: new Date().toISOString()})
+      .eq('id', currentModule.id);
+    if(error){ showAlert('err','Error updating publish status: '+error.message); return false; }
+    currentModule.is_published = publish;
+    document.getElementById('btnUnpublish').style.display = publish ? 'flex' : 'none';
+  }
+  updateTabStatus(STAGES.map(s=>({stage:s,content_json:stages[s]})));
+  showModuleInfo(currentModule);
+  return true;
+}
+
+async function saveAndPublish(){
+  if(!validateAll()) return;
+  const btn = document.getElementById('btnPublish');
+  btn.textContent = 'Publishing...'; btn.disabled=true;
+  const ok = await saveStages(true);
+  if(ok) showAlert('ok','✓ Saved and published — '+currentModule.title+' is now live');
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Save & Publish';
+  btn.disabled = false;
+  // Refresh module list to show updated status
+  loadModules().then(() => {
+    document.getElementById('moduleSelect').value = currentModule.slug;
+  });
+}
+
+async function saveDraft(){
+  const ok = await saveStages(undefined);
+  if(ok) showAlert('ok','Draft saved — not yet published');
+}
+
+async function unpublish(){
+  if(!confirm('Unpublish '+currentModule.title+'? It will no longer appear on the site.')) return;
+  const ok = await saveStages(false);
+  if(ok) showAlert('ok','Unpublished — '+currentModule.title+' is no longer visible');
+}
+
+// ── COURSE POSITION ──────────────────────────────────────────────────
+async function saveCoursePosition(){
+  if(!currentModule){ showAlert('err','No module selected'); return; }
+  const week = parseInt(document.getElementById('courseWeek').value)||null;
+  const pos  = parseInt(document.getElementById('coursePos').value)||null;
+  const {error} = await sb.from('modules')
+    .update({course_week: week, course_position: pos, updated_at: new Date().toISOString()})
+    .eq('id', currentModule.id);
+  if(error){ showAlert('err','Error saving course position: '+error.message); return; }
+  currentModule.course_week = week;
+  currentModule.course_position = pos;
+  showModuleInfo(currentModule);
+  showAlert('ok', week ? `Course position set: Week ${week}, position ${pos}` : 'Course position cleared');
+}
+
+// ── JSON IMPORT ──────────────────────────────────────────────────────
+function importJSON(){
+  const zone = document.getElementById('importZone');
+  const ta = document.getElementById('importTextarea');
+  zone.style.display = 'block';
+  ta.style.display = 'block';
+  ta.focus();
+}
+function handleDrop(e){
+  e.preventDefault();
+  this.classList.remove('dragover');
+  const text = e.dataTransfer.getData('text');
+  if(text){ document.getElementById('importTextarea').value = text; parseImport(); }
+}
+function parseImport(){
+  const raw = document.getElementById('importTextarea').value.trim();
+  if(!raw){ showAlert('err','Nothing to import'); return; }
+  let data;
+  try{ data = JSON.parse(raw); }
+  catch(e){ showAlert('err','Invalid JSON: '+e.message); return; }
+  const STAGES = ['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
+  let loaded = 0;
+  STAGES.forEach(s => {
+    if(data[s]){ stageData[s] = data[s]; loaded++; }
+  });
+  if(!loaded){ showAlert('err','No stage data found in JSON'); return; }
+  // Re-populate current stage
+  populateStageEditor(currentStage);
+  document.getElementById('importZone').style.display = 'none';
+  document.getElementById('importTextarea').value = '';
+  showAlert('ok', `Imported ${loaded} stages — review each stage then Save & Publish`);
+}
+
+// ── UTILITIES ────────────────────────────────────────────────────────
+function showAlert(type, msg){
+  document.getElementById('alert-ok').classList.remove('show');
+  document.getElementById('alert-err').classList.remove('show');
+  const el = document.getElementById('alert-'+type);
+  el.innerHTML = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 6000);
+}
+function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// Sign out
+async function signOut(){
+  await sb.auth.signOut();
+  document.getElementById('gate').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('gateEmail').value = '';
+  document.getElementById('gatePassword').value = '';
+  document.getElementById('gateAdminPin').value = '';
+}
+
+// Init
+document.getElementById('gateEmail').focus();
+</script>
+</body>
+</html>
