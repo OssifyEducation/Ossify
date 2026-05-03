@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Module — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -207,182 +207,91 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 
 
 
-/* ── Module page layout ─────────────────────────────────── */
-.mod-layout{display:grid;grid-template-columns:240px 1fr;gap:0;align-items:start;}
-
-/* Left nav — stage list */
-.mod-nav{position:sticky;top:52px;padding:16px 0;border-right:0.5px solid var(--lav-border);min-height:calc(100vh - 52px);}
-.mod-nav-back{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--moss);text-decoration:none;padding:8px 16px 14px;border-bottom:0.5px solid var(--lav-border);margin-bottom:8px;transition:color 0.15s;}
-.mod-nav-back:hover{color:var(--pu-dark);}
-.mod-nav-back svg{width:14px;height:14px;fill:none;stroke:var(--moss);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.mod-nav-title{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;padding:0 16px;margin-bottom:8px;}
-.mod-stage-link{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13px;color:var(--moss);cursor:pointer;border-left:2px solid transparent;transition:all 0.15s;text-decoration:none;}
-.mod-stage-link:hover{color:var(--pu-dark);background:var(--pu-ultra);}
-.mod-stage-link.active{color:var(--pu-mid);border-left-color:var(--pu-mid);background:var(--pu-pale);}
-.mod-stage-link.complete .mod-stage-status{background:var(--pu-mid);}
-.mod-stage-link.complete .mod-stage-status svg{display:block;}
-.mod-stage-link.locked{opacity:0.4;cursor:not-allowed;pointer-events:none;}
-.mod-stage-num{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--lav-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--muted);flex-shrink:0;}
-.mod-stage-link.active .mod-stage-num{border-color:var(--pu-mid);color:var(--pu-mid);}
-.mod-stage-link.complete .mod-stage-num{border-color:var(--pu-mid);background:var(--pu-mid);color:#fff;}
-.mod-stage-label{flex:1;line-height:1.3;}
-.mod-stage-sublabel{font-size:10.5px;color:var(--muted);display:block;margin-top:1px;}
-.mod-progress-wrap{padding:12px 16px 0;margin-top:8px;border-top:0.5px solid var(--lav-border);}
-.mod-progress-label{font-size:11px;color:var(--muted);margin-bottom:5px;}
-.mod-progress-bar{height:4px;background:var(--pu-pale);border-radius:4px;overflow:hidden;}
-.mod-progress-fill{height:100%;background:var(--pu-mid);border-radius:4px;transition:width 0.4s ease;}
-.mod-est-time{font-size:11px;color:var(--muted);padding:8px 16px 0;display:flex;align-items:center;gap:5px;}
-.mod-est-time svg{width:12px;height:12px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-
-/* Main content area */
-.mod-main{padding:28px 36px;max-width:800px;}
-.mod-breadcrumb{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin-bottom:20px;}
-.mod-breadcrumb a{color:var(--muted);text-decoration:none;}
-.mod-breadcrumb a:hover{color:var(--pu-mid);}
-.mod-breadcrumb svg{width:12px;height:12px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.mod-header{margin-bottom:28px;}
-.mod-domain-chip{display:inline-flex;align-items:center;gap:6px;background:var(--pu-pale);color:var(--pu-mid);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px;}
-.mod-title{font-family:var(--font-serif);font-size:clamp(26px,3vw,36px);font-weight:500;color:var(--pu-dark);letter-spacing:-0.6px;line-height:1.15;margin-bottom:10px;}
-.mod-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
-.mod-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);}
-.mod-meta-item svg{width:13px;height:13px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.mod-layer-badge{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;}
-.mod-layer-badge.core{background:var(--pu-pale);color:var(--pu-mid);}
-.mod-layer-badge.foundation{background:#e2f4e2;color:#1a4a1a;}
-.mod-layer-badge.exam_sharp{background:var(--pk-pale);color:var(--red);}
-
-/* Stage container */
-.stage-container{display:none;}
-.stage-container.active{display:block;}
-
-/* Stage header */
-.stage-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:0.5px solid var(--lav-border);}
-.stage-hdr-num{width:36px;height:36px;border-radius:10px;background:var(--pu-pale);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:17px;font-weight:400;color:var(--pu-mid);flex-shrink:0;}
-.stage-hdr-title{font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--pu-dark);}
-.stage-hdr-sub{font-size:12.5px;color:var(--muted);margin-top:2px;}
-
-/* Stage 1: Why */
-.why-card{background:var(--pu-dark);border-radius:14px;padding:24px 28px;margin-bottom:20px;position:relative;overflow:hidden;}
-.why-card::after{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(167,139,250,0.12);}
-.why-card p{font-family:var(--font-serif);font-size:18px;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.65;position:relative;}
-.why-card p em{color:var(--pu-light);font-style:normal;}
-.why-objectives{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:12px;padding:18px 22px;margin-bottom:20px;}
-.why-objectives h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:12px;}
-.why-obj-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--lav-border);font-size:14px;color:var(--moss);line-height:1.5;}
-.why-obj-item:last-child{border-bottom:none;}
-.why-obj-check{width:18px;height:18px;border-radius:50%;background:var(--pu-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.why-obj-check svg{width:10px;height:10px;fill:none;stroke:var(--pu-mid);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
-
-/* Stage 2: Mechanism */
-.mechanism-text{font-size:15px;color:var(--moss);line-height:1.85;margin-bottom:22px;}
-.mechanism-text strong{color:var(--pu-dark);font-weight:600;}
-.mechanism-map{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;margin-bottom:20px;}
-.mechanism-map-hdr{padding:13px 18px;border-bottom:0.5px solid var(--lav-border);display:flex;align-items:center;justify-content:space-between;}
-.mechanism-map-title{font-size:13px;font-weight:600;color:var(--pu-dark);}
-.mechanism-map-sub{font-size:11.5px;color:var(--muted);}
-.mechanism-map-body{padding:20px;min-height:220px;position:relative;overflow:auto;}
-/* SVG map nodes/edges rendered by JS */
-.map-node{position:absolute;background:#fff;border:1.5px solid var(--lav-border);border-radius:10px;padding:8px 12px;font-size:12px;font-weight:500;color:var(--pu-dark);cursor:pointer;transition:all 0.15s;white-space:nowrap;box-shadow:0 1px 4px rgba(61,31,122,0.08);}
-.map-node:hover,.map-node.highlighted{border-color:var(--pu-mid);background:var(--pu-pale);}
-.map-node.cause{border-color:var(--pk-mid);background:var(--pk-pale);}
-.map-node.consequence{border-color:var(--pu-light);background:var(--pu-pale);}
-.map-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:180px;color:var(--muted);}
-.map-placeholder svg{width:36px;height:36px;fill:none;stroke:var(--lav-border);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:10px;}
-.map-placeholder p{font-size:13px;}
-
-/* Stage 3: Clinical Picture */
-.clinical-section{margin-bottom:22px;}
-.clinical-section-title{font-size:14px;font-weight:600;color:var(--pu-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.clinical-section-title svg{width:16px;height:16px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.clinical-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:10px;margin-bottom:8px;font-size:14px;color:var(--moss);line-height:1.55;}
-.clinical-item-label{font-weight:600;color:var(--pu-dark);min-width:120px;flex-shrink:0;}
-.clinical-link{color:var(--pu-mid);text-decoration:none;font-size:11px;font-weight:500;margin-left:auto;white-space:nowrap;}
-.clinical-link:hover{text-decoration:underline;}
-.guideline-box{background:var(--pu-pale);border-left:3px solid var(--pu-mid);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:16px;}
-.guideline-box-tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--pu-mid);margin-bottom:6px;}
-.guideline-box p{font-size:13.5px;color:var(--pu-dark);line-height:1.65;}
-
-/* Stage 4: Test Yourself */
-.test-intro{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:12px;padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;gap:14px;}
-.test-intro-ico{width:40px;height:40px;border-radius:10px;background:var(--pu-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.test-intro-ico svg{width:20px;height:20px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.test-intro h4{font-size:14px;font-weight:600;color:var(--pu-dark);margin-bottom:3px;}
-.test-intro p{font-size:13px;color:var(--moss);}
-.test-q-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;padding:20px 22px;margin-bottom:12px;}
-.test-q-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-.test-q-num{font-size:11.5px;font-weight:600;color:var(--muted);}
-.test-q-topic{font-size:11px;background:var(--pu-pale);color:var(--pu-mid);padding:3px 10px;border-radius:20px;}
-.test-q-stem{font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:16px;font-weight:500;}
-.test-q-opts{display:flex;flex-direction:column;gap:8px;}
-.test-q-opt{padding:11px 16px;border:1.5px solid var(--lav-border);border-radius:10px;font-size:14px;color:var(--moss);cursor:pointer;transition:all 0.15s;background:#fff;text-align:left;font-family:var(--font-sans);}
-.test-q-opt:hover:not(:disabled){border-color:var(--pu-light);background:var(--pu-pale);color:var(--pu-dark);}
-.test-q-opt.selected{border-color:var(--pu-mid);background:var(--pu-pale);color:var(--pu-dark);}
-.test-q-opt.correct{border-color:#2a6a2a;background:#e2f4e2;color:#1a4a1a;}
-.test-q-opt.wrong{border-color:var(--red);background:var(--pk-pale);color:var(--red);}
-.test-q-exp{background:var(--pu-pale);border-left:3px solid var(--pu-mid);padding:14px 16px;border-radius:0 10px 10px 0;margin-top:14px;font-size:13.5px;color:var(--pu-dark);line-height:1.7;}
-.test-q-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px;}
-.test-score{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:12px;padding:20px 22px;text-align:center;display:none;}
-.test-score h3{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);margin-bottom:6px;}
-.test-score .score-val{font-family:var(--font-serif);font-size:48px;color:var(--pu-mid);font-weight:400;line-height:1;margin:12px 0 8px;}
-.test-score p{font-size:14px;color:var(--moss);}
-
-/* Stage 5: Reasoning Case */
-.reasoning-intro{background:var(--pu-dark);border-radius:14px;padding:22px 26px;margin-bottom:20px;position:relative;overflow:hidden;}
-.reasoning-intro::after{content:'';position:absolute;right:-10px;top:-10px;width:80px;height:80px;border-radius:50%;background:rgba(167,139,250,0.1);}
-.reasoning-intro-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:7px;}
-.reasoning-intro h3{font-family:var(--font-serif);font-size:20px;color:#fff;margin-bottom:6px;}
-.reasoning-intro p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65;max-width:520px;}
-.reasoning-block{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;margin-bottom:14px;}
-.reasoning-block-hdr{padding:14px 20px;border-bottom:0.5px solid var(--lav-border);display:flex;align-items:center;justify-content:space-between;}
-.reasoning-block-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);}
-.reasoning-block-step{font-size:11px;color:var(--muted);}
-.reasoning-vignette{padding:18px 20px;font-size:15px;color:var(--ink);line-height:1.8;border-bottom:0.5px solid var(--lav-border);}
-.reasoning-question{padding:16px 20px;background:var(--pu-ultra);}
-.reasoning-question p{font-size:14px;font-weight:500;color:var(--pu-dark);margin-bottom:12px;}
-.reasoning-input{width:100%;padding:12px 16px;border:1.5px solid var(--lav-border);border-radius:10px;font-size:14px;color:var(--ink);font-family:var(--font-sans);outline:none;resize:vertical;min-height:80px;background:#fff;transition:border-color 0.15s;}
-.reasoning-input:focus{border-color:var(--pu-mid);}
-.reasoning-commit-btn{background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:10px 22px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);margin-top:10px;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
-.reasoning-commit-btn:hover{background:var(--pu-dark);}
-.reasoning-commit-btn svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.reasoning-reveal{padding:18px 20px;background:#fff;border-top:0.5px solid var(--lav-border);display:none;}
-.reasoning-reveal.shown{display:block;}
-.reasoning-reveal-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--pu-mid);margin-bottom:8px;}
-.reasoning-reveal p{font-size:14px;color:var(--moss);line-height:1.7;}
-.reasoning-comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
-.reasoning-col{padding:14px 16px;border-radius:10px;}
-.reasoning-col.yours{background:var(--pu-pale);border:0.5px solid var(--pu-light);}
-.reasoning-col.model{background:#e2f4e2;border:0.5px solid #a8d4a8;}
-.reasoning-col-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px;}
-.reasoning-col p{font-size:13px;line-height:1.6;color:var(--moss);}
-
-/* Module complete state */
-.mod-complete-banner{background:var(--pu-dark);border-radius:14px;padding:24px 28px;margin-bottom:20px;text-align:center;position:relative;overflow:hidden;}
-.mod-complete-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(167,139,250,0.15) 0%,transparent 60%);}
-.mod-complete-banner h3{font-family:var(--font-serif);font-size:22px;color:#fff;margin-bottom:6px;position:relative;}
-.mod-complete-banner p{font-size:13.5px;color:rgba(255,255,255,0.45);position:relative;margin-bottom:16px;}
-.mod-complete-actions{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;position:relative;}
-.btn-next-module{background:var(--pu-light);color:var(--pu-dark);border:none;border-radius:9px;padding:10px 22px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:var(--font-sans);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
-.btn-next-module:hover{background:#fff;}
-.btn-next-module svg{width:13px;height:13px;fill:none;stroke:var(--pu-dark);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.btn-ghost-dk{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.15);border-radius:9px;padding:10px 18px;font-size:13.5px;font-family:var(--font-sans);cursor:pointer;transition:all 0.15s;text-decoration:none;}
-.btn-ghost-dk:hover{background:rgba(255,255,255,0.18);}
-
-/* Shared utilities for all stages */
-.btn-primary-sm{background:var(--pu-mid);color:#fff;border:none;border-radius:8px;padding:9px 20px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
-.btn-primary-sm:hover{background:var(--pu-dark);}
-.btn-primary-sm svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.btn-outline-sm{background:none;color:var(--moss);border:1px solid var(--lav-border);border-radius:8px;padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all 0.15s;}
-.btn-outline-sm:hover{border-color:var(--pu-light);color:var(--pu-dark);}
-.stage-actions{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:16px;border-top:0.5px solid var(--lav-border);}
-.loading-full{display:flex;align-items:center;justify-content:center;height:60vh;font-size:14px;color:var(--muted);}
-.error-state{text-align:center;padding:60px 24px;color:var(--muted);}
-.error-state h3{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);margin-bottom:8px;}
-
-/* Module-specific overrides for the nested layout */
-.content{padding:0 !important;}
-.mod-layout{height:calc(100vh - 52px);}
-.mod-nav{overflow-y:auto;height:100%;}
-.mod-main{overflow-y:auto;height:100%;padding:28px 40px;}
+.mod-layout{display:grid;grid-template-columns:240px 1fr;gap:0;align-items:start}
+.content{padding:0!important}
+.mod-layout{height:calc(100vh - 52px)}
+.mod-nav{position:sticky;top:52px;border-right:0.5px solid var(--lav-border);padding:16px 0;overflow-y:auto;height:calc(100vh - 52px)}
+.mod-nav-back{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--moss);text-decoration:none;padding:8px 16px 14px;border-bottom:0.5px solid var(--lav-border);margin-bottom:8px}
+.mod-nav-back svg{width:14px;height:14px;fill:none;stroke:var(--moss);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mod-nav-title{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;padding:0 16px;margin-bottom:8px}
+.mod-stage-link{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13px;color:var(--moss);cursor:pointer;border-left:2px solid transparent;transition:all 0.15s;text-decoration:none}
+.mod-stage-link:hover{color:var(--pu-dark);background:var(--pu-ultra)}
+.mod-stage-link.active{color:var(--pu-mid);border-left-color:var(--pu-mid);background:var(--pu-pale)}
+.mod-stage-link.complete .mod-stage-num{background:var(--pu-mid);color:#fff;border-color:var(--pu-mid)}
+.mod-stage-link.locked{opacity:0.4;cursor:not-allowed;pointer-events:none}
+.mod-stage-num{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--lav-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--muted);flex-shrink:0}
+.mod-stage-link.active .mod-stage-num{border-color:var(--pu-mid);color:var(--pu-mid)}
+.mod-stage-label{flex:1;line-height:1.3}
+.mod-stage-sublabel{font-size:10.5px;color:var(--muted);display:block;margin-top:1px}
+.mod-progress-wrap{padding:12px 16px 0;margin-top:8px;border-top:0.5px solid var(--lav-border)}
+.mod-progress-label{font-size:11px;color:var(--muted);margin-bottom:5px}
+.mod-progress-bar{height:4px;background:var(--pu-pale);border-radius:4px;overflow:hidden}
+.mod-progress-fill{height:100%;background:var(--pu-mid);border-radius:4px;transition:width 0.4s ease}
+.mod-est-time{font-size:11px;color:var(--muted);padding:8px 16px 0;display:flex;align-items:center;gap:5px}
+.mod-est-time svg{width:12px;height:12px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.mod-main{padding:28px 36px;overflow-y:auto;height:calc(100vh - 52px)}
+.mod-breadcrumb{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin-bottom:20px}
+.mod-breadcrumb a{color:var(--muted);text-decoration:none}
+.mod-breadcrumb svg{width:12px;height:12px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.mod-header{margin-bottom:28px}
+.mod-domain-chip{display:inline-flex;align-items:center;gap:6px;background:var(--pu-pale);color:var(--pu-mid);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.mod-title{font-family:var(--font-serif);font-size:clamp(26px,3vw,36px);font-weight:500;color:var(--pu-dark);letter-spacing:-0.6px;line-height:1.15;margin-bottom:10px}
+.mod-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mod-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
+.mod-layer-badge{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px}
+.mod-layer-badge.core{background:var(--pu-pale);color:var(--pu-mid)}
+.mod-layer-badge.foundation{background:#e2f4e2;color:#1a4a1a}
+.mod-layer-badge.exam_sharp{background:var(--pk-pale);color:var(--red)}
+.stage-container{display:none}
+.stage-container.active{display:block}
+.stage-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:0.5px solid var(--lav-border)}
+.stage-hdr-num{width:36px;height:36px;border-radius:10px;background:var(--pu-pale);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:17px;font-weight:400;color:var(--pu-mid);flex-shrink:0}
+.stage-hdr-title{font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--pu-dark)}
+.stage-hdr-sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+.btn-primary-sm{background:var(--pu-mid);color:#fff;border:none;border-radius:8px;padding:9px 20px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);display:inline-flex;align-items:center;gap:6px;transition:all 0.15s}
+.btn-primary-sm:hover{background:var(--pu-dark)}
+.btn-primary-sm svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.btn-outline-sm{background:none;color:var(--moss);border:1px solid var(--lav-border);border-radius:8px;padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all 0.15s}
+.btn-outline-sm:hover{border-color:var(--pu-light);color:var(--pu-dark)}
+.stage-actions{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:16px;border-top:0.5px solid var(--lav-border)}
+.why-card{background:var(--pu-dark);border-radius:14px;padding:24px 28px;margin-bottom:20px}
+.why-card p{font-family:var(--font-serif);font-size:17px;color:rgba(255,255,255,0.85);line-height:1.7}
+.test-q-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;padding:20px 22px;margin-bottom:12px}
+.test-q-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.test-q-num{font-size:11.5px;font-weight:600;color:var(--muted)}
+.test-q-stem{font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:16px;font-weight:500}
+.test-q-opts{display:flex;flex-direction:column;gap:8px}
+.test-q-opt{padding:11px 16px;border:1.5px solid var(--lav-border);border-radius:10px;font-size:14px;color:var(--moss);cursor:pointer;transition:all 0.15s;background:#fff;text-align:left;font-family:var(--font-sans)}
+.test-q-opt:hover:not(:disabled){border-color:var(--pu-light);background:var(--pu-pale)}
+.test-q-opt.correct{border-color:#2a6a2a;background:#e2f4e2;color:#1a4a1a}
+.test-q-opt.wrong{border-color:var(--red);background:var(--pk-pale);color:var(--red)}
+.test-q-exp{background:var(--pu-pale);border-left:3px solid var(--pu-mid);padding:14px 16px;border-radius:0 10px 10px 0;margin-top:14px;font-size:13.5px;color:var(--pu-dark);line-height:1.7}
+.test-q-actions{display:flex;align-items:center;justify-content:flex-end;margin-top:12px}
+.reasoning-block{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.reasoning-block-hdr{padding:14px 20px;border-bottom:0.5px solid var(--lav-border);display:flex;align-items:center;justify-content:space-between}
+.reasoning-block-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.reasoning-block-step{font-size:11px;color:var(--muted)}
+.reasoning-vignette{padding:18px 20px;font-size:15px;color:var(--ink);line-height:1.8;border-bottom:0.5px solid var(--lav-border)}
+.reasoning-question{padding:16px 20px;background:var(--pu-ultra)}
+.reasoning-question p{font-size:14px;font-weight:500;color:var(--pu-dark);margin-bottom:12px}
+.reasoning-input{width:100%;padding:12px 16px;border:1.5px solid var(--lav-border);border-radius:10px;font-size:14px;color:var(--ink);font-family:var(--font-sans);outline:none;resize:vertical;min-height:80px;background:#fff}
+.reasoning-input:focus{border-color:var(--pu-mid)}
+.reasoning-commit-btn{background:var(--pu-mid);color:#fff;border:none;border-radius:9px;padding:10px 22px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--font-sans);margin-top:10px;display:inline-flex;align-items:center;gap:6px}
+.reasoning-commit-btn svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.reasoning-reveal{padding:18px 20px;background:#fff;border-top:0.5px solid var(--lav-border);display:none}
+.reasoning-reveal.shown{display:block}
+.mod-complete-banner{background:var(--pu-dark);border-radius:14px;padding:24px 28px;margin-bottom:20px;text-align:center}
+.mod-complete-banner h3{font-family:var(--font-serif);font-size:22px;color:#fff;margin-bottom:6px}
+.mod-complete-banner p{font-size:13.5px;color:rgba(255,255,255,0.45);margin-bottom:16px}
+.mod-complete-actions{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn-ghost-dk{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.15);border-radius:9px;padding:10px 18px;font-size:13.5px;font-family:var(--font-sans);cursor:pointer;text-decoration:none;display:inline-block}
+.error-state{text-align:center;padding:60px 24px;color:var(--muted)}
+.error-state h3{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);margin-bottom:8px}
+.loading-full{display:flex;align-items:center;justify-content:center;height:60vh;font-size:14px;color:var(--muted)}
+.reasoning-intro{background:var(--pu-dark);border-radius:14px;padding:22px 26px;margin-bottom:20px}
+.reasoning-intro-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:7px}
+.reasoning-intro h3{font-family:var(--font-serif);font-size:20px;color:#fff;margin-bottom:6px}
+.reasoning-intro p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65}
 
 </style>
 </head>
@@ -430,876 +339,465 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 </aside>
 <div class="main">
   <div class="topbar">
-    <div class="tb-title">Module</div>
+    <div class="tb-title" id="hdrStatus">Module</div>
     <div class="tb-r">
       <div class="chip chip-pk" id="topbarStreak"></div>
       <div class="chip chip-pu" id="topbarXp"></div>
-      
     </div>
   </div>
   <div class="content" id="mainContent">
-<div class="mod-layout">
-  <!-- Left nav -->
-  <div class="mod-nav" id="modNav">
-    <a class="mod-nav-back" id="modBack" href="domains.html">
-      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      Back
-    </a>
-    <div class="mod-nav-title">Module stages</div>
-    <div id="stageNav">
-      <!-- rendered by JS -->
-    </div>
-    <div class="mod-progress-wrap">
-      <div class="mod-progress-label" id="modProgressLabel">0 of 5 stages</div>
-      <div class="mod-progress-bar">
-        <div class="mod-progress-fill" id="modProgressFill" style="width:0%"></div>
-      </div>
-    </div>
-    <div class="mod-est-time" id="modEstTime">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      30 min
-    </div>
-  </div>
-
-  <!-- Main content -->
-  <div class="mod-main" id="modMain">
-    <div class="mod-breadcrumb" id="modBreadcrumb">
-      <a href="domains.html">Domains</a>
-    </div>
-
-    <div class="mod-header">
-      <div class="mod-domain-chip" id="modDomainChip">Loading...</div>
-      <h1 class="mod-title" id="modTitle">Loading module...</h1>
-      <div class="mod-meta">
-        <span class="mod-layer-badge core" id="modLayerBadge">Core MSRA</span>
-        <span class="mod-meta-item" id="modEstTime">
+    <div class="mod-layout">
+      <div class="mod-nav" id="modNav">
+        <a class="mod-nav-back" id="modBack" href="domains.html">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          Back
+        </a>
+        <div class="mod-nav-title">Module stages</div>
+        <div id="stageNav"></div>
+        <div class="mod-progress-wrap">
+          <div class="mod-progress-label" id="modProgressLabel">0 of 5 stages</div>
+          <div class="mod-progress-bar"><div class="mod-progress-fill" id="modProgressFill" style="width:0%"></div></div>
+        </div>
+        <div class="mod-est-time" id="modEstTime">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           30 min
-        </span>
-      </div>
-    </div>
-
-    <!-- Stage 1: Why -->
-    <div class="stage-container active" id="stage-why">
-      <div class="stage-hdr">
-        <div class="stage-hdr-num">1</div>
-        <div>
-          <div class="stage-hdr-title">Why this matters</div>
-          <div class="stage-hdr-sub">The clinical framing</div>
         </div>
       </div>
-      <div id="why-content">
-        <div class="loading-full">Loading...</div>
-      </div>
-    </div>
-
-    <!-- Stage 2: Mechanism -->
-    <div class="stage-container" id="stage-mechanism">
-      <div class="stage-hdr">
-        <div class="stage-hdr-num">2</div>
-        <div>
-          <div class="stage-hdr-title">The mechanism</div>
-          <div class="stage-hdr-sub">Pathophysiology to clinical features</div>
+      <div class="mod-main" id="modMain">
+        <div class="mod-breadcrumb" id="modBreadcrumb">
+          <a href="domains.html">Domains</a>
+        </div>
+        <div class="mod-header">
+          <div class="mod-domain-chip" id="modDomainChip">Loading...</div>
+          <h1 class="mod-title" id="modTitle">Loading module...</h1>
+          <div class="mod-meta">
+            <span class="mod-layer-badge core" id="modLayerBadge">Core MSRA</span>
+            <span class="mod-meta-item" id="modEstTimeHeader">
+              <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              30 min
+            </span>
+          </div>
+        </div>
+        <div class="stage-container active" id="stage-why">
+          <div class="stage-hdr"><div class="stage-hdr-num">1</div><div><div class="stage-hdr-title">Why this matters</div><div class="stage-hdr-sub">The clinical framing</div></div></div>
+          <div id="why-content"><div class="loading-full">Loading...</div></div>
+        </div>
+        <div class="stage-container" id="stage-mechanism">
+          <div class="stage-hdr"><div class="stage-hdr-num">2</div><div><div class="stage-hdr-title">The mechanism</div><div class="stage-hdr-sub">Pathophysiology to clinical features</div></div></div>
+          <div id="mechanism-content"><div class="loading-full">Loading...</div></div>
+        </div>
+        <div class="stage-container" id="stage-clinical_picture">
+          <div class="stage-hdr"><div class="stage-hdr-num">3</div><div><div class="stage-hdr-title">Clinical picture</div><div class="stage-hdr-sub">Presentation, investigations, management</div></div></div>
+          <div id="clinical-content"><div class="loading-full">Loading...</div></div>
+        </div>
+        <div class="stage-container" id="stage-test_yourself">
+          <div class="stage-hdr"><div class="stage-hdr-num">4</div><div><div class="stage-hdr-title">Test yourself</div><div class="stage-hdr-sub">Questions for this module</div></div></div>
+          <div id="test-content"><div class="loading-full">Loading...</div></div>
+        </div>
+        <div class="stage-container" id="stage-reasoning_case">
+          <div class="stage-hdr"><div class="stage-hdr-num">5</div><div><div class="stage-hdr-title">Reasoning case</div><div class="stage-hdr-sub">Progressive clinical vignette</div></div></div>
+          <div id="reasoning-content"><div class="loading-full">Loading...</div></div>
         </div>
       </div>
-      <div id="mechanism-content">
-        <div class="loading-full">Loading...</div>
-      </div>
     </div>
-
-    <!-- Stage 3: Clinical Picture -->
-    <div class="stage-container" id="stage-clinical_picture">
-      <div class="stage-hdr">
-        <div class="stage-hdr-num">3</div>
-        <div>
-          <div class="stage-hdr-title">Clinical picture</div>
-          <div class="stage-hdr-sub">Presentation, investigations, management</div>
-        </div>
-      </div>
-      <div id="clinical-content">
-        <div class="loading-full">Loading...</div>
-      </div>
-    </div>
-
-    <!-- Stage 4: Test Yourself -->
-    <div class="stage-container" id="stage-test_yourself">
-      <div class="stage-hdr">
-        <div class="stage-hdr-num">4</div>
-        <div>
-          <div class="stage-hdr-title">Test yourself</div>
-          <div class="stage-hdr-sub">Questions from the bank</div>
-        </div>
-      </div>
-      <div id="test-content">
-        <div class="loading-full">Loading...</div>
-      </div>
-    </div>
-
-    <!-- Stage 5: Reasoning Case -->
-    <div class="stage-container" id="stage-reasoning_case">
-      <div class="stage-hdr">
-        <div class="stage-hdr-num">5</div>
-        <div>
-          <div class="stage-hdr-title">Reasoning case</div>
-          <div class="stage-hdr-sub">Progressive clinical vignette</div>
-        </div>
-      </div>
-      <div id="reasoning-content">
-        <div class="loading-full">Loading...</div>
-      </div>
-    </div>
-
-  </div><!-- /mod-main -->
-</div><!-- /mod-layout -->
-</div>
+  </div>
 </div>
 <script>
-const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
-
-function setUserInfo(name, username){
-  const i=(name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
-  document.getElementById('userAv').textContent=i;
-  document.getElementById('userName').textContent=name||'';
-  if(username)document.getElementById('userUsername').textContent='@'+username;
-}
-function updateTopbar(profile){
-  const streak=profile?.current_streak||0, xp=profile?.xp||0;
-  const el=document.getElementById('topbarStreak');
-  const ex=document.getElementById('topbarXp');
-  if(el)el.innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day`;
-  if(ex)ex.innerHTML=`<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#3d1f7a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${xp} XP`;
-  document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
-}
-
-
 const SB_URL='https://judtpdikbidvccclftvq.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
 const sb=window.supabase.createClient(SB_URL,SB_KEY);
 
 const STAGES=['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
 const STAGE_LABELS={
-  why:          {title:'Why this matters',  sub:'The clinical framing'},
-  mechanism:    {title:'The mechanism',     sub:'Pathophysiology to clinical features'},
-  clinical_picture:{title:'Clinical picture',sub:'Presentation, investigations, management'},
-  test_yourself:{title:'Test yourself',     sub:'Questions from the bank'},
-  reasoning_case:{title:'Reasoning case',  sub:'Progressive clinical vignette'},
+  why:{title:'Why this matters',sub:'The clinical framing'},
+  mechanism:{title:'The mechanism',sub:'Pathophysiology'},
+  clinical_picture:{title:'Clinical picture',sub:'Presentation & management'},
+  test_yourself:{title:'Test yourself',sub:'Questions'},
+  reasoning_case:{title:'Reasoning case',sub:'Clinical vignette'},
 };
+const PATHWAY_FILLS={forward:'#e0e7ff',backward:'#ede9fe',neurohormonal:'#fce7f0',electrical:'#fef3c7',embolic:'#fee2e2',target_organ:'#d1fae5',event:'#fae8ff',predisposition:'#f1f5f9'};
+const PATHWAY_COLOURS={forward:'#6366f1',backward:'#7c5cbf',neurohormonal:'#f472b6',electrical:'#f59e0b',embolic:'#ef4444',target_organ:'#10b981',event:'#e879f9',predisposition:'#94a3b8'};
 
 let myId=null, moduleData=null, contentData={}, progress=null;
 let currentStage='why', testQIdx=0, testAnswered=[], testQuestions=[];
-let rcBlockIdx=0, rcResponses=[];
+let rcBlockIdx=0, rcResponses=[], rcBlocks=[];
 
-// ── INIT ────────────────────────────────────────────────────────────
+function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
+
+function setUserInfo(name,username){
+  const i=(name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('userAv').textContent=i;
+  document.getElementById('userName').textContent=name||'';
+  if(username)document.getElementById('userUsername').textContent='@'+username;
+}
+
 async function init(){
   const{data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='login.html';return;}
   myId=session.user.id;
-
   const{data:profile}=await sb.from('profiles').select('*').eq('id',myId).single();
-  updateTopbar(profile);
-  setUserInfo(profile?.full_name||session.user.email.split('@')[0], profile?.username);
-
-  // Get slug or id from URL
+  setUserInfo(profile?.full_name||session.user.email.split('@')[0],profile?.username);
+  
   const params=new URLSearchParams(window.location.search);
   const slug=params.get('slug')||params.get('id');
-  const from=params.get('from')||'domains'; // course|domains|search
+  const from=params.get('from')||'domains';
+  if(!slug){showError('No module specified.');return;}
 
-  if(!slug){showError('No module specified. Please navigate from Course, Domains, or Search.');return;}
-
-  // Load module metadata
-  const{data:mod,error:modErr}=await sb.from('modules')
-    .select('*,domain:domain_id(id,slug,name,colour_hex)')
-    .or(`slug.eq.${slug},id.eq.${slug}`)
-    .eq('is_published',true)
-    .single();
-
+  const{data:mod,error:modErr}=await sb.from('modules').select('*').eq('slug',slug).eq('is_published',true).single();
   if(modErr||!mod){showError('Module not found or not yet published.');return;}
-  moduleData=mod;
+  
+  const{data:dom}=await sb.from('domains').select('id,slug,name,colour_hex').eq('id',mod.domain_id).single();
+  moduleData={...mod,domain:dom||{slug:'unknown',name:'Unknown',colour_hex:'#7c5cbf'}};
 
-  // Load all stage content for this module
-  const{data:content}=await sb.from('module_content')
-    .select('*')
-    .eq('module_id',mod.id)
-    .order('display_order');
-  (content||[]).forEach(c=>contentData[c.stage]=c.content_json);
+  const{data:content}=await sb.from('module_content').select('*').eq('module_id',mod.id).order('display_order');
+  contentData={};
+  (content||[]).forEach(c=>contentData[c.stage]=c.content_json||{});
 
-  // Load or create user progress
-  const{data:prog}=await sb.from('user_module_progress')
-    .select('*')
-    .eq('user_id',myId)
-    .eq('module_id',mod.id)
-    .single();
-
-  progress=prog||{
-    user_id:myId, module_id:mod.id,
-    status:'not_started', current_stage:'why',
-    stages_completed:[], time_spent_secs:0
-  };
-
-  // If first visit, create the progress row
+  const{data:prog}=await sb.from('user_module_progress').select('*').eq('user_id',myId).eq('module_id',mod.id).single();
+  progress=prog||{user_id:myId,module_id:mod.id,status:'not_started',current_stage:'why',stages_completed:[]};
   if(!prog){
-    await sb.from('user_module_progress').insert({
-      user_id:myId, module_id:mod.id,
-      status:'in_progress', current_stage:'why',
-      stages_completed:[], started_at:new Date().toISOString()
-    });
-    progress.status='in_progress';
-  } else if(prog.status==='not_started'){
-    await sb.from('user_module_progress')
-      .update({status:'in_progress',started_at:new Date().toISOString()})
-      .eq('user_id',myId).eq('module_id',mod.id);
+    await sb.from('user_module_progress').insert({user_id:myId,module_id:mod.id,status:'in_progress',current_stage:'why',stages_completed:[],started_at:new Date().toISOString()});
     progress.status='in_progress';
   }
-
   currentStage=progress.current_stage||'why';
   renderPage(from);
-  goToStage(currentStage, false);
+  goToStage(currentStage,false);
 }
 
-// ── RENDER PAGE CHROME ───────────────────────────────────────────────
 function renderPage(from){
-  const mod=moduleData;
-  const backHref=from==='course'?'course.html':from==='search'?'search.html':`domains/${mod.domain.slug}.html`;
-  const backLabel=from==='course'?'Course':from==='search'?'Search':mod.domain.name;
-
-  document.getElementById('modBreadcrumb').innerHTML=`
-    <a href="${backHref}">${backLabel}</a>
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-    <span>${mod.domain.name}</span>
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-    <span>${mod.title}</span>`;
-
-  document.getElementById('modDomainChip').textContent=mod.domain.name;
-  document.getElementById('modDomainChip').style.background=mod.domain.colour_hex+'22';
-  document.getElementById('modDomainChip').style.color=mod.domain.colour_hex;
-  document.getElementById('modTitle').textContent=mod.title;
-  document.getElementById('modLayerBadge').textContent=
-    mod.difficulty_layer==='core'?'Core MSRA':
-    mod.difficulty_layer==='foundation'?'Foundation':'Exam Sharp';
-  document.getElementById('modLayerBadge').className=`mod-layer-badge ${mod.difficulty_layer}`;
-  document.getElementById('modEstTime').innerHTML=
-    `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${mod.estimated_minutes} min`;
-
+  const mod=moduleData, domain=mod.domain;
+  const backHref=from==='course'?'course.html':from==='search'?'search.html':'domain-list.html?slug='+domain.slug;
+  const bc=document.getElementById('modBreadcrumb');
+  if(bc)bc.innerHTML='<a href="'+backHref+'" style="color:var(--muted);text-decoration:none">'+domain.name+'</a> <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><polyline points="9 18 15 12 9 6"/></svg> <span>'+mod.title+'</span>';
+  const chip=document.getElementById('modDomainChip');
+  if(chip){chip.textContent=domain.name;chip.style.background=domain.colour_hex+'22';chip.style.color=domain.colour_hex;}
+  const title=document.getElementById('modTitle');if(title)title.textContent=mod.title;
+  document.getElementById('hdrStatus').textContent=mod.title;
+  const badge=document.getElementById('modLayerBadge');
+  if(badge){badge.textContent=mod.difficulty_layer==='core'?'Core MSRA':mod.difficulty_layer==='foundation'?'Foundation':'Exam Sharp';badge.className='mod-layer-badge '+(mod.difficulty_layer||'core');}
+  const backEl=document.getElementById('modBack');if(backEl)backEl.href=backHref;
+  const et=document.getElementById('modEstTimeHeader');if(et)et.innerHTML='<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'+mod.estimated_minutes+' min';
   renderStageNav();
 }
 
-// ── STAGE NAV ────────────────────────────────────────────────────────
 function renderStageNav(){
-  const completed=progress.stages_completed||[];
-  const completedIdx=STAGES.indexOf(completed[completed.length-1]??'');
-  const nav=document.getElementById('stageNav');
+  const completed=(progress&&progress.stages_completed)||[];
+  const nav=document.getElementById('stageNav');if(!nav)return;
   nav.innerHTML=STAGES.map((s,i)=>{
-    const info=STAGE_LABELS[s];
-    const isDone=completed.includes(s);
-    const isCurrent=s===currentStage;
-    // A stage is unlocked if: it's done, it's current, or the previous stage is done
-    const isLocked=!isDone && !isCurrent && i>0 && !completed.includes(STAGES[i-1]);
+    const info=STAGE_LABELS[s]||{title:s,sub:''};
+    const isDone=completed.includes(s),isCurrent=s===currentStage;
+    const isLocked=!isDone&&!isCurrent&&i>0&&!completed.includes(STAGES[i-1]);
     let cls='mod-stage-link';
-    if(isCurrent) cls+=' active';
-    if(isDone) cls+=' complete';
-    if(isLocked) cls+=' locked';
-    return `<div class="${cls}" onclick="goToStage('${s}',true)">
-      <div class="mod-stage-num">${isDone?`<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>`:i+1}</div>
-      <div>
-        <div class="mod-stage-label">${info.title}</div>
-        <span class="mod-stage-sublabel">${info.sub}</span>
-      </div>
-    </div>`;
+    if(isCurrent)cls+=' active';if(isDone)cls+=' complete';if(isLocked)cls+=' locked';
+    const num=isDone?'<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"><polyline points="20 6 9 17 4 12"/></svg>':(i+1);
+    return '<div class="'+cls+'" data-stg="'+s+'" onclick="goToStage(this.dataset.stg,true)"><div class="mod-stage-num">'+num+'</div><div><div class="mod-stage-label">'+info.title+'</div><span class="mod-stage-sublabel">'+info.sub+'</span></div></div>';
   }).join('');
-
-  // Progress bar
   const pct=Math.round((completed.length/STAGES.length)*100);
-  document.getElementById('modProgressFill').style.width=pct+'%';
-  document.getElementById('modProgressLabel').textContent=
-    progress.status==='complete'?'Complete':
-    `${completed.length} of ${STAGES.length} stages`;
+  const fill=document.getElementById('modProgressFill'),lbl=document.getElementById('modProgressLabel');
+  if(fill)fill.style.width=pct+'%';
+  if(lbl)lbl.textContent=progress&&progress.status==='complete'?'Complete':completed.length+' of '+STAGES.length+' stages';
 }
 
-// ── STAGE NAVIGATION ─────────────────────────────────────────────────
-async function goToStage(stage, save){
-  const completed=progress.stages_completed||[];
+async function goToStage(stage,save){
+  const completed=(progress&&progress.stages_completed)||[];
   const idx=STAGES.indexOf(stage);
-
-  // Don't allow navigating to a locked stage
-  if(idx>0 && !completed.includes(STAGES[idx-1]) && !completed.includes(stage) && stage!==currentStage){
-    return;
-  }
-
+  if(idx>0&&!completed.includes(STAGES[idx-1])&&!completed.includes(stage)&&stage!==currentStage)return;
   currentStage=stage;
-
-  // Show correct stage container
   document.querySelectorAll('.stage-container').forEach(c=>c.classList.remove('active'));
-  const el=document.getElementById('stage-'+stage);
-  if(el) el.classList.add('active');
-
-  // Re-render nav to update active state
+  const el=document.getElementById('stage-'+stage);if(el)el.classList.add('active');
   renderStageNav();
-
-  // Render stage content
   const c=contentData[stage]||{};
-  if(stage==='why')          renderWhy(c);
-  if(stage==='mechanism')    renderMechanism(c);
-  if(stage==='clinical_picture') renderClinical(c);
-  if(stage==='test_yourself') renderTestYourself(c);
-  if(stage==='reasoning_case') renderReasoningCase(c);
-
-  // Scroll to top of main
-  document.getElementById('modMain').scrollTop=0;
-
-  // Save current stage to DB
-  if(save){
-    await sb.from('user_module_progress')
-      .update({current_stage:stage, updated_at:new Date().toISOString()})
-      .eq('user_id',myId).eq('module_id',moduleData.id);
-  }
+  if(stage==='why')renderWhy(c);
+  else if(stage==='mechanism')renderMechanism(c);
+  else if(stage==='clinical_picture')renderClinical(c);
+  else if(stage==='test_yourself')renderTestYourself(c);
+  else if(stage==='reasoning_case')renderReasoningCase(c);
+  const mm=document.getElementById('modMain');if(mm)mm.scrollTop=0;
+  if(save)await sb.from('user_module_progress').update({current_stage:stage,updated_at:new Date().toISOString()}).eq('user_id',myId).eq('module_id',moduleData.id);
 }
 
-// ── MARK STAGE COMPLETE ──────────────────────────────────────────────
-async function completeStage(stage){
-  const completed=[...(progress.stages_completed||[])];
-  if(!completed.includes(stage)) completed.push(stage);
-  progress.stages_completed=completed;
-
-  const isModComplete=completed.length===STAGES.length;
-  if(isModComplete) progress.status='complete';
-
-  await sb.from('user_module_progress').update({
-    stages_completed:completed,
-    current_stage:stage,
-    status:isModComplete?'complete':'in_progress',
-    ...(isModComplete?{completed_at:new Date().toISOString()}:{}),
-    updated_at:new Date().toISOString()
-  }).eq('user_id',myId).eq('module_id',moduleData.id);
-
-  renderStageNav();
-
-  if(isModComplete){
-    showCompleteBanner();
-    return;
-  }
-
-  // Auto-advance to next stage
-  const nextIdx=STAGES.indexOf(stage)+1;
-  if(nextIdx<STAGES.length){
-    const nextStage=STAGES[nextIdx];
-    setTimeout(()=>goToStage(nextStage,true), 400);
-  }
-}
-
-// ── STAGE RENDERERS ──────────────────────────────────────────────────
-
-// Stage 1: Why
 function renderWhy(c){
-  const el=document.getElementById('why-content');
-  if(!el) return;
-  const text=c.stage1_script||c.text||'<em>Content coming soon.</em>';
-  const objectives=c.objectives||[];
-  el.innerHTML=`
-    <div class="why-card"><p>${text}</p></div>
-    ${objectives.length?`
-    <div class="why-objectives">
-      <h4>By the end of this module you will be able to</h4>
-      ${objectives.map(o=>`
-      <div class="why-obj-item">
-        <div class="why-obj-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <span>${o}</span>
-      </div>`).join('')}
-    </div>`:''}
-    <div class="stage-actions">
-      <span style="font-size:13px;color:var(--muted);">Read through the framing before continuing.</span>
-      <button class="btn-primary-sm" onclick="completeStage('why')">
-        Continue to Mechanism
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-    </div>`;
+  const el=document.getElementById('why-content');if(!el)return;
+  const raw=c.stage1_script||c.text||'Content coming soon.';
+  // Split on double newlines into paragraphs
+  const paras=raw.split(String.fromCharCode(10)+String.fromCharCode(10)).filter(p=>p.trim()).map(p=>p.trim());
+  // Bold key clinical terms
+  const KEY_TERMS=[
+    'forward failure','backward failure','HFrEF','HFpEF','HFmrEF',
+    'neurohormonal','RAAS','ACE inhibitor','beta-blocker','SGLT2',
+    'BNP','NT-proBNP','ejection fraction','quadruple therapy',
+    'spironolactone','dapagliflozin','empagliflozin','sacubitril',
+    'pulmonary oedema','cardiac output','stroke volume',
+    'aldosterone','angiotensin','sympathetic','renin',
+  ];
+  function boldTerms(text){
+    let out=text;
+    KEY_TERMS.forEach(t=>{
+      const re=new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')', 'gi');
+      out=out.replace(re,'<strong>$1</strong>');
+    });
+    return out;
+  }
+  const paraHtml=paras.map((p,i)=>'<p style="font-size:15px;color:#3d1f7a;line-height:1.85;margin-bottom:'+(i<paras.length-1?'16':'0')+'px">'+boldTerms(p)+'</p>').join('');
+  el.innerHTML='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:24px 28px;margin-bottom:20px">'+paraHtml+'</div>'
+    +'<div class="stage-actions"><span style="font-size:13px;color:var(--muted)">Read through the framing before continuing.</span>'
+    +'<button class="btn-primary-sm" data-cs="why" onclick="completeStage(this.dataset.cs)">Continue to Mechanism <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
 }
 
-// Stage 2: Mechanism
 function renderMechanism(c){
-  const el=document.getElementById('mechanism-content');
-  if(!el) return;
-  const text=c.text||'';
+  const el=document.getElementById('mechanism-content');if(!el)return;
   const nodes=c.stage2_nodes||c.map_nodes||[];
-  const edges=c.map_edges||[];
-  el.innerHTML=`
-    ${text?`<div class="mechanism-text">${text}</div>`:''}
-    <div class="mechanism-map">
-      <div class="mechanism-map-hdr">
-        <div>
-          <div class="mechanism-map-title">Mechanism map</div>
-          <div class="mechanism-map-sub">Click any node to highlight its connections</div>
-        </div>
-      </div>
-      <div class="mechanism-map-body" id="mapBody">
-        ${nodes.length?renderMapSVG(nodes,edges):`
-        <div class="map-placeholder">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
-          <p>Mechanism map will appear here once content is authored.</p>
-        </div>`}
-      </div>
-    </div>
-    <div class="stage-actions">
-      <button class="btn-outline-sm" onclick="goToStage('why',true)">
-        Back to Why
-      </button>
-      <button class="btn-primary-sm" onclick="completeStage('mechanism')">
-        Continue to Clinical Picture
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-    </div>`;
-}
+  if(!nodes.length){
+    el.innerHTML='<p style="color:var(--muted);padding:20px">Mechanism map coming soon.</p>';
+    return;
+  }
 
-// Stage 2 helper: render mechanism map as SVG
-function renderMapSVG(nodes, edges){
-  if(!nodes.length) return '';
-  // Simple positioned SVG — nodes have x,y,label,type
-  const W=680, H=Math.max(220, nodes.reduce((m,n)=>Math.max(m,(n.y||0)+60),0)+40);
-  const nodeEls=nodes.map(n=>`
-    <g transform="translate(${n.x||0},${n.y||0})" class="map-svg-node" data-id="${n.id}" onclick="highlightNode('${n.id}')">
-      <rect x="-60" y="-18" width="120" height="36" rx="8"
-        fill="${{forward:'#e0e7ff',backward:'#ede9fe',neurohormonal:'#fce7f0',electrical:'#fef3c7',embolic:'#fee2e2',target_organ:'#d1fae5',event:'#fae8ff',predisposition:'#f1f5f9',cause:'#fce7f0',consequence:'#ede9fe'}[n.pathway||n.type]||'#fff'}"
-        stroke="${{forward:'#6366f1',backward:'#7c5cbf',neurohormonal:'#f472b6',electrical:'#f59e0b',embolic:'#ef4444',target_organ:'#10b981',event:'#e879f9',predisposition:'#94a3b8',cause:'#f472b6',consequence:'#a78bfa'}[n.pathway||n.type]||'#d4c6f0'}"
-        stroke-width="1.5"/>
-      <text text-anchor="middle" dy="5" font-family="Inter,system-ui" font-size="11"
-        fill="#3d1f7a">${n.label}</text>
-    </g>`).join('');
+  // Legend
+  const legendHtml='<div style="margin-bottom:16px;display:flex;gap:6px;flex-wrap:wrap">'
+    +Object.entries(PATHWAY_COLOURS).map(([p,col])=>'<span style="font-size:11px;background:'+(PATHWAY_FILLS[p]||'#f5f5f5')+';color:'+col+';border:1px solid '+col+'44;padding:3px 10px;border-radius:20px;font-weight:600;cursor:pointer" data-pw="'+p+'" onclick="filterPathway(this.dataset.pw)" id="legend-'+p+'">'+p+'</span>').join('')
+    +'<span style="font-size:11px;background:#f5f5f5;color:#7b6fa0;border:1px solid #d4c6f0;padding:3px 10px;border-radius:20px;font-weight:600;cursor:pointer" onclick="filterPathway(null)">all</span>'
+    +'</div>';
 
-  const edgeEls=edges.map(e=>{
-    const from=nodes.find(n=>n.id===e.from);
-    const to=nodes.find(n=>n.id===e.to);
-    if(!from||!to) return '';
-    return `<line x1="${from.x}" y1="${from.y+18}" x2="${to.x}" y2="${to.y-18}"
-      stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>`;
-  }).join('');
-
-  return `<svg width="100%" height="${H}" viewBox="0 0 ${W} ${H}" style="overflow:visible;">
-    <defs>
-      <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-        <path d="M0,0 L6,3 L0,6 Z" fill="#c4b5fd"/>
-      </marker>
-    </defs>
-    ${edgeEls}${nodeEls}
-  </svg>`;
-}
-
-function highlightNode(id){
-  document.querySelectorAll('.map-svg-node rect').forEach(r=>{
-    r.style.strokeWidth='1.5';
-    r.style.filter='';
+  // Build node cards — grouped by pathway
+  const byPathway={};
+  nodes.forEach(n=>{
+    const pw=n.pathway||n.type||'event';
+    if(!byPathway[pw])byPathway[pw]=[];
+    byPathway[pw].push(n);
   });
-  const el=document.querySelector(`.map-svg-node[data-id="${id}"] rect`);
-  if(el){el.style.strokeWidth='2.5';el.style.filter='drop-shadow(0 0 6px rgba(124,92,191,0.35))';}
-}
 
-// Stage 3: Clinical Picture
-function renderClinical(c){
-  const el=document.getElementById('clinical-content');
-  if(!el) return;
-  // Handle new format (stage3_features/investigations/management) by converting to sections
-  let sections=c.sections||[];
-  if(!sections.length && (c.stage3_features||c.stage3_investigations||c.stage3_management)){
-    if(c.stage3_features&&c.stage3_features.length){
-      sections.push({type:'symptoms',title:'Clinical Features',
-        items:c.stage3_features.map(f=>({label:f.name,value:(f.mechanism?'['+f.mechanism+'] ':'')+f.description}))});
-    }
-    if(c.stage3_investigations&&c.stage3_investigations.length){
-      sections.push({type:'investigations',title:'Investigations',
-        items:c.stage3_investigations.map(i=>({label:i.name,value:i.findings}))});
-    }
-    if(c.stage3_management){
-      const mgmt=c.stage3_management;
-      let principles=typeof mgmt==='string'?mgmt:(mgmt.principles||'');
-      if(!principles&&typeof mgmt==='object') principles=JSON.stringify(mgmt,null,2);
-      const steps=mgmt.steps||mgmt.hfref_steps||[];
-      const items=[{label:'Overview',value:principles}].concat(
-        steps.map(s=>({label:s.phase||s.drug_class||'Step',value:(s.action||s.examples||'')+(s.detail||s.mechanism?': '+(s.detail||s.mechanism):'')+(s.escalation||s.monitoring?' | '+(s.escalation||s.monitoring):'')}))));
-      sections.push({type:'management',title:'Management',items:items.filter(i=>i.value)});
-    }
-  }
-
-  const SECTION_ICONS={
-    symptoms:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
-    examination:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
-    investigations:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
-    management:'<path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>',
-    complications:'<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
-    prognosis:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
-  };
-
-  const sectionsHtml=sections.map(sec=>{
-    const icon=SECTION_ICONS[sec.type]||SECTION_ICONS.symptoms;
-    const items=(sec.items||[]).map(item=>
-      `<div class="clinical-item">
-        <span class="clinical-item-label">${item.label||''}</span>
-        <span>${item.value||''}</span>
-        ${item.mechanism_link?`<a href="#" class="clinical-link" onclick="goToStage('mechanism',true);return false;">Why? →</a>`:''}
-      </div>`).join('');
-    const guidelines=(sec.guidelines||[]).map(g=>
-      `<div class="guideline-box">
-        <div class="guideline-box-tag">${g.source||'NICE'} guideline</div>
-        <p>${g.text}</p>
-      </div>`).join('');
-    return `<div class="clinical-section">
-      <div class="clinical-section-title"><svg viewBox="0 0 24 24">${icon}</svg>${sec.title}</div>
-      ${items}${guidelines}
-    </div>`;
+  const groupsHtml=Object.entries(byPathway).map(([pw,pwNodes])=>{
+    const col=PATHWAY_COLOURS[pw]||'#7c5cbf';
+    const fill=PATHWAY_FILLS[pw]||'#ede9fe';
+    const nodesHtml=pwNodes.map(n=>
+      '<div class="mech-node" id="mnode-'+n.id+'" data-pathway="'+pw+'" data-nid="'+n.id+'" onclick="toggleNode(this.dataset.nid)" style="'
+        +'background:#fff;border:2px solid '+col+';border-radius:12px;padding:12px 14px;cursor:pointer;'
+        +'transition:all 0.15s;position:relative;flex:1;min-width:160px;max-width:280px">'
+      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">'
+      +'<span style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.3">'+n.label+'</span>'
+      +(n.clinical?'<span title="Clinical relevance" style="flex-shrink:0;width:8px;height:8px;border-radius:50%;background:'+col+';margin-top:4px"></span>':'')
+      +'</div>'
+      +'<div class="mnode-desc" id="mndesc-'+n.id+'" style="display:none;margin-top:8px;font-size:12px;color:#7b6fa0;line-height:1.6;border-top:1px solid '+col+'22;padding-top:8px">'+n.description+'</div>'
+      +'</div>'
+    ).join('');
+    return '<div style="margin-bottom:16px">'
+      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
+      +'<span style="width:10px;height:10px;border-radius:50%;background:'+col+';flex-shrink:0"></span>'
+      +'<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:'+col+'">'+pw.replace('_',' ')+'</span>'
+      +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10px;color:#7b6fa0;margin-left:4px">● = clinically relevant</span>':'')
+      +'</div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:8px">'+nodesHtml+'</div>'
+      +'</div>';
   }).join('');
 
-  el.innerHTML=`
-    ${sectionsHtml||'<p style="color:var(--muted);font-size:14px;">Clinical content coming soon.</p>'}
-    <div class="stage-actions">
-      <button class="btn-outline-sm" onclick="goToStage('mechanism',true)">Back to Mechanism</button>
-      <button class="btn-primary-sm" onclick="completeStage('clinical_picture')">
-        Continue to Test Yourself
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-    </div>`;
+  el.innerHTML=legendHtml
+    +'<div id="mechNodes">'+groupsHtml+'</div>'
+    +'<p style="font-size:11.5px;color:var(--muted);margin-top:8px">Click any node to reveal its description. Click pathway labels to filter.</p>'
+    +'<div class="stage-actions" style="margin-top:20px">'
+    +'<button class="btn-outline-sm" data-gs="why" onclick="goToStage(this.dataset.gs,true)">Back</button>'
+    +'<button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue to Clinical Picture <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>'
+    +'</div>';
 }
 
-// Stage 4: Test Yourself
-async function renderTestYourself(c){
-  const el=document.getElementById('test-content');
-  if(!el) return;
-  testQIdx=0; testAnswered=[];
-
-  // Handle both embedded questions (stage4_questions) and linked question IDs
-  const embeddedQs=c.stage4_questions||[];
-  const qIds=c.question_ids||[];
-
-  el.innerHTML=`<div class="test-intro">
-    <div class="test-intro-ico">
-      <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-    </div>
-    <div>
-      <h4>Test Yourself — ${moduleData.title}</h4>
-      <p>${embeddedQs.length?embeddedQs.length+' questions for this module.':qIds.length?qIds.length+' questions linked to this module.':'Questions coming soon.'}</p>
-    </div>
-  </div>
-  <div id="testQContainer"></div>`;
-
-  if(embeddedQs.length){
-    // Use embedded questions directly — convert to testQuestions format
-    testQuestions=embeddedQs.map(q=>({
-      id:q.q,
-      stem:q.q,
-      options:typeof q.opts==='object'?
-        (Array.isArray(q.opts)?q.opts.reduce((o,v,i)=>{o[String.fromCharCode(65+i)]=v;return o},{}):q.opts)
-        :{A:'Option A',B:'Option B',C:'Option C',D:'Option D',E:'Option E'},
-      correct_answer:String.fromCharCode(65+(q.ans||0)),
-      explanation:q.em||'',
-      topic:moduleData.title,
-      why:q.why||[],
-      rem:q.rem||''
-    }));
-    renderTestQuestion();
-    return;
-  }
-
-  if(!qIds.length){
-    document.getElementById('testQContainer').innerHTML=`
-      <div style="text-align:center;padding:32px;color:var(--muted);font-size:14px;">
-        <p>No questions have been linked to this module yet.</p>
-      </div>
-      <div class="stage-actions">
-        <button class="btn-outline-sm" onclick="goToStage('clinical_picture',true)">Back</button>
-        <button class="btn-primary-sm" onclick="completeStage('test_yourself')">
-          Continue to Reasoning Case
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </div>`;
-    return;
-  }
-
-  const{data:qs}=await sb.from('questions')
-    .select('id,stem,options,correct_answer,explanation,topic,domain')
-    .in('id',qIds);
-  testQuestions=qs||[];
-  renderTestQuestion();
+function toggleNode(id){
+  const desc=document.getElementById('mndesc-'+id);
+  const node=document.getElementById('mnode-'+id);
+  if(!desc)return;
+  const isOpen=desc.style.display!=='none';
+  desc.style.display=isOpen?'none':'block';
+  if(node)node.style.boxShadow=isOpen?'none':'0 2px 12px rgba(124,92,191,0.25)';
 }
 
-function renderTestQuestion(){
-  const el=document.getElementById('testQContainer');
-  if(!el) return;
+function filterPathway(pw){
+  document.querySelectorAll('.mech-node').forEach(n=>{
+    n.style.display=(!pw||n.dataset.pathway===pw)?'':'none';
+  });
+  document.querySelectorAll('[id^="legend-"]').forEach(el=>{
+    el.style.fontWeight=(!pw||el.id==='legend-'+pw)?'700':'400';
+    el.style.opacity=(!pw||el.id==='legend-'+pw)?'1':'0.45';
+  });
+}
+
+function renderClinical(c){
+  const el=document.getElementById('clinical-content');if(!el)return;
+  const features=c.stage3_features||[];
+  const invs=c.stage3_investigations||[];
+  const mgmt=c.stage3_management||{};
+  let html='';
+  if(features.length){
+    html+='<h4 style="font-size:14px;font-weight:600;color:#3d1f7a;margin-bottom:12px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#7c5cbf;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Clinical Features</h4>';
+    html+=features.map(f=>'<div style="padding:12px 16px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:10px;margin-bottom:8px">'
+      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-weight:600;color:#3d1f7a;font-size:13.5px">'+f.name+'</span>'
+      +'<span style="font-size:10px;background:'+(PATHWAY_FILLS[f.pathway]||'#ede9fe')+';color:'+(PATHWAY_COLOURS[f.pathway]||'#7c5cbf')+';padding:2px 7px;border-radius:10px">'+f.pathway+'</span></div>'
+      +'<div style="font-size:12px;color:#7b6fa0"><strong style="color:#3d1f7a">['+f.mechanism+']</strong> '+f.description+'</div></div>').join('');
+  }
+  if(invs.length){
+    html+='<h4 style="font-size:14px;font-weight:600;color:#3d1f7a;margin:20px 0 12px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#7c5cbf;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Investigations</h4>';
+    html+=invs.map(i=>'<div style="padding:12px 16px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:10px;margin-bottom:8px">'
+      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-weight:600;color:#3d1f7a;font-size:13.5px">'+i.name+'</span>'
+      +'<span style="font-size:10px;background:#ede9fe;color:#7c5cbf;padding:2px 8px;border-radius:10px;font-weight:600">'+i.priority+'</span></div>'
+      +'<div style="font-size:13px;color:#7b6fa0;line-height:1.6">'+i.findings+'</div></div>').join('');
+  }
+  if(Object.keys(mgmt).length){
+    html+='<h4 style="font-size:14px;font-weight:600;color:#3d1f7a;margin:20px 0 12px;display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#7c5cbf;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/></svg>Management</h4>';
+    const steps=mgmt.hfref_steps||mgmt.steps||[];
+    if(steps.length)html+=steps.map((s,i)=>'<div style="padding:12px 16px;background:#ede9fe;border-left:3px solid #7c5cbf;border-radius:0 10px 10px 0;margin-bottom:8px">'
+      +'<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="width:18px;height:18px;background:#7c5cbf;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0">'+(i+1)+'</span>'
+      +'<span style="font-weight:600;color:#3d1f7a;font-size:13.5px">'+(s.drug_class||s.action||s.phase||'Step')+'</span></div>'
+      +'<div style="font-size:12.5px;color:#7b6fa0;margin-left:24px">'+(s.examples||s.detail||'')+(s.mechanism?' — '+s.mechanism:'')+(s.monitoring||s.escalation?'<br><em>Monitoring: '+(s.monitoring||s.escalation)+'</em>':'')+'</div></div>').join('');
+    if(mgmt.symptom_relief){
+      html+='<div style="margin-top:12px"><strong style="font-size:12px;color:#7b6fa0;text-transform:uppercase;letter-spacing:1px">Symptom relief</strong></div>';
+      (mgmt.symptom_relief||[]).forEach(s=>{html+='<div style="padding:10px 14px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:9px;margin-top:6px;font-size:13px;color:#7b6fa0"><strong style="color:#3d1f7a">'+s.drug+'</strong> — '+s.examples+(s.note?' <em>('+s.note+')</em>':'')+'</div>';});
+    }
+    if(mgmt.devices&&mgmt.devices.length){
+      html+='<div style="margin-top:12px"><strong style="font-size:12px;color:#7b6fa0;text-transform:uppercase;letter-spacing:1px">Devices</strong></div>';
+      mgmt.devices.forEach(d=>{html+='<div style="padding:10px 14px;background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:9px;margin-top:6px;font-size:13px;color:#7b6fa0"><strong style="color:#3d1f7a">'+d.device+'</strong> — '+d.criteria+'</div>';});
+    }
+    if(mgmt.hfpef)html+='<div style="margin-top:12px;padding:14px 16px;background:#e2f4e2;border-left:3px solid #1a5a2a;border-radius:0 10px 10px 0"><div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#1a5a2a;margin-bottom:6px">HFpEF</div><div style="font-size:13px;color:#1a5a2a;line-height:1.65">'+mgmt.hfpef+'</div></div>';
+    if(mgmt.acute&&mgmt.acute.length){
+      html+='<div style="margin-top:14px;padding:14px 16px;background:#fce7f0;border-left:3px solid #c0305a;border-radius:0 10px 10px 0"><div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#c0305a;margin-bottom:8px">ACUTE MANAGEMENT</div>'
+        +mgmt.acute.map(a=>'<div style="font-size:13px;color:#c0305a;padding:3px 0">• '+a+'</div>').join('')+'</div>';
+    }
+  }
+  el.innerHTML=html+'<div class="stage-actions"><button class="btn-outline-sm" data-gs="mechanism" onclick="goToStage(this.dataset.gs,true)">Back</button><button class="btn-primary-sm" data-cs="clinical_picture" onclick="completeStage(this.dataset.cs)">Continue to Test Yourself <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
+}
+
+function renderTestYourself(c){
+  const el=document.getElementById('test-content');if(!el)return;
+  testQIdx=0;testAnswered=[];
+  const qs=c.stage4_questions||[];
+  if(qs.length){
+    testQuestions=qs.map(q=>{
+      const opts=Array.isArray(q.opts)?q.opts:Object.values(q.opts||{});
+      return {stem:q.q,opts:opts,correct_idx:q.ans||0,explanation:q.em||'',why:q.why||[],rem:q.rem||''};
+    });
+  } else testQuestions=[];
+  el.innerHTML='<div style="background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:12px;padding:16px 20px;margin-bottom:14px"><strong style="color:#3d1f7a">Test Yourself</strong> — '+testQuestions.length+' questions</div><div id="testQContainer"></div>';
+  if(!testQuestions.length){document.getElementById('testQContainer').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Questions coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="test_yourself" onclick="completeStage(this.dataset.cs)">Continue to Reasoning Case</button></div>';return;}
+  renderTestQ();
+}
+
+function renderTestQ(){
+  const el=document.getElementById('testQContainer');if(!el)return;
   if(testQIdx>=testQuestions.length){
     const correct=testAnswered.filter(a=>a.correct).length;
     const pct=Math.round((correct/testQuestions.length)*100);
-    el.innerHTML=`
-      <div class="test-score" style="display:block;">
-        <h3>Test complete</h3>
-        <div class="score-val">${pct}%</div>
-        <p>${correct} of ${testQuestions.length} correct</p>
-        <p style="margin-top:8px;font-size:12.5px;color:var(--muted);">Your performance feeds back into your domain mastery.</p>
-      </div>
-      <div class="stage-actions" style="margin-top:14px;">
-        <button class="btn-outline-sm" onclick="testQIdx=0;testAnswered=[];renderTestQuestion()">Retry</button>
-        <button class="btn-primary-sm" onclick="completeStage('test_yourself')">
-          Continue to Reasoning Case
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </div>`;
+    el.innerHTML='<div style="text-align:center;padding:32px;background:#fff;border-radius:12px;border:0.5px solid rgba(180,150,220,0.25)"><div style="font-family:Georgia,serif;font-size:48px;color:#7c5cbf;line-height:1">'+pct+'%</div><p style="color:var(--muted);margin-top:8px">'+correct+' of '+testQuestions.length+' correct</p></div><div class="stage-actions" style="margin-top:14px"><button class="btn-outline-sm" onclick="testQIdx=0;testAnswered=[];renderTestQ()">Retry</button><button class="btn-primary-sm" data-cs="test_yourself" onclick="completeStage(this.dataset.cs)">Continue to Reasoning Case</button></div>';
     return;
   }
-
   const q=testQuestions[testQIdx];
-  const opts=typeof q.options==='string'?JSON.parse(q.options):q.options;
-  el.innerHTML=`
-    <div class="test-q-card" id="currentQ">
-      <div class="test-q-meta">
-        <span class="test-q-num">Question ${testQIdx+1} of ${testQuestions.length}</span>
-        <span class="test-q-topic">${q.topic||q.domain||''}</span>
-      </div>
-      <div class="test-q-stem">${q.stem}</div>
-      <div class="test-q-opts" id="testOpts">
-        ${Object.entries(opts).map(([k,v])=>
-          `<button class="test-q-opt" onclick="submitTestAnswer('${k}',this)">${k}. ${v}</button>`
-        ).join('')}
-      </div>
-      <div id="testExp" style="display:none;"></div>
-      <div class="test-q-actions" id="testActions" style="display:none;">
-        <span></span>
-        <button class="btn-primary-sm" onclick="testQIdx++;renderTestQuestion()">
-          Next question
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </div>
-    </div>`;
+  el.innerHTML='<div class="test-q-card" id="currentQ">'
+    +'<div class="test-q-meta"><span class="test-q-num">Question '+(testQIdx+1)+' of '+testQuestions.length+'</span></div>'
+    +'<div class="test-q-stem">'+q.stem+'</div>'
+    +'<div class="test-q-opts">'+q.opts.map((opt,i)=>'<button class="test-q-opt" onclick="submitTestAnswer('+i+',this)">'+String.fromCharCode(65+i)+'. '+opt+'</button>').join('')+'</div>'
+    +'<div id="testExp" style="display:none"></div>'
+    +'<div class="test-q-actions" id="testActions" style="display:none"><button class="btn-primary-sm" onclick="testQIdx++;renderTestQ()">Next question <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>'
+    +'</div>';
 }
 
-async function submitTestAnswer(chosen, btn){
+function submitTestAnswer(chosen,btn){
   const q=testQuestions[testQIdx];
-  const isCorrect=chosen===q.correct_answer;
-  testAnswered.push({qId:q.id,chosen,correct:isCorrect});
-
-  // Style all options
-  document.querySelectorAll('.test-q-opt').forEach(b=>{
+  const isCorrect=chosen===q.correct_idx;
+  testAnswered.push({chosen,correct:isCorrect});
+  document.querySelectorAll('.test-q-opt').forEach((b,i)=>{
     b.disabled=true;
-    const key=b.textContent.charAt(0);
-    if(key===q.correct_answer) b.classList.add('correct');
-    else if(key===chosen&&!isCorrect) b.classList.add('wrong');
+    if(i===q.correct_idx)b.classList.add('correct');
+    else if(i===chosen&&!isCorrect)b.classList.add('wrong');
   });
-
-  // Show explanation + module link + why explanation + rem
   const expEl=document.getElementById('testExp');
-  expEl.style.display='block';
-  expEl.className='test-q-exp';
-  const whyText=q.why&&q.why.length>0?'<div style="margin-top:8px;font-size:12.5px;color:var(--muted)"><strong>Why each option:</strong><br>'+
-    Object.keys(typeof q.options==='object'?q.options:{}).map((k,i)=>(k+'. '+(q.why[i]||''))).join('<br>')+'</div>':'';
-  const remText=q.rem?'<div style="margin-top:8px;padding:8px 10px;background:var(--pu-pale);border-radius:6px;font-size:12px;color:var(--pu-mid)">💡 '+q.rem+'</div>':'';
-  expEl.innerHTML=`
-    ${q.explanation||''}${whyText}${remText}
-    ${!isCorrect?`<div style="margin-top:10px;padding-top:10px;border-top:0.5px solid rgba(124,92,191,0.2);">
-      <a href="#" onclick="goToStage('mechanism',true);return false;"
-         style="font-size:13px;font-weight:500;color:var(--pu-mid);text-decoration:none;">
-        Review in module: ${moduleData.title}
-        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:var(--pu-mid);stroke-width:1.8;display:inline;margin-left:3px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>`:''}`;
-
+  expEl.style.display='block';expEl.className='test-q-exp';
+  const whyHtml=q.why&&q.why.length?'<div style="margin-top:10px;padding-top:10px;border-top:0.5px solid rgba(124,92,191,0.2)"><strong style="font-size:12px">Each option:</strong><br>'+q.why.map((w,i)=>'<div style="font-size:12px;color:#7b6fa0;padding:2px 0"><strong>'+String.fromCharCode(65+i)+'.</strong> '+w+'</div>').join('')+'</div>':'';
+  const remHtml=q.rem?'<div style="margin-top:10px;padding:8px 12px;background:#ede9fe;border-radius:8px;font-size:12.5px;color:#7c5cbf">💡 '+q.rem+'</div>':'';
+  expEl.innerHTML=(q.explanation||'')+whyHtml+remHtml;
   document.getElementById('testActions').style.display='flex';
-
-  // Save to user_progress
-  await sb.from('user_progress').upsert({
-    user_id:myId, question_id:q.id,
-    answered_correctly:isCorrect,
-    answered_at:new Date().toISOString()
-  });
 }
 
-// Stage 5: Reasoning Case
 function renderReasoningCase(c){
-  const el=document.getElementById('reasoning-content');
-  if(!el) return;
-  // Handle both direct blocks and nested stage5_vignette
-  const vignette=c.stage5_vignette||c;
-  const rcTitle=vignette.title||c.title||moduleData.title+' — Clinical Vignette';
-  const blocks=vignette.blocks||c.blocks||[];
-  rcBlockIdx=0; rcResponses=[];
-
-  el.innerHTML=`
-    <div class="reasoning-intro">
-      <div class="reasoning-intro-tag">Stage 5 — Reasoning Case</div>
-      <h3>${rcTitle}</h3>
-      <p>${c.intro||'Work through this progressive vignette. Commit to each decision before the next block of information is revealed. There are no multiple-choice options — you reason, then you see.'}</p>
-    </div>
-    <div id="rcBlocks"></div>
-    <div id="rcComplete" style="display:none;"></div>`;
-
-  if(!blocks.length){
-    document.getElementById('rcBlocks').innerHTML=`
-      <div style="text-align:center;padding:32px;color:var(--muted);font-size:14px;">
-        <p>The reasoning case for this module has not been authored yet.</p>
-      </div>
-      <div class="stage-actions">
-        <button class="btn-outline-sm" onclick="goToStage('test_yourself',true)">Back</button>
-        <button class="btn-primary-sm" onclick="completeStage('reasoning_case')">
-          Complete module
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </button>
-      </div>`;
-    return;
-  }
-
-  renderRCBlock(blocks);
+  const el=document.getElementById('reasoning-content');if(!el)return;
+  const vignette=c.stage5_vignette||c||{};
+  rcBlocks=(vignette.blocks||[]).map(b=>{
+    const mr=b.model_reasoning||b.reveal||'';
+    let reveal=mr;
+    if(typeof mr==='object'){
+      reveal=Object.entries(mr).filter(([k])=>k!=='ongoing').map(([k,v])=>'<strong style="color:#3d1f7a">'+k+':</strong> '+v).join('<br><br>');
+      if(mr.ongoing)reveal+='<br><br><strong style="color:#1a5a2a">Ongoing management:</strong><br>'+mr.ongoing.map(s=>'• '+s).join('<br>');
+    }
+    return {label:b.title||b.label||('Block '+b.block),vignette:b.content||b.vignette||'',question:Array.isArray(b.prompts)?b.prompts.join('<br><br>'):(b.question||''),reveal:reveal};
+  });
+  rcBlockIdx=0;rcResponses=[];
+  el.innerHTML='<div class="reasoning-intro"><div class="reasoning-intro-tag">Stage 5 — Reasoning Case</div><h3>'+(vignette.title||'Clinical Vignette')+'</h3><p>Work through block by block. Commit to your reasoning before each reveal.</p></div><div id="rcBlocks"></div><div id="rcComplete"></div>';
+  if(!rcBlocks.length){document.getElementById('rcComplete').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Reasoning case coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="reasoning_case" onclick="completeStage(this.dataset.cs)">Complete module</button></div>';return;}
+  renderRCBlock();
 }
 
-function renderRCBlock(blocks){
+function renderRCBlock(){
   const el=document.getElementById('rcBlocks');
-  if(rcBlockIdx>=blocks.length){
-    showRCComplete(blocks);
-    return;
-  }
-  const blockRaw=blocks[rcBlockIdx];
-  // Normalise block — handle prompts array and model_reasoning object
-  const block={
-    ...blockRaw,
-    label:blockRaw.label||blockRaw.title||('Block '+(rcBlockIdx+1)),
-    vignette:blockRaw.vignette||blockRaw.content||'',
-    question:Array.isArray(blockRaw.prompts)?blockRaw.prompts.join('\n\n'):(blockRaw.prompts||blockRaw.question||''),
-    reveal:typeof blockRaw.model_reasoning==='object'?
-      JSON.stringify(blockRaw.model_reasoning,null,2).replace(/[{}"]/g,'').replace(/,\n/g,'\n'):
-      (blockRaw.model_reasoning||blockRaw.reveal||'')
-  };
-  const isFinal=rcBlockIdx===blocks.length-1;
-
-  // Append new block (previous blocks stay visible — progressive reveal)
-  const div=document.createElement('div');
-  div.className='reasoning-block';
-  div.id=`rcBlock-${rcBlockIdx}`;
-  div.innerHTML=`
-    <div class="reasoning-block-hdr">
-      <span class="reasoning-block-label">${block.label||`Block ${rcBlockIdx+1}`}</span>
-      <span class="reasoning-block-step">${rcBlockIdx+1} / ${blocks.length}</span>
-    </div>
-    <div class="reasoning-vignette">${block.vignette}</div>
-    <div class="reasoning-question">
-      <p>${block.question}</p>
-      <textarea class="reasoning-input" id="rcInput-${rcBlockIdx}"
-        placeholder="Type your reasoning here before continuing…"></textarea>
-      <button class="reasoning-commit-btn" onclick="commitRCBlock(${rcBlockIdx},${JSON.stringify(blocks).replace(/"/g,'&quot;')})">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        ${isFinal?'Complete the case':'Commit and continue'}
-      </button>
-    </div>
-    <div class="reasoning-reveal" id="rcReveal-${rcBlockIdx}"></div>`;
-
+  if(rcBlockIdx>=rcBlocks.length){showRCComplete();return;}
+  const b=rcBlocks[rcBlockIdx];
+  const div=document.createElement('div');div.className='reasoning-block';div.id='rcBlock-'+rcBlockIdx;
+  div.innerHTML='<div class="reasoning-block-hdr"><span class="reasoning-block-label">'+b.label+'</span><span class="reasoning-block-step">'+(rcBlockIdx+1)+' / '+rcBlocks.length+'</span></div>'
+    +'<div class="reasoning-vignette">'+b.vignette+'</div>'
+    +'<div class="reasoning-question"><p>'+b.question+'</p>'
+    +'<textarea class="reasoning-input" id="rcInput-'+rcBlockIdx+'" placeholder="Type your reasoning before the reveal..."></textarea>'
+    +'<button class="reasoning-commit-btn" onclick="commitRCBlock()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+(rcBlockIdx===rcBlocks.length-1?'Complete the case':'Commit and continue')+'</button></div>'
+    +'<div class="reasoning-reveal" id="rcReveal-'+rcBlockIdx+'"></div>';
   el.appendChild(div);
   div.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function commitRCBlock(idx, blocks){
-  const input=document.getElementById(`rcInput-${idx}`);
-  const response=input?.value.trim()||'';
-  rcResponses.push({block_index:idx, response});
-
-  // Disable the input and button
-  if(input) input.disabled=true;
-  const btn=document.querySelector(`#rcBlock-${idx} .reasoning-commit-btn`);
-  if(btn) btn.disabled=true;
-
-  // Show the model reveal
-  const block=blocks[idx];
-  const revealEl=document.getElementById(`rcReveal-${idx}`);
-  if(revealEl&&block.reveal){
-    revealEl.className='reasoning-reveal shown';
-    revealEl.innerHTML=`
-      <div class="reasoning-reveal-label">Model reasoning</div>
-      <div class="reasoning-comparison">
-        <div class="reasoning-col yours">
-          <div class="reasoning-col-label">Your response</div>
-          <p>${response||'<em>No response entered</em>'}</p>
-        </div>
-        <div class="reasoning-col model">
-          <div class="reasoning-col-label">Model response</div>
-          <p>${block.reveal}</p>
-        </div>
-      </div>`;
+function commitRCBlock(){
+  const b=rcBlocks[rcBlockIdx];
+  const input=document.getElementById('rcInput-'+rcBlockIdx);
+  const response=input?input.value.trim():'';
+  rcResponses.push({block_index:rcBlockIdx,response});
+  if(input)input.disabled=true;
+  const btn=document.querySelector('#rcBlock-'+rcBlockIdx+' .reasoning-commit-btn');
+  if(btn)btn.disabled=true;
+  const rev=document.getElementById('rcReveal-'+rcBlockIdx);
+  if(rev&&b.reveal){
+    rev.className='reasoning-reveal shown';
+    rev.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div style="padding:12px 14px;background:#ede9fe;border-radius:10px"><div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#7c5cbf;margin-bottom:6px">YOUR RESPONSE</div><p style="font-size:13px;color:#7b6fa0;line-height:1.6">'+(response||'<em>No response entered</em>')+'</p></div><div style="padding:12px 14px;background:#e2f4e2;border-radius:10px"><div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1a5a2a;margin-bottom:6px">MODEL REASONING</div><p style="font-size:13px;color:#1a5a2a;line-height:1.6">'+b.reveal+'</p></div></div>';
   }
-
   rcBlockIdx++;
-  const isFinal=rcBlockIdx>=blocks.length;
-
-  if(isFinal){
-    setTimeout(()=>showRCComplete(blocks), 500);
-  } else {
-    setTimeout(()=>renderRCBlock(blocks), 600);
-  }
+  if(rcBlockIdx>=rcBlocks.length)setTimeout(showRCComplete,600);
+  else setTimeout(renderRCBlock,600);
 }
 
-function showRCComplete(blocks){
-  document.getElementById('rcComplete').style.display='block';
-  document.getElementById('rcComplete').innerHTML=`
-    <div class="stage-actions" style="margin-top:16px;">
-      <button class="btn-outline-sm" onclick="goToStage('test_yourself',true)">Back to questions</button>
-      <button class="btn-primary-sm" onclick="saveRCAndComplete()">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        Complete module
-      </button>
-    </div>`;
-  document.getElementById('rcComplete').scrollIntoView({behavior:'smooth'});
+function showRCComplete(){
+  const el=document.getElementById('rcComplete');
+  if(el)el.innerHTML='<div class="stage-actions" style="margin-top:16px"><button class="btn-outline-sm" data-gs="test_yourself" onclick="goToStage(this.dataset.gs,true)">Back to questions</button><button class="btn-primary-sm" onclick="saveRCAndComplete()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Complete module</button></div>';
+  if(el)el.scrollIntoView({behavior:'smooth'});
 }
 
 async function saveRCAndComplete(){
-  // Save responses to DB
-  if(rcResponses.length){
-    await sb.from('reasoning_case_responses').insert(
-      rcResponses.map(r=>({
-        user_id:myId,
-        module_id:moduleData.id,
-        block_index:r.block_index,
-        user_response_text:r.response,
-        submitted_at:new Date().toISOString()
-      }))
-    ).then(()=>{}).catch(()=>{});
-  }
-  await completeStage('reasoning_case');
+  if(rcResponses.length)await sb.from('reasoning_case_responses').insert(rcResponses.map(r=>{return {user_id:myId,module_id:moduleData.id,block_index:r.block_index,user_response_text:r.response,submitted_at:new Date().toISOString()};})).then(()=>{}).catch(()=>{});
+  completeStage('reasoning_case');
 }
 
-// ── COMPLETE BANNER ──────────────────────────────────────────────────
-async function showCompleteBanner(){
-  // Find next module in course
-  let nextSlug=null;
-  if(moduleData.course_week){
-    const{data:next}=await sb.from('modules')
-      .select('slug,title')
-      .eq('is_published',true)
-      .or(`course_week.gt.${moduleData.course_week},and(course_week.eq.${moduleData.course_week},course_position.gt.${moduleData.course_position||0})`)
-      .order('course_week').order('course_position')
-      .limit(1).single();
-    if(next) nextSlug=next.slug;
-  }
-
-  document.getElementById('modMain').insertAdjacentHTML('afterbegin',`
-    <div class="mod-complete-banner">
-      <h3>Module complete</h3>
-      <p>${moduleData.title} — all five stages done.</p>
-      <div class="mod-complete-actions">
-        ${nextSlug?`
-        <a href="module.html?slug=${nextSlug}&from=course" class="btn-next-module">
-          Next module
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>`:''}
-        <a href="course.html" class="btn-ghost-dk">Back to Course</a>
-        <a href="domains.html" class="btn-ghost-dk">Browse Domains</a>
-      </div>
-    </div>`);
+async function completeStage(stage){
+  const completed=[...(progress&&progress.stages_completed||[])];
+  if(!completed.includes(stage))completed.push(stage);
+  if(progress)progress.stages_completed=completed;
+  const isComplete=completed.length===STAGES.length;
+  if(progress&&isComplete)progress.status='complete';
+  await sb.from('user_module_progress').update({stages_completed:completed,current_stage:stage,status:isComplete?'complete':'in_progress',...(isComplete?{completed_at:new Date().toISOString()}:{}),updated_at:new Date().toISOString()}).eq('user_id',myId).eq('module_id',moduleData.id);
+  renderStageNav();
+  if(isComplete){showCompleteBanner();return;}
+  const nextIdx=STAGES.indexOf(stage)+1;
+  if(nextIdx<STAGES.length)setTimeout(()=>goToStage(STAGES[nextIdx],true),400);
 }
 
-// ── UTILITIES ────────────────────────────────────────────────────────
+function showCompleteBanner(){
+  const mm=document.getElementById('modMain');
+  if(mm)mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Module complete ✓</h3><p>'+moduleData.title+' — all 5 stages done.</p><div class="mod-complete-actions"><a href="domains.html" class="btn-ghost-dk">Browse Domains</a><a href="course.html" class="btn-ghost-dk">Back to Course</a></div></div>');
+}
+
 function showError(msg){
-  document.getElementById('mainContent').innerHTML=`
-    <div class="error-state">
-      <svg viewBox="0 0 24 24" style="width:40px;height:40px;fill:none;stroke:var(--lav-border);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px;">
-        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      <h3>Something went wrong</h3>
-      <p>${msg}</p>
-      <a href="domains.html" style="margin-top:16px;display:inline-block;color:var(--pu-mid);font-size:14px;">Back to Domains</a>
-    </div>`;
+  const mm=document.getElementById('modMain');
+  if(mm)mm.innerHTML='<div class="error-state"><h3>'+msg+'</h3><a href="domains.html" style="color:#7c5cbf;font-size:14px">Back to Domains</a></div>';
 }
 
 init();
-
 </script>
 </body>
 </html>
