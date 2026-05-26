@@ -670,7 +670,7 @@ function renderMechanism(c){
       +'<span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:'+col+'">'+pw.replace('_',' ')+'</span>'
       +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10.5px;color:#7b6fa0;margin-left:2px">— green badge = direct clinical relevance</span>':'')
       +'</div>'
-      +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">'+t+'</div>'
+      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">'+t+'</div>'
       +'</div>';
   }).join('');
 
@@ -745,7 +745,7 @@ function renderClinical(c){
       return clinTile('sym'+i,f.name,f.pathway,col,bg,'<strong style="color:#3d1f7a">['+f.mechanism+']</strong> '+f.description);
     }).join('');
     symHtml='<div style="margin-bottom:32px">'+secHdr(ICON_SYM,'Symptoms','#f472b6')
-      +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
+      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
   }
 
   if(invs.length){
@@ -755,7 +755,7 @@ function renderClinical(c){
       inv.findings
     )).join('');
     invHtml='<div style="margin-bottom:32px">'+secHdr(ICON_INV,'Investigations','#7c5cbf')
-      +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
+      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
   }
 
   if(Object.keys(mgmt).length){
@@ -777,7 +777,7 @@ function renderClinical(c){
     if(mgmt.acute&&mgmt.acute.length)mgtTiles.push(clinTile('acute','Acute pulmonary oedema','Acute','#c0305a','#fce7f0',mgmt.acute.map(a=>'<div style="padding:2px 0">• '+a+'</div>').join('')));
     if(mgtTiles.length){
       mgtHtml='<div style="margin-bottom:32px">'+secHdr(ICON_MGT,'Management','#6366f1')
-        +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+mgtTiles.join('')+'</div></div>';
+        +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+mgtTiles.join('')+'</div></div>';
     }
   }
 
@@ -787,23 +787,12 @@ function renderClinical(c){
 }
 
 function toggleClinTile(tid){
-  var allTiles=document.querySelectorAll('[data-tid]');
-  allTiles.forEach(function(tile){
-    var detId='ct-detail-'+tile.dataset.tid;
-    var detail=document.getElementById(detId);
-    var cardId='ct-card-'+tile.dataset.tid;
-    var card=document.getElementById(cardId);
-    if(tile.dataset.tid===tid){
-      var isOpen=tile.dataset.open==='1';
-      tile.dataset.open=isOpen?'0':'1';
-      if(detail)detail.style.display=isOpen?'none':'block';
-      if(card)card.style.borderColor=isOpen?'':'var(--pu-mid)';
-    } else {
-      tile.dataset.open='0';
-      if(detail)detail.style.display='none';
-      if(card)card.style.borderColor='';
-    }
-  });
+  var detail=document.getElementById('ct-detail-'+tid);
+  var tile=document.querySelector('[data-tid="'+tid+'"]');
+  if(!detail||!tile)return;
+  var isOpen=tile.dataset.open==='1';
+  tile.dataset.open=isOpen?'0':'1';
+  detail.style.display=isOpen?'none':'block';
 }
 
 function renderTestYourself(c){
