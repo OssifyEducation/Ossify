@@ -1042,7 +1042,7 @@ function applyToEl(root){
     acceptNode:function(node){
       var p=node.parentElement;
       if(!p||p.tagName==="SCRIPT"||p.tagName==="STYLE"||p.tagName==="ABBR"||
-         p.tagName==="INPUT"||p.tagName==="TEXTAREA")return NodeFilter.FILTER_REJECT;
+         p.tagName==="INPUT"||p.tagName==="TEXTAREA"||p.closest("svg"))return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }
   });
