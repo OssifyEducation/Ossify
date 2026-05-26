@@ -1172,7 +1172,7 @@ function getMIPrompt(type,moduleTitle){
 }
 
 // ── Main showMoreInfo ──────────────────────────────────────────────────────
-async function showMoreInfo(name,type,context,moduleTitle){
+function showMoreInfo(name,type,context,moduleTitle){
   var ov=document.getElementById("mi-overlay");
   var titleEl=document.getElementById("mi-title");
   var badgeEl=document.getElementById("mi-badge");
@@ -1181,62 +1181,46 @@ async function showMoreInfo(name,type,context,moduleTitle){
   badgeEl.textContent=type;
   badgeEl.style.background=type==="symptom"?"#ede9ff":type==="investigation"?"#e0f2fe":"#dcfce7";
   badgeEl.style.color=type==="symptom"?"#7c3aed":type==="investigation"?"#0369a1":"#16a34a";
-  contentEl.innerHTML="<div class=\"mi-dots\"><span class=\"mi-dot\"></span><span class=\"mi-dot\"></span><span class=\"mi-dot\"></span><span style=\"margin-left:6px\">Loading clinical detail…</span></div>";
   ov.classList.add("open");
-  try{
-    var sess=null;
-    try{var r=await sb.auth.getSession();sess=r.data.session;}catch(e){}
-    var resp=await fetch("https://judtpdikbidvccclftvq.supabase.co/functions/v1/ai-more-info",{
-      method:"POST",
-      headers:{"Content-Type":"application/json","Authorization":"Bearer "+(sess&&sess.access_token||"")},
-      body:JSON.stringify({name:name,type:type,context:context,moduleTitle:moduleTitle})
-    });
-    contentEl.innerHTML="";
-    var full="";
-    var reader=resp.body.getReader();
-    var dec=new TextDecoder();
-    while(true){
-      var chunk=await reader.read();
-      if(chunk.done)break;
-      var lines=dec.decode(chunk.value).split("\n");
-      for(var li=0;li<lines.length;li++){
-        var line=lines[li];
-        if(!line.startsWith("data: "))continue;
-        var data=line.slice(6).trim();
-        if(data==="[DONE]")break;
-        try{var p=JSON.parse(data);var t=p.delta&&p.delta.text||"";if(t){full+=t;contentEl.innerHTML=renderMImd(full);}}catch(e){}
-      }
-    }
-    contentEl.innerHTML=renderMImd(full);
-  }catch(err){
-    contentEl.innerHTML="<p style=\"color:#ef4444;font-size:14px\">Could not load content. Please try again.</p>";
+  // context contains the pre-stored more_info HTML
+  if(context&&context.trim()){
+    contentEl.innerHTML=context;
+  } else {
+    contentEl.innerHTML="<p style=\"color:#9b88c0;font-size:14px\">Detailed information for this card is being prepared. Check back soon.</p>";
   }
 }
 
 // ── Add More Info buttons to all clinical cards ────────────────────────────
 function addMIButtons(){
-  const container=document.getElementById('clinical-content');
+  var container=document.getElementById("clinical-content");
   if(!container)return;
-  container.querySelectorAll('.mi-btn').forEach(b=>b.remove());
-  const moduleTitle=(window.__moduleData&&window.__moduleData.title)||document.querySelector('#modTitle,h1')?.textContent?.trim()||'this module';
-  container.querySelectorAll('[data-tid]').forEach(function(tile){
-    const tid=tile.dataset.tid||'';
-    const type=tid.startsWith('sym')?'symptom':tid.startsWith('inv')?'investigation':'management';
-    // Get name from the bold span in the header
-    const spans=tile.querySelectorAll('span');
-    let name='';
-    spans.forEach(function(s){if(!name&&s.textContent.trim().length>1&&!s.textContent.includes('backward')&&!s.textContent.includes('forward')&&s.style.fontWeight==='600')name=s.textContent.trim();});
-    if(!name){const firstSpan=tile.querySelector('span');name=firstSpan?firstSpan.textContent.trim():tid;}
-    // Get context from detail div
-    const detEl=document.getElementById('ct-detail-'+tid);
-    const context=(detEl?detEl.textContent.trim().substring(0,300):'');
-    const btn=document.createElement('button');
-    btn.className='mi-btn';
-    btn.innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>More info';
-    btn.onclick=function(e){
-      e.stopPropagation();
-      showMoreInfo(name,type,context,moduleTitle);
-    };
+  container.querySelectorAll(".mi-btn").forEach(function(b){b.remove();});
+  var moduleTitle=(window.__moduleData&&window.__moduleData.title)||document.querySelector("h1")&&document.querySelector("h1").textContent.trim()||"Heart Failure";
+  // Get the clinical_picture content_json which has more_info on each item
+  var clinData=window.contentData&&window.contentData["clinical_picture"]||{};
+  var allItems=[].concat(
+    (clinData.stage3_features||[]).map(function(f){return {tid:"sym",name:f.name,type:"symptom",mi:f.more_info||""}}),
+    (clinData.stage3_investigations||[]).map(function(f){return {tid:"inv",name:f.name,type:"investigation",mi:f.more_info||""}}),
+    (clinData.stage3_management&&clinData.stage3_management.steps||[]).map(function(f){return {tid:"step",name:f.phase||f.action,type:"management",mi:f.more_info||""}})  
+  );
+  container.querySelectorAll("[data-tid]").forEach(function(tile,idx){
+    var tid=tile.dataset.tid||"";
+    var type=tid.startsWith("sym")?"symptom":tid.startsWith("inv")?"investigation":"management";
+    // Match to content item by index within type group
+    var typeItems=allItems.filter(function(it){return it.type===type;});
+    var typeIdx=parseInt(tid.replace(/[^0-9]/g,""),10)||0;
+    var item=typeItems[typeIdx]||{};
+    var name=item.name||"";
+    if(!name){
+      var spans=tile.querySelectorAll("span");
+      for(var s=0;s<spans.length;s++){var fw=spans[s].style.fontWeight;var txt=spans[s].textContent.trim();
+      if((fw==="600"||fw==="700")&&txt.length>1&&txt.length<60&&!txt.includes("forward")&&!txt.includes("backward")){name=txt;break;}}
+    }
+    var miHtml=item.mi||"";
+    var btn=document.createElement("button");
+    btn.className="mi-btn";
+    btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>More info';
+    (function(n,t,mi,m){btn.onclick=function(e){e.stopPropagation();showMoreInfo(n,t,mi,m);};})(name,type,miHtml,moduleTitle);
     tile.appendChild(btn);
   });
 }
