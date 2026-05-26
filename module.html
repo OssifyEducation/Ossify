@@ -786,13 +786,24 @@ function renderClinical(c){
     +'<button class="btn-primary-sm" data-cs="clinical_picture" onclick="completeStage(this.dataset.cs)">Continue to Test Yourself <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
 }
 
-function toggleClinTile(id){
-  const d=document.getElementById('ct-detail-'+id);
-  const card=document.getElementById('ct-'+id);
-  if(!d)return;
-  const open=d.style.display!=='none';
-  d.style.display=open?'none':'block';
-  if(card){card.style.boxShadow=open?'none':'0 2px 14px rgba(124,92,191,0.18)';card.style.background=open?'#fff':'#faf8ff';}
+function toggleClinTile(tid){
+  var allTiles=document.querySelectorAll('[data-tid]');
+  allTiles.forEach(function(tile){
+    var detId='ct-detail-'+tile.dataset.tid;
+    var detail=document.getElementById(detId);
+    var cardId='ct-card-'+tile.dataset.tid;
+    var card=document.getElementById(cardId);
+    if(tile.dataset.tid===tid){
+      var isOpen=tile.dataset.open==='1';
+      tile.dataset.open=isOpen?'0':'1';
+      if(detail)detail.style.display=isOpen?'none':'block';
+      if(card)card.style.borderColor=isOpen?'':'var(--pu-mid)';
+    } else {
+      tile.dataset.open='0';
+      if(detail)detail.style.display='none';
+      if(card)card.style.borderColor='';
+    }
+  });
 }
 
 function renderTestYourself(c){
