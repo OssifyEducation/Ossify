@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Glossary — Ossify</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--pu-dark:#2d1060;--pu-mid:#7c3aed;--pu-light:#a78bfa;--lav:#f0eaff;--lav-card:#fff;--lav-border:rgba(180,150,220,0.25);--ink:#3d1f7a;--moss:#7b6fa0;--muted:#9b88c0;--font-sans:"Inter",system-ui,sans-serif;--font-serif:"Georgia",serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);background:var(--lav);color:var(--ink);min-height:100vh;display:flex;}
+#sb{width:220px;min-height:100vh;background:var(--pu-dark);display:flex;flex-direction:column;padding:20px 0;flex-shrink:0;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;}
+#sb .logo{display:flex;align-items:center;gap:10px;padding:0 18px 24px;color:#fff;font-family:var(--font-serif);font-size:20px;font-weight:700;text-decoration:none;}
+#sb .logo svg{width:28px;height:28px;}.sb-sec{margin-bottom:8px;}
+.sb-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.35);padding:6px 18px 4px;text-transform:uppercase;}
+.nv{display:flex;align-items:center;gap:10px;padding:9px 18px;color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:background .15s,color .15s;}
+.nv svg{width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.nv:hover,.nv.active{background:rgba(255,255,255,.1);color:#fff;}.nv.active{border-left:3px solid var(--pu-light);padding-left:15px;}
+.sb-bottom{margin-top:auto;padding:16px 18px 8px;border-top:1px solid rgba(255,255,255,.1);}
+.user-row{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.8);font-size:13px;}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--pu-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;}
+.streak-pill{background:rgba(255,255,255,.12);border-radius:20px;padding:4px 10px;font-size:12px;color:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:4px;margin-top:8px;}
+#signoutBtn{margin-top:10px;background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.5);width:100%;padding:7px;border-radius:7px;cursor:pointer;font-size:12px;}
+#signoutBtn:hover{color:#fff;border-color:rgba(255,255,255,.5);}
+#main{margin-left:220px;flex:1;display:flex;flex-direction:column;}
+.topbar{background:#fff;border-bottom:1px solid var(--lav-border);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.topbar h1{font-size:18px;font-weight:700;color:var(--ink);}
+#mainContent{padding:32px;flex:1;}
+.gloss-hero{margin-bottom:28px;}.gloss-hero h2{font-family:var(--font-serif);font-size:28px;color:var(--ink);margin-bottom:6px;}.gloss-hero p{color:var(--moss);font-size:15px;}.gloss-count{font-size:13px;color:var(--muted);margin-top:4px;}
+.search-bar{position:relative;margin-bottom:20px;}.search-bar input{width:100%;padding:14px 20px 14px 48px;border:1.5px solid var(--lav-border);border-radius:12px;font-size:16px;font-family:var(--font-sans);background:#fff;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;}.search-bar input:focus{border-color:var(--pu-mid);box-shadow:0 0 0 3px rgba(124,58,237,.1);}.search-bar svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--muted);fill:none;}
+#clearBtn{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:18px;display:none;}#clearBtn:hover{color:var(--ink);}
+.cat-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}.cat-btn{padding:6px 14px;border-radius:20px;border:1.5px solid var(--lav-border);background:#fff;color:var(--moss);font-size:13px;font-family:var(--font-sans);cursor:pointer;transition:all .15s;}.cat-btn:hover{border-color:var(--pu-mid);color:var(--pu-mid);}.cat-btn.active{background:var(--pu-mid);color:#fff;border-color:var(--pu-mid);}
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;}
+.gloss-card{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:0 1px 4px rgba(124,58,237,.07);border:1px solid var(--lav-border);transition:box-shadow .15s,border-color .15s;}.gloss-card:hover{box-shadow:0 4px 16px rgba(124,58,237,.12);border-color:var(--pu-light);}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;}.card-abbr{font-size:20px;font-weight:800;color:var(--pu-mid);}.card-cat{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid currentColor;}
+.card-full{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.3;}.card-sig{font-size:13px;color:var(--moss);line-height:1.5;}
+.no-results{text-align:center;padding:60px 20px;color:var(--muted);}.no-results svg{width:48px;height:48px;stroke:var(--lav-border);margin-bottom:12px;}.no-results h3{font-size:18px;color:var(--ink);margin-bottom:6px;}
+@media(max-width:768px){#sb{display:none;}#main{margin-left:0;}.gloss-grid{grid-template-columns:1fr;}#mainContent{padding:20px;}}
+</style>
+</head>
+<body>
+<aside id="sb">
+<a class="logo" href="dashboard.html"><svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#7c3aed"/><path d="M8 24V10l8-4 8 4v14l-8 4-8-4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M16 6v18M8 10l8 4 8-4" stroke="#fff" stroke-width="2"/></svg>Ossify</a>
+<div class="sb-sec"><div class="sb-lbl">Overview</div>
+<a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+<a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/></svg>Leaderboard</a></div>
+<div class="sb-sec"><div class="sb-lbl">Learn</div>
+<a class="nv" href="course.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Course</a>
+<a class="nv" href="domains.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20"/><path d="M2 12h20"/></svg>Domains</a>
+<a class="nv" href="search.html"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</a>
+<a class="nv active" href="acronyms.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="12" y1="7" x2="16" y2="7"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="15" x2="16" y2="15"/></svg>Glossary</a></div>
+<div class="sb-sec"><div class="sb-lbl">Revision</div>
+<a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
+<a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge</a>
+<a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Head-to-Head</a></div>
+<div class="sb-sec"><div class="sb-lbl">Account</div><a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a></div>
+<div class="sb-sec"><div class="sb-lbl">Help</div>
+<a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Keys to Success</a>
+<a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+<a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a></div>
+<div class="sb-bottom"><div class="user-row"><div class="avatar" id="avatarEl">K</div><span id="usernameEl">Loading...</span></div><div class="streak-pill">⚡ <span id="streakEl">0</span> day streak</div><button id="signoutBtn">Sign out</button></div>
+</aside>
+<div id="main">
+<div class="topbar"><h1>Glossary</h1><span id="topbarCount" style="font-size:13px;color:var(--muted);"></span></div>
+<div id="mainContent">
+<div class="gloss-hero"><h2>Medical Acronyms &amp; Abbreviations</h2><p>Every acronym used across the Ossify curriculum — with its full term and clinical significance.</p><div class="gloss-count" id="countDisplay"></div></div>
+<div class="search-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="searchInput" placeholder="Search e.g. BNP, RAAS, LBBB, heart failure..." autocomplete="off" spellcheck="false"/><button id="clearBtn">×</button></div>
+<div class="cat-filters" id="catFilters"></div>
+<div class="gloss-grid" id="glossGrid"></div>
+<div class="no-results" id="noResults" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3>No matches found</h3><p>Try a different search term or clear the filter</p></div>
+</div></div>
+<script>
+const sb=supabase.createClient("https://judtpdikbidvccclftvq.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwMjAwMzcsImV4cCI6MjA1OTU5NjAzN30.iITbxnbCdqiLB3rC8rMOoZ5YipMfFaqNfYVqAIwbTAA");
+(async function(){const{data:{session}}=await sb.auth.getSession();if(!session){window.location="login.html";return;}const{data:pr}=await sb.from("profiles").select("display_name,streak_days").eq("id",session.user.id).single();if(pr){const n=pr.display_name||session.user.email.split("@")[0];document.getElementById("usernameEl").textContent=n;document.getElementById("avatarEl").textContent=n[0].toUpperCase();document.getElementById("streakEl").textContent=pr.streak_days||0;}document.getElementById("signoutBtn").addEventListener("click",async()=>{await sb.auth.signOut();window.location="login.html";});})();
+const AC=[
+{a:"HFrEF",f:"Heart Failure with Reduced Ejection Fraction",s:"EF <40%. Primary indication for quadruple therapy: ACEi/ARNI, beta-blocker, MRA, SGLT2i. Drives most HF-related mortality.",cat:"Cardiovascular"},
+{a:"HFpEF",f:"Heart Failure with Preserved Ejection Fraction",s:"EF ≥50%. SGLT2i (EMPEROR-Preserved, DELIVER) are the only class with proven benefit. Treat underlying causes: hypertension, AF, obesity, diabetes.",cat:"Cardiovascular"},
+{a:"HFmrEF",f:"Heart Failure with Mildly Reduced Ejection Fraction",s:"EF 40–49%. Evidence extrapolated from HFrEF trials. Treat as HFrEF where possible.",cat:"Cardiovascular"},
+{a:"RAAS",f:"Renin-Angiotensin-Aldosterone System",s:"Key neurohormonal axis activated in HF, hypertension, and AKI. Target of ACEi, ARBs, ARNIs, and MRAs. Chronic overactivation drives fibrosis, fluid retention, and arrhythmia.",cat:"Cardiovascular"},
+{a:"ARNI",f:"Angiotensin Receptor-Neprilysin Inhibitor",s:"Sacubitril/valsartan (Entresto). Replaces ACEi in symptomatic HFrEF. Requires 36h washout from ACEi to prevent angioedema. Superior to enalapril (PARADIGM-HF trial).",cat:"Cardiovascular"},
+{a:"MRA",f:"Mineralocorticoid Receptor Antagonist",s:"Spironolactone, eplerenone. Third pillar of HFrEF therapy. Block aldosterone → reduce fibrosis and potassium excretion. Contraindicated if K >5.0 or eGFR <30.",cat:"Cardiovascular"},
+{a:"BNP",f:"B-type Natriuretic Peptide",s:"NICE NG106: <35 = HF unlikely; 35–400 = echo in 6wk; >400 = urgent echo 2wk; >2000 = immediate referral. Elevated in any cause of raised ventricular wall stress.",cat:"Cardiovascular"},
+{a:"LVEDP",f:"Left Ventricular End-Diastolic Pressure",s:"Surrogate for preload. Elevated in LV failure → pulmonary venous HTN → dyspnoea, orthopnoea, PND. Measured directly at cardiac catheterisation.",cat:"Cardiovascular"},
+{a:"LVEF",f:"Left Ventricular Ejection Fraction",s:"Normal ≥55%. Measured on echocardiography. Classifies HF type and guides CRT/ICD eligibility (threshold: EF ≤35%).",cat:"Cardiovascular"},
+{a:"CRT",f:"Cardiac Resynchronisation Therapy",s:"Biventricular pacing for EF ≤35% + QRS ≥130ms LBBB + NYHA II–IV on optimal therapy. Greatest benefit with QRS ≥150ms and true LBBB morphology.",cat:"Cardiovascular"},
+{a:"ICD",f:"Implantable Cardioverter-Defibrillator",s:"Indicated for EF ≤35% after ≥3 months optimal therapy + life expectancy >1 year. Primary prevention of sudden cardiac death. Combined CRT-D used where both indications are met.",cat:"Cardiovascular"},
+{a:"LBBB",f:"Left Bundle Branch Block",s:"QRS ≥120ms with broad notched R in lateral leads. In HFrEF causes dyssynchronous contraction → key CRT criterion. New LBBB post-MI suggests extensive anterior infarction.",cat:"Cardiovascular"},
+{a:"NYHA",f:"New York Heart Association (class)",s:"I: no symptoms; II: symptoms on moderate exertion; III: symptoms on mild exertion; IV: symptoms at rest. Guides therapy initiation and device eligibility.",cat:"Cardiovascular"},
+{a:"AF",f:"Atrial Fibrillation",s:"Most common sustained arrhythmia. Rate control (BB, digoxin) vs rhythm control (cardioversion, amiodarone). Anticoagulate if CHA₂DS₂-VASc ≥2 (men) or ≥3 (women).",cat:"Cardiovascular"},
+{a:"ACS",f:"Acute Coronary Syndrome",s:"Umbrella term: STEMI, NSTEMI, and unstable angina. All share plaque rupture pathophysiology. STEMI → primary PCI within 90 min; NSTEMI → risk-stratified PCI.",cat:"Cardiovascular"},
+{a:"STEMI",f:"ST-Elevation Myocardial Infarction",s:"Full-thickness infarction from complete coronary occlusion. ST elevation in ≥2 contiguous leads or new LBBB. Primary PCI within 90 min. Aspirin + ticagrelor immediately.",cat:"Cardiovascular"},
+{a:"NSTEMI",f:"Non-ST-Elevation Myocardial Infarction",s:"Partial thickness infarction. Raised troponin + ischaemic symptoms without ST elevation. GRACE score guides angiography timing. Dual antiplatelet + anticoagulation.",cat:"Cardiovascular"},
+{a:"PCI",f:"Percutaneous Coronary Intervention",s:"Coronary angioplasty ± stent. Primary PCI is gold standard for STEMI. Also used in NSTEMI and stable angina refractory to medical therapy.",cat:"Cardiovascular"},
+{a:"JVP",f:"Jugular Venous Pressure",s:"Most sensitive bedside sign of right-sided volume overload. Normal ≤4cm above sternal angle at 45°. Elevated in right HF, tamponade, constrictive pericarditis, SVC obstruction.",cat:"Cardiovascular"},
+{a:"PND",f:"Paroxysmal Nocturnal Dyspnoea",s:"Waking breathless 1–2h after sleep. Oedema fluid redistributes supine to pulmonary circulation, exceeding alveolar pressure threshold. Classic left HF symptom.",cat:"Cardiovascular"},
+{a:"GTN",f:"Glyceryl Trinitrate",s:"Nitrate venodilator. Reduces preload rapidly. Used in acute pulmonary oedema (SBP >100) and angina. Contraindicated with PDE5 inhibitors. Sublingual acts within 2 minutes.",cat:"Cardiovascular"},
+{a:"DVT",f:"Deep Vein Thrombosis",s:"Virchow’s triad: stasis, endothelial injury, hypercoagulability. Diagnose with Wells DVT score + D-dimer or USS. Treat with DOAC (rivaroxaban or apixaban). Duration: 3 months provoked, 6 months+ unprovoked.",cat:"Cardiovascular"},
+{a:"PE",f:"Pulmonary Embolism",s:"Clot in pulmonary vasculature, usually from proximal DVT. Wells PE score + D-dimer or CTPA. Massive PE (haemodynamically unstable): thrombolysis or embolectomy.",cat:"Cardiovascular"},
+{a:"VT",f:"Ventricular Tachycardia",s:"Broad complex tachycardia from ventricular focus. Monomorphic: often ischaemic scar re-entry. Polymorphic (Torsades de Pointes): long QT, hypokalaemia, hypomagnesaemia. IV MgSO4 for Torsades.",cat:"Cardiovascular"},
+{a:"VF",f:"Ventricular Fibrillation",s:"Chaotic ventricular electrical activity → no cardiac output → cardiac arrest. Immediate unsynchronised DC shock. Adrenaline 1mg IV every 3–5 min during ALS.",cat:"Cardiovascular"},
+{a:"SVT",f:"Supraventricular Tachycardia",s:"Narrow complex tachycardia above bundle of His. Most common type: AVNRT. Vagal manoeuvres → IV adenosine 6mg → 12mg → cardioversion. Radiofrequency ablation is curative.",cat:"Cardiovascular"},
+{a:"WPW",f:"Wolff-Parkinson-White Syndrome",s:"Accessory pathway (bundle of Kent) → pre-excitation (delta wave, short PR). Avoid adenosine, digoxin, and verapamil in AF with WPW → can accelerate conduction → VF.",cat:"Cardiovascular"},
+{a:"PPM",f:"Permanent Pacemaker",s:"Indications: symptomatic bradycardia, complete heart block, Mobitz II. DVLA Group 1: 1 week off driving post-implant.",cat:"Cardiovascular"},
+{a:"ABI",f:"Ankle-Brachial Index",s:"Ankle SBP ÷ brachial SBP. Normal 0.9–1.3. PAD: <0.9. Critical limb ischaemia: <0.5. >1.3 = calcified vessels (incompressible) — false normal in diabetics.",cat:"Cardiovascular"},
+{a:"SCD",f:"Sudden Cardiac Death",s:"Unexpected cardiac death within 1 hour of symptom onset. Most commonly VF. ICD reduces SCD in HFrEF (EF ≤35%). HCM: ICD based on 5-year SCD risk score.",cat:"Cardiovascular"},
+{a:"ECG",f:"Electrocardiogram",s:"Mandatory in chest pain, palpitations, syncope, breathlessness. Key findings: ST changes, LBBB, delta wave (WPW), long QTc, P-pulmonale.",cat:"Investigations"},
+{a:"CXR",f:"Chest X-ray",s:"ABCDE in pulmonary oedema: Alveolar shadowing, Kerley B lines, Cardiomegaly (CTR >0.5), upper lobe Diversion, pleural Effusions.",cat:"Investigations"},
+{a:"CTPA",f:"CT Pulmonary Angiogram",s:"Gold standard for PE diagnosis. Sensitivity and specificity >95%. Alternative: V/Q scan (preferred in pregnancy, renal failure, or contrast allergy).",cat:"Investigations"},
+{a:"eGFR",f:"Estimated Glomerular Filtration Rate",s:"CKD staging: G1 ≥90, G2 60–89, G3a 45–59, G3b 30–44, G4 15–29, G5 <15. Key for drug dosing: avoid rivaroxaban <15, spironolactone <30, metformin reduce <45.",cat:"Investigations"},
+{a:"INR",f:"International Normalised Ratio",s:"Monitors warfarin. Target 2.0–3.0 for AF/DVT/PE. Target 3.0–4.0 for mechanical mitral valves or recurrent thrombosis on therapeutic warfarin.",cat:"Investigations"},
+{a:"HbA1c",f:"Glycated Haemoglobin",s:"Reflects average glucose over 2–3 months. Diagnostic for DM: ≥48 mmol/mol (6.5%). Target for most T2DM: ≤53 mmol/mol (7%). Higher targets in frailty.",cat:"Investigations"},
+{a:"FBC",f:"Full Blood Count",s:"Hb, WBC, platelets. Iron deficiency anaemia in 50% of HFrEF — treat if ferritin <100 or 100–299 with TSAT <20%.",cat:"Investigations"},
+{a:"TFT",f:"Thyroid Function Tests",s:"TSH first-line. Both hypo and hyperthyroidism can cause AF, HF, and dyslipidaemia. Amiodarone affects TFTs (causes both hypo and hyperthyroidism).",cat:"Investigations"},
+{a:"USS",f:"Ultrasound Scan",s:"First-line for DVT (compression USS), gallstones, renal pathology, AAA screening (men at 65). Doppler for renal artery stenosis, carotid stenosis.",cat:"Investigations"},
+{a:"ABG",f:"Arterial Blood Gas",s:"pH, PaO2, PaCO2, HCO3. Type 1 RF: PaO2 <8kPa, normal/low PaCO2. Type 2 RF: PaO2 <8kPa + PaCO2 >6kPa. Guides ventilation and O2 targets.",cat:"Investigations"},
+{a:"DOAC",f:"Direct Oral Anticoagulant",s:"Rivaroxaban (Xa), apixaban (Xa), edoxaban (Xa), dabigatran (thrombin). Fixed dose, no routine monitoring. Reversal: andexanet alfa (Xa inhibitors), idarucizumab (dabigatran). Avoid in APS.",cat:"Pharmacology"},
+{a:"LMWH",f:"Low Molecular Weight Heparin",s:"Enoxaparin, dalteparin. Subcutaneous. Does not cross placenta — safe in pregnancy. Preferred for cancer-associated VTE. Dose-adjust in severe renal impairment.",cat:"Pharmacology"},
+{a:"SGLT2",f:"Sodium-Glucose Cotransporter-2 Inhibitor",s:"Dapagliflozin, empagliflozin. Fourth pillar of HFrEF therapy. Also for T2DM, CKD, and HFpEF. Side effects: genital thrush, euglycaemic DKA (rare but important).",cat:"Pharmacology"},
+{a:"ACEi",f:"ACE Inhibitor",s:"Ramipril, lisinopril. First pillar of HFrEF therapy. Block Ang II → vasodilation, reduced aldosterone and fibrosis. Monitor K+ and creatinine (accept ≤30% rise, K ≤5.5). Cough in 10–15% → switch to ARB.",cat:"Pharmacology"},
+{a:"ARB",f:"Angiotensin Receptor Blocker",s:"Losartan, candesartan, valsartan. Alternative to ACEi if cough. Do not combine ACEi + ARB — dual RAAS blockade increases AKI and hyperkalaemia without added benefit.",cat:"Pharmacology"},
+{a:"NSAID",f:"Non-Steroidal Anti-Inflammatory Drug",s:"Ibuprofen, naproxen, diclofenac. Risks: GI bleeding, AKI, fluid retention (worsens HF and hypertension). Avoid in CKD, HF, and after MI.",cat:"Pharmacology"},
+{a:"HTN",f:"Hypertension",s:"BP ≥140/90mmHg. Stage 1: 140–159/90–99. Stage 2: ≥160/100. First-line: ACEi/ARB + CCB ± thiazide-like diuretic. Resistant HTN: add spironolactone as 4th agent.",cat:"Clinical"},
+{a:"DM",f:"Diabetes Mellitus",s:"Type 1: autoimmune beta-cell destruction. Type 2: insulin resistance + beta-cell failure. Complications: nephropathy, retinopathy, neuropathy, macrovascular disease.",cat:"Clinical"},
+{a:"MI",f:"Myocardial Infarction",s:"Myocardial necrosis from prolonged ischaemia. Troponin rises 3–6h, peaks 12–24h. Post-MI: dual antiplatelet, ACEi, beta-blocker, statin.",cat:"Clinical"},
+{a:"HCM",f:"Hypertrophic Cardiomyopathy",s:"Asymmetric septal hypertrophy (MYH7, MYBPC3 mutations). LVOTO in 70%. Avoid nitrates and dehydration. ICD for SCD risk based on 5-year risk score.",cat:"Clinical"},
+{a:"AAA",f:"Abdominal Aortic Aneurysm",s:"Aortic diameter >3cm. USS screening: men at age 65. Repair threshold: >5.5cm or rapid expansion (>1cm/year). Ruptured AAA → emergency surgery.",cat:"Clinical"},
+{a:"IE",f:"Infective Endocarditis",s:"Infection of cardiac valves. Modified Duke criteria. Strep viridans (subacute), Staph aureus (acute). 4–6 weeks IV antibiotics. Surgery if severe HF, uncontrolled infection, or recurrent emboli.",cat:"Clinical"},
+{a:"AKI",f:"Acute Kidney Injury",s:"KDIGO: creatinine rise ≥26 µmol/L in 48h, or ≥1.5× baseline in 7 days, or urine output <0.5mL/kg/h for 6h. Pre-renal commonest. Sick day rules for ACEi, NSAIDs, metformin.",cat:"Clinical"},
+{a:"CKD",f:"Chronic Kidney Disease",s:"eGFR <60 for >3 months. Commonest causes: DM, hypertension. SGLT2i (dapagliflozin) slow CKD progression regardless of DM status.",cat:"Clinical"},
+{a:"CPAP",f:"Continuous Positive Airway Pressure",s:"Non-invasive ventilation for acute pulmonary oedema (if SpO2 low despite O2) and first-line treatment for obstructive sleep apnoea.",cat:"Clinical"},
+{a:"NICE",f:"National Institute for Health and Care Excellence",s:"UK body producing evidence-based guidelines. Standard of care in MSRA. Key cardiology guidelines: NG106 (HF), NG185 (AF), NG236 (Hypertension).",cat:"Regulatory"},
+{a:"DVLA",f:"Driver and Vehicle Licensing Agency",s:"Notifiable conditions. MI: Group 1 (car) 1wk, Group 2 (HGV) 6wk. VT/VF: 6 months/permanent. ICD: 6 months/permanent Group 2. PPM: 1 week/6 weeks.",cat:"Regulatory"},
+{a:"BNF",f:"British National Formulary",s:"UK drug reference. Prescribing doses, interactions, contraindications. Available at bnf.nice.org.uk. MSRA tests BNF-based prescribing knowledge.",cat:"Regulatory"},
+{a:"GRACE",f:"GRACE Score",s:"Predicts in-hospital and 6-month mortality in NSTEMI. Variables: age, HR, SBP, creatinine, Killip class, ST deviation, cardiac arrest, troponin. Guides timing of angiography.",cat:"Scoring"},
+{a:"CHA2DS2VASc",f:"CHA₂DS₂-VASc Score",s:"Stroke risk in AF. CCF, HTN, Age≥75 (2pts), DM, Stroke/TIA (2pts), Vascular disease, Age 65–74, Sex (female). Anticoagulate if ≥2 (men) or ≥3 (women).",cat:"Scoring"},
+{a:"HASBLED",f:"HAS-BLED Score",s:"Bleeding risk in anticoagulated AF patients. Score ≥3 = high risk. Address modifiable factors (BP, concomitant antiplatelet, alcohol) but do not withhold anticoagulation.",cat:"Scoring"},
+{a:"AVNRT",f:"AV Nodal Re-entrant Tachycardia",s:"Most common SVT. Re-entry within AV node. Rate 150–250bpm. Adenosine terminates >90%. Radiofrequency ablation is curative.",cat:"Cardiovascular"},
+{a:"COPD",f:"Chronic Obstructive Pulmonary Disease",s:"Persistent FEV1/FVC <0.7 post-bronchodilator. SABA → LAMA → LAMA+LABA → add ICS. Acute exacerbation: controlled O2 (target 88–92%), salbutamol, prednisolone, antibiotics if purulent.",cat:"Respiratory"},
+{a:"FEV1",f:"Forced Expiratory Volume in 1 second",s:"Key spirometry measurement. FEV1/FVC <0.7 = obstructive (COPD, asthma). COPD severity: mild ≥80%, moderate 50–79%, severe 30–49%, very severe <30%.",cat:"Respiratory"},
+{a:"PEFR",f:"Peak Expiratory Flow Rate",s:"Monitors asthma. <50% personal best = severe. <33% = life-threatening. Serial measurement guides steroid stepping.",cat:"Respiratory"}];
+const CATS={Cardiovascular:"#7c3aed",Investigations:"#0891b2",Respiratory:"#16a34a",Pharmacology:"#db2777",Clinical:"#dc2626",Regulatory:"#6b7280",Scoring:"#9333ea"};
+let activeCat="All",searchQ="";
+function hl(t,q){if(!q)return t;return t.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\\]\\\\]/g,"\\\\$&")+")","gi"),"<mark>$1</mark>");}
+function render(){const q=searchQ.toLowerCase();const f=AC.filter(i=>(activeCat==="All"||i.cat===activeCat)&&(!q||i.a.toLowerCase().includes(q)||i.f.toLowerCase().includes(q)||i.s.toLowerCase().includes(q)));f.sort((a,b)=>a.a.localeCompare(b.a));document.getElementById("countDisplay").textContent=f.length+" of "+AC.length+" entries";document.getElementById("topbarCount").textContent=f.length+" entries";const nr=document.getElementById("noResults");if(!f.length){document.getElementById("glossGrid").innerHTML="";nr.style.display="block";return;}nr.style.display="none";document.getElementById("glossGrid").innerHTML=f.map(i=>{const c=CATS[i.cat]||"#7c3aed";return "<div class=\"gloss-card\"><div class=\"card-top\"><div class=\"card-abbr\">"+hl(i.a,q)+"</div><span class=\"card-cat\" style=\"color:"+c+";border-color:"+c+"20;background:"+c+"12\">"+i.cat+"</span></div><div class=\"card-full\">"+hl(i.f,q)+"</div><div class=\"card-sig\">"+hl(i.s,q)+"</div></div>";}).join("");}
+function buildFilters(){const cats=["All",...Object.keys(CATS)];const c=document.getElementById("catFilters");c.innerHTML=cats.map(cat=>"<button class=\"cat-btn"+(cat==="All"?" active":"")+"\">"+cat+"</button>").join("");c.querySelectorAll(".cat-btn").forEach((b,i)=>{b.dataset.cat=cats[i];b.addEventListener("click",function(){activeCat=this.dataset.cat;c.querySelectorAll(".cat-btn").forEach(x=>x.classList.toggle("active",x===this));render();});});}
+const si=document.getElementById("searchInput"),cb=document.getElementById("clearBtn");si.addEventListener("input",function(){searchQ=this.value.trim();cb.style.display=searchQ?"block":"none";render();});cb.addEventListener("click",function(){si.value="";searchQ="";cb.style.display="none";si.focus();render();});document.addEventListener("keydown",function(e){if(e.key==="/"&&document.activeElement!==si){e.preventDefault();si.focus();}if(e.key==="Escape")si.blur();});buildFilters();render();
+</script></body></html>
