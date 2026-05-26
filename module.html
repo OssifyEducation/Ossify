@@ -313,6 +313,8 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
     transition:opacity .15s ease;box-shadow:0 4px 16px rgba(0,0,0,.3);}
   #oa-tip::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);
     border:5px solid transparent;border-bottom:none;border-top-color:#1e1040;}
+
+  #oa-tip{position:fixed;z-index:9999;background:#1e1040;color:#fff;font-size:13px;line-height:1.4;padding:8px 12px;border-radius:8px;max-width:260px;pointer-events:none;opacity:0;transition:opacity .15s ease;box-shadow:0 4px 16px rgba(0,0,0,.3);}#oa-tip::after{content:"";position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);border:5px solid transparent;border-bottom:none;border-top-color:#1e1040;}.oa{text-decoration:underline dotted #7c3aed;cursor:help;font-weight:600;}
 </style>
 </head>
 <body>
@@ -995,47 +997,82 @@ init();
 </script>
 
 <div id="oa-tip"></div>
-<script>
-(function(){
-  const tip = document.getElementById('oa-tip');
-  let hideTimer;
-  document.addEventListener('mouseover', function(e){
-    const el = e.target.closest('abbr.oa');
-    if(!el) return;
-    clearTimeout(hideTimer);
-    const full = el.getAttribute('title') || el.getAttribute('data-title') || '';
-    const abbr = el.textContent;
-    tip.textContent = abbr + ': ' + full;
-    const r = el.getBoundingClientRect();
-    const tw = Math.min(260, tip.scrollWidth + 24);
-    let left = r.left + r.width/2 - tw/2;
-    left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
-    tip.style.left = left + 'px';
-    tip.style.top = (r.top - 8) + 'px';
-    tip.style.transform = 'translateY(-100%)';
-    tip.style.opacity = '1';
+<script>(function(){
+var AC={HFrEF:"Heart Failure with Reduced EF",HFpEF:"Heart Failure with Preserved EF",
+HFmrEF:"Heart Failure with Mildly Reduced EF",RAAS:"Renin-Angiotensin-Aldosterone System",
+ADH:"Antidiuretic Hormone",SNS:"Sympathetic Nervous System",
+ACEi:"Angiotensin-Converting Enzyme Inhibitor",ACE:"Angiotensin-Converting Enzyme",
+MRA:"Mineralocorticoid Receptor Antagonist",SGLT2:"Sodium-Glucose Cotransporter-2",
+BNP:"B-type Natriuretic Peptide",EF:"Ejection Fraction",LVEF:"Left Ventricular EF",
+LVEDP:"LV End-Diastolic Pressure",CRT:"Cardiac Resynchronisation Therapy",
+ICD:"Implantable Cardioverter Defibrillator",NYHA:"New York Heart Association",
+GTN:"Glyceryl Trinitrate",CPAP:"Continuous Positive Airway Pressure",
+JVP:"Jugular Venous Pressure",PND:"Paroxysmal Nocturnal Dyspnoea",
+AF:"Atrial Fibrillation",AKI:"Acute Kidney Injury",ECG:"Electrocardiogram",
+CXR:"Chest X-ray",LBBB:"Left Bundle Branch Block",LVH:"Left Ventricular Hypertrophy",
+ARNI:"Angiotensin Receptor-Neprilysin Inhibitor",
+CKD:"Chronic Kidney Disease",eGFR:"Estimated Glomerular Filtration Rate",
+SBP:"Systolic Blood Pressure",HR:"Heart Rate",CO:"Cardiac Output",
+LV:"Left Ventricle",RV:"Right Ventricle",MI:"Myocardial Infarction",
+ACS:"Acute Coronary Syndrome",STEMI:"ST-Elevation MI",NSTEMI:"Non-ST-Elevation MI",
+PE:"Pulmonary Embolism",DVT:"Deep Vein Thrombosis",HTN:"Hypertension",
+VT:"Ventricular Tachycardia",VF:"Ventricular Fibrillation",
+SVT:"Supraventricular Tachycardia",SCD:"Sudden Cardiac Death",
+ABI:"Ankle-Brachial Index",INR:"International Normalised Ratio",
+SpO2:"Peripheral Oxygen Saturation",NICE:"National Institute for Health and Care Excellence",
+DVLA:"Driver and Vehicle Licensing Agency",PPM:"Permanent Pacemaker",
+DOAC:"Direct Oral Anticoagulant",LMWH:"Low Molecular Weight Heparin"};
+var ABBRS=Object.keys(AC).sort(function(a,b){return b.length-a.length;});
+function applyToEl(root){
+  if(!root)return;
+  var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+    acceptNode:function(node){
+      var p=node.parentElement;
+      if(!p||p.tagName==="SCRIPT"||p.tagName==="STYLE"||p.tagName==="ABBR"||
+         p.tagName==="INPUT"||p.tagName==="TEXTAREA")return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
   });
-  document.addEventListener('mouseout', function(e){
-    if(!e.target.closest('abbr.oa')) return;
-    hideTimer = setTimeout(()=>{ tip.style.opacity='0'; }, 100);
+  var nodes=[],n;
+  while((n=walker.nextNode()))nodes.push(n);
+  nodes.forEach(function(tn){
+    var text=tn.textContent,html=text,changed=false;
+    ABBRS.forEach(function(abbr){
+      var re=new RegExp("(?<![A-Za-z])"+abbr.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(?![A-Za-z])","g");
+      if(re.test(html)){html=html.replace(re,"<abbr class=\"oa\" data-title=\""+AC[abbr]+"\">"+abbr+"</abbr>");changed=true;}
+    });
+    if(changed){var sp=document.createElement("span");sp.innerHTML=html;tn.parentNode.replaceChild(sp,tn);}
   });
-  // Mobile: tap to show
-  document.addEventListener('click', function(e){
-    const el = e.target.closest('abbr.oa');
-    if(!el) return;
-    e.preventDefault();
-    const full = el.getAttribute('title') || el.getAttribute('data-title') || '';
-    tip.textContent = el.textContent + ': ' + full;
-    const r = el.getBoundingClientRect();
-    let left = r.left + r.width/2 - 130;
-    left = Math.max(8, Math.min(left, window.innerWidth - 268));
-    tip.style.left = left + 'px';
-    tip.style.top = (r.top - 8) + 'px';
-    tip.style.transform = 'translateY(-100%)';
-    tip.style.opacity = '1';
-    clearTimeout(hideTimer);
-    hideTimer = setTimeout(()=>{ tip.style.opacity='0'; }, 2500);
-  });
-})();
-</script>
+}
+var tip=document.getElementById("oa-tip");
+var hideTimer;
+function showTip(el){
+  clearTimeout(hideTimer);
+  var full=el.getAttribute("data-title")||el.getAttribute("title")||"";
+  tip.textContent=el.textContent+": "+full;
+  var r=el.getBoundingClientRect();
+  var left=r.left+r.width/2-130;
+  left=Math.max(8,Math.min(left,window.innerWidth-268));
+  tip.style.cssText="left:"+left+"px;top:"+(r.top-8)+"px;transform:translateY(-100%);opacity:1;";
+}
+document.addEventListener("mouseover",function(e){var el=e.target.closest("abbr.oa");if(el)showTip(el);});
+document.addEventListener("mouseout",function(e){if(e.target.closest("abbr.oa"))hideTimer=setTimeout(function(){tip.style.opacity="0";},120);});
+document.addEventListener("click",function(e){
+  var el=e.target.closest("abbr.oa");
+  if(!el){return;}
+  e.preventDefault();showTip(el);clearTimeout(hideTimer);
+  hideTimer=setTimeout(function(){tip.style.opacity="0";},3000);
+});
+function hookGoToStage(){
+  if(typeof window.goToStage!=="function"){setTimeout(hookGoToStage,100);return;}
+  var orig=window.goToStage;
+  window.goToStage=function(stage,save){
+    var result=orig.call(this,stage,save);
+    setTimeout(function(){applyToEl(document.getElementById("modMain"));},700);
+    return result;
+  };
+  setTimeout(function(){applyToEl(document.getElementById("modMain"));},800);
+}
+hookGoToStage();
+})();</script>
 </body>
