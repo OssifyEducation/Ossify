@@ -1173,47 +1173,43 @@ function getMIPrompt(type,moduleTitle){
 
 // ── Main showMoreInfo ──────────────────────────────────────────────────────
 async function showMoreInfo(name,type,context,moduleTitle){
-  const ov=document.getElementById('mi-overlay');
-  const titleEl=document.getElementById('mi-title');
-  const badgeEl=document.getElementById('mi-badge');
-  const contentEl=document.getElementById('mi-content');
+  var ov=document.getElementById("mi-overlay");
+  var titleEl=document.getElementById("mi-title");
+  var badgeEl=document.getElementById("mi-badge");
+  var contentEl=document.getElementById("mi-content");
   titleEl.textContent=name;
   badgeEl.textContent=type;
-  badgeEl.style.background=type==='symptom'?'#ede9ff':type==='investigation'?'#e0f2fe':'#dcfce7';
-  badgeEl.style.color=type==='symptom'?'#7c3aed':type==='investigation'?'#0369a1':'#16a34a';
-  contentEl.innerHTML='<div class="mi-dots"><span class="mi-dot"></span><span class="mi-dot"></span><span class="mi-dot"></span><span style="margin-left:6px">Loading clinical detail…</span></div>';
-  ov.classList.add('open');
-
-  const userMsg='Card: '+name+'\nContext: '+(context||'In the module: '+moduleTitle);
+  badgeEl.style.background=type==="symptom"?"#ede9ff":type==="investigation"?"#e0f2fe":"#dcfce7";
+  badgeEl.style.color=type==="symptom"?"#7c3aed":type==="investigation"?"#0369a1":"#16a34a";
+  contentEl.innerHTML="<div class=\"mi-dots\"><span class=\"mi-dot\"></span><span class=\"mi-dot\"></span><span class=\"mi-dot\"></span><span style=\"margin-left:6px\">Loading clinical detail…</span></div>";
+  ov.classList.add("open");
   try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:900,
-        stream:true,
-        system:getMIPrompt(type,moduleTitle),
-        messages:[{role:'user',content:userMsg}]
-      })
+    var sess=null;
+    try{var r=await sb.auth.getSession();sess=r.data.session;}catch(e){}
+    var resp=await fetch("https://judtpdikbidvccclftvq.supabase.co/functions/v1/ai-more-info",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":"Bearer "+(sess&&sess.access_token||"")},
+      body:JSON.stringify({name:name,type:type,context:context,moduleTitle:moduleTitle})
     });
-    contentEl.innerHTML='';
-    let full='';
-    const reader=resp.body.getReader();
-    const dec=new TextDecoder();
+    contentEl.innerHTML="";
+    var full="";
+    var reader=resp.body.getReader();
+    var dec=new TextDecoder();
     while(true){
-      const {done,value}=await reader.read();
-      if(done)break;
-      for(const line of dec.decode(value).split('\n')){
-        if(!line.startsWith('data: '))continue;
-        const d=line.slice(6).trim();
-        if(d==='[DONE]')break;
-        try{const p=JSON.parse(d);const t=p.delta?.text||'';if(t){full+=t;contentEl.innerHTML=renderMImd(full);}}catch(e){}
+      var chunk=await reader.read();
+      if(chunk.done)break;
+      var lines=dec.decode(chunk.value).split("\n");
+      for(var li=0;li<lines.length;li++){
+        var line=lines[li];
+        if(!line.startsWith("data: "))continue;
+        var data=line.slice(6).trim();
+        if(data==="[DONE]")break;
+        try{var p=JSON.parse(data);var t=p.delta&&p.delta.text||"";if(t){full+=t;contentEl.innerHTML=renderMImd(full);}}catch(e){}
       }
     }
     contentEl.innerHTML=renderMImd(full);
-  }catch(e){
-    contentEl.innerHTML='<p style="color:#ef4444;font-size:14px">Could not load content. Check your connection and try again.</p>';
+  }catch(err){
+    contentEl.innerHTML="<p style=\"color:#ef4444;font-size:14px\">Could not load content. Please try again.</p>";
   }
 }
 
