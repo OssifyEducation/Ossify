@@ -363,22 +363,32 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
   .mech-node--open .mi-btn{display:inline-flex !important;}
 
 
-  .why-media-section{margin-top:28px;}
-  .why-section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin:0 0 12px;display:flex;align-items:center;gap:8px;}
-  .why-section-label svg{width:14px;height:14px;stroke:#7c3aed;fill:none;stroke-width:2;flex-shrink:0;}
-  .why-video-wrap{border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;width:100%;box-shadow:0 4px 24px rgba(124,58,237,.15);}
+
+
+  /* Why unified card */
+  .why-unified{background:#fff;border-radius:16px;border:1px solid #ede9ff;padding:28px 32px;box-shadow:0 2px 20px rgba(124,58,237,.08);display:flex;flex-direction:column;gap:24px;}
+  .why-text-body{font-size:15px;line-height:1.75;color:#2d1060;}
+  .why-text-body p{margin:0 0 14px;}
+  .why-text-body p:last-child{margin:0;}
+  .why-text-body p:first-child{font-weight:600;font-size:15.5px;border-left:3px solid #7c3aed;padding-left:14px;}
+  .why-media-row{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+  .why-video-col{flex:0 0 280px;max-width:100%;}
+  .why-video-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+  .why-video-label svg{width:11px;height:11px;stroke:#7c3aed;fill:none;stroke-width:2;}
+  .why-video-wrap{border-radius:10px;overflow:hidden;background:#000;aspect-ratio:16/9;width:100%;box-shadow:0 2px 12px rgba(0,0,0,.18);}
   .why-video-wrap iframe{width:100%;height:100%;border:0;display:block;}
-  .why-video-caption{font-size:12px;color:#9b88c0;margin-top:8px;text-align:center;}
-  .why-anatomy{background:#fff;border-radius:16px;border:1px solid #ede9ff;padding:20px 24px;box-shadow:0 2px 16px rgba(124,58,237,.08);}
-  .why-anatomy-inner{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
-  .why-anatomy-svg-wrap{flex:0 0 300px;max-width:100%;}
-  .why-anatomy-legend{flex:1;min-width:200px;}
-  .why-anatomy-legend h4{font-size:13px;font-weight:700;color:#2d1060;margin:0 0 12px;}
-  .anat-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer;border-radius:8px;padding:4px 6px;transition:background .15s;}
+  .why-video-caption{font-size:11px;color:#9b88c0;margin-top:6px;text-align:center;}
+  .why-anatomy-col{flex:1;min-width:260px;}
+  .why-anatomy-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+  .why-anatomy-label svg{width:11px;height:11px;stroke:#7c3aed;fill:none;stroke-width:2;}
+  .why-anatomy-inner{display:flex;gap:16px;align-items:flex-start;}
+  .why-anat-svg{flex:0 0 160px;}
+  .why-anat-legend{flex:1;}
+  .anat-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;cursor:pointer;border-radius:6px;padding:3px 5px;transition:background .15s;}
   .anat-item:hover,.anat-item.anat-active{background:#f5f0ff;}
-  .anat-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:3px;}
-  .anat-item-text strong{font-size:13px;font-weight:700;color:#2d1060;display:block;line-height:1.3;}
-  .anat-item-text span{font-size:12px;color:#6b7280;line-height:1.4;}
+  .anat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+  .anat-item-text strong{font-size:11.5px;font-weight:700;color:#2d1060;display:block;line-height:1.2;}
+  .anat-item-text span{font-size:11px;color:#6b7280;line-height:1.35;}
   .anat-item.anat-active .anat-item-text strong{color:#7c3aed;}
 
 </style>
@@ -604,37 +614,26 @@ async function goToStage(stage,save){
   if(save)await sb.from('user_module_progress').update({current_stage:stage,updated_at:new Date().toISOString()}).eq('user_id',myId).eq('module_id',moduleData.id);
 }
 
-function renderWhy(content){
-  const script=content.stage1_script||"";
-  if(!script)return"<p class=\"why-empty\">No content yet.</p>";
-  const ac={
-    HFrEF:"Heart Failure with Reduced Ejection Fraction",
-    HFpEF:"Heart Failure with Preserved Ejection Fraction",
-    HFmrEF:"Heart Failure with Mildly Reduced Ejection Fraction",
-    RAAS:"Renin-Angiotensin-Aldosterone System",
-    ADH:"Antidiuretic Hormone",SNS:"Sympathetic Nervous System",
-    ACEi:"Angiotensin-Converting Enzyme Inhibitor",
-    MRA:"Mineralocorticoid Receptor Antagonist",
-    SGLT2:"Sodium-Glucose Cotransporter-2",BNP:"B-type Natriuretic Peptide",
-    EF:"Ejection Fraction",LVEF:"Left Ventricular Ejection Fraction",
-    CRT:"Cardiac Resynchronisation Therapy",ICD:"Implantable Cardioverter Defibrillator",
-    NYHA:"New York Heart Association",GTN:"Glyceryl Trinitrate",
-    CPAP:"Continuous Positive Airway Pressure",JVP:"Jugular Venous Pressure",
-    PND:"Paroxysmal Nocturnal Dyspnoea",AF:"Atrial Fibrillation",
-    AKI:"Acute Kidney Injury",ECG:"Electrocardiogram",CXR:"Chest X-ray",
-    LBBB:"Left Bundle Branch Block",LVH:"Left Ventricular Hypertrophy",
-    ARNI:"Angiotensin Receptor-Neprilysin Inhibitor"
-  };
-  function tip(t){
-    for(const[a,f]of Object.entries(ac)){
-      t=t.replace(new RegExp("\\b"+a+"\\b","g"),
-        "<abbr class=\"oa\" title=\""+f+"\">"+a+"</abbr>");
-    }return t;
-  }
-  const ps=script.split("\n\n").filter(p=>p.trim());
-  return"<div class=\"why-body\">"+
-    ps.map((p,i)=>"<div class=\"why-card"+(i===0?" why-lead":"")+"\">"+"<p>"+tip(p.trim())+"</p>"+"</div>").join("")+
-  "</div>";
+function renderWhy(data){
+  var script=(data&&data.stage1_script)||'';
+  var ps=script.split(/\n\n+/).filter(function(p){return p.trim();});
+  var textHtml=ps.map(function(p){return'<p>'+p.trim()+'</p>';}).join('');
+  var anatSvg='<svg id="anat-svg" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg" style="width:100%"><rect width="180" height="200" fill="#faf9ff" rx="8"/><path d="M88 30 Q88 16 100 10 Q113 4 118 18 Q121 28 114 36" stroke="#dc2626" stroke-width="8" fill="none" stroke-linecap="round" class="anat-hl" data-anat="aorta"/><path d="M80 36 Q71 24 62 18 Q53 12 50 25" stroke="#6366f1" stroke-width="6" fill="none" stroke-linecap="round" class="anat-hl" data-anat="pulm"/><path d="M126 30 Q133 20 130 8" stroke="#3b82f6" stroke-width="5" fill="none" stroke-linecap="round" class="anat-hl" data-anat="svc"/><path d="M128 132 Q136 150 133 172" stroke="#3b82f6" stroke-width="5" fill="none" stroke-linecap="round" class="anat-hl" data-anat="ivc"/><ellipse cx="122" cy="76" rx="21" ry="29" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" class="anat-hl" data-anat="ra"/><ellipse cx="72" cy="64" rx="19" ry="24" fill="#fecaca" stroke="#dc2626" stroke-width="1.5" class="anat-hl" data-anat="la"/><path d="M96 98 Q133 104 136 136 Q136 160 118 166 Q104 170 96 152 Q90 142 96 98" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5" class="anat-hl" data-anat="rv"/><path d="M96 98 Q59 104 53 136 Q50 160 82 174 Q94 178 96 152 Q100 140 96 98" fill="#fca5a5" stroke="#dc2626" stroke-width="2" class="anat-hl" data-anat="lv"/><line x1="96" y1="98" x2="96" y2="154" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4,2" class="anat-hl" data-anat="ivs"/><ellipse cx="83" cy="98" rx="9" ry="4" fill="#f0abfc" stroke="#a855f7" stroke-width="1" class="anat-hl" data-anat="mitral"/><text x="122" y="74" text-anchor="middle" font-size="7" font-weight="700" fill="#1d4ed8">RA</text><text x="72" y="62" text-anchor="middle" font-size="7" font-weight="700" fill="#991b1b">LA</text><text x="120" y="138" text-anchor="middle" font-size="7" font-weight="700" fill="#1d4ed8">RV</text><text x="72" y="140" text-anchor="middle" font-size="7" font-weight="700" fill="#991b1b">LV</text><text x="83" y="91" text-anchor="middle" font-size="5" fill="#7e22ce">Mitral</text><text x="117" y="18" font-size="6" fill="#991b1b" font-weight="600">Aorta</text><text x="134" y="12" font-size="5" fill="#1d4ed8">SVC</text><text x="134" y="174" font-size="5" fill="#1d4ed8">IVC</text></svg>';
+  var anatLegend='<div class="anat-item" data-anat="lv"><div class="anat-dot" style="background:#fca5a5;border:1.5px solid #dc2626"></div><div class="anat-item-text"><strong>Left ventricle (LV)</strong><span>Main pump. EF&lt;40% = HFrEF.</span></div></div><div class="anat-item" data-anat="rv"><div class="anat-dot" style="background:#93c5fd;border:1.5px solid #3b82f6"></div><div class="anat-item-text"><strong>Right ventricle (RV)</strong><span>Fails with rising pulmonary pressure.</span></div></div><div class="anat-item" data-anat="la"><div class="anat-dot" style="background:#fecaca;border:1.5px solid #dc2626"></div><div class="anat-item-text"><strong>Left atrium (LA)</strong><span>Dilates as filling pressure rises.</span></div></div><div class="anat-item" data-anat="ra"><div class="anat-dot" style="background:#bfdbfe;border:1.5px solid #3b82f6"></div><div class="anat-item-text"><strong>Right atrium (RA)</strong><span>Raised pressure &#x2192; elevated JVP.</span></div></div><div class="anat-item" data-anat="mitral"><div class="anat-dot" style="background:#f0abfc;border:1.5px solid #a855f7"></div><div class="anat-item-text"><strong>Mitral valve</strong><span>LV dilatation &#x2192; secondary MR.</span></div></div><div class="anat-item" data-anat="aorta"><div class="anat-dot" style="background:#dc2626"></div><div class="anat-item-text"><strong>Aorta</strong><span>Low CO &#x2192; forward failure.</span></div></div><div class="anat-item" data-anat="ivs"><div class="anat-dot" style="background:#7c3aed"></div><div class="anat-item-text"><strong>Septum</strong><span>RV overload &#x2192; impairs LV filling.</span></div></div>';
+  return'<div class="why-unified">'+
+    '<div class="why-text-body">'+textHtml+'</div>'+
+    '<div class="why-media-row">'+
+      '<div class="why-video-col">'+
+        '<div class="why-video-label"><svg viewBox=\"0 0 24 24\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/></svg>Watch: Pathophysiology</div>'+
+        '<div class="why-video-wrap"><iframe src=\"https://www.youtube.com/embed/LgigPFmBZ8I?rel=0&modestbranding=1\" title=\"Heart Failure\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>'+
+        '<p class="why-video-caption">Pathophysiology of Heart Failure &#x2014; David Woodruff</p>'+
+      '</div>'+
+      '<div class="why-anatomy-col">'+
+        '<div class="why-anatomy-label"><svg viewBox=\"0 0 24 24\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/></svg>Anatomy</div>'+
+        '<div class="why-anatomy-inner"><div class="why-anat-svg">'+anatSvg+'</div><div class="why-anat-legend">'+anatLegend+'</div></div>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
 }
 
 function renderMechanism(c){
@@ -1320,34 +1319,31 @@ function addMIButtons(){
   };
 })();
 </script>
-<script id="why-media-js">
+
+<script id="why-anat-js">
 (function(){
-  function hookWhy(){
-    if(typeof goToStage!=='function'){setTimeout(hookWhy,300);return;}
-    var origGTS=goToStage;
+  function hookAnat(){
+    if(typeof goToStage!=='function'){setTimeout(hookAnat,300);return;}
+    var orig=goToStage;
     goToStage=function(stage,save){
-      var r=origGTS.call(this,stage,save);
+      var r=orig.call(this,stage,save);
       if(stage==='why'){
         setTimeout(function(){
-          var el=document.getElementById('why-content');
-          if(el&&!document.getElementById('why-video-section')){
-            el.insertAdjacentHTML('beforeend',"<div class=\"why-media-section\" id=\"why-video-section\"><div class=\"why-section-label\"><svg viewBox=\"0 0 24 24\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\" ry=\"2\"/></svg>Watch: Heart Failure Explained</div><div class=\"why-video-wrap\"><iframe src=\"https://www.youtube.com/embed/LgigPFmBZ8I?rel=0&modestbranding=1\" title=\"Heart Failure\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div><p class=\"why-video-caption\">Pathophysiology of Heart Failure &#x2014; clear visual walkthrough</p></div><div class=\"why-media-section\" id=\"why-anatomy-section\"><div class=\"why-section-label\"><svg viewBox=\"0 0 24 24\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/></svg>Anatomy: The Failing Heart</div><div class=\"why-anatomy\"><div class=\"why-anatomy-inner\"><div class=\"why-anatomy-svg-wrap\"><svg id=\"anat-svg\" viewBox=\"0 0 300 320\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%\"><rect width=\"300\" height=\"320\" fill=\"#faf9ff\" rx=\"12\"/><path d=\"M145 48 Q145 26 165 16 Q185 6 195 28 Q200 44 188 56\" stroke=\"#dc2626\" stroke-width=\"13\" fill=\"none\" stroke-linecap=\"round\" class=\"anat-hl\" data-anat=\"aorta\"/><path d=\"M133 58 Q118 38 103 29 Q88 19 84 40\" stroke=\"#6366f1\" stroke-width=\"9\" fill=\"none\" stroke-linecap=\"round\" class=\"anat-hl\" data-anat=\"pulm\"/><path d=\"M210 48 Q221 32 216 12\" stroke=\"#3b82f6\" stroke-width=\"8\" fill=\"none\" stroke-linecap=\"round\" class=\"anat-hl\" data-anat=\"svc\"/><path d=\"M213 208 Q226 238 221 272\" stroke=\"#3b82f6\" stroke-width=\"8\" fill=\"none\" stroke-linecap=\"round\" class=\"anat-hl\" data-anat=\"ivc\"/><ellipse cx=\"202\" cy=\"120\" rx=\"34\" ry=\"45\" fill=\"#bfdbfe\" stroke=\"#3b82f6\" stroke-width=\"2\" class=\"anat-hl\" data-anat=\"ra\"/><ellipse cx=\"118\" cy=\"100\" rx=\"30\" ry=\"37\" fill=\"#fecaca\" stroke=\"#dc2626\" stroke-width=\"2\" class=\"anat-hl\" data-anat=\"la\"/><path d=\"M160 155 Q222 165 227 218 Q227 256 195 266 Q172 271 160 246 Q150 230 160 155\" fill=\"#93c5fd\" stroke=\"#3b82f6\" stroke-width=\"2\" class=\"anat-hl\" data-anat=\"rv\"/><path d=\"M160 155 Q98 165 88 218 Q83 260 136 278 Q155 284 160 246 Q165 228 160 155\" fill=\"#fca5a5\" stroke=\"#dc2626\" stroke-width=\"2.5\" class=\"anat-hl\" data-anat=\"lv\"/><line x1=\"160\" y1=\"155\" x2=\"160\" y2=\"248\" stroke=\"#7c3aed\" stroke-width=\"2.5\" stroke-dasharray=\"5,3\" class=\"anat-hl\" data-anat=\"ivs\"/><ellipse cx=\"138\" cy=\"155\" rx=\"13\" ry=\"5\" fill=\"#f0abfc\" stroke=\"#a855f7\" stroke-width=\"1.5\" class=\"anat-hl\" data-anat=\"mitral\"/><ellipse cx=\"180\" cy=\"157\" rx=\"13\" ry=\"5\" fill=\"#bae6fd\" stroke=\"#0284c7\" stroke-width=\"1.5\" class=\"anat-hl\" data-anat=\"tricusp\"/><text x=\"202\" y=\"118\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"#1d4ed8\">RA</text><text x=\"118\" y=\"98\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"#991b1b\">LA</text><text x=\"198\" y=\"218\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"#1d4ed8\">RV</text><text x=\"122\" y=\"222\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"#991b1b\">LV</text><text x=\"138\" y=\"146\" text-anchor=\"middle\" font-size=\"7\" fill=\"#7e22ce\">Mitral</text><text x=\"180\" y=\"147\" text-anchor=\"middle\" font-size=\"7\" fill=\"#0369a1\">Tricuspid</text><text x=\"190\" y=\"44\" font-size=\"8\" fill=\"#991b1b\" font-weight=\"600\">Aorta</text><text x=\"74\" y=\"36\" font-size=\"8\" fill=\"#4338ca\">Pulm.</text><text x=\"222\" y=\"22\" font-size=\"7\" fill=\"#1d4ed8\">SVC</text><text x=\"222\" y=\"278\" font-size=\"7\" fill=\"#1d4ed8\">IVC</text></svg></div><div class=\"why-anatomy-legend\"><h4>Key structures in heart failure</h4><div class=\"anat-item\" data-anat=\"lv\"><div class=\"anat-dot\" style=\"background:#fca5a5;border:2px solid #dc2626\"></div><div class=\"anat-item-text\"><strong>Left ventricle (LV)</strong><span>Primary pump &#x2014; site of failure in most HF. EF &lt;40% = HFrEF.</span></div></div><div class=\"anat-item\" data-anat=\"rv\"><div class=\"anat-dot\" style=\"background:#93c5fd;border:2px solid #3b82f6\"></div><div class=\"anat-item-text\"><strong>Right ventricle (RV)</strong><span>Fails when pulmonary pressure rises secondary to LV failure.</span></div></div><div class=\"anat-item\" data-anat=\"la\"><div class=\"anat-dot\" style=\"background:#fecaca;border:2px solid #dc2626\"></div><div class=\"anat-item-text\"><strong>Left atrium (LA)</strong><span>Dilates as filling pressure rises &#x2014; size reflects chronicity of diastolic dysfunction.</span></div></div><div class=\"anat-item\" data-anat=\"ra\"><div class=\"anat-dot\" style=\"background:#bfdbfe;border:2px solid #3b82f6\"></div><div class=\"anat-item-text\"><strong>Right atrium (RA)</strong><span>Pressure rises in RV failure &#x2192; elevated JVP and systemic congestion.</span></div></div><div class=\"anat-item\" data-anat=\"mitral\"><div class=\"anat-dot\" style=\"background:#f0abfc;border:2px solid #a855f7\"></div><div class=\"anat-item-text\"><strong>Mitral valve</strong><span>LV dilatation &#x2192; annular stretch &#x2192; secondary mitral regurgitation.</span></div></div><div class=\"anat-item\" data-anat=\"aorta\"><div class=\"anat-dot\" style=\"background:#dc2626\"></div><div class=\"anat-item-text\"><strong>Aorta</strong><span>Low CO &#x2192; hypotension, cool peripheries, oliguria (forward failure).</span></div></div><div class=\"anat-item\" data-anat=\"ivs\"><div class=\"anat-dot\" style=\"background:#7c3aed\"></div><div class=\"anat-item-text\"><strong>Interventricular septum</strong><span>RV overload &#x2192; paradoxical motion &#x2192; impairs LV filling.</span></div></div></div></div></div></div>");
-            var items=el.querySelectorAll('.anat-item');
-            var svgEls=el.querySelectorAll('#anat-svg .anat-hl');
-            function hl(id){
-              items.forEach(function(i){i.classList.toggle('anat-active',!!id&&i.dataset.anat===id);});
-              svgEls.forEach(function(e){e.style.opacity=(!id||e.dataset.anat===id)?'1':'0.3';e.style.filter=e.dataset.anat===id?'drop-shadow(0 0 5px rgba(124,58,237,.7))':'';});
-            }
-            items.forEach(function(i){i.addEventListener('mouseenter',function(){hl(i.dataset.anat);});i.addEventListener('mouseleave',function(){hl('');});});
-            svgEls.forEach(function(e){e.addEventListener('mouseenter',function(){hl(e.dataset.anat);});e.addEventListener('mouseleave',function(){hl('');});});
+          var items=document.querySelectorAll('#why-content .anat-item');
+          var svgEls=document.querySelectorAll('#anat-svg .anat-hl');
+          function hl(id){
+            items.forEach(function(i){i.classList.toggle('anat-active',!!id&&i.dataset.anat===id);});
+            svgEls.forEach(function(e){e.style.opacity=(!id||e.dataset.anat===id)?'1':'0.25';e.style.filter=e.dataset.anat===id?'drop-shadow(0 0 4px rgba(124,58,237,.8))':'';});
           }
-        },500);
+          items.forEach(function(i){i.addEventListener('mouseenter',function(){hl(i.dataset.anat);});i.addEventListener('mouseleave',function(){hl('');});});
+          svgEls.forEach(function(e){e.addEventListener('mouseenter',function(){hl(e.dataset.anat);});e.addEventListener('mouseleave',function(){hl('');});});
+        },600);
       }
       return r;
     };
     window.goToStage=goToStage;
   }
-  hookWhy();
+  hookAnat();
 })();
 </script>
 </body>
