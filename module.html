@@ -394,6 +394,19 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
   .why-video-caption{font-size:11.5px;color:#9b88c0;margin-top:7px;text-align:center;}
   @media(max-width:640px){.why-figure{float:none;width:100%;margin:0 0 20px 0;}}
 
+
+  .rc-reveal-wrap{margin-top:16px;}
+  .rc-your-response{background:#ede9fe;border-radius:10px;padding:12px 16px;margin-bottom:14px;}
+  .rc-your-response-label{font-size:10px;font-weight:800;letter-spacing:1px;color:#7c5cbf;margin-bottom:6px;text-transform:uppercase;}
+  .rc-your-response-text{font-size:13px;color:#4c3a8f;line-height:1.6;}
+  .rc-model-section{margin-bottom:0;}
+  .rc-model-label{font-size:10px;font-weight:800;letter-spacing:1px;color:#047857;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .rc-model-label svg{width:13px;height:13px;stroke:#047857;fill:none;stroke-width:2.5;}
+  .rc-answer-card{background:#fff;border:1px solid #d1fae5;border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+  .rc-answer-card:last-child{margin-bottom:0;}
+  .rc-answer-prompt{font-size:11px;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;border-bottom:1px solid #d1fae5;padding-bottom:6px;}
+  .rc-answer-text{font-size:13px;color:#1f2937;line-height:1.7;white-space:pre-wrap;}
+
 </style>
 </head>
 <body>
@@ -982,15 +995,40 @@ function commitRCBlock(){
   rcResponses.push({block_index:rcBlockIdx,response});
   if(input)input.disabled=true;
   const btn=document.querySelector('#rcBlock-'+rcBlockIdx+' .reasoning-commit-btn');
-  if(btn)btn.disabled=true;
-  const rev=document.getElementById('rcReveal-'+rcBlockIdx);
-  if(rev&&b.reveal){
-    rev.className='reasoning-reveal shown';
-    rev.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div style="padding:12px 14px;background:#ede9fe;border-radius:10px"><div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#7c5cbf;margin-bottom:6px">YOUR RESPONSE</div><p style="font-size:13px;color:#7b6fa0;line-height:1.6">'+(response||'<em>No response entered</em>')+'</p></div><div style="padding:12px 14px;background:#e2f4e2;border-radius:10px"><div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1a5a2a;margin-bottom:6px">MODEL REASONING</div><p style="font-size:13px;color:#1a5a2a;line-height:1.6">'+b.reveal+'</p></div></div>';
+  if(btn)btn.style.display='none';
+  // Build reveal HTML
+  const revealEl=document.getElementById('rcBlock-'+rcBlockIdx).querySelector('.reasoning-reveal');
+  if(!revealEl)return;
+  let html='<div class="rc-reveal-wrap">';
+  // Your response
+  html+='<div class="rc-your-response"><div class="rc-your-response-label">Your response</div>';
+  html+='<div class="rc-your-response-text">'+(response||'<em style="color:#9b88c0">No response entered</em>')+'</div></div>';
+  // Model answers
+  const modelR=b.model_reasoning;
+  if(modelR&&modelR.length){
+    html+='<div class="rc-model-section"><div class="rc-model-label"><svg viewBox=\"0 0 24 24\"><path d=\"M9 12l2 2 4-4\"/><path d=\"M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z\"/></svg>Model answer</div>';
+    for(const item of modelR){
+      html+='<div class="rc-answer-card">';
+      html+='<div class="rc-answer-prompt">'+item.prompt+'</div>';
+      html+='<div class="rc-answer-text">'+item.answer.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';
+      html+='</div>';
+    }
+    html+='</div>';
   }
+  html+='</div>';
+  revealEl.innerHTML=html;
+  // Advance to next block
   rcBlockIdx++;
-  if(rcBlockIdx>=rcBlocks.length)setTimeout(showRCComplete,600);
-  else setTimeout(renderRCBlock,600);
+  if(rcBlockIdx<rcBlocks.length){
+    setTimeout(function(){
+      const next=document.getElementById('rcBlock-'+rcBlockIdx);
+      if(next){next.style.display='';next.scrollIntoView({behavior:'smooth',block:'start'});}
+    },300);
+  } else {
+    // All done
+    const doneEl=document.getElementById('rcDone');
+    if(doneEl){doneEl.style.display='';doneEl.scrollIntoView({behavior:'smooth'});}
+  }
 }
 
 function showRCComplete(){
