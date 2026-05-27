@@ -965,7 +965,7 @@ function renderReasoningCase(c){
       reveal=Object.entries(mr).filter(([k])=>k!=='ongoing').map(([k,v])=>'<strong style="color:#3d1f7a">'+k+':</strong> '+v).join('<br><br>');
       if(mr.ongoing)reveal+='<br><br><strong style="color:#1a5a2a">Ongoing management:</strong><br>'+mr.ongoing.map(s=>'ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¢ '+s).join('<br>');
     }
-    return {label:b.title||b.label||('Block '+b.block),vignette:b.content||b.vignette||'',question:Array.isArray(b.prompts)?b.prompts.join('<br><br>'):(b.question||''),reveal:reveal};
+    return {label:b.title||b.label||('Block '+b.block),vignette:b.content||b.vignette||'',question:Array.isArray(b.prompts)?b.prompts.join('<br><br>'):(b.question||''),reveal:reveal,rawModel:Array.isArray(b.model_reasoning)?b.model_reasoning:null};
   });
   rcBlockIdx=0;rcResponses=[];
   el.innerHTML='<div class="reasoning-intro"><div class="reasoning-intro-tag">Stage 5 \u2014 Reasoning Case</div><h3>'+(vignette.title||'Clinical Vignette')+'</h3><p>Work through block by block. Commit to your reasoning before each reveal.</p></div><div id="rcBlocks"></div><div id="rcComplete"></div>';
@@ -1004,7 +1004,7 @@ function commitRCBlock(){
   html+='<div class="rc-your-response"><div class="rc-your-response-label">Your response</div>';
   html+='<div class="rc-your-response-text">'+(response||'<em style="color:#9b88c0">No response entered</em>')+'</div></div>';
   // Model answers
-  const modelR=b.model_reasoning;
+  const modelR=b.rawModel;
   if(modelR&&modelR.length){
     html+='<div class="rc-model-section"><div class="rc-model-label"><svg viewBox=\"0 0 24 24\"><path d=\"M9 12l2 2 4-4\"/><path d=\"M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z\"/></svg>Model answer</div>';
     for(const item of modelR){
