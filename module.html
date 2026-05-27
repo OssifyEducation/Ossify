@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Module ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Ossify</title>
+<title>Module \u2014 Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
@@ -708,7 +708,7 @@ function renderMechanism(c){
       +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">'
       +'<span style="width:22px;height:22px;border-radius:6px;background:'+col+'22;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><span style="width:8px;height:8px;border-radius:50%;background:'+col+'"></span></span>'
       +'<span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:'+col+'">'+pw.replace('_',' ')+'</span>'
-      +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10.5px;color:#7b6fa0;margin-left:2px">ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ green badge = direct clinical relevance</span>':'')
+      +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10.5px;color:#7b6fa0;margin-left:2px">\u2014 green badge = direct clinical relevance</span>':'')
       +'</div>'
       +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">'+t+'</div>'
       +'</div>';
@@ -801,11 +801,11 @@ function renderClinical(c){
   if(Object.keys(mgmt).length){
     const mgtTiles=[];
     (mgmt.hfref_steps||mgmt.steps||[]).forEach((s,i)=>{
-      const detail=(s.examples||s.detail||'')+(s.mechanism?' ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ <em>'+s.mechanism+'</em>':'')+(s.monitoring||s.escalation?'<br><strong>Monitor:</strong> '+(s.monitoring||s.escalation):'');
+      const detail=(s.examples||s.detail||'')+(s.mechanism?' \u2014 <em>'+s.mechanism+'</em>':'')+(s.monitoring||s.escalation?'<br><strong>Monitor:</strong> '+(s.monitoring||s.escalation):'');
       mgtTiles.push(clinTile('step'+i,s.drug_class||s.action||s.phase||('Step '+(i+1)),'Step '+(i+1),'#6366f1','#e0e7ff',detail));
     });
     (mgmt.symptom_relief||[]).forEach((s,i)=>{
-      mgtTiles.push(clinTile('sr'+i,s.drug||s.action||'Symptom relief','Symptom relief','#94a3b8','#f1f5f9',(s.examples||'')+(s.note?' ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ <em>'+s.note+'</em>':'')));
+      mgtTiles.push(clinTile('sr'+i,s.drug||s.action||'Symptom relief','Symptom relief','#94a3b8','#f1f5f9',(s.examples||'')+(s.note?' \u2014 <em>'+s.note+'</em>':'')));
     });
     (mgmt.devices||[]).forEach((d,i)=>{
       mgtTiles.push(clinTile('dev'+i,d.device,'Device','#d97706','#fef3c7',d.criteria));
@@ -845,7 +845,7 @@ function renderTestYourself(c){
       return {stem:q.q,opts:opts,correct_idx:q.ans||0,explanation:q.em||'',why:q.why||[],rem:q.rem||''};
     });
   } else testQuestions=[];
-  el.innerHTML='<div style="background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:12px;padding:16px 20px;margin-bottom:14px"><strong style="color:#3d1f7a">Test Yourself</strong> ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ '+testQuestions.length+' questions</div><div id="testQContainer"></div>';
+  el.innerHTML='<div style="background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:12px;padding:16px 20px;margin-bottom:14px"><strong style="color:#3d1f7a">Test Yourself</strong> \u2014 '+testQuestions.length+' questions</div><div id="testQContainer"></div>';
   if(!testQuestions.length){document.getElementById('testQContainer').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Questions coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="test_yourself" onclick="completeStage(this.dataset.cs)">Continue to Reasoning Case</button></div>';return;}
   renderTestQ();
 }
@@ -898,7 +898,7 @@ function renderReasoningCase(c){
     return {label:b.title||b.label||('Block '+b.block),vignette:b.content||b.vignette||'',question:Array.isArray(b.prompts)?b.prompts.join('<br><br>'):(b.question||''),reveal:reveal};
   });
   rcBlockIdx=0;rcResponses=[];
-  el.innerHTML='<div class="reasoning-intro"><div class="reasoning-intro-tag">Stage 5 ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Reasoning Case</div><h3>'+(vignette.title||'Clinical Vignette')+'</h3><p>Work through block by block. Commit to your reasoning before each reveal.</p></div><div id="rcBlocks"></div><div id="rcComplete"></div>';
+  el.innerHTML='<div class="reasoning-intro"><div class="reasoning-intro-tag">Stage 5 \u2014 Reasoning Case</div><h3>'+(vignette.title||'Clinical Vignette')+'</h3><p>Work through block by block. Commit to your reasoning before each reveal.</p></div><div id="rcBlocks"></div><div id="rcComplete"></div>';
   if(!rcBlocks.length){document.getElementById('rcComplete').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Reasoning case coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="reasoning_case" onclick="completeStage(this.dataset.cs)">Complete module</button></div>';return;}
   renderRCBlock();
 }
@@ -962,7 +962,7 @@ async function completeStage(stage){
 
 function showCompleteBanner(){
   const mm=document.getElementById('modMain');
-  if(mm)mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Module complete ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ</h3><p>'+moduleData.title+' ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ all 5 stages done.</p><div class="mod-complete-actions"><a href="domains.html" class="btn-ghost-dk">Browse Domains</a><a href="course.html" class="btn-ghost-dk">Back to Course</a></div></div>');
+  if(mm)mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Module complete ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ</h3><p>'+moduleData.title+' \u2014 all 5 stages done.</p><div class="mod-complete-actions"><a href="domains.html" class="btn-ghost-dk">Browse Domains</a><a href="course.html" class="btn-ghost-dk">Back to Course</a></div></div>');
 }
 
 function showError(msg){
@@ -972,54 +972,54 @@ function showError(msg){
 
 
 const ACRONYMS={
-  'CO':'Cardiac output ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ volume of blood pumped per minute (HR ÃÂÃÂÃÂÃÂ stroke volume)',
-  'EF':'Ejection fraction ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ % of end-diastolic volume ejected per beat',
-  'HR':'Heart rate ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ beats per minute',
-  'SV':'Stroke volume ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ volume ejected per beat',
-  'LVEDP':'Left ventricular end-diastolic pressure ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ index of LV filling pressure',
-  'LVEDD':'Left ventricular end-diastolic dimension ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ marker of LV dilatation',
+  'CO':'Cardiac output \u2014 volume of blood pumped per minute (HR ÃÂÃÂÃÂÃÂ stroke volume)',
+  'EF':'Ejection fraction \u2014 % of end-diastolic volume ejected per beat',
+  'HR':'Heart rate \u2014 beats per minute',
+  'SV':'Stroke volume \u2014 volume ejected per beat',
+  'LVEDP':'Left ventricular end-diastolic pressure \u2014 index of LV filling pressure',
+  'LVEDD':'Left ventricular end-diastolic dimension \u2014 marker of LV dilatation',
   'LVEF':'Left ventricular ejection fraction',
   'RVSP':'Right ventricular systolic pressure',
-  'JVP':'Jugular venous pressure ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ bedside marker of right-heart filling pressure',
+  'JVP':'Jugular venous pressure \u2014 bedside marker of right-heart filling pressure',
   'SBP':'Systolic blood pressure',
   'HF':'Heart failure',
   'HFrEF':'Heart Failure with reduced Ejection Fraction (EF <40%)',
   'HFpEF':'Heart Failure with preserved Ejection Fraction (EF ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¥50%)',
   'HFmrEF':'Heart Failure with mildly reduced Ejection Fraction (EF 40ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ49%)',
   'ADHF':'Acute decompensated heart failure',
-  'PND':'Paroxysmal nocturnal dyspnoea ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ waking breathless 1ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ2 hours after sleep due to fluid redistribution',
-  'BNP':'B-type natriuretic peptide ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ released by ventricular myocytes under wall stress; raised in HF',
-  'NT-proBNP':'N-terminal pro-BNP ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ inactive fragment with longer half-life than BNP',
+  'PND':'Paroxysmal nocturnal dyspnoea \u2014 waking breathless 1ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ2 hours after sleep due to fluid redistribution',
+  'BNP':'B-type natriuretic peptide \u2014 released by ventricular myocytes under wall stress; raised in HF',
+  'NT-proBNP':'N-terminal pro-BNP \u2014 inactive fragment with longer half-life than BNP',
   'ECG':'Electrocardiogram',
   'CXR':'Chest X-ray',
-  'CTR':'Cardiothoracic ratio ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ cardiac width / thoracic width; >0.5 = cardiomegaly',
-  'eGFR':'Estimated glomerular filtration rate ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ measure of renal function',
+  'CTR':'Cardiothoracic ratio \u2014 cardiac width / thoracic width; >0.5 = cardiomegaly',
+  'eGFR':'Estimated glomerular filtration rate \u2014 measure of renal function',
   'AKI':'Acute kidney injury',
   'ULN':'Upper limit of normal',
-  'RAAS':'Renin-angiotensin-aldosterone system ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ activated in low-output states to retain salt and water',
-  'SNS':'Sympathetic nervous system ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ activated in HF, causing tachycardia and vasoconstriction',
-  'ADH':'Antidiuretic hormone (vasopressin) ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ causes water retention',
+  'RAAS':'Renin-angiotensin-aldosterone system \u2014 activated in low-output states to retain salt and water',
+  'SNS':'Sympathetic nervous system \u2014 activated in HF, causing tachycardia and vasoconstriction',
+  'ADH':'Antidiuretic hormone (vasopressin) \u2014 causes water retention',
   'ACE':'Angiotensin-converting enzyme',
-  'ACEi':'ACE inhibitor (e.g. ramipril) ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ blocks angiotensin II; reduces preload, afterload, and fibrosis',
-  'ARB':'Angiotensin receptor blocker (e.g. losartan) ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ blocks angiotensin II receptor',
-  'ARNI':'Angiotensin receptor-neprilysin inhibitor ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ sacubitril/valsartan; replaces ACEi in symptomatic HFrEF',
-  'MRA':'Mineralocorticoid receptor antagonist (e.g. spironolactone) ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ blocks aldosterone',
-  'SGLT2i':'SGLT2 inhibitor (e.g. dapagliflozin) ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ reduces volume overload; direct cardiac benefit regardless of diabetes',
-  'GTN':'Glyceryl trinitrate ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ venodilator; reduces preload; use if SBP >100',
-  'LMWH':'Low molecular weight heparin ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ anticoagulant',
-  'ISDN':'Isosorbide dinitrate ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ nitrate vasodilator',
-  'CPAP':'Continuous positive airway pressure ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ non-invasive ventilation for acute pulmonary oedema',
-  'CRT':'Cardiac resynchronisation therapy ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ biventricular pacing for dyssynchrony (LBBB + low EF)',
-  'ICD':'Implantable cardioverter-defibrillator ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ prevents sudden cardiac death in low EF',
-  'AF':'Atrial fibrillation ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ most common arrhythmia in HF; causes irregularly irregular pulse',
-  'LBBB':'Left bundle branch block ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ QRS ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¥120ms with specific morphology; required for CRT eligibility',
+  'ACEi':'ACE inhibitor (e.g. ramipril) \u2014 blocks angiotensin II; reduces preload, afterload, and fibrosis',
+  'ARB':'Angiotensin receptor blocker (e.g. losartan) \u2014 blocks angiotensin II receptor',
+  'ARNI':'Angiotensin receptor-neprilysin inhibitor \u2014 sacubitril/valsartan; replaces ACEi in symptomatic HFrEF',
+  'MRA':'Mineralocorticoid receptor antagonist (e.g. spironolactone) \u2014 blocks aldosterone',
+  'SGLT2i':'SGLT2 inhibitor (e.g. dapagliflozin) \u2014 reduces volume overload; direct cardiac benefit regardless of diabetes',
+  'GTN':'Glyceryl trinitrate \u2014 venodilator; reduces preload; use if SBP >100',
+  'LMWH':'Low molecular weight heparin \u2014 anticoagulant',
+  'ISDN':'Isosorbide dinitrate \u2014 nitrate vasodilator',
+  'CPAP':'Continuous positive airway pressure \u2014 non-invasive ventilation for acute pulmonary oedema',
+  'CRT':'Cardiac resynchronisation therapy \u2014 biventricular pacing for dyssynchrony (LBBB + low EF)',
+  'ICD':'Implantable cardioverter-defibrillator \u2014 prevents sudden cardiac death in low EF',
+  'AF':'Atrial fibrillation \u2014 most common arrhythmia in HF; causes irregularly irregular pulse',
+  'LBBB':'Left bundle branch block \u2014 QRS ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¥120ms with specific morphology; required for CRT eligibility',
   'LVH':'Left ventricular hypertrophy',
-  'SCD':'Sudden cardiac death ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ often ventricular arrhythmia; prevented by ICD',
-  'NYHA':'New York Heart Association class (IÃÂÃÂ¢ÃÂÃÂÃÂÃÂIV) ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ grades exercise limitation in heart failure',
-  'HTN':'Hypertension ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ major risk factor for HF',
+  'SCD':'Sudden cardiac death \u2014 often ventricular arrhythmia; prevented by ICD',
+  'NYHA':'New York Heart Association class (IÃÂÃÂ¢ÃÂÃÂÃÂÃÂIV) \u2014 grades exercise limitation in heart failure',
+  'HTN':'Hypertension \u2014 major risk factor for HF',
   'ACS':'Acute coronary syndrome',
-  'WMA':'Wall motion abnormality ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ regional = ischaemic cause; global = non-ischaemic (e.g. cardiomyopathy)',
-  'MR':'Mitral regurgitation ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ backflow through mitral valve; common in dilated HF',
+  'WMA':'Wall motion abnormality \u2014 regional = ischaemic cause; global = non-ischaemic (e.g. cardiomyopathy)',
+  'MR':'Mitral regurgitation \u2014 backflow through mitral valve; common in dilated HF',
   'RV':'Right ventricle',
   'LV':'Left ventricle',
   'LA':'Left atrium',
@@ -1027,7 +1027,7 @@ const ACRONYMS={
   'LVEDP':'Left ventricular end-diastolic pressure',
   'GFR':'Glomerular filtration rate',
   'TFTs':'Thyroid function tests',
-  'LFTs':'Liver function tests ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ often deranged in congestive hepatopathy',
+  'LFTs':'Liver function tests \u2014 often deranged in congestive hepatopathy',
   'FBC':'Full blood count',
   'IV':'Intravenous',
 };
@@ -1177,7 +1177,7 @@ function renderMImd(text){
 
 // ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ System prompts by card type ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
 function getMIPrompt(type,moduleTitle){
-  const base='You are a clinical educator writing structured "More Info" revision cards for UK medical students and junior doctors. The student is revising: '+moduleTitle+'. Be concise ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ one line per bullet. UK/NICE practice. Use these exact section headers.';
+  const base='You are a clinical educator writing structured "More Info" revision cards for UK medical students and junior doctors. The student is revising: '+moduleTitle+'. Be concise \u2014 one line per bullet. UK/NICE practice. Use these exact section headers.';
   if(type==='symptom')return base+'\n\nFormat:\n### Definition\n### Why it occurs\n### Typical presentation\n### Associated findings\n### Red flags\nÃÂÃÂ\u00b0ÃÂÃÂÃÂÃÂÃÂÃÂ´ [each flag on own line]\n### Key differentials\n### Clinical pearl\nÃÂÃÂ\u00b0ÃÂÃÂÃÂÃÂÃÂÃÂ¡ [one key exam fact]';
   if(type==='investigation')return base+'\n\nFormat:\n### Purpose\n### When to order\n### What it assesses\n### Key findings & thresholds\n### Interpretation\n### False positives/negatives\n### Limitations\n### How results change management\n### Clinical pearl\nÃÂÃÂ\u00b0ÃÂÃÂÃÂÃÂÃÂÃÂ¡ [one key exam fact]';
   return base+'\n\nFormat:\n### Role in management\n### Mechanism\n### Indications\n### Key evidence/benefits\n### Dosing & titration (UK)\n### Monitoring\n### Contraindications\n### Key side effects\n### If not tolerated\n### Clinical pearl\nÃÂÃÂ\u00b0ÃÂÃÂÃÂÃÂÃÂÃÂ¡ [one key exam fact]';
