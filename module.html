@@ -1329,6 +1329,13 @@ function addMIButtons(){
       var r=orig.call(this,stage,save);
       if(stage==='why'){
         setTimeout(function(){
+          // Fix abbr bleed: remove stray \">TEXT" text nodes
+          (document.getElementById('why-content')||document.body).querySelectorAll('.why-text-body p').forEach(function(p){
+            var walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT);
+            var toFix=[];
+            while(walker.nextNode()){if(walker.currentNode.textContent.includes('">')){toFix.push(walker.currentNode);}}
+            toFix.forEach(function(n){n.textContent=n.textContent.replace(/\">[^\s]+/g,'');});
+          });
           var items=document.querySelectorAll('#why-content .anat-item');
           var svgEls=document.querySelectorAll('#anat-svg .anat-hl');
           function hl(id){
