@@ -1328,7 +1328,7 @@ function addMIButtons(){
           var hint=document.createElement('div');
           hint.className='card-hint';
           hint.style.marginTop='16px';
-          hint.innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Click any node card to expand it, then tap <strong>More info</strong> for an in-depth explanation';
+          hint.innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Click any card to expand it, then tap <strong>More info</strong> for detailed clinical notes';
           var nodeSection=mechContent.querySelector('.mech-grid,.mech-nodes,[class*=mech-node]');
           var insertBefore=nodeSection||(mechContent.children[mechContent.children.length-1]);
           if(insertBefore&&insertBefore.parentNode===mechContent){
