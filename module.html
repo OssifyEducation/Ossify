@@ -969,7 +969,7 @@ function renderReasoningCase(c){
   });
   rcBlockIdx=0;rcResponses=[];
   el.innerHTML='<div class="reasoning-intro"><div class="reasoning-intro-tag">Stage 5 \u2014 Reasoning Case</div><h3>'+(vignette.title||'Clinical Vignette')+'</h3><p>Work through block by block. Commit to your reasoning before each reveal.</p></div><div id="rcBlocks"></div><div id="rcComplete"></div>';
-  if(!rcBlocks.length){document.getElementById('rcComplete').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Reasoning case coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="reasoning_case" onclick="completeStage(this.dataset.cs)">Complete module</button></div>';return;}
+  if(!_rcBlocksData.length){document.getElementById('rcComplete').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Reasoning case coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="reasoning_case" onclick="completeStage(this.dataset.cs)">Complete module</button></div>';return;}
   renderRCBlock();
 }
 
@@ -989,7 +989,7 @@ function renderRCBlock(){
 }
 
 function commitRCBlock(){
-  const b=rcBlocks[rcBlockIdx];
+  const b=_rcBlocksData[rcBlockIdx];
   const input=document.getElementById('rcInput-'+rcBlockIdx);
   const response=input?input.value.trim():'';
   rcResponses.push({block_index:rcBlockIdx,response});
