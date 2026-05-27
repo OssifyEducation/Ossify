@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Module Ã¢ÂÂ Ossify</title>
+<title>Module ÃÂ¢ÃÂÃÂ Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
@@ -350,6 +350,15 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
   .mi-btn:hover{background:#ede9ff;border-color:#7c3aed;transform:translateY(-1px);}
   .mi-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0;}
 
+
+  /* More info btn: hidden until card is expanded */
+  .mi-btn{display:none !important;}
+  [data-tid][data-open="1"] .mi-btn{display:inline-flex !important;}
+  /* Card click hint callout */
+  .card-hint{display:flex;align-items:center;gap:9px;font-size:13px;color:#5b21b6;background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:9px 14px;margin-bottom:18px;line-height:1.4;}
+  .card-hint svg{width:15px;height:15px;stroke:#7c3aed;fill:none;stroke-width:2;flex-shrink:0;}
+  .card-hint strong{font-weight:700;color:#4c1d95;}
+
 </style>
 </head>
 <body>
@@ -618,43 +627,43 @@ function renderMechanism(c){
     +'<marker id="arN" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f472b6"/></marker></defs>'
     +'<rect x="8"   y="8"  width="130" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
     +'<text x="73"  y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Myocardial insult</text>'
-    +'<text x="73"  y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Ischaemia ÃÂ· HTN ÃÂ· toxins</text>'
+    +'<text x="73"  y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Ischaemia ÃÂÃÂ· HTN ÃÂÃÂ· toxins</text>'
     +'<line x1="138" y1="31" x2="162" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
     +'<rect x="164" y="8"  width="144" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
     +'<text x="236" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Ventricular dysfunction</text>'
     +'<text x="236" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Systolic or diastolic</text>'
     +'<line x1="308" y1="31" x2="332" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
     +'<rect x="334" y="8"  width="130" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
-    +'<text x="399" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Ã¢ÂÂ Cardiac output</text>'
+    +'<text x="399" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">ÃÂ¢ÃÂÃÂ Cardiac output</text>'
     +'<text x="399" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Insufficient for demands</text>'
     +'<line x1="464" y1="31" x2="488" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
     +'<rect x="490" y="8"  width="172" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="2.5"/>'
     +'<text x="576" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Tissue hypoperfusion</text>'
-    +'<text x="576" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#6366f1">Ã¢ÂÂ Fatigue ÃÂ· oliguria ÃÂ· cold</text>'
+    +'<text x="576" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#6366f1">ÃÂ¢ÃÂÃÂ Fatigue ÃÂÃÂ· oliguria ÃÂÃÂ· cold</text>'
     +'<line x1="399" y1="54" x2="399" y2="78" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
     +'<rect x="334" y="80" width="130" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="1.5"/>'
-    +'<text x="399" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Ã¢ÂÂ Filling pressures</text>'
-    +'<text x="399" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Ã¢ÂÂ LVEDP Ã¢ÂÂ pulm. venous HTN</text>'
+    +'<text x="399" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">ÃÂ¢ÃÂÃÂ Filling pressures</text>'
+    +'<text x="399" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">ÃÂ¢ÃÂÃÂ LVEDP ÃÂ¢ÃÂÃÂ pulm. venous HTN</text>'
     +'<line x1="334" y1="103" x2="310" y2="103" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
     +'<line x1="464" y1="103" x2="488" y2="103" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
     +'<rect x="164" y="80" width="144" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="2.5"/>'
     +'<text x="236" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Pulm. venous HTN</text>'
-    +'<text x="236" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">Ã¢ÂÂ Dyspnoea ÃÂ· orthopnoea ÃÂ· PND</text>'
+    +'<text x="236" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">ÃÂ¢ÃÂÃÂ Dyspnoea ÃÂÃÂ· orthopnoea ÃÂÃÂ· PND</text>'
     +'<rect x="490" y="80" width="172" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="2.5"/>'
     +'<text x="576" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Systemic congestion</text>'
-    +'<text x="576" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">Ã¢ÂÂ JVP ÃÂ· oedema ÃÂ· hepatomegaly</text>'
+    +'<text x="576" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">ÃÂ¢ÃÂÃÂ JVP ÃÂÃÂ· oedema ÃÂÃÂ· hepatomegaly</text>'
     +'<line x1="399" y1="126" x2="399" y2="150" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arN)"/>'
     +'<rect x="258" y="152" width="170" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
     +'<text x="343" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Neurohormonal activation</text>'
-    +'<text x="343" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">RAAS ÃÂ· SNS ÃÂ· ADH</text>'
+    +'<text x="343" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">RAAS ÃÂÃÂ· SNS ÃÂÃÂ· ADH</text>'
     +'<line x1="428" y1="175" x2="452" y2="175" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arN)"/>'
     +'<rect x="454" y="152" width="144" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
     +'<text x="526" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Haemodynamic overload</text>'
-    +'<text x="526" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Ã¢ÂÂ preload + Ã¢ÂÂ afterload</text>'
+    +'<text x="526" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">ÃÂ¢ÃÂÃÂ preload + ÃÂ¢ÃÂÃÂ afterload</text>'
     +'<line x1="258" y1="175" x2="234" y2="175" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arN)"/>'
     +'<rect x="56"  y="152" width="170" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
     +'<text x="141" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Cardiac remodelling</text>'
-    +'<text x="141" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Fibrosis Ã¢ÂÂ worsening EF</text>'
+    +'<text x="141" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Fibrosis ÃÂ¢ÃÂÃÂ worsening EF</text>'
     +'<path d="M56 175 Q28 175 28 103 Q28 31 73 31" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3" fill="none" marker-end="url(#arN)"/>'
     +'<text x="14" y="110" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#f472b6" transform="rotate(-90 14 110)">vicious cycle</text>'
     +'<rect x="8" y="216" width="684" height="46" rx="6" fill="#f8f7ff"/>'
@@ -663,7 +672,7 @@ function renderMechanism(c){
     +'<circle cx="260" cy="239" r="5" fill="#f472b6"/><text x="270" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Neurohormonal</text>'
     +'<line x1="366" y1="239" x2="390" y2="239" stroke="#6366f1" stroke-width="2"/><text x="396" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Direct link</text>'
     +'<line x1="450" y1="239" x2="474" y2="239" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3"/><text x="480" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Neurohormonal feedback</text>'
-    +'<circle cx="620" cy="239" r="5" fill="none" stroke="#3d1f7a" stroke-width="2"/><circle cx="620" cy="239" r="2" fill="#3d1f7a"/><text x="630" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Ã¢ÂÂ Clinical sign</text>'
+    +'<circle cx="620" cy="239" r="5" fill="none" stroke="#3d1f7a" stroke-width="2"/><circle cx="620" cy="239" r="2" fill="#3d1f7a"/><text x="630" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">ÃÂ¢ÃÂÃÂ Clinical sign</text>'
     +'</svg></div>';
 
   if(!nodes.length){
@@ -687,7 +696,7 @@ function renderMechanism(c){
       +'<div class="mech-node-header" style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
       +'<span class="mech-node-label" style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.35">'+n.label+'</span>'
       +(n.clinical?'<span style="flex-shrink:0;background:'+col+';color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;margin-top:1px">Clinical</span>'
-        :'<span style="flex-shrink:0;color:'+col+';font-size:14px;opacity:0.45">Ã¢ÂÂ¸</span>')
+        :'<span style="flex-shrink:0;color:'+col+';font-size:14px;opacity:0.45">ÃÂ¢ÃÂÃÂ¸</span>')
       +'</div>'
       +'<div id="mndesc-'+n.id+'" class="mech-node-desc mech-node-detail" style="display:none;margin-top:10px;font-size:12.5px;color:#7b6fa0;line-height:1.65;border-top:1px solid '+col+'22;padding-top:10px">'+expandAcronyms(n.description)+'</div>'
       +'</div>'
@@ -696,7 +705,7 @@ function renderMechanism(c){
       +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">'
       +'<span style="width:22px;height:22px;border-radius:6px;background:'+col+'22;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><span style="width:8px;height:8px;border-radius:50%;background:'+col+'"></span></span>'
       +'<span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:'+col+'">'+pw.replace('_',' ')+'</span>'
-      +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10.5px;color:#7b6fa0;margin-left:2px">Ã¢ÂÂ green badge = direct clinical relevance</span>':'')
+      +(pwNodes.some(n=>n.clinical)?'<span style="font-size:10.5px;color:#7b6fa0;margin-left:2px">ÃÂ¢ÃÂÃÂ green badge = direct clinical relevance</span>':'')
       +'</div>'
       +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">'+t+'</div>'
       +'</div>';
@@ -751,7 +760,7 @@ function renderClinical(c){
       +' style="background:#fff;border:0.5px solid rgba(180,150,220,0.3);border-radius:12px;padding:14px 16px;cursor:pointer;transition:box-shadow 0.15s,background 0.15s">'
       +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
       +'<span style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.35">'+label+'</span>'
-      +(badge?'<span style="flex-shrink:0;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;background:'+badgeBg+';color:'+badgeCol+';white-space:nowrap;margin-top:1px">'+badge+'</span>':'<span style="color:#7b6fa0;font-size:14px;opacity:0.45">Ã¢ÂÂ¸</span>')
+      +(badge?'<span style="flex-shrink:0;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;background:'+badgeBg+';color:'+badgeCol+';white-space:nowrap;margin-top:1px">'+badge+'</span>':'<span style="color:#7b6fa0;font-size:14px;opacity:0.45">ÃÂ¢ÃÂÃÂ¸</span>')
       +'</div>'
       +'<div id="ct-detail-'+id+'" style="display:none;margin-top:10px;font-size:12.5px;color:#7b6fa0;line-height:1.65;border-top:1px solid rgba(180,150,220,0.2);padding-top:10px">'+expandAcronyms(detail)+'</div>'
       +'</div>';
@@ -789,11 +798,11 @@ function renderClinical(c){
   if(Object.keys(mgmt).length){
     const mgtTiles=[];
     (mgmt.hfref_steps||mgmt.steps||[]).forEach((s,i)=>{
-      const detail=(s.examples||s.detail||'')+(s.mechanism?' Ã¢ÂÂ <em>'+s.mechanism+'</em>':'')+(s.monitoring||s.escalation?'<br><strong>Monitor:</strong> '+(s.monitoring||s.escalation):'');
+      const detail=(s.examples||s.detail||'')+(s.mechanism?' ÃÂ¢ÃÂÃÂ <em>'+s.mechanism+'</em>':'')+(s.monitoring||s.escalation?'<br><strong>Monitor:</strong> '+(s.monitoring||s.escalation):'');
       mgtTiles.push(clinTile('step'+i,s.drug_class||s.action||s.phase||('Step '+(i+1)),'Step '+(i+1),'#6366f1','#e0e7ff',detail));
     });
     (mgmt.symptom_relief||[]).forEach((s,i)=>{
-      mgtTiles.push(clinTile('sr'+i,s.drug||s.action||'Symptom relief','Symptom relief','#94a3b8','#f1f5f9',(s.examples||'')+(s.note?' Ã¢ÂÂ <em>'+s.note+'</em>':'')));
+      mgtTiles.push(clinTile('sr'+i,s.drug||s.action||'Symptom relief','Symptom relief','#94a3b8','#f1f5f9',(s.examples||'')+(s.note?' ÃÂ¢ÃÂÃÂ <em>'+s.note+'</em>':'')));
     });
     (mgmt.devices||[]).forEach((d,i)=>{
       mgtTiles.push(clinTile('dev'+i,d.device,'Device','#d97706','#fef3c7',d.criteria));
@@ -802,7 +811,7 @@ function renderClinical(c){
       mgtTiles.push(clinTile('add'+i,a.drug,'Add-on','#7c5cbf','#ede9fe',a.criteria));
     });
     if(mgmt.hfpef)mgtTiles.push(clinTile('hfpef','HFpEF management','HFpEF','#1a5a2a','#e2f4e2',mgmt.hfpef));
-    if(mgmt.acute&&mgmt.acute.length)mgtTiles.push(clinTile('acute','Acute pulmonary oedema','Acute','#c0305a','#fce7f0',mgmt.acute.map(a=>'<div style="padding:2px 0">Ã¢ÂÂ¢ '+a+'</div>').join('')));
+    if(mgmt.acute&&mgmt.acute.length)mgtTiles.push(clinTile('acute','Acute pulmonary oedema','Acute','#c0305a','#fce7f0',mgmt.acute.map(a=>'<div style="padding:2px 0">ÃÂ¢ÃÂÃÂ¢ '+a+'</div>').join('')));
     if(mgtTiles.length){
       mgtHtml='<div style="margin-bottom:32px">'+secHdr(ICON_MGT,'Management','#6366f1')
         +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+mgtTiles.join('')+'</div></div>';
@@ -833,7 +842,7 @@ function renderTestYourself(c){
       return {stem:q.q,opts:opts,correct_idx:q.ans||0,explanation:q.em||'',why:q.why||[],rem:q.rem||''};
     });
   } else testQuestions=[];
-  el.innerHTML='<div style="background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:12px;padding:16px 20px;margin-bottom:14px"><strong style="color:#3d1f7a">Test Yourself</strong> Ã¢ÂÂ '+testQuestions.length+' questions</div><div id="testQContainer"></div>';
+  el.innerHTML='<div style="background:#fff;border:0.5px solid rgba(180,150,220,0.25);border-radius:12px;padding:16px 20px;margin-bottom:14px"><strong style="color:#3d1f7a">Test Yourself</strong> ÃÂ¢ÃÂÃÂ '+testQuestions.length+' questions</div><div id="testQContainer"></div>';
   if(!testQuestions.length){document.getElementById('testQContainer').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Questions coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="test_yourself" onclick="completeStage(this.dataset.cs)">Continue to Reasoning Case</button></div>';return;}
   renderTestQ();
 }
@@ -868,7 +877,7 @@ function submitTestAnswer(chosen,btn){
   const expEl=document.getElementById('testExp');
   expEl.style.display='block';expEl.className='test-q-exp';
   const whyHtml=q.why&&q.why.length?'<div style="margin-top:10px;padding-top:10px;border-top:0.5px solid rgba(124,92,191,0.2)"><strong style="font-size:12px">Each option:</strong><br>'+q.why.map((w,i)=>'<div style="font-size:12px;color:#7b6fa0;padding:2px 0"><strong>'+String.fromCharCode(65+i)+'.</strong> '+w+'</div>').join('')+'</div>':'';
-  const remHtml=q.rem?'<div style="margin-top:10px;padding:8px 12px;background:#ede9fe;border-radius:8px;font-size:12.5px;color:#7c5cbf">Ã°ÂÂÂ¡ '+q.rem+'</div>':'';
+  const remHtml=q.rem?'<div style="margin-top:10px;padding:8px 12px;background:#ede9fe;border-radius:8px;font-size:12.5px;color:#7c5cbf">ÃÂ°ÃÂÃÂÃÂ¡ '+q.rem+'</div>':'';
   expEl.innerHTML=(q.explanation||'')+whyHtml+remHtml;
   document.getElementById('testActions').style.display='flex';
 }
@@ -881,12 +890,12 @@ function renderReasoningCase(c){
     let reveal=mr;
     if(typeof mr==='object'){
       reveal=Object.entries(mr).filter(([k])=>k!=='ongoing').map(([k,v])=>'<strong style="color:#3d1f7a">'+k+':</strong> '+v).join('<br><br>');
-      if(mr.ongoing)reveal+='<br><br><strong style="color:#1a5a2a">Ongoing management:</strong><br>'+mr.ongoing.map(s=>'Ã¢ÂÂ¢ '+s).join('<br>');
+      if(mr.ongoing)reveal+='<br><br><strong style="color:#1a5a2a">Ongoing management:</strong><br>'+mr.ongoing.map(s=>'ÃÂ¢ÃÂÃÂ¢ '+s).join('<br>');
     }
     return {label:b.title||b.label||('Block '+b.block),vignette:b.content||b.vignette||'',question:Array.isArray(b.prompts)?b.prompts.join('<br><br>'):(b.question||''),reveal:reveal};
   });
   rcBlockIdx=0;rcResponses=[];
-  el.innerHTML='<div class="reasoning-intro"><div class="reasoning-intro-tag">Stage 5 Ã¢ÂÂ Reasoning Case</div><h3>'+(vignette.title||'Clinical Vignette')+'</h3><p>Work through block by block. Commit to your reasoning before each reveal.</p></div><div id="rcBlocks"></div><div id="rcComplete"></div>';
+  el.innerHTML='<div class="reasoning-intro"><div class="reasoning-intro-tag">Stage 5 ÃÂ¢ÃÂÃÂ Reasoning Case</div><h3>'+(vignette.title||'Clinical Vignette')+'</h3><p>Work through block by block. Commit to your reasoning before each reveal.</p></div><div id="rcBlocks"></div><div id="rcComplete"></div>';
   if(!rcBlocks.length){document.getElementById('rcComplete').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Reasoning case coming soon.</div><div class="stage-actions"><button class="btn-primary-sm" data-cs="reasoning_case" onclick="completeStage(this.dataset.cs)">Complete module</button></div>';return;}
   renderRCBlock();
 }
@@ -950,7 +959,7 @@ async function completeStage(stage){
 
 function showCompleteBanner(){
   const mm=document.getElementById('modMain');
-  if(mm)mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Module complete Ã¢ÂÂ</h3><p>'+moduleData.title+' Ã¢ÂÂ all 5 stages done.</p><div class="mod-complete-actions"><a href="domains.html" class="btn-ghost-dk">Browse Domains</a><a href="course.html" class="btn-ghost-dk">Back to Course</a></div></div>');
+  if(mm)mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Module complete ÃÂ¢ÃÂÃÂ</h3><p>'+moduleData.title+' ÃÂ¢ÃÂÃÂ all 5 stages done.</p><div class="mod-complete-actions"><a href="domains.html" class="btn-ghost-dk">Browse Domains</a><a href="course.html" class="btn-ghost-dk">Back to Course</a></div></div>');
 }
 
 function showError(msg){
@@ -960,54 +969,54 @@ function showError(msg){
 
 
 const ACRONYMS={
-  'CO':'Cardiac output Ã¢ÂÂ volume of blood pumped per minute (HR ÃÂ stroke volume)',
-  'EF':'Ejection fraction Ã¢ÂÂ % of end-diastolic volume ejected per beat',
-  'HR':'Heart rate Ã¢ÂÂ beats per minute',
-  'SV':'Stroke volume Ã¢ÂÂ volume ejected per beat',
-  'LVEDP':'Left ventricular end-diastolic pressure Ã¢ÂÂ index of LV filling pressure',
-  'LVEDD':'Left ventricular end-diastolic dimension Ã¢ÂÂ marker of LV dilatation',
+  'CO':'Cardiac output ÃÂ¢ÃÂÃÂ volume of blood pumped per minute (HR ÃÂÃÂ stroke volume)',
+  'EF':'Ejection fraction ÃÂ¢ÃÂÃÂ % of end-diastolic volume ejected per beat',
+  'HR':'Heart rate ÃÂ¢ÃÂÃÂ beats per minute',
+  'SV':'Stroke volume ÃÂ¢ÃÂÃÂ volume ejected per beat',
+  'LVEDP':'Left ventricular end-diastolic pressure ÃÂ¢ÃÂÃÂ index of LV filling pressure',
+  'LVEDD':'Left ventricular end-diastolic dimension ÃÂ¢ÃÂÃÂ marker of LV dilatation',
   'LVEF':'Left ventricular ejection fraction',
   'RVSP':'Right ventricular systolic pressure',
-  'JVP':'Jugular venous pressure Ã¢ÂÂ bedside marker of right-heart filling pressure',
+  'JVP':'Jugular venous pressure ÃÂ¢ÃÂÃÂ bedside marker of right-heart filling pressure',
   'SBP':'Systolic blood pressure',
   'HF':'Heart failure',
   'HFrEF':'Heart Failure with reduced Ejection Fraction (EF <40%)',
-  'HFpEF':'Heart Failure with preserved Ejection Fraction (EF Ã¢ÂÂ¥50%)',
-  'HFmrEF':'Heart Failure with mildly reduced Ejection Fraction (EF 40Ã¢ÂÂ49%)',
+  'HFpEF':'Heart Failure with preserved Ejection Fraction (EF ÃÂ¢ÃÂÃÂ¥50%)',
+  'HFmrEF':'Heart Failure with mildly reduced Ejection Fraction (EF 40ÃÂ¢ÃÂÃÂ49%)',
   'ADHF':'Acute decompensated heart failure',
-  'PND':'Paroxysmal nocturnal dyspnoea Ã¢ÂÂ waking breathless 1Ã¢ÂÂ2 hours after sleep due to fluid redistribution',
-  'BNP':'B-type natriuretic peptide Ã¢ÂÂ released by ventricular myocytes under wall stress; raised in HF',
-  'NT-proBNP':'N-terminal pro-BNP Ã¢ÂÂ inactive fragment with longer half-life than BNP',
+  'PND':'Paroxysmal nocturnal dyspnoea ÃÂ¢ÃÂÃÂ waking breathless 1ÃÂ¢ÃÂÃÂ2 hours after sleep due to fluid redistribution',
+  'BNP':'B-type natriuretic peptide ÃÂ¢ÃÂÃÂ released by ventricular myocytes under wall stress; raised in HF',
+  'NT-proBNP':'N-terminal pro-BNP ÃÂ¢ÃÂÃÂ inactive fragment with longer half-life than BNP',
   'ECG':'Electrocardiogram',
   'CXR':'Chest X-ray',
-  'CTR':'Cardiothoracic ratio Ã¢ÂÂ cardiac width / thoracic width; >0.5 = cardiomegaly',
-  'eGFR':'Estimated glomerular filtration rate Ã¢ÂÂ measure of renal function',
+  'CTR':'Cardiothoracic ratio ÃÂ¢ÃÂÃÂ cardiac width / thoracic width; >0.5 = cardiomegaly',
+  'eGFR':'Estimated glomerular filtration rate ÃÂ¢ÃÂÃÂ measure of renal function',
   'AKI':'Acute kidney injury',
   'ULN':'Upper limit of normal',
-  'RAAS':'Renin-angiotensin-aldosterone system Ã¢ÂÂ activated in low-output states to retain salt and water',
-  'SNS':'Sympathetic nervous system Ã¢ÂÂ activated in HF, causing tachycardia and vasoconstriction',
-  'ADH':'Antidiuretic hormone (vasopressin) Ã¢ÂÂ causes water retention',
+  'RAAS':'Renin-angiotensin-aldosterone system ÃÂ¢ÃÂÃÂ activated in low-output states to retain salt and water',
+  'SNS':'Sympathetic nervous system ÃÂ¢ÃÂÃÂ activated in HF, causing tachycardia and vasoconstriction',
+  'ADH':'Antidiuretic hormone (vasopressin) ÃÂ¢ÃÂÃÂ causes water retention',
   'ACE':'Angiotensin-converting enzyme',
-  'ACEi':'ACE inhibitor (e.g. ramipril) Ã¢ÂÂ blocks angiotensin II; reduces preload, afterload, and fibrosis',
-  'ARB':'Angiotensin receptor blocker (e.g. losartan) Ã¢ÂÂ blocks angiotensin II receptor',
-  'ARNI':'Angiotensin receptor-neprilysin inhibitor Ã¢ÂÂ sacubitril/valsartan; replaces ACEi in symptomatic HFrEF',
-  'MRA':'Mineralocorticoid receptor antagonist (e.g. spironolactone) Ã¢ÂÂ blocks aldosterone',
-  'SGLT2i':'SGLT2 inhibitor (e.g. dapagliflozin) Ã¢ÂÂ reduces volume overload; direct cardiac benefit regardless of diabetes',
-  'GTN':'Glyceryl trinitrate Ã¢ÂÂ venodilator; reduces preload; use if SBP >100',
-  'LMWH':'Low molecular weight heparin Ã¢ÂÂ anticoagulant',
-  'ISDN':'Isosorbide dinitrate Ã¢ÂÂ nitrate vasodilator',
-  'CPAP':'Continuous positive airway pressure Ã¢ÂÂ non-invasive ventilation for acute pulmonary oedema',
-  'CRT':'Cardiac resynchronisation therapy Ã¢ÂÂ biventricular pacing for dyssynchrony (LBBB + low EF)',
-  'ICD':'Implantable cardioverter-defibrillator Ã¢ÂÂ prevents sudden cardiac death in low EF',
-  'AF':'Atrial fibrillation Ã¢ÂÂ most common arrhythmia in HF; causes irregularly irregular pulse',
-  'LBBB':'Left bundle branch block Ã¢ÂÂ QRS Ã¢ÂÂ¥120ms with specific morphology; required for CRT eligibility',
+  'ACEi':'ACE inhibitor (e.g. ramipril) ÃÂ¢ÃÂÃÂ blocks angiotensin II; reduces preload, afterload, and fibrosis',
+  'ARB':'Angiotensin receptor blocker (e.g. losartan) ÃÂ¢ÃÂÃÂ blocks angiotensin II receptor',
+  'ARNI':'Angiotensin receptor-neprilysin inhibitor ÃÂ¢ÃÂÃÂ sacubitril/valsartan; replaces ACEi in symptomatic HFrEF',
+  'MRA':'Mineralocorticoid receptor antagonist (e.g. spironolactone) ÃÂ¢ÃÂÃÂ blocks aldosterone',
+  'SGLT2i':'SGLT2 inhibitor (e.g. dapagliflozin) ÃÂ¢ÃÂÃÂ reduces volume overload; direct cardiac benefit regardless of diabetes',
+  'GTN':'Glyceryl trinitrate ÃÂ¢ÃÂÃÂ venodilator; reduces preload; use if SBP >100',
+  'LMWH':'Low molecular weight heparin ÃÂ¢ÃÂÃÂ anticoagulant',
+  'ISDN':'Isosorbide dinitrate ÃÂ¢ÃÂÃÂ nitrate vasodilator',
+  'CPAP':'Continuous positive airway pressure ÃÂ¢ÃÂÃÂ non-invasive ventilation for acute pulmonary oedema',
+  'CRT':'Cardiac resynchronisation therapy ÃÂ¢ÃÂÃÂ biventricular pacing for dyssynchrony (LBBB + low EF)',
+  'ICD':'Implantable cardioverter-defibrillator ÃÂ¢ÃÂÃÂ prevents sudden cardiac death in low EF',
+  'AF':'Atrial fibrillation ÃÂ¢ÃÂÃÂ most common arrhythmia in HF; causes irregularly irregular pulse',
+  'LBBB':'Left bundle branch block ÃÂ¢ÃÂÃÂ QRS ÃÂ¢ÃÂÃÂ¥120ms with specific morphology; required for CRT eligibility',
   'LVH':'Left ventricular hypertrophy',
-  'SCD':'Sudden cardiac death Ã¢ÂÂ often ventricular arrhythmia; prevented by ICD',
-  'NYHA':'New York Heart Association class (IÃ¢ÂÂIV) Ã¢ÂÂ grades exercise limitation in heart failure',
-  'HTN':'Hypertension Ã¢ÂÂ major risk factor for HF',
+  'SCD':'Sudden cardiac death ÃÂ¢ÃÂÃÂ often ventricular arrhythmia; prevented by ICD',
+  'NYHA':'New York Heart Association class (IÃÂ¢ÃÂÃÂIV) ÃÂ¢ÃÂÃÂ grades exercise limitation in heart failure',
+  'HTN':'Hypertension ÃÂ¢ÃÂÃÂ major risk factor for HF',
   'ACS':'Acute coronary syndrome',
-  'WMA':'Wall motion abnormality Ã¢ÂÂ regional = ischaemic cause; global = non-ischaemic (e.g. cardiomyopathy)',
-  'MR':'Mitral regurgitation Ã¢ÂÂ backflow through mitral valve; common in dilated HF',
+  'WMA':'Wall motion abnormality ÃÂ¢ÃÂÃÂ regional = ischaemic cause; global = non-ischaemic (e.g. cardiomyopathy)',
+  'MR':'Mitral regurgitation ÃÂ¢ÃÂÃÂ backflow through mitral valve; common in dilated HF',
   'RV':'Right ventricle',
   'LV':'Left ventricle',
   'LA':'Left atrium',
@@ -1015,7 +1024,7 @@ const ACRONYMS={
   'LVEDP':'Left ventricular end-diastolic pressure',
   'GFR':'Glomerular filtration rate',
   'TFTs':'Thyroid function tests',
-  'LFTs':'Liver function tests Ã¢ÂÂ often deranged in congestive hepatopathy',
+  'LFTs':'Liver function tests ÃÂ¢ÃÂÃÂ often deranged in congestive hepatopathy',
   'FBC':'Full blood count',
   'IV':'Intravenous',
 };
@@ -1131,11 +1140,11 @@ hookGoToStage();
 </div>
 
 <script>
-// Ã¢ÂÂÃ¢ÂÂ Modal controls Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Modal controls ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function closeMI(){document.getElementById('mi-overlay').classList.remove('open');}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMI();});
 
-// Ã¢ÂÂÃ¢ÂÂ Markdown renderer Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Markdown renderer ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function renderMImd(text){
   var lines=text.split("\n");
   var out=[];
@@ -1163,15 +1172,15 @@ function renderMImd(text){
   return out.join("");
 }
 
-// Ã¢ÂÂÃ¢ÂÂ System prompts by card type Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ System prompts by card type ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function getMIPrompt(type,moduleTitle){
-  const base='You are a clinical educator writing structured "More Info" revision cards for UK medical students and junior doctors. The student is revising: '+moduleTitle+'. Be concise Ã¢ÂÂ one line per bullet. UK/NICE practice. Use these exact section headers.';
-  if(type==='symptom')return base+'\n\nFormat:\n### Definition\n### Why it occurs\n### Typical presentation\n### Associated findings\n### Red flags\nÃ°ÂÂÂ´ [each flag on own line]\n### Key differentials\n### Clinical pearl\nÃ°ÂÂÂ¡ [one key exam fact]';
-  if(type==='investigation')return base+'\n\nFormat:\n### Purpose\n### When to order\n### What it assesses\n### Key findings & thresholds\n### Interpretation\n### False positives/negatives\n### Limitations\n### How results change management\n### Clinical pearl\nÃ°ÂÂÂ¡ [one key exam fact]';
-  return base+'\n\nFormat:\n### Role in management\n### Mechanism\n### Indications\n### Key evidence/benefits\n### Dosing & titration (UK)\n### Monitoring\n### Contraindications\n### Key side effects\n### If not tolerated\n### Clinical pearl\nÃ°ÂÂÂ¡ [one key exam fact]';
+  const base='You are a clinical educator writing structured "More Info" revision cards for UK medical students and junior doctors. The student is revising: '+moduleTitle+'. Be concise ÃÂ¢ÃÂÃÂ one line per bullet. UK/NICE practice. Use these exact section headers.';
+  if(type==='symptom')return base+'\n\nFormat:\n### Definition\n### Why it occurs\n### Typical presentation\n### Associated findings\n### Red flags\nÃÂ°ÃÂÃÂÃÂ´ [each flag on own line]\n### Key differentials\n### Clinical pearl\nÃÂ°ÃÂÃÂÃÂ¡ [one key exam fact]';
+  if(type==='investigation')return base+'\n\nFormat:\n### Purpose\n### When to order\n### What it assesses\n### Key findings & thresholds\n### Interpretation\n### False positives/negatives\n### Limitations\n### How results change management\n### Clinical pearl\nÃÂ°ÃÂÃÂÃÂ¡ [one key exam fact]';
+  return base+'\n\nFormat:\n### Role in management\n### Mechanism\n### Indications\n### Key evidence/benefits\n### Dosing & titration (UK)\n### Monitoring\n### Contraindications\n### Key side effects\n### If not tolerated\n### Clinical pearl\nÃÂ°ÃÂÃÂÃÂ¡ [one key exam fact]';
 }
 
-// Ã¢ÂÂÃ¢ÂÂ Main showMoreInfo Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Main showMoreInfo ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function showMoreInfo(name,type,context,moduleTitle){
   var ov=document.getElementById("mi-overlay");
   var titleEl=document.getElementById("mi-title");
@@ -1190,7 +1199,7 @@ function showMoreInfo(name,type,context,moduleTitle){
   }
 }
 
-// Ã¢ÂÂÃ¢ÂÂ Add More Info buttons to all clinical cards Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Add More Info buttons to all clinical cards ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function addMIButtons(){
   var container=document.getElementById("clinical-content");
   if(!container)return;
@@ -1199,6 +1208,13 @@ function addMIButtons(){
     (document.querySelector("h1")&&document.querySelector("h1").textContent.trim())||"Heart Failure";
   var clinData=(typeof contentData!=="undefined")&&contentData&&contentData["clinical_picture"];
   if(!clinData){setTimeout(addMIButtons,500);return;}
+  // Add hint callout once
+  if(!container.querySelector(".card-hint")){
+    var hint=document.createElement("div");
+    hint.className="card-hint";
+    hint.innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Click any card to expand it, then tap <strong>More info</strong> for detailed clinical notes';
+    container.insertBefore(hint,container.firstChild);
+  }
   var symItems=clinData.stage3_features||[];
   var invItems=clinData.stage3_investigations||[];
   var mgmtItems=(clinData.stage3_management&&clinData.stage3_management.steps)||[];
@@ -1234,6 +1250,34 @@ function addMIButtons(){
     return r;
   };
   if(document.getElementById('clinical-content'))setTimeout(addMIButtons,800);
+})();
+</script>
+<script>
+// Add click-hint to mechanism node cards
+(function hookMechHint(){
+  if(typeof window.goToStage!=='function'){setTimeout(hookMechHint,200);return;}
+  var origGTS=window.goToStage;
+  window.goToStage=function(stage,save){
+    var r=origGTS.call(this,stage,save);
+    if(stage==='mechanism'){
+      setTimeout(function(){
+        var mechContent=document.getElementById('mechanism-content');
+        if(mechContent&&!mechContent.querySelector('.card-hint')){
+          var filterRow=mechContent.querySelector('[class*="filter"]')||mechContent.querySelector('div[style*="flex"]');
+          var hint=document.createElement('div');
+          hint.className='card-hint';
+          hint.style.marginTop='16px';
+          hint.innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Click any node card below to expand its description';
+          if(filterRow&&filterRow.nextSibling){
+            mechContent.insertBefore(hint,filterRow.nextSibling);
+          } else {
+            mechContent.appendChild(hint);
+          }
+        }
+      },900);
+    }
+    return r;
+  };
 })();
 </script>
 </body>
