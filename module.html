@@ -958,7 +958,7 @@ function submitTestAnswer(chosen,btn){
 function renderReasoningCase(c){
   const el=document.getElementById('reasoning-content');if(!el)return;
   const vignette=c.stage5_vignette||c||{};
-  rcBlocks=(vignette.blocks||[]).map(b=>{
+  _rcBlocksData=(vignette.blocks||[]).map(b=>{
     const mr=b.model_reasoning||b.reveal||'';
     let reveal=mr;
     if(typeof mr==='object'){
@@ -976,7 +976,7 @@ function renderReasoningCase(c){
 function renderRCBlock(){
   const el=document.getElementById('rcBlocks');
   if(rcBlockIdx>=rcBlocks.length){showRCComplete();return;}
-  const b=rcBlocks[rcBlockIdx];
+  const b=_rcBlocksData[rcBlockIdx];
   const div=document.createElement('div');div.className='reasoning-block';div.id='rcBlock-'+rcBlockIdx;
   div.innerHTML='<div class="reasoning-block-hdr"><span class="reasoning-block-label">'+b.label+'</span><span class="reasoning-block-step">'+(rcBlockIdx+1)+' / '+rcBlocks.length+'</span></div>'
     +'<div class="reasoning-vignette">'+b.vignette+'</div>'
@@ -1019,7 +1019,7 @@ function commitRCBlock(){
   revealEl.innerHTML=html;
   // Advance to next block
   rcBlockIdx++;
-  if(rcBlockIdx<rcBlocks.length){
+  if(rcBlockIdx<_rcBlocksData.length){
     setTimeout(function(){
       const next=document.getElementById('rcBlock-'+rcBlockIdx);
       if(next){next.style.display='';next.scrollIntoView({behavior:'smooth',block:'start'});}
