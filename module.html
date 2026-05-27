@@ -493,7 +493,7 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
           </div>
         </div>
         <div class="stage-container active" id="stage-why">
-          <div class="stage-hdr"><div class="stage-hdr-num">1</div><div><div class="stage-hdr-title">Why this matters</div><div class="stage-hdr-sub">The clinical framing</div></div></div>
+          <div class="stage-hdr"><div class="stage-hdr-num">1</div><div><div class="stage-hdr-title">Introduction</div><div class="stage-hdr-sub">Clinical context</div></div></div>
           <div id="why-content"><div class="loading-full">Loading...</div></div>
         </div>
         <div class="stage-container" id="stage-mechanism">
@@ -523,7 +523,7 @@ const sb=window.supabase.createClient(SB_URL,SB_KEY);
 
 const STAGES=['why','mechanism','clinical_picture','test_yourself','reasoning_case'];
 const STAGE_LABELS={
-  why:{title:'Why this matters',sub:'The clinical framing'},
+  why:{title:'Introduction',sub:'Clinical context'},
   mechanism:{title:'The mechanism',sub:'Pathophysiology'},
   clinical_picture:{title:'Clinical picture',sub:'Presentation & management'},
   test_yourself:{title:'Test yourself',sub:'Questions'},
