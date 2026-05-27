@@ -619,7 +619,7 @@ async function goToStage(stage,save){
 
 function renderWhy(data){
   var script=(data&&data.stage1_script)||'';
-  var ps=script.split(/\\n\\n+/).filter(function(p){return p.trim();});
+  var ps=script.split('\n\n').filter(function(p){return p.trim();});
   var textHtml=ps.map(function(p){return'<p>'+p.trim()+'</p>';}).join('');
   var anatSvg='<svg viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">'+
     '<rect width="220" height="240" fill="#faf9ff" rx="8"/>'+
