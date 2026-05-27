@@ -699,7 +699,7 @@ function renderMechanism(c){
       +'<div class="mech-node-header" style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
       +'<span class="mech-node-label" style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.35">'+n.label+'</span>'
       +(n.clinical?'<span style="flex-shrink:0;background:'+col+';color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;margin-top:1px">Clinical</span>'
-        :'<span style="flex-shrink:0;color:'+col+';font-size:14px;opacity:0.45">ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¸</span>')
+        :'<span style="flex-shrink:0;color:'+col+';font-size:14px;opacity:0.45">▸</span>')
       +'</div>'
       +'<div id="mndesc-'+n.id+'" class="mech-node-desc mech-node-detail" style="display:none;margin-top:10px;font-size:12.5px;color:#7b6fa0;line-height:1.65;border-top:1px solid '+col+'22;padding-top:10px">'+expandAcronyms(n.description)+'</div>'
       +'</div>'
@@ -763,7 +763,7 @@ function renderClinical(c){
       +' style="background:#fff;border:0.5px solid rgba(180,150,220,0.3);border-radius:12px;padding:14px 16px;cursor:pointer;transition:box-shadow 0.15s,background 0.15s">'
       +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
       +'<span style="font-weight:600;font-size:13px;color:#3d1f7a;line-height:1.35">'+label+'</span>'
-      +(badge?'<span style="flex-shrink:0;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;background:'+badgeBg+';color:'+badgeCol+';white-space:nowrap;margin-top:1px">'+badge+'</span>':'<span style="color:#7b6fa0;font-size:14px;opacity:0.45">ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¸</span>')
+      +(badge?'<span style="flex-shrink:0;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;background:'+badgeBg+';color:'+badgeCol+';white-space:nowrap;margin-top:1px">'+badge+'</span>':'<span style="color:#7b6fa0;font-size:14px;opacity:0.45">▸</span>')
       +'</div>'
       +'<div id="ct-detail-'+id+'" style="display:none;margin-top:10px;font-size:12.5px;color:#7b6fa0;line-height:1.65;border-top:1px solid rgba(180,150,220,0.2);padding-top:10px">'+expandAcronyms(detail)+'</div>'
       +'</div>';
