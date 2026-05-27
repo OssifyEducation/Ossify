@@ -366,30 +366,33 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
 
 
   /* Why unified card */
-  .why-unified{background:#fff;border-radius:16px;border:1px solid #ede9ff;padding:28px 32px;box-shadow:0 2px 20px rgba(124,58,237,.08);display:flex;flex-direction:column;gap:24px;}
-  .why-text-body{font-size:15px;line-height:1.75;color:#2d1060;}
-  .why-text-body p{margin:0 0 14px;}
-  .why-text-body p:last-child{margin:0;}
-  .why-text-body p:first-child{font-weight:600;font-size:15.5px;border-left:3px solid #7c3aed;padding-left:14px;}
-  .why-media-row{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
-  .why-video-col{flex:0 0 280px;max-width:100%;}
-  .why-video-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-  .why-video-label svg{width:11px;height:11px;stroke:#7c3aed;fill:none;stroke-width:2;}
-  .why-video-wrap{border-radius:10px;overflow:hidden;background:#000;aspect-ratio:16/9;width:100%;box-shadow:0 2px 12px rgba(0,0,0,.18);}
-  .why-video-wrap iframe{width:100%;height:100%;border:0;display:block;}
-  .why-video-caption{font-size:11px;color:#9b88c0;margin-top:6px;text-align:center;}
-  .why-anatomy-col{flex:1;min-width:260px;}
-  .why-anatomy-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-  .why-anatomy-label svg{width:11px;height:11px;stroke:#7c3aed;fill:none;stroke-width:2;}
-  .why-anatomy-inner{display:flex;gap:16px;align-items:flex-start;}
-  .why-anat-svg{flex:0 0 160px;}
-  .why-anat-legend{flex:1;}
-  .anat-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;cursor:pointer;border-radius:6px;padding:3px 5px;transition:background .15s;}
-  .anat-item:hover,.anat-item.anat-active{background:#f5f0ff;}
   .anat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px;}
   .anat-item-text strong{font-size:11.5px;font-weight:700;color:#2d1060;display:block;line-height:1.2;}
   .anat-item-text span{font-size:11px;color:#6b7280;line-height:1.35;}
   .anat-item.anat-active .anat-item-text strong{color:#7c3aed;}
+
+
+  .why-unified{background:#fff;border-radius:16px;border:1px solid #ede9ff;padding:28px 32px;box-shadow:0 2px 20px rgba(124,58,237,.08);}
+  .why-body-wrap{position:relative;}
+  .why-text-body{font-size:15px;line-height:1.8;color:#2d1060;}
+  .why-text-body p{margin:0 0 15px;}
+  .why-text-body p:last-child{margin:0;}
+  .why-text-body p:first-child{font-weight:600;font-size:15.5px;border-left:3px solid #7c3aed;padding-left:14px;}
+  /* Anatomy figure floated into text */
+  .why-figure{float:right;margin:0 0 20px 28px;width:260px;background:#faf9ff;border:1px solid #ddd6fe;border-radius:12px;padding:14px;box-shadow:0 2px 12px rgba(124,58,237,.1);clear:right;}
+  .why-figure figcaption{font-size:11.5px;color:#6b5fa0;line-height:1.5;margin-top:10px;padding-top:10px;border-top:1px solid #ede9ff;text-align:center;}
+  .why-figure figcaption strong{display:block;font-weight:700;color:#4c1d95;margin-bottom:3px;font-size:11px;text-transform:uppercase;letter-spacing:.04em;}
+  .why-fig-legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:10px;}
+  .why-fig-item{display:flex;align-items:center;gap:5px;font-size:10.5px;color:#4b4370;}
+  .why-fig-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  /* Video section below */
+  .why-video-section{margin-top:24px;clear:both;}
+  .why-video-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+  .why-video-label svg{width:11px;height:11px;stroke:#7c3aed;fill:none;stroke-width:2;}
+  .why-video-wrap{border-radius:10px;overflow:hidden;background:#000;aspect-ratio:16/9;width:100%;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+  .why-video-wrap iframe{width:100%;height:100%;border:0;display:block;}
+  .why-video-caption{font-size:11.5px;color:#9b88c0;margin-top:7px;text-align:center;}
+  @media(max-width:640px){.why-figure{float:none;width:100%;margin:0 0 20px 0;}}
 
 </style>
 </head>
@@ -616,24 +619,60 @@ async function goToStage(stage,save){
 
 function renderWhy(data){
   var script=(data&&data.stage1_script)||'';
-  var ps=script.split(/\n\n+/).filter(function(p){return p.trim();});
+  var ps=script.split(/\\n\\n+/).filter(function(p){return p.trim();});
   var textHtml=ps.map(function(p){return'<p>'+p.trim()+'</p>';}).join('');
-  var anatSvg='<svg id="anat-svg" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg" style="width:100%"><rect width="180" height="200" fill="#faf9ff" rx="8"/><path d="M88 30 Q88 16 100 10 Q113 4 118 18 Q121 28 114 36" stroke="#dc2626" stroke-width="8" fill="none" stroke-linecap="round" class="anat-hl" data-anat="aorta"/><path d="M80 36 Q71 24 62 18 Q53 12 50 25" stroke="#6366f1" stroke-width="6" fill="none" stroke-linecap="round" class="anat-hl" data-anat="pulm"/><path d="M126 30 Q133 20 130 8" stroke="#3b82f6" stroke-width="5" fill="none" stroke-linecap="round" class="anat-hl" data-anat="svc"/><path d="M128 132 Q136 150 133 172" stroke="#3b82f6" stroke-width="5" fill="none" stroke-linecap="round" class="anat-hl" data-anat="ivc"/><ellipse cx="122" cy="76" rx="21" ry="29" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" class="anat-hl" data-anat="ra"/><ellipse cx="72" cy="64" rx="19" ry="24" fill="#fecaca" stroke="#dc2626" stroke-width="1.5" class="anat-hl" data-anat="la"/><path d="M96 98 Q133 104 136 136 Q136 160 118 166 Q104 170 96 152 Q90 142 96 98" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5" class="anat-hl" data-anat="rv"/><path d="M96 98 Q59 104 53 136 Q50 160 82 174 Q94 178 96 152 Q100 140 96 98" fill="#fca5a5" stroke="#dc2626" stroke-width="2" class="anat-hl" data-anat="lv"/><line x1="96" y1="98" x2="96" y2="154" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4,2" class="anat-hl" data-anat="ivs"/><ellipse cx="83" cy="98" rx="9" ry="4" fill="#f0abfc" stroke="#a855f7" stroke-width="1" class="anat-hl" data-anat="mitral"/><text x="122" y="74" text-anchor="middle" font-size="7" font-weight="700" fill="#1d4ed8">RA</text><text x="72" y="62" text-anchor="middle" font-size="7" font-weight="700" fill="#991b1b">LA</text><text x="120" y="138" text-anchor="middle" font-size="7" font-weight="700" fill="#1d4ed8">RV</text><text x="72" y="140" text-anchor="middle" font-size="7" font-weight="700" fill="#991b1b">LV</text><text x="83" y="91" text-anchor="middle" font-size="5" fill="#7e22ce">Mitral</text><text x="117" y="18" font-size="6" fill="#991b1b" font-weight="600">Aorta</text><text x="134" y="12" font-size="5" fill="#1d4ed8">SVC</text><text x="134" y="174" font-size="5" fill="#1d4ed8">IVC</text></svg>';
-  var anatLegend='<div class="anat-item" data-anat="lv"><div class="anat-dot" style="background:#fca5a5;border:1.5px solid #dc2626"></div><div class="anat-item-text"><strong>Left ventricle (LV)</strong><span>Primary pump, site of failure in most heart failure.</span></div></div><div class="anat-item" data-anat="rv"><div class="anat-dot" style="background:#93c5fd;border:1.5px solid #3b82f6"></div><div class="anat-item-text"><strong>Right ventricle (RV)</strong><span>Fails with rising pulmonary pressure.</span></div></div><div class="anat-item" data-anat="la"><div class="anat-dot" style="background:#fecaca;border:1.5px solid #dc2626"></div><div class="anat-item-text"><strong>Left atrium (LA)</strong><span>Dilates as filling pressure rises.</span></div></div><div class="anat-item" data-anat="ra"><div class="anat-dot" style="background:#bfdbfe;border:1.5px solid #3b82f6"></div><div class="anat-item-text"><strong>Right atrium (RA)</strong><span>Raised pressure &#x2192; elevated JVP.</span></div></div><div class="anat-item" data-anat="mitral"><div class="anat-dot" style="background:#f0abfc;border:1.5px solid #a855f7"></div><div class="anat-item-text"><strong>Mitral valve</strong><span>LV dilatation &#x2192; secondary MR.</span></div></div><div class="anat-item" data-anat="aorta"><div class="anat-dot" style="background:#dc2626"></div><div class="anat-item-text"><strong>Aorta</strong><span>Low CO &#x2192; forward failure.</span></div></div><div class="anat-item" data-anat="ivs"><div class="anat-dot" style="background:#7c3aed"></div><div class="anat-item-text"><strong>Septum</strong><span>RV overload &#x2192; impairs LV filling.</span></div></div>';
+  var anatSvg='<svg viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">'+
+    '<rect width="220" height="240" fill="#faf9ff" rx="8"/>'+
+    '<path d="M106 38 Q106 20 122 12 Q138 4 146 22 Q150 34 140 44" stroke="#dc2626" stroke-width="10" fill="none" stroke-linecap="round" class="anat-hl" data-anat="aorta"/>'+
+    '<path d="M96 44 Q84 28 72 20 Q60 12 57 30" stroke="#6366f1" stroke-width="7" fill="none" stroke-linecap="round" class="anat-hl" data-anat="pulm"/>'+
+    '<path d="M156 36 Q166 24 162 8" stroke="#3b82f6" stroke-width="6" fill="none" stroke-linecap="round" class="anat-hl" data-anat="svc"/>'+
+    '<path d="M158 158 Q168 182 164 206" stroke="#3b82f6" stroke-width="6" fill="none" stroke-linecap="round" class="anat-hl" data-anat="ivc"/>'+
+    '<ellipse cx="155" cy="92" rx="26" ry="36" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" class="anat-hl" data-anat="ra"/>'+
+    '<ellipse cx="88" cy="76" rx="24" ry="30" fill="#fecaca" stroke="#dc2626" stroke-width="1.5" class="anat-hl" data-anat="la"/>'+
+    '<path d="M120 120 Q170 128 174 168 Q174 198 148 206 Q130 212 120 190 Q112 176 120 120" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5" class="anat-hl" data-anat="rv"/>'+
+    '<path d="M120 120 Q70 128 64 168 Q60 200 100 214 Q116 220 120 190 Q126 174 120 120" fill="#fca5a5" stroke="#dc2626" stroke-width="2" class="anat-hl" data-anat="lv"/>'+
+    '<line x1="120" y1="120" x2="120" y2="192" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5,3" class="anat-hl" data-anat="ivs"/>'+
+    '<ellipse cx="103" cy="120" rx="11" ry="4" fill="#f0abfc" stroke="#a855f7" stroke-width="1" class="anat-hl" data-anat="mitral"/>'+
+    '<ellipse cx="136" cy="122" rx="11" ry="4" fill="#bae6fd" stroke="#0284c7" stroke-width="1" class="anat-hl" data-anat="tricusp"/>'+
+    '<text x="155" y="90" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8" font-family="Inter,sans-serif">RA</text>'+
+    '<text x="88" y="74" text-anchor="middle" font-size="9" font-weight="700" fill="#991b1b" font-family="Inter,sans-serif">LA</text>'+
+    '<text x="152" y="168" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8" font-family="Inter,sans-serif">RV</text>'+
+    '<text x="88" y="170" text-anchor="middle" font-size="9" font-weight="700" fill="#991b1b" font-family="Inter,sans-serif">LV</text>'+
+    '<text x="103" y="111" text-anchor="middle" font-size="7" fill="#7e22ce" font-family="Inter,sans-serif">Mitral</text>'+
+    '<text x="136" y="113" text-anchor="middle" font-size="7" fill="#0369a1" font-family="Inter,sans-serif">Tricuspid</text>'+
+    '<text x="148" y="32" font-size="8" fill="#991b1b" font-weight="600" font-family="Inter,sans-serif">Aorta</text>'+
+    '<text x="46" y="26" font-size="7.5" fill="#4338ca" font-family="Inter,sans-serif">Pulm. trunk</text>'+
+    '<text x="168" y="16" font-size="7" fill="#1d4ed8" font-family="Inter,sans-serif">SVC</text>'+
+    '<text x="168" y="210" font-size="7" fill="#1d4ed8" font-family="Inter,sans-serif">IVC</text>'+
+    '</svg>';
+  var legend='<div class="why-fig-legend">'+
+    '<div class="why-fig-item"><div class="why-fig-dot" style="background:#fca5a5;border:1.5px solid #dc2626"></div>Left ventricle</div>'+
+    '<div class="why-fig-item"><div class="why-fig-dot" style="background:#93c5fd;border:1.5px solid #3b82f6"></div>Right ventricle</div>'+
+    '<div class="why-fig-item"><div class="why-fig-dot" style="background:#fecaca;border:1.5px solid #dc2626"></div>Left atrium</div>'+
+    '<div class="why-fig-item"><div class="why-fig-dot" style="background:#bfdbfe;border:1.5px solid #3b82f6"></div>Right atrium</div>'+
+    '<div class="why-fig-item"><div class="why-fig-dot" style="background:#f0abfc;border:1.5px solid #a855f7"></div>Mitral valve</div>'+
+    '<div class="why-fig-item"><div class="why-fig-dot" style="background:#dc2626"></div>Aorta</div>'+
+    '</div>';
+  var figure='<figure class="why-figure" id="why-anatomy-figure">'+
+    anatSvg+
+    '<figcaption>'+
+    '<strong>Fig. 1: The failing heart</strong>'+
+    'Key structures relevant to heart failure pathophysiology. Hover to highlight.'+
+    legend+
+    '</figcaption>'+
+    '</figure>';
+  var videoSection='<div class="why-video-section" id="why-video-section">'+
+    '<div class="why-video-label"><svg viewBox=\"0 0 24 24\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/></svg>Watch: Pathophysiology of Heart Failure</div>'+
+    '<div class="why-video-wrap"><iframe src=\"https://www.youtube.com/embed/LgigPFmBZ8I?rel=0&modestbranding=1\" title=\"Pathophysiology of Heart Failure\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>'+
+    '<p class="why-video-caption">Pathophysiology of Heart Failure, David Woodruff</p>'+
+    '</div>';
   return'<div class="why-unified">'+
+    '<div class="why-body-wrap">'+
+    figure+
     '<div class="why-text-body">'+textHtml+'</div>'+
-    '<div class="why-media-row">'+
-      '<div class="why-video-col">'+
-        '<div class="why-video-label"><svg viewBox=\"0 0 24 24\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/></svg>Watch: Pathophysiology</div>'+
-        '<div class="why-video-wrap"><iframe src=\"https://www.youtube.com/embed/LgigPFmBZ8I?rel=0&modestbranding=1\" title=\"Heart Failure\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>'+
-        '<p class="why-video-caption">Pathophysiology of Heart Failure &#x2014; David Woodruff</p>'+
-      '</div>'+
-      '<div class="why-anatomy-col">'+
-        '<div class="why-anatomy-label"><svg viewBox=\"0 0 24 24\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/></svg>Anatomy</div>'+
-        '<div class="why-anatomy-inner"><div class="why-anat-svg">'+anatSvg+'</div><div class="why-anat-legend">'+anatLegend+'</div></div>'+
-      '</div>'+
     '</div>'+
-  '</div>';
+    videoSection+
+    '</div>';
 }
 
 function renderMechanism(c){
@@ -1320,6 +1359,7 @@ function addMIButtons(){
 })();
 </script>
 
+
 <script id="why-anat-js">
 (function(){
   function hookAnat(){
@@ -1329,22 +1369,28 @@ function addMIButtons(){
       var r=orig.call(this,stage,save);
       if(stage==='why'){
         setTimeout(function(){
-          // Fix abbr bleed: remove stray \">TEXT" text nodes
-          (document.getElementById('why-content')||document.body).querySelectorAll('.why-text-body p').forEach(function(p){
-            var walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT);
-            var toFix=[];
-            while(walker.nextNode()){if(walker.currentNode.textContent.includes('">')){toFix.push(walker.currentNode);}}
-            toFix.forEach(function(n){n.textContent=n.textContent.replace(/\">[^\s]+/g,'');});
-          });
-          var items=document.querySelectorAll('#why-content .anat-item');
-          var svgEls=document.querySelectorAll('#anat-svg .anat-hl');
+          var fig=document.getElementById('why-anatomy-figure');
+          if(!fig)return;
+          var svgEls=fig.querySelectorAll('.anat-hl');
+          var legendItems=fig.querySelectorAll('.why-fig-item');
+          var anatMap={aorta:0,pulm:null,svc:null,ivc:null,ra:3,la:2,rv:1,lv:0,ivs:null,mitral:4,tricusp:null};
           function hl(id){
-            items.forEach(function(i){i.classList.toggle('anat-active',!!id&&i.dataset.anat===id);});
-            svgEls.forEach(function(e){e.style.opacity=(!id||e.dataset.anat===id)?'1':'0.25';e.style.filter=e.dataset.anat===id?'drop-shadow(0 0 4px rgba(124,58,237,.8))':'';});
+            svgEls.forEach(function(e){
+              var match=!id||e.dataset.anat===id;
+              e.style.opacity=match?'1':'0.25';
+              e.style.filter=match&&id?'drop-shadow(0 0 4px rgba(124,58,237,.8))':'';
+            });
+            legendItems.forEach(function(li,i){
+              li.style.fontWeight=(!id||i===anatMap[id])?'600':'400';
+              li.style.color=(!id||i===anatMap[id])?'#4c1d95':'#4b4370';
+            });
           }
-          items.forEach(function(i){i.addEventListener('mouseenter',function(){hl(i.dataset.anat);});i.addEventListener('mouseleave',function(){hl('');});});
-          svgEls.forEach(function(e){e.addEventListener('mouseenter',function(){hl(e.dataset.anat);});e.addEventListener('mouseleave',function(){hl('');});});
-        },600);
+          svgEls.forEach(function(e){
+            e.style.cursor='pointer';
+            e.addEventListener('mouseenter',function(){hl(e.dataset.anat);});
+            e.addEventListener('mouseleave',function(){hl('');});
+          });
+        },500);
       }
       return r;
     };
