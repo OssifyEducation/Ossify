@@ -1001,7 +1001,7 @@ function renderRCBlock(){
     +'<div class="reasoning-vignette">'+b.vignette+'</div>'
     +'<div class="reasoning-question"><p>'+b.question+'</p>'
     +'<textarea class="reasoning-input" id="rcInput-'+rcBlockIdx+'" placeholder="Type your reasoning before the reveal..."></textarea>'
-    +'<button class="reasoning-commit-btn" onclick="commitRCBlock()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+(rcBlockIdx===_rcBlocksData.length-1?'Complete the case':'Commit and continue')+'</button></div>'
+    +'<button class="reasoning-commit-btn" onclick="commitRCBlock()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+(rcBlockIdx===_rcBlocksData.length-1?'Complete the case':'Reveal model answer')+'</button></div>'
     +'<div class="reasoning-reveal" id="rcReveal-'+rcBlockIdx+'"></div>';
   el.appendChild(div);
   div.scrollIntoView({behavior:'smooth',block:'start'});
@@ -1037,7 +1037,7 @@ function commitRCBlock(){
   html+='</div>';
   // Add continue button — user sees model answer first, then clicks to advance
   const _isLast=rcBlockIdx===_rcBlocksData.length-1;
-  const _label=_isLast?'See final summary':'Continue to next block';
+  const _label=_isLast?'Finish':'Continue to next section';
   html+='<button class="rc-continue-btn" onclick="advanceRCBlock()" style="margin-top:20px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5"><polyline points="9 18 15 12 9 6"/></svg> '+_label+'</button>';
   revealEl.innerHTML=html;
   revealEl.scrollIntoView({behavior:'smooth',block:'nearest'});
