@@ -415,7 +415,7 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
   .cp-flow-arrow-head{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #c4b5fd;}
   .cp-flow-branches{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;margin:8px 0 0;padding:0 2px;}
   .cp-flow-branch{background:#f5f0ff;border:1px solid #c4b5fd;border-radius:8px;padding:7px 10px;}
-  .cp-flow-branch-label{font-size:10px;font-weight:700;color:#5b21b6;margin-bottom:3px;font-family:monospace;}
+  .cp-flow-branch-label{font-size:10px;font-weight:700;color:#5b21b6;margin-bottom:3px;}
   .cp-flow-branch-out{font-size:11px;color:#3d1f7a;line-height:1.4;}
   .cp-flow-step-wrap{display:flex;align-items:flex-start;gap:12px;}
   .cp-flow-step-badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#6366f1;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:14px;}
@@ -869,21 +869,21 @@ function renderClinical(c){
       return clinTile('sym'+i,f.name,f.pathway,col,bg,'<strong style="color:#3d1f7a">['+f.mechanism+']</strong> '+f.description);
     }).join('');
     symHtml='<div style="margin-bottom:32px">'+secHdr(ICON_SYM,'Symptoms','#f472b6')
-      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
+      +'<div class="cp-flowchart">'+tiles+'</div></div>';
   }
 
   if(invs.length){
-    const var fcData=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];
-    var branchMap={};
-    fcData.forEach(function(step){if(step.decision&&step.decision.branches)branchMap[step.label]=step.decision.branches;});
-    var flowNodes=invs.map(function(inv,i){
-      var tile=clinTile('inv'+i,inv.name,inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',inv.findings);
-      var branches=branchMap[inv.name]||[];
-      var branchHtml=branches.length?'<div class="cp-flow-branches">'+branches.map(function(b){return'<div class="cp-flow-branch"><div class="cp-flow-branch-label">'+b.label+'</div><div class="cp-flow-branch-out">'+b.outcome+'</div></div>';}).join('')+ '</div>':''; return '<div class="cp-flow-node">'+tile+branchHtml+'</div>';
-    });
-    tiles=flowNodes.map(function(n,i){return n+(i<flowNodes.length-1?'<div class="cp-flow-arrow"><div class="cp-flow-arrow-line"></div><div class="cp-flow-arrow-head"></div></div>':'');}).join('');
+    const var _fcData=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];
+    var _branchMap={};
+    _fcData.forEach(function(step){if(step.decision&&step.decision.branches){_branchMap[step.label]=step.decision.branches;}});
+    tiles=invs.map(function(inv,i){
+      var _tile=clinTile('inv'+i,inv.name,inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',inv.findings);
+      var _branches=_branchMap[inv.name]||[];
+      var _bHtml=_branches.length?'<div class="cp-flow-branches">'+_branches.map(function(b){return'<div class="cp-flow-branch"><div class="cp-flow-branch-label">'+b.label+'</div><div class="cp-flow-branch-out">'+b.outcome+'</div></div>';}).join('')+'</div>':'';
+      return _tile+_bHtml+(i<invs.length-1?'<div class="cp-flow-arrow"><div class="cp-flow-arrow-line"></div><div class="cp-flow-arrow-head"></div></div>':'');
+    }).join('');
     invHtml='<div style="margin-bottom:32px">'+secHdr(ICON_INV,'Investigations','#7c5cbf')
-      +'<div class="cp-flowchart">'+tiles+'</div></div>';
+      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
   }
 
   if(Object.keys(mgmt).length){
