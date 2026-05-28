@@ -989,14 +989,14 @@ function renderReasoningCase(c){
 
 function renderRCBlock(){
   const el=document.getElementById('rcBlocks');
-  if(rcBlockIdx>=rcBlocks.length){showRCComplete();return;}
+  if(rcBlockIdx>=_rcBlocksData.length){showRCComplete();return;}
   const b=_rcBlocksData[rcBlockIdx];
   const div=document.createElement('div');div.className='reasoning-block';div.id='rcBlock-'+rcBlockIdx;
-  div.innerHTML='<div class="reasoning-block-hdr"><span class="reasoning-block-label">'+b.label+'</span><span class="reasoning-block-step">'+(rcBlockIdx+1)+' / '+rcBlocks.length+'</span></div>'
+  div.innerHTML='<div class="reasoning-block-hdr"><span class="reasoning-block-label">'+b.label+'</span><span class="reasoning-block-step">'+(rcBlockIdx+1)+' / '+_rcBlocksData.length+'</span></div>'
     +'<div class="reasoning-vignette">'+b.vignette+'</div>'
     +'<div class="reasoning-question"><p>'+b.question+'</p>'
     +'<textarea class="reasoning-input" id="rcInput-'+rcBlockIdx+'" placeholder="Type your reasoning before the reveal..."></textarea>'
-    +'<button class="reasoning-commit-btn" onclick="commitRCBlock()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+(rcBlockIdx===rcBlocks.length-1?'Complete the case':'Commit and continue')+'</button></div>'
+    +'<button class="reasoning-commit-btn" onclick="commitRCBlock()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+(rcBlockIdx===_rcBlocksData.length-1?'Complete the case':'Commit and continue')+'</button></div>'
     +'<div class="reasoning-reveal" id="rcReveal-'+rcBlockIdx+'"></div>';
   el.appendChild(div);
   div.scrollIntoView({behavior:'smooth',block:'start'});
