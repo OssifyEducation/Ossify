@@ -873,17 +873,9 @@ function renderClinical(c){
   }
 
   if(invs.length){
-    const var _fcData=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];
-    var _branchMap={};
-    _fcData.forEach(function(step){if(step.decision&&step.decision.branches){_branchMap[step.label]=step.decision.branches;}});
-    tiles=invs.map(function(inv,i){
-      var _tile=clinTile('inv'+i,inv.name,inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',inv.findings);
-      var _branches=_branchMap[inv.name]||[];
-      var _bHtml=_branches.length?'<div class="cp-flow-branches">'+_branches.map(function(b){return'<div class="cp-flow-branch"><div class="cp-flow-branch-label">'+b.label+'</div><div class="cp-flow-branch-out">'+b.outcome+'</div></div>';}).join('')+'</div>':'';
-      return _tile+_bHtml+(i<invs.length-1?'<div class="cp-flow-arrow"><div class="cp-flow-arrow-line"></div><div class="cp-flow-arrow-head"></div></div>':'');
-    }).join('');
+    const var _fc=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];var _bm={};_fc.forEach(function(s){if(s.decision&&s.decision.branches)_bm[s.label]=s.decision.branches;});tiles=invs.map(function(inv,i){var _t=clinTile('inv'+i,inv.name,inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',inv.findings);var _br=_bm[inv.name]||[];var _bh=_br.length?'<div class="cp-flow-branches">'+_br.map(function(b){return'<div class="cp-flow-branch"><div class="cp-flow-branch-label">'+b.label+'</div><div class="cp-flow-branch-out">'+b.outcome+'</div></div>';}).join('')+'</div>':'';return _t+_bh+(i<invs.length-1?'<div class="cp-flow-arrow"><div class="cp-flow-arrow-line"></div><div class="cp-flow-arrow-head"></div></div>':'');}).join('');
     invHtml='<div style="margin-bottom:32px">'+secHdr(ICON_INV,'Investigations','#7c5cbf')
-      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
+      +'<div class="cp-flowchart">'+tiles+'</div></div>';
   }
 
   if(Object.keys(mgmt).length){
