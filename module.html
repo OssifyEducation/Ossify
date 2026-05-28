@@ -421,6 +421,11 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
   .cp-flow-step-badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#6366f1;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:14px;}
   .cp-flow-step-content{flex:1;}
 
+
+  .rc-continue-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 22px;background:#7c3aed;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s;}
+  .rc-continue-btn:hover{background:#6d28d9;}
+  .rc-continue-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;}
+
 </style>
 </head>
 <body>
@@ -1039,6 +1044,17 @@ function commitRCBlock(){
     },300);
   } else {
     // All done
+    const doneEl=document.getElementById('rcDone');
+    if(doneEl){doneEl.style.display='';doneEl.scrollIntoView({behavior:'smooth'});}
+  }
+}
+
+
+function advanceRCBlock(){
+  rcBlockIdx++;
+  if(rcBlockIdx<_rcBlocksData.length){
+    renderRCBlock();
+  } else {
     const doneEl=document.getElementById('rcDone');
     if(doneEl){doneEl.style.display='';doneEl.scrollIntoView({behavior:'smooth'});}
   }
