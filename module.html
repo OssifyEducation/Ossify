@@ -1018,6 +1018,7 @@ function commitRCBlock(){
   // Build reveal HTML
   const revealEl=document.getElementById('rcBlock-'+rcBlockIdx).querySelector('.reasoning-reveal');
   if(!revealEl)return;
+  revealEl.style.display='';
   let html='<div class="rc-reveal-wrap">';
   // Your response
   html+='<div class="rc-your-response"><div class="rc-your-response-label">Your response</div>';
