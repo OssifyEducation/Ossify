@@ -873,7 +873,11 @@ function renderClinical(c){
   }
 
   if(invs.length){
-    const var _fc=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];var _bm={};_fc.forEach(function(s){if(s.decision&&s.decision.branches)_bm[s.label]=s.decision.branches;});tiles=invs.map(function(inv,i){var _t=clinTile('inv'+i,inv.name,inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',inv.findings);var _br=_bm[inv.name]||[];var _bh=_br.length?'<div class="cp-flow-branches">'+_br.map(function(b){return'<div class="cp-flow-branch"><div class="cp-flow-branch-label">'+b.label+'</div><div class="cp-flow-branch-out">'+b.outcome+'</div></div>';}).join('')+'</div>':'';return _t+_bh+(i<invs.length-1?'<div class="cp-flow-arrow"><div class="cp-flow-arrow-line"></div><div class="cp-flow-arrow-head"></div></div>':'');}).join('');
+    tiles=invs.map((inv,i)=>clinTile(
+      'inv'+i,inv.name,
+      inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',
+      inv.findings
+    )).join("<div class=\"cp-flow-arrow\"><div class=\"cp-flow-arrow-line\"></div><div class=\"cp-flow-arrow-head\"></div></div>");
     invHtml='<div style="margin-bottom:32px">'+secHdr(ICON_INV,'Investigations','#7c5cbf')
       +'<div class="cp-flowchart">'+tiles+'</div></div>';
   }
