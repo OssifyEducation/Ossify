@@ -869,7 +869,7 @@ function renderClinical(c){
       return clinTile('sym'+i,f.name,f.pathway,col,bg,'<strong style="color:#3d1f7a">['+f.mechanism+']</strong> '+f.description);
     }).join('');
     symHtml='<div style="margin-bottom:32px">'+secHdr(ICON_SYM,'Symptoms','#f472b6')
-      +'<div class="cp-flowchart">'+tiles+'</div></div>';
+      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
   }
 
   if(invs.length){
