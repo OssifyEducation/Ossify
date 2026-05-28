@@ -907,13 +907,19 @@ function renderClinical(c){
   }
 
   if(invs.length){
-    const tiles=invs.map((inv,i)=>clinTile(
-      'inv'+i,inv.name,
-      inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',
-      inv.findings
-    )).join('');
+    const const fcData=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];
+    const branchMap={};
+    fcData.forEach(function(step){if(step.decision&&step.decision.branches)branchMap[step.label]=step.decision.branches;});
+    var flowNodes=invs.map(function(inv,i){
+      var tile=clinTile('inv'+i,inv.name,inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',inv.findings);
+      var branches=branchMap[inv.name]||[];
+      var branchHtml=branches.length?'<div class="cp-flow-branches">'+branches.map(function(b){return'<div class="cp-flow-branch"><div class="cp-flow-branch-label">'+b.label+'</div><div class="cp-flow-branch-out">'+b.outcome+'</div></div>';}).join('')+'</div>':'';
+      return '<div class="cp-flow-node">'+tile+branchHtml+'</div>';
+    });
+    var flowHtml=flowNodes.map(function(n,i){return n+(i<flowNodes.length-1?'<div class="cp-flow-arrow"><div class="cp-flow-arrow-line"></div><div class="cp-flow-arrow-head"></div></div>':'');}).join('');
+    tiles=flowHtml;
     invHtml='<div style="margin-bottom:32px">'+secHdr(ICON_INV,'Investigations','#7c5cbf')
-      +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+tiles+'</div></div>';
+      +'<div class="cp-flowchart">'+tiles+'</div></div>';
   }
 
   if(Object.keys(mgmt).length){
@@ -935,7 +941,7 @@ function renderClinical(c){
     if(mgmt.acute&&mgmt.acute.length)mgtTiles.push(clinTile('acute','Acute pulmonary oedema','Acute','#c0305a','#fce7f0',mgmt.acute.map(a=>'<div style="padding:2px 0">ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¢ '+a+'</div>').join('')));
     if(mgtTiles.length){
       mgtHtml='<div style="margin-bottom:32px">'+secHdr(ICON_MGT,'Management','#6366f1')
-        +'<div style="display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">'+mgtTiles.join('')+'</div></div>';
+        +'<div class="cp-flowchart">'+mgtTiles.map(function(t,i){return'<div class="cp-flow-mgmt-step"><div class="cp-flow-step-badge">'+(i+1)+'</div><div class="cp-flow-step-content">'+t+'</div></div>'+(i<mgtTiles.length-1?'<div class="cp-flow-arrow" style="margin-left:26px"><div class="cp-flow-arrow-line"></div><div class="cp-flow-arrow-head"></div></div>':'');}).join('')+'</div></div>';
     }
   }
 
@@ -1942,6 +1948,20 @@ abbr.acr:hover::before{content:'';position:absolute;left:50%;bottom:calc(100% + 
   [data-open="1"] .mgmt-node-detail{display:block;}
   [data-open="1"] .mgmt-node-escalation{display:block;}
   [data-open="1"] .mgmt-node-mi-btn{display:inline-block;}
+
+
+  .cp-flowchart{display:flex;flex-direction:column;align-items:stretch;max-width:680px;}
+  .cp-flow-node{position:relative;}
+  .cp-flow-arrow{display:flex;flex-direction:column;align-items:center;padding:2px 0;gap:0;line-height:1;}
+  .cp-flow-arrow-line{width:2px;height:18px;background:#c4b5fd;}
+  .cp-flow-arrow-head{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #c4b5fd;}
+  .cp-flow-branches{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;margin:8px 0 0;padding:0 2px;}
+  .cp-flow-branch{background:#f5f0ff;border:1px solid #c4b5fd;border-radius:8px;padding:7px 10px;}
+  .cp-flow-branch-label{font-size:10px;font-weight:700;color:#5b21b6;margin-bottom:3px;font-family:monospace;}
+  .cp-flow-branch-out{font-size:11px;color:#3d1f7a;line-height:1.4;}
+  .cp-flow-mgmt-step{display:flex;align-items:flex-start;gap:12px;}
+  .cp-flow-step-badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#6366f1;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:14px;}
+  .cp-flow-step-content{flex:1;}
 
 </style>
 </head>
