@@ -907,8 +907,8 @@ function renderClinical(c){
   }
 
   if(invs.length){
-    const const fcData=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];
-    const branchMap={};
+    const var fcData=(c.investigation_flowchart&&c.investigation_flowchart.steps)||[];
+    var branchMap={};
     fcData.forEach(function(step){if(step.decision&&step.decision.branches)branchMap[step.label]=step.decision.branches;});
     var flowNodes=invs.map(function(inv,i){
       var tile=clinTile('inv'+i,inv.name,inv.priority,PRI_COL[inv.priority]||'#7c5cbf',PRI_BG[inv.priority]||'#ede9fe',inv.findings);
