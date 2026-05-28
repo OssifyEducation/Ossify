@@ -1035,8 +1035,7 @@ function commitRCBlock(){
   rcBlockIdx++;
   if(rcBlockIdx<_rcBlocksData.length){
     setTimeout(function(){
-      const next=document.getElementById('rcBlock-'+rcBlockIdx);
-      if(next){next.style.display='';next.scrollIntoView({behavior:'smooth',block:'start'});}
+      renderRCBlock();
     },300);
   } else {
     // All done
