@@ -1035,18 +1035,12 @@ function commitRCBlock(){
     html+='</div>';
   }
   html+='</div>';
+  // Add continue button — user sees model answer first, then clicks to advance
+  const _isLast=rcBlockIdx===_rcBlocksData.length-1;
+  const _label=_isLast?'See final summary':'Continue to next block';
+  html+='<button class="rc-continue-btn" onclick="advanceRCBlock()" style="margin-top:20px"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5"><polyline points="9 18 15 12 9 6"/></svg> '+_label+'</button>';
   revealEl.innerHTML=html;
-  // Advance to next block
-  rcBlockIdx++;
-  if(rcBlockIdx<_rcBlocksData.length){
-    setTimeout(function(){
-      renderRCBlock();
-    },300);
-  } else {
-    // All done
-    const doneEl=document.getElementById('rcDone');
-    if(doneEl){doneEl.style.display='';doneEl.scrollIntoView({behavior:'smooth'});}
-  }
+  revealEl.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 
