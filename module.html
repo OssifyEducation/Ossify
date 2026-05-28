@@ -701,7 +701,7 @@ function renderWhy(data){
   return'<div class="why-unified">'+
     '<div class="why-body-wrap">'+
     figure+
-    '<div class="why-text-body">'+textHtml+'</div>'+
+    '<div class="why-text-body">'+textHtml+'<div class="stage-actions" style="display:flex;align-items:center;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:1px solid #e9e3f5"><button class="btn-primary-sm" data-cs="why" onclick="completeStage(this.dataset.cs)">Continue to The mechanism →</button></div>'+'</div>'+
     '</div>'+
     videoSection+
     '</div>';
