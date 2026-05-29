@@ -711,7 +711,7 @@ function renderMechanism(c){
   const el=document.getElementById('mechanism-content');if(!el)return;
   const nodes=c.stage2_nodes||c.map_nodes||[];
 
-  const diagram='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:20px 24px;margin-bottom:22px">'');
+  const diagram='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:20px 24px;margin-bottom:22px">;
 
   if(!nodes.length){
     el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
