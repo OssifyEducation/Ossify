@@ -768,7 +768,7 @@ function renderMechanism(c){
     +'</svg></div>';
 
   if(!nodes.length){
-    el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
+    if(c&&c.stage2_flowchart&&c.stage2_flowchart.html){diagram='<div style=\"background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:12px 24px;margin-bottom:22px\"><div style=\"font-size:11px;text-transform:uppercase;color:#7c5cbf;margin-bottom:14px\">How it all connects</div>'+c.stage2_flowchart.html+'</div>';}el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
       +'<div class="stage-actions"><button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
     return;
   }
@@ -803,18 +803,18 @@ function renderMechanism(c){
       +'</div>';
   }).join('');
 
-  el.innerHTML=diagram+PILL+'<div id="mechNodes">'+tilesHtml+'</div>'
+  if(c&&c.stage2_flowchart&&c.stage2_flowchart.html){diagram='<div style=\"background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:12px 24px;margin-bottom:22px\"><div style=\"font-size:11px;text-transform:uppercase;color:#7c5cbf;margin-bottom:14px\">How it all connects</div>'+c.stage2_flowchart.html+'</div>';}el.innerHTML=diagram+PILL+'<div id="mechNodes">'+tilesHtml+'</div>'
     +'<p style="font-size:11.5px;color:var(--muted);margin-top:4px;margin-bottom:20px">Click any tile to reveal its description. Click a pathway label to filter.</p>'
     +'<div class="stage-actions"><button class="btn-outline-sm" data-gs="why" onclick="goToStage(this.dataset.gs,true)">Back</button>'
     +'<button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue to Clinical Picture <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
-if(c&&c.stage2_flowchart&&c.stage2_flowchart.html){setTimeout(function(){var _e=document.getElementById('mechanism-content');if(!_e)return;var _s=_e.querySelector('svg');if(_s&&_s.parentNode){var _d=document.createElement('div');_d.className='mech-flow-af-wrap';_d.innerHTML=c.stage2_flowchart.html;_s.parentNode.replaceChild(_d,_s);}},100);}}
+}
 
 function toggleNode(nid){
   var allNodes=document.querySelectorAll('.mech-node');
   allNodes.forEach(function(node){
     var detail=document.getElementById('mndesc-'+node.dataset.nid);
     if(node.dataset.nid===nid){
-      var is;if(_s){var _d=document.createElement('div');_d.className='mech-flow-af-wrap';_d.innerHTML=c.stage2_flowchart.html;_s.parentNode.replaceChild(_d,_s);}},50);}Open=node.classList.contains('mech-node--open');
+      var isOpen=node.classList.contains('mech-node--open');
       node.classList.toggle('mech-node--open',!isOpen);
       if(detail)detail.style.display=isOpen?'none':'block';
     } else {
