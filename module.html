@@ -711,7 +711,8 @@ function renderMechanism(c){
   const el=document.getElementById('mechanism-content');if(!el)return;
   const nodes=c.stage2_nodes||c.map_nodes||[];
 
-  const diagram='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:20px 24px;margin-bottom:22px">'
+  const diagram='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:20px 24px;margin-bottom:22px">'(data&&data.stage2_flowchart&&data.stage2_flowchart.html?'<div class="mech-flow-section">'+data.stage2_flowchart.html+'</div>':
+    
     +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#7c5cbf;margin-bottom:14px">How it all connects</div>'
     +'<svg viewBox="0 0 700 270" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">'
     +'<defs><marker id="arF" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#6366f1"/></marker>'
@@ -765,7 +766,7 @@ function renderMechanism(c){
     +'<line x1="366" y1="239" x2="390" y2="239" stroke="#6366f1" stroke-width="2"/><text x="396" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Direct link</text>'
     +'<line x1="450" y1="239" x2="474" y2="239" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3"/><text x="480" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Neurohormonal feedback</text>'
     +'<circle cx="620" cy="239" r="5" fill="none" stroke="#3d1f7a" stroke-width="2"/><circle cx="620" cy="239" r="2" fill="#3d1f7a"/><text x="630" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">⇏ Clinical sign</text>'
-    +'</svg></div>';
+    +'</svg></div>');
 
   if(!nodes.length){
     el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
