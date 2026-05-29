@@ -688,7 +688,7 @@ function renderWhy(data){
   var figure='<figure class="why-figure" id="why-anatomy-figure">'+
     anatSvg+
     '<figcaption>'+
-    '<strong>'+(data&&data.stage1_figure&&data.stage1_figure.title?data.stage1_figure.title:'Fig. 1: The failing heart')+'</strong>'+
+    '<strong>Fig. 1: The failing heart</strong>'+
     ''+(data&&data.stage1_figure&&data.stage1_figure.caption?data.stage1_figure.caption:''+(data&&data.stage1_figure&&data.stage1_figure.caption?data.stage1_figure.caption:'Key structures relevant to heart failure pathophysiology. Hover to highlight.')+'')+''+
     legend+
     '</figcaption>'+
@@ -711,20 +711,65 @@ function renderMechanism(c){
   const el=document.getElementById('mechanism-content');if(!el)return;
   const nodes=c.stage2_nodes||c.map_nodes||[];
 
-  const diagram='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:20px 24px;margin-bottom:22px">;
+  const diagram='<div style="background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:20px 24px;margin-bottom:22px">'
+    +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#7c5cbf;margin-bottom:14px">How it all connects</div>'
+    +'<svg viewBox="0 0 700 270" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">'
+    +'<defs><marker id="arF" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#6366f1"/></marker>'
+    +'<marker id="arB" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#7c5cbf"/></marker>'
+    +'<marker id="arN" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f472b6"/></marker></defs>'
+    +'<rect x="8"   y="8"  width="130" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
+    +'<text x="73"  y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Myocardial insult</text>'
+    +'<text x="73"  y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Ischaemia \u00b7 HTN \u00b7 toxins</text>'
+    +'<line x1="138" y1="31" x2="162" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
+    +'<rect x="164" y="8"  width="144" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
+    +'<text x="236" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Ventricular dysfunction</text>'
+    +'<text x="236" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Systolic or diastolic</text>'
+    +'<line x1="308" y1="31" x2="332" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
+    +'<rect x="334" y="8"  width="130" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>'
+    +'<text x="399" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">\u2193 Cardiac output</text>'
+    +'<text x="399" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Insufficient for demands</text>'
+    +'<line x1="464" y1="31" x2="488" y2="31" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arF)"/>'
+    +'<rect x="490" y="8"  width="172" height="46" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="2.5"/>'
+    +'<text x="576" y="27" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Tissue hypoperfusion</text>'
+    +'<text x="576" y="43" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#6366f1">⇏ Fatigue \u00b7 oliguria \u00b7 cold</text>'
+    +'<line x1="399" y1="54" x2="399" y2="78" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
+    +'<rect x="334" y="80" width="130" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="1.5"/>'
+    +'<text x="399" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">\u2191 Filling pressures</text>'
+    +'<text x="399" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">\u2191 LVEDP \u2192 pulm. venous HTN</text>'
+    +'<line x1="334" y1="103" x2="310" y2="103" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
+    +'<line x1="464" y1="103" x2="488" y2="103" stroke="#7c5cbf" stroke-width="1.5" marker-end="url(#arB)"/>'
+    +'<rect x="164" y="80" width="144" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="2.5"/>'
+    +'<text x="236" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Pulm. venous HTN</text>'
+    +'<text x="236" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">⇏ Dyspnoea \u00b7 orthopnoea \u00b7 PND</text>'
+    +'<rect x="490" y="80" width="172" height="46" rx="8" fill="#ede9fe" stroke="#7c5cbf" stroke-width="2.5"/>'
+    +'<text x="576" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Systemic congestion</text>'
+    +'<text x="576" y="115" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7c5cbf">⇏ JVP \u00b7 oedema \u00b7 hepatomegaly</text>'
+    +'<line x1="399" y1="126" x2="399" y2="150" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arN)"/>'
+    +'<rect x="258" y="152" width="170" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
+    +'<text x="343" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Neurohormonal activation</text>'
+    +'<text x="343" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">RAAS \u00b7 SNS \u00b7 ADH</text>'
+    +'<line x1="428" y1="175" x2="452" y2="175" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arN)"/>'
+    +'<rect x="454" y="152" width="144" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
+    +'<text x="526" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Haemodynamic overload</text>'
+    +'<text x="526" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">\u2191 preload + \u2191 afterload</text>'
+    +'<line x1="258" y1="175" x2="234" y2="175" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arN)"/>'
+    +'<rect x="56"  y="152" width="170" height="46" rx="8" fill="#fce7f0" stroke="#f472b6" stroke-width="1.5"/>'
+    +'<text x="141" y="171" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#3d1f7a">Cardiac remodelling</text>'
+    +'<text x="141" y="187" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9"  fill="#7b6fa0">Fibrosis \u2192 worsening EF</text>'
+    +'<path d="M56 175 Q28 175 28 103 Q28 31 73 31" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3" fill="none" marker-end="url(#arN)"/>'
+    +'<text x="14" y="110" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#f472b6" transform="rotate(-90 14 110)">vicious cycle</text>'
+    +'<rect x="8" y="216" width="684" height="46" rx="6" fill="#f8f7ff"/>'
+    +'<circle cx="26"  cy="239" r="5" fill="#6366f1"/><text x="36"  y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Forward failure</text>'
+    +'<circle cx="140" cy="239" r="5" fill="#7c5cbf"/><text x="150" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Backward failure</text>'
+    +'<circle cx="260" cy="239" r="5" fill="#f472b6"/><text x="270" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Neurohormonal</text>'
+    +'<line x1="366" y1="239" x2="390" y2="239" stroke="#6366f1" stroke-width="2"/><text x="396" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Direct link</text>'
+    +'<line x1="450" y1="239" x2="474" y2="239" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3"/><text x="480" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">Neurohormonal feedback</text>'
+    +'<circle cx="620" cy="239" r="5" fill="none" stroke="#3d1f7a" stroke-width="2"/><circle cx="620" cy="239" r="2" fill="#3d1f7a"/><text x="630" y="243" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7b6fa0">⇏ Clinical sign</text>'
+    +'</svg></div>';
 
   if(!nodes.length){
     el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
       +'<div class="stage-actions"><button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';if(c&&c.stage2_flowchart&&c.stage2_flowchart.html){var _s=el.querySelector('svg');if(_s){var _d=document.createElement('div');_d.className='mech-flow-af-wrap';_d.innerHTML=c.stage2_flowchart.html;_s.parentNode.replaceChild(_d,_s);}}
-    return;
-  }
-
-  const PILL='<div style="margin-bottom:20px;display:flex;gap:6px;flex-wrap:wrap">'
-    +Object.entries(PATHWAY_COLOURS).map(([p,col])=>'<span style="font-size:11px;background:';
-
-  if(!nodes.length){
-    el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
-      +'<div class="stage-actions"><button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
     return;
   }
 
