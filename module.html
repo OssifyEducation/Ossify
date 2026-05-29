@@ -715,7 +715,7 @@ function renderMechanism(c){
 
   if(!nodes.length){
     el.innerHTML=diagram+'<p style="color:var(--muted)">Node details coming soon.</p>'
-      +'<div class="stage-actions"><button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';
+      +'<div class="stage-actions"><button class="btn-primary-sm" data-cs="mechanism" onclick="completeStage(this.dataset.cs)">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>';if(c&&c.stage2_flowchart&&c.stage2_flowchart.html){var _s=el.querySelector('svg');if(_s){var _d=document.createElement('div');_d.className='mech-flow-af-wrap';_d.innerHTML=c.stage2_flowchart.html;_s.parentNode.replaceChild(_d,_s);}}
     return;
   }
 
