@@ -1074,9 +1074,8 @@ async function completeStage(stage){
   if(progress&&isComplete)progress.status='complete';
   await sb.from('user_module_progress').update({stages_completed:completed,current_stage:stage,status:isComplete?'complete':'in_progress',...(isComplete?{completed_at:new Date().toISOString()}:{}),updated_at:new Date().toISOString()}).eq('user_id',myId).eq('module_id',moduleData.id);
   renderStageNav();
-  if(isComplete){showCompleteBanner();return;}
   const nextIdx=STAGES.indexOf(stage)+1;
-  if(nextIdx<STAGES.length)setTimeout(()=>goToStage(STAGES[nextIdx],true),400);
+  if(nextIdx<STAGES.length){setTimeout(()=>goToStage(STAGES[nextIdx],true),400);}else if(isComplete){showCompleteBanner();}
 }
 
 function showCompleteBanner(){
