@@ -1209,12 +1209,29 @@ function applyToEl(root){
   var nodes=[],n;
   while((n=walker.nextNode()))nodes.push(n);
   nodes.forEach(function(tn){
-    var text=tn.textContent,html=text,changed=false;
+    var text=tn.textContent;
+    // Single-pass: collect all non-overlapping matches from plain text first,
+    // so abbreviated tokens inside previously-inserted data-title attributes are never matched.
+    var matches=[];
     ABBRS.forEach(function(abbr){
       var re=new RegExp("(?<![A-Za-z])"+abbr.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(?![A-Za-z])","g");
-      if(re.test(html)){html=html.replace(re,"<abbr class=\"oa\" data-title=\""+AC[abbr]+"\">"+abbr+"</abbr>");changed=true;}
+      var m;
+      while((m=re.exec(text))!==null){
+        var overlaps=matches.some(function(ex){return m.index<ex.end&&m.index+m[0].length>ex.start;});
+        if(!overlaps)matches.push({start:m.index,end:m.index+m[0].length,abbr:abbr});
+      }
     });
-    if(changed){var sp=document.createElement("span");sp.innerHTML=html;tn.parentNode.replaceChild(sp,tn);}
+    if(!matches.length)return;
+    matches.sort(function(a,b){return a.start-b.start;});
+    // Build HTML in one pass using original text offsets only
+    var html="",pos=0;
+    matches.forEach(function(match){
+      html+=text.substring(pos,match.start).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      html+='<abbr class="oa" data-title="'+AC[match.abbr]+'">'+match.abbr+'</abbr>';
+      pos=match.end;
+    });
+    html+=text.substring(pos).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    var sp=document.createElement("span");sp.innerHTML=html;tn.parentNode.replaceChild(sp,tn);
   });
 }
 var tip=document.getElementById("oa-tip");
