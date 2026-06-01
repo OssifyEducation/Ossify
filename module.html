@@ -685,12 +685,14 @@ function renderWhy(data){
     '<div class="why-fig-item"><div class="why-fig-dot" style="background:#f0abfc;border:1.5px solid #a855f7"></div>Mitral valve</div>'+
     '<div class="why-fig-item"><div class="why-fig-dot" style="background:#dc2626"></div>Aorta</div>'+
     '</div>';
+  var figSvg=(data&&data.stage1_figure&&data.stage1_figure.svg_html)?data.stage1_figure.svg_html:anatSvg;
+  var figLegend=(data&&data.stage1_figure&&data.stage1_figure.svg_html)?'':legend;
   var figure='<figure class="why-figure" id="why-anatomy-figure">'+
-    anatSvg+
+    figSvg+
     '<figcaption>'+
     '<strong>'+(data&&data.stage1_figure&&data.stage1_figure.title?data.stage1_figure.title:'Fig. 1: The failing heart')+'</strong>'+
     ''+(data&&data.stage1_figure&&data.stage1_figure.caption?data.stage1_figure.caption:''+(data&&data.stage1_figure&&data.stage1_figure.caption?data.stage1_figure.caption:'Key structures relevant to heart failure pathophysiology. Hover to highlight.')+'')+''+
-    legend+
+    figLegend+
     '</figcaption>'+
     '</figure>';
   var videoSection='<div class="why-video-section" id="why-video-section">'+
