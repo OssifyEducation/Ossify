@@ -695,11 +695,12 @@ function renderWhy(data){
     figLegend+
     '</figcaption>'+
     '</figure>';
-  var videoSection='<div class="why-video-section" id="why-video-section">'+
+  var _vidId=(data&&data.stage1_video&&data.stage1_video.youtube_id)||'';
+  var videoSection=_vidId?('<div class="why-video-section" id="why-video-section">'+
     '<div class="why-video-label"><svg viewBox=\"0 0 24 24\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/></svg>'+(data&&data.stage1_video&&data.stage1_video.title?'WATCH: '+data.stage1_video.title:'WATCH: PATHOPHYSIOLOGY OF HEART FAILURE')+'</div>'+
-    '<div class="why-video-wrap"><iframe src=\"https://www.youtube.com/embed/'+(data&&data.stage1_video?data.stage1_video.youtube_id:''+(data&&data.stage1_video&&data.stage1_video.youtube_id?data.stage1_video.youtube_id:'LgigPFmBZ8I')+'')+'?rel=0&modestbranding=1\" title=\"Pathophysiology of Heart Failure\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>'+
-    '<p class="why-video-caption">'+(data&&data.stage1_video&&data.stage1_video.caption?data.stage1_video.caption:''+(data&&data.stage1_video&&data.stage1_video.caption?data.stage1_video.caption:'Pathophysiology of Heart Failure, David Woodruff')+'')+'</p>'+
-    '</div>';
+    '<div class="why-video-wrap"><iframe src=\"https://www.youtube.com/embed/'+_vidId+'?rel=0&modestbranding=1\" title=\"'+(data&&data.stage1_video&&data.stage1_video.title?data.stage1_video.title:'Pathophysiology video')+'\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>'+
+    '<p class="why-video-caption">'+(data&&data.stage1_video&&data.stage1_video.caption?data.stage1_video.caption:'')+'</p>'+
+    '</div>'):'';
   return'<div class="why-unified">'+
     '<div class="why-body-wrap">'+
     figure+
