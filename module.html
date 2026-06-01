@@ -688,7 +688,7 @@ function renderWhy(data){
   var figure='<figure class="why-figure" id="why-anatomy-figure">'+
     anatSvg+
     '<figcaption>'+
-    '<strong>Fig. 1: The failing heart</strong>'+
+    '<strong>'+(data&&data.stage1_figure&&data.stage1_figure.title?data.stage1_figure.title:'Fig. 1: The failing heart')+'</strong>'+
     ''+(data&&data.stage1_figure&&data.stage1_figure.caption?data.stage1_figure.caption:''+(data&&data.stage1_figure&&data.stage1_figure.caption?data.stage1_figure.caption:'Key structures relevant to heart failure pathophysiology. Hover to highlight.')+'')+''+
     legend+
     '</figcaption>'+
