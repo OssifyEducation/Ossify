@@ -806,7 +806,7 @@ function renderMechanism(c){
   if(c&&c.stage2_flowchart&&c.stage2_flowchart.html){diagram='<div style=\"background:#fff;border:0.5px solid rgba(124,92,191,0.2);border-radius:14px;padding:12px 24px;margin-bottom:22px\"><div style=\"font-size:11px;text-transform:uppercase;color:#7c5cbf;margin-bottom:14px\">How it all connects</div>'+c.stage2_flowchart.html+'</div>';}el.innerHTML=diagram+PILL+'<div id="mechNodes">'+tilesHtml+'</div>';if(c&&c.stage2_flowchart&&c.stage2_flowchart.more_info){var _mibtn=document.createElement('button');_mibtn.className='mi-btn';_mibtn.innerHTML='<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>More info';_mibtn.style.cssText='margin-top:12px;';_mibtn.style.setProperty('display','inline-flex','important');var _modTitle=document.querySelector('h1')?.textContent||document.title.split('—')[0].trim();_mibtn.onclick=function(){showMoreInfo('How it all connects','mechanism',c.stage2_flowchart.more_info,_modTitle);};var _diagDiv=el.querySelector('div');if(_diagDiv){_diagDiv.appendChild(_mibtn);}}
     +'<p style="font-size:11.5px;color:var(--muted);margin-top:4px;margin-bottom:20px">Click any tile to reveal its description. Click a pathway label to filter.</p>'
     +'<div class="stage-actions"><button class="btn-outline-sm" data-gs="why" onclick="goToStage(this.dataset.gs,true)">Back</button>'
-    </div>';
+    +'</div>';
 }
 
 function toggleNode(nid){
