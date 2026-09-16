@@ -1053,11 +1053,9 @@ function advanceRCBlock(){
   if(rcBlockIdx<_rcBlocksData.length){
     renderRCBlock();
   } else {
-    const doneEl=document.getElementById('rcDone');
-    if(doneEl){doneEl.style.display='';doneEl.scrollIntoView({behavior:'smooth'});}
+    saveRCAndComplete();
   }
 }
-
 function showRCComplete(){
   const el=document.getElementById('rcComplete');
   if(el)el.innerHTML='<div class="stage-actions" style="margin-top:16px"><button class="btn-outline-sm" data-gs="test_yourself" onclick="goToStage(this.dataset.gs,true)">Back to questions</button><button class="btn-primary-sm" onclick="saveRCAndComplete()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Complete module</button></div>';
