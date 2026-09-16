@@ -1080,10 +1080,30 @@ async function completeStage(stage){
   const nextIdx=STAGES.indexOf(stage)+1;
   if(nextIdx<STAGES.length){setTimeout(()=>goToStage(STAGES[nextIdx],true),400);}else if(isComplete){showCompleteBanner();}
 }
-
-function showCompleteBanner(){
+async function showCompleteBanner(){
   const mm=document.getElementById('modMain');
-  if(mm)mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Module complete ✓</h3><p>'+moduleData.title+' \u2014 all 5 stages done.</p><div class="mod-complete-actions"><a href="domains.html" class="btn-ghost-dk">Browse Domains</a><a href="course.html" class="btn-ghost-dk">Back to Course</a></div></div>');
+  if(!mm)return;
+  let nextLine='', actions='<a href="course.html" class="btn-ghost-dk">Back to Course</a>';
+  try{
+    const{data:mods}=await sb.from('modules')
+      .select('slug,title,course_week,course_position')
+      .eq('is_published',true)
+      .not('course_week','is',null).not('course_position','is',null)
+      .order('course_week',{ascending:true}).order('course_position',{ascending:true});
+    if(mods&&mods.length){
+      const idx=mods.findIndex(m=>m.slug===moduleData.slug);
+      const next=(idx>-1)?mods[idx+1]:null;
+      if(next){
+        nextLine=' Now move onto <strong>'+next.title+'</strong>.';
+        actions='<a href="module.html?slug='+encodeURIComponent(next.slug)+'&from=course" class="btn-ghost-dk">Start '+next.title+' \u2192</a>'
+               +'<a href="course.html" class="btn-ghost-dk">Back to Course</a>';
+      }else{
+        nextLine=" You've reached the end of the course \u2014 well done!";
+      }
+    }
+  }catch(e){}
+  mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Well done! \u2713</h3><p>You have finished <strong>'+moduleData.title+'</strong>.'+nextLine+'</p><div class="mod-complete-actions">'+actions+'</div></div>');
+}
 }
 
 function showError(msg){
