@@ -1083,7 +1083,9 @@ async function completeStage(stage){
 async function showCompleteBanner(){
   const mm=document.getElementById('modMain');
   if(!mm)return;
-  let nextLine='', actions='<a href="course.html" class="btn-ghost-dk">Back to Course</a>';
+  mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner" id="modDoneBanner"><h3>Well done! \u2713</h3><p id="modDoneMsg">You have finished <strong>'+moduleData.title+'</strong>.</p><div class="mod-complete-actions" id="modDoneActions"><a href="course.html" class="btn-ghost-dk">Back to Course</a></div></div>');
+  const banner=document.getElementById('modDoneBanner');
+  if(banner)banner.scrollIntoView({behavior:'smooth',block:'center'});
   try{
     const{data:mods}=await sb.from('modules')
       .select('slug,title,course_week,course_position')
@@ -1093,16 +1095,16 @@ async function showCompleteBanner(){
     if(mods&&mods.length){
       const idx=mods.findIndex(m=>m.slug===moduleData.slug);
       const next=(idx>-1)?mods[idx+1]:null;
+      const msg=document.getElementById('modDoneMsg');
+      const act=document.getElementById('modDoneActions');
       if(next){
-        nextLine=' Now move onto <strong>'+next.title+'</strong>.';
-        actions='<a href="module.html?slug='+encodeURIComponent(next.slug)+'&from=course" class="btn-ghost-dk">Start '+next.title+' \u2192</a>'
-               +'<a href="course.html" class="btn-ghost-dk">Back to Course</a>';
-      }else{
-        nextLine=" You've reached the end of the course \u2014 well done!";
+        if(msg)msg.innerHTML='You have finished <strong>'+moduleData.title+'</strong>. Now move onto <strong>'+next.title+'</strong>.';
+        if(act)act.innerHTML='<a href="module.html?slug='+encodeURIComponent(next.slug)+'&from=course" class="btn-ghost-dk">Start '+next.title+' \u2192</a><a href="course.html" class="btn-ghost-dk">Back to Course</a>';
+      }else if(msg){
+        msg.innerHTML='You have finished <strong>'+moduleData.title+'</strong>. You\u2019ve reached the end of the course \u2014 well done!';
       }
     }
   }catch(e){}
-  mm.insertAdjacentHTML('afterbegin','<div class="mod-complete-banner"><h3>Well done! \u2713</h3><p>You have finished <strong>'+moduleData.title+'</strong>.'+nextLine+'</p><div class="mod-complete-actions">'+actions+'</div></div>');
 }
 
 function showError(msg){
