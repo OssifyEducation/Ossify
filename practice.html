@@ -372,13 +372,138 @@ body {
 .btn-ghost:hover { color: var(--paper); background: var(--navy-3); }
 
 /* ── Tutor mode panels ── */
-.tutor-panels { display: none; flex-direction: column; gap: 16px; margin-top: 24px; }
+.tutor-panels { display: none; flex-direction: column; gap: 12px; margin-top: 24px; }
 .tutor-panels.visible { display: flex; }
 
-/* Diagnostic clues */
-.clues-panel {
-  background: var(--amber-bg);
-  border: 1px solid rgba(244,162,97,.4);
+/* Shared panel shell */
+.tp-card {
+  background: var(--navy-2);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.tp-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--slate-2);
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Result banner */
+.result-banner-tp {
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+}
+.result-banner-tp.correct { background: var(--correct-bg); border: 1.5px solid var(--correct-border); color: #166534; }
+.result-banner-tp.wrong   { background: var(--incorrect-bg); border: 1.5px solid var(--incorrect-border); color: #991B1B; }
+.result-banner-tp .rb-icon { font-size: 1.3rem; }
+.result-banner-tp strong { display: block; font-size: 14px; margin-bottom: 2px; }
+.result-banner-tp span   { font-size: 12px; opacity: .85; }
+
+/* Answer blocks */
+.ans-block {
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 7px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.ans-block:last-child { margin-bottom: 0; }
+.ans-block.is-correct { border-color: rgba(34,197,94,.4); }
+.ans-block.is-wrong   { border-color: rgba(239,68,68,.35); }
+
+.ans-block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: var(--navy-3);
+}
+.ans-circle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 12px; flex-shrink: 0;
+}
+.ans-circle.correct { background: var(--correct-bg); color: #166534; border: 2px solid var(--correct-border); }
+.ans-circle.wrong   { background: var(--incorrect-bg); color: #991B1B; border: 2px solid var(--incorrect-border); }
+.ans-circle.neutral { background: var(--navy-2); color: var(--slate-2); border: 1px solid rgba(255,255,255,.1); }
+
+.ans-meta { flex: 1; min-width: 0; }
+.ans-status {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px;
+}
+.ans-status.correct { color: var(--correct-border); }
+.ans-status.wrong   { color: #EF4444; }
+.ans-status.neutral { color: var(--slate-2); }
+.ans-brief { font-size: 13px; line-height: 1.45; color: var(--paper); }
+
+.btn-tp-detail {
+  background: rgba(0,168,150,.12);
+  color: var(--teal);
+  border: 1px solid rgba(0,168,150,.3);
+  padding: 5px 11px;
+  border-radius: 5px;
+  font-family: inherit; font-size: 11px; font-weight: 600;
+  cursor: pointer; white-space: nowrap; flex-shrink: 0;
+  transition: background .15s;
+}
+.btn-tp-detail:hover { background: rgba(0,168,150,.22); }
+
+.ans-detail-body {
+  display: none;
+  padding: 12px 14px;
+  font-size: 13px; line-height: 1.7;
+  color: var(--slate-2);
+  border-top: 1px solid rgba(255,255,255,.05);
+  background: var(--navy);
+}
+.ans-detail-body.open { display: block; }
+.ans-detail-body p { margin-bottom: 10px; }
+.ans-detail-body p:last-child { margin-bottom: 0; }
+
+/* Accordion clue/distractor rows */
+.clue-row-tp {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,.05);
+  cursor: pointer; user-select: none;
+}
+.clue-row-tp:last-child { border-bottom: none; }
+.clue-tag-tp {
+  font-size: 10px; font-weight: 700; padding: 2px 7px;
+  border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+}
+.tag-tp-clue  { background: rgba(244,162,97,.15); color: var(--amber); border: 1px solid rgba(244,162,97,.3); }
+.tag-tp-dist  { background: rgba(99,179,237,.1);  color: #63B3ED;      border: 1px solid rgba(99,179,237,.25); }
+.clue-label-tp { font-size: 13px; font-weight: 500; color: var(--paper); flex: 1; }
+.clue-chev-tp  { color: var(--slate); font-size: 10px; transition: transform .2s; margin-top: 3px; flex-shrink: 0; }
+.clue-row-tp.open .clue-chev-tp { transform: rotate(90deg); }
+
+.clue-detail-tp {
+  display: none;
+  font-size: 13px; line-height: 1.6; color: var(--slate-2);
+  padding: 10px 16px 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: var(--navy);
+  border-left: 2px solid var(--amber);
+}
+.clue-detail-tp.dist-tp { border-left-color: #63B3ED; }
+.clue-row-tp.open + .clue-detail-tp { display: block; }
+
+/* High-yield summary */
+.hys-panel {
+  background: var(--navy-2);
+  border: 1px solid rgba(0,168,150,.25);
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -399,125 +524,21 @@ body {
   gap: 8px;
   align-items: center;
 }
-.panel-title.amber { color: #92400E; }
 .panel-title.teal { color: var(--teal-d); }
-.panel-title.slate { color: var(--navy); }
 .panel-chevron { font-size: 12px; transition: transform .2s; color: inherit; }
 .panel-chevron.open { transform: rotate(180deg); }
 .panel-body { padding: 0 16px 16px; }
-
-.clue-item {
-  margin-bottom: 12px;
-  padding: 12px;
-  background: rgba(255,255,255,.7);
-  border-radius: 6px;
-  border-left: 3px solid var(--amber);
-}
-.clue-item:last-child { margin-bottom: 0; }
-.clue-text { font-size: 14px; color: #1C1917; line-height: 1.6; }
-
-.distractor-item {
-  margin-bottom: 12px;
-  padding: 12px;
-  background: rgba(255,255,255,.7);
-  border-radius: 6px;
-  border-left: 3px solid #94A3B8;
-}
-.distractor-item:last-child { margin-bottom: 0; }
-
-/* Per-option explanations */
-.option-explanations { display: flex; flex-direction: column; gap: 8px; }
-.opt-exp-card {
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid;
-}
-.opt-exp-card.is-correct { border-color: var(--correct-border); background: var(--correct-bg); }
-.opt-exp-card.is-incorrect { border-color: rgba(100,116,139,.3); background: var(--navy-2); }
-.opt-exp-header {
-  padding: 12px 16px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-}
-.opt-exp-letter {
-  font-weight: 700;
-  font-size: 13px;
-  font-family: monospace;
-  min-width: 20px;
-}
-.opt-exp-label { font-size: 14px; font-weight: 500; flex: 1; }
-.opt-exp-badge {
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 99px;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-.opt-exp-card.is-correct .opt-exp-badge { background: #DCFCE7; color: #166534; }
-.opt-exp-card.is-incorrect .opt-exp-badge { background: var(--navy-3); color: var(--slate-2); }
-.opt-exp-card.is-correct .opt-exp-letter { color: var(--correct-border); }
-.opt-exp-card.is-incorrect .opt-exp-letter { color: var(--slate-2); }
-.opt-exp-card.is-correct .opt-exp-label { color: #166534; }
-.opt-exp-card.is-incorrect .opt-exp-label { color: var(--paper); }
-
-.opt-exp-body { display: none; border-top: 1px solid; }
-.opt-exp-card.is-correct .opt-exp-body { border-color: rgba(34,197,94,.2); }
-.opt-exp-card.is-incorrect .opt-exp-body { border-color: rgba(255,255,255,.06); }
-.opt-exp-body.open { display: block; }
-
-.exp-brief {
-  padding: 12px 16px;
-  font-size: 14px;
-  line-height: 1.65;
-  border-bottom: 1px dashed;
-}
-.opt-exp-card.is-correct .exp-brief { color: #166534; border-color: rgba(34,197,94,.2); }
-.opt-exp-card.is-incorrect .exp-brief { color: var(--paper); border-color: rgba(255,255,255,.06); }
-
-.exp-detailed {
-  padding: 12px 16px;
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: var(--slate-2);
-}
-.opt-exp-card.is-correct .exp-detailed { color: #14532D; }
-
-.exp-toggle {
-  padding: 8px 16px 12px;
-  font-size: 12px;
-  color: var(--teal);
-  cursor: pointer;
-  user-select: none;
-  font-weight: 600;
-}
-.exp-detailed.hidden { display: none; }
-
-/* High yield summary */
-.hys-panel {
-  background: var(--navy-2);
-  border: 1px solid rgba(0,168,150,.25);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
 .hys-body {
   padding: 0 16px 16px;
-  font-size: 13.5px;
-  line-height: 1.75;
-  color: var(--slate-2);
-  white-space: pre-wrap;
+  font-size: 13.5px; line-height: 1.75;
+  color: var(--slate-2); white-space: pre-wrap;
 }
 .hys-body strong { color: var(--paper); }
 
 /* References */
 .refs-text {
   padding: 12px 16px;
-  font-size: 12px;
-  color: var(--slate);
-  line-height: 1.6;
+  font-size: 12px; color: var(--slate); line-height: 1.6;
 }
 
 /* ── Progress bar ── */
@@ -909,7 +930,7 @@ function renderQuestion(i) {
   // Options
   html += `<div class="options-list" id="optionsList">`;
   const letters = ['A','B','C','D','E','F','G','H','I','J'];
-  q.options.forEach((opt, idx) => {
+  (q.options || []).forEach((opt, idx) => {
     let cls = 'option-btn';
     let suffix = '';
     if (showAnswers || answered) {
@@ -988,121 +1009,170 @@ function renderQuestion(i) {
   });
 }
 
+// ── Tutor panel helpers ──
+function tpParseClueStr(s) {
+  if (typeof s !== 'string') return null;
+  const m = s.match(/^"([^"]+)"\s*[—–\-]+\s*(.+)$/s);
+  return m ? { label: m[1].trim(), explanation: m[2].trim() } : null;
+}
+
+function tpBriefFallback(det) {
+  if (!det) return '';
+  const m = det.match(/^(.{40,350})\.\s/s);
+  return m ? m[1].trim() + '.' : det.substring(0, 180).trim();
+}
+
+function tpParseSBAKeyContent(arr) {
+  if (!arr || !arr.length) return { clues: [], distractors: [] };
+  const clues = [], distractors = [];
+  let mode = 'clue';
+  for (const item of arr) {
+    if (typeof item !== 'string') continue;
+    if (item.includes('cyan-highlighted') || item.toLowerCase().includes('why the cyan')) { mode = 'distractor'; continue; }
+    if (!item.startsWith('"')) continue;
+    const p = tpParseClueStr(item);
+    if (!p) continue;
+    (mode === 'clue' ? clues : distractors).push(p);
+  }
+  return { clues, distractors };
+}
+
+function tpClueRowHtml(c, type, idx) {
+  const tagCls  = type === 'clue' ? 'tag-tp-clue' : 'tag-tp-dist';
+  const tagText = type === 'clue' ? 'Clue' : 'Distractor';
+  const detCls  = type === 'distractor' ? 'clue-detail-tp dist-tp' : 'clue-detail-tp';
+  const uid = `clue-${type}-${idx}`;
+  return `<div class="clue-row-tp" onclick="tpToggleClue(this)">
+    <div class="clue-tag-tp ${tagCls}">${tagText}</div>
+    <div class="clue-label-tp">"${escapeHtml(c.label)}"</div>
+    <div class="clue-chev-tp">▶</div>
+  </div><div class="${detCls}">${escapeHtml(c.explanation)}</div>`;
+}
+
+function tpAnswerBlockHtml(letter, label, brief, detailed, isCorrect, isSelected) {
+  const circCls = isCorrect ? 'correct' : (isSelected ? 'wrong' : 'neutral');
+  const statusCls = isCorrect ? 'correct' : (isSelected ? 'wrong' : 'neutral');
+  const statusTxt = isCorrect ? '✓ Correct Answer' : (isSelected ? '✗ Incorrect' : 'Incorrect');
+  const displayBrief = brief || tpBriefFallback(detailed);
+  const detId = 'tp-det-' + letter;
+  const paras = detailed ? detailed.split(/\n\n+/).map(p => `<p>${escapeHtml(p)}</p>`).join('') : '';
+  return `<div class="ans-block${isCorrect ? ' is-correct' : (isSelected ? ' is-wrong' : '')}">
+    <div class="ans-block-header">
+      <div class="ans-circle ${circCls}">${escapeHtml(letter)}</div>
+      <div class="ans-meta">
+        <div class="ans-status ${statusCls}">${statusTxt}</div>
+        <div class="ans-brief">${escapeHtml(displayBrief)}</div>
+      </div>
+      ${paras ? `<button class="btn-tp-detail" onclick="tpToggleDetail('${detId}',this)">Detailed Explanation</button>` : ''}
+    </div>
+    ${paras ? `<div class="ans-detail-body" id="${detId}">${paras}</div>` : ''}
+  </div>`;
+}
+
 function renderTutorPanels(q, selected, tc) {
+  const letters = ['A','B','C','D','E','F','G','H','I','J'];
+  const isSBA = tc.type === 'sba';
+  const isEMQ = tc.type === 'emq';
+
+  // Work out correct letter
+  let correctLetter;
+  if (isEMQ && tc.this_scenario) {
+    correctLetter = tc.this_scenario.correct_letter || '';
+  } else if (isSBA && tc.options) {
+    const co = tc.options.find(o => o.correct === true || o.correct === 'true');
+    correctLetter = co ? co.letter : letters[q.correct_answer] || '';
+  } else {
+    correctLetter = letters[q.correct_answer] || '';
+  }
+  const selectedLetter = selected !== null && selected !== undefined ? letters[selected] : '';
+  const isCorrectAnswer = selectedLetter === correctLetter;
+
   let html = `<div class="tutor-panels visible">`;
 
-  // Diagnostic clues (SBA only)
-  if (tc.type === 'sba' && tc.key_clues && tc.key_clues.length) {
-    const cluesHtml = tc.key_clues.map(c =>
-      `<div class="clue-item"><div class="clue-text">${escapeHtml(c)}</div></div>`
-    ).join('');
-    html += `<div class="clues-panel">
-      <div class="panel-header" onclick="togglePanel(this)">
-        <div class="panel-title amber">🟡 Key diagnostic clues</div>
-        <span class="panel-chevron open">▼</span>
-      </div>
-      <div class="panel-body" style="display:block">${cluesHtml}</div>
+  // ── 1. Result banner ──
+  if (isCorrectAnswer) {
+    html += `<div class="result-banner-tp correct">
+      <span class="rb-icon">✅</span>
+      <div><strong>Correct!</strong><span>Scroll down for the full explanation.</span></div>
+    </div>`;
+  } else {
+    html += `<div class="result-banner-tp wrong">
+      <span class="rb-icon">❌</span>
+      <div><strong>Not quite.</strong><span>The correct answer is <strong>${escapeHtml(correctLetter)}</strong>. See explanations below.</span></div>
     </div>`;
   }
 
-  // Distractors (SBA only)
-  if (tc.type === 'sba' && tc.key_distractors && tc.key_distractors.length > 2) {
-    const distText = tc.key_distractors.slice(2); // skip the annotated question & clues header
-    if (distText.length) {
-      const distHtml = distText.map(d =>
-        `<div class="distractor-item"><div class="clue-text" style="color:#374151">${escapeHtml(d)}</div></div>`
-      ).join('');
-      html += `<div class="clues-panel" style="background:var(--navy-2);border-color:rgba(148,163,184,.25)">
-        <div class="panel-header" onclick="togglePanel(this)">
-          <div class="panel-title slate" style="color:var(--slate-2)">🔵 Distracting features</div>
-          <span class="panel-chevron">▼</span>
-        </div>
-        <div class="panel-body" style="display:none">${distHtml}</div>
-      </div>`;
-    }
-  }
+  // ── 2. Answer explanations ──
+  html += `<div class="tp-card"><div class="tp-card-title">📝 Answer Explanations</div><div style="padding:12px 12px 4px">`;
 
-  // EMQ scenario explanation
-  if (tc.type === 'emq' && tc.this_scenario) {
-    const s = tc.this_scenario;
-    html += `<div class="hys-panel" style="border-color:rgba(255,255,255,.08)">
-      <div class="panel-header" onclick="togglePanel(this)">
-        <div class="panel-title teal">📋 Answer key — all options</div>
-        <span class="panel-chevron open">▼</span>
-      </div>
-      <div class="panel-body" style="display:block">
-        <div class="option-explanations">`;
-    const letters = ['A','B','C','D','E','F','G','H','I','J'];
-    if (s.answer_key && s.answer_key.length) {
-      s.answer_key.forEach(ak => {
-        const cls = ak.correct ? 'opt-exp-card is-correct' : 'opt-exp-card is-incorrect';
-        const badge = ak.correct ? 'Correct' : 'Incorrect';
-        html += `<div class="${cls}">
-          <div class="opt-exp-header" onclick="toggleOptExp(this)">
-            <span class="opt-exp-letter">${ak.letter}.</span>
-            <span class="opt-exp-label">${escapeHtml(ak.label || '')}</span>
-            <span class="opt-exp-badge">${badge}</span>
-          </div>
-          <div class="opt-exp-body">
-            <div class="exp-brief">${escapeHtml(ak.explanation)}</div>
-          </div>
-        </div>`;
-      });
-    }
-    html += `</div></div></div>`;
-  }
-
-  // SBA per-option explanations
-  if (tc.type === 'sba' && tc.options && tc.options.length) {
-    html += `<div class="hys-panel" style="border-color:rgba(255,255,255,.08)">
-      <div class="panel-header" onclick="togglePanel(this)">
-        <div class="panel-title teal">📝 Option-by-option explanations</div>
-        <span class="panel-chevron open">▼</span>
-      </div>
-      <div class="panel-body" style="display:block">
-        <div class="option-explanations">`;
-    tc.options.forEach(opt => {
-      const cls = opt.correct ? 'opt-exp-card is-correct' : 'opt-exp-card is-incorrect';
-      const badge = opt.correct ? 'Correct' : 'Incorrect';
-      html += `<div class="${cls}">
-        <div class="opt-exp-header" onclick="toggleOptExp(this)">
-          <span class="opt-exp-letter">${opt.letter}.</span>
-          <span class="opt-exp-label">${escapeHtml(opt.label)}</span>
-          <span class="opt-exp-badge">${badge}</span>
-        </div>
-        <div class="opt-exp-body">
-          <div class="exp-brief">${escapeHtml(opt.brief)}</div>
-          <div class="exp-toggle" onclick="toggleDetailed(this)">Show detailed explanation ▼</div>
-          <div class="exp-detailed hidden">${escapeHtml(opt.detailed)}</div>
-        </div>
-      </div>`;
+  if (isSBA && tc.options && tc.options.length) {
+    const sorted = [...tc.options].sort((a, b) => (a.letter || '').localeCompare(b.letter || ''));
+    sorted.forEach(opt => {
+      const isC = opt.correct === true || opt.correct === 'true';
+      const isSel = opt.letter === selectedLetter;
+      html += tpAnswerBlockHtml(opt.letter, opt.label, opt.brief, opt.detailed, isC, isSel);
     });
-    html += `</div></div></div>`;
+  } else if (isEMQ && tc.this_scenario && tc.this_scenario.answer_key) {
+    const sorted = [...tc.this_scenario.answer_key].sort((a, b) => (a.letter || '').localeCompare(b.letter || ''));
+    sorted.forEach(ak => {
+      const isC = ak.letter === correctLetter;
+      const isSel = ak.letter === selectedLetter;
+      html += tpAnswerBlockHtml(ak.letter, ak.label, ak.brief, ak.detailed, isC, isSel);
+    });
   }
 
-  // High yield summary
+  html += `</div></div>`;
+
+  // ── 3. High-yield summary ──
   if (tc.high_yield_summary) {
-    const formattedHYS = formatBullets(tc.high_yield_summary);
-    html += `<div class="hys-panel">
-      <div class="panel-header" onclick="togglePanel(this)">
-        <div class="panel-title teal">⚡ High-yield summary</div>
-        <span class="panel-chevron open">▼</span>
-      </div>
-      <div class="panel-body" style="display:block">
-        <div class="hys-body">${formattedHYS}</div>
-      </div>
+    const bullets = tc.high_yield_summary
+      .replace(/^Key Points to Memorise\s*/i, '')
+      .split(/•\s+/).map(s => s.trim()).filter(s => s.length > 5);
+    if (bullets.length) {
+      html += `<div class="hys-panel">
+        <div class="panel-header" onclick="togglePanel(this)">
+          <div class="panel-title teal">⚡ High-yield summary</div>
+          <span class="panel-chevron open">▼</span>
+        </div>
+        <div class="panel-body" style="display:block">
+          <div class="hys-body">${bullets.map(b => `<strong style="color:var(--teal)">•</strong> ${escapeHtml(b)}`).join('<br>')}</div>
+        </div>
+      </div>`;
+    }
+  }
+
+  // ── 4. Key diagnostic clues ──
+  let clues = [], distractors = [];
+  if (isSBA) {
+    const parsed = tpParseSBAKeyContent(tc.key_distractors || tc.key_clues || []);
+    clues = parsed.clues; distractors = parsed.distractors;
+  } else if (isEMQ && tc.this_scenario) {
+    clues = (tc.this_scenario.key_clues || []).map(tpParseClueStr).filter(Boolean);
+    distractors = (tc.this_scenario.distractors || []).map(tpParseClueStr).filter(Boolean);
+  }
+
+  if (clues.length) {
+    html += `<div class="tp-card"><div class="tp-card-title">🔑 Key Diagnostic Clues</div>
+      ${clues.map((c, i) => tpClueRowHtml(c, 'clue', i)).join('')}
     </div>`;
   }
 
-  // References
+  if (distractors.length) {
+    html += `<div class="tp-card"><div class="tp-card-title">🔵 Distractors — Why They Mislead</div>
+      ${distractors.map((d, i) => tpClueRowHtml(d, 'distractor', i)).join('')}
+    </div>`;
+  }
+
+  // ── 5. References ──
   if (tc.references) {
+    const refLines = tc.references.split('\n').map(s => s.trim()).filter(s => s.length > 3);
     html += `<div class="hys-panel" style="border-color:rgba(255,255,255,.06)">
       <div class="panel-header" onclick="togglePanel(this)">
         <div class="panel-title" style="color:var(--slate)">📚 References</div>
         <span class="panel-chevron">▼</span>
       </div>
       <div class="panel-body" style="display:none">
-        <div class="refs-text">${escapeHtml(tc.references)}</div>
+        <div class="refs-text">${refLines.map(l => escapeHtml(l)).join('<br>')}</div>
       </div>
     </div>`;
   }
@@ -1189,6 +1259,19 @@ function closeResult() {
   document.getElementById('resultOverlay').classList.remove('visible');
   renderQuestion(0);
   scrollToTop();
+}
+
+// New tutor panel toggles
+function tpToggleClue(row) {
+  const open = row.classList.contains('open');
+  const card = row.closest('.tp-card');
+  if (card) card.querySelectorAll('.clue-row-tp.open').forEach(r => r.classList.remove('open'));
+  if (!open) row.classList.add('open');
+}
+function tpToggleDetail(id, btn) {
+  const b = document.getElementById(id);
+  const open = b.classList.toggle('open');
+  btn.textContent = open ? 'Hide Explanation' : 'Detailed Explanation';
 }
 
 // Panel toggle
