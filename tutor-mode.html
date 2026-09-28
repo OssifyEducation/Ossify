@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ossify — Tutor Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0F1923; --navy-soft: #1E2D3D; --slate: #4A5568; --muted: #718096;
+    --border: #E2E8F0; --bg: #F7F9FC; --surface: #FFFFFF;
+    --teal: #0D9488; --teal-light: #CCFBF1; --teal-dark: #0F766E;
+    --amber: #D97706; --success: #059669; --success-light: #D1FAE5;
+    --danger: #DC2626; --danger-light: #FEE2E2;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--navy); min-height: 100vh; }
+  .page { max-width: 780px; margin: 0 auto; padding: 28px 16px 80px; }
+  .q-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+  .q-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
+  .badge-sba { background: #EDE9FE; color: #5B21B6; }
+  .badge-emq { background: #DBEAFE; color: #1E40AF; }
+  .badge-q   { background: var(--teal-light); color: var(--teal-dark); }
+  .badge-topic { font-size: 13px; font-weight: 500; color: var(--muted); }
+  .progress-wrap { display: flex; align-items: center; gap: 8px; }
+  .progress-bar { width: 120px; height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--teal); border-radius: 99px; transition: width .4s; }
+  .progress-text { font-size: 12px; color: var(--muted); font-weight: 500; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 14px; }
+  .card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 14px; }
+  .stem { font-family: 'Lora', Georgia, serif; font-size: 16.5px; line-height: 1.8; color: var(--navy); }
+  .hl-helpful    { background: #EFF6FF; border-bottom: 2px solid #3B82F6; padding-bottom: 1px; border-radius: 2px; animation: hlIn .35s ease both; }
+  .hl-distractor { background: #FFFBEB; border-bottom: 2px solid var(--amber); padding-bottom: 1px; border-radius: 2px; animation: hlIn .35s ease both; }
+  @keyframes hlIn { from { opacity: 0; } to { opacity: 1; } }
+  .hl-legend { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+  .hl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--slate); font-weight: 500; }
+  .hl-dot { width: 14px; height: 4px; border-radius: 3px; }
+  .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .opt { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 10px; background: var(--surface); cursor: pointer; text-align: left; width: 100%; font-family: 'Inter', sans-serif; transition: border-color .15s, background .15s; }
+  .opt:hover:not([disabled]) { border-color: var(--teal); background: #F0FDFA; }
+  .opt[disabled] { cursor: default; }
+  .opt.selected  { border-color: var(--teal); background: #F0FDFA; }
+  .opt.correct   { border-color: var(--success); background: var(--success-light); }
+  .opt.incorrect { border-color: var(--danger);  background: var(--danger-light); }
+  .opt.neutral   { border-color: var(--border); background: #FAFAFA; opacity: .7; }
+  .opt-letter { font-size: 11px; font-weight: 700; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--teal); color: var(--teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .opt.correct   .opt-letter { border-color: var(--success); color: var(--success); }
+  .opt.incorrect .opt-letter { border-color: var(--danger);  color: var(--danger); }
+  .opt.neutral   .opt-letter { border-color: var(--muted);   color: var(--muted); }
+  .opt-body { flex: 1; }
+  .opt-text { font-size: 14.5px; color: var(--navy); line-height: 1.5; }
+  .opt.neutral .opt-text { color: var(--muted); }
+  .opt-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .icon-correct { color: var(--success); }
+  .icon-incorrect { color: var(--danger); }
+  .opt-brief { font-size: 13px; color: var(--slate); margin-top: 6px; line-height: 1.55; font-style: italic; }
+  .opt.neutral .opt-brief { color: var(--muted); }
+  .detail-toggle { display: flex; align-items: center; gap: 5px; margin-top: 8px; font-size: 12px; font-weight: 600; color: var(--teal); background: none; border: none; cursor: pointer; padding: 0; font-family: 'Inter', sans-serif; }
+  .detail-toggle:hover { color: var(--teal-dark); }
+  .detail-toggle svg { transition: transform .2s; }
+  .detail-toggle.open svg { transform: rotate(180deg); }
+  .detail-body { overflow: hidden; max-height: 0; transition: max-height .3s ease; }
+  .detail-body.open { max-height: 600px; }
+  .detail-inner { margin-top: 10px; padding: 12px 14px; border-radius: 8px; font-size: 13px; color: var(--slate); line-height: 1.65; }
+  .opt.correct   .detail-inner { border-left: 3px solid var(--success); background: rgba(5,150,105,.04); }
+  .opt.incorrect .detail-inner { border-left: 3px solid var(--danger);  background: rgba(220,38,38,.04); }
+  .opt.neutral   .detail-inner { border-left: 3px solid var(--border);  background: rgba(0,0,0,.02); }
+  .btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: background .15s, transform .1s; }
+  .btn:active:not([disabled]) { transform: scale(.99); }
+  .btn-submit { background: var(--teal); color: #fff; }
+  .btn-submit:hover:not([disabled]) { background: var(--teal-dark); }
+  .btn-submit:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
+  .btn-next { background: var(--navy); color: #fff; margin-top: 0; }
+  .btn-next:hover { background: var(--navy-soft); }
+  .result-banner { display: flex; align-items: center; gap: 10px; padding: 13px 16px; border-radius: 10px; margin-bottom: 12px; font-weight: 600; font-size: 14px; animation: fadeUp .3s ease both; }
+  .result-correct   { background: var(--success-light); color: #065F46; }
+  .result-incorrect { background: var(--danger-light);  color: #991B1B; }
+  .hiyield { background: var(--navy); border-radius: 14px; padding: 24px; margin-bottom: 14px; animation: fadeUp .3s ease both; }
+  .hiyield-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #64D5CA; margin-bottom: 14px; display: flex; align-items: center; gap: 7px; }
+  .hiyield-list { display: flex; flex-direction: column; gap: 9px; }
+  .hiyield-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: #E2E8F0; line-height: 1.6; }
+  .hiyield-dot { width: 6px; height: 6px; border-radius: 50%; background: #64D5CA; flex-shrink: 0; margin-top: 7px; }
+  .ref-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .ref-item:last-child { border-bottom: none; }
+  .ref-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--teal-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+  .ref-title { font-size: 13.5px; font-weight: 600; color: var(--navy); }
+  .ref-sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .ref-link { font-size: 12px; color: var(--teal); text-decoration: none; display: inline-flex; align-items: center; gap: 3px; margin-top: 3px; }
+  .ref-link:hover { text-decoration: underline; }
+  .emq-optlist { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .emq-optlist-item { display: flex; align-items: center; gap: 10px; padding: 9px 14px; font-size: 13.5px; color: var(--slate); border-bottom: 1px solid var(--border); }
+  .emq-optlist-item:last-child { border-bottom: none; }
+  .emq-letter { font-weight: 700; color: var(--teal); font-size: 12px; width: 16px; flex-shrink: 0; }
+  .scenario-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--teal); padding-bottom: 10px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .emq-opts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 16px; }
+  @media (min-width: 480px) { .emq-opts-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .emq-opt { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--surface); cursor: pointer; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--navy); text-align: left; transition: border-color .15s, background .15s; }
+  .emq-opt:hover:not([disabled]) { border-color: var(--teal); background: #F0FDFA; }
+  .emq-opt[disabled] { cursor: default; }
+  .emq-opt.selected  { border-color: var(--teal); background: #F0FDFA; }
+  .emq-opt.correct   { border-color: var(--success); background: var(--success-light); }
+  .emq-opt.incorrect { border-color: var(--danger);  background: var(--danger-light); }
+  .emq-opt.neutral   { border-color: var(--border); background: #FAFAFA; opacity: .65; }
+  .emq-opt-letter { font-size: 10px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--teal); color: var(--teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .emq-opt.correct   .emq-opt-letter { border-color: var(--success); color: var(--success); }
+  .emq-opt.incorrect .emq-opt-letter { border-color: var(--danger);  color: var(--danger); }
+  .emq-opt.neutral   .emq-opt-letter { border-color: var(--muted);   color: var(--muted); }
+  .emq-feedback { margin-top: 14px; padding: 14px; border-radius: 10px; }
+  .emq-feedback.correct   { background: var(--success-light); border-left: 3px solid var(--success); }
+  .emq-feedback.incorrect { background: var(--danger-light);  border-left: 3px solid var(--danger); }
+  .emq-feedback-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+  .emq-feedback.correct   .emq-feedback-label { color: #065F46; }
+  .emq-feedback.incorrect .emq-feedback-label { color: #991B1B; }
+  .emq-feedback p { font-size: 13.5px; color: var(--slate); line-height: 1.6; }
+  .state-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 14px; color: var(--muted); text-align: center; }
+  .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .state-screen h2 { font-size: 18px; font-weight: 600; color: var(--navy); }
+  .state-screen p  { font-size: 14px; }
+  .btn-retry { margin-top: 8px; padding: 10px 24px; background: var(--teal); color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { animation: fadeUp .3s ease both; }
+  :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 4px; }
+  @media (max-width: 520px) { .card { padding: 18px; } .stem { font-size: 15.5px; } .progress-wrap { display: none; } }
+</style>
+</head>
+<body>
+<div class="page" id="root">
+  <div class="state-screen"><div class="spinner"></div><p>Loading questions…</p></div>
+</div>
+<script>
+const SUPABASE_URL = 'https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj';
+
+let questions = [], qIndex = 0, submitted = false, selected = null, emqSel = {}, expanded = {};
+
+async function loadQuestions() {
+  showLoading();
+  try {
+    const res = await fetch(
+      SUPABASE_URL + '/rest/v1/questions?select=*&limit=50&order=question_id',
+      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } }
+    );
+    if (!res.ok) throw new Error('Supabase returned ' + res.status + ': ' + await res.text());
+    const data = await res.json();
+    if (!data.length) throw new Error('No questions found in the database.');
+    questions = data.map((row, i) => normaliseRow(row, i, data.length));
+    render();
+  } catch (e) { showError(e.message); }
+}
+
+function normaliseRow(row, i, total) {
+  const base = {
+    questionId: row.question_id || row.id,
+    questionType: (row.question_type || 'SBA').toUpperCase(),
+    topic: row.topic || row.specialty || '',
+    number: i + 1, total,
+    highYieldPoints: row.high_yield_points || [],
+    references: row.references || [],
+  };
+  const tc = typeof row.tutor_content === 'string' ? JSON.parse(row.tutor_content || '{}') : (row.tutor_content || {});
+  if (base.questionType === 'SBA') {
+    return { ...base, annotatedStem: tc.annotatedStem || row.annotated_stem || [{ text: row.stem || '', type: 'plain' }], options: tc.options || row.options || [] };
+  }
+  return { ...base, optionList: tc.optionList || row.option_list || [], scenarios: tc.scenarios || row.scenarios || [] };
+}
+
+function render() {
+  const q = questions[qIndex];
+  document.getElementById('root').innerHTML = q.questionType === 'SBA' ? renderSBA(q) : renderEMQ(q);
+  attachEvents();
+}
+
+function renderSBA(q) {
+  return renderHeader(q) +
+    '<div class="card fade-in"><div class="card-label">Clinical Scenario</div>' +
+    (submitted ? renderLegend() : '') +
+    '<p class="stem">' + renderStem(q.annotatedStem) + '</p></div>' +
+    '<div class="card fade-in"><div class="card-label">Select the single best answer</div>' +
+    '<div class="options" role="radiogroup">' + q.options.map(o => renderOption(o, q)).join('') + '</div>' +
+    renderSBAActions(q) + '</div>' +
+    (submitted ? renderHiYield(q) : '') + (submitted ? renderRefs(q) : '');
+}
+
+function renderOption(opt, q) {
+  let cls = 'opt', icon = '';
+  if (submitted) {
+    if (opt.isCorrect) { cls += ' correct'; icon = '<span class="opt-icon icon-correct">&#10003;</span>'; }
+    else if (opt.id === selected) { cls += ' incorrect'; icon = '<span class="opt-icon icon-incorrect">&#10007;</span>'; }
+    else cls += ' neutral';
+  } else if (opt.id === selected) cls += ' selected';
+  const key = 'detail_' + opt.id, isOpen = !!expanded[key];
+  const detailHtml = submitted ? '<p class="opt-brief">' + esc(opt.shortExplanation || '') + '</p>' +
+    '<button class="detail-toggle' + (isOpen ? ' open' : '') + '" data-key="' + key + '" aria-expanded="' + isOpen + '">' +
+    '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>' +
+    (isOpen ? 'Hide' : 'Show') + ' detailed explanation</button>' +
+    '<div class="detail-body' + (isOpen ? ' open' : '') + '"><div class="detail-inner">' + esc(opt.detailedExplanation || '') + '</div></div>' : '';
+  return '<button class="' + cls + '" ' + (submitted ? 'disabled' : 'data-opt="' + opt.id + '"') + ' role="radio" aria-checked="' + (selected === opt.id) + '">' +
+    '<span class="opt-letter">' + opt.id + '</span><span class="opt-body"><span class="opt-text">' + esc(opt.text) + '</span>' + detailHtml + '</span>' + icon + '</button>';
+}
+
+function renderSBAActions(q) {
+  const correctId = (q.options.find(o => o.isCorrect) || {}).id;
+  if (!submitted) return '<button class="btn btn-submit" id="btnSubmit"' + (!selected ? ' disabled' : '') + '>Submit Answer</button>';
+  const isCorrect = selected === correctId;
+  return '<div class="result-banner ' + (isCorrect ? 'result-correct' : 'result-incorrect') + '">' +
+    (isCorrect ? '&#10003; Correct — well done!' : '&#10007; Incorrect — review the explanations below.') + '</div>' +
+    '<button class="btn btn-next" id="btnNext">Next Question &rarr;</button>';
+}
+
+function renderEMQ(q) {
+  const allAnswered = q.scenarios.every(sc => emqSel[sc.scenarioId] !== undefined);
+  const scenariosHtml = q.scenarios.map((sc, i) => {
+    const sel = emqSel[sc.scenarioId];
+    let feedbackHtml = '';
+    if (submitted) {
+      const isCorrect = sel === sc.correctAnswer;
+      const key = 'emq_detail_' + sc.scenarioId, isOpen = !!expanded[key];
+      feedbackHtml = '<div class="emq-feedback ' + (isCorrect ? 'correct' : 'incorrect') + '">' +
+        '<div class="emq-feedback-label">' + (isCorrect ? '&#10003; Correct' : '&#10007; Incorrect — correct answer: ' + sc.correctAnswer) + '</div>' +
+        '<p>' + esc(sc.shortExplanation || '') + '</p>' +
+        '<button class="detail-toggle' + (isOpen ? ' open' : '') + '" data-key="' + key + '" aria-expanded="' + isOpen + '" style="margin-top:8px">' +
+        '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>' +
+        (isOpen ? 'Hide' : 'Show') + ' detailed explanation</button>' +
+        '<div class="detail-body' + (isOpen ? ' open' : '') + '"><div class="detail-inner" style="border-left:3px solid ' + (isCorrect ? 'var(--success)' : 'var(--danger)') + ';background:' + (isCorrect ? 'rgba(5,150,105,.04)' : 'rgba(220,38,38,.04)') + '">' +
+        esc(sc.detailedExplanation || '') + '</div></div></div>';
+    }
+    const pickerHtml = !submitted ? '<div class="emq-opts-grid" role="radiogroup">' +
+      q.optionList.map(opt => {
+        let cls = 'emq-opt' + (sel === opt.id ? ' selected' : '');
+        return '<button class="' + cls + '" data-emq-opt="' + opt.id + '" data-sc="' + sc.scenarioId + '" role="radio" aria-checked="' + (sel === opt.id) + '">' +
+          '<span class="emq-opt-letter">' + opt.id + '</span>' + esc(opt.text) + '</button>';
+      }).join('') + '</div>' : '';
+    return '<div class="card fade-in" style="animation-delay:' + (i * 0.05) + 's">' +
+      '<div class="scenario-label">Scenario ' + (i + 1) + '</div>' +
+      (submitted ? renderLegend() : '') +
+      '<p class="stem">' + renderStem(sc.annotatedStem) + '</p>' +
+      pickerHtml + feedbackHtml + '</div>';
+  }).join('');
+  const actionHtml = !submitted
+    ? '<button class="btn btn-submit" id="btnSubmit"' + (!allAnswered ? ' disabled' : '') + '>Submit All Answers</button>'
+    : '<button class="btn btn-next" id="btnNext">Next Question &rarr;</button>';
+  return renderHeader(q) +
+    '<div class="card fade-in"><div class="card-label">Answer options</div><div class="emq-optlist">' +
+    q.optionList.map(o => '<div class="emq-optlist-item"><span class="emq-letter">' + o.id + '</span><span>' + esc(o.text) + '</span></div>').join('') +
+    '</div></div>' + scenariosHtml +
+    '<div style="margin-bottom:14px">' + actionHtml + '</div>' +
+    (submitted ? renderHiYield(q) : '') + (submitted ? renderRefs(q) : '');
+}
+
+function renderHeader(q) {
+  const pct = Math.round((q.number / q.total) * 100);
+  return '<div class="q-header"><div class="q-meta">' +
+    '<span class="badge ' + (q.questionType === 'SBA' ? 'badge-sba' : 'badge-emq') + '">' + q.questionType + '</span>' +
+    '<span class="badge badge-q">Q' + q.number + '</span>' +
+    '<span class="badge-topic">' + esc(q.topic) + '</span></div>' +
+    '<div class="progress-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="' + q.number + '" aria-valuemin="1" aria-valuemax="' + q.total + '">' +
+    '<div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+    '<span class="progress-text">' + q.number + ' / ' + q.total + '</span></div></div>';
+}
+
+function renderStem(segments) {
+  return (segments || []).map(seg => {
+    if (!submitted || seg.type === 'plain') return '<span>' + esc(seg.text) + '</span>';
+    return '<span class="' + (seg.type === 'helpful' ? 'hl-helpful' : 'hl-distractor') + '">' + esc(seg.text) + '</span>';
+  }).join('');
+}
+
+function renderLegend() {
+  return '<div class="hl-legend"><span class="hl-item"><span class="hl-dot" style="background:#3B82F6"></span>Key diagnostic clue</span><span class="hl-item"><span class="hl-dot" style="background:var(--amber)"></span>Distractor</span></div>';
+}
+
+function renderHiYield(q) {
+  if (!q.highYieldPoints || !q.highYieldPoints.length) return '';
+  return '<div class="hiyield"><div class="hiyield-title">&#9733; High-yield study points</div><div class="hiyield-list">' +
+    q.highYieldPoints.map(pt => '<div class="hiyield-item"><span class="hiyield-dot"></span><span>' + esc(pt) + '</span></div>').join('') +
+    '</div></div>';
+}
+
+function renderRefs(q) {
+  if (!q.references || !q.references.length) return '';
+  return '<div class="card fade-in"><div class="card-label">References</div>' +
+    q.references.map(ref => '<div class="ref-item"><div class="ref-icon">&#128218;</div><div>' +
+      '<div class="ref-title">' + esc(ref.title || '') + '</div>' +
+      '<div class="ref-sub">' + esc(ref.org || '') + (ref.guideline ? ' &middot; ' + esc(ref.guideline) : '') + ' &middot; ' + (ref.year || '') + '</div>' +
+      (ref.url ? '<a class="ref-link" href="' + ref.url + '" target="_blank" rel="noopener">View guideline &#8599;</a>' : '') +
+      '</div></div>').join('') + '</div>';
+}
+
+function attachEvents() {
+  document.querySelectorAll('[data-opt]').forEach(btn => {
+    btn.addEventListener('click', () => { selected = btn.dataset.opt; render(); });
+  });
+  document.querySelectorAll('[data-emq-opt]').forEach(btn => {
+    btn.addEventListener('click', () => { emqSel[btn.dataset.sc] = btn.dataset.emqOpt; render(); });
+  });
+  document.querySelectorAll('[data-key]').forEach(btn => {
+    btn.addEventListener('click', e => { e.stopPropagation(); expanded[btn.dataset.key] = !expanded[btn.dataset.key]; render(); });
+  });
+  const s = document.getElementById('btnSubmit');
+  if (s) s.addEventListener('click', () => { submitted = true; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  const n = document.getElementById('btnNext');
+  if (n) n.addEventListener('click', () => {
+    qIndex = (qIndex + 1) % questions.length;
+    submitted = false; selected = null; emqSel = {}; expanded = {};
+    render(); window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+function showLoading() {
+  document.getElementById('root').innerHTML = '<div class="state-screen"><div class="spinner"></div><p>Loading questions&hellip;</p></div>';
+}
+function showError(msg) {
+  document.getElementById('root').innerHTML = '<div class="state-screen"><h2>Failed to load questions</h2><p>' + esc(msg) + '</p><button class="btn-retry" onclick="loadQuestions()">Try again</button></div>';
+}
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+loadQuestions();
+</script>
+</body>
+</html>
