@@ -1,327 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Ossify — Tutor Mode</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #0F1923; --navy-soft: #1E2D3D; --slate: #4A5568; --muted: #718096;
-    --border: #E2E8F0; --bg: #F7F9FC; --surface: #FFFFFF;
-    --teal: #0D9488; --teal-light: #CCFBF1; --teal-dark: #0F766E;
-    --amber: #D97706; --success: #059669; --success-light: #D1FAE5;
-    --danger: #DC2626; --danger-light: #FEE2E2;
-  }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--navy); min-height: 100vh; }
-  .page { max-width: 780px; margin: 0 auto; padding: 28px 16px 80px; }
-  .q-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-  .q-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .badge { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
-  .badge-sba { background: #EDE9FE; color: #5B21B6; }
-  .badge-emq { background: #DBEAFE; color: #1E40AF; }
-  .badge-q   { background: var(--teal-light); color: var(--teal-dark); }
-  .badge-topic { font-size: 13px; font-weight: 500; color: var(--muted); }
-  .progress-wrap { display: flex; align-items: center; gap: 8px; }
-  .progress-bar { width: 120px; height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
-  .progress-fill { height: 100%; background: var(--teal); border-radius: 99px; transition: width .4s; }
-  .progress-text { font-size: 12px; color: var(--muted); font-weight: 500; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 14px; }
-  .card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 14px; }
-  .stem { font-family: 'Lora', Georgia, serif; font-size: 16.5px; line-height: 1.8; color: var(--navy); }
-  .hl-helpful    { background: #EFF6FF; border-bottom: 2px solid #3B82F6; padding-bottom: 1px; border-radius: 2px; animation: hlIn .35s ease both; }
-  .hl-distractor { background: #FFFBEB; border-bottom: 2px solid var(--amber); padding-bottom: 1px; border-radius: 2px; animation: hlIn .35s ease both; }
-  @keyframes hlIn { from { opacity: 0; } to { opacity: 1; } }
-  .hl-legend { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
-  .hl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--slate); font-weight: 500; }
-  .hl-dot { width: 14px; height: 4px; border-radius: 3px; }
-  .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-  .opt { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 10px; background: var(--surface); cursor: pointer; text-align: left; width: 100%; font-family: 'Inter', sans-serif; transition: border-color .15s, background .15s; }
-  .opt:hover:not([disabled]) { border-color: var(--teal); background: #F0FDFA; }
-  .opt[disabled] { cursor: default; }
-  .opt.selected  { border-color: var(--teal); background: #F0FDFA; }
-  .opt.correct   { border-color: var(--success); background: var(--success-light); }
-  .opt.incorrect { border-color: var(--danger);  background: var(--danger-light); }
-  .opt.neutral   { border-color: var(--border); background: #FAFAFA; opacity: .7; }
-  .opt-letter { font-size: 11px; font-weight: 700; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--teal); color: var(--teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-  .opt.correct   .opt-letter { border-color: var(--success); color: var(--success); }
-  .opt.incorrect .opt-letter { border-color: var(--danger);  color: var(--danger); }
-  .opt.neutral   .opt-letter { border-color: var(--muted);   color: var(--muted); }
-  .opt-body { flex: 1; }
-  .opt-text { font-size: 14.5px; color: var(--navy); line-height: 1.5; }
-  .opt.neutral .opt-text { color: var(--muted); }
-  .opt-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .icon-correct { color: var(--success); }
-  .icon-incorrect { color: var(--danger); }
-  .opt-brief { font-size: 13px; color: var(--slate); margin-top: 6px; line-height: 1.55; font-style: italic; }
-  .opt.neutral .opt-brief { color: var(--muted); }
-  .detail-toggle { display: flex; align-items: center; gap: 5px; margin-top: 8px; font-size: 12px; font-weight: 600; color: var(--teal); background: none; border: none; cursor: pointer; padding: 0; font-family: 'Inter', sans-serif; }
-  .detail-toggle:hover { color: var(--teal-dark); }
-  .detail-toggle svg { transition: transform .2s; }
-  .detail-toggle.open svg { transform: rotate(180deg); }
-  .detail-body { overflow: hidden; max-height: 0; transition: max-height .3s ease; }
-  .detail-body.open { max-height: 600px; }
-  .detail-inner { margin-top: 10px; padding: 12px 14px; border-radius: 8px; font-size: 13px; color: var(--slate); line-height: 1.65; }
-  .opt.correct   .detail-inner { border-left: 3px solid var(--success); background: rgba(5,150,105,.04); }
-  .opt.incorrect .detail-inner { border-left: 3px solid var(--danger);  background: rgba(220,38,38,.04); }
-  .opt.neutral   .detail-inner { border-left: 3px solid var(--border);  background: rgba(0,0,0,.02); }
-  .btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: background .15s, transform .1s; }
-  .btn:active:not([disabled]) { transform: scale(.99); }
-  .btn-submit { background: var(--teal); color: #fff; }
-  .btn-submit:hover:not([disabled]) { background: var(--teal-dark); }
-  .btn-submit:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
-  .btn-next { background: var(--navy); color: #fff; margin-top: 0; }
-  .btn-next:hover { background: var(--navy-soft); }
-  .result-banner { display: flex; align-items: center; gap: 10px; padding: 13px 16px; border-radius: 10px; margin-bottom: 12px; font-weight: 600; font-size: 14px; animation: fadeUp .3s ease both; }
-  .result-correct   { background: var(--success-light); color: #065F46; }
-  .result-incorrect { background: var(--danger-light);  color: #991B1B; }
-  .hiyield { background: var(--navy); border-radius: 14px; padding: 24px; margin-bottom: 14px; animation: fadeUp .3s ease both; }
-  .hiyield-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #64D5CA; margin-bottom: 14px; display: flex; align-items: center; gap: 7px; }
-  .hiyield-list { display: flex; flex-direction: column; gap: 9px; }
-  .hiyield-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: #E2E8F0; line-height: 1.6; }
-  .hiyield-dot { width: 6px; height: 6px; border-radius: 50%; background: #64D5CA; flex-shrink: 0; margin-top: 7px; }
-  .ref-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
-  .ref-item:last-child { border-bottom: none; }
-  .ref-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--teal-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
-  .ref-title { font-size: 13.5px; font-weight: 600; color: var(--navy); }
-  .ref-sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
-  .ref-link { font-size: 12px; color: var(--teal); text-decoration: none; display: inline-flex; align-items: center; gap: 3px; margin-top: 3px; }
-  .ref-link:hover { text-decoration: underline; }
-  .emq-optlist { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-  .emq-optlist-item { display: flex; align-items: center; gap: 10px; padding: 9px 14px; font-size: 13.5px; color: var(--slate); border-bottom: 1px solid var(--border); }
-  .emq-optlist-item:last-child { border-bottom: none; }
-  .emq-letter { font-weight: 700; color: var(--teal); font-size: 12px; width: 16px; flex-shrink: 0; }
-  .scenario-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--teal); padding-bottom: 10px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
-  .emq-opts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 16px; }
-  @media (min-width: 480px) { .emq-opts-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .emq-opt { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--surface); cursor: pointer; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--navy); text-align: left; transition: border-color .15s, background .15s; }
-  .emq-opt:hover:not([disabled]) { border-color: var(--teal); background: #F0FDFA; }
-  .emq-opt[disabled] { cursor: default; }
-  .emq-opt.selected  { border-color: var(--teal); background: #F0FDFA; }
-  .emq-opt.correct   { border-color: var(--success); background: var(--success-light); }
-  .emq-opt.incorrect { border-color: var(--danger);  background: var(--danger-light); }
-  .emq-opt.neutral   { border-color: var(--border); background: #FAFAFA; opacity: .65; }
-  .emq-opt-letter { font-size: 10px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--teal); color: var(--teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .emq-opt.correct   .emq-opt-letter { border-color: var(--success); color: var(--success); }
-  .emq-opt.incorrect .emq-opt-letter { border-color: var(--danger);  color: var(--danger); }
-  .emq-opt.neutral   .emq-opt-letter { border-color: var(--muted);   color: var(--muted); }
-  .emq-feedback { margin-top: 14px; padding: 14px; border-radius: 10px; }
-  .emq-feedback.correct   { background: var(--success-light); border-left: 3px solid var(--success); }
-  .emq-feedback.incorrect { background: var(--danger-light);  border-left: 3px solid var(--danger); }
-  .emq-feedback-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
-  .emq-feedback.correct   .emq-feedback-label { color: #065F46; }
-  .emq-feedback.incorrect .emq-feedback-label { color: #991B1B; }
-  .emq-feedback p { font-size: 13.5px; color: var(--slate); line-height: 1.6; }
-  .state-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 14px; color: var(--muted); text-align: center; }
-  .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin .7s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .state-screen h2 { font-size: 18px; font-weight: 600; color: var(--navy); }
-  .state-screen p  { font-size: 14px; }
-  .btn-retry { margin-top: 8px; padding: 10px 24px; background: var(--teal); color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .fade-in { animation: fadeUp .3s ease both; }
-  :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 4px; }
-  @media (max-width: 520px) { .card { padding: 18px; } .stem { font-size: 15.5px; } .progress-wrap { display: none; } }
+:root {
+  --navy:#0f1f38;--navy-mid:#1a3356;--navy-light:#243f6a;
+  --cream:#f8f5f0;--white:#ffffff;--gold:#c9962a;
+  --gold-light:#f5e8c8;--gold-faint:#fdf8ee;
+  --cyan-hl:#cff3f3;--cyan-hl-border:#4bb8c4;--cyan-dark:#0e7a85;
+  --yellow-hl:#fef4c0;--yellow-hl-border:#d4a017;--yellow-dark:#8a6200;
+  --correct:#1a6b3c;--correct-bg:#edf7f2;--correct-border:#5cb88a;
+  --wrong:#8b2e2e;--wrong-bg:#fdf0f0;--wrong-border:#e08080;
+  --text:#1a1a2e;--text-muted:#5a6070;--border:#dde3ed;
+  --radius:10px;--shadow:0 2px 12px rgba(15,31,56,0.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#eef1f7;color:var(--text);min-height:100vh;line-height:1.6}
+
+/* TOPBAR */
+.topbar{background:var(--navy);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.logo{font-family:'Libre Baskerville',serif;font-size:1.35rem;color:#fff;letter-spacing:.02em}
+.logo-dot{color:var(--gold)}
+.mode-badge{background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.nav-meta{font-size:.78rem;color:rgba(255,255,255,.5);letter-spacing:.04em}
+.page-wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
+
+/* LOADING */
+.loading-state{display:flex;align-items:center;justify-content:center;min-height:60vh;flex-direction:column;gap:16px}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* CARD */
+.card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);margin-bottom:16px}
+
+/* Q-HEADER */
+.q-header{padding:20px 26px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.q-id{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.q-title{font-family:'Libre Baskerville',serif;font-size:1.05rem;color:var(--navy);margin-top:4px}
+.q-tags{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.tag{font-size:.7rem;font-weight:500;padding:3px 10px;border-radius:4px;letter-spacing:.04em}
+.tag-domain{background:#e8edf8;color:var(--navy-mid)}
+.tag-type{background:var(--gold-light);color:var(--yellow-dark)}
+
+/* COLOUR KEY */
+.colour-key{padding:14px 20px;display:flex;gap:24px;flex-wrap:wrap;transition:opacity .4s}
+body:not(.revealed) .colour-key{opacity:0;pointer-events:none;user-select:none}
+.key-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--text-muted)}
+.key-swatch{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+.swatch-yellow{background:var(--yellow-hl);border:1.5px solid var(--yellow-hl-border)}
+.swatch-cyan{background:var(--cyan-hl);border:1.5px solid var(--cyan-hl-border)}
+
+/* OPTION LIST (EMQ) */
+.option-list-card{padding:20px 26px}
+.option-list-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.option-list-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+.option-list-item{display:flex;align-items:baseline;gap:8px;font-size:.88rem;color:var(--text);padding:4px 0}
+.option-list-letter{font-weight:700;color:var(--navy-mid);flex-shrink:0;width:16px}
+
+/* STEM */
+.stem-card{padding:28px 30px}
+.stem-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+.stem-text{font-size:1.02rem;line-height:1.8;color:var(--text);font-family:'Libre Baskerville',serif}
+
+/* HIGHLIGHTS */
+.hl{position:relative;border-radius:3px;transition:background .35s,border-bottom-color .35s,color .35s,filter .15s}
+body:not(.revealed) .hl{cursor:default;padding:0}
+body.revealed .hl{padding:1px 3px;cursor:pointer}
+body.revealed .hl:hover{filter:brightness(.92)}
+body.revealed .hl-yellow{background:var(--yellow-hl);border-bottom:2px solid var(--yellow-hl-border);color:var(--yellow-dark)}
+body.revealed .hl-cyan{background:var(--cyan-hl);border-bottom:2px solid var(--cyan-hl-border);color:var(--cyan-dark)}
+
+/* TOOLTIP */
+.tooltip-wrap{display:none;position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:200;width:300px;pointer-events:none}
+body.revealed .hl:hover .tooltip-wrap{display:block}
+.tooltip-box{background:var(--navy);color:#e8ecf4;font-size:.8rem;font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.55;padding:12px 14px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.tooltip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--navy)}
+.tooltip-type{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.tt-yellow .tooltip-type{color:var(--gold)}
+.tt-cyan .tooltip-type{color:#6dd9e2}
+
+/* SELECTABLE OPTIONS */
+.options-card{padding:24px 26px}
+.options-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+.option-item{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border:1.5px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:border-color .18s,background .18s;user-select:none}
+.option-item:last-child{margin-bottom:0}
+.option-item:not(.submitted):hover{border-color:var(--navy-light);background:#f5f7fc}
+.option-item.selected{border-color:var(--navy);background:#eef2fb}
+.option-item.correct-ans{border-color:var(--correct-border);background:var(--correct-bg)}
+.option-item.wrong-ans{border-color:var(--wrong-border);background:var(--wrong-bg)}
+.option-item.neutral-reveal{border-color:#c5ccd9;background:#f9fafb}
+.opt-letter{width:30px;height:30px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:var(--text-muted);flex-shrink:0;transition:all .18s;margin-top:1px}
+.option-item.selected .opt-letter{border-color:var(--navy);background:var(--navy);color:#fff}
+.option-item.correct-ans .opt-letter{border-color:var(--correct);background:var(--correct);color:#fff}
+.option-item.wrong-ans .opt-letter{border-color:var(--wrong);background:var(--wrong);color:#fff}
+.opt-text{font-size:.93rem;line-height:1.5;padding-top:4px;color:var(--text);flex:1}
+.opt-badge{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:auto;white-space:nowrap;flex-shrink:0;align-self:center}
+.badge-correct-mark{background:var(--correct-bg);color:var(--correct);border:1px solid var(--correct-border)}
+.badge-wrong-mark{background:var(--wrong-bg);color:var(--wrong);border:1px solid var(--wrong-border)}
+
+/* SUBMIT */
+.submit-wrap{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+.btn-submit{background:var(--navy);color:#fff;border:none;padding:13px 36px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;letter-spacing:.03em;cursor:pointer;transition:background .18s,transform .1s}
+.btn-submit:hover:not(:disabled){background:var(--navy-light)}
+.btn-submit:active:not(:disabled){transform:scale(.98)}
+.btn-submit:disabled{background:#b0b8c9;cursor:not-allowed}
+.submit-hint{font-size:.8rem;color:var(--text-muted)}
+
+/* REVEAL */
+#reveal-section{display:none}
+#reveal-section.visible{display:block}
+
+/* RESULT BANNER */
+.result-banner{border-radius:var(--radius);padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;font-size:.95rem;box-shadow:var(--shadow)}
+.result-banner.correct-banner{background:var(--correct-bg);border:1.5px solid var(--correct-border);color:var(--correct)}
+.result-banner.wrong-banner{background:var(--wrong-bg);border:1.5px solid var(--wrong-border);color:var(--wrong)}
+.result-icon{font-size:1.4rem}
+.result-text strong{display:block;font-size:1rem;margin-bottom:2px}
+.result-text span{font-size:.85rem;opacity:.85}
+
+/* SECTION CARD */
+.section-card{padding:26px 28px;margin-bottom:20px}
+.section-title{font-family:'Libre Baskerville',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:18px;display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1.5px solid var(--border)}
+
+/* ANSWER BLOCKS */
+.answer-block{border:1.5px solid var(--border);border-radius:8px;margin-bottom:12px;overflow:hidden}
+.answer-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#fafbfd}
+.ans-letter-badge{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+.badge-c{background:var(--correct-bg);color:var(--correct);border:2px solid var(--correct-border)}
+.badge-w{background:var(--wrong-bg);color:var(--wrong);border:2px solid var(--wrong-border)}
+.ans-summary{font-size:.88rem;line-height:1.5;flex:1;color:var(--text)}
+.ans-label{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.label-correct{color:var(--correct)}
+.label-wrong{color:var(--wrong)}
+.btn-detail{background:var(--navy);color:#fff;border:none;padding:7px 16px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;letter-spacing:.02em}
+.btn-detail:hover{background:var(--navy-light)}
+.ans-detail-body{display:none;padding:16px 20px;font-size:.85rem;line-height:1.75;color:#3a4155;border-top:1px solid var(--border);background:#fff}
+.ans-detail-body.open{display:block}
+.ans-detail-body p{margin-bottom:10px}
+.ans-detail-body p:last-child{margin-bottom:0}
+
+/* CLUE ROWS */
+.clue-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid #f0f2f6;cursor:pointer}
+.clue-row:last-child{border-bottom:none}
+.clue-tag{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:5px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.clue-tag-yellow{background:var(--yellow-hl);color:var(--yellow-dark);border:1px solid var(--yellow-hl-border)}
+.clue-tag-cyan{background:var(--cyan-hl);color:var(--cyan-dark);border:1px solid var(--cyan-hl-border)}
+.clue-label{font-size:.88rem;font-weight:600;color:var(--text);flex:1;min-width:0}
+.clue-chevron{color:var(--text-muted);font-size:.75rem;transition:transform .22s;margin-top:3px;flex-shrink:0}
+.clue-row.open .clue-chevron{transform:rotate(90deg)}
+.clue-detail{display:none;font-size:.85rem;line-height:1.65;color:#3a4155;padding:12px 14px;background:var(--cream);border-radius:6px;margin:8px 0 4px;border-left:3px solid var(--yellow-hl-border)}
+.clue-detail.cyan-detail{border-left-color:var(--cyan-hl-border)}
+.clue-row.open + .clue-detail{display:block}
+
+/* SUMMARY */
+.summary-box{background:var(--gold-faint);border:1.5px solid #e8c96a;border-radius:var(--radius);padding:22px 26px;margin-bottom:20px}
+.summary-title{font-family:'Libre Baskerville',serif;font-size:.95rem;font-weight:700;color:var(--yellow-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.summary-list{list-style:none}
+.summary-list li{font-size:.85rem;line-height:1.6;padding:7px 0 7px 18px;border-bottom:1px solid #f0e0a0;position:relative;color:#4a3800}
+.summary-list li:last-child{border-bottom:none}
+.summary-list li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:.75rem;top:9px}
+
+/* REFS */
+.refs-card{padding:22px 26px}
+.refs-title{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:10px}
+.ref-item{font-size:.78rem;color:var(--text-muted);line-height:1.6;padding:5px 0;border-bottom:1px solid #f2f4f8;display:flex;gap:10px}
+.ref-item:last-child{border-bottom:none}
+.ref-num{font-weight:700;color:var(--navy-mid);flex-shrink:0}
+
+@media(max-width:600px){
+  .q-header{flex-direction:column;gap:10px}
+  .topbar{padding:0 16px}
+  .page-wrap{padding:18px 12px 60px}
+  .option-list-grid{grid-template-columns:1fr}
+  .answer-header{flex-wrap:wrap}
+  .tooltip-wrap{width:240px}
+}
 </style>
 </head>
 <body>
-<div class="page" id="root">
-  <div class="state-screen"><div class="spinner"></div><p>Loading questions…</p></div>
+<nav class="topbar">
+  <div class="logo">Ossify<span class="logo-dot">.</span></div>
+  <span class="mode-badge">Tutor Mode</span>
+  <span class="nav-meta" id="nav-qid"></span>
+</nav>
+<div class="page-wrap">
+  <div id="loading" class="loading-state">
+    <div class="spinner"></div>
+    <span style="color:var(--text-muted);font-size:.9rem">Loading question…</span>
+  </div>
+  <div id="error-state" style="display:none;padding:48px;text-align:center;color:var(--wrong);font-size:.95rem"></div>
+  <div id="question-root" style="display:none"></div>
 </div>
+
 <script>
-const SUPABASE_URL = 'https://judtpdikbidvccclftvq.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj';
+const SUPA_URL = 'https://judtpdikbidvccclftvq.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
 
-let questions = [], qIndex = 0, submitted = false, selected = null, emqSel = {}, expanded = {};
+const ST = { selected:null, submitted:false, correct:null, letters:[] };
 
-async function loadQuestions() {
-  showLoading();
+/* ── INIT ── */
+async function init() {
+  const p = new URLSearchParams(location.search);
+  let url = `${SUPA_URL}/rest/v1/questions?select=*`;
+  if (p.get('question_id'))   url += `&question_id=eq.${encodeURIComponent(p.get('question_id'))}`;
+  else if (p.get('id'))       url += `&id=eq.${encodeURIComponent(p.get('id'))}`;
+  else                        url += '&order=id.asc&limit=1';
   try {
-    const res = await fetch(
-      SUPABASE_URL + '/rest/v1/questions?select=*&limit=50&order=question_id',
-      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } }
-    );
-    if (!res.ok) throw new Error('Supabase returned ' + res.status + ': ' + await res.text());
-    const data = await res.json();
-    if (!data.length) throw new Error('No questions found in the database.');
-    questions = data.map((row, i) => normaliseRow(row, i, data.length));
-    render();
-  } catch (e) { showError(e.message); }
+    const rows = await fetch(url,{headers:{apikey:SUPA_KEY,Authorization:`Bearer ${SUPA_KEY}`}}).then(r=>r.json());
+    if (!rows.length) { showError('Question not found.'); return; }
+    const row = rows[0];
+    document.getElementById('loading').style.display='none';
+    document.getElementById('nav-qid').textContent = row.question_id||'';
+    row.type==='SBA' ? renderSBA(row) : row.type==='EMQ' ? renderEMQ(row) : showError('Unknown type: '+row.type);
+  } catch(e){ showError('Could not load question — check your connection.'); console.error(e); }
+}
+function showError(m){
+  document.getElementById('loading').style.display='none';
+  const el=document.getElementById('error-state'); el.style.display='block'; el.textContent=m;
 }
 
-function normaliseRow(row, i, total) {
-  const base = {
-    questionId: row.question_id || row.id,
-    questionType: (row.question_type || 'SBA').toUpperCase(),
-    topic: row.topic || row.specialty || '',
-    number: i + 1, total,
-    highYieldPoints: row.high_yield_points || [],
-    references: row.references || [],
-  };
-  const tc = typeof row.tutor_content === 'string' ? JSON.parse(row.tutor_content || '{}') : (row.tutor_content || {});
-  if (base.questionType === 'SBA') {
-    return { ...base, annotatedStem: tc.annotatedStem || row.annotated_stem || [{ text: row.stem || '', type: 'plain' }], options: tc.options || row.options || [] };
+/* ── UTILS ── */
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function parseClueStr(s){
+  if(typeof s!=='string') return null;
+  const m=s.match(/^"([^"]+)"\s*[—–\-]+\s*(.+)$/s);
+  return m?{label:m[1].trim(),explanation:m[2].trim()}:null;
+}
+
+function briefFallback(det){
+  if(!det) return '';
+  const m=det.match(/^(.{40,350})\.\s/s);
+  return m ? m[1].trim()+'.' : det.substring(0,200).trim();
+}
+
+function parseHighYield(t){
+  if(!t) return [];
+  return t.replace(/^Key Points to Memorise\s*/i,'').split(/•\s+/).map(s=>s.trim()).filter(s=>s.length>5);
+}
+
+function parseRefs(t){
+  if(!t) return [];
+  // split on newlines, handle [N] prefixes
+  return t.split(/\n/).map(s=>s.trim()).filter(Boolean);
+}
+
+function parseSBAKeyContent(arr){
+  if(!arr||!arr.length) return {clues:[],distractors:[]};
+  const clues=[],distractors=[];
+  let mode='clue';
+  for(const item of arr){
+    if(typeof item!=='string') continue;
+    if(item.includes('cyan-highlighted')||item.toLowerCase().includes('why the cyan')){mode='distractor';continue;}
+    if(!item.startsWith('"')) continue;
+    const p=parseClueStr(item);
+    if(!p) continue;
+    (mode==='clue'?clues:distractors).push(p);
   }
-  return { ...base, optionList: tc.optionList || row.option_list || [], scenarios: tc.scenarios || row.scenarios || [] };
+  return {clues,distractors};
 }
 
-function render() {
-  const q = questions[qIndex];
-  document.getElementById('root').innerHTML = q.questionType === 'SBA' ? renderSBA(q) : renderEMQ(q);
-  attachEvents();
+/* ── SHARED HTML BUILDERS ── */
+function colourKeyHTML(){
+  return `<div class="card colour-key">
+    <div class="key-item"><div class="key-swatch swatch-yellow"></div><span><strong>Key diagnostic clue</strong> — hover to see why it matters</span></div>
+    <div class="key-item"><div class="key-swatch swatch-cyan"></div><span><strong>Distractor</strong> — hover to see why it misleads</span></div>
+  </div>`;
 }
 
-function renderSBA(q) {
-  return renderHeader(q) +
-    '<div class="card fade-in"><div class="card-label">Clinical Scenario</div>' +
-    (submitted ? renderLegend() : '') +
-    '<p class="stem">' + renderStem(q.annotatedStem) + '</p></div>' +
-    '<div class="card fade-in"><div class="card-label">Select the single best answer</div>' +
-    '<div class="options" role="radiogroup">' + q.options.map(o => renderOption(o, q)).join('') + '</div>' +
-    renderSBAActions(q) + '</div>' +
-    (submitted ? renderHiYield(q) : '') + (submitted ? renderRefs(q) : '');
+function clueRowHTML(c, type){
+  const tc=type==='clue'?'clue-tag-yellow':'clue-tag-cyan';
+  const tl=type==='clue'?'Clue':'Distractor';
+  const dc=type==='distractor'?'clue-detail cyan-detail':'clue-detail';
+  return `<div class="clue-row" onclick="toggleClue(this)">
+    <div class="clue-tag ${tc}">${tl}</div>
+    <div class="clue-label">"${esc(c.label)}"</div>
+    <div class="clue-chevron">▶</div>
+  </div><div class="${dc}">${esc(c.explanation)}</div>`;
 }
 
-function renderOption(opt, q) {
-  let cls = 'opt', icon = '';
-  if (submitted) {
-    if (opt.isCorrect) { cls += ' correct'; icon = '<span class="opt-icon icon-correct">&#10003;</span>'; }
-    else if (opt.id === selected) { cls += ' incorrect'; icon = '<span class="opt-icon icon-incorrect">&#10007;</span>'; }
-    else cls += ' neutral';
-  } else if (opt.id === selected) cls += ' selected';
-  const key = 'detail_' + opt.id, isOpen = !!expanded[key];
-  const detailHtml = submitted ? '<p class="opt-brief">' + esc(opt.shortExplanation || '') + '</p>' +
-    '<button class="detail-toggle' + (isOpen ? ' open' : '') + '" data-key="' + key + '" aria-expanded="' + isOpen + '">' +
-    '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>' +
-    (isOpen ? 'Hide' : 'Show') + ' detailed explanation</button>' +
-    '<div class="detail-body' + (isOpen ? ' open' : '') + '"><div class="detail-inner">' + esc(opt.detailedExplanation || '') + '</div></div>' : '';
-  return '<button class="' + cls + '" ' + (submitted ? 'disabled' : 'data-opt="' + opt.id + '"') + ' role="radio" aria-checked="' + (selected === opt.id) + '">' +
-    '<span class="opt-letter">' + opt.id + '</span><span class="opt-body"><span class="opt-text">' + esc(opt.text) + '</span>' + detailHtml + '</span>' + icon + '</button>';
+function answerBlockHTML(opt, idx){
+  const correct = opt.correct===true||opt.correct==='true';
+  const letter  = opt.letter||String.fromCharCode(65+idx);
+  const brief   = opt.brief||briefFallback(opt.detailed);
+  const id      = 'det-'+letter;
+  const bc      = correct?'badge-c':'badge-w';
+  const lc      = correct?'label-correct':'label-wrong';
+  const lt      = correct?'✓ Correct Answer':'✗ Incorrect';
+  const paras   = opt.detailed ? opt.detailed.split(/\n\n+/).map(p=>`<p>${esc(p)}</p>`).join('') : '';
+  return `<div class="answer-block">
+    <div class="answer-header">
+      <div class="ans-letter-badge ${bc}">${esc(letter)}</div>
+      <div class="ans-summary"><div class="ans-label ${lc}">${lt}</div>${esc(brief)||'<em style="color:var(--text-muted)">See detailed explanation</em>'}</div>
+      ${paras?`<button class="btn-detail" onclick="toggleDetail('${id}',this)">Detailed Explanation</button>`:''}
+    </div>
+    ${paras?`<div class="ans-detail-body" id="${id}">${paras}</div>`:''}
+  </div>`;
 }
 
-function renderSBAActions(q) {
-  const correctId = (q.options.find(o => o.isCorrect) || {}).id;
-  if (!submitted) return '<button class="btn btn-submit" id="btnSubmit"' + (!selected ? ' disabled' : '') + '>Submit Answer</button>';
-  const isCorrect = selected === correctId;
-  return '<div class="result-banner ' + (isCorrect ? 'result-correct' : 'result-incorrect') + '">' +
-    (isCorrect ? '&#10003; Correct — well done!' : '&#10007; Incorrect — review the explanations below.') + '</div>' +
-    '<button class="btn btn-next" id="btnNext">Next Question &rarr;</button>';
+function highYieldHTML(t){
+  const b=parseHighYield(t);
+  if(!b.length) return '';
+  return `<div class="summary-box"><div class="summary-title">⚡ High-Yield Summary</div><ul class="summary-list">${b.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
 }
 
-function renderEMQ(q) {
-  const allAnswered = q.scenarios.every(sc => emqSel[sc.scenarioId] !== undefined);
-  const scenariosHtml = q.scenarios.map((sc, i) => {
-    const sel = emqSel[sc.scenarioId];
-    let feedbackHtml = '';
-    if (submitted) {
-      const isCorrect = sel === sc.correctAnswer;
-      const key = 'emq_detail_' + sc.scenarioId, isOpen = !!expanded[key];
-      feedbackHtml = '<div class="emq-feedback ' + (isCorrect ? 'correct' : 'incorrect') + '">' +
-        '<div class="emq-feedback-label">' + (isCorrect ? '&#10003; Correct' : '&#10007; Incorrect — correct answer: ' + sc.correctAnswer) + '</div>' +
-        '<p>' + esc(sc.shortExplanation || '') + '</p>' +
-        '<button class="detail-toggle' + (isOpen ? ' open' : '') + '" data-key="' + key + '" aria-expanded="' + isOpen + '" style="margin-top:8px">' +
-        '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>' +
-        (isOpen ? 'Hide' : 'Show') + ' detailed explanation</button>' +
-        '<div class="detail-body' + (isOpen ? ' open' : '') + '"><div class="detail-inner" style="border-left:3px solid ' + (isCorrect ? 'var(--success)' : 'var(--danger)') + ';background:' + (isCorrect ? 'rgba(5,150,105,.04)' : 'rgba(220,38,38,.04)') + '">' +
-        esc(sc.detailedExplanation || '') + '</div></div></div>';
+function refsHTML(t){
+  if(!t) return '';
+  const lines=parseRefs(t).filter(l=>l.length>3);
+  if(!lines.length) return '';
+  const items=lines.map(l=>{
+    const m=l.match(/^\[?(\d+)\]?\s*(.*)/s);
+    return m?`<div class="ref-item"><span class="ref-num">[${m[1]}]</span><span>${esc(m[2])}</span></div>`
+            :`<div class="ref-item"><span>${esc(l)}</span></div>`;
+  }).join('');
+  return `<div class="card refs-card"><div class="refs-title">References</div>${items}</div>`;
+}
+
+function cluesSectionHTML(arr, type, title, icon){
+  if(!arr.length) return '';
+  return `<div class="card section-card"><div class="section-title">${icon} ${title}</div>${arr.map(c=>clueRowHTML(c,type)).join('')}</div>`;
+}
+
+/* ── SBA RENDERER ── */
+function renderSBA(row){
+  const tc=row.tutor_content||{};
+  const opts=(tc.options||[]).sort((a,b)=>(a.letter||'').localeCompare(b.letter||''));
+  const correctOpt=opts.find(o=>o.correct===true||o.correct==='true');
+  ST.correct=correctOpt?correctOpt.letter:'';
+  ST.letters=opts.map(o=>o.letter||'');
+  const {clues,distractors}=parseSBAKeyContent(tc.key_distractors||tc.key_clues||[]);
+  const anns=tc.annotations||[];
+
+  document.getElementById('question-root').innerHTML=`
+    <div class="card q-header">
+      <div>
+        <div class="q-id">${esc(row.question_id)} · ${esc(row.domain||'')} · ${esc(row.topic||'')}</div>
+        <div class="q-title">${esc(row.topic||'Single Best Answer')}</div>
+      </div>
+      <div class="q-tags"><span class="tag tag-domain">MSRA CPS</span><span class="tag tag-type">SBA</span></div>
+    </div>
+    ${anns.length?colourKeyHTML():''}
+    <div class="card stem-card">
+      <div class="stem-label">Clinical Vignette</div>
+      <div class="stem-text" id="stem-text"></div>
+    </div>
+    <div class="card options-card">
+      <div class="options-label">Select one answer</div>
+      ${opts.map(o=>`<div id="opt-${o.letter}" class="option-item" onclick="selectOption('${o.letter}')"><div class="opt-letter">${o.letter}</div><div class="opt-text">${esc(o.label)}</div></div>`).join('')}
+    </div>
+    <div class="submit-wrap">
+      <button class="btn-submit" id="submit-btn" onclick="submitAnswer()" disabled>Submit Answer</button>
+      <span class="submit-hint" id="submit-hint">Select an answer to continue</span>
+    </div>
+    <div id="reveal-section">
+      <div id="result-banner" class="result-banner"></div>
+      <div class="card section-card"><div class="section-title">📝 Answer Explanations</div>${opts.map((o,i)=>answerBlockHTML(o,i)).join('')}</div>
+      ${highYieldHTML(tc.high_yield_summary)}
+      ${cluesSectionHTML(clues,'clue','Key Diagnostic Clues','🔑')}
+      ${cluesSectionHTML(distractors,'distractor','Distractors — Why They Mislead','🔵')}
+      ${refsHTML(tc.references)}
+    </div>`;
+
+  // Set stem as plain text (safe for annotation injection)
+  document.getElementById('stem-text').textContent = row.stem||'';
+  document.getElementById('question-root').style.display='block';
+  if(anns.length) window.__anns=anns;
+}
+
+/* ── EMQ RENDERER ── */
+function renderEMQ(row){
+  const tc=row.tutor_content||{};
+  const sc=tc.this_scenario||{};
+  const ak=(sc.answer_key||[]).sort((a,b)=>(a.letter||'').localeCompare(b.letter||''));
+  ST.correct=sc.correct_letter||'';
+  ST.letters=ak.map(o=>o.letter||'');
+  const clues=(sc.key_clues||[]).map(parseClueStr).filter(Boolean);
+  const dists=(sc.distractors||[]).map(parseClueStr).filter(Boolean);
+  const optList=tc.option_list||[];
+  const anns=tc.annotations||[];
+
+  const optListGrid=optList.map(item=>{
+    const letter=item.charAt(0);
+    const text=item.replace(/^[A-J]\.\s*/,'');
+    return `<div class="option-list-item"><span class="option-list-letter">${esc(letter)}</span>${esc(text)}</div>`;
+  }).join('');
+
+  document.getElementById('question-root').innerHTML=`
+    <div class="card q-header">
+      <div>
+        <div class="q-id">${esc(row.question_id)} · ${esc(row.domain||'')} · ${esc(tc.set_theme||row.topic||'')}</div>
+        <div class="q-title">${esc(tc.set_theme||row.topic||'Extended Matching Question')}</div>
+      </div>
+      <div class="q-tags"><span class="tag tag-domain">MSRA CPS</span><span class="tag tag-type">EMQ</span></div>
+    </div>
+    ${anns.length?colourKeyHTML():''}
+    ${optList.length?`<div class="card option-list-card"><div class="option-list-label">Answer Options</div><div class="option-list-grid">${optListGrid}</div></div>`:''}
+    <div class="card stem-card">
+      <div class="stem-label">Clinical Vignette</div>
+      <div class="stem-text" id="stem-text"></div>
+    </div>
+    <div class="card options-card">
+      <div class="options-label">Select one answer</div>
+      ${ak.map(o=>`<div id="opt-${o.letter}" class="option-item" onclick="selectOption('${o.letter}')"><div class="opt-letter">${o.letter}</div><div class="opt-text">${esc(o.label)}</div></div>`).join('')}
+    </div>
+    <div class="submit-wrap">
+      <button class="btn-submit" id="submit-btn" onclick="submitAnswer()" disabled>Submit Answer</button>
+      <span class="submit-hint" id="submit-hint">Select an answer to continue</span>
+    </div>
+    <div id="reveal-section">
+      <div id="result-banner" class="result-banner"></div>
+      <div class="card section-card"><div class="section-title">📝 Answer Explanations</div>${ak.map((o,i)=>answerBlockHTML(o,i)).join('')}</div>
+      ${highYieldHTML(tc.high_yield_summary)}
+      ${cluesSectionHTML(clues,'clue','Key Diagnostic Clues','🔑')}
+      ${cluesSectionHTML(dists,'distractor','Distractors — Why They Mislead','🔵')}
+      ${refsHTML(tc.references)}
+    </div>`;
+
+  document.getElementById('stem-text').textContent = sc.stem||row.stem||'';
+  document.getElementById('question-root').style.display='block';
+  if(anns.length) window.__anns=anns;
+}
+
+/* ── INTERACTION ── */
+function selectOption(letter){
+  if(ST.submitted) return;
+  ST.selected=letter;
+  ST.letters.forEach(l=>document.getElementById('opt-'+l)?.classList.remove('selected'));
+  document.getElementById('opt-'+letter)?.classList.add('selected');
+  document.getElementById('submit-btn').disabled=false;
+  document.getElementById('submit-hint').textContent='';
+}
+
+function submitAnswer(){
+  if(!ST.selected||ST.submitted) return;
+  ST.submitted=true;
+  document.getElementById('submit-btn').disabled=true;
+  const {selected:chosen,correct,letters}=ST;
+
+  letters.forEach(l=>{
+    const el=document.getElementById('opt-'+l);
+    if(!el) return;
+    el.onclick=null; el.classList.remove('selected'); el.classList.add('submitted');
+    if(l===correct){
+      el.classList.add('correct-ans');
+      el.insertAdjacentHTML('beforeend','<span class="opt-badge badge-correct-mark">✓ Correct</span>');
+    } else if(l===chosen){
+      el.classList.add('wrong-ans');
+      el.insertAdjacentHTML('beforeend','<span class="opt-badge badge-wrong-mark">✗ Your answer</span>');
+    } else {
+      el.classList.add('neutral-reveal');
     }
-    const pickerHtml = !submitted ? '<div class="emq-opts-grid" role="radiogroup">' +
-      q.optionList.map(opt => {
-        let cls = 'emq-opt' + (sel === opt.id ? ' selected' : '');
-        return '<button class="' + cls + '" data-emq-opt="' + opt.id + '" data-sc="' + sc.scenarioId + '" role="radio" aria-checked="' + (sel === opt.id) + '">' +
-          '<span class="emq-opt-letter">' + opt.id + '</span>' + esc(opt.text) + '</button>';
-      }).join('') + '</div>' : '';
-    return '<div class="card fade-in" style="animation-delay:' + (i * 0.05) + 's">' +
-      '<div class="scenario-label">Scenario ' + (i + 1) + '</div>' +
-      (submitted ? renderLegend() : '') +
-      '<p class="stem">' + renderStem(sc.annotatedStem) + '</p>' +
-      pickerHtml + feedbackHtml + '</div>';
-  }).join('');
-  const actionHtml = !submitted
-    ? '<button class="btn btn-submit" id="btnSubmit"' + (!allAnswered ? ' disabled' : '') + '>Submit All Answers</button>'
-    : '<button class="btn btn-next" id="btnNext">Next Question &rarr;</button>';
-  return renderHeader(q) +
-    '<div class="card fade-in"><div class="card-label">Answer options</div><div class="emq-optlist">' +
-    q.optionList.map(o => '<div class="emq-optlist-item"><span class="emq-letter">' + o.id + '</span><span>' + esc(o.text) + '</span></div>').join('') +
-    '</div></div>' + scenariosHtml +
-    '<div style="margin-bottom:14px">' + actionHtml + '</div>' +
-    (submitted ? renderHiYield(q) : '') + (submitted ? renderRefs(q) : '');
-}
-
-function renderHeader(q) {
-  const pct = Math.round((q.number / q.total) * 100);
-  return '<div class="q-header"><div class="q-meta">' +
-    '<span class="badge ' + (q.questionType === 'SBA' ? 'badge-sba' : 'badge-emq') + '">' + q.questionType + '</span>' +
-    '<span class="badge badge-q">Q' + q.number + '</span>' +
-    '<span class="badge-topic">' + esc(q.topic) + '</span></div>' +
-    '<div class="progress-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="' + q.number + '" aria-valuemin="1" aria-valuemax="' + q.total + '">' +
-    '<div class="progress-fill" style="width:' + pct + '%"></div></div>' +
-    '<span class="progress-text">' + q.number + ' / ' + q.total + '</span></div></div>';
-}
-
-function renderStem(segments) {
-  return (segments || []).map(seg => {
-    if (!submitted || seg.type === 'plain') return '<span>' + esc(seg.text) + '</span>';
-    return '<span class="' + (seg.type === 'helpful' ? 'hl-helpful' : 'hl-distractor') + '">' + esc(seg.text) + '</span>';
-  }).join('');
-}
-
-function renderLegend() {
-  return '<div class="hl-legend"><span class="hl-item"><span class="hl-dot" style="background:#3B82F6"></span>Key diagnostic clue</span><span class="hl-item"><span class="hl-dot" style="background:var(--amber)"></span>Distractor</span></div>';
-}
-
-function renderHiYield(q) {
-  if (!q.highYieldPoints || !q.highYieldPoints.length) return '';
-  return '<div class="hiyield"><div class="hiyield-title">&#9733; High-yield study points</div><div class="hiyield-list">' +
-    q.highYieldPoints.map(pt => '<div class="hiyield-item"><span class="hiyield-dot"></span><span>' + esc(pt) + '</span></div>').join('') +
-    '</div></div>';
-}
-
-function renderRefs(q) {
-  if (!q.references || !q.references.length) return '';
-  return '<div class="card fade-in"><div class="card-label">References</div>' +
-    q.references.map(ref => '<div class="ref-item"><div class="ref-icon">&#128218;</div><div>' +
-      '<div class="ref-title">' + esc(ref.title || '') + '</div>' +
-      '<div class="ref-sub">' + esc(ref.org || '') + (ref.guideline ? ' &middot; ' + esc(ref.guideline) : '') + ' &middot; ' + (ref.year || '') + '</div>' +
-      (ref.url ? '<a class="ref-link" href="' + ref.url + '" target="_blank" rel="noopener">View guideline &#8599;</a>' : '') +
-      '</div></div>').join('') + '</div>';
-}
-
-function attachEvents() {
-  document.querySelectorAll('[data-opt]').forEach(btn => {
-    btn.addEventListener('click', () => { selected = btn.dataset.opt; render(); });
   });
-  document.querySelectorAll('[data-emq-opt]').forEach(btn => {
-    btn.addEventListener('click', () => { emqSel[btn.dataset.sc] = btn.dataset.emqOpt; render(); });
-  });
-  document.querySelectorAll('[data-key]').forEach(btn => {
-    btn.addEventListener('click', e => { e.stopPropagation(); expanded[btn.dataset.key] = !expanded[btn.dataset.key]; render(); });
-  });
-  const s = document.getElementById('btnSubmit');
-  if (s) s.addEventListener('click', () => { submitted = true; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-  const n = document.getElementById('btnNext');
-  if (n) n.addEventListener('click', () => {
-    qIndex = (qIndex + 1) % questions.length;
-    submitted = false; selected = null; emqSel = {}; expanded = {};
-    render(); window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+
+  const banner=document.getElementById('result-banner');
+  if(chosen===correct){
+    banner.className='result-banner correct-banner';
+    banner.innerHTML=`<span class="result-icon">✅</span><div class="result-text"><strong>Correct!</strong><span>Scroll down to see the full explanation.</span></div>`;
+  } else {
+    banner.className='result-banner wrong-banner';
+    banner.innerHTML=`<span class="result-icon">❌</span><div class="result-text"><strong>Not quite.</strong><span>The correct answer is <strong>${esc(correct)}</strong>. Review the explanations below.</span></div>`;
+  }
+
+  document.getElementById('reveal-section').classList.add('visible');
+  document.body.classList.add('revealed');
+
+  if(window.__anns&&window.__anns.length) annotateStep(document.getElementById('stem-text'),window.__anns);
+  setTimeout(()=>banner.scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 
-function showLoading() {
-  document.getElementById('root').innerHTML = '<div class="state-screen"><div class="spinner"></div><p>Loading questions&hellip;</p></div>';
-}
-function showError(msg) {
-  document.getElementById('root').innerHTML = '<div class="state-screen"><h2>Failed to load questions</h2><p>' + esc(msg) + '</p><button class="btn-retry" onclick="loadQuestions()">Try again</button></div>';
-}
-function esc(s) {
-  if (!s) return '';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+/* ── ANNOTATIONS ── */
+function annotateStep(el,anns){
+  if(!el||!anns.length) return;
+  // Work from plain text, build annotated HTML
+  let html=el.textContent.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  // Sort longest first to avoid partial overlaps
+  [...anns].sort((a,b)=>b.text.length-a.text.length).forEach(ann=>{
+    const safeFind=ann.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                          .replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const cls=ann.type==='clue'?'hl-yellow':'hl-cyan';
+    const ttT=ann.type==='clue'?'yellow':'cyan';
+    const ttL=ann.type==='clue'?'★ Diagnostic Clue':'⬤ Distractor';
+    const tip=`<div class="tooltip-wrap"><div class="tooltip-box tt-${ttT}"><div class="tooltip-type">${ttL}</div>${esc(ann.tooltip)}</div></div>`;
+    html=html.replace(new RegExp(safeFind,'g'),`<span class="hl ${cls}" tabindex="0">$&${tip}</span>`);
+  });
+  el.innerHTML=html;
 }
 
-loadQuestions();
+/* ── ACCORDION ── */
+function toggleClue(row){
+  const open=row.classList.contains('open');
+  row.closest('.section-card').querySelectorAll('.clue-row.open').forEach(r=>r.classList.remove('open'));
+  if(!open) row.classList.add('open');
+}
+function toggleDetail(id,btn){
+  const b=document.getElementById(id);
+  const open=b.classList.toggle('open');
+  btn.textContent=open?'Hide Explanation':'Detailed Explanation';
+}
+
+init();
 </script>
 </body>
 </html>
