@@ -769,7 +769,7 @@ const SUPABASE_URL = 'https://judtpdikbidvccclftvq.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj';
 
 // ── State ──
-let mode = 'exam';         // 'exam' | 'tutor'
+let mode = 'tutor';         // 'exam' | 'tutor'
 let questions = [];        // current session question objects
 let answers = {};          // qid -> selected index (or null)
 let currentIdx = 0;
@@ -988,23 +988,8 @@ function renderQuestion(i) {
   </div>`;
 
   // Tutor panels
-  if (answered && mode === 'tutor' && tc) {
+  if (answered && tc) {
     html += renderTutorPanels(q, selected, tc);
-  } else if (answered && mode === 'exam') {
-    // Exam mode: show the basic explanation only
-    if (q.explanation) {
-      html += `<div class="tutor-panels visible">
-        <div class="hys-panel">
-          <div class="panel-header" onclick="togglePanel(this)">
-            <div class="panel-title teal">💡 Explanation</div>
-            <span class="panel-chevron open">▼</span>
-          </div>
-          <div class="panel-body" style="display:block">
-            <div class="refs-text" style="color:var(--slate-2);font-size:14px;line-height:1.7">${escapeHtml(q.explanation)}</div>
-          </div>
-        </div>
-      </div>`;
-    }
   }
 
   html += `</div>`;
