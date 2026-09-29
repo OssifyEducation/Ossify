@@ -763,10 +763,15 @@ body {
   <span><kbd>T</kbd> tutor</span>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ── Config ──
 const SUPABASE_URL = 'https://judtpdikbidvccclftvq.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj';
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let currentUser = null;   // set in startSession
+let progressSaved = false; // guard against double-save
+let sessionStartTime = null;
 
 // ── State ──
 let mode = 'tutor';         // 'exam' | 'tutor'
@@ -803,6 +808,13 @@ function setMode(m) {
 
 // ── Session start ──
 async function startSession() {
+  // Auth: get current user so we can save progress
+  try {
+    const { data: { user } } = await sb.auth.getUser();
+    currentUser = user || null;
+  } catch(_) { currentUser = null; }
+  progressSaved = false;
+  sessionStartTime = Date.now();
   const topic  = document.getElementById('topicFilter').value;
   const type   = document.getElementById('typeFilter').value;
   const domain = document.getElementById('domainFilter').value;
@@ -1269,6 +1281,8 @@ function showResult() {
   document.getElementById('rbIncorrect').textContent = incorrect;
   document.getElementById('rbSkipped').textContent = skipped + unanswered;
   document.getElementById('resultOverlay').classList.add('visible');
+  // Save progress to Supabase (fire-and-forget, won't block UI)
+  saveSessionProgress();
 }
 
 function closeResult() {
@@ -1331,6 +1345,36 @@ function formatBullets(text) {
   return escapeHtml(text)
     .replace(/•\s+/g, '<br><strong style="color:var(--teal)">•</strong> ')
     .replace(/^<br>/, '');
+}
+
+// ── Progress saving ──
+async function saveSessionProgress() {
+  if (progressSaved || !currentUser) return;
+  progressSaved = true;
+
+  const totalSecs = sessionStartTime
+    ? Math.round((Date.now() - sessionStartTime) / 1000)
+    : null;
+  const answeredCount = Object.keys(answers).filter(k => answers[k] !== null).length;
+  const secsPerQ = answeredCount > 0 && totalSecs ? Math.round(totalSecs / answeredCount) : null;
+
+  const rows = [];
+  for (const [qid, ans] of Object.entries(answers)) {
+    if (ans === null || ans === undefined) continue; // skipped
+    const q = questions.find(q => q.question_id === qid);
+    if (!q || !q.id) continue;
+    rows.push({
+      user_id:           currentUser.id,
+      question_id:       q.id,                    // integer FK → questions.id
+      answered_correctly: ans === q.correct_answer,
+      answered_at:       new Date().toISOString(),
+      time_taken:        secsPerQ,
+    });
+  }
+  if (!rows.length) return;
+
+  const { error } = await sb.from('user_progress').insert(rows);
+  if (error) console.warn('Progress save failed:', error.message);
 }
 
 // ── Keyboard navigation ──
