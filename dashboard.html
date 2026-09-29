@@ -327,6 +327,10 @@ async function init(){
   document.getElementById('topbarXp').innerHTML=`<svg viewBox='0 0 24 24' style='width:12px;height:12px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg> ${xp} XP`;
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox='0 0 24 24' style='width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polyline points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg> ${streak} day streak`;
   const{data:prog}=await sb.from('user_progress').select('*').eq('user_id',user.id);
+  // Topic-level progress (uses server-side function to join with questions)
+  const{data:topicProg}=await sb.rpc('get_topic_progress');
+  const topicMap={};
+  (topicProg||[]).forEach(t=>{ topicMap[t.topic]={attempted:Number(t.attempted),correct:Number(t.correct)}; });
   const answered=prog?.length||0;
   const correct=prog?.filter(p=>p.answered_correctly).length||0;
   const accuracy=answered>0?Math.round((correct/answered)*100):0;
@@ -359,7 +363,10 @@ async function init(){
   const topicCounts={};
   TOPICS.forEach(t=>topicCounts[t.id]=0);
   // Would normally join with questions - show first 3 topics alphabetically as placeholder
-  const weakSpots=TOPICS.slice(0,3);
+  // Weak spots: topics with lowest correct/100 ratio that have been attempted at all
+  // (or all topics if none attempted yet)
+  const weakSpots=TOPICS.map(t=>{const p=topicMap[t.id]||{attempted:0,correct:0};return{...t,...p,pct:p.correct};})
+    .sort((a,b)=>a.pct-b.pct);
 
   document.getElementById('mainContent').innerHTML=`
   ${!isPaid?`<div class="free-gate">
@@ -409,15 +416,24 @@ async function init(){
         <div class="weak-item">
           <div class="weak-ico"><svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--red);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
           <div class="weak-name">${t.id}</div>
-          <div class="weak-pct">0%</div>
-          <a href="practice.html" class="weak-link">Revise →</a>
+          <div class="weak-pct">${t.pct}/100</div>
+          <a href="practice.html?topic=${encodeURIComponent(t.id)}" class="weak-link">Revise →</a>
         </div>`).join('')}
       </div>
     </div>
   </div>
   <div class="sec-row"><div class="sec-h">All topics</div><a href="practice.html" class="sec-a">Browse all →</a></div>
   <div class="topics-grid" style="margin-bottom:14px;">
-    ${TOPICS.map(t=>`<a href="practice.html?topic=${encodeURIComponent(t.id)}" class="topic-card"><div class="topic-name">${t.id}</div><div class="topic-count">100 questions</div><div class="tp-bar"><div class="tp-fill" style="width:0%;background:var(--pu-mid);"></div></div></a>`).join('')}
+    ${TOPICS.map(t=>{
+        const p=topicMap[t.id]||{attempted:0,correct:0};
+        const pct=Math.min(100,Math.round((p.correct/100)*100));
+        const col=t.color||'var(--pu-mid)';
+        return `<a href="practice.html?topic=${encodeURIComponent(t.id)}" class="topic-card">
+          <div class="topic-name">${t.id}</div>
+          <div class="topic-count">${p.correct}/100 correct · ${p.attempted} attempted</div>
+          <div class="tp-bar"><div class="tp-fill" style="width:${pct}%;background:${col};"></div></div>
+        </a>`;
+      }).join('')}
   </div>
 `
 }
