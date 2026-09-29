@@ -1194,6 +1194,20 @@ function renderTutorPanels(q, selected, tc) {
     </div>`;
   }
 
+  // ── Bottom navigation (always visible after reading explanations) ──
+  html += `<div style="display:flex;gap:12px;padding:20px 0 8px;border-top:1px solid rgba(255,255,255,.06);margin-top:8px">`;
+  if (typeof currentIdx !== 'undefined' && typeof questions !== 'undefined') {
+    if (currentIdx < questions.length - 1) {
+      html += `<button class="btn btn-primary" onclick="nextQuestion()" style="min-width:160px">Next question →</button>`;
+    } else {
+      html += `<button class="btn btn-primary" onclick="showResult()" style="min-width:160px">Finish session →</button>`;
+    }
+    if (currentIdx > 0) {
+      html += `<button class="btn btn-ghost" onclick="prevQuestion()">← Back</button>`;
+    }
+  }
+  html += `</div>`;
+
   html += `</div>`;
   return html;
 }
