@@ -61,7 +61,10 @@ input::placeholder{color:var(--muted);}
       <button class="btn-submit" id="loginBtn" onclick="handleLogin()">Log in →</button>
     </div>
     <div id="signupForm" style="display:none">
-      <div class="form-group"><label>Full name</label><input type="text" id="signupName" placeholder="Dr. Jane Smith" autocomplete="name"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group"><label>First name</label><input type="text" id="signupFirstName" placeholder="Jane" autocomplete="given-name"></div>
+        <div class="form-group"><label>Surname</label><input type="text" id="signupSurname" placeholder="Smith" autocomplete="family-name"></div>
+      </div>
       <div class="form-group"><label>Email address</label><input type="email" id="signupEmail" placeholder="your@nhs.net" autocomplete="email"></div>
       <div class="form-group"><label>Password</label><input type="password" id="signupPassword" placeholder="At least 8 characters" autocomplete="new-password"><div class="input-hint">Minimum 8 characters</div></div>
       <button class="btn-submit" id="signupBtn" onclick="handleSignup()">Create account →</button>
@@ -102,13 +105,14 @@ async function handleLogin(){
   else window.location.href='dashboard.html';
 }
 async function handleSignup(){
-  const name=document.getElementById('signupName').value.trim();
+  const firstName=document.getElementById('signupFirstName').value.trim();
+  const surname=document.getElementById('signupSurname').value.trim();
   const email=document.getElementById('signupEmail').value.trim();
   const password=document.getElementById('signupPassword').value;
-  if(!name||!email||!password)return showError('Please fill in all fields.');
+  if(!firstName||!surname||!email||!password)return showError('Please fill in all fields.');
   if(password.length<8)return showError('Password must be at least 8 characters.');
   const btn=document.getElementById('signupBtn');btn.disabled=true;btn.textContent='Creating account…';
-  const{data,error}=await sb.auth.signUp({email,password,options:{data:{full_name:name}}});
+  const{data,error}=await sb.auth.signUp({email,password,options:{data:{first_name:firstName,surname:surname,full_name:firstName+' '+surname}}});
   if(error){showError(error.message);btn.disabled=false;btn.textContent='Create account →';}
   else if(data.user&&!data.session){showSuccess('Account created! Check your email to confirm, then log in.');btn.disabled=false;btn.textContent='Create account →';}
   else window.location.href='dashboard.html';
