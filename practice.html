@@ -602,7 +602,8 @@ let questions = [];        // current session question objects
 let answers = {};          // qid -> selected index (or null)
 let currentIdx = 0;
 let sessionActive = false;
-let reviewMode = false;    // true after result overlay opened
+let reviewMode = false;
+let pendingSelection = -1; // set by option click, read by submitAnswer    // true after result overlay opened
 
 // ── API ──
 async function fetchQuestions(filters) {
@@ -895,8 +896,7 @@ function renderQuestion(i) {
       btn.classList.add('selected');
       const submitBtn = document.getElementById('submitBtn');
       if (submitBtn) submitBtn.disabled = false;
-      // Track pending selection
-      btn.dataset.idx = idx;
+      pendingSelection = idx; // reliable cross-browser tracking
     });
   });
 }
@@ -1143,13 +1143,10 @@ function selectAnswer(idx) {
 
 function submitAnswer() {
   const q = questions[currentIdx];
-  // Find selected option
-  const btns = document.querySelectorAll('.option-btn');
-  let selected = -1;
-  btns.forEach((btn, idx) => {
-    if (btn.classList.contains('selected')) selected = idx;
-  });
+  // Use tracked selection (more reliable than scanning for CSS class)
+  const selected = pendingSelection;
   if (selected === -1) return;
+  pendingSelection = -1; // consume it
 
   answers[q.question_id] = selected;
   renderNav();
