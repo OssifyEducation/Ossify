@@ -780,15 +780,7 @@ function renderQuestion(i) {
     ? annotateStem(q.stem, stemClues, stemDistractors)
     : escapeHtml(q.stem);
   html += `<div class="q-stem">${qNum}${stemHtml}</div>`;
-  // Legend: only show when there are annotations
-  if (showReveal && (stemClues.length || stemDistractors.length)) {
-    html += `<div class="stem-legend">`;
-    if (stemClues.length)
-      html += `<span><span class="stem-legend-clue"></span>Diagnostic clue — hover to reveal</span>`;
-    if (stemDistractors.length)
-      html += `<span><span class="stem-legend-dist"></span>Distractor — hover to reveal</span>`;
-    html += `</div>`;
-  }
+
 
   // Options
   html += `<div class="options-list" id="optionsList">`;
