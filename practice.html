@@ -330,6 +330,8 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
   white-space: normal;
   display: inline;
 }
+/* stem-tip text is hidden — read by JS tooltip, not rendered inline */
+.stem-tip { display: none !important; }
 .stem-clue {
   background: #fef08a;
   color: #713f12;
@@ -1360,6 +1362,25 @@ async function saveSessionProgress() {
   const { error } = await sb.from('user_progress')
     .upsert(rows, { onConflict: 'user_id,question_id', ignoreDuplicates: true });
   if (error) console.warn('Progress save failed:', error.message);
+
+  // Tick streak: practice sessions count toward the streak (not just dashboard visits)
+  try {
+    const todayStr = new Date().toISOString().split('T')[0];
+    const { data: prof } = await sb.from('profiles')
+      .select('current_streak,best_streak,last_active_date')
+      .eq('id', currentUser.id).single();
+    if (prof && prof.last_active_date !== todayStr) {
+      const yd = new Date(); yd.setDate(yd.getDate() - 1);
+      const yStr = yd.toISOString().split('T')[0];
+      const newStreak = prof.last_active_date === yStr
+        ? (prof.current_streak || 0) + 1 : 1;
+      await sb.from('profiles').update({
+        current_streak:   newStreak,
+        best_streak:      Math.max(newStreak, prof.best_streak || 0),
+        last_active_date: todayStr,
+      }).eq('id', currentUser.id);
+    }
+  } catch(e) { console.warn('Streak update failed:', e.message); }
 }
 
 
@@ -1474,6 +1495,46 @@ function showToast(msg) {
   } catch(e) { localStorage.removeItem('ossify_saved_session'); }
 })();
 
+
+// ── Stem annotation tooltips (JS-positioned, never obscured) ─────────────────
+(function() {
+  const tip = document.getElementById('stemTip');
+  if (!tip) return;
+  const PAD = 12; // gap between cursor and tip
+
+  function showTip(el, e) {
+    const txt = el.querySelector('.stem-tip');
+    if (!txt) return;
+    tip.textContent = txt.textContent;
+    tip.style.display = 'block';
+    positionTip(e);
+  }
+  function hideTip() { tip.style.display = 'none'; }
+  function positionTip(e) {
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    const vw = window.innerWidth,  vh = window.innerHeight;
+    let x = e.clientX + PAD, y = e.clientY + PAD;
+    if (x + tw > vw - PAD) x = e.clientX - tw - PAD;
+    if (y + th > vh - PAD) y = e.clientY - th - PAD;
+    if (x < PAD) x = PAD;
+    if (y < PAD) y = PAD;
+    tip.style.left = x + 'px';
+    tip.style.top  = y + 'px';
+  }
+
+  document.addEventListener('mouseover', e => {
+    const el = e.target.closest('.stem-clue, .stem-distractor');
+    if (el) showTip(el, e);
+  });
+  document.addEventListener('mousemove', e => {
+    if (tip.style.display === 'block') positionTip(e);
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('.stem-clue, .stem-distractor') &&
+        !e.relatedTarget?.closest('.stem-clue, .stem-distractor')) hideTip();
+  });
+})();
+
 // ── Keyboard navigation ──
 document.addEventListener('keydown', e => {
   if (!sessionActive) return;
@@ -1519,5 +1580,13 @@ document.addEventListener('keydown', e => {
 })();
 
 </script>
+<div id="stemTip" style="
+  position:fixed;display:none;z-index:9999;
+  background:#1e293b;color:#f1f5f9;
+  font-size:12.5px;font-weight:400;line-height:1.6;
+  padding:10px 14px;border-radius:10px;
+  width:300px;max-width:90vw;
+  box-shadow:0 6px 24px rgba(0,0,0,.3);
+  pointer-events:none;"></div>
 </body>
 </html>
