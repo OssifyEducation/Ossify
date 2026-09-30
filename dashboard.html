@@ -366,6 +366,20 @@ async function init(){
     }
   }
 
+  // Random greeting (picked fresh on each page load)
+  const GREETINGS=[
+    ['Welcome back, ','.',],
+    ['Hello again, ','.',],
+    ['Good to see you, ','.',],
+    ['Ready to revise, ','?',],
+    ["Let's get to work, ",'.',],
+    ["The MSRA won't pass itself, ",'.',],
+    ['Your patients need you sharp, ','.',],
+    ['Back for more, ','?',],
+  ];
+  const gi=Math.floor(Math.random()*GREETINGS.length);
+  const heroGreeting=GREETINGS[gi][0]+`<em>${first}${GREETINGS[gi][1]}</em>`;
+
   // Weak spots — topics with lowest progress count
   const topicCounts={};
   TOPICS.forEach(t=>topicCounts[t.id]=0);
@@ -390,8 +404,8 @@ async function init(){
   </div>`:''}
   <div class="dash-hero">
     <div class="dh-orb1"></div><div class="dh-orb2"></div>
-    <div class="hero-greeting">Welcome back</div>
-    <div class="hero-title">Good to see you, <em>${first}.</em></div>
+    <div class="hero-greeting">Ossify MSRA</div>
+    <div class="hero-title">${heroGreeting}</div>
     <div class="streak-dots">${streakDots(streak)}<span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;">${streak} day streak</span></div>
     <div class="hero-sub">${streak>0?`${streak}-day streak active — consistency is the key to Band 4.`:'Start practising today to begin your streak.'}</div>
     <div class="hero-acts">
