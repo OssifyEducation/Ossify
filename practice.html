@@ -473,6 +473,7 @@ let questions = [];        // current session question objects
 let answers = {};          // qid -> selected index (or null)
 let currentIdx = 0;
 let sessionActive = false;
+let reviewMode = false;    // true after result overlay opened
 
 // ── API ──
 async function fetchQuestions(filters) {
@@ -576,6 +577,7 @@ async function startSession() {
     answers = {};
     currentIdx = 0;
     sessionActive = true;
+    reviewMode = false;
     showSaveExit(true);
 
     document.getElementById('navTitle').style.display = 'block';
@@ -641,8 +643,7 @@ function renderQuestion(i) {
   const isEMQ = q.type === 'EMQ';
   const answered = answers[q.question_id] !== undefined;
   const selected = answers[q.question_id];
-  const showAnswers = answered && (mode === 'tutor' || (mode === 'exam' && answered));
-  // In exam mode show answer state too (it's practice, not a real exam)
+  const showAnswers = answered && (mode === 'tutor' || reviewMode);
   const tc = q.tutor_content;
 
   const main = document.getElementById('mainArea');
@@ -693,7 +694,7 @@ function renderQuestion(i) {
   (q.options || []).forEach((opt, idx) => {
     let cls = 'option-btn';
     let suffix = '';
-    if (showAnswers || answered) {
+    if (showAnswers) {
       if (idx === q.correct_answer) {
         cls += ' correct-answer';
         suffix = `<span class="option-suffix">✓ Correct</span>`;
@@ -716,7 +717,10 @@ function renderQuestion(i) {
   // Action row
   html += `<div class="action-row">`;
   if (!answered) {
-    html += `<button class="btn btn-primary" id="submitBtn" onclick="submitAnswer()" disabled>Confirm answer</button>`;
+    const isLastQ = currentIdx === questions.length - 1;
+    const submitLabel = (mode === 'exam' && isLastQ)
+      ? 'Confirm answer and reveal score' : 'Confirm answer';
+    html += `<button class="btn btn-primary" id="submitBtn" onclick="submitAnswer()" disabled>${submitLabel}</button>`;
     html += `<button class="btn btn-ghost" onclick="skipQuestion()">Skip</button>`;
   } else {
     if (currentIdx < questions.length - 1) {
@@ -733,7 +737,7 @@ function renderQuestion(i) {
   </div>`;
 
   // Tutor panels
-  if (answered && tc) {
+  if (answered && tc && (mode === 'tutor' || reviewMode)) {
     html += renderTutorPanels(q, selected, tc);
   }
 
@@ -960,9 +964,21 @@ function submitAnswer() {
 
   answers[q.question_id] = selected;
   renderNav();
-  renderQuestion(currentIdx);
   updateProgress();
   updateMeta();
+
+  if (mode === 'exam') {
+    // Exam mode: no answer reveal — move straight to next question or results
+    if (currentIdx < questions.length - 1) {
+      currentIdx++;
+      renderQuestion(currentIdx);
+    } else {
+      showResult();
+    }
+  } else {
+    // Tutor mode: re-render current question with full reveal
+    renderQuestion(currentIdx);
+  }
   scrollToTop();
 }
 
@@ -1020,6 +1036,7 @@ function showResult() {
 }
 
 function closeResult() {
+  reviewMode = true;   // from now on show correct/incorrect on all questions
   document.getElementById('resultOverlay').classList.remove('visible');
   renderQuestion(0);
   scrollToTop();
@@ -1118,7 +1135,7 @@ async function saveSessionProgress() {
 // ── Save-and-navigate ────────────────────────────────────────────────────────
 async function saveAndExit() {
   await saveSessionProgress();
-  window.location.href = 'index.html';
+  window.location.href = 'dashboard.html';
 }
 async function saveAndGoDashboard() {
   await saveSessionProgress();
@@ -1172,6 +1189,7 @@ document.addEventListener('keydown', e => {
     }
   } catch(_) {}
 })();
+
 </script>
 </body>
 </html>
