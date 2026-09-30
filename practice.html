@@ -827,9 +827,13 @@ function renderQuestion(i) {
     }
   }
   const qNum = isEMQ && tc && tc.q_num ? `<div class="emq-q-num">Scenario ${tc.q_num} of 5</div>` : '';
-  const stemHtml = showAnswers
-    ? annotateStem(q.stem, stemClues, stemDistractors)
-    : escapeHtml(q.stem);
+  let stemHtml;
+  if (showAnswers) {
+    try { stemHtml = annotateStem(q.stem, stemClues, stemDistractors); }
+    catch(e) { console.warn('annotateStem failed:', e.message); stemHtml = escapeHtml(q.stem); }
+  } else {
+    stemHtml = escapeHtml(q.stem);
+  }
   html += `<div class="q-stem">${qNum}${stemHtml}</div>`;
 
   // Options
@@ -882,7 +886,13 @@ function renderQuestion(i) {
 
   // Tutor panels
   if (answered && tc && (mode === 'tutor' || reviewMode)) {
-    html += renderTutorPanels(q, selected, tc);
+    try {
+      html += renderTutorPanels(q, selected, tc);
+    } catch(e) {
+      console.error('renderTutorPanels failed:', e.message, e.stack);
+      html += `<div style="padding:12px;background:#fce7f0;border-radius:8px;color:#c0305a;font-size:13px;margin-top:12px">
+        <strong>Tutor panel error:</strong> ${escapeHtml(e.message)}</div>`;
+    }
   }
 
   html += `</div>`;
@@ -1129,6 +1139,7 @@ function renderTutorPanels(q, selected, tc) {
 function selectAnswer(idx) {
   if (answers[questions[currentIdx].question_id] !== undefined) return;
   pendingSelection = idx;
+  console.log('selectAnswer: set pending to', idx);
   // Update visual + enable submit
   document.querySelectorAll('.option-btn').forEach((btn, i) => {
     btn.classList.toggle('selected', i === idx);
@@ -1141,7 +1152,8 @@ function submitAnswer() {
   const q = questions[currentIdx];
   // Use tracked selection (more reliable than scanning for CSS class)
   const selected = pendingSelection;
-  if (selected === -1) return;
+  console.log('submitAnswer called, pending:', selected, 'mode:', mode);
+  if (selected === -1) { console.warn('submitAnswer: no selection, returning'); return; }
   pendingSelection = -1; // consume it
 
   answers[q.question_id] = selected;
