@@ -782,20 +782,26 @@ let sessionActive = false;
 
 // ── API ──
 async function fetchQuestions(filters) {
-  const params = new URLSearchParams({
-    select: 'id,question_id,type,topic,domain,emq_theme,stem,options,correct_answer,explanation,tutor_content',
-    order: 'question_id.asc',
-    limit: filters.count > 0 ? filters.count : 5000
+  // Uses get_random_questions() RPC so ORDER BY random() runs server-side.
+  // This guarantees a genuine mix across all specialties on every call,
+  // not just a shuffle of the first N alphabetical questions.
+  const body = {
+    p_topic:  filters.topic  || '',
+    p_type:   filters.type   || '',
+    p_domain: filters.domain || '',
+    p_count:  filters.count  > 0 ? filters.count : 0,
+  };
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_random_questions`, {
+    method: 'POST',
+    headers: {
+      apikey:          SUPABASE_ANON_KEY,
+      Authorization:   `Bearer ${SUPABASE_ANON_KEY}`,
+      'Content-Type':  'application/json',
+    },
+    body: JSON.stringify(body),
   });
-  if (filters.topic) params.append('topic', `eq.${filters.topic}`);
-  if (filters.type)  params.append('type',  `eq.${filters.type}`);
-  if (filters.domain) params.append('domain', `like.${filters.domain}%`);
-
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/questions?${params}`, {
-    headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` }
-  });
-  if (!res.ok) throw new Error('Failed to load questions');
-  return res.json();
+  if (!res.ok) { console.error('fetchQuestions failed', res.status); return []; }
+  return await res.json();
 }
 
 // ── Mode ──
