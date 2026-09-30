@@ -888,17 +888,7 @@ function renderQuestion(i) {
   html += `</div>`;
   main.innerHTML = html;
 
-  // Re-attach listener for confirm button
-  const opts = main.querySelectorAll('.option-btn:not([disabled])');
-  opts.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-      opts.forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      const submitBtn = document.getElementById('submitBtn');
-      if (submitBtn) submitBtn.disabled = false;
-      pendingSelection = idx; // reliable cross-browser tracking
-    });
-  });
+  // Selection handled by selectAnswer() via onclick on each button
 }
 
 // ── Tutor panel helpers ──
@@ -1138,7 +1128,13 @@ function renderTutorPanels(q, selected, tc) {
 // ── Answer handling ──
 function selectAnswer(idx) {
   if (answers[questions[currentIdx].question_id] !== undefined) return;
-  // Handled by onclick in renderQuestion + submit button
+  pendingSelection = idx;
+  // Update visual + enable submit
+  document.querySelectorAll('.option-btn').forEach((btn, i) => {
+    btn.classList.toggle('selected', i === idx);
+  });
+  const sb = document.getElementById('submitBtn');
+  if (sb) sb.disabled = false;
 }
 
 function submitAnswer() {
