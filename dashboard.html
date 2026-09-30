@@ -302,24 +302,24 @@ async function updateStreak(userId,profile){
   return{current_streak:streak,best_streak:best};
 }
 
-function streakDots(activeDaysSet){
-  // activeDaysSet: Set of JS day numbers (0=Sun,1=Mon…6=Sat) active this week
+function streakDots(streak){
+  // Show Mon–Sun of the current week.
+  // Work backwards from today by `streak` days — any slot within that range lights up.
+  // Broken streak → streak resets to ≤1, so only today (or nothing) is lit.
   const labels=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-  const todayJS=new Date().getDay(); // 0=Sun…6=Sat
-  // Map Mon=0…Sun=6 index to JS day number
-  const jsDayOf=i=>i===6?0:i+1; // Mon(0)→1, …, Sat(5)→6, Sun(6)→0
-  const todayIdx=todayJS===0?6:todayJS-1; // today in Mon-indexed
+  const dow=new Date().getDay();          // 0=Sun … 6=Sat
+  const todayIdx=dow===0?6:dow-1;        // 0=Mon … 6=Sun
   return labels.map((label,i)=>{
-    const jsDay=jsDayOf(i);
-    const active=activeDaysSet&&activeDaysSet.has(jsDay);
-    const isToday=i===todayIdx;
     const isFuture=i>todayIdx;
+    const daysAgo=todayIdx-i;             // 0=today, 1=yesterday, …
+    const inStreak=!isFuture&&daysAgo<streak;
+    const isToday=i===todayIdx;
     let cls;
-    if(active&&isToday) cls='sd-today';
-    else if(active)      cls='sd-on';
-    else if(isToday)     cls='sd-today-empty';
-    else if(isFuture)    cls='sd-future';
-    else                 cls='sd-off';
+    if(isFuture)           cls='sd-future';
+    else if(inStreak&&isToday) cls='sd-today';
+    else if(inStreak)      cls='sd-on';
+    else if(isToday)       cls='sd-today-empty';
+    else                   cls='sd-off';
     return`<div class="s-dot ${cls}">${label}</div>`;
   }).join('');
 }
@@ -349,16 +349,6 @@ async function init(){
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox='0 0 24 24' style='width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polyline points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg> ${streak} day streak`;
   const{data:prog}=await sb.from('user_progress').select('*').eq('user_id',user.id);
   // Topic-level progress (uses server-side function to join with questions)
-  // Which days of this week did the user practise? (Mon–Sun, max 7)
-  const _today=new Date();
-  const _dow=_today.getDay();
-  const _monday=new Date(_today);
-  _monday.setDate(_today.getDate()-(_dow===0?6:_dow-1));
-  _monday.setHours(0,0,0,0);
-  const{data:_weekRows}=await sb.from('user_progress').select('answered_at')
-    .eq('user_id',user.id).gte('answered_at',_monday.toISOString());
-  const activeDaysSet=new Set((_weekRows||[]).map(r=>new Date(r.answered_at).getDay()));
-
   const{data:topicProg}=await sb.rpc('get_topic_progress');
   const topicMap={};
   (topicProg||[]).forEach(t=>{ topicMap[t.topic]={attempted:Number(t.attempted),correct:Number(t.correct)}; });
@@ -430,7 +420,7 @@ async function init(){
     <div class="dh-orb1"></div><div class="dh-orb2"></div>
     <div class="hero-greeting">Ossify MSRA</div>
     <div class="hero-title">${heroGreeting}</div>
-    <div class="streak-dots">${streakDots(activeDaysSet)}<span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;">${streak} day streak</span></div>
+    <div class="streak-dots">${streakDots(streak)}<span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;">${streak} day streak</span></div>
     <div class="hero-sub">${streak>0?`${streak}-day streak active — consistency is the key to Band 4.`:'Start practising today to begin your streak.'}</div>
     <div class="hero-acts">
       <a href="practice.html" class="ha-w"><svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Start Practice</a>
