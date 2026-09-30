@@ -123,8 +123,11 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .sc-note{font-size:10px;font-weight:500;margin-top:3px;}
 
 /* TOPIC BARS */
-.tp-bar{height:3px;background:var(--pu-pale);border-radius:3px;overflow:hidden;margin-top:7px;}
-.tp-fill{height:100%;border-radius:3px;}
+.tp-bar{height:6px;background:rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;margin-top:8px;display:flex;}
+.tp-correct{background:#22c55e;height:100%;border-radius:6px 0 0 6px;transition:width .4s ease;}
+.tp-incorrect{background:#ef4444;height:100%;transition:width .4s ease;}
+.tp-correct:last-child,.tp-correct:only-child{border-radius:6px;}
+
 
 /* VS / WEAK / TWO-COL */
 .two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-bottom:14px;}
@@ -416,7 +419,7 @@ async function init(){
         <div class="weak-item">
           <div class="weak-ico"><svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--red);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
           <div class="weak-name">${t.id}</div>
-          <div class="weak-pct">${t.pct}/100</div>
+          <div class="weak-pct" style="font-size:10px;color:var(--muted);">${t.correct||0}/${t.attempted||0}</div>
           <a href="practice.html?topic=${encodeURIComponent(t.id)}" class="weak-link">Revise →</a>
         </div>`).join('')}
       </div>
@@ -426,12 +429,17 @@ async function init(){
   <div class="topics-grid" style="margin-bottom:14px;">
     ${TOPICS.map(t=>{
         const p=topicMap[t.id]||{attempted:0,correct:0};
-        const pct=Math.min(100,Math.round((p.correct/100)*100));
-        const col=t.color||'var(--pu-mid)';
+        const att=Math.min(100,p.attempted);
+        const cor=Math.min(att,p.correct);
+        const inc=att-cor;
+        const label=att===0?'Not started yet':`${cor} correct · ${inc} incorrect · ${100-att} unseen`;
         return `<a href="practice.html?topic=${encodeURIComponent(t.id)}" class="topic-card">
           <div class="topic-name">${t.id}</div>
-          <div class="topic-count">${p.correct}/100 correct · ${p.attempted} attempted</div>
-          <div class="tp-bar"><div class="tp-fill" style="width:${pct}%;background:${col};"></div></div>
+          <div class="topic-count">${label}</div>
+          <div class="tp-bar">
+            ${cor>0?`<div class="tp-correct" style="width:${cor}%"></div>`:''}
+            ${inc>0?`<div class="tp-incorrect" style="width:${inc}%"></div>`:''}
+          </div>
         </a>`;
       }).join('')}
   </div>
