@@ -99,11 +99,13 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .hero-greeting{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:7px;}
 .hero-title{font-family:var(--font-serif);font-size:22px;font-weight:500;color:#fff;margin-bottom:4px;}
 .hero-title em{font-style:italic;color:rgba(255,255,255,0.45);}
-.streak-dots{display:flex;align-items:center;gap:4px;margin-bottom:9px;}
-.s-dot{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;}
-.sd-on{background:rgba(255,255,255,0.25);color:#fff;}
-.sd-now{background:rgba(255,255,255,0.08);border:1.5px dashed rgba(255,255,255,0.25);color:rgba(255,255,255,0.4);}
+.streak-dots{display:flex;align-items:center;gap:5px;margin-bottom:9px;}
+.s-dot{min-width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;letter-spacing:.3px;padding:0 6px;}
+.sd-on{background:rgba(255,255,255,0.28);color:#fff;}
+.sd-today{background:#fff;color:var(--pu-dark);box-shadow:0 0 0 2px rgba(255,255,255,0.5);}
+.sd-today-empty{background:rgba(255,255,255,0.08);border:1.5px dashed rgba(255,255,255,0.4);color:rgba(255,255,255,0.5);}
 .sd-off{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.2);}
+.sd-future{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.1);}
 .hero-sub{font-size:12.5px;color:rgba(255,255,255,0.4);margin-bottom:14px;line-height:1.55;}
 .hero-acts{display:flex;gap:8px;flex-wrap:wrap;}
 .ha-w{background:#fff;color:var(--pu-dark);border-radius:8px;padding:8px 16px;font-size:12.5px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
@@ -300,13 +302,25 @@ async function updateStreak(userId,profile){
   return{current_streak:streak,best_streak:best};
 }
 
-function streakDots(streak){
-  const days=['M','T','W','T','F','S','S'];
-  const d=new Date().getDay();
-  const ti=d===0?6:d-1;
-  return days.map((l,i)=>{
-    const cls=i===ti?'sd-today':i<ti&&streak>=(ti-i+1)?'sd-done':streak>=7?'sd-done':'sd-empty';
-    return`<div class="streak-day ${cls}">${l}</div>`;
+function streakDots(activeDaysSet){
+  // activeDaysSet: Set of JS day numbers (0=Sun,1=Mon…6=Sat) active this week
+  const labels=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const todayJS=new Date().getDay(); // 0=Sun…6=Sat
+  // Map Mon=0…Sun=6 index to JS day number
+  const jsDayOf=i=>i===6?0:i+1; // Mon(0)→1, …, Sat(5)→6, Sun(6)→0
+  const todayIdx=todayJS===0?6:todayJS-1; // today in Mon-indexed
+  return labels.map((label,i)=>{
+    const jsDay=jsDayOf(i);
+    const active=activeDaysSet&&activeDaysSet.has(jsDay);
+    const isToday=i===todayIdx;
+    const isFuture=i>todayIdx;
+    let cls;
+    if(active&&isToday) cls='sd-today';
+    else if(active)      cls='sd-on';
+    else if(isToday)     cls='sd-today-empty';
+    else if(isFuture)    cls='sd-future';
+    else                 cls='sd-off';
+    return`<div class="s-dot ${cls}">${label}</div>`;
   }).join('');
 }
 
@@ -335,6 +349,16 @@ async function init(){
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox='0 0 24 24' style='width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polyline points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg> ${streak} day streak`;
   const{data:prog}=await sb.from('user_progress').select('*').eq('user_id',user.id);
   // Topic-level progress (uses server-side function to join with questions)
+  // Which days of this week did the user practise? (Mon–Sun, max 7)
+  const _today=new Date();
+  const _dow=_today.getDay();
+  const _monday=new Date(_today);
+  _monday.setDate(_today.getDate()-(_dow===0?6:_dow-1));
+  _monday.setHours(0,0,0,0);
+  const{data:_weekRows}=await sb.from('user_progress').select('answered_at')
+    .eq('user_id',user.id).gte('answered_at',_monday.toISOString());
+  const activeDaysSet=new Set((_weekRows||[]).map(r=>new Date(r.answered_at).getDay()));
+
   const{data:topicProg}=await sb.rpc('get_topic_progress');
   const topicMap={};
   (topicProg||[]).forEach(t=>{ topicMap[t.topic]={attempted:Number(t.attempted),correct:Number(t.correct)}; });
@@ -406,7 +430,7 @@ async function init(){
     <div class="dh-orb1"></div><div class="dh-orb2"></div>
     <div class="hero-greeting">Ossify MSRA</div>
     <div class="hero-title">${heroGreeting}</div>
-    <div class="streak-dots">${streakDots(streak)}<span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;">${streak} day streak</span></div>
+    <div class="streak-dots">${streakDots(activeDaysSet)}<span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;">${streak} day streak</span></div>
     <div class="hero-sub">${streak>0?`${streak}-day streak active — consistency is the key to Band 4.`:'Start practising today to begin your streak.'}</div>
     <div class="hero-acts">
       <a href="practice.html" class="ha-w"><svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Start Practice</a>
