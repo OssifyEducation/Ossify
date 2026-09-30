@@ -285,6 +285,11 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .ans-detail-body.open{display:block;}
 .ans-detail-body p{margin-bottom:7px;}
 
+/* High-yield summary bullet items */
+.hys-bullet-item{display:flex;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--lav-border);font-size:13px;color:var(--ink);line-height:1.65;}
+.hys-bullet-item:last-child{border-bottom:none;}
+.hys-dot{color:var(--teal-d);font-weight:900;font-size:15px;flex-shrink:0;line-height:1.4;}
+
 /* High-yield summary panel */
 .hys-panel{background:#fff;border:0.5px solid var(--lav-border);border-radius:12px;overflow:hidden;margin-bottom:8px;}
 .panel-header{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;transition:background .15s;}
@@ -1099,7 +1104,9 @@ function renderTutorPanels(q, selected, tc) {
           <span class="panel-chevron open">▼</span>
         </div>
         <div class="panel-body" style="display:block">
-          <div class="hys-body">${bullets.map(b => `<strong style="color:var(--teal)">•</strong> ${escapeHtml(b)}`).join('<br>')}</div>
+          <div class="hys-body">${bullets.map(b =>
+            `<div class="hys-bullet-item"><span class="hys-dot">•</span><span>${escapeHtml(b)}</span></div>`
+          ).join('')}</div>
         </div>
       </div>`;
     }
@@ -1270,9 +1277,13 @@ function tpToggleClue(row) {
   if (!open) row.classList.add('open');
 }
 function tpToggleDetail(id, btn) {
-  const b = document.getElementById(id);
-  const open = b.classList.toggle('open');
-  btn.textContent = open ? 'Hide Explanation' : 'Detailed Explanation';
+  const det = document.getElementById(id);
+  if (!det) return;
+  const open = det.classList.toggle('open');
+  btn.textContent = open ? 'Hide explanation' : 'Detailed explanation';
+  // When detailed opens, hide brief; when it closes, show brief again
+  const brief = btn.closest('.ans-block')?.querySelector('.ans-brief');
+  if (brief) brief.style.display = open ? 'none' : '';
 }
 
 // Panel toggle
