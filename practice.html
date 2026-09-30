@@ -394,12 +394,47 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
   width: 10px; height: 10px; border-radius: 2px;
   background: #bae6fd; border-bottom: 2px solid #0284c7; flex-shrink: 0;
 }
+
+/* Toast notification */
+.toast-msg{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);
+  background:#1e293b;color:#f1f5f9;padding:12px 22px;border-radius:10px;
+  font-size:13.5px;font-weight:500;z-index:200;opacity:0;transition:all .25s;
+  box-shadow:0 6px 24px rgba(0,0,0,.25);pointer-events:none;}
+.toast-msg.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* Resume session banner */
+.resume-banner{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  background:var(--pu-pale);border:0.5px solid var(--pu-light);border-radius:12px;
+  padding:14px 18px;margin-bottom:18px;flex-wrap:wrap;}
+.rb-info strong{display:block;font-size:13.5px;font-weight:600;color:var(--pu-dark);margin-bottom:3px;}
+.rb-info span{font-size:12px;color:var(--muted);}
+.rb-acts{display:flex;gap:8px;flex-shrink:0;}
+.rb-btn-resume{padding:8px 16px;background:var(--pu-mid);border:none;border-radius:8px;
+  color:#fff;font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;transition:all .15s;}
+.rb-btn-resume:hover{background:var(--pu-dark);}
+.rb-btn-discard{padding:8px 14px;background:transparent;border:0.5px solid var(--lav-border);
+  border-radius:8px;color:var(--muted);font-size:13px;font-weight:500;
+  font-family:var(--font-sans);cursor:pointer;transition:all .15s;}
+.rb-btn-discard:hover{border-color:var(--red);color:var(--red);}
+
+/* Save-for-later button */
+.btn-save-later{display:none;align-items:center;gap:6px;padding:6px 14px;
+  background:var(--pu-pale);border:0.5px solid var(--pu-light);border-radius:8px;
+  color:var(--pu-dark);font-size:12.5px;font-weight:500;font-family:var(--font-sans);
+  cursor:pointer;transition:all .15s;}
+.btn-save-later:hover{background:#e0d5fc;}
+.btn-save-later svg{width:13px;height:13px;fill:none;stroke:var(--pu-mid);
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+/* Clickable logo */
+.sb-logo{cursor:pointer;}
+.sb-logo:hover{opacity:.85;}
 </style>
 </head>
 <body>
 
 <aside class="sb">
-  <div class="sb-logo">
+  <div class="sb-logo" onclick="logoClick()" title="Go to dashboard">
     <svg width="90" height="42" viewBox="0 0 110 50" fill="none" xmlns="http://www.w3.org/2000/svg">
       <polygon points="-1,10 10,5 21,10 10,15" fill="rgba(255,255,255,0.75)"/>
       <line x1="21" y1="10" x2="21" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/>
@@ -449,6 +484,10 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
         <button class="mode-btn" id="examModeBtn" onclick="setMode('exam')">Exam</button>
         <button class="mode-btn active" id="tutorModeBtn" onclick="setMode('tutor')">Tutor</button>
       </div>
+      <button class="btn-save-later" id="saveLaterBtn" onclick="saveForLater()">
+        <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save for later
+      </button>
       <button class="btn-save-exit" id="saveExitBtn" onclick="saveAndExit()">
         <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
         Save &amp; exit
@@ -509,6 +548,16 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 
     <main class="q-area" id="mainArea">
       <div class="splash" id="splash">
+        <div id="resumeBanner" class="resume-banner" style="display:none">
+          <div class="rb-info">
+            <strong>You have a saved session</strong>
+            <span id="resumeDesc">Loading…</span>
+          </div>
+          <div class="rb-acts">
+            <button class="rb-btn-resume" onclick="resumeSession()">Resume →</button>
+            <button class="rb-btn-discard" onclick="discardSavedSession()">Discard</button>
+          </div>
+        </div>
         <div class="splash-ico">🩺</div>
         <h2>MSRA Practice</h2>
         <p>Choose your specialty, type, and count on the left, then hit <strong style="color:var(--pu-mid)">Start session</strong>.</p>
@@ -659,6 +708,7 @@ async function startSession() {
     sessionActive = true;
     reviewMode = false;
     showSaveExit(true);
+    const sl = document.getElementById('saveLaterBtn'); if(sl) sl.style.display='inline-flex';
 
     document.getElementById('navTitle').style.display = 'block';
     renderNav();
@@ -766,7 +816,7 @@ function renderQuestion(i) {
 
   // Stem — parse clues/distractors for annotation when answer is revealed
   let stemClues = [], stemDistractors = [];
-  if (showAnswers && tc) {
+  if (showReveal && tc) {
     if (isSBA) {
       stemClues     = (tc.key_clues      || []).map(tpParseClueStr).filter(Boolean);
       stemDistractors = (tc.key_distractors || []).map(tpParseClueStr).filter(Boolean);
@@ -776,11 +826,10 @@ function renderQuestion(i) {
     }
   }
   const qNum = isEMQ && tc && tc.q_num ? `<div class="emq-q-num">Scenario ${tc.q_num} of 5</div>` : '';
-  const stemHtml = showAnswers
+  const stemHtml = showReveal
     ? annotateStem(q.stem, stemClues, stemDistractors)
     : escapeHtml(q.stem);
   html += `<div class="q-stem">${qNum}${stemHtml}</div>`;
-
 
   // Options
   html += `<div class="options-list" id="optionsList">`;
@@ -1170,6 +1219,7 @@ function showResult() {
   document.getElementById('rbIncorrect').textContent = incorrect;
   document.getElementById('rbSkipped').textContent = skipped + unanswered;
   showSaveExit(false);
+  const _sl = document.getElementById('saveLaterBtn'); if(_sl) _sl.style.display='none';
   document.getElementById('resultOverlay').classList.add('visible');
   // Save progress to Supabase (fire-and-forget, won't block UI)
   saveSessionProgress();
@@ -1285,6 +1335,103 @@ function showSaveExit(show) {
   const btn = document.getElementById('saveExitBtn');
   if (btn) btn.style.display = show ? 'inline-flex' : 'none';
 }
+
+
+// ── Session save / resume (localStorage) ────────────────────────────────────
+function saveCurrentSession() {
+  if (!questions.length) return false;
+  const topic  = document.getElementById('topicFilter')?.value  || '';
+  const type   = document.getElementById('typeFilter')?.value   || '';
+  const domain = document.getElementById('domainFilter')?.value || '';
+  const state = {
+    savedAt: new Date().toISOString(),
+    questions, answers, currentIdx, mode,
+    topic, type, domain,
+    answeredCount: Object.keys(answers).filter(k => answers[k] !== null).length,
+    totalCount: questions.length,
+  };
+  try { localStorage.setItem('ossify_saved_session', JSON.stringify(state)); return true; }
+  catch(e) { console.warn('Session save failed:', e); return false; }
+}
+
+function resumeSession() {
+  const raw = localStorage.getItem('ossify_saved_session');
+  if (!raw) return;
+  try {
+    const s = JSON.parse(raw);
+    questions   = s.questions  || [];
+    answers     = s.answers    || {};
+    currentIdx  = s.currentIdx || 0;
+    mode        = s.mode       || 'tutor';
+    reviewMode  = false;
+    progressSaved = false;
+    sessionActive = true;
+    sessionStartTime = Date.now();
+    // Restore filter UI
+    if (s.topic)  document.getElementById('topicFilter').value  = s.topic;
+    if (s.type)   document.getElementById('typeFilter').value   = s.type;
+    if (s.domain) document.getElementById('domainFilter').value = s.domain;
+    document.getElementById('tutorModeBtn').classList.toggle('active', mode === 'tutor');
+    document.getElementById('examModeBtn').classList.toggle('active', mode === 'exam');
+    showSaveExit(true);
+    document.getElementById('saveLaterBtn').style.display = 'inline-flex';
+    renderNav();
+    renderQuestion(currentIdx);
+    updateProgress();
+    updateMeta();
+    scrollToTop();
+  } catch(e) {
+    console.warn('Session resume failed:', e);
+    localStorage.removeItem('ossify_saved_session');
+  }
+}
+
+function discardSavedSession() {
+  localStorage.removeItem('ossify_saved_session');
+  document.getElementById('resumeBanner').style.display = 'none';
+}
+
+async function saveForLater() {
+  const saved = saveCurrentSession();
+  await saveSessionProgress();
+  showToast(saved ? 'Session saved — resume it any time from this page.' : 'Could not save session.');
+}
+
+function logoClick() {
+  if (sessionActive) {
+    saveCurrentSession();
+    saveAndExit();          // saves progress to DB + goes to dashboard
+  } else {
+    window.location.href = 'dashboard.html';
+  }
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => { requestAnimationFrame(() => t.classList.add('show')); });
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 3500);
+}
+
+// Check for saved session on page load
+(function checkSavedSession() {
+  const raw = localStorage.getItem('ossify_saved_session');
+  if (!raw) return;
+  try {
+    const s = JSON.parse(raw);
+    const banner = document.getElementById('resumeBanner');
+    const desc   = document.getElementById('resumeDesc');
+    if (!banner || !desc) return;
+    const topic = s.topic || 'All specialties';
+    const ans   = s.answeredCount || 0;
+    const total = s.totalCount   || 0;
+    const when  = new Date(s.savedAt).toLocaleDateString('en-GB', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    desc.textContent = `${topic} · ${ans}/${total} answered · saved ${when}`;
+    banner.style.display = 'flex';
+  } catch(e) { localStorage.removeItem('ossify_saved_session'); }
+})();
 
 // ── Keyboard navigation ──
 document.addEventListener('keydown', e => {
