@@ -1373,7 +1373,10 @@ async function saveSessionProgress() {
   }
   if (!rows.length) return;
 
-  const { error } = await sb.from('user_progress').insert(rows);
+  // ignoreDuplicates: true → INSERT ON CONFLICT DO NOTHING
+  // First attempt per question is locked in forever; re-attempts are silently skipped
+  const { error } = await sb.from('user_progress')
+    .upsert(rows, { onConflict: 'user_id,question_id', ignoreDuplicates: true });
   if (error) console.warn('Progress save failed:', error.message);
 }
 
