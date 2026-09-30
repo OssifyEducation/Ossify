@@ -766,7 +766,7 @@ function renderQuestion(i) {
 
   // Stem — parse clues/distractors for annotation when answer is revealed
   let stemClues = [], stemDistractors = [];
-  if (showReveal && tc) {
+  if (showAnswers && tc) {
     if (isSBA) {
       stemClues     = (tc.key_clues      || []).map(tpParseClueStr).filter(Boolean);
       stemDistractors = (tc.key_distractors || []).map(tpParseClueStr).filter(Boolean);
@@ -776,7 +776,7 @@ function renderQuestion(i) {
     }
   }
   const qNum = isEMQ && tc && tc.q_num ? `<div class="emq-q-num">Scenario ${tc.q_num} of 5</div>` : '';
-  const stemHtml = showReveal
+  const stemHtml = showAnswers
     ? annotateStem(q.stem, stemClues, stemDistractors)
     : escapeHtml(q.stem);
   html += `<div class="q-stem">${qNum}${stemHtml}</div>`;
