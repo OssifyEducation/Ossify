@@ -314,6 +314,86 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 
 /* Splash icon (JS generates splash-icon, CSS has splash-ico) */
 .splash-icon{font-size:42px;margin-bottom:16px;}
+
+/* ── Stem annotation: clues (yellow) + distractors (blue) with hover tooltips */
+.stem-clue, .stem-distractor {
+  position: relative;
+  padding: 1px 4px;
+  border-radius: 4px;
+  cursor: help;
+  font-weight: 600;
+  white-space: normal;
+  display: inline;
+}
+.stem-clue {
+  background: #fef08a;
+  color: #713f12;
+  border-bottom: 2px solid #ca8a04;
+}
+.stem-distractor {
+  background: #bae6fd;
+  color: #0c4a6e;
+  border-bottom: 2px solid #0284c7;
+}
+/* Tooltip bubble */
+.stem-tip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #f1f5f9;
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 10px 14px;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 90vw;
+  z-index: 60;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  pointer-events: none;
+  text-align: left;
+  white-space: normal;
+}
+/* Arrow on tooltip */
+.stem-tip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: #1e293b;
+}
+/* Show on hover / keyboard focus */
+.stem-clue:hover .stem-tip,
+.stem-clue:focus .stem-tip,
+.stem-distractor:hover .stem-tip,
+.stem-distractor:focus .stem-tip { display: block; }
+/* Legend hint below the stem when annotated */
+.stem-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.stem-legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.stem-legend-clue {
+  width: 10px; height: 10px; border-radius: 2px;
+  background: #fef08a; border-bottom: 2px solid #ca8a04; flex-shrink: 0;
+}
+.stem-legend-dist {
+  width: 10px; height: 10px; border-radius: 2px;
+  background: #bae6fd; border-bottom: 2px solid #0284c7; flex-shrink: 0;
+}
 </style>
 </head>
 <body>
@@ -684,9 +764,31 @@ function renderQuestion(i) {
     </div>`;
   }
 
-  // Stem
+  // Stem — parse clues/distractors for annotation when answer is revealed
+  let stemClues = [], stemDistractors = [];
+  if (showReveal && tc) {
+    if (isSBA) {
+      stemClues     = (tc.key_clues      || []).map(tpParseClueStr).filter(Boolean);
+      stemDistractors = (tc.key_distractors || []).map(tpParseClueStr).filter(Boolean);
+    } else if (isEMQ && tc.this_scenario) {
+      stemClues     = (tc.this_scenario.key_clues  || []).map(tpParseClueStr).filter(Boolean);
+      stemDistractors = (tc.this_scenario.distractors || []).map(tpParseClueStr).filter(Boolean);
+    }
+  }
   const qNum = isEMQ && tc && tc.q_num ? `<div class="emq-q-num">Scenario ${tc.q_num} of 5</div>` : '';
-  html += `<div class="q-stem">${qNum}${escapeHtml(q.stem)}</div>`;
+  const stemHtml = showReveal
+    ? annotateStem(q.stem, stemClues, stemDistractors)
+    : escapeHtml(q.stem);
+  html += `<div class="q-stem">${qNum}${stemHtml}</div>`;
+  // Legend: only show when there are annotations
+  if (showReveal && (stemClues.length || stemDistractors.length)) {
+    html += `<div class="stem-legend">`;
+    if (stemClues.length)
+      html += `<span><span class="stem-legend-clue"></span>Diagnostic clue — hover to reveal</span>`;
+    if (stemDistractors.length)
+      html += `<span><span class="stem-legend-dist"></span>Distractor — hover to reveal</span>`;
+    html += `</div>`;
+  }
 
   // Options
   html += `<div class="options-list" id="optionsList">`;
@@ -759,6 +861,52 @@ function renderQuestion(i) {
 }
 
 // ── Tutor panel helpers ──
+
+// ── Stem annotation (clues + distractors highlighted after answering) ────────
+function annotateStem(stemText, clues, distractors) {
+  const anns = [
+    ...clues.map(c => ({ label: c.label, explanation: c.explanation, cls: 'stem-clue' })),
+    ...distractors.map(d => ({ label: d.label, explanation: d.explanation, cls: 'stem-distractor' })),
+  ].filter(a => a.label && a.label.length > 3);
+
+  if (!anns.length) return escapeHtml(stemText);
+
+  // Find all matches in the raw stem text
+  const matches = [];
+  anns.forEach(ann => {
+    const esc = ann.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    try {
+      const rx = new RegExp(esc, 'gi');
+      let m;
+      while ((m = rx.exec(stemText)) !== null) {
+        matches.push({ start: m.index, end: m.index + m[0].length, text: m[0], ann });
+      }
+    } catch(e) {}
+  });
+
+  if (!matches.length) return escapeHtml(stemText);
+
+  // Sort by start position; drop overlaps (keep first match wins)
+  matches.sort((a, b) => a.start - b.start || b.end - a.end);
+  const clean = [];
+  let lastEnd = 0;
+  for (const m of matches) {
+    if (m.start >= lastEnd) { clean.push(m); lastEnd = m.end; }
+  }
+
+  // Build HTML: non-matched segments are plain-escaped, matched segments get a span
+  let out = '', pos = 0;
+  for (const m of clean) {
+    out += escapeHtml(stemText.slice(pos, m.start));
+    out += `<span class="${m.ann.cls}" tabindex="0">`
+         + `<span class="stem-tip">${escapeHtml(m.ann.explanation)}</span>`
+         + `${escapeHtml(m.text)}</span>`;
+    pos = m.end;
+  }
+  out += escapeHtml(stemText.slice(pos));
+  return out;
+}
+
 function tpParseClueStr(s) {
   if (typeof s !== 'string') return null;
   s = s.replace(/\s*\|\s*$/, '').trim(); // strip trailing pipe from DB format
