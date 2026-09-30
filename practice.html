@@ -818,11 +818,11 @@ function renderQuestion(i) {
   // Stem — parse clues/distractors for annotation when answer is revealed
   let stemClues = [], stemDistractors = [];
   if (showAnswers && tc) {
-    if (isSBA) {
-      stemClues     = (tc.key_clues      || []).map(tpParseClueStr).filter(Boolean);
-      stemDistractors = (tc.key_distractors || []).map(tpParseClueStr).filter(Boolean);
-    } else if (isEMQ && tc.this_scenario) {
-      stemClues     = (tc.this_scenario.key_clues  || []).map(tpParseClueStr).filter(Boolean);
+    if (q.type === 'SBA') {
+      stemClues       = (tc.key_clues        || []).map(tpParseClueStr).filter(Boolean);
+      stemDistractors = (tc.key_distractors  || []).map(tpParseClueStr).filter(Boolean);
+    } else if (q.type === 'EMQ' && tc.this_scenario) {
+      stemClues       = (tc.this_scenario.key_clues   || []).map(tpParseClueStr).filter(Boolean);
       stemDistractors = (tc.this_scenario.distractors || []).map(tpParseClueStr).filter(Boolean);
     }
   }
