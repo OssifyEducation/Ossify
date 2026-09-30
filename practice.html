@@ -912,22 +912,48 @@ function annotateStem(stemText, clues, distractors) {
 
   if (!anns.length) return escapeHtml(stemText);
 
-  // Find all matches in the raw stem text
+  // Properly escape all regex special characters
+  function reEsc(s) { return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); }
+
+  // Try to find a label (or a meaningful fragment) in the stem text
+  function findInStem(label) {
+    const candidates = [label];
+    // Split on " + " — clue labels sometimes combine two phrases
+    label.split(/\s*\+\s*/).forEach(p => { if (p.trim().length > 10) candidates.push(p.trim()); });
+    // Remove parenthesised asides and retry
+    const stripped = label.replace(/\s*\([^)]*\)/g, '').trim();
+    if (stripped.length > 10 && stripped !== label) candidates.push(stripped);
+    // Split on "with" — catches second half of compound clues
+    label.split(/\s+with\s+/i).forEach(p => {
+      const pc = p.replace(/\s*\([^)]*\)/g,'').trim();
+      if (pc.length > 10) candidates.push(pc);
+    });
+    // Try ALL windows of N consecutive words (catches mid-label matches)
+    const words = label.replace(/[()[\]]/g, ' ').split(/\s+/).filter(Boolean);
+    for (let start = 0; start < words.length; start++) {
+      for (let n = Math.min(words.length - start, 8); n >= 4; n--) {
+        const phrase = words.slice(start, start + n).join(' ');
+        if (phrase.length > 10) candidates.push(phrase);
+      }
+    }
+    for (const c of candidates) {
+      try {
+        const m = new RegExp(reEsc(c), 'gi').exec(stemText);
+        if (m) return { start: m.index, end: m.index + m[0].length, text: m[0] };
+      } catch(e) { /* invalid regex — skip */ }
+    }
+    return null;
+  }
+
+  // Collect matches
   const matches = [];
   anns.forEach(ann => {
-    const esc = ann.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    try {
-      const rx = new RegExp(esc, 'gi');
-      let m;
-      while ((m = rx.exec(stemText)) !== null) {
-        matches.push({ start: m.index, end: m.index + m[0].length, text: m[0], ann });
-      }
-    } catch(e) {}
+    const m = findInStem(ann.label);
+    if (m) matches.push({ ...m, ann });
   });
-
   if (!matches.length) return escapeHtml(stemText);
 
-  // Sort by start position; drop overlaps (keep first match wins)
+  // Sort by position; remove overlaps (first/longest wins)
   matches.sort((a, b) => a.start - b.start || b.end - a.end);
   const clean = [];
   let lastEnd = 0;
@@ -935,7 +961,7 @@ function annotateStem(stemText, clues, distractors) {
     if (m.start >= lastEnd) { clean.push(m); lastEnd = m.end; }
   }
 
-  // Build HTML: non-matched segments are plain-escaped, matched segments get a span
+  // Build annotated HTML
   let out = '', pos = 0;
   for (const m of clean) {
     out += escapeHtml(stemText.slice(pos, m.start));
@@ -947,7 +973,6 @@ function annotateStem(stemText, clues, distractors) {
   out += escapeHtml(stemText.slice(pos));
   return out;
 }
-
 function tpParseClueStr(s) {
   if (typeof s !== 'string') return null;
   s = s.replace(/\s*\|\s*$/, '').trim(); // strip trailing pipe from DB format
