@@ -314,8 +314,12 @@ async function init(){
   const{data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='login.html';return;}
   const user=session.user;
-  const name=user.user_metadata?.full_name||user.email.split('@')[0];
-  const first=name.split(' ')[0];
+  const meta=user.user_metadata||{};
+  // Prefer stored surname; fall back to last word of full_name for legacy accounts
+  const surname=meta.surname||(meta.full_name?.trim().split(' ').slice(-1)[0])||'';
+  const firstName=meta.first_name||meta.full_name?.trim().split(' ')[0]||user.email.split('@')[0];
+  // Greeting uses "Dr. Surname" if surname is known, otherwise first name
+  const first=surname?`Dr. ${surname}`:firstName;
   const initials=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
   document.getElementById('userAv').textContent=initials;
   document.getElementById('userName').textContent=name;
