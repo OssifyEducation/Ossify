@@ -813,6 +813,40 @@ function setMode(m) {
 }
 
 // ── Session start ──
+// Shuffle question list while keeping EMQ sets together
+function shuffleGroups(qs) {
+  // Build groups: each SBA is its own group; consecutive EMQs sharing a
+  // set_id form one group (server already orders them consecutively)
+  const groups = [];
+  let i = 0;
+  while (i < qs.length) {
+    const q = qs[i];
+    if (q.type === 'EMQ') {
+      const sid = q.tutor_content && q.tutor_content.set_id;
+      const group = [q];
+      let j = i + 1;
+      while (j < qs.length &&
+             qs[j].type === 'EMQ' &&
+             qs[j].tutor_content &&
+             qs[j].tutor_content.set_id === sid) {
+        group.push(qs[j]);
+        j++;
+      }
+      groups.push(group);
+      i = j;
+    } else {
+      groups.push([q]);
+      i++;
+    }
+  }
+  // Fisher-Yates on the groups (not individual questions)
+  for (let k = groups.length - 1; k > 0; k--) {
+    const r = Math.floor(Math.random() * (k + 1));
+    [groups[k], groups[r]] = [groups[r], groups[k]];
+  }
+  return groups.flat();
+}
+
 async function startSession() {
   // Auth: get current user so we can save progress
   try {
@@ -831,11 +865,8 @@ async function startSession() {
 
   try {
     let qs = await fetchQuestions({ topic, type, domain, count });
-    // Shuffle for variety every session
-    for (let i = qs.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [qs[i], qs[j]] = [qs[j], qs[i]];
-    }
+    // Group-aware shuffle: keep EMQ sets consecutive, shuffle groups
+    qs = shuffleGroups(qs);
 
     // Shuffle if count-limited
     if (count > 0 && qs.length > count) {
