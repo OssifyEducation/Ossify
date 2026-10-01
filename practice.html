@@ -1149,9 +1149,9 @@ function renderTutorPanels(q, selected, tc) {
       html += `<div class="hys-panel">
         <div class="panel-header" onclick="togglePanel(this)">
           <div class="panel-title teal">⚡ High-yield summary</div>
-          <span class="panel-chevron open">▼</span>
+          <span class="panel-chevron">▼</span>
         </div>
-        <div class="panel-body" style="display:block">
+        <div class="panel-body" style="display:none">
           <div class="hys-body">${bullets.map(b =>
             `<div class="hys-bullet-item"><span class="hys-dot">•</span><span>${escapeHtml(b)}</span></div>`
           ).join('')}</div>
