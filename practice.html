@@ -440,6 +440,23 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 /* Clickable logo */
 .sb-logo{cursor:pointer;}
 .sb-logo:hover{opacity:.85;}
+
+/* Answered option boxes — inline brief + detailed explanations */
+.opt-ans-box{padding:12px 14px;border:1px solid var(--lav-border);border-radius:10px;background:#fff;margin-bottom:7px;}
+.opt-ans-box.opt-correct{border:1.5px solid #86efac;background:#f0fdf4;}
+.opt-ans-box.opt-wrong{border:1.5px solid var(--pk-border);background:var(--pk-pale);}
+.opt-ans-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px;}
+.opt-ans-label{flex:1;font-size:13.5px;color:var(--ink);line-height:1.5;}
+.opt-badge{font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.opt-badge-correct{color:#16a34a;}
+.opt-badge-wrong{color:var(--red);}
+.opt-ltr-correct{background:#22c55e !important;color:#fff !important;}
+.opt-ltr-wrong{background:var(--red) !important;color:#fff !important;}
+.opt-ans-brief{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0 0 7px 38px;}
+.opt-det-btn{margin-left:38px;margin-bottom:4px;}
+.opt-ans-box .ans-detail-body{margin-left:38px;margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,.07);}
+.opt-ans-box .ans-detail-body p{margin-bottom:6px;font-size:12.5px;line-height:1.7;color:var(--ink);}
+.opt-ans-box .ans-detail-body p:last-child{margin-bottom:0;}
 </style>
 </head>
 <body>
@@ -851,27 +868,56 @@ function renderQuestion(i) {
   html += `<div class="options-list" id="optionsList">`;
   const letters = ['A','B','C','D','E','F','G','H','I','J'];
   (q.options || []).forEach((opt, idx) => {
-    let cls = 'option-btn';
-    let suffix = '';
-    if (showAnswers) {
-      if (idx === q.correct_answer) {
-        cls += ' correct-answer';
-        suffix = `<span class="option-suffix">✓ Correct</span>`;
-      } else if (idx === selected && selected !== q.correct_answer) {
-        cls += ' wrong-answer';
-        suffix = `<span class="option-suffix">✗ Incorrect</span>`;
-      }
-    } else if (idx === selected) {
-      cls += ' selected';
+    const letter = letters[idx];
+
+    if (!showAnswers) {
+      // Unanswered: plain clickable button
+      html += `<button class="option-btn" onclick="selectAnswer(${idx})">
+        <span class="option-letter">${letter}</span>
+        <div class="option-text">${escapeHtml(opt)}</div>
+      </button>`;
+      return;
     }
 
-    const disabled = answered ? 'disabled' : '';
-    html += `<button class="${cls}" ${disabled} onclick="selectAnswer(${idx})">
-      <span class="option-letter">${letters[idx]}.</span>
-      <div class="option-text">${escapeHtml(opt)}${suffix}</div>
-    </button>`;
+    // Answered: enriched box with inline brief + detailed
+    const isCorrect  = idx === q.correct_answer;
+    const isWrongPick = (selected !== null && selected !== undefined) && idx === selected && !isCorrect;
+
+    // Pull brief/detailed from tutor_content
+    let brief = '', detailed = '';
+    if (tc) {
+      const tcArr = q.type === 'SBA'
+        ? (tc.options || [])
+        : (tc.this_scenario?.answer_key || []);
+      const entry = tcArr.find(o => (o.letter || '').toUpperCase() === letter);
+      if (entry) { brief = entry.brief || ''; detailed = entry.detailed || ''; }
+    }
+    if (!brief && detailed) brief = tpBriefFallback(detailed);
+
+    const detId = 'idet-' + (q.question_id || idx).replace(/[^a-z0-9]/gi, '') + '-' + letter;
+
+    let boxCls = 'opt-ans-box';
+    let badgeHtml = '';
+    let letterCls = 'option-letter';
+    if (isCorrect)    { boxCls += ' opt-correct'; letterCls += ' opt-ltr-correct'; badgeHtml = `<span class="opt-badge opt-badge-correct">✓ Correct</span>`; }
+    if (isWrongPick)  { boxCls += ' opt-wrong';   letterCls += ' opt-ltr-wrong';   badgeHtml = `<span class="opt-badge opt-badge-wrong">✗ Your answer</span>`; }
+
+    const detHtml = detailed
+      ? `<button class="btn-tp-detail opt-det-btn" onclick="toggleInlineDetail('${detId}',this)">Detailed explanation</button>
+         <div class="ans-detail-body" id="${detId}">${detailed.split(/\n+/).filter(p=>p.trim()).map(p=>`<p>${escapeHtml(p)}</p>`).join('')}</div>`
+      : '';
+
+    html += `<div class="${boxCls}">
+      <div class="opt-ans-top">
+        <span class="${letterCls}">${letter}</span>
+        <span class="opt-ans-label">${escapeHtml(opt)}</span>
+        ${badgeHtml}
+      </div>
+      ${brief ? `<div class="opt-ans-brief" id="brief-${detId}">${escapeHtml(brief)}</div>` : ''}
+      ${detHtml}
+    </div>`;
   });
-  html += `</div>`;
+html += `</div>`;
 
   // Action row
   html += `<div class="action-row">`;
@@ -1078,25 +1124,7 @@ function renderTutorPanels(q, selected, tc) {
   }
 
   // ── 2. Answer explanations ──
-  html += `<div class="tp-card"><div class="tp-card-title">📝 Answer Explanations</div><div style="padding:12px 12px 4px">`;
-
-  if (isSBA && tc.options && tc.options.length) {
-    const sorted = [...tc.options].sort((a, b) => (a.letter || '').localeCompare(b.letter || ''));
-    sorted.forEach(opt => {
-      const isC = opt.correct === true || opt.correct === 'true';
-      const isSel = opt.letter === selectedLetter;
-      html += tpAnswerBlockHtml(opt.letter, opt.label, opt.brief, opt.detailed, isC, isSel);
-    });
-  } else if (isEMQ && tc.this_scenario && tc.this_scenario.answer_key) {
-    const sorted = [...tc.this_scenario.answer_key].sort((a, b) => (a.letter || '').localeCompare(b.letter || ''));
-    sorted.forEach(ak => {
-      const isC = ak.letter === correctLetter;
-      const isSel = ak.letter === selectedLetter;
-      html += tpAnswerBlockHtml(ak.letter, ak.label, ak.brief, ak.detailed, isC, isSel);
-    });
-  }
-
-  html += `</div></div>`;
+  
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // !! LOCKED FORMAT — do not change without explicit instruction !!
@@ -1576,6 +1604,17 @@ function showToast(msg) {
         !e.relatedTarget?.closest('.stem-clue, .stem-distractor')) hideTip();
   });
 })();
+
+
+// ── Inline option detail toggle ──────────────────────────────────────────────
+function toggleInlineDetail(id, btn) {
+  const det   = document.getElementById(id);
+  const brief = document.getElementById('brief-' + id);
+  if (!det) return;
+  const open = det.classList.toggle('open');
+  btn.textContent = open ? 'Hide explanation' : 'Detailed explanation';
+  if (brief) brief.style.display = open ? 'none' : '';
+}
 
 // ── Keyboard navigation ──
 document.addEventListener('keydown', e => {
