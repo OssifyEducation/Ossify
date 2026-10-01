@@ -194,7 +194,12 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .hys-bullet::before{content:'•';color:var(--pu-mid);font-weight:700;flex-shrink:0;}
 
 /* References */
-.refs-text{font-size:12px;color:var(--muted);line-height:1.75;}
+.refs-body{display:flex;flex-direction:column;}
+.ref-item{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:0.5px solid var(--lav-border);font-size:12px;line-height:1.65;color:var(--muted);}
+.ref-item:last-child{border-bottom:none;}
+.ref-num{font-weight:700;color:var(--pu-mid);flex-shrink:0;min-width:28px;padding-top:1px;}
+.ref-text{flex:1;}
+.ref-preamble{font-size:11.5px;color:var(--muted);padding:6px 0 8px;border-bottom:0.5px solid var(--lav-border);line-height:1.6;font-style:italic;}
 
 /* Bottom navigation */
 .bottom-nav{display:flex;align-items:center;gap:10px;padding:18px 0 4px;border-top:0.5px solid var(--lav-border);margin-top:8px;}
@@ -1098,7 +1103,9 @@ function renderTutorPanels(q, selected, tc) {
   if (tc.high_yield_summary) {
     const bullets = tc.high_yield_summary
       .replace(/^Key Points to Memorise\s*/i, '')
-      .split(/•\s+/).map(s => s.trim()).filter(s => s.length > 5);
+      .split(/•\s+/)
+      .map(s => s.trim().replace(/\s*\[\d+\]\s*$/, '').trim())  // strip trailing [1] ref markers
+      .filter(s => s.length > 5);
     if (bullets.length) {
       html += `<div class="hys-panel">
         <div class="panel-header" onclick="togglePanel(this)">
@@ -1139,14 +1146,34 @@ function renderTutorPanels(q, selected, tc) {
 
   // ── 5. References ──
   if (tc.references) {
-    const refLines = tc.references.split('\n').map(s => s.trim()).filter(s => s.length > 3);
-    html += `<div class="hys-panel" style="border-color:rgba(255,255,255,.06)">
+    // Parse references: split on [N] markers, handle preamble text too
+    const refRaw = tc.references.trim();
+    const refParts = refRaw.split(/(?=\[\d+\])/).filter(p => p.trim());
+    const refItems = [];
+    refParts.forEach(part => {
+      const trimmed = part.trim();
+      if (!trimmed) return;
+      const m = trimmed.match(/^(\[\d+\])\s*([\s\S]*)/);
+      if (m) {
+        refItems.push({ num: m[1], text: m[2].replace(/\n/g,' ').trim(), isPreamble: false });
+      } else {
+        // Non-numbered preamble text — split by newline
+        trimmed.split('\n').map(l=>l.trim()).filter(l=>l.length>3).forEach(l=>{
+          refItems.push({ num: '', text: l, isPreamble: true });
+        });
+      }
+    });
+    const refHtml = refItems.map(r => r.isPreamble
+      ? `<div class="ref-preamble">${escapeHtml(r.text)}</div>`
+      : `<div class="ref-item"><span class="ref-num">${escapeHtml(r.num)}</span><span class="ref-text">${escapeHtml(r.text)}</span></div>`
+    ).join('');
+    html += `<div class="hys-panel">
       <div class="panel-header" onclick="togglePanel(this)">
-        <div class="panel-title" style="color:var(--slate)">📚 References</div>
+        <div class="panel-title" style="color:var(--muted)">📚 References</div>
         <span class="panel-chevron">▼</span>
       </div>
       <div class="panel-body" style="display:none">
-        <div class="refs-text">${refLines.map(l => escapeHtml(l)).join('<br>')}</div>
+        <div class="refs-body">${refHtml}</div>
       </div>
     </div>`;
   }
