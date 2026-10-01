@@ -1099,6 +1099,11 @@ function renderTutorPanels(q, selected, tc) {
 
   html += `</div></div>`;
 
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // !! LOCKED FORMAT — do not change without explicit instruction !!
+  // High-yield summary: split on •\s+, strip trailing [N] ref markers,
+  // render each as .hys-bullet-item (teal dot + text + border-bottom).
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ── 3. High-yield summary ──
   if (tc.high_yield_summary) {
     const bullets = tc.high_yield_summary
@@ -1144,6 +1149,12 @@ function renderTutorPanels(q, selected, tc) {
     </div>`;
   }
 
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // !! LOCKED FORMAT — do not change without explicit instruction !!
+  // References: split on [N] markers → .ref-item rows with purple .ref-num
+  // and .ref-text. Non-numbered preamble → .ref-preamble (italic). Panel
+  // starts collapsed. See FORMATTING.md for the full spec.
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ── 5. References ──
   if (tc.references) {
     // Parse references: split on [N] markers, handle preamble text too
@@ -1523,6 +1534,11 @@ function showToast(msg) {
 })();
 
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// !! LOCKED FORMAT — tpToggleDetail must hide brief when detail opens !!
+// Answer options: brief visible by default. "Detailed explanation" hides
+// brief + shows detailed. "Hide explanation" reverses. Never both visible.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ── Stem annotation tooltips (JS-positioned, never obscured) ─────────────────
 (function() {
   const tip = document.getElementById('stemTip');
