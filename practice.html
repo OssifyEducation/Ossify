@@ -890,8 +890,14 @@ function renderQuestion(i) {
         ? (tc.options || [])
         : (tc.this_scenario?.answer_key || []);
       const entry = tcArr.find(o => (o.letter || '').toUpperCase() === letter);
-      if (entry) { brief = entry.brief || ''; detailed = entry.detailed || ''; }
+      if (entry) {
+        // Strip document-artefact ': **' prefix and closing '**' from EMQ briefs
+        brief    = (entry.brief    || '').replace(/^:\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '').trim();
+        detailed = (entry.detailed || '');
+      }
     }
+    // Clean markdown artefacts from brief
+    if (brief) brief = brief.replace(/^:\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '').trim();
     if (!brief && detailed) brief = tpBriefFallback(detailed);
 
     const detId = 'idet-' + (q.question_id || idx).replace(/[^a-z0-9]/gi, '') + '-' + letter;
@@ -938,13 +944,14 @@ html += `</div>`;
     }
   }
   html += `<span style="flex:1"></span>
-    <span style="font-size:13px;color:var(--slate)">${i+1} / ${questions.length}</span>
+    <span style="font-size:13px;color:var(--muted)">${currentIdx+1} / ${questions.length}</span>
   </div>`;
 
   // Tutor panels
   if (answered && tc && (mode === 'tutor' || reviewMode)) {
     try {
-      html += renderTutorPanels(q, selected, tc);
+      const tpHtml = renderTutorPanels(q, selected, tc);
+      html += tpHtml;
     } catch(e) {
       console.error('renderTutorPanels failed:', e.message, e.stack);
       html += `<div style="padding:12px;background:#fce7f0;border-radius:8px;color:#c0305a;font-size:13px;margin-top:12px">
@@ -1142,9 +1149,9 @@ function renderTutorPanels(q, selected, tc) {
       html += `<div class="hys-panel">
         <div class="panel-header" onclick="togglePanel(this)">
           <div class="panel-title teal">⚡ High-yield summary</div>
-          <span class="panel-chevron">▼</span>
+          <span class="panel-chevron open">▼</span>
         </div>
-        <div class="panel-body" style="display:none">
+        <div class="panel-body" style="display:block">
           <div class="hys-body">${bullets.map(b =>
             `<div class="hys-bullet-item"><span class="hys-dot">•</span><span>${escapeHtml(b)}</span></div>`
           ).join('')}</div>
