@@ -1227,8 +1227,7 @@ function submitAnswer() {
   const q = questions[currentIdx];
   // Use tracked selection (more reliable than scanning for CSS class)
   const selected = pendingSelection;
-  
-  
+  if (selected === -1) return; // nothing selected — do nothing
   pendingSelection = -1; // consume it
 
   answers[q.question_id] = selected;
@@ -1466,7 +1465,7 @@ function resumeSession() {
     answers     = s.answers    || {};
     currentIdx  = s.currentIdx || 0;
     mode        = s.mode       || 'tutor';
-    reviewMode  = false;
+    reviewMode = false;
     progressSaved = false;
     sessionActive = true;
     sessionStartTime = Date.now();
