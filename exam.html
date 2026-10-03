@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timed Exam — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-tutor.js"></script>
+<style>
+:root{
+  --pu-dark:#3d1f7a;--pu-mid:#7c5cbf;--pu-light:#a78bfa;
+  --pu-pale:#ede9fe;--pu-ultra:#f5f0ff;
+  --pk-mid:#f472b6;--pk-pale:#fce7f0;--pk-border:#f0a8c8;
+  --lav:#f0eaff;--lav-card:rgba(255,255,255,0.88);--lav-border:rgba(180,150,220,0.25);
+  --ink:#3d1f7a;--moss:#7b6fa0;--muted:#8a76b3;
+  --red:#c0305a;--red-l:#fce7f0;
+  --teal:#2a9d8f;--teal-d:#1a6b5a;
+  --ok:#15803d;--ok-l:#f0fdf4;--ok-b:#86efac;
+  --warn:#92400e;--warn-l:#fef3c7;--warn-b:#f59e0b;
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);-webkit-font-smoothing:antialiased;}
+button{font-family:inherit;}
+:focus-visible{outline:2px solid var(--pu-mid);outline-offset:2px;border-radius:6px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+[hidden]{display:none !important;}
+
+/* ── App shell (intro / results): same sidebar as the rest of Ossify ── */
+.app{display:flex;min-height:100vh;}
+.sb{width:220px;flex-shrink:0;background:var(--pu-mid);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;}
+.sb::before{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:#9b6fd4;opacity:.25;pointer-events:none;}
+.sb-logo{padding:14px;cursor:pointer;}
+.sb-logo:hover{opacity:.85;}
+.sb-sec{padding:14px 10px 2px;}
+.sb-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);padding:0 8px;margin-bottom:4px;}
+.nv{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;font-size:12.5px;color:rgba(255,255,255,.62);margin-bottom:2px;text-decoration:none;transition:all .15s;}
+.nv svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.nv:hover{background:rgba(255,255,255,.1);color:#fff;}
+.nv.on{background:rgba(255,255,255,.18);color:#fff;font-weight:500;}
+.sb-foot{margin-top:auto;padding:12px 10px;border-top:1px solid rgba(255,255,255,.1);}
+.sb-av-row{display:flex;align-items:center;gap:9px;padding:6px 8px;}
+.sb-av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;border:2px solid rgba(255,255,255,.25);}
+.sb-uname{font-size:12px;font-weight:500;color:#fff;}
+.sb-usub{font-size:10px;color:rgba(255,255,255,.45);}
+.main{margin-left:220px;flex:1;display:flex;flex-direction:column;min-width:0;}
+.topbar{background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--lav-border);padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
+.tb-title{font-family:var(--font-serif);font-size:18px;font-weight:500;color:var(--pu-dark);}
+.view{flex:1;padding:36px 24px 60px;display:flex;justify-content:center;}
+
+/* ── Buttons: shared premium interaction (slight pop, deeper colour) ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;font-size:14px;font-weight:600;padding:12px 22px;cursor:pointer;border:none;text-decoration:none;
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background-color .18s,border-color .18s,color .18s;}
+.btn:hover:not(:disabled){transform:translateY(-1px);}
+.btn:active:not(:disabled){transform:translateY(0);}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+.btn-primary{background:var(--pu-mid);color:#fff;box-shadow:0 1px 2px rgba(61,31,122,.15);}
+.btn-primary:hover:not(:disabled){background:var(--pu-dark);box-shadow:0 8px 22px rgba(61,31,122,.22);}
+.btn-soft{background:var(--pu-pale);color:var(--pu-dark);border:0.5px solid var(--pu-light);}
+.btn-soft:hover:not(:disabled){background:#e0d5fc;box-shadow:0 6px 16px rgba(61,31,122,.12);}
+.btn-ghost{background:transparent;color:var(--moss);border:0.5px solid var(--lav-border);}
+.btn-ghost:hover:not(:disabled){border-color:var(--pu-light);color:var(--pu-dark);background:#fff;}
+.btn-danger{background:var(--red);color:#fff;}
+.btn-danger:hover:not(:disabled){background:#9e2148;box-shadow:0 8px 22px rgba(192,48,90,.25);}
+.btn-lg{padding:15px 30px;font-size:15px;border-radius:13px;}
+.btn-sm{padding:8px 14px;font-size:12.5px;border-radius:9px;}
+
+/* ── Intro ── */
+.intro{width:100%;max-width:640px;}
+.intro-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:22px;padding:44px 44px 38px;box-shadow:0 24px 60px -30px rgba(61,31,122,.35);position:relative;overflow:hidden;}
+.intro-card::after{content:'';position:absolute;right:-90px;top:-90px;width:260px;height:260px;border-radius:50%;border:1px solid var(--pu-pale);box-shadow:0 0 0 28px rgba(237,233,254,.45),0 0 0 56px rgba(237,233,254,.25);pointer-events:none;}
+.intro-kicker{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:12px;position:relative;}
+.intro h1{font-family:var(--font-serif);font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-1px;color:var(--pu-dark);position:relative;}
+.intro-spec{display:flex;align-items:baseline;gap:22px;margin:22px 0 18px;position:relative;}
+.intro-spec div{font-family:var(--font-serif);font-size:26px;color:var(--pu-mid);font-variant-numeric:tabular-nums;}
+.intro-spec span{font-family:var(--font-sans);font-size:13px;color:var(--muted);margin-left:6px;}
+.intro-lead{font-size:15.5px;line-height:1.65;color:var(--moss);max-width:46ch;margin-bottom:26px;}
+.intro-tips{list-style:none;border-top:0.5px solid var(--lav-border);margin-bottom:24px;}
+.intro-tips li{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:0.5px solid var(--lav-border);font-size:14px;line-height:1.5;color:var(--ink);}
+.intro-tips li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--pk-mid);flex-shrink:0;transform:translateY(-2px);}
+.intro-note{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:28px;}
+.intro-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.intro-last{font-size:12.5px;color:var(--muted);}
+.intro-last a{color:var(--pu-mid);font-weight:600;text-decoration:none;}
+.intro-last a:hover{text-decoration:underline;}
+.notice{background:#fff;border:0.5px solid var(--lav-border);border-radius:14px;padding:22px 24px;font-size:14px;line-height:1.6;color:var(--moss);max-width:560px;}
+.notice h2{font-family:var(--font-serif);font-weight:500;font-size:22px;color:var(--pu-dark);margin-bottom:8px;}
+.notice .btn{margin-top:16px;}
+.spinner{width:28px;height:28px;border:2.5px solid var(--pu-pale);border-top-color:var(--pu-mid);border-radius:50%;animation:spin .8s linear infinite;margin:60px auto 14px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-txt{text-align:center;color:var(--muted);font-size:13px;}
+
+/* ── Focus shell (exam + review): no sidebar, nothing to distract ── */
+.focus{position:fixed;inset:0;display:flex;flex-direction:column;background:var(--lav);z-index:50;}
+.fx-top{height:64px;flex-shrink:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:0 22px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:0.5px solid var(--lav-border);}
+.fx-brand{display:flex;align-items:center;gap:12px;min-width:0;}
+.fx-mark{width:30px;height:30px;border-radius:9px;background:var(--pu-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.fx-mark svg{width:18px;height:18px;}
+.fx-title{font-family:var(--font-serif);font-size:16px;color:var(--pu-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fx-right{grid-column:3;display:flex;align-items:center;justify-content:flex-end;gap:12px;}
+.fx-count{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.fx-count strong{color:var(--pu-dark);font-weight:600;}
+.fx-qbtn{display:none;}
+
+/* The clock: the one bold element */
+.clock{display:flex;align-items:baseline;gap:8px;padding:6px 16px 7px;border-radius:12px;background:var(--pu-ultra);border:0.5px solid var(--lav-border);
+  transition:background-color .6s,border-color .6s,color .6s;}
+.clock-digits{font-family:var(--font-serif);font-size:30px;line-height:1;font-weight:400;letter-spacing:-.5px;font-variant-numeric:tabular-nums lining-nums;color:var(--pu-dark);transition:color .6s;}
+.clock-cap{font-size:11.5px;color:var(--muted);transition:color .6s;}
+.rail{height:3px;background:var(--pu-pale);flex-shrink:0;}
+.rail-fill{height:100%;width:100%;background:var(--pu-mid);transform-origin:left;transition:background-color .6s;}
+body[data-clock="warn"] .clock{background:var(--warn-l);border-color:#fcd34d;}
+body[data-clock="warn"] .clock-digits{color:var(--warn);}
+body[data-clock="warn"] .rail-fill{background:var(--warn-b);}
+body[data-clock="urgent"] .clock{background:var(--pk-pale);border-color:var(--pk-border);}
+body[data-clock="urgent"] .clock-digits,body[data-clock="urgent"] .clock-cap{color:var(--red);}
+body[data-clock="urgent"] .rail-fill{background:var(--red);}
+body[data-clock="final"] .clock{background:var(--red);border-color:var(--red);animation:clockIn 1.2s var(--ease) 2;}
+body[data-clock="final"] .clock-digits,body[data-clock="final"] .clock-cap{color:#fff;}
+body[data-clock="final"] .rail-fill{background:var(--red);}
+body[data-clock="over"] .clock{background:var(--pu-dark);border-color:var(--pu-dark);}
+body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#fff;}
+@keyframes clockIn{0%,100%{box-shadow:0 0 0 0 rgba(192,48,90,.35);}50%{box-shadow:0 0 0 7px rgba(192,48,90,0);}}
+
+.fx-body{flex:1;display:grid;grid-template-columns:268px 1fr;min-height:0;}
+.palette{border-right:0.5px solid var(--lav-border);background:rgba(255,255,255,.55);display:flex;flex-direction:column;min-height:0;}
+.pal-head{padding:16px 18px 10px;display:flex;align-items:baseline;justify-content:space-between;}
+.pal-title{font-size:13px;font-weight:600;color:var(--pu-dark);}
+.pal-sub{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.pal-filters{display:flex;flex-wrap:wrap;gap:5px;padding:0 18px 10px;}
+.chip{font-size:11.5px;font-weight:500;padding:5px 10px;border-radius:20px;border:0.5px solid var(--lav-border);background:#fff;color:var(--moss);cursor:pointer;transition:all .15s;}
+.chip:hover{border-color:var(--pu-light);color:var(--pu-dark);}
+.chip[aria-pressed="true"]{background:var(--pu-dark);border-color:var(--pu-dark);color:#fff;}
+.pal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;padding:4px 18px 14px;overflow-y:auto;}
+.pal-grid::-webkit-scrollbar{width:4px;}
+.pal-grid::-webkit-scrollbar-thumb{background:var(--lav-border);border-radius:2px;}
+/* Dot states follow FORMATTING.md §5 (current = yellow; correct/wrong only in review) */
+.q-dot{position:relative;aspect-ratio:1;border-radius:7px;background:var(--pu-pale);border:none;cursor:pointer;font-size:10.5px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;justify-content:center;transition:transform .12s var(--ease),background-color .15s,box-shadow .15s;}
+.q-dot:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(61,31,122,.14);}
+.q-dot.answered-skip{background:#e2e8f0;color:#334155;}
+.q-dot.answered-skip::before{content:'';position:absolute;bottom:4px;left:50%;width:10px;height:2px;margin-left:-5px;border-radius:2px;background:#64748b;}
+.q-dot.answered-correct{background:#dcfce7;color:#166534;}
+.q-dot.answered-wrong{background:var(--pk-pale);color:var(--red);}
+.q-dot.not-answered{background:#f1f5f9;color:#64748b;box-shadow:inset 0 0 0 1px #cbd5e1;}
+.q-dot.flagged::after{content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 9px 9px 0;border-color:transparent var(--pk-mid) transparent transparent;border-top-right-radius:7px;}
+.q-dot.active{background:#facc15;color:#713f12;font-weight:700;box-shadow:0 0 0 2px #f59e0b;}
+.q-dot.dim{opacity:.28;}
+.pal-legend{margin-top:auto;padding:12px 18px 16px;border-top:0.5px solid var(--lav-border);display:grid;grid-template-columns:1fr 1fr;gap:7px 10px;font-size:11px;color:var(--muted);}
+.pal-legend span{display:flex;align-items:center;gap:7px;}
+.lg{width:14px;height:14px;border-radius:4px;flex-shrink:0;position:relative;}
+
+.fx-main{overflow-y:auto;min-height:0;display:flex;flex-direction:column;}
+.fx-scroll{flex:1;padding:28px 32px 24px;}
+.qcard{max-width:820px;margin:0 auto;background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:18px;padding:26px 30px 28px;box-shadow:0 18px 40px -32px rgba(61,31,122,.45);}
+.qhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;}
+.qnum{font-family:var(--font-serif);font-size:20px;color:var(--pu-dark);font-variant-numeric:tabular-nums;}
+.qnum span{color:var(--muted);font-size:15px;}
+.flag-btn{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;padding:7px 12px;border-radius:9px;border:0.5px solid var(--lav-border);background:#fff;color:var(--moss);cursor:pointer;transition:all .15s;}
+.flag-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.flag-btn:hover{border-color:var(--pk-border);color:#9b2058;}
+.flag-btn[aria-pressed="true"]{background:var(--pk-pale);border-color:var(--pk-border);color:#9b2058;}
+.flag-btn[aria-pressed="true"] svg{fill:var(--pk-mid);stroke:#9b2058;}
+.xm-emq{background:var(--pu-ultra);border:0.5px solid var(--pu-pale);border-radius:12px;padding:13px 16px;margin-bottom:16px;}
+.xm-emq-theme{font-family:var(--font-serif);font-size:15px;color:var(--pu-dark);margin-bottom:4px;}
+.xm-emq-ins{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.xm-scn{font-size:12px;font-weight:600;color:var(--pu-mid);margin-bottom:8px;}
+.xm-stem{font-size:15.5px;line-height:1.75;color:var(--ink);margin-bottom:22px;max-width:72ch;}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opts.emq{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.option-btn{display:flex;align-items:flex-start;gap:13px;width:100%;padding:13px 16px;background:#fff;border:1px solid var(--lav-border);border-radius:11px;cursor:pointer;text-align:left;font-size:14px;color:var(--ink);line-height:1.55;
+  transition:border-color .15s,background-color .15s,transform .15s var(--ease),box-shadow .15s var(--ease);}
+.option-btn:hover:not(:disabled){border-color:var(--pu-light);background:var(--pu-ultra);transform:translateY(-1px);box-shadow:0 6px 16px -8px rgba(61,31,122,.3);}
+.option-btn:disabled{cursor:default;opacity:.7;}
+.option-text{flex:1;}
+.option-btn.selected{border-color:var(--pu-mid);background:var(--pu-ultra);box-shadow:inset 0 0 0 1px var(--pu-mid);}
+.option-btn.selected .option-letter{background:var(--pu-mid);color:#fff;}
+.option-tick{display:none;align-self:center;width:16px;height:16px;flex-shrink:0;}
+.option-btn.selected .option-tick{display:block;}
+.q-in{animation:qIn .22s var(--ease);}
+@keyframes qIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+.fx-nav{flex-shrink:0;position:sticky;bottom:0;padding:12px 32px;background:linear-gradient(to top,var(--lav) 70%,rgba(240,234,255,0));}
+.fx-nav-in{max-width:820px;margin:0 auto;display:flex;align-items:center;gap:10px;}
+.fx-nav-in .grow{flex:1;}
+.kbd-hint{font-size:11.5px;color:var(--muted);}
+.kbd-hint kbd{font-family:var(--font-sans);font-size:10.5px;padding:1px 5px;border-radius:4px;border:0.5px solid var(--lav-border);background:#fff;color:var(--moss);}
+
+/* Review specifics */
+.rv-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 11px;border-radius:20px;}
+.rv-status.correct{background:#dcfce7;color:#166534;}
+.rv-status.wrong{background:var(--pk-pale);color:var(--red);}
+.rv-status.none{background:#f1f5f9;color:#475569;}
+.rv-sum{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 18px;}
+.rv-sum div{border-radius:12px;padding:11px 14px;border:0.5px solid var(--lav-border);background:#fff;}
+.rv-sum dt{font-size:11.5px;color:var(--muted);margin-bottom:3px;}
+.rv-sum dd{font-size:14px;font-weight:600;line-height:1.45;color:var(--ink);}
+.rv-sum .is-wrong{background:var(--pk-pale);border-color:var(--pk-border);}
+.rv-sum .is-wrong dd{color:var(--red);}
+.rv-sum .is-right{background:var(--ok-l);border-color:var(--ok-b);}
+.rv-sum .is-right dd{color:#166534;}
+.rv-sum .is-none dd{color:#475569;font-style:italic;font-weight:500;}
+.rv-empty{max-width:820px;margin:40px auto;text-align:center;color:var(--muted);font-size:14px;}
+
+/* ── Results ── */
+.results{width:100%;max-width:720px;}
+.res-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:24px;padding:44px 46px 36px;box-shadow:0 30px 70px -36px rgba(61,31,122,.45);}
+.res-msg{font-family:var(--font-serif);font-size:24px;line-height:1.3;color:var(--pu-dark);font-weight:400;margin-bottom:6px;}
+.res-sub{font-size:13.5px;color:var(--muted);margin-bottom:30px;}
+.res-score{display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;padding-bottom:26px;border-bottom:0.5px solid var(--lav-border);}
+.res-raw{font-family:var(--font-serif);font-weight:300;font-size:96px;line-height:.86;letter-spacing:-3px;color:var(--pu-dark);font-variant-numeric:tabular-nums lining-nums;}
+.res-raw .of{font-size:44px;letter-spacing:-1px;color:var(--pu-light);margin-left:6px;}
+.res-pct{font-family:var(--font-serif);font-size:34px;color:var(--pu-mid);font-variant-numeric:tabular-nums;padding-bottom:6px;}
+.res-pct small{display:block;font-family:var(--font-sans);font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0;}
+.res-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:22px 0 26px;}
+.res-stats div{padding:0 14px;border-left:0.5px solid var(--lav-border);}
+.res-stats div:first-child{padding-left:0;border-left:none;}
+.res-stats b{display:block;font-family:var(--font-serif);font-weight:400;font-size:24px;color:var(--pu-dark);font-variant-numeric:tabular-nums;}
+.res-stats span{font-size:12px;color:var(--muted);}
+.res-topics{margin-bottom:30px;}
+.res-topics h2{font-size:13px;font-weight:600;color:var(--pu-dark);margin-bottom:10px;}
+.tp-row{display:grid;grid-template-columns:minmax(0,1.3fr) 2fr 52px;align-items:center;gap:12px;padding:6px 0;font-size:12.5px;}
+.tp-name{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tp-track{height:6px;border-radius:6px;background:var(--pu-pale);overflow:hidden;}
+.tp-fill{height:100%;border-radius:6px;background:var(--pu-mid);transform-origin:left;}
+.tp-val{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;}
+.res-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.res-note{font-size:12px;color:var(--muted);margin-top:18px;}
+.res-in .res-msg,.res-in .res-sub,.res-in .res-score,.res-in .res-stats,.res-in .res-topics,.res-in .res-actions{animation:resIn .6s var(--ease) both;}
+.res-in .res-sub{animation-delay:.05s}.res-in .res-score{animation-delay:.12s}.res-in .res-stats{animation-delay:.24s}.res-in .res-topics{animation-delay:.32s}.res-in .res-actions{animation-delay:.4s}
+@keyframes resIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.res-in .tp-fill{animation:grow .9s var(--ease) .45s both;}
+@keyframes grow{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+
+/* ── Modal ── */
+.modal-bg{position:fixed;inset:0;background:rgba(61,31,122,.45);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:200;animation:fade .18s ease;}
+.modal{background:#fff;border-radius:20px;padding:30px 32px 26px;max-width:440px;width:100%;box-shadow:0 30px 80px rgba(61,31,122,.3);animation:pop .22s var(--ease);}
+.modal h2{font-family:var(--font-serif);font-weight:500;font-size:23px;color:var(--pu-dark);margin-bottom:10px;}
+.modal p{font-size:14px;line-height:1.6;color:var(--moss);margin-bottom:8px;}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;flex-wrap:wrap;}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+.toast-msg{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--pu-dark);color:#fff;padding:12px 20px;border-radius:12px;font-size:13.5px;font-weight:500;z-index:300;opacity:0;transition:all .25s;box-shadow:0 10px 30px rgba(61,31,122,.3);pointer-events:none;max-width:90vw;}
+.toast-msg.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.view-fade{animation:fade .35s ease;}
+
+/* ── Responsive ── */
+@media (max-width:1100px){ .fx-body{grid-template-columns:230px 1fr;} .pal-grid{grid-template-columns:repeat(6,1fr);} }
+@media (max-width:860px){
+  .sb{display:none;} .main{margin-left:0;}
+  .view{padding:20px 14px 40px;}
+  .intro-card,.res-card{padding:30px 22px 26px;border-radius:18px;}
+  .intro h1{font-size:34px;}
+  .res-raw{font-size:72px;} .res-raw .of{font-size:32px;}
+  .res-stats{grid-template-columns:1fr 1fr;row-gap:16px;}
+  .res-stats div:nth-child(3){padding-left:0;border-left:none;}
+  .fx-top{grid-template-columns:auto 1fr auto;height:58px;padding:0 12px;gap:10px;}
+  .fx-title,.fx-count,.kbd-hint{display:none;}
+  .clock{justify-self:center;padding:5px 12px 6px;}
+  .clock-digits{font-size:26px;}
+  .fx-qbtn{display:inline-flex;white-space:nowrap;padding:7px 10px;gap:6px;font-variant-numeric:tabular-nums;}
+  .fx-qbtn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;}
+  .hide-sm{display:none;}
+  .fx-mark{display:none;}
+  .fx-body{grid-template-columns:1fr;}
+  .palette{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:72vh;z-index:120;background:#fff;border-right:none;border-radius:20px 20px 0 0;box-shadow:0 -20px 50px rgba(61,31,122,.25);
+    transform:translateY(105%);transition:transform .28s var(--ease);visibility:hidden;}
+  .palette.open{transform:none;visibility:visible;}
+  .pal-grid{grid-template-columns:repeat(8,1fr);}
+  .pal-scrim{position:fixed;inset:0;background:rgba(61,31,122,.3);z-index:110;}
+  .fx-scroll{padding:16px 12px 12px;}
+  .qcard{padding:20px 18px 22px;border-radius:16px;}
+  .xm-stem{font-size:15px;}
+  .opts.emq{grid-template-columns:1fr;}
+  .rv-sum{grid-template-columns:1fr;}
+  .fx-nav{padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);border-top:0.5px solid var(--lav-border);}
+}
+@media (max-width:420px){ .clock-cap{display:none;} .clock-digits{font-size:24px;} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+}
+</style>
+<link rel="stylesheet" href="css/ossify-tutor.css">
+<style>
+/* Exam-page additions/overrides for the shared tutor styles */
+.qcard .q-wrapper{padding:0;}
+.options-list{display:flex;flex-direction:column;gap:0;margin-bottom:18px;}
+</style>
+</head>
+<body data-clock="normal">
+
+<!-- ═══ App shell: intro, results, loading, errors ═══ -->
+<div class="app" id="appShell">
+  <aside class="sb" aria-label="Main navigation">
+    <div class="sb-logo" onclick="location.href='dashboard.html'" title="Go to dashboard">
+      <svg width="90" height="42" viewBox="0 0 110 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ossify">
+        <polygon points="-1,10 10,5 21,10 10,15" fill="rgba(255,255,255,0.75)"/>
+        <line x1="21" y1="10" x2="21" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="21" cy="19.5" r="2" fill="#f472b6"/>
+        <text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text>
+      </svg>
+    </div>
+    <div class="sb-sec">
+      <div class="sb-lbl">Overview</div>
+      <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+      <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a>
+    </div>
+    <div class="sb-sec">
+      <div class="sb-lbl">Revision</div>
+      <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
+      <a class="nv on" href="exam.html" aria-current="page"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
+      <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge</a>
+      <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a>
+    </div>
+    <div class="sb-sec">
+      <div class="sb-lbl">Learn</div>
+      <a class="nv" href="acronyms.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Glossary</a>
+      <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+    </div>
+    <div class="sb-sec">
+      <div class="sb-lbl">Account</div>
+      <a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
+      <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+    </div>
+    <div class="sb-foot">
+      <div class="sb-av-row">
+        <div class="sb-av" id="userAv">?</div>
+        <div><div class="sb-uname" id="userName">—</div><div class="sb-usub">Ossify member</div></div>
+      </div>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="topbar"><div class="tb-title" id="tbTitle">Timed Exam</div></div>
+    <main class="view" id="view" tabindex="-1">
+      <div><div class="spinner"></div><p class="loading-txt">Loading…</p></div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══ Focus shell: exam + review ═══ -->
+<div class="focus" id="focusShell" hidden>
+  <header class="fx-top">
+    <div class="fx-brand">
+      <div class="fx-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><polygon points="2,9 12,4 22,9 12,14" fill="rgba(255,255,255,.85)"/><line x1="22" y1="9" x2="22" y2="15" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="16.5" r="1.6" fill="#f472b6"/></svg></div>
+      <div class="fx-title" id="fxTitle">Timed MSRA exam</div>
+      <button class="btn btn-ghost btn-sm fx-qbtn" id="palToggle" aria-controls="palette" aria-expanded="false">Questions</button>
+    </div>
+    <div class="clock" id="clock" role="timer" aria-label="Time remaining">
+      <span class="clock-digits" id="clockDigits">75:00</span><span class="clock-cap" id="clockCap">remaining</span>
+    </div>
+    <div class="fx-right" id="fxRight"></div>
+  </header>
+  <div class="rail" id="rail" aria-hidden="true"><div class="rail-fill" id="railFill"></div></div>
+  <div class="sr-only" aria-live="polite" id="liveRegion"></div>
+  <div class="fx-body">
+    <aside class="palette" id="palette" aria-label="Question navigator">
+      <div class="pal-head"><div class="pal-title">Questions</div><div class="pal-sub" id="palSub"></div></div>
+      <div class="pal-filters" id="palFilters" hidden></div>
+      <div class="pal-grid" id="palGrid"></div>
+      <div class="pal-legend" id="palLegend"></div>
+    </aside>
+    <div class="fx-main" id="fxMain">
+      <div class="fx-scroll"><div id="qArea"></div></div>
+      <div class="fx-nav"><div class="fx-nav-in" id="fxNav"></div></div>
+    </div>
+  </div>
+</div>
+
+<div id="stemTip" style="position:fixed;display:none;z-index:9999;background:#1e293b;color:#f1f5f9;font-size:12.5px;font-weight:400;line-height:1.6;padding:10px 14px;border-radius:10px;width:300px;max-width:90vw;box-shadow:0 6px 24px rgba(0,0,0,.3);pointer-events:none;"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════════════════════
+// Timed Exam Mode — MSRA Clinical Problem Solving simulation
+//
+// Server (Supabase RPCs, supabase/migrations/20261003_timed_exam_mode.sql)
+// owns the question set, the clock and the scoring. This page:
+//   • renders one question at a time (never the whole paper),
+//   • keeps answers keyed by questions.id, never by on-screen position,
+//   • autosaves to localStorage instantly and to the server (debounced),
+//   • derives remaining time from the server deadline on every tick.
+// ════════════════════════════════════════════════════════════════════════════
+
+const SUPABASE_URL = 'https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj';
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const LETTERS = ['A','B','C','D','E','F','G','H','I','J'];
+const LS_PREFIX = 'ossify_timed_exam_';
+const SERVER_SAVE_DEBOUNCE_MS = 1500;
+const PAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>';
+
+let accessToken = null;
+let phase = 'loading';          // loading | intro | exam | submitting | results | review
+let exam = null;                // { id, questions, total, deadlineMs, durationMs }
+let answers = {};               // { "<questions.id>": optionIndex }
+let flags = new Set();          // questions.id (number)
+let currentIdx = 0;
+let clockOffsetMs = 0;          // serverNow − clientNow
+let timerHandle = null;
+let lastClockState = 'normal';
+let saveTimer = null;
+let saveInFlight = null;
+let submitPromise = null;
+let reviewData = null;          // payload from submit/get_timed_exam_review
+let reviewIdx = 0;
+let reviewFilter = 'all';
+let lastFocusBeforeModal = null;
+
+// ── Utilities ───────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+function esc(s) { return escapeHtml(s).replace(/<br>/g, ' '); }   // single-line text
+function fmtClock(totalSec) {
+  const s = Math.max(0, totalSec);
+  return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+}
+function fmtDate(iso) {
+  return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+function pct1(n) { return (Math.round(Number(n) * 10) / 10).toFixed(1); }
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg'; t.textContent = msg; t.setAttribute('role', 'status');
+  document.body.appendChild(t);
+  requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add('show')));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 3600);
+}
+function serverNow() { return Date.now() + clockOffsetMs; }
+function syncClock(serverIso, t0, t1) {
+  // Midpoint of the request approximates when the server read now()
+  clockOffsetMs = new Date(serverIso).getTime() - (t0 + t1) / 2;
+}
+function rpcError(error) {
+  const m = (error && (error.message || error.details)) || 'Unknown error';
+  return m;
+}
+async function rpc(name, params) {
+  const t0 = Date.now();
+  const { data, error } = await sb.rpc(name, params || {});
+  const t1 = Date.now();
+  if (error) throw new Error(rpcError(error));
+  return { data, t0, t1 };
+}
+
+// ── Shells / views ──────────────────────────────────────────────────────────
+function showApp(html, title) {
+  $('focusShell').hidden = true;
+  $('appShell').hidden = false;
+  document.body.style.overflow = '';
+  $('tbTitle').textContent = title || 'Timed Exam';
+  const v = $('view');
+  v.innerHTML = `<div class="view-fade" style="width:100%;display:flex;justify-content:center">${html}</div>`;
+  window.scrollTo(0, 0);
+}
+function showFocus() {
+  $('appShell').hidden = true;
+  $('focusShell').hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+function showNotice(title, body, actionsHtml) {
+  showApp(`<div class="notice" role="alert"><h2>${esc(title)}</h2><p>${esc(body)}</p>${actionsHtml || ''}</div>`);
+}
+
+// ── Boot ────────────────────────────────────────────────────────────────────
+async function init() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { location.href = 'login.html'; return; }
+  accessToken = session.access_token;
+  sb.auth.onAuthStateChange((_e, s) => { if (s) accessToken = s.access_token; });
+  const email = session.user.email || '';
+  $('userAv').textContent = email.slice(0, 2).toUpperCase();
+  $('userName').textContent = email.split('@')[0];
+
+  const reviewId = new URLSearchParams(location.search).get('review');
+  if (reviewId) { await openReviewById(reviewId, true); return; }
+
+  try {
+    const { data, t0, t1 } = await rpc('get_active_timed_exam');
+    if (data && data.status === 'in_progress') {
+      enterExam(data, t0, t1, true);
+      return;
+    }
+    if (data && data.status === 'expired') {
+      // The clock ran out while the user was away; it has been scored.
+      clearLocal(data.attempt.id);
+      await openReviewById(data.attempt.id, false, 'timeout');
+      return;
+    }
+  } catch (e) {
+    showNotice('Couldn’t load the timed exam', 'Check your connection and try again. ' + e.message,
+      `<button class="btn btn-primary" onclick="location.reload()">Try again</button>`);
+    return;
+  }
+  renderIntro();
+}
+
+// ── Pre-exam screen ─────────────────────────────────────────────────────────
+async function renderIntro() {
+  phase = 'intro';
+  showApp(`<section class="intro" aria-labelledby="introTitle">
+    <div class="intro-card">
+      <div class="intro-kicker">MSRA Clinical Problem Solving simulation</div>
+      <h1 id="introTitle">Timed MSRA exam</h1>
+      <div class="intro-spec"><div>97<span>questions</span></div><div>75<span>minutes</span></div></div>
+      <p class="intro-lead">Simulate exam conditions and see how you perform under time pressure.</p>
+      <ul class="intro-tips">
+        <li>Read the question carefully before looking at the options.</li>
+        <li>Don’t spend too long on any one question.</li>
+        <li>If you’re unsure, make your best choice, flag it and move on.</li>
+        <li>Keep an eye on the clock.</li>
+        <li>Treat this like the real exam.</li>
+      </ul>
+      <p class="intro-note">The clock starts when you press Start exam and keeps running if you leave the page. Answers save as you go. There’s no feedback until the exam ends, and unanswered questions score zero.</p>
+      <div class="intro-actions">
+        <button class="btn btn-primary btn-lg" id="startBtn" onclick="startExam()">Start exam</button>
+        <span class="intro-last" id="introLast"></span>
+      </div>
+    </div>
+  </section>`);
+  try {
+    const { data } = await sb.from('exam_attempts')
+      .select('id,correct_count,total_questions,percentage,completed_at')
+      .eq('status', 'completed').order('completed_at', { ascending: false }).limit(1);
+    if (data && data[0] && $('introLast')) {
+      const a = data[0];
+      $('introLast').innerHTML = `Last attempt: ${a.correct_count} / ${a.total_questions} (${pct1(a.percentage)}%), ${fmtDate(a.completed_at)}. <a href="exam.html?review=${a.id}">Review</a>`;
+    }
+  } catch (_) {}
+}
+
+async function startExam() {
+  const btn = $('startBtn');
+  if (!btn || btn.disabled) return;
+  btn.disabled = true; btn.textContent = 'Preparing your paper…';
+  try {
+    const { data, t0, t1 } = await rpc('start_timed_exam');
+    enterExam(data, t0, t1, false);
+  } catch (e) {
+    btn.disabled = false; btn.textContent = 'Start exam';
+    if (/insufficient_questions/.test(e.message)) {
+      showNotice('Not enough questions for a full paper',
+        e.message.replace(/^.*insufficient_questions:\s*/, '') + '. A timed exam always uses 97 questions, so it can’t start until the bank has enough.',
+        `<a class="btn btn-primary" href="dashboard.html">Return to dashboard</a>`);
+    } else {
+      showToast('Couldn’t start the exam: ' + e.message);
+    }
+  }
+}
+
+// ── Exam ────────────────────────────────────────────────────────────────────
+function enterExam(state, t0, t1, resumed) {
+  syncClock(state.server_now, t0, t1);
+  exam = {
+    id: state.id,
+    questions: state.questions,
+    total: state.total_questions,
+    deadlineMs: new Date(state.deadline_at).getTime(),
+    durationMs: state.duration_seconds * 1000,
+  };
+  // Answers: prefer this device's copy if it is newer than the server's
+  const local = readLocal(exam.id);
+  const serverUpdated = new Date(state.updated_at).getTime();
+  if (local && local.savedAt >= serverUpdated - 2000) {
+    answers = sanitizeAnswers(local.answers);
+    flags = new Set((local.flags || []).filter(id => exam.questions.some(q => q.id === id)));
+    currentIdx = clampIdx(local.idx);
+  } else {
+    answers = sanitizeAnswers(state.answers || {});
+    flags = new Set(state.flags || []);
+    currentIdx = clampIdx(state.current_index);
+  }
+  phase = 'exam';
+  showFocus();
+  buildExamChrome();
+  renderPalette();
+  renderExamQuestion(currentIdx, false);
+  startTimer();
+  window.addEventListener('beforeunload', beforeUnloadGuard);
+  if (resumed) {
+    showToast('Exam resumed. The clock kept running while you were away.');
+    queueServerSave(true);
+  }
+}
+function clampIdx(i) { i = Number(i) || 0; return Math.max(0, Math.min(exam.questions.length - 1, i)); }
+function sanitizeAnswers(obj) {
+  const out = {};
+  if (!obj || typeof obj !== 'object') return out;
+  for (const q of exam.questions) {
+    const v = obj[q.id] ?? obj[String(q.id)];
+    if (Number.isInteger(v) && v >= 0 && v < q.options.length) out[String(q.id)] = v;
+  }
+  return out;
+}
+function answeredCount() { return Object.keys(answers).length; }
+
+function buildExamChrome() {
+  $('fxTitle').textContent = 'Timed MSRA exam';
+  $('clock').hidden = false; $('rail').hidden = false;
+  $('palFilters').hidden = true;
+  $('fxRight').innerHTML = `<span class="fx-count" id="fxCount"></span>
+    <button class="btn btn-danger btn-sm" id="finishBtn" onclick="openFinishDialog()">Finish<span class="hide-sm"> exam</span></button>`;
+  $('palLegend').innerHTML = `
+    <span><i class="lg" style="background:#e2e8f0"></i>Answered</span>
+    <span><i class="lg" style="background:var(--pu-pale)"></i>Unanswered</span>
+    <span><i class="lg" style="background:#facc15;box-shadow:0 0 0 2px #f59e0b"></i>Current</span>
+    <span><i class="lg q-dot flagged" style="background:var(--pu-pale);aspect-ratio:auto"></i>Flagged</span>`;
+  updateCounts();
+}
+
+function updateCounts() {
+  const n = answeredCount();
+  if ($('fxCount')) $('fxCount').innerHTML = `<strong>${n}</strong> of ${exam.total} answered`;
+  $('palSub').textContent = `${n} / ${exam.total}`;
+  $('palToggle').innerHTML = `${PAL_ICON}<span>${n}/${exam.total}</span>`;
+  $('palToggle').setAttribute('aria-label', `Questions: ${n} of ${exam.total} answered`);
+}
+
+function examDotClass(i) {
+  const q = exam.questions[i];
+  const cls = ['q-dot'];
+  if (answers[q.id] !== undefined) cls.push('answered-skip');   // answered, correctness hidden
+  if (flags.has(q.id)) cls.push('flagged');
+  if (i === currentIdx) cls.push('active');
+  return cls.join(' ');
+}
+function dotLabel(i, q, extra) {
+  return `Question ${i + 1}${extra ? ', ' + extra : ''}${flags.has(q.id) ? ', flagged' : ''}`;
+}
+function renderPalette() {
+  const grid = $('palGrid');
+  if (phase === 'review') { renderReviewPalette(); return; }
+  grid.innerHTML = exam.questions.map((q, i) =>
+    `<button class="${examDotClass(i)}" data-i="${i}" onclick="goTo(${i});closePalette()"
+       aria-label="${dotLabel(i, q, answers[q.id] !== undefined ? 'answered' : 'unanswered')}"
+       ${i === currentIdx ? 'aria-current="true"' : ''}>${i + 1}</button>`).join('');
+}
+function refreshDot(i) {
+  const el = $('palGrid').querySelector(`[data-i="${i}"]`);
+  if (!el) return;
+  const q = exam.questions[i];
+  el.className = examDotClass(i);
+  el.setAttribute('aria-label', dotLabel(i, q, answers[q.id] !== undefined ? 'answered' : 'unanswered'));
+  if (i === currentIdx) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current');
+}
+
+// Position of an EMQ scenario within its theme, as it appears in this paper
+function scenarioPos(list, i) {
+  const q = list[i];
+  const sid = q.emq ? q.emq.set_id : (q.tutor_content && q.tutor_content.set_id);
+  const same = j => { const x = list[j]; return x && x.type === 'EMQ' && ((x.emq ? x.emq.set_id : x.tutor_content && x.tutor_content.set_id) === sid); };
+  let a = i, b = i;
+  while (same(a - 1)) a--;
+  while (same(b + 1)) b++;
+  return { n: i - a + 1, of: b - a + 1 };
+}
+
+function renderExamQuestion(i, animate = true) {
+  const q = exam.questions[i];
+  const sel = answers[q.id];
+  const locked = phase !== 'exam';
+  const isEMQ = q.type === 'EMQ';
+  let html = `<article class="qcard${animate ? ' q-in' : ''}" aria-labelledby="qTitle">
+    <div class="qhead">
+      <h1 class="qnum" id="qTitle">Question ${i + 1} <span>of ${exam.total}</span></h1>
+      <button class="flag-btn" aria-pressed="${flags.has(q.id)}" onclick="toggleFlag()" ${locked ? 'disabled' : ''}>
+        <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        ${flags.has(q.id) ? 'Flagged' : 'Flag for review'}</button>
+    </div>`;
+  if (isEMQ) {
+    const pos = scenarioPos(exam.questions, i);
+    const theme = (q.emq && q.emq.set_theme) || q.emq_theme || 'Extended matching question';
+    html += `<div class="xm-emq"><div class="xm-emq-theme">${esc(theme)}</div>
+      <div class="xm-emq-ins">Select the single best answer for this scenario. Each option may be used once, more than once, or not at all.</div></div>
+      <div class="xm-scn">Scenario ${pos.n} of ${pos.of}</div>`;
+  }
+  html += `<div class="xm-stem" id="qStem">${escapeHtml(q.stem)}</div>
+    <div class="opts${isEMQ ? ' emq' : ''}" role="radiogroup" aria-labelledby="qTitle" aria-describedby="qStem" id="opts">`;
+  const focusIdx = sel !== undefined ? sel : 0;
+  q.options.forEach((opt, idx) => {
+    const isSel = sel === idx;
+    html += `<button class="option-btn${isSel ? ' selected' : ''}" role="radio" aria-checked="${isSel}"
+        tabindex="${idx === focusIdx ? 0 : -1}" data-idx="${idx}" onclick="selectAnswer(${idx})" ${locked ? 'disabled' : ''}>
+      <span class="option-letter">${LETTERS[idx]}</span>
+      <span class="option-text">${escapeHtml(opt)}</span>
+      <svg class="option-tick" viewBox="0 0 24 24" fill="none" stroke="var(--pu-mid)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    </button>`;
+  });
+  html += `</div></article>`;
+  $('qArea').innerHTML = html;
+
+  const last = i === exam.questions.length - 1;
+  $('fxNav').innerHTML = `
+    <button class="btn btn-ghost" onclick="prevQuestion()" ${i === 0 ? 'disabled' : ''} aria-label="Previous question">Previous</button>
+    <span class="grow"></span>
+    <span class="kbd-hint"><kbd>A</kbd>–<kbd>${LETTERS[q.options.length - 1]}</kbd> answer · <kbd>←</kbd><kbd>→</kbd> move · <kbd>F</kbd> flag</span>
+    <span class="grow"></span>
+    ${last
+      ? `<button class="btn btn-primary" onclick="openFinishDialog()" ${locked ? 'disabled' : ''}>Finish exam</button>`
+      : `<button class="btn btn-primary" onclick="nextQuestion()" aria-label="Next question">Next</button>`}`;
+  $('fxMain').scrollTop = 0;
+}
+
+function goTo(i) {
+  if (!exam || i < 0 || i >= exam.questions.length) return;
+  if (phase === 'review') { goToReview(i); return; }
+  const prev = currentIdx;
+  currentIdx = i;
+  refreshDot(prev); refreshDot(i);
+  renderExamQuestion(i);
+  queueServerSave();
+  writeLocal();
+}
+function nextQuestion() { if (currentIdx < exam.questions.length - 1) goTo(currentIdx + 1); }
+function prevQuestion() { if (currentIdx > 0) goTo(currentIdx - 1); }
+
+function canAnswer() { return phase === 'exam' && exam && exam.deadlineMs - serverNow() > 0; }
+
+function selectAnswer(idx) {
+  if (!canAnswer()) { if (phase === 'exam') onTimeUp(); return; }
+  const q = exam.questions[currentIdx];
+  if (!Number.isInteger(idx) || idx < 0 || idx >= q.options.length) return;
+  answers[String(q.id)] = idx;     // keyed by stable question id, option index in DB order
+  writeLocal();
+  queueServerSave();
+  document.querySelectorAll('#opts .option-btn').forEach(b => {
+    const on = Number(b.dataset.idx) === idx;
+    b.classList.toggle('selected', on);
+    b.setAttribute('aria-checked', on);
+    b.tabIndex = on ? 0 : -1;
+  });
+  refreshDot(currentIdx);
+  updateCounts();
+}
+
+function toggleFlag() {
+  if (!canAnswer()) return;
+  const q = exam.questions[currentIdx];
+  if (flags.has(q.id)) flags.delete(q.id); else flags.add(q.id);
+  const b = document.querySelector('.flag-btn');
+  if (b) {
+    b.setAttribute('aria-pressed', flags.has(q.id));
+    b.lastChild.textContent = flags.has(q.id) ? ' Flagged' : ' Flag for review';
+  }
+  refreshDot(currentIdx);
+  writeLocal(); queueServerSave();
+}
+
+// ── Timer ───────────────────────────────────────────────────────────────────
+// Remaining time is always (server deadline − corrected now), recomputed on
+// every tick, so rendering delays or throttled background tabs can't make it
+// drift. Each tick is scheduled for the next whole-second boundary. Only one
+// timeout handle exists at a time; startTimer() always clears the previous.
+function startTimer() {
+  stopTimer();
+  tick();
+}
+function stopTimer() {
+  if (timerHandle !== null) { clearTimeout(timerHandle); timerHandle = null; }
+}
+function tick() {
+  timerHandle = null;
+  if (phase !== 'exam' || !exam) return;
+  const remMs = exam.deadlineMs - serverNow();
+  const remSec = Math.max(0, Math.ceil(remMs / 1000));   // 75:00 for the first second, 00:00 only at zero
+  renderClock(remSec, Math.max(0, remMs));
+  if (remMs <= 0) { onTimeUp(); return; }
+  const untilNext = remMs - (remSec - 1) * 1000;          // ms until the display changes
+  timerHandle = setTimeout(tick, Math.max(20, Math.min(1000, untilNext + 5)));
+}
+function clockStateFor(sec) {
+  if (sec <= 0) return 'over';
+  if (sec <= 60) return 'final';
+  if (sec <= 300) return 'urgent';
+  if (sec <= 600) return 'warn';
+  return 'normal';
+}
+function renderClock(sec, remMs) {
+  $('clockDigits').textContent = fmtClock(sec);
+  $('clock').setAttribute('aria-label', `Time remaining ${Math.floor(sec / 60)} minutes ${sec % 60} seconds`);
+  $('railFill').style.transform = `scaleX(${exam ? Math.min(1, remMs / exam.durationMs) : 0})`;
+  const st = clockStateFor(sec);
+  if (st !== lastClockState) {
+    document.body.dataset.clock = st;
+    const msg = { warn: '10 minutes remaining.', urgent: '5 minutes remaining.', final: '1 minute remaining.' }[st];
+    if (msg && lastClockState !== 'over') $('liveRegion').textContent = msg;
+    lastClockState = st;
+  }
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && phase === 'exam') startTimer();   // re-evaluate immediately
+  if (document.visibilityState === 'hidden' && phase === 'exam') flushSaveKeepalive();
+});
+
+function onTimeUp() {
+  if (phase !== 'exam') return;
+  phase = 'submitting';
+  stopTimer();
+  renderClock(0, 0);
+  $('clockCap').textContent = 'time’s up';
+  $('liveRegion').textContent = 'Time is up. Your exam has ended.';
+  document.querySelectorAll('#opts .option-btn, .flag-btn, #finishBtn').forEach(b => b.disabled = true);
+  submitExam('timeout');
+}
+
+// ── Persistence ─────────────────────────────────────────────────────────────
+function localKey(id) { return LS_PREFIX + id; }
+function writeLocal() {
+  if (!exam) return;
+  try {
+    localStorage.setItem(localKey(exam.id), JSON.stringify({
+      answers, flags: [...flags], idx: currentIdx, savedAt: Date.now(),
+    }));
+  } catch (_) {}
+}
+function readLocal(id) {
+  try { const r = localStorage.getItem(localKey(id)); return r ? JSON.parse(r) : null; } catch (_) { return null; }
+}
+function clearLocal(id) { try { localStorage.removeItem(localKey(id)); } catch (_) {} }
+
+function queueServerSave(immediate) {
+  if (phase !== 'exam') return;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(serverSave, immediate ? 0 : SERVER_SAVE_DEBOUNCE_MS);
+}
+async function serverSave() {
+  if (phase !== 'exam' || !exam) return;
+  if (saveInFlight) { queueServerSave(); return; }
+  const payload = { p_attempt_id: exam.id, p_answers: { ...answers }, p_flags: [...flags], p_current_index: currentIdx };
+  try {
+    saveInFlight = rpc('save_timed_exam_progress', payload);
+    const { data, t0, t1 } = await saveInFlight;
+    if (data && data.server_now) syncClock(data.server_now, t0, t1);
+    if (data && data.ok === false && phase === 'exam') {
+      // Server says the attempt is over (deadline passed): end here too.
+      onTimeUp();
+    }
+  } catch (e) {
+    console.warn('Autosave failed (answers are kept locally and will retry):', e.message);
+    setTimeout(() => queueServerSave(), 5000);
+  } finally { saveInFlight = null; }
+}
+// Best-effort save when the tab is hidden or closed (fetch keepalive survives unload)
+function flushSaveKeepalive() {
+  if (phase !== 'exam' || !exam || !accessToken) return;
+  writeLocal();
+  try {
+    fetch(`${SUPABASE_URL}/rest/v1/rpc/save_timed_exam_progress`, {
+      method: 'POST', keepalive: true,
+      headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_attempt_id: exam.id, p_answers: answers, p_flags: [...flags], p_current_index: currentIdx }),
+    }).catch(() => {});
+  } catch (_) {}
+}
+window.addEventListener('pagehide', flushSaveKeepalive);
+function beforeUnloadGuard(e) {
+  if (phase === 'exam' || phase === 'submitting') { e.preventDefault(); e.returnValue = ''; }
+}
+
+// ── Finishing ───────────────────────────────────────────────────────────────
+function openFinishDialog() {
+  if (!canAnswer()) return;
+  const unanswered = exam.total - answeredCount();
+  const flagged = flags.size;
+  lastFocusBeforeModal = document.activeElement;
+  const body = unanswered > 0
+    ? `<p>You still have <strong>${unanswered}</strong> unanswered question${unanswered === 1 ? '' : 's'}. Unanswered questions score zero.</p>`
+    : `<p>You have answered all ${exam.total} questions. Are you ready to finish?</p>`;
+  const flagLine = flagged ? `<p>${flagged} question${flagged === 1 ? ' is' : 's are'} flagged for review.</p>` : '';
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg'; bg.id = 'finishModal';
+  bg.innerHTML = `<div class="modal" role="dialog" aria-modal="true" aria-labelledby="fmTitle">
+      <h2 id="fmTitle">Are you sure you want to finish the exam?</h2>
+      ${body}${flagLine}
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="fmContinue">Continue exam</button>
+        <button class="btn btn-danger" id="fmFinish">Finish exam</button>
+      </div></div>`;
+  document.body.appendChild(bg);
+  $('fmContinue').onclick = closeFinishDialog;
+  $('fmFinish').onclick = () => { closeFinishDialog(); finishEarly(); };
+  bg.addEventListener('click', e => { if (e.target === bg) closeFinishDialog(); });
+  bg.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { e.stopPropagation(); closeFinishDialog(); }
+    if (e.key === 'Tab') {   // keep focus inside the dialog
+      const f = [$('fmContinue'), $('fmFinish')];
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[1]) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+  $('fmContinue').focus();
+}
+function closeFinishDialog() {
+  const m = $('finishModal'); if (m) m.remove();
+  if (lastFocusBeforeModal && lastFocusBeforeModal.focus) lastFocusBeforeModal.focus();
+}
+function finishEarly() {
+  if (!canAnswer()) return;
+  phase = 'submitting';
+  stopTimer();
+  submitExam('finished');
+}
+
+function submitExam(reason) {
+  if (submitPromise) return submitPromise;      // exactly one submission per attempt
+  clearTimeout(saveTimer);
+  writeLocal();
+  showApp(`<div><div class="spinner"></div><p class="loading-txt">${reason === 'timeout' ? 'Time’s up. Marking your paper…' : 'Marking your paper…'}</p></div>`, 'Timed Exam');
+  const payload = { p_attempt_id: exam.id, p_answers: { ...answers }, p_flags: [...flags], p_reason: reason };
+  submitPromise = (async () => {
+    for (let attempt = 0; ; attempt++) {
+      try {
+        const { data } = await rpc('submit_timed_exam', payload);
+        window.removeEventListener('beforeunload', beforeUnloadGuard);
+        clearLocal(exam.id);
+        reviewData = data;
+        phase = 'results';
+        renderResults(true);
+        return;
+      } catch (e) {
+        if (attempt >= 5) {
+          showNotice('Your exam couldn’t be submitted',
+            'Your answers are saved on this device and on the server up to your last autosave. Check your connection and try again; reopening this page will also finish the marking.',
+            `<button class="btn btn-primary" onclick="location.reload()">Try again</button>`);
+          submitPromise = null;
+          return;
+        }
+        await new Promise(r => setTimeout(r, 1000 * Math.pow(2, attempt)));
+      }
+    }
+  })();
+  return submitPromise;
+}
+
+// ── Results ─────────────────────────────────────────────────────────────────
+async function openReviewById(id, viaLink, reasonHint) {
+  showApp(`<div><div class="spinner"></div><p class="loading-txt">Loading your results…</p></div>`);
+  try {
+    const { data } = await rpc('get_timed_exam_review', { p_attempt_id: id });
+    reviewData = data;
+    phase = 'results';
+    renderResults(!viaLink);
+    if (reasonHint === 'timeout') showToast('Your exam ended while you were away. It has been marked and saved.');
+  } catch (e) {
+    showNotice('Couldn’t open this exam', 'It may not exist, may belong to another account, or may still be in progress.',
+      `<a class="btn btn-primary" href="exam.html">Go to Timed Exam</a>`);
+  }
+}
+
+function topicBreakdown(qs) {
+  const m = new Map();
+  qs.forEach(q => {
+    const t = m.get(q.topic) || { topic: q.topic, n: 0, c: 0 };
+    t.n++; if (q.is_correct) t.c++;
+    m.set(q.topic, t);
+  });
+  return [...m.values()].sort((a, b) => (b.c / b.n) - (a.c / a.n) || a.topic.localeCompare(b.topic));
+}
+
+function renderResults(animate) {
+  const r = reviewData;
+  const total = r.total_questions;
+  const correct = r.correct_count;
+  const answered = r.answered_count;
+  const pct = Number(r.percentage);
+  const msg = r.end_reason === 'timeout'
+    ? 'Exam over. Well done, that was a good effort.'
+    : 'Exam complete. Well done for seeing it through.';
+  const sub = `${r.end_reason === 'timeout' ? 'Time ran out' : 'Finished with ' + fmtClock(Math.max(0, r.duration_seconds - r.time_taken_seconds)) + ' to spare'} · ${fmtDate(r.completed_at)}`;
+  const topics = topicBreakdown(r.questions);
+  showApp(`<section class="results" aria-labelledby="resMsg">
+    <div class="res-card${animate ? ' res-in' : ''}">
+      <h1 class="res-msg" id="resMsg">${msg}</h1>
+      <p class="res-sub">${esc(sub)}</p>
+      <div class="res-score" aria-label="Score ${correct} out of ${total}, ${pct1(pct)} percent">
+        <div class="res-raw" aria-hidden="true"><span id="rawNum">${correct}</span><span class="of">/ ${total}</span></div>
+        <div class="res-pct" aria-hidden="true">${pct1(pct)}%<small>practice percentage</small></div>
+      </div>
+      <div class="res-stats">
+        <div><b>${correct}</b><span>Correct</span></div>
+        <div><b>${answered - correct}</b><span>Incorrect</span></div>
+        <div><b>${total - answered}</b><span>Not answered</span></div>
+        <div><b>${fmtClock(r.time_taken_seconds)}</b><span>Time used</span></div>
+      </div>
+      <div class="res-topics">
+        <h2>By specialty</h2>
+        ${topics.map(t => `<div class="tp-row">
+          <span class="tp-name" title="${esc(t.topic)}">${esc(t.topic)}</span>
+          <span class="tp-track" role="img" aria-label="${t.c} of ${t.n} correct"><span class="tp-fill" style="display:block;width:${(t.c / t.n) * 100}%"></span></span>
+          <span class="tp-val">${t.c}/${t.n}</span></div>`).join('')}
+      </div>
+      <div class="res-actions">
+        <button class="btn btn-primary btn-lg" onclick="enterReview(0)">Review answers</button>
+        <a class="btn btn-soft btn-lg" href="dashboard.html">Return to dashboard</a>
+      </div>
+      <p class="res-note">This is your raw practice score, not an MSRA scaled score. Unanswered questions count as incorrect.</p>
+    </div></section>`, 'Exam results');
+  if (history.replaceState) history.replaceState(null, '', 'exam.html?review=' + r.id);
+  if (animate && !matchMedia('(prefers-reduced-motion: reduce)').matches) countUp($('rawNum'), correct, 900);
+  $('resMsg').setAttribute('tabindex', '-1'); $('resMsg').focus({ preventScroll: true });
+}
+function countUp(el, to, ms) {
+  if (!el) return;
+  const start = performance.now();
+  const step = now => {
+    const p = Math.min(1, (now - start) / ms);
+    el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(step);
+  };
+  el.textContent = '0';
+  requestAnimationFrame(step);
+}
+
+// ── Review (Tutor Mode, via js/ossify-tutor.js) ─────────────────────────────
+function reviewStatus(q) {
+  if (q.selected === null || q.selected === undefined) return 'none';
+  return q.is_correct ? 'correct' : 'wrong';
+}
+function matchesFilter(q) {
+  const s = reviewStatus(q);
+  if (reviewFilter === 'wrong') return s === 'wrong';
+  if (reviewFilter === 'none') return s === 'none';
+  if (reviewFilter === 'flagged') return (reviewData.flags || []).includes(q.id);
+  return true;
+}
+function enterReview(i) {
+  phase = 'review';
+  document.body.dataset.clock = 'normal';
+  showFocus();
+  const r = reviewData;
+  $('fxTitle').textContent = 'Exam review';
+  $('clock').hidden = true; $('rail').hidden = true;
+  $('fxRight').innerHTML = `<span class="fx-count"><strong>${r.correct_count} / ${r.total_questions}</strong> · ${pct1(r.percentage)}%</span>
+    <button class="btn btn-ghost btn-sm" onclick="exitReview()">Results</button>
+    <a class="btn btn-soft btn-sm" href="dashboard.html">Dashboard</a>`;
+  const counts = {
+    all: r.questions.length,
+    wrong: r.questions.filter(q => reviewStatus(q) === 'wrong').length,
+    none: r.questions.filter(q => reviewStatus(q) === 'none').length,
+    flagged: (r.flags || []).length,
+  };
+  $('palFilters').hidden = false;
+  $('palFilters').innerHTML = [['all', 'All'], ['wrong', 'Incorrect'], ['none', 'Not answered'], ['flagged', 'Flagged']]
+    .map(([k, l]) => `<button class="chip" aria-pressed="${reviewFilter === k}" onclick="setReviewFilter('${k}')" ${counts[k] === 0 && k !== 'all' ? 'disabled style="opacity:.45;cursor:default"' : ''}>${l} ${counts[k]}</button>`).join('');
+  $('palSub').textContent = `${r.correct_count} correct`;
+  $('palToggle').innerHTML = `${PAL_ICON}<span>Questions</span>`;
+  $('palToggle').setAttribute('aria-label', 'Question navigator');
+  $('palLegend').innerHTML = `
+    <span><i class="lg" style="background:#dcfce7"></i>Correct ✓</span>
+    <span><i class="lg" style="background:var(--pk-pale)"></i>Incorrect ✗</span>
+    <span><i class="lg" style="background:#f1f5f9;box-shadow:inset 0 0 0 1px #cbd5e1"></i>Not answered</span>
+    <span><i class="lg q-dot flagged" style="background:var(--pu-pale);aspect-ratio:auto"></i>Flagged</span>`;
+  goToReview(i, false);
+}
+function exitReview() { phase = 'results'; renderResults(false); }
+function setReviewFilter(k) {
+  reviewFilter = k;
+  enterReview(reviewIdx);
+  const first = reviewData.questions.findIndex(matchesFilter);
+  if (!matchesFilter(reviewData.questions[reviewIdx]) && first >= 0) goToReview(first);
+}
+function renderReviewPalette() {
+  const r = reviewData;
+  $('palGrid').innerHTML = r.questions.map((q, i) => {
+    const s = reviewStatus(q);
+    const cls = ['q-dot', s === 'correct' ? 'answered-correct' : s === 'wrong' ? 'answered-wrong' : 'not-answered'];
+    if ((r.flags || []).includes(q.id)) cls.push('flagged');
+    if (i === reviewIdx) cls.push('active');
+    if (!matchesFilter(q)) cls.push('dim');
+    const word = s === 'correct' ? 'correct' : s === 'wrong' ? 'incorrect' : 'not answered';
+    return `<button class="${cls.join(' ')}" onclick="goToReview(${i});closePalette()" aria-label="Question ${i + 1}, ${word}" ${i === reviewIdx ? 'aria-current="true"' : ''}>${i + 1}</button>`;
+  }).join('');
+}
+function filteredNeighbour(dir) {
+  const qs = reviewData.questions;
+  for (let j = reviewIdx + dir; j >= 0 && j < qs.length; j += dir) if (matchesFilter(qs[j])) return j;
+  return -1;
+}
+function answerText(q, idx) {
+  return `${LETTERS[idx]} — ${q.options[idx]}`;
+}
+function goToReview(i, animate = true) {
+  const r = reviewData;
+  reviewIdx = i;
+  const q = r.questions[i];
+  const tc = q.tutor_content;
+  const s = reviewStatus(q);
+  const sel = s === 'none' ? null : q.selected;
+  const statusHtml = s === 'correct'
+    ? `<span class="rv-status correct">✓ Correct</span>`
+    : s === 'wrong' ? `<span class="rv-status wrong">✗ Incorrect</span>` : `<span class="rv-status none">– Not answered</span>`;
+
+  let html = `<article class="qcard${animate ? ' q-in' : ''}" aria-labelledby="qTitle"><div class="q-wrapper">
+    <div class="qhead"><h1 class="qnum" id="qTitle">Question ${i + 1} <span>of ${r.total_questions}</span></h1>${statusHtml}</div>
+    <div class="q-badge-row">
+      <span class="badge badge-id">${esc(q.question_id)}</span>
+      <span class="badge badge-topic">${esc(q.topic)}</span>
+      <span class="badge badge-type">${esc(q.type)}</span>
+      <span class="badge badge-domain">${esc(q.domain)}</span>
+      ${(r.flags || []).includes(q.id) ? '<span class="badge" style="background:var(--pk-pale);color:#9b2058;border:0.5px solid var(--pk-border)">Flagged</span>' : ''}
+    </div>
+    <dl class="rv-sum">
+      <div class="${s === 'correct' ? 'is-right' : s === 'wrong' ? 'is-wrong' : 'is-none'}"><dt>Your answer</dt><dd>${s === 'none' ? 'Not answered' : esc(answerText(q, sel))}</dd></div>
+      <div class="is-right"><dt>Correct answer</dt><dd>${esc(answerText(q, q.correct_answer))}</dd></div>
+    </dl>`;
+
+  // Same building blocks as Tutor Mode in practice.html
+  html += renderEmqSetHeader(q);
+  let stemHtml;
+  try {
+    const ann = getStemAnnotations(q, tc);
+    stemHtml = annotateStem(q.stem, ann.clues, ann.distractors);
+  } catch (e) { stemHtml = escapeHtml(q.stem); }
+  const scn = q.type === 'EMQ' ? scenarioPos(r.questions, i) : null;
+  html += `<div class="q-stem">${scn ? `<div class="emq-q-num">Scenario ${scn.n} of ${scn.of}</div>` : ''}${stemHtml}</div>`;
+  html += `<div class="options-list">${q.options.map((opt, idx) => renderAnsweredOption(q, opt, idx, sel, tc)).join('')}</div>`;
+  if (tc) {
+    try { html += renderTutorPanels(q, sel, tc, { unanswered: s === 'none', bottomNavHtml: '' }); }
+    catch (e) { console.error('renderTutorPanels failed:', e); }
+  }
+  html += `</div></article>`;
+  $('qArea').innerHTML = html;
+
+  const prev = filteredNeighbour(-1), next = filteredNeighbour(1);
+  const pos = r.questions.filter(matchesFilter).indexOf(q) + 1;
+  const of = r.questions.filter(matchesFilter).length;
+  $('fxNav').innerHTML = `
+    <button class="btn btn-ghost" onclick="goToReview(${prev})" ${prev < 0 ? 'disabled' : ''}>Previous</button>
+    <span class="grow"></span>
+    <span class="kbd-hint">${reviewFilter === 'all' ? `Reviewing ${i + 1} of ${of}` : `${pos} of ${of} in this filter`}</span>
+    <span class="grow"></span>
+    ${next >= 0
+      ? `<button class="btn btn-primary" onclick="goToReview(${next})">Next</button>`
+      : `<button class="btn btn-primary" onclick="exitReview()">Back to results</button>`}`;
+  renderReviewPalette();
+  $('fxMain').scrollTop = 0;
+}
+
+// ── Mobile question drawer ──────────────────────────────────────────────────
+function openPalette() {
+  if (getComputedStyle($('palToggle')).display === 'none') return;
+  $('palette').classList.add('open');
+  $('palToggle').setAttribute('aria-expanded', 'true');
+  // Scrim lives inside the focus shell so it shares the palette's stacking context
+  const s = document.createElement('div'); s.className = 'pal-scrim'; s.id = 'palScrim'; s.onclick = closePalette;
+  $('focusShell').appendChild(s);
+  const cur = $('palGrid').querySelector('.active'); if (cur) cur.focus();
+}
+function closePalette() {
+  $('palette').classList.remove('open');
+  $('palToggle').setAttribute('aria-expanded', 'false');
+  const s = $('palScrim'); if (s) s.remove();
+}
+$('palToggle').addEventListener('click', () => $('palette').classList.contains('open') ? closePalette() : openPalette());
+
+// ── Keyboard ────────────────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if ($('finishModal')) return;
+  if (e.key === 'Escape' && $('palette').classList.contains('open')) { closePalette(); return; }
+  const tag = (e.target.tagName || '').toLowerCase();
+  if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+
+  if (phase === 'exam') {
+    const inRadios = e.target.closest && e.target.closest('#opts');
+    if (inRadios && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {   // roving focus within options
+      e.preventDefault();
+      const btns = [...document.querySelectorAll('#opts .option-btn')];
+      const k = btns.indexOf(e.target.closest('.option-btn'));
+      const n = btns[(k + (e.key === 'ArrowDown' ? 1 : -1) + btns.length) % btns.length];
+      btns.forEach(b => b.tabIndex = -1); n.tabIndex = 0; n.focus();
+      return;
+    }
+    if (e.key === 'ArrowRight') { e.preventDefault(); nextQuestion(); return; }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); prevQuestion(); return; }
+    if (e.key.toLowerCase() === 'f') { toggleFlag(); return; }
+    const idx = LETTERS.indexOf(e.key.toUpperCase());
+    const q = exam && exam.questions[currentIdx];
+    if (idx >= 0 && q && idx < q.options.length) { e.preventDefault(); selectAnswer(idx); }
+  } else if (phase === 'review') {
+    if (e.key === 'ArrowRight') { const n = filteredNeighbour(1); if (n >= 0) goToReview(n); }
+    if (e.key === 'ArrowLeft')  { const p = filteredNeighbour(-1); if (p >= 0) goToReview(p); }
+  }
+});
+
+init();
+</script>
+</body>
+</html>
