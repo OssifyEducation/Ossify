@@ -89,6 +89,16 @@
 .hys-bullet-item{display:flex;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--lav-border);font-size:13px;color:var(--ink);line-height:1.65;}
 .hys-bullet-item:last-child{border-bottom:none;}
 .hys-dot{color:var(--teal-d);font-weight:900;font-size:15px;flex-shrink:0;line-height:1.4;}
+.hys-text{min-width:0;overflow-wrap:anywhere;}
+.hys-dot.hys-num{font-size:12px;font-weight:700;line-height:1.65;min-width:16px;}
+.hys-para{font-size:13px;color:var(--ink);line-height:1.65;margin:2px 0 8px;}
+.hys-heading{font-size:12.5px;font-weight:700;color:var(--teal-d);margin:12px 0 2px;}
+.hys-heading:first-child{margin-top:0;}
+.hys-list + .hys-para,.hys-list + .hys-heading{margin-top:12px;}
+.hys-list .hys-bullet-item:last-child{border-bottom:none;}
+.hys-refs-heading{color:var(--muted);font-weight:600;margin-top:14px;padding-top:12px;border-top:0.5px solid var(--lav-border);}
+.hys-refs{padding:4px 0 0;}
+.hys-refs .ref-text{min-width:0;overflow-wrap:anywhere;}
 
 /* High-yield summary panel */
 .hys-panel{background:#fff;border:0.5px solid var(--lav-border);border-radius:12px;overflow:hidden;margin-bottom:8px;}
