@@ -60,6 +60,14 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .btn-save-exit:hover{background:#f9c0d4;}
 .btn-save-exit svg{width:13px;height:13px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
+/* XP feedback (subtle) */
+.xp-total{align-items:center;gap:5px;padding:4px 10px;border-radius:20px;background:var(--pu-pale);border:0.5px solid var(--pu-light);font-size:11.5px;font-weight:600;color:var(--pu-dark);font-variant-numeric:tabular-nums;}
+.xp-chip{font-size:11.5px;font-weight:700;color:var(--teal-d);opacity:0;transform:translateY(4px);pointer-events:none;}
+.xp-chip.show{animation:xpChip 1.8s cubic-bezier(.2,.7,.2,1) forwards;}
+@keyframes xpChip{0%{opacity:0;transform:translateY(4px)}15%{opacity:1;transform:none}75%{opacity:1}100%{opacity:0;transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.xp-chip.show{animation:none;opacity:1}}
+.result-xp{font-size:12.5px;font-weight:600;color:var(--teal-d);margin:-16px 0 20px;min-height:18px;}
+
 /* PROGRESS BAR */
 .progress-bar-wrap{height:3px;background:var(--pu-pale);}
 .progress-bar-fill{height:100%;background:var(--pu-mid);transition:width .3s;}
@@ -268,6 +276,8 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
     <div class="tb-title">Practice</div>
     <div class="tb-r">
       <span class="session-meta" id="sessionMeta"></span>
+      <span class="xp-total" id="xpTotal" style="display:none" title="Your total XP"></span>
+      <span class="xp-chip" id="xpChip" aria-live="polite"></span>
       <div class="mode-toggle">
         <button class="mode-btn" id="examModeBtn" onclick="setMode('exam')">Topic Mode</button>
         <button class="mode-btn active" id="tutorModeBtn" onclick="setMode('tutor')">Tutor</button>
@@ -359,6 +369,7 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
   <div class="result-card">
     <div class="result-score" id="resultScore"></div>
     <div class="result-label" id="resultLabel"></div>
+    <div class="result-xp" id="resultXp" aria-live="polite"></div>
     <div class="result-breakdown">
       <div class="rb-item"><div class="rb-num correct" id="rbCorrect">0</div><div class="rb-label">Correct</div></div>
       <div class="rb-item"><div class="rb-num incorrect" id="rbIncorrect">0</div><div class="rb-label">Incorrect</div></div>
@@ -468,6 +479,7 @@ async function startSession() {
   } catch(_) { currentUser = null; }
   progressSaved = false;
   sessionStartTime = Date.now();
+  sessionXp = 0; lastAnswerAt = null;
   const topic  = document.getElementById('topicFilter').value;
   const type   = document.getElementById('typeFilter').value;
   const domain = document.getElementById('domainFilter').value;
@@ -685,6 +697,7 @@ function submitAnswer() {
   renderNav();
   updateProgress();
   updateMeta();
+  recordAnswer(q, selected);   // server-side grading + XP (idempotent)
 
   if (mode === 'exam') {
     // Exam mode: no answer reveal — move straight to next question or results
@@ -748,6 +761,14 @@ function showResult() {
   document.getElementById('rbCorrect').textContent = correct;
   document.getElementById('rbIncorrect').textContent = incorrect;
   document.getElementById('rbSkipped').textContent = skipped + unanswered;
+  const xpEl = document.getElementById('resultXp');
+  if (xpEl) {
+    xpEl.textContent = '';
+    flushAnswers().finally(() => {
+      if (latestXpTotal !== null) setTopbarXp(latestXpTotal);
+      xpEl.textContent = currentUser ? (sessionXp > 0 ? `+${sessionXp} XP earned this session` : 'No new XP this session (repeat attempts don’t earn XP)') : '';
+    });
+  }
   showSaveExit(false);
   const _sl = document.getElementById('saveLaterBtn'); if(_sl) _sl.style.display='none';
   document.getElementById('resultOverlay').classList.add('visible');
@@ -764,56 +785,77 @@ function closeResult() {
 
 // Tutor panel toggles + escapeHtml/formatBullets: js/ossify-tutor.js
 
+// ── XP / progress pipeline ──────────────────────────────────────────────────
+// Every confirmed answer is sent to record_answers(), which grades it against
+// questions.correct_answer, stores the first attempt in user_progress and
+// awards XP through the ledger. Re-sending is harmless (idempotent server-
+// side), so failed requests are simply queued and retried.
+let sessionXp = 0;
+let latestXpTotal = null;
+const pendingAnswers = new Map();      // questions.id -> { question_id, selected, time_taken }
+let lastAnswerAt = null;
+let flushing = null;
+
+function recordAnswer(q, selected) {
+  if (!currentUser || !q || !q.id || selected === null || selected === undefined) return;
+  const now = Date.now();
+  const tt = Math.round((now - (lastAnswerAt || sessionStartTime || now)) / 1000);
+  lastAnswerAt = now;
+  pendingAnswers.set(q.id, { question_id: q.id, selected, time_taken: tt >= 0 && tt < 86400 ? tt : null });
+  flushAnswers();
+}
+
+async function flushAnswers() {
+  if (!currentUser || !pendingAnswers.size) return;
+  if (flushing) { await flushing; if (!pendingAnswers.size) return; }
+  const batch = [...pendingAnswers.values()];
+  flushing = (async () => {
+    try {
+      const { data, error } = await sb.rpc('record_answers', { p_answers: batch });
+      if (error) throw error;
+      batch.forEach(a => pendingAnswers.delete(a.question_id));
+      const gained = data?.xp_awarded || 0;
+      sessionXp += gained;
+      if (typeof data?.xp_total === 'number') {
+        latestXpTotal = data.xp_total;
+        if (mode === 'tutor' || reviewMode) setTopbarXp(data.xp_total);   // Topic Mode: wait for results
+      }
+      if (gained > 0 && mode === 'tutor' && !reviewMode) showXpChip(gained);   // never reveal correctness in Topic Mode
+    } catch (e) {
+      console.warn('Answer not saved yet, will retry:', e.message || e);
+      setTimeout(flushAnswers, 4000);
+    } finally { flushing = null; }
+  })();
+  return flushing;
+}
+
+function setTopbarXp(xp) {
+  const el = document.getElementById('xpTotal');
+  if (el) { el.textContent = `${xp} XP`; el.style.display = 'inline-flex'; }
+}
+function showXpChip(n) {
+  const chip = document.getElementById('xpChip');
+  if (!chip) return;
+  chip.textContent = `+${n} XP`;
+  chip.classList.remove('show'); void chip.offsetWidth; chip.classList.add('show');
+}
+
 // ── Progress saving ──
 async function saveSessionProgress() {
-  if (progressSaved || !currentUser) return;
+  if (!currentUser) return;
   progressSaved = true;
-
-  const totalSecs = sessionStartTime
-    ? Math.round((Date.now() - sessionStartTime) / 1000)
-    : null;
-  const answeredCount = Object.keys(answers).filter(k => answers[k] !== null).length;
-  const secsPerQ = answeredCount > 0 && totalSecs ? Math.round(totalSecs / answeredCount) : null;
-
-  const rows = [];
+  // Re-send every answered question: anything already recorded is ignored
+  // server-side, anything that failed earlier is recorded now.
   for (const [qid, ans] of Object.entries(answers)) {
-    if (ans === null || ans === undefined) continue; // skipped
-    const q = questions.find(q => q.question_id === qid);
-    if (!q || !q.id) continue;
-    rows.push({
-      user_id:           currentUser.id,
-      question_id:       q.id,                    // integer FK → questions.id
-      answered_correctly: ans === q.correct_answer,
-      answered_at:       new Date().toISOString(),
-      time_taken:        secsPerQ,
-    });
+    if (ans === null || ans === undefined) continue;   // skipped
+    const q = questions.find(x => x.question_id === qid);
+    if (q && q.id && !pendingAnswers.has(q.id)) pendingAnswers.set(q.id, { question_id: q.id, selected: ans, time_taken: null });
   }
-  if (!rows.length) return;
-
-  // ignoreDuplicates: true → INSERT ON CONFLICT DO NOTHING
-  // First attempt per question is locked in forever; re-attempts are silently skipped
-  const { error } = await sb.from('user_progress')
-    .upsert(rows, { onConflict: 'user_id,question_id', ignoreDuplicates: true });
-  if (error) console.warn('Progress save failed:', error.message);
-
-  // Tick streak: practice sessions count toward the streak (not just dashboard visits)
+  await flushAnswers();
   try {
-    const todayStr = new Date().toISOString().split('T')[0];
-    const { data: prof } = await sb.from('profiles')
-      .select('current_streak,best_streak,last_active_date')
-      .eq('id', currentUser.id).single();
-    if (prof && prof.last_active_date !== todayStr) {
-      const yd = new Date(); yd.setDate(yd.getDate() - 1);
-      const yStr = yd.toISOString().split('T')[0];
-      const newStreak = prof.last_active_date === yStr
-        ? (prof.current_streak || 0) + 1 : 1;
-      await sb.from('profiles').update({
-        current_streak:   newStreak,
-        best_streak:      Math.max(newStreak, prof.best_streak || 0),
-        last_active_date: todayStr,
-      }).eq('id', currentUser.id);
-    }
-  } catch(e) { console.warn('Streak update failed:', e.message); }
+    const { error } = await sb.rpc('touch_activity');   // streak, server-side
+    if (error) throw error;
+  } catch (e) { console.warn('Streak update failed:', e.message || e); }
 }
 
 
@@ -849,9 +891,11 @@ function saveCurrentSession() {
   catch(e) { console.warn('Session save failed:', e); return false; }
 }
 
-function resumeSession() {
+async function resumeSession() {
   const raw = localStorage.getItem('ossify_saved_session');
   if (!raw) return;
+  try { const { data: { user } } = await sb.auth.getUser(); currentUser = user || null; } catch (_) { currentUser = null; }
+  sessionXp = 0; lastAnswerAt = null;
   try {
     const s = JSON.parse(raw);
     questions   = s.questions  || [];
@@ -950,13 +994,7 @@ document.addEventListener('keydown', e => {
     const map = {a:0,b:1,c:2,d:3,e:4,f:5,g:6,h:7,i:8,j:9};
     const idx = map[e.key.toLowerCase()];
     if (idx !== undefined && idx < q.options.length) {
-      const btns = document.querySelectorAll('.option-btn:not([disabled])');
-      btns.forEach(b => b.classList.remove('selected'));
-      if (btns[idx]) {
-        btns[idx].classList.add('selected');
-        const submitBtn = document.getElementById('submitBtn');
-        if (submitBtn) submitBtn.disabled = false;
-      }
+      selectAnswer(idx);   // sets pendingSelection so Enter can submit
     }
     if (e.key === 'Enter') {
       const submitBtn = document.getElementById('submitBtn');
@@ -974,6 +1012,8 @@ document.addEventListener('keydown', e => {
       document.getElementById('userAv').textContent = e.slice(0,2).toUpperCase();
       document.getElementById('userName').textContent = e.split('@')[0];
       document.getElementById('userSub').textContent = 'Ossify member';
+      const { data: prof } = await sb.from('profiles').select('xp').eq('id', user.id).single();
+      if (prof) setTopbarXp(prof.xp || 0);
     }
   } catch(_) {}
 })();

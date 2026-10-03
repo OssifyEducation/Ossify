@@ -231,6 +231,8 @@ body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#
 .tp-val{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;}
 .res-actions{display:flex;gap:12px;flex-wrap:wrap;}
 .res-note{font-size:12px;color:var(--muted);margin-top:18px;}
+.res-xp{font-size:13px;font-weight:600;color:var(--teal-d);margin:-8px 0 24px;}
+.res-xp span{font-weight:400;color:var(--muted);}
 .res-in .res-msg,.res-in .res-sub,.res-in .res-score,.res-in .res-stats,.res-in .res-topics,.res-in .res-actions{animation:resIn .6s var(--ease) both;}
 .res-in .res-sub{animation-delay:.05s}.res-in .res-score{animation-delay:.12s}.res-in .res-stats{animation-delay:.24s}.res-in .res-topics{animation-delay:.32s}.res-in .res-actions{animation-delay:.4s}
 @keyframes resIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
@@ -985,6 +987,7 @@ function renderResults(animate) {
         <div><b>${total - answered}</b><span>Not answered</span></div>
         <div><b>${fmtClock(r.time_taken_seconds)}</b><span>Time used</span></div>
       </div>
+      ${r.xp_earned != null ? `<p class="res-xp">${r.xp_earned > 0 ? `+${r.xp_earned} XP added to your total` : 'No new XP'} <span>· XP is earned once per question, the first time you answer it anywhere on Ossify</span></p>` : ''}
       <div class="res-topics">
         <h2>By specialty</h2>
         ${topics.map(t => `<div class="tp-row">

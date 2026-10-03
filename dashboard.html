@@ -304,18 +304,15 @@ function setUserInfo(name, username){
 const TOPICS=[{id:'Paediatrics',ico:'👶',color:'#ea580c'},{id:'Pharmacology & Therapeutics',ico:'💊',color:'#0891b2'},{id:'Psychiatry / Neurology',ico:'🧠',color:'#7c3aed'},{id:'Renal / Urology',ico:'🫘',color:'#0d7377'},{id:'Reproductive',ico:'🤰',color:'#db2777'},{id:'Respiratory',ico:'🫁',color:'#059669'},{id:'Cardiovascular',ico:'❤️',color:'#e11d48'},{id:'Dermatology / ENT / Eyes',ico:'👁️',color:'#7c2d12'},{id:'Endocrinology / Metabolic',ico:'⚗️',color:'#ca8a04'},{id:'Gastroenterology / Nutrition',ico:'🫀',color:'#16a34a'},{id:'Infectious Disease / Haematology / Immunology / Allergies / Genetics',ico:'🦠',color:'#6d28d9'},{id:'Musculoskeletal',ico:'🦴',color:'#b45309'}];
 const ALL_BADGES=[{key:'first_correct',name:'First Blood',ico:'🎯',xp:10},{key:'streak_3',name:'On a Roll',ico:'🔥',xp:25},{key:'streak_7',name:'Week Warrior',ico:'🔥',xp:75},{key:'streak_30',name:'Iron Discipline',ico:'💎',xp:300},{key:'q_50',name:'Getting Started',ico:'📋',xp:50},{key:'q_100',name:'Century',ico:'💯',xp:100},{key:'q_500',name:'Dedicated',ico:'⭐',xp:250},{key:'perfect_10',name:'Perfect Ten',ico:'✨',xp:100},{key:'accuracy_80',name:'Sharp Mind',ico:'🧠',xp:150},{key:'top_10',name:'Top 10',ico:'🥈',xp:100},{key:'weekly_winner',name:'Weekly Champion',ico:'🏆',xp:200},{key:'duel_winner',name:'Duel Victor',ico:'⚔️',xp:75}];
 
+function updateTopbarXp(xp){
+  const el=document.getElementById('topbarXp'); if(!el)return;
+  el.innerHTML=`<svg viewBox='0 0 24 24' style='width:12px;height:12px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg> ${xp} XP`;
+}
 async function updateStreak(userId,profile){
-  const today=new Date().toISOString().split('T')[0];
-  const lastActive=profile?.last_active_date;
-  if(lastActive===today)return null;
-  let streak=profile?.current_streak||0;
-  let best=profile?.best_streak||0;
-  const yd=new Date();yd.setDate(yd.getDate()-1);
-  const yStr=yd.toISOString().split('T')[0];
-  streak=(lastActive===yStr)?streak+1:1;
-  best=Math.max(streak,best);
-  await sb.from('profiles').update({current_streak:streak,best_streak:best,last_active_date:today}).eq('id',userId);
-  return{current_streak:streak,best_streak:best};
+  // Server-side (touch_activity): the client can no longer write streak fields.
+  const{data,error}=await sb.rpc('touch_activity');
+  if(error){console.warn('Streak update failed:',error.message);return null;}
+  return data;
 }
 
 function streakDots(streak){
@@ -359,7 +356,7 @@ async function init(){
   const su=await updateStreak(user.id,profile);
   const streak=su?.current_streak||profile?.current_streak||0;
   const best=su?.best_streak||profile?.best_streak||0;
-  const xp=profile?.xp||0;
+  let xp=profile?.xp||0;
   document.getElementById('topbarStreak').innerHTML=`<svg viewBox='0 0 24 24' style='width:12px;height:12px;fill:none;stroke:#9b2058;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polyline points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg> ${streak} day`;
   document.getElementById('topbarXp').innerHTML=`<svg viewBox='0 0 24 24' style='width:12px;height:12px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg> ${xp} XP`;
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox='0 0 24 24' style='width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;'><polyline points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg> ${streak} day streak`;
@@ -403,24 +400,14 @@ async function init(){
   }catch(e){console.warn('Timed exam card failed:',e);}
   const diff=accuracy-platformAvg;
 
-  // Check and award badges
-  const toAward=[];
-  if(answered>=1&&correct>=1)toAward.push('first_correct');
-  if(streak>=3)toAward.push('streak_3');
-  if(streak>=7)toAward.push('streak_7');
-  if(streak>=30)toAward.push('streak_30');
-  if(answered>=50)toAward.push('q_50');
-  if(answered>=100)toAward.push('q_100');
-  if(answered>=500)toAward.push('q_500');
-  if(accuracy>=80&&answered>=20)toAward.push('accuracy_80');
-  for(const k of toAward){
-    if(!earnedKeys.has(k)){
-      await sb.from('user_badges').insert({user_id:user.id,badge_key:k}).then(()=>{});
-      const badge=ALL_BADGES.find(b=>b.key===k);
-      if(badge)await sb.from('profiles').update({xp:xp+badge.xp}).eq('id',user.id);
-      earnedKeys.add(k);
-    }
-  }
+  // Badges are evaluated and awarded server-side (claim_badges); XP for each
+  // badge is added by the XP ledger, never by the client.
+  try{
+    const{data:cb,error:cbErr}=await sb.rpc('claim_badges');
+    if(cbErr)throw cbErr;
+    (cb?.new_badges||[]).forEach(k=>earnedKeys.add(k));
+    if(typeof cb?.xp_total==='number'){xp=cb.xp_total;updateTopbarXp(xp);}
+  }catch(e){console.warn('Badge check failed:',e.message||e);}
 
   // Random greeting (picked fresh on each page load)
   const GREETINGS=[
