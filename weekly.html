@@ -507,8 +507,7 @@ async function finishChallenge(){
   clearInterval(timerInterval);
   const weekStart=getWeekStart();
   await sb.from('weekly_entries').upsert({user_id:user.id,week_start:weekStart,score,total:questions.length,time_taken:elapsed},{onConflict:'user_id,week_start'});
-  // Award XP
-  await sb.from('profiles').update({xp:(profile?.xp||0)+score*5}).eq('id',user.id);
+  // XP (score × 5, once per week) is awarded by the database when the entry is saved.
   const pct=Math.round((score/questions.length)*100);
   const emoji=pct>=80?'🏆':pct>=60?'⚡':'💪';
   const mins=Math.floor(elapsed/60);const secs=elapsed%60;

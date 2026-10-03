@@ -421,7 +421,7 @@ function showSection(id){
 async function saveProfile(){
   const btn=document.getElementById('saveProfileBtn');
   btn.textContent='Saving…'; btn.disabled=true;
-  const updates={full_name:document.getElementById('fName').value.trim(),username:document.getElementById('fUsername').value.trim().replace('@',''),role:document.getElementById('fRole').value.trim(),hospital_trust:document.getElementById('fHospital').value.trim(),updated_at:new Date().toISOString()};
+  const updates={full_name:document.getElementById('fName').value.trim(),username:document.getElementById('fUsername').value.trim().replace('@',''),role:document.getElementById('fRole').value.trim(),hospital_trust:document.getElementById('fHospital').value.trim()};
   const{error}=await sb.from('profiles').update(updates).eq('id',myId);
   const alertEl=document.getElementById('profileAlert');
   if(error){alertEl.textContent='Error: '+error.message;alertEl.className='acc-alert err show';}

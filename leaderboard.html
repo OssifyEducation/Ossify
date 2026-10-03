@@ -211,6 +211,9 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .podium-name{font-size:13px;font-weight:600;color:var(--pu-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .podium-score{font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--pu-mid);}
 .lb-table{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;}
+.lb-sep{padding:6px 16px;font-size:11px;color:var(--muted);text-align:center;letter-spacing:2px;border-bottom:0.5px solid var(--lav-border);}
+.lb-xp{font-family:var(--font-serif);font-size:15px;color:var(--pu-dark);font-variant-numeric:tabular-nums;}
+.lb-note{font-size:11.5px;color:var(--muted);margin:-8px 0 14px;}
 .lb-table-header{display:grid;grid-template-columns:52px 1fr 90px 90px 70px;padding:9px 16px;font-size:10.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;border-bottom:0.5px solid var(--lav-border);}
 .lb-row{display:grid;grid-template-columns:52px 1fr 90px 90px 70px;padding:12px 16px;border-bottom:0.5px solid rgba(180,150,220,0.1);align-items:center;transition:background 0.12s;}
 .lb-row:last-child{border-bottom:none;}
@@ -293,11 +296,12 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
   </div>
 </div>
 <div class="lb-tabs">
-  <button class="lb-tab active" onclick="setSort('accuracy')">Accuracy</button>
+  <button class="lb-tab active" onclick="setSort('xp')">XP</button>
   <button class="lb-tab" onclick="setSort('answered')">Questions</button>
+  <button class="lb-tab" onclick="setSort('accuracy')" title="Doctors with at least 20 questions answered">Accuracy</button>
   <button class="lb-tab" onclick="setSort('streak')">Streak</button>
-  <button class="lb-tab" onclick="setSort('xp')">XP</button>
 </div>
+<div class="lb-note" id="lbNote"></div>
 <div id="podiumWrap"></div>
 <div class="lb-table">
   <div style="position:relative;">
@@ -307,7 +311,7 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
     </div>
   </div>
   <div class="lb-table-header">
-    <span>Rank</span><span>Doctor</span><span>Accuracy</span><span>Questions</span><span>Streak</span>
+    <span>Rank</span><span>Doctor</span><span>XP</span><span>Correct / Qs</span><span>Accuracy</span>
   </div>
   <div id="lbList"><div class="empty-state">Loading…</div></div>
 </div>
@@ -334,7 +338,10 @@ function setUserInfo(name, username){
 
 
 
-let myId=null, allUsers=[], sortMode='accuracy';
+let myId=null, allUsers=[], sortMode='xp';
+const MIN_FOR_ACCURACY=20;   // accuracy view ignores tiny samples
+// Names are user-supplied: always escape before inserting into HTML
+const escH=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const COLORS=['#7c5cbf','#9b6fd4','#b28ae0','#6b5b95','#8b7bb5','#a78bfa','#6366f1','#818cf8'];
 
 async function init(){
@@ -344,42 +351,66 @@ async function init(){
   const name=session.user.user_metadata?.full_name||session.user.email.split('@')[0];
   setUserInfo(name, null);
   const{data:profile}=await sb.from('profiles').select('*').eq('id',myId).single();
+  window.__myProfile=profile;
   updateTopbar(profile);
   if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
   await loadLeaderboard();
 }
 
+// Ranks come from the server (get_leaderboard): XP desc, then correct answers
+// desc, competition ranking (1, 2, 2, 4). XP itself is computed by the
+// database from graded answers, so the page only ever displays it.
 async function loadLeaderboard(){
-  const{data:profiles}=await sb.from('profiles').select('id,email,username,full_name,role,hospital_trust,total_correct,total_answered,current_streak,best_streak,xp').order('xp',{ascending:false}).limit(100);
-  if(!profiles?.length){
+  const{data:rows,error}=await sb.rpc('get_leaderboard',{p_limit:100});
+  if(error){
+    document.getElementById('lbList').innerHTML='<div class="empty-state">Couldn’t load the leaderboard. Refresh to try again.</div>';
+    return;
+  }
+  if(!rows?.length){
     document.getElementById('lbList').innerHTML='<div class="empty-state">No users yet — be the first to practise!</div>';
     return;
   }
-  allUsers=profiles.map((p,i)=>({
+  allUsers=rows.map((p,i)=>({
     ...p,
-    name:p.full_name||p.email?.split('@')[0]||'Doctor',
-    accuracy:p.total_answered>0?Math.round((p.total_correct/p.total_answered)*100):0,
-    isMe:p.id===myId,
+    xp:Number(p.xp)||0, rank:Number(p.rank),
+    total_correct:Number(p.total_correct)||0, total_answered:Number(p.total_answered)||0,
+    current_streak:Number(p.current_streak)||0,
+    name:p.display_name||'Doctor',
+    accuracy:Math.round(Number(p.accuracy)||0),
+    isMe:p.is_me,
     color:COLORS[i%COLORS.length],
   }));
-  const myRank=allUsers.findIndex(u=>u.isMe)+1;
-  document.getElementById('lbSubtitle').textContent=`${allUsers.length} doctors competing · You are ${myRank>0?'#'+myRank:'not yet ranked'}`;
+  const me=allUsers.find(u=>u.isMe);
+  const competing=allUsers.filter(u=>u.xp>0||u.total_answered>0).length;
+  document.getElementById('lbSubtitle').textContent=`${competing} doctor${competing===1?'':'s'} ranked by XP · ${me&&(me.xp>0||me.total_answered>0)?'You are #'+me.rank+' with '+me.xp+' XP':'Answer a question to get on the board'}`;
+  if(me)updateTopbar({...(window.__myProfile||{}),xp:me.xp,current_streak:me.current_streak});
   renderLeaderboard();
 }
 
+// Refetch whenever the page becomes visible again (e.g. after practising in another tab)
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&myId)loadLeaderboard();});
+setInterval(()=>{if(document.visibilityState==='visible'&&myId)loadLeaderboard();},60000);
+
 function setSort(mode){
   sortMode=mode;
-  document.querySelectorAll('.lb-tab').forEach((t,i)=>t.classList.toggle('active',['accuracy','answered','streak','xp'][i]===mode));
+  document.querySelectorAll('.lb-tab').forEach((t,i)=>t.classList.toggle('active',['xp','answered','accuracy','streak'][i]===mode));
   renderLeaderboard();
 }
 
 function renderLeaderboard(){
-  const sorted=[...allUsers].sort((a,b)=>{
-    if(sortMode==='accuracy')return b.accuracy-a.accuracy||b.total_answered-a.total_answered;
-    if(sortMode==='answered')return b.total_answered-a.total_answered;
-    if(sortMode==='streak')return b.current_streak-a.current_streak;
-    return b.xp-a.xp;
+  const pool=allUsers.filter(u=>u.xp>0||u.total_answered>0||u.isMe)
+    .filter(u=>sortMode!=='accuracy'||u.total_answered>=MIN_FOR_ACCURACY);
+  const sorted=[...pool].sort((a,b)=>{
+    if(sortMode==='accuracy')return b.accuracy-a.accuracy||b.total_correct-a.total_correct||a.rank-b.rank;
+    if(sortMode==='answered')return b.total_answered-a.total_answered||a.rank-b.rank;
+    if(sortMode==='streak')return b.current_streak-a.current_streak||a.rank-b.rank;
+    return a.rank-b.rank;   // server XP rank (deterministic)
   });
+  // position shown: server XP rank on the XP tab, competition rank of the chosen metric otherwise
+  const metric=u=>sortMode==='accuracy'?u.accuracy:sortMode==='answered'?u.total_answered:sortMode==='streak'?u.current_streak:null;
+  const posOf=u=>{ if(sortMode==='xp')return u.rank; const v=metric(u); return sorted.findIndex(x=>metric(x)===v)+1; };
+  const note=document.getElementById('lbNote');
+  if(note)note.textContent=sortMode==='accuracy'?`Accuracy view includes doctors with at least ${MIN_FOR_ACCURACY} questions answered.`:'';
   const q=(document.getElementById('lbSearch')?.value||'').toLowerCase();
   const filtered=q?sorted.filter(u=>(u.name||'').toLowerCase().includes(q)||(u.username||'').toLowerCase().includes(q)):sorted;
 
@@ -389,34 +420,35 @@ function renderLeaderboard(){
   const podiumOrder=top3.length>=2?[top3[1],top3[0],top3[2]].filter(Boolean):top3;
   document.getElementById('podiumWrap').innerHTML=top3.length<2?'':
   `<div class="podium">${podiumOrder.map(u=>{
-    const rank=top3.indexOf(u);
+    const rank=posOf(u)-1;
     const scoreVal=sortMode==='accuracy'?u.accuracy+'%':sortMode==='answered'?u.total_answered:sortMode==='streak'?u.current_streak+'d':u.xp+' XP';
     return`<div class="podium-item ${rank===0?'first':''}">
       <div class="podium-medal">${medals[rank]}</div>
-      <div class="podium-av" style="background:${u.color}">${(u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div>
-      <div class="podium-name">${u.name}${u.isMe?'<span class="lb-you-badge">You</span>':''}</div>
+      <div class="podium-av" style="background:${u.color}">${escH((u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase())}</div>
+      <div class="podium-name">${escH(u.name)}${u.isMe?'<span class="lb-you-badge">You</span>':''}</div>
       <div class="podium-score">${scoreVal}</div>
     </div>`;
   }).join('')}</div>`;
 
   // Rows
   document.getElementById('lbList').innerHTML=filtered.length?filtered.map((u,i)=>{
-    const rank=sorted.indexOf(u)+1;
+    const rank=posOf(u);
+    const gap=i>0&&rank>posOf(filtered[i-1])+1&&u.isMe?'<div class="lb-sep" aria-hidden="true">···</div>':'';
     const rankCls=rank===1?'gold':rank===2?'silver':rank===3?'bronze':'';
     const rankDisplay=rank<=3?medals[rank-1]:rank;
     const scoreVal=sortMode==='accuracy'?u.accuracy+'%':sortMode==='answered'?u.total_answered:sortMode==='streak'?u.current_streak+'d':u.xp+' XP';
-    return`<div class="lb-row ${u.isMe?'me':''}">
+    return`${gap}<div class="lb-row ${u.isMe?'me':''}" ${u.isMe?'aria-current="true"':''}>
       <div class="lb-rank ${rankCls}">${rankDisplay}</div>
       <div class="lb-user-info">
-        <div class="lb-av" style="background:${u.color}">${(u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase()}</div>
+        <div class="lb-av" style="background:${u.color}">${escH((u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase())}</div>
         <div>
-          <div class="lb-name">${u.name}${u.isMe?'<span class="lb-you-badge">You</span>':''}</div>
-          <div class="lb-sub">${u.username?'@'+u.username:u.hospital_trust||u.role||''}</div>
+          <div class="lb-name">${escH(u.name)}${u.isMe?'<span class="lb-you-badge">You</span>':''}</div>
+          <div class="lb-sub">${escH(u.username?'@'+u.username:u.subtitle||'')}</div>
         </div>
       </div>
-      <div class="lb-score">${u.accuracy}%</div>
-      <div class="lb-answered">${u.total_answered||0}</div>
-      <div class="lb-streak"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>${u.current_streak||0}</div>
+      <div class="lb-score lb-xp">${u.xp.toLocaleString('en-GB')}</div>
+      <div class="lb-answered">${u.total_correct} / ${u.total_answered}</div>
+      <div class="lb-streak">${u.total_answered?u.accuracy+'%':'—'}</div>
     </div>`;
   }).join(''):'<div class="empty-state">No results found</div>';
 }
