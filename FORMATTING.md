@@ -100,3 +100,11 @@ Correct/wrong colours are **hidden during an active exam session** — they only
 | After results overlay | "Review answers" enters reviewMode | N/A |
 | Nav dot colours | Hidden (neutral grey) | Correct/wrong shown |
 
+
+---
+
+## 7. Shared renderer (since Timed Exam Mode)
+
+The Tutor Mode renderer now lives in **`js/ossify-tutor.js`** and **`css/ossify-tutor.css`**, loaded by both `practice.html` and `exam.html` (Timed Exam review). The code was moved verbatim, so every locked format above still applies — edit it there, not in the pages. Helpers: `renderEmqSetHeader`, `getStemAnnotations`, `annotateStem`, `renderAnsweredOption`, `renderTutorPanels(q, selected, tc, opts)` (opts is optional; practice.html passes none), plus the toggle functions and the stem tooltip handler.
+
+The stem tooltip handler now looks up `#stemTip` when an event fires (previously it ran before the element existed, so tooltips never appeared). It also shows on keyboard focus.
