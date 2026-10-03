@@ -108,3 +108,18 @@ Correct/wrong colours are **hidden during an active exam session** — they only
 The Tutor Mode renderer now lives in **`js/ossify-tutor.js`** and **`css/ossify-tutor.css`**, loaded by both `practice.html` and `exam.html` (Timed Exam review). The code was moved verbatim, so every locked format above still applies — edit it there, not in the pages. Helpers: `renderEmqSetHeader`, `getStemAnnotations`, `annotateStem`, `renderAnsweredOption`, `renderTutorPanels(q, selected, tc, opts)` (opts is optional; practice.html passes none), plus the toggle functions and the stem tooltip handler.
 
 The stem tooltip handler now looks up `#stemTip` when an event fires (previously it ran before the element existed, so tooltips never appeared). It also shows on keyboard focus.
+
+---
+
+## 8. Stem-highlight annotation data (SBA and EMQ)
+
+One renderer serves both types: `getStemAnnotations(q, tc)` → `annotateStem()` in `js/ossify-tutor.js`. Only the data location differs:
+
+| | Useful (yellow `.stem-clue`) | Distractor (blue `.stem-distractor`) |
+|---|---|---|
+| SBA | `tutor_content.key_clues[]` | `tutor_content.key_distractors[]` |
+| EMQ | `tutor_content.this_scenario.key_clues[]` | `tutor_content.this_scenario.distractors[]` |
+
+Each entry has the form `"verbatim phrase from the stem" — explanation` (an optional trailing ` |` is ignored). The quoted phrase must appear in that row's own `stem` to be highlighted, and the explanation becomes the tooltip. EMQ annotations are stored per scenario row, so they can never leak between scenarios in the same set.
+
+`references` must contain only that scenario's `[n]  text` lines. See `supabase/migrations/20261003_emq_spilled_content_repair.sql` for the import fault this rule guards against.
