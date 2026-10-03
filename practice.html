@@ -613,7 +613,6 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 
 // ── Config ──
@@ -662,6 +661,7 @@ function setMode(m) {
   mode = m;
   document.getElementById('examModeBtn').classList.toggle('active', m === 'exam');
   document.getElementById('tutorModeBtn').classList.toggle('active', m === 'tutor');
+  pendingSelection = -1;
   if (sessionActive) renderQuestion(currentIdx);
 }
 
@@ -781,6 +781,7 @@ function goTo(i) {
 }
 
 function nextQuestion() {
+  pendingSelection = -1;
   if (currentIdx < questions.length - 1) {
     goTo(currentIdx + 1);
   } else {
@@ -789,6 +790,7 @@ function nextQuestion() {
 }
 
 function prevQuestion() {
+  pendingSelection = -1;
   if (currentIdx > 0) goTo(currentIdx - 1);
 }
 
@@ -1050,20 +1052,6 @@ function tpBriefFallback(det) {
   return m ? m[1].trim() + '.' : det.substring(0, 180).trim();
 }
 
-function tpParseSBAKeyContent(arr) {
-  if (!arr || !arr.length) return { clues: [], distractors: [] };
-  const clues = [], distractors = [];
-  let mode = 'clue';
-  for (const item of arr) {
-    if (typeof item !== 'string') continue;
-    if (item.includes('cyan-highlighted') || item.toLowerCase().includes('why the cyan')) { mode = 'distractor'; continue; }
-    if (!item.startsWith('"')) continue;
-    const p = tpParseClueStr(item);
-    if (!p) continue;
-    (mode === 'clue' ? clues : distractors).push(p);
-  }
-  return { clues, distractors };
-}
 
 function tpClueRowHtml(c, type, idx) {
   const tagCls  = type === 'clue' ? 'tag-tp-clue' : 'tag-tp-dist';
@@ -1077,25 +1065,6 @@ function tpClueRowHtml(c, type, idx) {
   </div><div class="${detCls}">${escapeHtml(c.explanation)}</div>`;
 }
 
-function tpAnswerBlockHtml(letter, label, brief, detailed, isCorrect, isSelected) {
-  const circCls = isCorrect ? 'correct' : (isSelected ? 'wrong' : 'neutral');
-  const statusCls = isCorrect ? 'correct' : (isSelected ? 'wrong' : 'neutral');
-  const statusTxt = isCorrect ? '✓ Correct Answer' : (isSelected ? '✗ Incorrect' : 'Incorrect');
-  const displayBrief = brief || tpBriefFallback(detailed);
-  const detId = 'tp-det-' + letter;
-  const paras = detailed ? detailed.split(/\n\n+/).map(p => `<p>${escapeHtml(p)}</p>`).join('') : '';
-  return `<div class="ans-block${isCorrect ? ' is-correct' : (isSelected ? ' is-wrong' : '')}">
-    <div class="ans-block-header">
-      <div class="ans-circle ${circCls}">${escapeHtml(letter)}</div>
-      <div class="ans-meta">
-        <div class="ans-status ${statusCls}">${statusTxt}</div>
-        <div class="ans-brief">${escapeHtml(displayBrief)}</div>
-      </div>
-      ${paras ? `<button class="btn-tp-detail" onclick="tpToggleDetail('${detId}',this)">Detailed Explanation</button>` : ''}
-    </div>
-    ${paras ? `<div class="ans-detail-body" id="${detId}">${paras}</div>` : ''}
-  </div>`;
-}
 
 function renderTutorPanels(q, selected, tc) {
   const letters = ['A','B','C','D','E','F','G','H','I','J'];
@@ -1245,7 +1214,7 @@ function renderTutorPanels(q, selected, tc) {
 function selectAnswer(idx) {
   if (answers[questions[currentIdx].question_id] !== undefined) return;
   pendingSelection = idx;
-  console.log('selectAnswer: set pending to', idx);
+  
   // Update visual + enable submit
   document.querySelectorAll('.option-btn').forEach((btn, i) => {
     btn.classList.toggle('selected', i === idx);
@@ -1258,8 +1227,8 @@ function submitAnswer() {
   const q = questions[currentIdx];
   // Use tracked selection (more reliable than scanning for CSS class)
   const selected = pendingSelection;
-  console.log('submitAnswer called, pending:', selected, 'mode:', mode);
-  if (selected === -1) { console.warn('submitAnswer: no selection, returning'); return; }
+  
+  
   pendingSelection = -1; // consume it
 
   answers[q.question_id] = selected;
@@ -1285,10 +1254,10 @@ function submitAnswer() {
 function skipQuestion() {
   const q = questions[currentIdx];
   answers[q.question_id] = null;
+  pendingSelection = -1;
   renderNav();
-  renderQuestion(currentIdx);
   updateProgress();
-  nextQuestion();
+  nextQuestion(); // move on without re-rendering current (avoids revealing answer on skip)
 }
 
 // ── Helpers ──
