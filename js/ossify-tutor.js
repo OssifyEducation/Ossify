@@ -214,26 +214,21 @@ function renderTutorPanels(q, selected, tc, opts) {
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // !! LOCKED FORMAT — do not change without explicit instruction !!
-  // High-yield summary: split on •\s+, strip trailing [N] ref markers,
-  // render each as .hys-bullet-item (teal dot + text + border-bottom).
+  // High-yield summary: parsed by parseHighYieldSummary() (below); each list
+  // item renders as .hys-bullet-item (teal dot + text + border-bottom), trailing
+  // [N] ref markers stripped, panel starts COLLAPSED.
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ── 3. High-yield summary ──
   if (tc.high_yield_summary) {
-    const bullets = tc.high_yield_summary
-      .replace(/^Key Points to Memorise\s*/i, '')
-      .split(/•\s+/)
-      .map(s => s.trim().replace(/\s*\[\d+\]\s*$/, '').trim())  // strip trailing [1] ref markers
-      .filter(s => s.length > 5);
-    if (bullets.length) {
+    const hysHtml = renderHighYieldSummary(tc.high_yield_summary);
+    if (hysHtml) {
       html += `<div class="hys-panel">
         <div class="panel-header" onclick="togglePanel(this)">
           <div class="panel-title teal">⚡ High-yield summary</div>
           <span class="panel-chevron">▼</span>
         </div>
         <div class="panel-body" style="display:none">
-          <div class="hys-body">${bullets.map(b =>
-            `<div class="hys-bullet-item"><span class="hys-dot">•</span><span>${escapeHtml(b)}</span></div>`
-          ).join('')}</div>
+          <div class="hys-body">${hysHtml}</div>
         </div>
       </div>`;
     }
@@ -322,6 +317,117 @@ function renderTutorPanels(q, selected, tc, opts) {
 
   html += `</div>`;
   return html;
+}
+
+// ── High-yield summary parsing ──────────────────────────────────────────────
+// Stored as plain text. Two inline formats exist in the bank (no newlines):
+//   "•  Point one. •  Point two."          (500 questions)
+//   "- Point one. - Point two."            (356 questions)
+// Future content may also use newline-separated lines with -, *, •, or 1.
+// markers, paragraphs, "## headings", and **bold** / *italic*.
+// Returns blocks: { type: 'p' | 'h' | 'ul' | 'ol', text | items }.
+// A bullet marker is a standalone • or - with whitespace after it and the
+// start of the text (or whitespace) before it, so hyphenated words, ranges
+// like 3–5 and em dashes (—) are never treated as bullets.
+const HYS_INLINE_MARKER = /(?:^|\s+)[•\-](?=\s)\s*/;
+const HYS_LINE_ITEM = /^\s*(?:([•\-*–])|(\d{1,2})[.)])\s+(.*)$/;
+
+function hysCleanItem(t) {
+  return t.trim().replace(/\s*\[\d+\]\s*$/, '').trim();   // strip trailing [1] ref markers
+}
+
+function hysSplitInline(text) {
+  // → { lead: text before the first marker, items: [...] }
+  const t = text.trim();
+  if (!HYS_INLINE_MARKER.test(t)) return { lead: t, items: [] };
+  const parts = t.split(new RegExp(HYS_INLINE_MARKER.source, 'g'));
+  const startsWithMarker = /^[•\-]\s/.test(t);
+  const lead = startsWithMarker ? '' : parts.shift();
+  return { lead: lead.trim(), items: parts.map(hysCleanItem).filter(s => s.length > 5) };
+}
+
+// Some imported summaries carry a "📚 Full Reference List [1] … [2] …" tail.
+// It is kept (content is not altered) but rendered as a reference list, never
+// glued onto the last bullet.
+const HYS_REFS_MARKER = /(?:📚\s*)?Full Reference List\s*/i;
+
+function hysSplitRefs(text) {
+  const m = text.match(HYS_REFS_MARKER);
+  if (!m) return { main: text, refs: null };
+  const refsText = text.slice(m.index + m[0].length);
+  const refs = [];
+  const re = /\[(\d+)\]\s*([\s\S]*?)(?=\s*\[\d+\]\s|$)/g;
+  let r, lead = refsText.split(/\[\d+\]/)[0].trim();
+  if (lead) refs.push({ num: '', text: lead });
+  while ((r = re.exec(refsText)) !== null) { if (r[2].trim()) refs.push({ num: `[${r[1]}]`, text: r[2].trim() }); }
+  return { main: text.slice(0, m.index), refs };
+}
+
+function parseHighYieldSummary(raw) {
+  const split = hysSplitRefs(String(raw || '').replace(/\r\n?/g, '\n').replace(/^\s*Key Points to Memorise\s*/i, ''));
+  const blocks = parseHighYieldBody(split.main);
+  if (split.refs && split.refs.length) blocks.push({ type: 'refs', items: split.refs });
+  return blocks;
+}
+
+function parseHighYieldBody(text) {
+  const blocks = [];
+  const pushList = (type, item) => {
+    const last = blocks[blocks.length - 1];
+    if (last && last.type === type) last.items.push(item); else blocks.push({ type, items: [item] });
+  };
+  const pushInline = (line) => {
+    const { lead, items } = hysSplitInline(line);
+    if (lead) blocks.push({ type: 'p', text: hysCleanItem(lead) });
+    items.forEach(i => pushList('ul', i));
+  };
+  if (!text.includes('\n')) { pushInline(text); return blocks.filter(b => b.text || (b.items && b.items.length)); }
+
+  let para = [];
+  const flushPara = () => { if (para.length) { pushInline(para.join(' ')); para = []; } };
+  text.split('\n').forEach(line => {
+    if (!line.trim()) { flushPara(); blocks.push({ type: 'break' }); return; }
+    const h = line.match(/^\s*#{1,4}\s+(.*)$/);
+    if (h) { flushPara(); blocks.push({ type: 'h', text: h[1].trim() }); return; }
+    const m = line.match(HYS_LINE_ITEM);
+    if (m) {
+      flushPara();
+      const item = hysCleanItem(m[3]);
+      if (item.length > 1) {
+        // a list line can itself hold further inline • items
+        const inner = hysSplitInline(item);
+        pushList(m[2] ? 'ol' : 'ul', inner.lead || item);
+        inner.lead && inner.items.forEach(i => pushList('ul', i));
+      }
+      return;
+    }
+    para.push(line.trim());
+  });
+  flushPara();
+  // a 'break' only separates; drop it and keep lists split across blank lines merged-as-written
+  return blocks.filter(b => b.type !== 'break' && (b.text || (b.items && b.items.length)));
+}
+
+// Escape first, then allow only **bold** and *italic* — no raw HTML ever reaches the page.
+function hysInline(t) {
+  return escapeHtml(t)
+    .replace(/\*\*(?=\S)([^*]+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[\s(])\*(?=\S)([^*]+?)\*(?=[\s).,;:!?]|$)/g, '$1<em>$2</em>');
+}
+
+function renderHighYieldSummary(raw) {
+  const blocks = parseHighYieldSummary(raw);
+  if (!blocks.length) return '';
+  return blocks.map(b => {
+    if (b.type === 'p') return `<p class="hys-para">${hysInline(b.text)}</p>`;
+    if (b.type === 'h') return `<div class="hys-heading">${hysInline(b.text)}</div>`;
+    if (b.type === 'refs') return `<div class="hys-heading hys-refs-heading">📚 Full Reference List</div><div class="refs-body hys-refs">${b.items.map(r =>
+      r.num ? `<div class="ref-item"><span class="ref-num">${escapeHtml(r.num)}</span><span class="ref-text">${escapeHtml(r.text)}</span></div>`
+            : `<div class="ref-preamble">${escapeHtml(r.text)}</div>`).join('')}</div>`;
+    return `<div class="hys-list" role="list">${b.items.map((it, i) =>
+      `<div class="hys-bullet-item" role="listitem"><span class="hys-dot${b.type === 'ol' ? ' hys-num' : ''}" aria-hidden="true">${b.type === 'ol' ? (i + 1) + '.' : '•'}</span><span class="hys-text">${hysInline(it)}</span></div>`
+    ).join('')}</div>`;
+  }).join('');
 }
 
 // ── Shared question-rendering helpers (extracted from practice.html renderQuestion) ──
