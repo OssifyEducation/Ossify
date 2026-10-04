@@ -982,6 +982,15 @@ document.addEventListener('keydown', e => {
   }
 });
 
+// ── Deep links: practice.html?topic=<specialty> preselects that specialty ──
+(function () {
+  const t = new URLSearchParams(location.search).get('topic');
+  const sel = document.getElementById('topicFilter');
+  if (!t || !sel) return;
+  const opt = [...sel.options].find(o => o.value === t || o.text === t);
+  if (opt) { sel.value = opt.value || opt.text; sel.dispatchEvent(new Event('change')); }
+})();
+
 // ── Sidebar user info ────────────────────────────────────────────────────────
 (async () => {
   try {
