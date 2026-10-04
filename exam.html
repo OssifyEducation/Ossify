@@ -9,24 +9,22 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
 <script src="js/ossify-tutor.js"></script>
+<link rel="stylesheet" href="css/ossify.css">
 <style>
 :root{
-  --pu-dark:#3d1f7a;--pu-mid:#7c5cbf;--pu-light:#a78bfa;
-  --pu-pale:#ede9fe;--pu-ultra:#f5f0ff;
-  --pk-mid:#f472b6;--pk-pale:#fce7f0;--pk-border:#f0a8c8;
-  --lav:#f0eaff;--lav-card:rgba(255,255,255,0.88);--lav-border:rgba(180,150,220,0.25);
-  --ink:#3d1f7a;--moss:#7b6fa0;--muted:#8a76b3;
-  --red:#c0305a;--red-l:#fce7f0;
-  --teal:#2a9d8f;--teal-d:#1a6b5a;
-  --ok:#15803d;--ok-l:#f0fdf4;--ok-b:#86efac;
-  --warn:#92400e;--warn-l:#fef3c7;--warn-b:#f59e0b;
-  --font-serif:'Fraunces',Georgia,serif;
-  --font-sans:'Inter',system-ui,sans-serif;
+  /* page-only tokens; shared tokens live in css/ossify.css */
+  --teal:#2a9d8f;
+  --ok:#15803d;
+  --ok-l:#f0fdf4;
+  --ok-b:#86efac;
+  --warn:#92400e;
+  --warn-l:#fef3c7;
+  --warn-b:#f59e0b;
   --ease:cubic-bezier(.2,.7,.2,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;}
-body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);-webkit-font-smoothing:antialiased;display:block;min-height:0;}  /* exam wraps content in .app / .focus, not a flex body */
 button{font-family:inherit;}
 :focus-visible{outline:2px solid var(--pu-mid);outline-offset:2px;border-radius:6px;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
@@ -34,21 +32,7 @@ button{font-family:inherit;}
 
 /* ── App shell (intro / results): same sidebar as the rest of Ossify ── */
 .app{display:flex;min-height:100vh;}
-.sb{width:220px;flex-shrink:0;background:var(--pu-mid);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;}
-.sb::before{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:#9b6fd4;opacity:.25;pointer-events:none;}
-.sb-logo{padding:14px;cursor:pointer;}
-.sb-logo:hover{opacity:.85;}
-.sb-sec{padding:14px 10px 2px;}
-.sb-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);padding:0 8px;margin-bottom:4px;}
-.nv{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;font-size:12.5px;color:rgba(255,255,255,.62);margin-bottom:2px;text-decoration:none;transition:all .15s;}
-.nv svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
-.nv:hover{background:rgba(255,255,255,.1);color:#fff;}
-.nv.on{background:rgba(255,255,255,.18);color:#fff;font-weight:500;}
-.sb-foot{margin-top:auto;padding:12px 10px;border-top:1px solid rgba(255,255,255,.1);}
-.sb-av-row{display:flex;align-items:center;gap:9px;padding:6px 8px;}
-.sb-av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;border:2px solid rgba(255,255,255,.25);}
-.sb-uname{font-size:12px;font-weight:500;color:#fff;}
-.sb-usub{font-size:10px;color:rgba(255,255,255,.45);}
+
 .main{margin-left:220px;flex:1;display:flex;flex-direction:column;min-width:0;}
 .topbar{background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--lav-border);padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
 .tb-title{font-family:var(--font-serif);font-size:18px;font-weight:500;color:var(--pu-dark);}
@@ -74,7 +58,7 @@ button{font-family:inherit;}
 /* ── Intro ── */
 .intro{width:100%;max-width:640px;}
 .intro-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:22px;padding:44px 44px 38px;box-shadow:0 24px 60px -30px rgba(61,31,122,.35);position:relative;overflow:hidden;}
-.intro-card::after{content:'';position:absolute;right:-90px;top:-90px;width:260px;height:260px;border-radius:50%;border:1px solid var(--pu-pale);box-shadow:0 0 0 28px rgba(237,233,254,.45),0 0 0 56px rgba(237,233,254,.25);pointer-events:none;}
+.intro-card::after{content:"";position:absolute;right:-90px;top:-90px;width:260px;height:260px;border-radius:50%;border:1px solid var(--pu-pale);box-shadow:0 0 0 28px rgba(237,233,254,.45),0 0 0 56px rgba(237,233,254,.25);pointer-events:none;}
 .intro-kicker{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:12px;position:relative;}
 .intro h1{font-family:var(--font-serif);font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-1px;color:var(--pu-dark);position:relative;}
 .intro-spec{display:flex;align-items:baseline;gap:22px;margin:22px 0 18px;position:relative;}
@@ -83,7 +67,7 @@ button{font-family:inherit;}
 .intro-lead{font-size:15.5px;line-height:1.65;color:var(--moss);max-width:46ch;margin-bottom:26px;}
 .intro-tips{list-style:none;border-top:0.5px solid var(--lav-border);margin-bottom:24px;}
 .intro-tips li{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:0.5px solid var(--lav-border);font-size:14px;line-height:1.5;color:var(--ink);}
-.intro-tips li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--pk-mid);flex-shrink:0;transform:translateY(-2px);}
+.intro-tips li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pk-mid);flex-shrink:0;transform:translateY(-2px);}
 .intro-note{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:28px;}
 .intro-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .intro-last{font-size:12.5px;color:var(--muted);}
@@ -134,7 +118,7 @@ body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#
 .pal-title{font-size:13px;font-weight:600;color:var(--pu-dark);}
 .pal-sub{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
 .pal-filters{display:flex;flex-wrap:wrap;gap:5px;padding:0 18px 10px;}
-.chip{font-size:11.5px;font-weight:500;padding:5px 10px;border-radius:20px;border:0.5px solid var(--lav-border);background:#fff;color:var(--moss);cursor:pointer;transition:all .15s;}
+.chip{display:inline-block;gap:0;font-size:11.5px;font-weight:500;padding:5px 10px;border-radius:20px;border:0.5px solid var(--lav-border);background:#fff;color:var(--moss);cursor:pointer;transition:all .15s;}
 .chip:hover{border-color:var(--pu-light);color:var(--pu-dark);}
 .chip[aria-pressed="true"]{background:var(--pu-dark);border-color:var(--pu-dark);color:#fff;}
 .pal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;padding:4px 18px 14px;overflow-y:auto;}
@@ -145,11 +129,11 @@ body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#
   display:flex;align-items:center;justify-content:center;transition:transform .12s var(--ease),background-color .15s,box-shadow .15s;}
 .q-dot:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(61,31,122,.14);}
 .q-dot.answered-skip{background:#e2e8f0;color:#334155;}
-.q-dot.answered-skip::before{content:'';position:absolute;bottom:4px;left:50%;width:10px;height:2px;margin-left:-5px;border-radius:2px;background:#64748b;}
+.q-dot.answered-skip::before{content:"";position:absolute;bottom:4px;left:50%;width:10px;height:2px;margin-left:-5px;border-radius:2px;background:#64748b;}
 .q-dot.answered-correct{background:#dcfce7;color:#166534;}
 .q-dot.answered-wrong{background:var(--pk-pale);color:var(--red);}
 .q-dot.not-answered{background:#f1f5f9;color:#64748b;box-shadow:inset 0 0 0 1px #cbd5e1;}
-.q-dot.flagged::after{content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 9px 9px 0;border-color:transparent var(--pk-mid) transparent transparent;border-top-right-radius:7px;}
+.q-dot.flagged::after{content:"";position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 9px 9px 0;border-color:transparent var(--pk-mid) transparent transparent;border-top-right-radius:7px;}
 .q-dot.active{background:#facc15;color:#713f12;font-weight:700;box-shadow:0 0 0 2px #f59e0b;}
 .q-dot.dim{opacity:.28;}
 .pal-legend{margin-top:auto;padding:12px 18px 16px;border-top:0.5px solid var(--lav-border);display:grid;grid-template-columns:1fr 1fr;gap:7px 10px;font-size:11px;color:var(--muted);}
@@ -309,28 +293,32 @@ body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#
       </svg>
     </div>
     <div class="sb-sec">
-      <div class="sb-lbl">Overview</div>
-      <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
-      <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a>
+    <div class="sb-lbl">Overview</div>
+    <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+    <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a>
     </div>
     <div class="sb-sec">
-      <div class="sb-lbl">Revision</div>
-      <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
-      <a class="nv on" href="exam.html" aria-current="page"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
-      <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge</a>
-      <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a>
+    <div class="sb-lbl">Learn</div>
+    <a class="nv" href="acronyms.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="12" y1="7" x2="16" y2="7"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="15" x2="16" y2="15"/></svg>Glossary</a>
     </div>
     <div class="sb-sec">
-      <div class="sb-lbl">Learn</div>
-      <a class="nv" href="acronyms.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Glossary</a>
-      <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+    <div class="sb-lbl">Revision</div>
+    <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
+    <a class="nv on" href="exam.html" aria-current="page"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
+    <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
+    <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a>
     </div>
     <div class="sb-sec">
-      <div class="sb-lbl">Account</div>
-      <a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
-      <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+    <div class="sb-lbl">Account</div>
+    <a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
     </div>
-    <div class="sb-foot">
+    <div class="sb-sec">
+    <div class="sb-lbl">Help</div>
+    <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+    <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+    <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
+    </div>
+  <div class="sb-foot">
       <div class="sb-av-row">
         <div class="sb-av" id="userAv">?</div>
         <div><div class="sb-uname" id="userName">—</div><div class="sb-usub">Ossify member</div></div>
