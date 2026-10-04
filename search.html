@@ -8,6 +8,7 @@
 <title>Search — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <style>
 
 :root{
@@ -354,7 +355,7 @@ const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';const SUPABASE_KEY
 function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
 
 function setUserInfo(name, username){
-  const i=(name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  const i=ossifyInitials(name);
   document.getElementById('userAv').textContent=i;
   document.getElementById('userName').textContent=name||'';
   if(username)document.getElementById('userUsername').textContent='@'+username;
@@ -378,7 +379,7 @@ async function init(){
 
   const{data:profile}=await sb.from('profiles').select('*').eq('id',myId).single();
   updateTopbar(profile);
-  setUserInfo(profile?.full_name||session.user.email.split('@')[0], profile?.username);
+  setUserInfo(ossifyDisplayName(profile, session.user), profile?.username);
 
   // Load full module index (all published modules with keywords)
   const{data:mods}=await sb.from('modules')
@@ -445,7 +446,10 @@ function doSearch(q){
 
 function highlight(text, q){
   if(!q||!text) return text||'';
-  const regex=new RegExp(`(${q.replace(/[.*+?^${}()|[\]\]/g,'\$&')})`, 'gi');
+  // escape regex metacharacters in the search term (kept outside a template
+  // literal: a "${" inside one broke parsing of this whole script)
+  const safe=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const regex=new RegExp('('+safe+')', 'gi');
   return text.replace(regex,'<mark>$1</mark>');
 }
 

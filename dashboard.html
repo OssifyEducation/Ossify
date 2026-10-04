@@ -6,6 +6,7 @@
 <title>Dashboard — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <style>
 :root{
   --pu-dark:#3d1f7a;
@@ -292,7 +293,7 @@ function updateTopbar(profile){
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
 }
 function setUserInfo(name, username){
-  const initials = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  const initials = ossifyInitials(name);
   document.getElementById('userAv').textContent = initials;
   document.getElementById('userName').textContent = name;
   if(username) document.getElementById('userUsername').textContent = '@'+username;
@@ -347,10 +348,12 @@ async function init(){
   const firstName=meta.first_name||meta.full_name?.trim().split(' ')[0]||user.email.split('@')[0];
   // Greeting uses "Dr. Surname" if surname is known, otherwise first name
   const first=surname?`Dr. ${surname}`:firstName;
-  const initials=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
-  document.getElementById('userAv').textContent=initials;
+  // (previously read an undefined `name`, i.e. window.name, leaving the sidebar blank)
+  let name=ossifyDisplayName(null,user);
+  document.getElementById('userAv').textContent=ossifyInitials(name, user.email);
   document.getElementById('userName').textContent=name;
   const{data:profile}=await sb.from('profiles').select('*').eq('id',user.id).single();
+  if(profile?.full_name){name=ossifyDisplayName(profile,user);document.getElementById('userAv').textContent=ossifyInitials(name, user.email);document.getElementById('userName').textContent=name;}
   const isPaid=profile?.subscription_status==='active';
   if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
   const su=await updateStreak(user.id,profile);

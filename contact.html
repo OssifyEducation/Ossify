@@ -6,6 +6,7 @@
 <title>Contact Us — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <style>
 :root{
   --pu-dark:#3d1f7a;
@@ -359,7 +360,7 @@ function updateTopbar(profile){
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
 }
 function setUserInfo(name, username){
-  const initials = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  const initials = ossifyInitials(name);
   document.getElementById('userAv').textContent = initials;
   document.getElementById('userName').textContent = name;
   if(username) document.getElementById('userUsername').textContent = '@'+username;
@@ -372,7 +373,7 @@ async function init(){
   if(!session){window.location.href='login.html';return;}
   const{data:profile}=await sb.from('profiles').select('*').eq('id',session.user.id).single();
   updateTopbar(profile);
-  const name=profile?.full_name||session.user.user_metadata?.full_name||session.user.email.split('@')[0];
+  const name=ossifyDisplayName(profile, session.user);
   setUserInfo(name, profile?.username);
   if(profile?.username)document.getElementById('userUsername').textContent='@'+profile.username;
   // Pre-fill email
