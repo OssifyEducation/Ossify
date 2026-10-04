@@ -9,42 +9,16 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
 <script src="js/ossify-tutor.js"></script>
+<link rel="stylesheet" href="css/ossify.css">
 <style>
 :root{
-  --pu-dark:#3d1f7a;--pu-mid:#7c5cbf;--pu-light:#a78bfa;
-  --pu-pale:#ede9fe;--pu-ultra:#f5f0ff;
-  --pk-mid:#f472b6;--pk-pale:#fce7f0;--pk-border:#f0a8c8;
-  --lav:#f0eaff;--lav-card:rgba(255,255,255,0.88);--lav-border:rgba(180,150,220,0.25);
-  --ink:#3d1f7a;--moss:#7b6fa0;--muted:#9b88c0;
-  --red:#c0305a;--red-l:#fce7f0;
-  --teal:#2a9d8f;--teal-d:#1a6b5a;
-  --font-serif:'Fraunces',Georgia,serif;
-  --font-sans:'Inter',system-ui,sans-serif;
+  /* page-only tokens; shared tokens live in css/ossify.css */
+  --teal:#2a9d8f;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased;}
 
 /* SIDEBAR */
-.sb{width:220px;flex-shrink:0;background:var(--pu-mid);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;}
-.sb::before{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:#9b6fd4;opacity:.25;pointer-events:none;}
-.sb::-webkit-scrollbar{width:3px;}
-.sb::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
-.sb-logo{padding:14px;}
-.sb-sec{padding:14px 10px 2px;}
-.sb-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);padding:0 8px;margin-bottom:4px;}
-.nv{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;font-size:12.5px;color:rgba(255,255,255,.55);margin-bottom:2px;text-decoration:none;cursor:pointer;transition:all .15s;border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans);}
-.nv svg{width:14px;height:14px;fill:none;stroke:rgba(255,255,255,.55);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:stroke .15s;}
-.nv:hover{background:rgba(255,255,255,.1);color:rgba(255,255,255,.9);}
-.nv:hover svg{stroke:rgba(255,255,255,.9);}
-.nv.on{background:rgba(255,255,255,.18);color:#fff;font-weight:500;}
-.nv.on svg{stroke:#fff;}
-.sb-foot{margin-top:auto;padding:12px 10px;border-top:1px solid rgba(255,255,255,.1);}
-.sb-av-row{display:flex;align-items:center;gap:9px;padding:6px 8px;}
-.sb-av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;flex-shrink:0;border:2px solid rgba(255,255,255,.25);}
-.sb-uname{font-size:12px;font-weight:500;color:#fff;}
-.sb-usub{font-size:10px;color:rgba(255,255,255,.38);}
-.sb-signout{width:100%;margin-top:7px;padding:7px;background:rgba(255,255,255,.06);border:0.5px solid rgba(255,255,255,.12);border-radius:7px;color:rgba(255,255,255,.45);font-size:11.5px;font-family:var(--font-sans);cursor:pointer;transition:all .15s;}
-.sb-signout:hover{background:rgba(255,255,255,.14);color:rgba(255,255,255,.8);}
 
 /* MAIN SHELL */
 .main{margin-left:220px;flex:1;display:flex;flex-direction:column;min-height:100vh;}
@@ -188,8 +162,8 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .clue-row:hover{background:var(--pu-ultra);}
 .clue-row.open{background:var(--pu-ultra);border-color:var(--lav-border);}
 .clue-quote{font-size:12.5px;font-weight:500;color:var(--ink);}
-.clue-quote::before{content:'"';color:var(--pu-mid);}
-.clue-quote::after{content:'"';color:var(--pu-mid);}
+.clue-quote::before{content:"\"";color:var(--pu-mid);}
+.clue-quote::after{content:"\"";color:var(--pu-mid);}
 .clue-exp-text{display:none;font-size:12px;color:var(--muted);margin-top:5px;padding-top:5px;border-top:0.5px solid var(--lav-border);line-height:1.6;}
 .clue-row.open .clue-exp-text{display:block;}
 
@@ -197,7 +171,7 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .hys-list{display:flex;flex-direction:column;gap:5px;}
 .hys-bullet{font-size:12.5px;color:var(--ink);line-height:1.6;padding:5px 0;border-bottom:0.5px solid var(--lav-border);display:flex;gap:8px;}
 .hys-bullet:last-child{border-bottom:none;}
-.hys-bullet::before{content:'•';color:var(--pu-mid);font-weight:700;flex-shrink:0;}
+.hys-bullet::before{content:"•";color:var(--pu-mid);font-weight:700;flex-shrink:0;}
 
 /* Bottom navigation */
 .bottom-nav{display:flex;align-items:center;gap:10px;padding:18px 0 4px;border-top:0.5px solid var(--lav-border);margin-top:8px;}
@@ -239,26 +213,30 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
     </svg>
   </div>
   <div class="sb-sec">
-    <div class="sb-lbl">Overview</div>
-    <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
-    <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a>
+  <div class="sb-lbl">Overview</div>
+  <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+  <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a>
   </div>
   <div class="sb-sec">
-    <div class="sb-lbl">Revision</div>
-    <a class="nv on" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
-    <a class="nv" href="exam.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
-    <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge</a>
-    <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a>
+  <div class="sb-lbl">Learn</div>
+  <a class="nv" href="acronyms.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="12" y1="7" x2="16" y2="7"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="15" x2="16" y2="15"/></svg>Glossary</a>
   </div>
   <div class="sb-sec">
-    <div class="sb-lbl">Learn</div>
-    <a class="nv" href="acronyms.html"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Glossary</a>
-    <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+  <div class="sb-lbl">Revision</div>
+  <a class="nv on" href="practice.html" aria-current="page"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
+  <a class="nv" href="exam.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
+  <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
+  <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a>
   </div>
   <div class="sb-sec">
-    <div class="sb-lbl">Account</div>
-    <a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
-    <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+  <div class="sb-lbl">Account</div>
+  <a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Help</div>
+  <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+  <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+  <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
   </div>
   <div class="sb-foot">
     <div class="sb-av-row">
