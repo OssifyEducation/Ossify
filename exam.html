@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <script src="js/ossify-tutor.js"></script>
 <style>
 :root{
@@ -474,8 +475,9 @@ async function init() {
   accessToken = session.access_token;
   sb.auth.onAuthStateChange((_e, s) => { if (s) accessToken = s.access_token; });
   const email = session.user.email || '';
-  $('userAv').textContent = email.slice(0, 2).toUpperCase();
-  $('userName').textContent = email.split('@')[0];
+  const displayName = ossifyDisplayName(null, session.user);
+  $('userAv').textContent = ossifyInitials(displayName, email);
+  $('userName').textContent = displayName;
 
   const reviewId = new URLSearchParams(location.search).get('review');
   if (reviewId) { await openReviewById(reviewId, true); return; }

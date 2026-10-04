@@ -6,6 +6,7 @@
 <title>Leaderboard — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <style>
 :root{
   --pu-dark:#3d1f7a;
@@ -330,7 +331,7 @@ function updateTopbar(profile){
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${streak} day streak`;
 }
 function setUserInfo(name, username){
-  const initials = name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  const initials = ossifyInitials(name);
   document.getElementById('userAv').textContent = initials;
   document.getElementById('userName').textContent = name;
   if(username) document.getElementById('userUsername').textContent = '@'+username;
@@ -348,7 +349,7 @@ async function init(){
   const{data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='login.html';return;}
   myId=session.user.id;
-  const name=session.user.user_metadata?.full_name||session.user.email.split('@')[0];
+  const name=ossifyDisplayName(null, session.user);
   setUserInfo(name, null);
   const{data:profile}=await sb.from('profiles').select('*').eq('id',myId).single();
   window.__myProfile=profile;
@@ -424,7 +425,7 @@ function renderLeaderboard(){
     const scoreVal=sortMode==='accuracy'?u.accuracy+'%':sortMode==='answered'?u.total_answered:sortMode==='streak'?u.current_streak+'d':u.xp+' XP';
     return`<div class="podium-item ${rank===0?'first':''}">
       <div class="podium-medal">${medals[rank]}</div>
-      <div class="podium-av" style="background:${u.color}">${escH((u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase())}</div>
+      <div class="podium-av" style="background:${u.color}">${escH(ossifyInitials(u.name))}</div>
       <div class="podium-name">${escH(u.name)}${u.isMe?'<span class="lb-you-badge">You</span>':''}</div>
       <div class="podium-score">${scoreVal}</div>
     </div>`;
@@ -440,7 +441,7 @@ function renderLeaderboard(){
     return`${gap}<div class="lb-row ${u.isMe?'me':''}" ${u.isMe?'aria-current="true"':''}>
       <div class="lb-rank ${rankCls}">${rankDisplay}</div>
       <div class="lb-user-info">
-        <div class="lb-av" style="background:${u.color}">${escH((u.name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase())}</div>
+        <div class="lb-av" style="background:${u.color}">${escH(ossifyInitials(u.name))}</div>
         <div>
           <div class="lb-name">${escH(u.name)}${u.isMe?'<span class="lb-you-badge">You</span>':''}</div>
           <div class="lb-sub">${escH(u.username?'@'+u.username:u.subtitle||'')}</div>

@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <script src="js/ossify-tutor.js"></script>
 <style>
 :root{
@@ -1008,9 +1009,9 @@ document.addEventListener('keydown', e => {
   try {
     const { data: { user } } = await sb.auth.getUser();
     if (user) {
-      const e = user.email || '';
-      document.getElementById('userAv').textContent = e.slice(0,2).toUpperCase();
-      document.getElementById('userName').textContent = e.split('@')[0];
+      const nm = ossifyDisplayName(null, user);
+      document.getElementById('userAv').textContent = ossifyInitials(nm, user.email);
+      document.getElementById('userName').textContent = nm;
       document.getElementById('userSub').textContent = 'Ossify member';
       const { data: prof } = await sb.from('profiles').select('xp').eq('id', user.id).single();
       if (prof) setTopbarXp(prof.xp || 0);

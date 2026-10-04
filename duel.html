@@ -6,6 +6,7 @@
 <title>Head-to-Head Duel — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <style>
 :root{
   --pu-dark:#3d1f7a;
@@ -382,7 +383,7 @@ function updateTopbar(p){
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${s} day streak`;
 }
 function setUserInfo(name,uname){
-  const ini=(name||'?').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  const ini=ossifyInitials(name);
   document.getElementById('userAv').textContent=ini;
   document.getElementById('userName').textContent=name||'Doctor';
   document.getElementById('userUsername').textContent=uname?'@'+uname:'';
@@ -395,7 +396,8 @@ async function init(){
   myId=session.user.id;
   const{data:p}=await sb.from('profiles').select('*').eq('id',myId).single();
   myProfile=p;
-  if(p){updateTopbar(p);setUserInfo(p.full_name||p.email,p.username);}
+  if(p)updateTopbar(p);
+  setUserInfo(ossifyDisplayName(p, session.user), p?.username);
   await loadDuels();
   subscribeRealtime();
 }
@@ -426,7 +428,7 @@ async function doSearch(){
   if(error||!data?.length){errEl.textContent='No user found with that '+searchMode+'.';errEl.style.display='block';return;}
   resEl.innerHTML=data.map(u=>{
     if(u.id===myId)return'';
-    const ini=(u.full_name||'Dr').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+    const ini=ossifyInitials(u.full_name);
     return`<div class="search-result" onclick="selectUser('${u.id}','${(u.full_name||'').replace(/'/g,"\\'")}','${(u.username||'').replace(/'/g,"\\'")}','${(u.hospital_trust||'').replace(/'/g,"\\'")}')">
       <div class="sr-av">${ini}</div>
       <div><div class="sr-name">${u.full_name||'Doctor'}</div><div class="sr-sub">${u.username?'@'+u.username:''} ${u.hospital_trust?'· '+u.hospital_trust:''}</div></div>
@@ -680,7 +682,7 @@ async function loadDuels(){
     const isChallenger=d.challenger_id===myId;
     const other=isChallenger?d.opponent:d.challenger;
     const name=other?.full_name||'Doctor';
-    const ini=name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+    const ini=ossifyInitials(name);
     const myScore=isChallenger?d.challenger_score:d.opponent_score;
     const theirScore=isChallenger?d.opponent_score:d.challenger_score;
     let statusHtml='',actionHtml='';
