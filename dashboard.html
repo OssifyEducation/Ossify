@@ -53,6 +53,55 @@
 .tx-cta{transition:transform .18s,box-shadow .18s,background-color .18s;}
 .tx-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(61,31,122,.2);}
 @media(max-width:700px){.tx-body{grid-template-columns:1fr;gap:12px;}}
+
+/* ── Step 3: insights ── */
+.rings{display:flex;gap:28px;justify-content:center;padding:4px 0 12px;flex-wrap:wrap;}
+.ring{position:relative;display:flex;flex-direction:column;align-items:center;width:120px;}
+.ring svg{display:block;}
+.ring-txt{position:absolute;top:0;left:0;right:0;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ring-big{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);font-variant-numeric:tabular-nums;line-height:1;}
+.ring-small{font-size:10.5px;color:var(--muted);margin-top:3px;}
+.ring-lbl{font-size:12px;font-weight:500;color:var(--ink);margin-top:6px;text-align:center;}
+.ring-arc{transition:stroke-dasharray .9s cubic-bezier(.2,.7,.2,1);}
+.ins-note{font-size:12px;color:var(--muted);line-height:1.55;padding-top:8px;border-top:0.5px solid var(--lav-border);}
+.next-item{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:0.5px solid var(--lav-border);text-decoration:none;color:inherit;border-radius:8px;transition:background-color .15s;}
+.next-item:last-of-type{border-bottom:none;}
+.next-item:hover{background:var(--pu-ultra);}
+.next-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.next-dot.focus{background:var(--pk-mid);} .next-dot.cover{background:var(--pu-light);}
+.next-txt{flex:1;min-width:0;display:flex;flex-direction:column;}
+.next-name{font-size:13px;font-weight:600;color:var(--pu-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.next-why{font-size:11.5px;color:var(--muted);margin-top:1px;}
+.next-go{font-size:12px;font-weight:600;color:var(--pu-mid);white-space:nowrap;}
+.trend-wrap{width:100%;}
+.trend-svg{width:100%;height:150px;display:block;}
+.trend-svg .ax{font-size:9.5px;fill:var(--muted);font-family:var(--font-sans);}
+.trend-svg .ax-acc{fill:var(--teal-d);}
+.trend-legend{display:flex;gap:14px;font-size:11px;color:var(--muted);align-items:center;}
+.trend-legend span{display:flex;align-items:center;gap:6px;}
+.lg-bar{width:10px;height:10px;border-radius:2px;background:var(--pu-light);display:inline-block;}
+.lg-line{width:14px;height:2px;background:var(--teal-d);display:inline-block;}
+.st-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:10px;margin-bottom:10px;}
+.st-tile{display:flex;flex-direction:column;gap:3px;padding:13px 14px 12px;border-radius:13px;border:0.5px solid var(--lav-border);background:var(--lav-card);text-decoration:none;color:inherit;transition:transform .18s cubic-bezier(.2,.7,.2,1),box-shadow .18s;}
+.st-tile:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(61,31,122,.45);}
+.st-name{font-size:12px;font-weight:600;color:var(--pu-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.st-acc{font-family:var(--font-serif);font-size:26px;line-height:1.1;color:var(--pu-dark);font-variant-numeric:tabular-nums;}
+.st-acc small{font-family:var(--font-sans);font-size:12px;color:var(--muted);margin-left:2px;}
+.st-band{font-size:11px;font-weight:600;letter-spacing:.2px;}
+.st-cov{height:4px;border-radius:4px;background:rgba(61,31,122,.08);overflow:hidden;margin-top:5px;}
+.st-cov span{display:block;height:100%;background:var(--pu-mid);border-radius:4px;}
+.st-meta{font-size:10.5px;color:var(--muted);}
+.st-strong{background:#ecfdf5;border-color:#a7f3d0;} .st-strong .st-band{color:#166534;}
+.st-good{background:#f0fdfa;border-color:#99f6e4;}   .st-good .st-band{color:var(--teal-d);}
+.st-fair{background:#fffbeb;border-color:#fde68a;}   .st-fair .st-band{color:#92400e;}
+.st-focus{background:var(--pk-pale);border-color:var(--pk-border);} .st-focus .st-band{color:#9b2058;}
+.st-early .st-band,.st-none .st-band{color:var(--muted);}
+.st-none .st-acc{color:var(--muted);}
+.st-key{display:flex;flex-wrap:wrap;gap:14px;font-size:11px;color:var(--muted);margin-bottom:18px;}
+.st-key span{display:flex;align-items:center;gap:6px;}
+.st-key i{width:12px;height:12px;border-radius:3px;border:0.5px solid var(--lav-border);display:inline-block;}
+.st-key i.st-early{background:var(--lav-card);}
+@media (prefers-reduced-motion:reduce){.ring-arc,.st-tile{transition:none;}}
 </style>
 </head>
 <body>
@@ -202,7 +251,10 @@ async function init(){
   const flagged=prog?.filter(p=>p.flagged).length||0;
   const{data:eb}=await sb.from('user_badges').select('badge_key').eq('user_id',user.id);
   const earnedKeys=new Set((eb||[]).map(b=>b.badge_key));
-  const platformAvg=71;
+  // Real insights for this user (server-side); no invented numbers.
+  let ins=null;
+  try{const{data:dI,error:eI}=await sb.rpc('get_dashboard_insights');if(eI)throw eI;ins=dI;}
+  catch(e){console.warn('Insights unavailable:',e.message||e);}
   // Timed exam history (exam_attempts; RLS returns only this user's rows)
   let txCard='';
   try{
@@ -229,7 +281,6 @@ async function init(){
     }
     txCard=`<div class="card tx-card"><div class="card-hdr"><div><div class="card-title">${icon}Timed MSRA exam</div><div class="card-sub">Full CPS paper under exam conditions</div></div></div>${body}</div>`;
   }catch(e){console.warn('Timed exam card failed:',e);}
-  const diff=accuracy-platformAvg;
 
   // Badges are evaluated and awarded server-side (claim_badges); XP for each
   // badge is added by the XP ledger, never by the client.
@@ -254,23 +305,7 @@ async function init(){
   const gi=Math.floor(Math.random()*GREETINGS.length);
   const heroGreeting=GREETINGS[gi][0]+`<em>${first}${GREETINGS[gi][1]}</em>`;
 
-  // Weak spots — topics with lowest progress count
-  const topicCounts={};
-  TOPICS.forEach(t=>topicCounts[t.id]=0);
-  // Would normally join with questions - show first 3 topics alphabetically as placeholder
-  // Weak spots: topics with lowest ACCURACY (correct/attempted) among attempted topics.
-  // Using accuracy rate ensures e.g. 30/100 (30%) ranks weaker than 5/10 (50%).
-  const weakSpots=TOPICS.map(t=>{
-    const p=topicMap[t.id]||{attempted:0,correct:0};
-    const accuracy=p.attempted>0 ? p.correct/p.attempted : null;
-    return{...t,...p,accuracy};
-  }).filter(t=>t.attempted>0)              // only topics the user has tried
-    .sort((a,b)=>{
-      if(a.accuracy!==b.accuracy) return a.accuracy-b.accuracy; // lower % = weaker
-      return b.attempted-a.attempted;      // tiebreak: more data is more reliable
-    });
-
-  document.getElementById('mainContent').innerHTML=`
+document.getElementById('mainContent').innerHTML=`
   ${!isPaid?`<div class="free-gate">
     <h3>Unlock your full question bank</h3>
     <p>Upgrade to access all 1,200+ questions, leaderboards, weekly challenges, and head-to-head duels.</p>
@@ -297,59 +332,103 @@ async function init(){
     <div class="sc"><div class="sc-stripe" style="background:${flagged>0?'var(--pk-mid)':'var(--muted)'};"></div><div class="sc-ico" style="background:var(--pk-pale);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:var(--red);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="sc-val">${flagged}</div><div class="sc-lbl">Flagged for review</div></div>
   </div>
   ${txCard}
-  <div class="two-col">
-    <div class="card">
-      <div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pu-mid);"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>You vs platform average</div><div class="card-sub">Based on all Ossify users</div></div></div>
-      <div class="card-body">
-        <div class="vs-grid">
-          <div><div class="vs-val" style="color:${accuracy>=platformAvg?'var(--pu-mid)':'var(--pk-mid)'};">${accuracy}%</div><div class="vs-lbl">Your accuracy</div></div>
-          <div class="vs-sep">vs</div>
-          <div><div class="vs-val" style="color:var(--muted);">${platformAvg}%</div><div class="vs-lbl">Platform average</div></div>
-        </div>
-        <div class="vs-delta ${accuracy>=platformAvg?'good':'bad'}">${accuracy>=platformAvg?`↑ ${accuracy-platformAvg}% above average — great work`:`↓ ${platformAvg-accuracy}% below average — keep practising`}</div>
-        <div class="mini2">
-          <div class="m2"><div class="m2v">${answered}</div><div class="m2l">Questions done</div></div>
-          <div class="m2"><div class="m2v">${best}d</div><div class="m2l">Best streak</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pk-mid);"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Weak spot tracker</div><div class="card-sub">Topics to prioritise</div></div></div>
-      <div class="card-body">
-        ${weakSpots.length===0
-          ? `<div style="font-size:13px;color:var(--muted);padding:8px 0;line-height:1.6">Start practising to see your weak spots appear here.</div>`
-          : weakSpots.slice(0,3).map(t=>{
-              const accPct=Math.round(t.accuracy*100);
-              const inc=t.attempted-t.correct;
-              return `<div class="weak-item">
-                <div class="weak-ico"><svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--red);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-                <div class="weak-name">${t.id}</div>
-                <div class="weak-pct">${accPct}% — ${t.correct}✓ ${inc}✗</div>
-                <a href="practice.html?topic=${encodeURIComponent(t.id)}" class="weak-link">Revise →</a>
-              </div>`;
-            }).join('')}
-      </div>
-    </div>
-  </div>
-  <div class="sec-row"><div class="sec-h">All topics</div><a href="practice.html" class="sec-a">Browse all →</a></div>
-  <div class="topics-grid" style="margin-bottom:14px;">
-    ${TOPICS.map(t=>{
-        const p=topicMap[t.id]||{attempted:0,correct:0};
-        const att=Math.min(100,p.attempted);
-        const cor=Math.min(att,p.correct);
-        const inc=att-cor;
-        const label=att===0?'Not started yet':`${cor} correct · ${inc} incorrect · ${100-att} unseen`;
-        return `<a href="practice.html?topic=${encodeURIComponent(t.id)}" class="topic-card">
-          <div class="topic-name">${t.id}</div>
-          <div class="topic-count">${label}</div>
-          <div class="tp-bar">
-            ${cor>0?`<div class="tp-correct" style="width:${cor}%"></div>`:''}
-            ${inc>0?`<div class="tp-incorrect" style="width:${inc}%"></div>`:''}
-          </div>
-        </a>`;
-      }).join('')}
-  </div>
+  ${renderInsights(ins, {answered, correct, accuracy})}
 `
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// Dashboard insights (step 3): progress rings, 30-day trend, what to practise
+// next, specialty strength map. Pure SVG/HTML — no chart library.
+// ════════════════════════════════════════════════════════════════════════════
+const escD=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const SHORT={'Infectious Disease / Haematology / Immunology / Allergies / Genetics':'Infection / Haem / Immunology','Gastroenterology / Nutrition':'Gastro / Nutrition','Endocrinology / Metabolic':'Endocrine / Metabolic','Pharmacology & Therapeutics':'Pharmacology','Dermatology / ENT / Eyes':'Derm / ENT / Eyes','Psychiatry / Neurology':'Psychiatry / Neuro'};
+const MIN_FOR_ACC=5;
+function band(t){
+  if(!t.attempted) return {key:'none',label:'Not started'};
+  if(t.attempted<MIN_FOR_ACC) return {key:'early',label:'Early data'};
+  const a=t.correct/t.attempted*100;
+  if(a>=80) return {key:'strong',label:'Strong'};
+  if(a>=65) return {key:'good',label:'Good'};
+  if(a>=50) return {key:'fair',label:'Building'};
+  return {key:'focus',label:'Focus area'};
+}
+function ring(pct,big,small,label,color){
+  const r=34,c=2*Math.PI*r,v=Math.max(0,Math.min(100,pct));
+  return `<div class="ring" role="img" aria-label="${escD(label)}: ${escD(big)}${small?' '+escD(small):''}">
+    <svg viewBox="0 0 84 84" width="96" height="96" aria-hidden="true">
+      <circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--pu-pale)" stroke-width="8"/>
+      <circle class="ring-arc" cx="42" cy="42" r="${r}" fill="none" stroke="${color}" stroke-width="8" stroke-linecap="round"
+        stroke-dasharray="${(c*v/100).toFixed(2)} ${c.toFixed(2)}" transform="rotate(-90 42 42)"/>
+    </svg>
+    <div class="ring-txt"><div class="ring-big">${escD(big)}</div>${small?`<div class="ring-small">${escD(small)}</div>`:''}</div>
+    <div class="ring-lbl">${escD(label)}</div></div>`;
+}
+function trendSvg(daily){
+  const W=640,H=150,P={l:26,r:34,t:12,b:22};
+  const n=daily.length, maxA=Math.max(5,...daily.map(d=>d.answered));
+  const bw=(W-P.l-P.r)/n;
+  const y=v=>P.t+(H-P.t-P.b)*(1-v/maxA);
+  const ya=v=>P.t+(H-P.t-P.b)*(1-v/100);
+  const bars=daily.map((d,i)=>{const h=(H-P.t-P.b)*d.answered/maxA;
+    return `<rect x="${(P.l+i*bw+bw*0.18).toFixed(1)}" y="${(H-P.b-h).toFixed(1)}" width="${(bw*0.64).toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${d.answered?'var(--pu-light)':'var(--pu-pale)'}"><title>${escD(fmtDay(d.day))}: ${d.answered} answered${d.answered?`, ${Math.round(d.correct/d.answered*100)}% correct`:''}</title></rect>`;}).join('');
+  const pts=daily.map((d,i)=>d.answered>=3?[P.l+i*bw+bw/2, ya(d.correct/d.answered*100)]:null).filter(Boolean);
+  const line=pts.length>1?`<polyline points="${pts.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="var(--teal-d)" stroke-width="2" stroke-linejoin="round"/>`:'';
+  const dots=pts.map(p=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="#fff" stroke="var(--teal-d)" stroke-width="2"/>`).join('');
+  const ticks=[0,Math.round(maxA/2),maxA].map(v=>`<text x="${P.l-6}" y="${(y(v)+3).toFixed(1)}" text-anchor="end" class="ax">${v}</text>`).join('');
+  const yr=pts.length?[0,50,100].map(v=>`<text x="${W-P.r+6}" y="${(ya(v)+3).toFixed(1)}" class="ax ax-acc">${v}%</text>`).join(''):'';
+  const xl=[0,Math.floor(n/2),n-1].map(i=>`<text x="${(P.l+i*bw+bw/2).toFixed(1)}" y="${H-6}" text-anchor="middle" class="ax">${escD(fmtDay(daily[i].day,true))}</text>`).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" class="trend-svg" preserveAspectRatio="none" aria-hidden="true"><line x1="${P.l}" x2="${W-P.r}" y1="${H-P.b}" y2="${H-P.b}" stroke="var(--lav-border)"/>${bars}${line}${dots}${ticks}${yr}${xl}</svg>`;
+}
+function fmtDay(iso,short){const d=new Date(iso+'T00:00:00Z');return d.toLocaleDateString('en-GB',short?{day:'numeric',month:'short',timeZone:'UTC'}:{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});}
+function renderInsights(ins, fallback){
+  if(!ins){return `<div class="card" style="margin-bottom:14px"><div class="card-body" style="font-size:13px;color:var(--muted)">Your progress insights couldn’t be loaded just now. Refresh to try again.</div></div>`;}
+  const T=ins.totals||{answered:0,correct:0,bank_total:0};
+  const ans=Number(T.answered)||0, cor=Number(T.correct)||0, bank=Number(T.bank_total)||0;
+  const acc=ans?Math.round(cor/ans*100):0;
+  const topics=(ins.topics||[]).map(t=>({topic:t.topic,bank:Number(t.bank_total),attempted:Number(t.attempted),correct:Number(t.correct)}));
+  const daily=(ins.daily||[]).map(d=>({day:d.day,answered:Number(d.answered),correct:Number(d.correct)}));
+  // ── progress card
+  const plat=ins.platform;
+  const platLine=plat
+    ? `<div class="vs-delta ${acc>=plat.avg_accuracy?'good':'bad'}">Ossify average: ${plat.avg_accuracy}% across ${plat.doctors} doctors with 20+ answers</div>`
+    : `<div class="ins-note">A platform comparison appears once at least 5 other doctors have answered 20+ questions.</div>`;
+  const progress=`<div class="card"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pu-mid);"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9"/></svg>Your progress</div><div class="card-sub">Across the full question bank</div></div></div>
+    <div class="card-body"><div class="rings">
+      ${ring(bank?ans/bank*100:0, ans.toLocaleString('en-GB'), 'of '+bank.toLocaleString('en-GB'), 'Questions answered', 'var(--pu-mid)')}
+      ${ring(acc, ans?acc+'%':'—', ans?cor+' correct':'', 'First-attempt accuracy', 'var(--teal-d)')}
+    </div>${platLine}</div></div>`;
+  // ── what to practise next
+  const withEnough=topics.filter(t=>t.attempted>=MIN_FOR_ACC).sort((a,b)=>a.correct/a.attempted-b.correct/b.attempted||b.attempted-a.attempted);
+  const recs=[];
+  if(withEnough.length){const w=withEnough[0];recs.push({t:w.topic,why:`Lowest accuracy: ${Math.round(w.correct/w.attempted*100)}% across ${w.attempted} questions`,kind:'focus'});}
+  const coverage=[...topics].sort((a,b)=>a.attempted/a.bank-b.attempted/b.bank||a.topic.localeCompare(b.topic));
+  for(const c of coverage){ if(recs.length>=3) break; if(recs.some(r=>r.t===c.topic)) continue;
+    recs.push({t:c.topic,why:c.attempted?`Least practised: ${c.attempted} of ${c.bank} answered`:`Not started: ${c.bank} questions waiting`,kind:'cover'}); }
+  const next=`<div class="card"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pk-mid);"><polyline points="9 18 15 12 9 6"/></svg>What to practise next</div><div class="card-sub">Chosen from your answers so far</div></div></div>
+    <div class="card-body">${recs.map(r=>`<a class="next-item" href="practice.html?topic=${encodeURIComponent(r.t)}">
+        <span class="next-dot ${r.kind}" aria-hidden="true"></span>
+        <span class="next-txt"><span class="next-name">${escD(r.t)}</span><span class="next-why">${escD(r.why)}</span></span>
+        <span class="next-go">Practise →</span></a>`).join('')}
+      ${withEnough.length?'':`<div class="ins-note">Answer at least ${MIN_FOR_ACC} questions in a specialty to see where your accuracy is weakest.</div>`}</div></div>`;
+  // ── 30-day trend
+  const tAns=daily.reduce((s,d)=>s+d.answered,0), tCor=daily.reduce((s,d)=>s+d.correct,0), act=daily.filter(d=>d.answered).length;
+  const busiest=daily.reduce((m,d)=>d.answered>(m?.answered||0)?d:m,null);
+  const summary=tAns?`${tAns} question${tAns===1?'':'s'} on ${act} day${act===1?'':'s'} · ${Math.round(tCor/tAns*100)}% correct${busiest?` · busiest: ${fmtDay(busiest.day)} (${busiest.answered})`:''}`:'No questions answered in the last 30 days yet.';
+  const trend=`<div class="card" style="margin-bottom:14px"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pu-mid);"><polyline points="3 17 9 11 13 15 21 7"/></svg>Last 30 days</div><div class="card-sub">${escD(summary)}</div></div>
+      <div class="trend-legend" aria-hidden="true"><span><i class="lg-bar"></i>Questions answered</span><span><i class="lg-line"></i>Accuracy (days with 3+)</span></div></div>
+    <div class="card-body"><div class="trend-wrap" role="img" aria-label="${escD('Last 30 days: '+summary)}">${trendSvg(daily)}</div></div></div>`;
+  // ── strength map
+  const tiles=topics.map(t=>{const b=band(t);const accT=t.attempted?Math.round(t.correct/t.attempted*100):null;const cov=t.bank?Math.round(t.attempted/t.bank*100):0;
+    return `<a class="st-tile st-${b.key}" href="practice.html?topic=${encodeURIComponent(t.topic)}" aria-label="${escD(t.topic)}: ${b.label}${accT!==null?', '+accT+'% correct':''}, ${t.attempted} of ${t.bank} answered">
+      <span class="st-name" title="${escD(t.topic)}">${escD(SHORT[t.topic]||t.topic)}</span>
+      <span class="st-acc">${accT!==null&&t.attempted>=MIN_FOR_ACC?accT+'%':accT!==null?accT+'%<small>*</small>':'—'}</span>
+      <span class="st-band">${b.label}</span>
+      <span class="st-cov" aria-hidden="true"><span style="width:${cov}%"></span></span>
+      <span class="st-meta">${t.attempted} / ${t.bank} answered</span></a>`;}).join('');
+  const map=`<div class="sec-row"><div class="sec-h">Specialty strength map</div><a href="practice.html" class="sec-a">Practise any specialty →</a></div>
+    <div class="st-grid">${tiles}</div>
+    <div class="st-key" aria-hidden="true"><span><i class="st-strong"></i>Strong ≥80%</span><span><i class="st-good"></i>Good 65–79%</span><span><i class="st-fair"></i>Building 50–64%</span><span><i class="st-focus"></i>Focus &lt;50%</span><span><i class="st-early"></i>* fewer than ${MIN_FOR_ACC} answered</span></div>`;
+  return `<div class="two-col">${progress}${next}</div>${trend}${map}`;
 }
 
 init();
