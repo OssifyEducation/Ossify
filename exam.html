@@ -320,15 +320,15 @@ body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#
     </div>
   <div class="sb-foot">
       <div class="sb-av-row">
-        <div class="sb-av" id="userAv">?</div>
-        <div><div class="sb-uname" id="userName">—</div><div class="sb-usub">Ossify member</div></div>
+        <div class="sb-av" id="userAv"></div>
+        <div><div class="sb-uname" id="userName"></div><div class="sb-usub">Ossify member</div></div>
       </div>
     </div>
   </aside>
   <div class="main">
     <div class="topbar"><div class="tb-title" id="tbTitle">Timed Exam</div></div>
     <main class="view" id="view" tabindex="-1">
-      <div><div class="spinner"></div><p class="loading-txt">Loading…</p></div>
+      <div class="intro" aria-busy="true"><span class="sr-only">Loading…</span><div class="intro-card"><span class="skel" style="display:block;width:46%;height:11px;border-radius:6px;margin-bottom:16px"></span><span class="skel" style="display:block;width:70%;height:38px;border-radius:10px;margin-bottom:22px"></span><span class="skel skel-line" style="width:80%"></span><span class="skel skel-line" style="width:60%"></span><span class="skel skel-line" style="width:88%;margin:16px 0"></span><span class="skel skel-line" style="width:72%;margin:16px 0"></span><span class="skel skel-line" style="width:90%;margin:16px 0"></span><span class="skel skel-line" style="width:66%;margin:16px 0"></span><span class="skel skel-line" style="width:80%;margin:16px 0"></span><span class="skel" style="display:block;width:150px;height:48px;border-radius:13px;margin-top:26px"></span></div></div>
     </main>
   </div>
 </div>
@@ -929,7 +929,7 @@ function submitExam(reason) {
 
 // ── Results ─────────────────────────────────────────────────────────────────
 async function openReviewById(id, viaLink, reasonHint) {
-  showApp(`<div><div class="spinner"></div><p class="loading-txt">Loading your results…</p></div>`);
+  showApp(`<div class="results" aria-busy="true"><span class="sr-only">Loading your results…</span><div class="res-card"><span class="skel" style="display:block;width:60%;height:24px;border-radius:8px;margin-bottom:10px"></span><span class="skel skel-line" style="width:35%"></span><div style="display:flex;gap:24px;align-items:flex-end;margin:26px 0"><span class="skel" style="width:200px;height:80px;border-radius:14px"></span><span class="skel" style="width:110px;height:40px;border-radius:10px"></span></div><span class="skel skel-line" style="width:90%"></span><span class="skel skel-line" style="width:82%"></span><span class="skel skel-line" style="width:86%"></span><span class="skel skel-line" style="width:70%"></span><span class="skel skel-line" style="width:78%"></span><span class="skel skel-line" style="width:64%"></span></div></div>`);
   try {
     const { data } = await rpc('get_timed_exam_review', { p_attempt_id: id });
     reviewData = data;
