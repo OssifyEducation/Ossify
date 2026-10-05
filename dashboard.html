@@ -62,6 +62,9 @@
 .ring-big{font-family:var(--font-serif);font-size:22px;color:var(--pu-dark);font-variant-numeric:tabular-nums;line-height:1;}
 .ring-small{font-size:10.5px;color:var(--muted);margin-top:3px;}
 .ring-lbl{font-size:12px;font-weight:500;color:var(--ink);margin-top:6px;text-align:center;}
+.trend-empty{display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px 10px 12px;}
+.te-line{width:100%;height:0;border-top:1.5px dashed var(--lav-border);}
+.te-txt{font-size:12.5px;color:var(--muted);text-align:center;max-width:46ch;line-height:1.55;}
 .ring-arc{transition:stroke-dasharray .9s cubic-bezier(.2,.7,.2,1);}
 .ins-note{font-size:12px;color:var(--muted);line-height:1.55;padding-top:8px;border-top:0.5px solid var(--lav-border);}
 .next-item{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:0.5px solid var(--lav-border);text-decoration:none;color:inherit;border-radius:8px;transition:background-color .15s;}
@@ -248,6 +251,7 @@ async function init(){
   const answered=prog?.length||0;
   const correct=prog?.filter(p=>p.answered_correctly).length||0;
   const accuracy=answered>0?Math.round((correct/answered)*100):0;
+  const accA=answered>0?accuracy:60;   // neutral colour tier until there is data
   const flagged=prog?.filter(p=>p.flagged).length||0;
   const{data:eb}=await sb.from('user_badges').select('badge_key').eq('user_id',user.id);
   const earnedKeys=new Set((eb||[]).map(b=>b.badge_key));
@@ -303,7 +307,9 @@ async function init(){
     ['Back for more, ','?',],
   ];
   const gi=Math.floor(Math.random()*GREETINGS.length);
-  const heroGreeting=GREETINGS[gi][0]+`<em>${first}${GREETINGS[gi][1]}</em>`;
+  // First visit (nothing answered yet): a welcome, not "Welcome back" / "Hello again"
+  const firstVisit=(ins&&ins.totals?Number(ins.totals.answered):answered)===0;
+  const heroGreeting=firstVisit?`Welcome to Ossify, <em>${first}.</em>`:GREETINGS[gi][0]+`<em>${first}${GREETINGS[gi][1]}</em>`;
 
 document.getElementById('mainContent').innerHTML=`
   ${!isPaid?`<div class="free-gate">
@@ -326,7 +332,7 @@ document.getElementById('mainContent').innerHTML=`
   </div>
   <div class="stats">
     <div class="sc"><div class="sc-stripe" style="background:var(--pu-mid);"></div><div class="sc-ico" style="background:var(--pu-pale);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="20 6 9 17 4 12"/></svg></div><div class="sc-val">${answered}</div><div class="sc-lbl">Questions answered</div></div>
-    <div class="sc"><div class="sc-stripe" style="background:${accuracy>=60?'var(--pu-mid)':accuracy>=40?'var(--pu-light)':'var(--pk-mid)'};"></div><div class="sc-ico" style="background:${accuracy>=60?'var(--pu-pale)':accuracy>=40?'var(--pu-pale)':'var(--pk-pale)'};"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:${accuracy>=60?'var(--pu-dark)':accuracy>=40?'var(--pu-mid)':'var(--red)'};stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div><div class="sc-val">${accuracy}%</div><div class="sc-lbl">Accuracy</div><div class="sc-note" style="color:${accuracy>=60?'var(--pu-mid)':accuracy>=40?'var(--pu-light)':'var(--red)'};">${correct} correct</div></div>
+    <div class="sc"><div class="sc-stripe" style="background:${accA>=60?'var(--pu-mid)':accA>=40?'var(--pu-light)':'var(--pk-mid)'};"></div><div class="sc-ico" style="background:${accA>=60?'var(--pu-pale)':accA>=40?'var(--pu-pale)':'var(--pk-pale)'};"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:${accA>=60?'var(--pu-dark)':accA>=40?'var(--pu-mid)':'var(--red)'};stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div><div class="sc-val">${answered?accuracy+'%':'—'}</div><div class="sc-lbl">Accuracy</div><div class="sc-note" style="color:${answered?(accA>=60?'var(--pu-mid)':accA>=40?'var(--pu-light)':'var(--red)'):'var(--muted)'};">${answered?`${correct} correct`:'No answers yet'}</div></div>
     <div class="sc"><div class="sc-stripe" style="background:${streak>0?'var(--pu-light)':'var(--muted)'};"></div><div class="sc-ico" style="background:var(--pu-pale);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="sc-val">${streak}</div><div class="sc-lbl">Day streak</div><div class="sc-note" style="color:var(--pu-mid);">Best: ${best} days</div></div>
     <div class="sc"><div class="sc-stripe" style="background:#c084fc;"></div><div class="sc-ico" style="background:#f3e8ff;"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:#7e22ce;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="sc-val">${xp}</div><div class="sc-lbl">XP earned</div></div>
     <div class="sc"><div class="sc-stripe" style="background:${flagged>0?'var(--pk-mid)':'var(--muted)'};"></div><div class="sc-ico" style="background:var(--pk-pale);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:var(--red);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="sc-val">${flagged}</div><div class="sc-lbl">Flagged for review</div></div>
@@ -357,8 +363,8 @@ function ring(pct,big,small,label,color){
   return `<div class="ring" role="img" aria-label="${escD(label)}: ${escD(big)}${small?' '+escD(small):''}">
     <svg viewBox="0 0 84 84" width="96" height="96" aria-hidden="true">
       <circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--pu-pale)" stroke-width="8"/>
-      <circle class="ring-arc" cx="42" cy="42" r="${r}" fill="none" stroke="${color}" stroke-width="8" stroke-linecap="round"
-        stroke-dasharray="${(c*v/100).toFixed(2)} ${c.toFixed(2)}" transform="rotate(-90 42 42)"/>
+      ${v>0?`<circle class="ring-arc" cx="42" cy="42" r="${r}" fill="none" stroke="${color}" stroke-width="8" stroke-linecap="round"
+        stroke-dasharray="${(c*v/100).toFixed(2)} ${c.toFixed(2)}" transform="rotate(-90 42 42)"/>`:''}
     </svg>
     <div class="ring-txt"><div class="ring-big">${escD(big)}</div>${small?`<div class="ring-small">${escD(small)}</div>`:''}</div>
     <div class="ring-lbl">${escD(label)}</div></div>`;
@@ -404,7 +410,7 @@ function renderInsights(ins, fallback){
   const coverage=[...topics].sort((a,b)=>a.attempted/a.bank-b.attempted/b.bank||a.topic.localeCompare(b.topic));
   for(const c of coverage){ if(recs.length>=3) break; if(recs.some(r=>r.t===c.topic)) continue;
     recs.push({t:c.topic,why:c.attempted?`Least practised: ${c.attempted} of ${c.bank} answered`:`Not started: ${c.bank} questions waiting`,kind:'cover'}); }
-  const next=`<div class="card"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pk-mid);"><polyline points="9 18 15 12 9 6"/></svg>What to practise next</div><div class="card-sub">Chosen from your answers so far</div></div></div>
+  const next=`<div class="card"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pk-mid);"><polyline points="9 18 15 12 9 6"/></svg>What to practise next</div><div class="card-sub">${ans?'Chosen from your answers so far':'Good places to start'}</div></div></div>
     <div class="card-body">${recs.map(r=>`<a class="next-item" href="practice.html?topic=${encodeURIComponent(r.t)}">
         <span class="next-dot ${r.kind}" aria-hidden="true"></span>
         <span class="next-txt"><span class="next-name">${escD(r.t)}</span><span class="next-why">${escD(r.why)}</span></span>
@@ -415,8 +421,9 @@ function renderInsights(ins, fallback){
   const busiest=daily.reduce((m,d)=>d.answered>(m?.answered||0)?d:m,null);
   const summary=tAns?`${tAns} question${tAns===1?'':'s'} on ${act} day${act===1?'':'s'} · ${Math.round(tCor/tAns*100)}% correct${busiest?` · busiest: ${fmtDay(busiest.day)} (${busiest.answered})`:''}`:'No questions answered in the last 30 days yet.';
   const trend=`<div class="card" style="margin-bottom:14px"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pu-mid);"><polyline points="3 17 9 11 13 15 21 7"/></svg>Last 30 days</div><div class="card-sub">${escD(summary)}</div></div>
-      <div class="trend-legend" aria-hidden="true"><span><i class="lg-bar"></i>Questions answered</span><span><i class="lg-line"></i>Accuracy (days with 3+)</span></div></div>
-    <div class="card-body"><div class="trend-wrap" role="img" aria-label="${escD('Last 30 days: '+summary)}">${trendSvg(daily)}</div></div></div>`;
+      ${tAns?`<div class="trend-legend" aria-hidden="true"><span><i class="lg-bar"></i>Questions answered</span><span><i class="lg-line"></i>Accuracy (days with 3+)</span></div>`:''}</div>
+    <div class="card-body">${tAns?`<div class="trend-wrap" role="img" aria-label="${escD('Last 30 days: '+summary)}">${trendSvg(daily)}</div>`
+      :`<div class="trend-empty"><div class="te-line" aria-hidden="true"></div><div class="te-txt">Your daily activity and accuracy will appear here once you start answering questions.</div></div>`}</div></div>`;
   // ── strength map
   const tiles=topics.map(t=>{const b=band(t);const accT=t.attempted?Math.round(t.correct/t.attempted*100):null;const cov=t.bank?Math.round(t.attempted/t.bank*100):0;
     return `<a class="st-tile st-${b.key}" href="practice.html?topic=${encodeURIComponent(t.topic)}" aria-label="${escD(t.topic)}: ${b.label}${accT!==null?', '+accT+'% correct':''}, ${t.attempted} of ${t.bank} answered">
