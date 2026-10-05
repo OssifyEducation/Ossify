@@ -240,9 +240,9 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
   </div>
   <div class="sb-foot">
     <div class="sb-av-row">
-      <div class="sb-av" id="userAv">?</div>
+      <div class="sb-av" id="userAv"></div>
       <div>
-        <div class="sb-uname" id="userName">—</div>
+        <div class="sb-uname" id="userName"></div>
         <div class="sb-usub" id="userSub"></div>
       </div>
     </div>
@@ -328,7 +328,7 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
         <div id="resumeBanner" class="resume-banner" style="display:none">
           <div class="rb-info">
             <strong>You have a saved session</strong>
-            <span id="resumeDesc">Loading…</span>
+            <span id="resumeDesc"><span class="skel" style="display:inline-block;width:180px;height:10px;border-radius:5px" aria-hidden="true"></span></span>
           </div>
           <div class="rb-acts">
             <button class="rb-btn-resume" onclick="resumeSession()">Resume →</button>
@@ -465,7 +465,7 @@ async function startSession() {
   const count  = parseInt(document.getElementById('countFilter').value);
 
   const main = document.getElementById('mainArea');
-  main.innerHTML = `<div class="splash"><div class="spinner"></div><p style="color:var(--slate-2);margin-top:16px">Loading questions…</p></div>`;
+  main.innerHTML = `<div class="q-wrapper" aria-busy="true"><span class="sr-only">Loading questions…</span><div style="display:flex;gap:8px;margin-bottom:18px"><span class="skel skel-pill" style="width:90px"></span><span class="skel skel-pill" style="width:120px"></span><span class="skel skel-pill" style="width:60px"></span></div><span class="skel skel-line" style="width:96%"></span><span class="skel skel-line" style="width:90%"></span><span class="skel skel-line" style="width:94%"></span><span class="skel skel-line" style="width:58%"></span><div style="display:flex;flex-direction:column;gap:9px;margin-top:22px"><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:54%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:42%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:61%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:47%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:38%;margin:0"></span></div></div></div>`;
 
   try {
     let qs = await fetchQuestions({ topic, type, domain, count });

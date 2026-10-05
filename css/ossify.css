@@ -160,3 +160,37 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .alert-ok.show{display:block;}
 .alert-err{background:var(--pk-pale);border:1px solid var(--pk-border);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--red);margin-bottom:13px;display:none;}
 .alert-err.show{display:block;}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Loading skeletons + page transition (shared)
+   Skeletons mirror the shape of the content that is about to arrive.
+   Containers carry aria-busy and a visually hidden "Loading" label.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skel{position:relative;overflow:hidden;background:var(--skel,#ebe3fb);border-radius:8px;}
+.skel::after{content:'';position:absolute;inset:0;transform:translateX(-100%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);animation:ossifySkel 1.4s ease-in-out infinite;}
+@keyframes ossifySkel{100%{transform:translateX(100%);}}
+.skel-line{display:block;height:10px;border-radius:6px;margin:9px 0;}
+.skel-title{display:block;height:18px;width:42%;border-radius:7px;margin:2px 0 14px;}
+.skel-pill{display:inline-block;width:120px;height:22px;border-radius:20px;vertical-align:middle;}
+.skel-circle{border-radius:50%;flex-shrink:0;}
+.skel-dark{background:rgba(255,255,255,.18);} .skel-dark::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);}
+.skel-stack{display:flex;flex-direction:column;gap:14px;}
+.skel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.skel-card{background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;padding:16px 18px;}
+.skel-row{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:0.5px solid var(--lav-border);}
+.skel-row:last-child{border-bottom:none;}
+.skel-row .skel-txt{flex:1;}
+.skel-hero{height:150px;border-radius:18px;background:var(--pu-mid);opacity:.55;}
+.skel-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+.skel-two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media (max-width:760px){.skel-two{grid-template-columns:1fr;}}
+/* sidebar user chip before the name arrives */
+.sb-av:empty{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.12);}
+.sb-uname:empty{display:block;width:96px;height:10px;margin:3px 0 4px;border-radius:5px;background:rgba(255,255,255,.18);}
+/* consistent, quick entrance for page content and newly rendered views (opacity only:
+   no transform, so fixed-position overlays inside are never offset) */
+.content>*,.view>*{animation:ossifyIn .2s ease-out both;}
+@keyframes ossifyIn{from{opacity:0;}to{opacity:1;}}
+@media (prefers-reduced-motion:reduce){.skel::after{animation:none;display:none;}.content>*,.view>*{animation:none;}}

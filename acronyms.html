@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Glossary — Ossify</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
 <style>
 :root{--pu-dark:#2d1060;--pu-mid:#7c3aed;--pu-light:#a78bfa;--lav:#f0eaff;--lav-card:#fff;--lav-border:rgba(180,150,220,0.25);--ink:#3d1f7a;--moss:#7b6fa0;--muted:#9b88c0;--font-sans:"Inter",system-ui,sans-serif;--font-serif:"Georgia",serif;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -56,7 +57,7 @@ body{font-family:var(--font-sans);background:var(--lav);color:var(--ink);min-hei
 <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Keys to Success</a>
 <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
 <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a></div>
-<div class="sb-bottom"><div class="user-row"><div class="avatar" id="avatarEl">K</div><span id="usernameEl">Loading...</span></div><div class="streak-pill">⚡ <span id="streakEl">0</span> day streak</div><button id="signoutBtn">Sign out</button></div>
+<div class="sb-bottom"><div class="user-row"><div class="avatar" id="avatarEl"></div><span id="usernameEl"></span></div><div class="streak-pill">⚡ <span id="streakEl">0</span> day streak</div><button id="signoutBtn">Sign out</button></div>
 </aside>
 <div id="main">
 <div class="topbar"><h1>Glossary</h1><span id="topbarCount" style="font-size:13px;color:var(--muted);"></span></div>
@@ -69,7 +70,7 @@ body{font-family:var(--font-sans);background:var(--lav);color:var(--ink);min-hei
 </div></div>
 <script>
 const sb=supabase.createClient("https://judtpdikbidvccclftvq.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwMjAwMzcsImV4cCI6MjA1OTU5NjAzN30.iITbxnbCdqiLB3rC8rMOoZ5YipMfFaqNfYVqAIwbTAA");
-(async function(){const{data:{session}}=await sb.auth.getSession();if(!session){window.location="login.html";return;}const{data:pr}=await sb.from("profiles").select("display_name,streak_days").eq("id",session.user.id).single();if(pr){const n=pr.display_name||session.user.email.split("@")[0];document.getElementById("usernameEl").textContent=n;document.getElementById("avatarEl").textContent=n[0].toUpperCase();document.getElementById("streakEl").textContent=pr.streak_days||0;}document.getElementById("signoutBtn").addEventListener("click",async()=>{await sb.auth.signOut();window.location="login.html";});})();
+(async function(){const{data:{session}}=await sb.auth.getSession();if(!session){window.location="login.html";return;}const{data:pr}=await sb.from("profiles").select("full_name,current_streak").eq("id",session.user.id).single();const n=ossifyDisplayName(pr,session.user);document.getElementById("usernameEl").textContent=n;document.getElementById("avatarEl").textContent=ossifyInitials(n,session.user.email);document.getElementById("streakEl").textContent=(pr&&pr.current_streak)||0;document.getElementById("signoutBtn").addEventListener("click",async()=>{await sb.auth.signOut();window.location="login.html";});})();
 const AC=[
 {a:"HFrEF",f:"Heart Failure with Reduced Ejection Fraction",s:"EF <40%. Primary indication for quadruple therapy: ACEi/ARNI, beta-blocker, MRA, SGLT2i. Drives most HF-related mortality.",cat:"Cardiovascular"},
 {a:"HFpEF",f:"Heart Failure with Preserved Ejection Fraction",s:"EF ≥50%. SGLT2i (EMPEROR-Preserved, DELIVER) are the only class with proven benefit. Treat underlying causes: hypertension, AF, obesity, diabetes.",cat:"Cardiovascular"},
