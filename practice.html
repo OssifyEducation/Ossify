@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <script src="js/ossify-theme.js"></script>
+<script src="js/ossify-shortcuts.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practice — Ossify</title>
@@ -43,6 +44,11 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 @keyframes xpChip{0%{opacity:0;transform:translateY(4px)}15%{opacity:1;transform:none}75%{opacity:1}100%{opacity:0;transform:translateY(-3px)}}
 @media (prefers-reduced-motion:reduce){.xp-chip.show{animation:none;opacity:1}}
 .result-xp{font-size:12.5px;font-weight:600;color:var(--teal-d);margin:-16px 0 20px;min-height:18px;}
+
+/* question source */
+.source-hint{font-size:11.5px;line-height:1.5;color:var(--muted);margin:-2px 0 10px;min-height:0;}
+.source-hint:empty{display:none;}
+.filter-select:disabled{opacity:.5;cursor:not-allowed;}
 
 /* PROGRESS BAR */
 .progress-bar-wrap{height:3px;background:var(--pu-pale);}
@@ -279,6 +285,13 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
     <aside class="config-panel">
       <div class="config-hdr"><div class="config-title">Configure</div></div>
       <div class="config-body">
+        <div class="filter-label">Question source</div>
+        <select class="filter-select" id="sourceFilter" onchange="onSourceChange()">
+          <option value="all">Whole question bank</option>
+          <option value="weak">My weak areas</option>
+          <option value="revision">My revision queue</option>
+        </select>
+        <div class="source-hint" id="sourceHint" aria-live="polite"></div>
         <div class="filter-label">Specialty</div>
         <select class="filter-select" id="topicFilter">
           <option value="">All specialties</option>
@@ -385,6 +398,31 @@ let reviewMode = false;
 let pendingSelection = -1; // set by option click, read by submitAnswer    // true after result overlay opened
 
 // ── API ──
+// Personalised sources (signed-in users): weak areas and the revision queue.
+let sessionSource = 'all';
+let revisionLeft = null;
+async function fetchPersonal(source, count) {
+  const fn = source === 'revision' ? 'get_revision_queue' : 'get_weak_area_questions';
+  const { data, error } = await sb.rpc(fn, { p_count: count > 0 ? count : 0 });
+  if (error) throw new Error(error.message);
+  return data || [];
+}
+const SOURCE_HINTS = {
+  all: '',
+  weak: 'A mix from your three weakest specialties (5+ answers each), unseen questions first.',
+  revision: 'Questions you got wrong first time. Answer one correctly to clear it from the queue.',
+};
+function onSourceChange() {
+  const src = document.getElementById('sourceFilter').value;
+  ['topicFilter', 'typeFilter', 'domainFilter'].forEach(id => {
+    const el = document.getElementById(id); if (!el) return;
+    el.disabled = src !== 'all'; el.closest && el.previousElementSibling && (el.previousElementSibling.style.opacity = src !== 'all' ? .5 : 1);
+  });
+  let hint = SOURCE_HINTS[src] || '';
+  if (src === 'revision' && revisionLeft !== null) hint = (revisionLeft ? `${revisionLeft} question${revisionLeft === 1 ? '' : 's'} waiting. ` : 'Your revision queue is empty. ') + hint;
+  document.getElementById('sourceHint').textContent = hint;
+}
+
 async function fetchQuestions(filters) {
   // Uses get_random_questions() RPC so ORDER BY random() runs server-side.
   // This guarantees a genuine mix across all specialties on every call,
@@ -465,12 +503,23 @@ async function startSession() {
   const type   = document.getElementById('typeFilter').value;
   const domain = document.getElementById('domainFilter').value;
   const count  = parseInt(document.getElementById('countFilter').value);
+  sessionSource = (document.getElementById('sourceFilter') || {}).value || 'all';
 
   const main = document.getElementById('mainArea');
   main.innerHTML = `<div class="q-wrapper" aria-busy="true"><span class="sr-only">Loading questions…</span><div style="display:flex;gap:8px;margin-bottom:18px"><span class="skel skel-pill" style="width:90px"></span><span class="skel skel-pill" style="width:120px"></span><span class="skel skel-pill" style="width:60px"></span></div><span class="skel skel-line" style="width:96%"></span><span class="skel skel-line" style="width:90%"></span><span class="skel skel-line" style="width:94%"></span><span class="skel skel-line" style="width:58%"></span><div style="display:flex;flex-direction:column;gap:9px;margin-top:22px"><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:54%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:42%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:61%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:47%;margin:0"></span></div><div class="skel-card" style="display:flex;align-items:center;gap:12px;padding:12px 14px"><span class="skel" style="width:26px;height:26px;border-radius:7px;flex-shrink:0"></span><span class="skel skel-line" style="width:38%;margin:0"></span></div></div></div>`;
 
   try {
-    let qs = await fetchQuestions({ topic, type, domain, count });
+    if (sessionSource !== 'all' && !currentUser) {
+      main.innerHTML = `<div class="splash"><h2>Sign in to use this</h2><p>Weak areas and the revision queue are built from your own answers.</p></div>`;
+      return;
+    }
+    let qs = sessionSource === 'all' ? await fetchQuestions({ topic, type, domain, count }) : await fetchPersonal(sessionSource, count);
+    if (!qs.length && sessionSource !== 'all') {
+      main.innerHTML = sessionSource === 'revision'
+        ? `<div class="splash"><h2>Your revision queue is empty</h2><p>Questions you get wrong first time will appear here, ready to retry. Nice work.</p></div>`
+        : `<div class="splash"><h2>Not enough answers yet</h2><p>Answer at least 5 questions in a specialty and your weakest areas will appear here.</p></div>`;
+      return;
+    }
     // Group-aware shuffle: keep EMQ sets consecutive, shuffle groups
     qs = shuffleGroups(qs);
 
@@ -679,6 +728,7 @@ function submitAnswer() {
   updateProgress();
   updateMeta();
   recordAnswer(q, selected);   // server-side grading + XP (idempotent)
+  if (sessionSource === 'revision' && currentUser) recordRevision(q, selected);
 
   if (mode === 'exam') {
     // Exam mode: no answer reveal — move straight to next question or results
@@ -810,14 +860,23 @@ async function flushAnswers() {
   return flushing;
 }
 
+async function recordRevision(q, selected) {
+  try {
+    const { data, error } = await sb.rpc('record_revision', { p_question_id: q.id, p_selected: selected });
+    if (error) throw error;
+    revisionLeft = data.remaining;
+    if (data.cleared && mode === 'tutor') showXpChip('Cleared from revision queue', true);
+  } catch (e) { console.warn('Revision not recorded:', e.message || e); }
+}
+
 function setTopbarXp(xp) {
   const el = document.getElementById('xpTotal');
   if (el) { el.textContent = `${xp} XP`; el.style.display = 'inline-flex'; }
 }
-function showXpChip(n) {
+function showXpChip(n, isText) {
   const chip = document.getElementById('xpChip');
   if (!chip) return;
-  chip.textContent = `+${n} XP`;
+  chip.textContent = isText ? n : `+${n} XP`;
   chip.classList.remove('show'); void chip.offsetWidth; chip.classList.add('show');
 }
 
@@ -963,9 +1022,11 @@ function showToast(msg) {
 document.addEventListener('keydown', e => {
   if (!sessionActive) return;
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+  if (e.shiftKey || e.metaKey || e.ctrlKey || e.altKey) return;   // Shift+D toggles the theme
 
   const q = questions[currentIdx];
   const answered = answers[q.question_id] !== undefined;
+  if (e.key === 'Enter' && answered && !e.target.closest('button,a')) { if (currentIdx < questions.length - 1) nextQuestion(); return; }
 
   if (e.key === 'ArrowRight' && answered) { nextQuestion(); return; }
   if (e.key === 'ArrowLeft')              { prevQuestion(); return; }
@@ -983,6 +1044,30 @@ document.addEventListener('keydown', e => {
     }
   }
 });
+
+// Letters choose answers while a session is on screen, so global "g" jumps pause.
+window.OSSIFY_LETTER_KEYS = () => sessionActive;
+window.OSSIFY_PAGE_SHORTCUTS = [['A','Choose an answer (A–J)'], ['Enter','Confirm answer, then go to the next question'],
+  ['←','Previous question'], ['→','Next question (after answering)'], ['T','Switch Tutor / Topic mode']];
+
+// ── Deep links: practice.html?source=weak|revision ──
+(function () {
+  const src = new URLSearchParams(location.search).get('source');
+  const sel = document.getElementById('sourceFilter');
+  if (sel && (src === 'weak' || src === 'revision')) sel.value = src;
+})();
+// revision-queue size for the hint (signed-in users)
+(async () => {
+  try {
+    const { data } = await sb.rpc('get_dashboard_insights');
+    if (data && typeof data.revision_count === 'number') {
+      revisionLeft = data.revision_count;
+      const o = document.querySelector('#sourceFilter option[value="revision"]');
+      if (o) o.textContent = `My revision queue (${revisionLeft})`;
+    }
+  } catch (_) {}
+  onSourceChange();
+})();
 
 // ── Deep links: practice.html?topic=<specialty> preselects that specialty ──
 (function () {

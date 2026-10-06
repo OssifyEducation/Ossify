@@ -231,3 +231,18 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .sb-av{background:rgba(255,255,255,.15);}
 /* focus ring on purple surfaces: white, so it stands out */
 .sb :focus-visible,.dash-hero :focus-visible,.lb-hero :focus-visible,.course-hero :focus-visible,.domains-hero :focus-visible,.dl-hero :focus-visible,.duel-hero :focus-visible,.search-hero :focus-visible,.contact-info :focus-visible{outline-color:#fff!important;}
+
+/* ── Keyboard shortcut help ── */
+.ks-bg{position:fixed;inset:0;background:rgba(19,10,40,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:500;animation:ossifyIn .15s ease-out;}
+.ks-modal{background:var(--lav-card);background-color:#fff;border-radius:18px;padding:22px 24px 18px;width:100%;max-width:440px;max-height:85vh;overflow:auto;box-shadow:0 30px 80px rgba(19,10,40,.35);border:0.5px solid var(--lav-border);}
+.ks-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.ks-head h2{font-family:var(--font-serif);font-weight:500;font-size:20px;color:var(--pu-dark);}
+.ks-x{border:none;background:var(--pu-pale);color:var(--pu-dark);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:13px;}
+.ks-modal h3{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:16px 0 6px;}
+.ks-row{display:grid;grid-template-columns:118px 1fr;align-items:center;gap:12px;padding:7px 0;border-bottom:0.5px solid var(--lav-border);font-size:13px;color:var(--ink);}
+.ks-row:last-child{border-bottom:none;}
+.ks-keys{white-space:nowrap;}
+.ks-modal kbd{display:inline-block;min-width:22px;text-align:center;font:600 11.5px var(--font-sans);padding:3px 7px;border-radius:6px;background:var(--pu-ultra);border:0.5px solid var(--lav-border);border-bottom-width:2px;color:var(--pu-dark);}
+.ks-then{font-size:11px;color:var(--muted);margin:0 2px;}
+.ks-note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.5;}
+html[data-theme="dark"] .ks-modal{background-color:#1d1630;}
