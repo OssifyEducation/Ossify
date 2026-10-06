@@ -8,7 +8,7 @@
 
 :root{
   --pu-dark:#3d1f7a;
-  --pu-mid:#7c5cbf;
+  --pu-mid:#7857bd;
   --pu-light:#a78bfa;
   --pu-pale:#ede9fe;
   --pu-ultra:#f5f0ff;
@@ -19,7 +19,7 @@
   --lav-card:rgba(255,255,255,0.82);
   --lav-border:rgba(180,150,220,0.22);
   --ink:#3d1f7a;
-  --moss:#7b6fa0;
+  --moss:#6f6395;
   --muted:#765ea6;
   --red:#c0305a;
   --red-l:#fce7f0;
@@ -194,3 +194,40 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .content>*,.view>*{animation:ossifyIn .2s ease-out both;}
 @keyframes ossifyIn{from{opacity:0;}to{opacity:1;}}
 @media (prefers-reduced-motion:reduce){.skel::after{animation:none;display:none;}.content>*,.view>*{animation:none;}}
+
+/* ── Focus states (both themes): always visible for keyboard users ── */
+:root{--focus:#7c5cbf;}
+:focus-visible{outline:2px solid var(--focus)!important;outline-offset:2px!important;}
+.theme-toggle{display:flex;align-items:center;gap:8px;width:100%;margin:0 0 8px;padding:7px 10px;border-radius:9px;border:0.5px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.82);font:500 12px var(--font-sans);cursor:pointer;transition:background-color .15s;}
+.theme-toggle:hover{background:rgba(255,255,255,.16);}
+.theme-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Accessibility pass — WCAG AA text contrast (4.5:1), measured in the browser.
+   Small shifts only: a slightly deeper sidebar/hero purple so its labels can be
+   read, and stronger alpha on white text over coloured headers.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sb{background:#6443aa;}
+.sb-lbl{color:rgba(255,255,255,.8);}
+.nv{color:rgba(255,255,255,.86);}
+.nv svg{opacity:.9;}
+.sb-usub{color:rgba(255,255,255,.8);}
+.sb-signout{color:rgba(255,255,255,.86);}
+.theme-toggle{color:rgba(255,255,255,.92);}
+.nv-new{color:#4a0a2c!important;}
+.dash-hero{background:#6443aa;}
+.hero-greeting{color:rgba(255,255,255,.8)!important;}
+.hero-title em{color:rgba(255,255,255,.88)!important;}
+.hero-sub{color:rgba(255,255,255,.86)!important;}
+.ha-g{color:rgba(255,255,255,.92)!important;}
+.course-hero-tag,.domains-hero-tag,.duel-hero-tag,.search-hero-tag,.contact-detail-label{color:rgba(255,255,255,.78)!important;}
+.course-hero p,.domains-hero p,.dl-hero p,.duel-hero p,.search-hero p,.lb-hero p,.contact-hero p,.lb-hero div{color:rgba(255,255,255,.8)!important;}
+.lb-hero h2{color:#fff!important;}
+.q-dot.not-answered{color:#475569;}
+.lb-rank.silver{color:#4b5563;} .lb-rank.gold{color:#8a6508;}
+.sb .sb-lbl{color:rgba(255,255,255,.8);}
+.contact-info p{color:rgba(255,255,255,.82)!important;}
+.sb-av{background:rgba(255,255,255,.15);}
+/* focus ring on purple surfaces: white, so it stands out */
+.sb :focus-visible,.dash-hero :focus-visible,.lb-hero :focus-visible,.course-hero :focus-visible,.domains-hero :focus-visible,.dl-hero :focus-visible,.duel-hero :focus-visible,.search-hero :focus-visible,.contact-info :focus-visible{outline-color:#fff!important;}

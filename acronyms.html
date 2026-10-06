@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/ossify-theme.js"></script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Glossary — Ossify</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
 <style>
-:root{--pu-dark:#2d1060;--pu-mid:#7c3aed;--pu-light:#a78bfa;--lav:#f0eaff;--lav-card:#fff;--lav-border:rgba(180,150,220,0.25);--ink:#3d1f7a;--moss:#7b6fa0;--muted:#9b88c0;--font-sans:"Inter",system-ui,sans-serif;--font-serif:"Georgia",serif;}
+:root{--pu-dark:#2d1060;--pu-mid:#6d28d9;--pu-light:#a78bfa;--lav:#f0eaff;--lav-card:#fff;--lav-border:rgba(180,150,220,0.25);--ink:#3d1f7a;--moss:#6f6395;--muted:#765ea6;--font-sans:"Inter",system-ui,sans-serif;--font-serif:"Georgia",serif;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font-sans);background:var(--lav);color:var(--ink);min-height:100vh;display:flex;}
 #sb{width:220px;min-height:100vh;background:var(--pu-dark);display:flex;flex-direction:column;padding:20px 0;flex-shrink:0;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;}
 #sb .logo{display:flex;align-items:center;gap:10px;padding:0 18px 24px;color:#fff;font-family:var(--font-serif);font-size:20px;font-weight:700;text-decoration:none;}
 #sb .logo svg{width:28px;height:28px;}.sb-sec{margin-bottom:8px;}
-.sb-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.35);padding:6px 18px 4px;text-transform:uppercase;}
+.sb-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.8);padding:6px 18px 4px;text-transform:uppercase;}
 .nv{display:flex;align-items:center;gap:10px;padding:9px 18px;color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:background .15s,color .15s;}
 .nv svg{width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 .nv:hover,.nv.active{background:rgba(255,255,255,.1);color:#fff;}.nv.active{border-left:3px solid var(--pu-light);padding-left:15px;}
 .sb-bottom{margin-top:auto;padding:16px 18px 8px;border-top:1px solid rgba(255,255,255,.1);}
 .user-row{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.8);font-size:13px;}
-.avatar{width:32px;height:32px;border-radius:50%;background:var(--pu-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;}
+.avatar{width:32px;height:32px;border-radius:50%;background:#6443aa;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;}
 .streak-pill{background:rgba(255,255,255,.12);border-radius:20px;padding:4px 10px;font-size:12px;color:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:4px;margin-top:8px;}
 #signoutBtn{margin-top:10px;background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.5);width:100%;padding:7px;border-radius:7px;cursor:pointer;font-size:12px;}
 #signoutBtn:hover{color:#fff;border-color:rgba(255,255,255,.5);}
@@ -37,11 +38,15 @@ body{font-family:var(--font-sans);background:var(--lav);color:var(--ink);min-hei
 .card-full{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.3;}.card-sig{font-size:13px;color:var(--moss);line-height:1.5;}
 .no-results{text-align:center;padding:60px 20px;color:var(--muted);}.no-results svg{width:48px;height:48px;stroke:var(--lav-border);margin-bottom:12px;}.no-results h3{font-size:18px;color:var(--ink);margin-bottom:6px;}
 @media(max-width:768px){#sb{display:none;}#main{margin-left:0;}.gloss-grid{grid-template-columns:1fr;}#mainContent{padding:20px;}}
+:focus-visible{outline:2px solid #7857bd!important;outline-offset:2px!important;}
+#sb :focus-visible{outline-color:#fff!important;}
+html[data-theme="dark"] :focus-visible{outline-color:#c4b5fd!important;}
 </style>
+<link rel="stylesheet" href="css/ossify-dark.css">
 </head>
 <body>
 <aside id="sb">
-<a class="logo" href="dashboard.html"><svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#7c3aed"/><path d="M8 24V10l8-4 8 4v14l-8 4-8-4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M16 6v18M8 10l8 4 8-4" stroke="#fff" stroke-width="2"/></svg>Ossify</a>
+<a class="logo" href="dashboard.html"><svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#6d28d9"/><path d="M8 24V10l8-4 8 4v14l-8 4-8-4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M16 6v18M8 10l8 4 8-4" stroke="#fff" stroke-width="2"/></svg>Ossify</a>
 <div class="sb-sec"><div class="sb-lbl">Overview</div>
 <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
 <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><polyline points="18 20 18 10"/><polyline points="12 20 12 4"/><polyline points="6 20 6 14"/></svg>Leaderboard</a></div>
@@ -137,10 +142,10 @@ const AC=[
 {a:"COPD",f:"Chronic Obstructive Pulmonary Disease",s:"Persistent FEV1/FVC <0.7 post-bronchodilator. SABA → LAMA → LAMA+LABA → add ICS. Acute exacerbation: controlled O2 (target 88–92%), salbutamol, prednisolone, antibiotics if purulent.",cat:"Respiratory"},
 {a:"FEV1",f:"Forced Expiratory Volume in 1 second",s:"Key spirometry measurement. FEV1/FVC <0.7 = obstructive (COPD, asthma). COPD severity: mild ≥80%, moderate 50–79%, severe 30–49%, very severe <30%.",cat:"Respiratory"},
 {a:"PEFR",f:"Peak Expiratory Flow Rate",s:"Monitors asthma. <50% personal best = severe. <33% = life-threatening. Serial measurement guides steroid stepping.",cat:"Respiratory"}];
-const CATS={Cardiovascular:"#7c3aed",Investigations:"#0891b2",Respiratory:"#16a34a",Pharmacology:"#db2777",Clinical:"#dc2626",Regulatory:"#6b7280",Scoring:"#9333ea"};
+const CATS={Cardiovascular:"#6d28d9",Investigations:"#0e7490",Respiratory:"#15803d",Pharmacology:"#be185d",Clinical:"#b91c1c",Regulatory:"#4b5563",Scoring:"#7e22ce"};
 let activeCat="All",searchQ="";
 function hl(t,q){if(!q)return t;return t.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\\]\\\\]/g,"\\\\$&")+")","gi"),"<mark>$1</mark>");}
-function render(){const q=searchQ.toLowerCase();const f=AC.filter(i=>(activeCat==="All"||i.cat===activeCat)&&(!q||i.a.toLowerCase().includes(q)||i.f.toLowerCase().includes(q)||i.s.toLowerCase().includes(q)));f.sort((a,b)=>a.a.localeCompare(b.a));document.getElementById("countDisplay").textContent=f.length+" of "+AC.length+" entries";document.getElementById("topbarCount").textContent=f.length+" entries";const nr=document.getElementById("noResults");if(!f.length){document.getElementById("glossGrid").innerHTML="";nr.style.display="block";return;}nr.style.display="none";document.getElementById("glossGrid").innerHTML=f.map(i=>{const c=CATS[i.cat]||"#7c3aed";return "<div class=\"gloss-card\"><div class=\"card-top\"><div class=\"card-abbr\">"+hl(i.a,q)+"</div><span class=\"card-cat\" style=\"color:"+c+";border-color:"+c+"20;background:"+c+"12\">"+i.cat+"</span></div><div class=\"card-full\">"+hl(i.f,q)+"</div><div class=\"card-sig\">"+hl(i.s,q)+"</div></div>";}).join("");}
+function render(){const q=searchQ.toLowerCase();const f=AC.filter(i=>(activeCat==="All"||i.cat===activeCat)&&(!q||i.a.toLowerCase().includes(q)||i.f.toLowerCase().includes(q)||i.s.toLowerCase().includes(q)));f.sort((a,b)=>a.a.localeCompare(b.a));document.getElementById("countDisplay").textContent=f.length+" of "+AC.length+" entries";document.getElementById("topbarCount").textContent=f.length+" entries";const nr=document.getElementById("noResults");if(!f.length){document.getElementById("glossGrid").innerHTML="";nr.style.display="block";return;}nr.style.display="none";document.getElementById("glossGrid").innerHTML=f.map(i=>{const c=CATS[i.cat]||"#6d28d9";return "<div class=\"gloss-card\"><div class=\"card-top\"><div class=\"card-abbr\">"+hl(i.a,q)+"</div><span class=\"card-cat\" style=\"color:"+c+";border-color:"+c+"20;background:"+c+"12\">"+i.cat+"</span></div><div class=\"card-full\">"+hl(i.f,q)+"</div><div class=\"card-sig\">"+hl(i.s,q)+"</div></div>";}).join("");}
 function buildFilters(){const cats=["All",...Object.keys(CATS)];const c=document.getElementById("catFilters");c.innerHTML=cats.map(cat=>"<button class=\"cat-btn"+(cat==="All"?" active":"")+"\">"+cat+"</button>").join("");c.querySelectorAll(".cat-btn").forEach((b,i)=>{b.dataset.cat=cats[i];b.addEventListener("click",function(){activeCat=this.dataset.cat;c.querySelectorAll(".cat-btn").forEach(x=>x.classList.toggle("active",x===this));render();});});}
 const si=document.getElementById("searchInput"),cb=document.getElementById("clearBtn");si.addEventListener("input",function(){searchQ=this.value.trim();cb.style.display=searchQ?"block":"none";render();});cb.addEventListener("click",function(){si.value="";searchQ="";cb.style.display="none";si.focus();render();});document.addEventListener("keydown",function(e){if(e.key==="/"&&document.activeElement!==si){e.preventDefault();si.focus();}if(e.key==="Escape")si.blur();});buildFilters();render();
 </script></body></html>
