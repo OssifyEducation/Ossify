@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <script src="js/ossify-theme.js"></script>
+<script src="js/ossify-shortcuts.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Ossify</title>
@@ -408,14 +409,17 @@ function renderInsights(ins, fallback){
   // ── what to practise next
   const withEnough=topics.filter(t=>t.attempted>=MIN_FOR_ACC).sort((a,b)=>a.correct/a.attempted-b.correct/b.attempted||b.attempted-a.attempted);
   const recs=[];
+  const rq=Number(ins.revision_count)||0, weakT=ins.weak_topics||[];
+  if(rq>0) recs.push({name:'Revision queue',why:`${rq} question${rq===1?'':'s'} you got wrong, ready to retry`,kind:'focus',href:'practice.html?source=revision'});
+  if(weakT.length) recs.push({name:'Weak-area mix',why:`Fresh questions from ${weakT.map(x=>SHORT[x]||x).join(', ')}`,kind:'focus',href:'practice.html?source=weak'});
   if(withEnough.length){const w=withEnough[0];recs.push({t:w.topic,why:`Lowest accuracy: ${Math.round(w.correct/w.attempted*100)}% across ${w.attempted} questions`,kind:'focus'});}
   const coverage=[...topics].sort((a,b)=>a.attempted/a.bank-b.attempted/b.bank||a.topic.localeCompare(b.topic));
-  for(const c of coverage){ if(recs.length>=3) break; if(recs.some(r=>r.t===c.topic)) continue;
+  for(const c of coverage){ if(recs.length>=4) break; if(recs.some(r=>r.t===c.topic)) continue;
     recs.push({t:c.topic,why:c.attempted?`Least practised: ${c.attempted} of ${c.bank} answered`:`Not started: ${c.bank} questions waiting`,kind:'cover'}); }
   const next=`<div class="card"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pk-mid);"><polyline points="9 18 15 12 9 6"/></svg>What to practise next</div><div class="card-sub">${ans?'Chosen from your answers so far':'Good places to start'}</div></div></div>
-    <div class="card-body">${recs.map(r=>`<a class="next-item" href="practice.html?topic=${encodeURIComponent(r.t)}">
+    <div class="card-body">${recs.map(r=>`<a class="next-item" href="${r.href||'practice.html?topic='+encodeURIComponent(r.t)}">
         <span class="next-dot ${r.kind}" aria-hidden="true"></span>
-        <span class="next-txt"><span class="next-name">${escD(r.t)}</span><span class="next-why">${escD(r.why)}</span></span>
+        <span class="next-txt"><span class="next-name">${escD(r.name||r.t)}</span><span class="next-why">${escD(r.why)}</span></span>
         <span class="next-go">Practise →</span></a>`).join('')}
       ${withEnough.length?'':`<div class="ins-note">Answer at least ${MIN_FOR_ACC} questions in a specialty to see where your accuracy is weakest.</div>`}</div></div>`;
   // ── 30-day trend

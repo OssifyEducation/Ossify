@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <script src="js/ossify-theme.js"></script>
+<script src="js/ossify-shortcuts.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Timed Exam — Ossify</title>
@@ -850,6 +851,9 @@ function flushSaveKeepalive() {
   } catch (_) {}
 }
 window.addEventListener('pagehide', flushSaveKeepalive);
+// letters choose answers during the exam, so global "g" jumps pause
+window.OSSIFY_LETTER_KEYS = () => phase === 'exam';
+window.OSSIFY_PAGE_SHORTCUTS = [['A','Choose an answer (A–J)'], ['←','Previous question'], ['→','Next question'], ['F','Flag question for review'], ['↑','Move between options (↑ / ↓)']];
 function beforeUnloadGuard(e) {
   if (phase === 'exam' || phase === 'submitting') { e.preventDefault(); e.returnValue = ''; }
 }
@@ -1153,8 +1157,8 @@ $('palToggle').addEventListener('click', () => $('palette').classList.contains('
 
 // ── Keyboard ────────────────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
-  if (e.metaKey || e.ctrlKey || e.altKey) return;
-  if ($('finishModal')) return;
+  if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;   // Shift+D toggles the theme
+  if ($('finishModal') || document.getElementById('ksHelp')) return;
   if (e.key === 'Escape' && $('palette').classList.contains('open')) { closePalette(); return; }
   const tag = (e.target.tagName || '').toLowerCase();
   if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
