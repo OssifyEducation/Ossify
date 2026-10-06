@@ -3,6 +3,7 @@
 <head>
 <script src="js/ossify-theme.js"></script>
 <script src="js/ossify-shortcuts.js" defer></script>
+<script src="js/ossify-mobile.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practice — Ossify</title>
@@ -205,6 +206,23 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .result-btn-c{padding:11px;background:transparent;border:0.5px solid var(--lav-border);border-radius:11px;font-size:13.5px;font-weight:500;font-family:var(--font-sans);color:var(--muted);cursor:pointer;transition:all .15s;}
 .result-btn-c:hover{border-color:var(--pu-light);color:var(--pu-dark);}
 
+
+/* ── Small screens: setup panel above the question, page scrolls naturally ── */
+@media (max-width:860px){
+  .content{flex-direction:column;padding:12px!important;gap:12px;align-items:stretch;}
+  .config-panel{width:100%!important;position:static!important;max-height:none!important;}
+  .q-area{max-height:none!important;overflow:visible!important;width:100%;scroll-margin-top:62px;}
+  .q-grid{grid-template-columns:repeat(10,1fr);}
+  .tb-r{gap:6px;min-width:0;}
+  .session-meta,.xp-total{display:none!important;}
+  .btn-save-later,.btn-save-exit{padding:6px 9px!important;font-size:0!important;gap:0!important;}
+  .btn-save-later svg,.btn-save-exit svg{width:15px;height:15px;}
+  .mode-btn{padding:5px 9px!important;font-size:11.5px!important;}
+  .splash{padding:32px 18px!important;}
+  .action-row{flex-wrap:wrap;}
+  .result-card{padding:28px 20px!important;}
+}
+@media (max-width:420px){ .q-grid{grid-template-columns:repeat(8,1fr);} .tb-title{font-size:15px!important;} }
 </style>
 <link rel="stylesheet" href="css/ossify-tutor.css">
 <link rel="stylesheet" href="css/ossify-dark.css">
@@ -1044,6 +1062,18 @@ document.addEventListener('keydown', e => {
     }
   }
 });
+
+// Small screens: the question sits below the setup panel and the page scrolls,
+// so bring the question into view whenever a new one is shown.
+(function () {
+  const small = window.matchMedia('(max-width: 860px)');
+  const orig = renderQuestion;
+  renderQuestion = function (i) {
+    const r = orig.apply(this, arguments);
+    if (small.matches && sessionActive) { const m = document.getElementById('mainArea'); if (m) m.scrollIntoView({ block: 'start' }); }
+    return r;
+  };
+})();
 
 // Letters choose answers while a session is on screen, so global "g" jumps pause.
 window.OSSIFY_LETTER_KEYS = () => sessionActive;

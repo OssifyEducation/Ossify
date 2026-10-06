@@ -246,3 +246,36 @@ label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-botto
 .ks-then{font-size:11px;color:var(--muted);margin:0 2px;}
 .ks-note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.5;}
 html[data-theme="dark"] .ks-modal{background-color:#1d1630;}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Small screens (≤860px): slide-out sidebar + full-width content
+   ════════════════════════════════════════════════════════════════════════════ */
+.nav-burger{display:none;align-items:center;justify-content:center;width:36px;height:36px;margin-right:6px;border-radius:9px;
+  border:0.5px solid var(--lav-border);background:var(--lav-card);color:var(--pu-dark);cursor:pointer;flex-shrink:0;}
+.nav-burger svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;}
+.nav-scrim{display:none;}
+@media (max-width:860px){
+  .sb{position:fixed!important;top:0;bottom:0;left:0;width:248px!important;transform:translateX(-102%);transition:transform .22s ease;z-index:320;box-shadow:0 0 40px rgba(19,10,40,.35);}
+  body.nav-open .sb{transform:none;}
+  .nav-scrim{position:fixed;inset:0;background:rgba(19,10,40,.45);z-index:310;}
+  body.nav-open .nav-scrim{display:block;}
+  .main{margin-left:0!important;min-width:0;}
+  .nav-burger{display:inline-flex;}
+  .topbar{padding:0 12px!important;gap:8px;}
+  .topbar .tb-title{display:flex;align-items:center;white-space:nowrap;}
+  .topbar > :first-child{flex-shrink:0;}
+}
+@media (prefers-reduced-motion:reduce){.sb{transition:none!important;}}
+html[data-theme="dark"] .nav-burger{background:#1d1630;}
+@media (max-width:860px){
+  .content{padding-left:12px!important;padding-right:12px!important;}
+  .acc-layout{grid-template-columns:1fr!important;}
+  .acc-sidenav{position:static!important;display:flex;overflow-x:auto;}
+  .acc-sidenav-item{white-space:nowrap;}
+  .acc-layout > *, .acc-section{min-width:0;}
+}
+@media (max-width:480px){
+  .topbar .tb-r{gap:6px;}
+  .topbar .tb-r .btn-cta{display:none;}      /* Practice is one tap away in the menu */
+  .topbar .chip{padding:4px 8px;}
+}
