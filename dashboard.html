@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/ossify-theme.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Ossify</title>
@@ -106,6 +107,7 @@
 .st-key i.st-early{background:var(--lav-card);}
 @media (prefers-reduced-motion:reduce){.ring-arc,.st-tile{transition:none;}}
 </style>
+<link rel="stylesheet" href="css/ossify-dark.css">
 </head>
 <body>
 <aside class="sb">
@@ -321,7 +323,7 @@ document.getElementById('mainContent').innerHTML=`
     <div class="dh-orb1"></div><div class="dh-orb2"></div>
     <div class="hero-greeting">Ossify MSRA</div>
     <div class="hero-title">${heroGreeting}</div>
-    <div class="streak-dots">${streakDots(streak)}<span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;">${streak} day streak</span></div>
+    <div class="streak-dots">${streakDots(streak)}<span style="font-size:11px;color:rgba(255,255,255,0.8);margin-left:8px;">${streak} day streak</span></div>
     <div class="hero-sub">${streak>0?`${streak}-day streak active — consistency is the key to Band 4.`:'Start practising today to begin your streak.'}</div>
     <div class="hero-acts">
       <a href="practice.html" class="ha-w"><svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Start Practice</a>

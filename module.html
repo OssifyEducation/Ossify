@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/ossify-theme.js"></script>
 <!-- COURSE AREA DISABLED FOR BETA (see COURSE-WIP-NOTES.md). Redirects to the dashboard on the live site; stays open on localhost for development. -->
 <script>(function(){var h=location.hostname;var dev=(h==="localhost"||h==="127.0.0.1"||h===""||h.endsWith(".local"));if(!dev){location.replace("dashboard.html");}})();</script>
 <meta charset="UTF-8">
@@ -245,6 +246,7 @@ abbr.acr:hover::before{content:"";position:absolute;left:50%;bottom:calc(100% + 
   .rc-continue-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;}
 
 </style>
+<link rel="stylesheet" href="css/ossify-dark.css">
 </head>
 <body>
 <aside class="sb">
@@ -874,7 +876,7 @@ async function showCompleteBanner(){
 
 function showError(msg){
   const mm=document.getElementById('modMain');
-  if(mm)mm.innerHTML='<div class="error-state"><h3>'+msg+'</h3><a href="domains.html" style="color:#7c5cbf;font-size:14px">Back to Domains</a></div>';
+  if(mm)mm.innerHTML='<div class="error-state"><h3>'+msg+'</h3><a href="domains.html" style="color:var(--pu-mid);font-size:14px">Back to Domains</a></div>';
 }
 
 

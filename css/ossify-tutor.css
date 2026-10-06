@@ -263,3 +263,7 @@
 .opt-ans-box .ans-detail-body{margin-left:38px;margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,.07);}
 .opt-ans-box .ans-detail-body p{margin-bottom:6px;font-size:12.5px;line-height:1.7;color:var(--ink);}
 .opt-ans-box .ans-detail-body p:last-child{margin-bottom:0;}
+
+/* contrast: white on the previous green was 2.28:1; #15803d is 5.0:1 */
+.option-letter.opt-ltr-correct{background:#15803d!important;border-color:#15803d!important;}
+.opt-badge.opt-badge-correct{color:#15803d;}

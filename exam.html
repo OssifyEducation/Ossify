@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/ossify-theme.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Timed Exam — Ossify</title>
@@ -132,7 +133,7 @@ body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#
 .q-dot.answered-skip::before{content:"";position:absolute;bottom:4px;left:50%;width:10px;height:2px;margin-left:-5px;border-radius:2px;background:#64748b;}
 .q-dot.answered-correct{background:#dcfce7;color:#166534;}
 .q-dot.answered-wrong{background:var(--pk-pale);color:var(--red);}
-.q-dot.not-answered{background:#f1f5f9;color:#64748b;box-shadow:inset 0 0 0 1px #cbd5e1;}
+.q-dot.not-answered{background:#f1f5f9;color:#475569;box-shadow:inset 0 0 0 1px #cbd5e1;}
 .q-dot.flagged::after{content:"";position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 9px 9px 0;border-color:transparent var(--pk-mid) transparent transparent;border-top-right-radius:7px;}
 .q-dot.active{background:#facc15;color:#713f12;font-weight:700;box-shadow:0 0 0 2px #f59e0b;}
 .q-dot.dim{opacity:.28;}
@@ -278,6 +279,7 @@ body[data-clock="over"] .clock-digits,body[data-clock="over"] .clock-cap{color:#
 .qcard .q-wrapper{padding:0;}
 .options-list{display:flex;flex-direction:column;gap:0;margin-bottom:18px;}
 </style>
+<link rel="stylesheet" href="css/ossify-dark.css">
 </head>
 <body data-clock="normal">
 
