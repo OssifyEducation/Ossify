@@ -153,13 +153,9 @@
       <div class="duel-card-title"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>New duel</div>
     </div>
     <div class="duel-search-body">
-      <div class="search-tabs">
-        <button class="search-tab active" onclick="switchSearchMode('username')">By username</button>
-        <button class="search-tab" onclick="switchSearchMode('email')">By email</button>
-      </div>
       <div id="searchError" class="search-err" style="display:none;"></div>
       <div class="search-row">
-        <input id="searchInput" placeholder="Enter username (without @)…" type="text">
+        <input id="searchInput" placeholder="Name, @username or email…" type="text" autocomplete="off">
         <button class="btn-search" onclick="doSearch()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</button>
       </div>
       <div id="searchResults"></div>
@@ -246,33 +242,29 @@ function subscribeRealtime(){
 }
 
 // ── Search ────────────────────────────────────────────────────────────────────
-function switchSearchMode(mode){
-  searchMode=mode;
-  document.querySelectorAll('.search-tab').forEach((t,i)=>t.classList.toggle('active',i===(mode==='username'?0:1)));
-  document.getElementById('searchInput').placeholder=mode==='username'?'Enter username (without @)…':'Enter email address…';
-}
-
+let searchHits=[];
 async function doSearch(){
-  const val=document.getElementById('searchInput').value.trim();
+  const val=document.getElementById('searchInput').value.trim().replace(/^@/,'');
   const errEl=document.getElementById('searchError');
   const resEl=document.getElementById('searchResults');
   errEl.style.display='none'; resEl.innerHTML='';
-  if(!val)return;
-  const field=searchMode==='username'?'username':'email';
-  const{data,error}=await sb.from('profiles').select('id,full_name,username,hospital_trust').eq(field,val).limit(5);
-  if(error||!data?.length){errEl.textContent='No user found with that '+searchMode+'.';errEl.style.display='block';return;}
-  resEl.innerHTML=data.map(u=>{
-    if(u.id===myId)return'';
-    const ini=ossifyInitials(u.full_name);
-    return`<div class="search-result" onclick="selectUser('${u.id}','${(u.full_name||'').replace(/'/g,"\\'")}','${(u.username||'').replace(/'/g,"\\'")}','${(u.hospital_trust||'').replace(/'/g,"\\'")}')">
-      <div class="sr-av">${ini}</div>
-      <div><div class="sr-name">${u.full_name||'Doctor'}</div><div class="sr-sub">${u.username?'@'+u.username:''} ${u.hospital_trust?'· '+u.hospital_trust:''}</div></div>
-    </div>`;
-  }).join('');
+  document.getElementById('challengeBar').style.display='none'; selectedUser=null;
+  if(val.length<2){showErr('Type at least 2 characters.');return;}
+  const{data,error}=await sb.rpc('search_players',{p_query:val});
+  if(error){showErr('Search failed: '+error.message);return;}
+  searchHits=data||[];
+  if(!searchHits.length){showErr('No player found matching "'+val+'". Ask them for their exact email, or to set a username in Account.');return;}
+  resEl.innerHTML=searchHits.map((u,i)=>`<div class="search-result" onclick="selectUser(${i})">
+      <div class="sr-av">${esc(ossifyInitials(u.full_name||u.username))}</div>
+      <div><div class="sr-name">${esc(u.full_name||(u.username?'@'+u.username:'Ossify player'))}</div><div class="sr-sub">${u.username?'@'+esc(u.username):''} ${u.hospital_trust?'· '+esc(u.hospital_trust):''}</div></div>
+    </div>`).join('');
 }
 
-function selectUser(id,name,uname,info){
-  selectedUser={id,name,uname,info};
+function selectUser(i){
+  const u=searchHits[i]; if(!u)return;
+  const name=u.full_name||(u.username?'@'+u.username:'Ossify player');
+  selectedUser={id:u.id,name,uname:u.username,info:u.hospital_trust};
+  document.querySelectorAll('#searchResults .search-result').forEach((el,j)=>el.classList.toggle('selected',j===i));
   document.getElementById('challengeBar').style.display='flex';
   document.getElementById('challengeName').textContent=name;
   document.getElementById('challengeBtn').textContent='Send challenge';
