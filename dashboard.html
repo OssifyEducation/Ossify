@@ -316,6 +316,10 @@ async function init(){
   const heroGreeting=firstVisit?`Welcome to Ossify, <em>${first}.</em>`:GREETINGS[gi][0]+`<em>${first}${GREETINGS[gi][1]}</em>`;
 
 document.getElementById('mainContent').innerHTML=`
+  ${!profile?.username?`<div class="free-gate" style="text-align:left;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:14px 18px;">
+    <div style="font-size:13.5px;color:var(--pu-dark);"><strong>Pick a username</strong> so colleagues can find you and challenge you to a duel.</div>
+    <a href="account.html#fUsername" class="btn-cta" style="display:inline-flex;text-decoration:none;">Set username →</a>
+  </div>`:''}
   ${!isPaid?`<div class="free-gate">
     <h3>Unlock your full question bank</h3>
     <p>Upgrade to access all 1,200+ questions, leaderboards, weekly challenges, and head-to-head duels.</p>
