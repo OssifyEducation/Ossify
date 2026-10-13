@@ -1,0 +1,109 @@
+{
+  "id": "sjt-010",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-010",
+  "format": "multiple_choice",
+  "title": "A hypo on the children's ward",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Patient safety",
+    "Managing health risks"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a paediatric ward. Your colleague Tom, another F2, has type 1 diabetes. Halfway through a busy late shift you find him sweaty and confused at the computer; his capillary glucose is 2.6 mmol/L. You give him glucose tablets and stay with him, and 15 minutes later his glucose is 4.8 mmol/L and he seems himself again.\n\nTom thanks you and says he's fine to carry on: the ward is short-staffed and he has three hours of the shift left. He asks you not to make a fuss.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Let him carry on with his patients, as his glucose is now normal and the ward badly needs him.",
+      "brief": "A normal reading 15 minutes after a hypo doesn't mean he is safe to make clinical decisions for children.",
+      "detailed": "The staffing pressure is real and it is what makes this option tempting. But returning him to clinical work immediately places patients at risk if his recovery isn't complete or his glucose falls again. A short gap, with the registrar aware, protects both the children and Tom."
+    },
+    {
+      "id": "B",
+      "text": "Report Tom to the GMC, as a doctor who becomes confused at work may be a risk to patients.",
+      "brief": "Wholly disproportionate: this is a one-off episode of a managed condition, handled promptly.",
+      "detailed": "The GMC is concerned with doctors whose health poses a risk to patients that they are not managing. Tom recognised nothing at first, but he accepted treatment and has a manageable condition. A supportive local response, with occupational health involved if needed, is the right route."
+    },
+    {
+      "id": "C",
+      "text": "Make sure Tom eats a longer-acting carbohydrate and rechecks his glucose before doing anything else.",
+      "brief": "Completes the treatment of his hypoglycaemia so it doesn't recur within the hour.",
+      "detailed": "Glucose tablets raise the level quickly but briefly; without something longer-acting, such as a sandwich or biscuits, the glucose may fall again. Rechecking confirms that the recovery is holding. This is basic hypoglycaemia management and is the first thing Tom needs, whatever happens next."
+    },
+    {
+      "id": "D",
+      "text": "Suggest Tom stops clinical work for now, and help him let the registrar know so cover can be arranged.",
+      "brief": "Thinking and judgement can take time to recover after a hypo, and he is caring for children.",
+      "detailed": "Even when someone feels normal, concentration and judgement may lag behind the glucose reading, and a prescribing error on a paediatric ward could be serious. Stepping back from clinical work for a period is the safe choice. Telling the registrar is not about reporting Tom: it is how the ward gets cover so that his patients are looked after and he doesn't feel pressured to return too soon."
+    },
+    {
+      "id": "E",
+      "text": "Agree to keep the episode between the two of you, so that it doesn't count against him in his training.",
+      "brief": "Loyal, but it leaves the ward unaware that a doctor may not be fully fit for the next hour or so.",
+      "detailed": "Tom's worry about his training is understandable, and you can reassure him that a hypo on shift is a health matter, not a disciplinary one. But agreeing to secrecy means the registrar does not know to arrange cover, and patients may be affected if he isn't fully recovered."
+    },
+    {
+      "id": "F",
+      "text": "Take over all of Tom's patients yourself for the rest of the shift, so that he can rest in the doctors' mess.",
+      "brief": "Generous, but doubling your workload unseen is unsafe, and no senior knows the ward is short.",
+      "detailed": "Covering for a colleague is a natural instinct. But silently taking on two doctors' patients on a busy shift raises the chance of mistakes, and if anything goes wrong no one will know why. The registrar needs to know so that the workload can be shared or covered properly."
+    },
+    {
+      "id": "G",
+      "text": "Later, ask Tom privately whether occupational health or his diabetes team could help him manage shifts.",
+      "brief": "Looks after Tom beyond tonight, recognising that long shifts can make diabetes harder to manage.",
+      "detailed": "A single hypo on a long shift may be a one-off, or it may reflect missed meals and erratic rotas. Occupational health can recommend adjustments such as protected breaks, and his diabetes team can review his regimen. Raising it privately and supportively, rather than in the middle of the ward, makes it more likely he will accept help."
+    },
+    {
+      "id": "H",
+      "text": "Tell the ward manager that, after tonight, Tom shouldn't be working on the children's ward.",
+      "brief": "An overreaction that misrepresents a well-managed condition and could be discriminatory.",
+      "detailed": "Many doctors with type 1 diabetes work safely in every specialty. A single hypo does not mean Tom is unfit for paediatrics, and raising it in these terms with the ward manager could harm his career unfairly. Any adjustments should come through occupational health, with Tom involved."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a colleague's health temporarily affects their fitness to work: keeping patients safe while treating the colleague with kindness and discretion.",
+    "keyDetails": "Tom's glucose has recovered, but only just, and he is caring for children. The ward is short, which is the pressure pushing him back to work. He asks you not to make a fuss, which tests whether you can be supportive without colluding.",
+    "reasoning": "[C] completes his treatment, [D] keeps patients safe and gets the ward support, and [G] looks after Tom in the longer term. The distractors either put patients at risk ([A], [E], [F]) or overreact in ways that would be unfair to him ([B], [H]).",
+    "competing": "[F] is the tempting one here. It comes from kindness, but hiding the gap from the registrar makes the shift less safe for everyone."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Managing risks posed by your health' and 'Responding to safety risks'."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Acting promptly when a colleague's health may put patients at risk, starting with local support."
+    }
+  ],
+  "tags": [
+    "colleague health",
+    "diabetes",
+    "paediatrics",
+    "patient safety"
+  ]
+}

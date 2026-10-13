@@ -1,0 +1,85 @@
+{
+  "id": "sjt-019",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-019",
+  "format": "ranking",
+  "title": "An accepted paper",
+  "setting": "Non-clinical (training)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Probity",
+    "Challenging colleagues",
+    "Proportionate escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. You and your friend Sam, also an F2, co-wrote a case report. Last month the journal asked for minor revisions, which you made; yesterday you heard that it has now been rejected.\n\nSam shows you his specialty training application, which he submitted last week. Under publications it lists your case report as \"accepted for publication\". Shortlisting has not yet taken place. When you mention the rejection, Sam says that after the revision request he assumed acceptance was a formality, and that \"it won't make much difference anyway\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Report Sam to the GMC for making a false claim on his application.",
+      "brief": "Disproportionate at this stage, though it reflects a correct view that this matters.",
+      "detailed": "False claims on applications can be a fitness-to-practise issue, which is why this isn't the worst option. But no local steps have been taken, Sam may still correct it, and a regulator referral would be a serious step out of proportion to a situation that can be put right within days."
+    },
+    {
+      "id": "B",
+      "text": "Ask your educational supervisor for advice on what to do about Sam's application.",
+      "brief": "Gets senior advice on a difficult probity issue involving a friend, before anything more formal.",
+      "detailed": "A probity issue involving a friend is hard to handle alone, and your supervisor can help you think through whether and how the recruitment office should be told, and may speak to Sam themselves. It ranks second because talking to Sam directly gives him the chance to correct the entry himself, which is quicker and fairer."
+    },
+    {
+      "id": "C",
+      "text": "Leave it to Sam, as it is his application and he says it won't make much difference.",
+      "brief": "Leaves a known false claim in an application, and lets Sam's reasoning stand unchallenged.",
+      "detailed": "Whether or not the paper would change his score, an application containing a claim he knows to be untrue is dishonest. Staying silent also involves you, as a co-author who knows the truth. It is the only option that does nothing about a probity problem you are fully aware of."
+    },
+    {
+      "id": "D",
+      "text": "Inform the recruitment office yourself, without speaking further to Sam.",
+      "brief": "Corrects the record, but skips giving a colleague the chance to put right what may have begun as an honest mistake.",
+      "detailed": "The recruitment office does need accurate information, and as a co-author you have direct knowledge. But going behind Sam's back, when he may still correct it himself, is not proportionate as a first step. It may also damage your working relationship unnecessarily."
+    },
+    {
+      "id": "E",
+      "text": "Tell Sam he needs to contact the recruitment office to correct his application before shortlisting.",
+      "brief": "Gives Sam the chance to put it right himself, which is the proportionate first step.",
+      "detailed": "Listing the paper as accepted after a revision request was an overstatement, but now that he knows it has been rejected, leaving the claim in place would be dishonest. Recruitment offices deal with corrections routinely, and correcting before shortlisting is likely to cause him little harm. Encouraging him to do it himself respects your friendship and puts the record straight."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "B",
+      "D",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your response to a colleague's inaccurate claim on an application, balancing loyalty and proportionality against honesty.",
+    "keyDetails": "The paper was never accepted and has now been rejected, Sam knows it, and shortlisting hasn't happened, so a correction is easy and timely. You are a co-author, so you know the facts first hand. Sam's comment that it 'won't make much difference' is a rationalisation, not a reason.",
+    "reasoning": "[E] gives Sam the chance to correct his own record, and [B] gets you senior advice, which you would certainly need if he refused. [D] corrects the record but bypasses Sam. [A] and [C] are at opposite extremes: [A] is a disproportionate escalation, and [C] accepts a known falsehood.",
+    "competing": "The ordering of [A] and [C] reflects that over-reacting to a probity issue is less damaging than ignoring it. In practice, if Sam refused to correct the entry and your supervisor agreed, informing the recruitment office would become appropriate."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Acting with honesty and integrity': being honest in CVs, applications and other documents."
+    }
+  ],
+  "tags": [
+    "probity",
+    "applications",
+    "colleague",
+    "publications"
+  ]
+}

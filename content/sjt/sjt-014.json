@@ -1,0 +1,110 @@
+{
+  "id": "sjt-014",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-014",
+  "format": "multiple_choice",
+  "title": "A funeral before the exam",
+  "setting": "Non-clinical (training)",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Self-care",
+    "Seeking support",
+    "Planning"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a general medicine rotation. Your grandmother, who brought you up, died suddenly last week. Her funeral is next Thursday, when you are rostered for a long day, and your postgraduate exam is the following Monday.\n\nYou have found it hard to concentrate since she died, and your revision has stalled. The rota coordinator has already told the department that no more leave can be granted this month because of gaps in the rota.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange an informal swap with a colleague for the day of the funeral, sorting it out between the two of you.",
+      "brief": "Solves the funeral but leaves the official rota wrong, which can matter for safety and pay.",
+      "detailed": "Informal swaps are common and colleagues are often generous. But if the rota coordinator doesn't know, the department may not know who is actually on duty, and the swap may breach working-time limits for your colleague. Using the proper route also means you aren't left owing a shift you may struggle to work."
+    },
+    {
+      "id": "B",
+      "text": "Speak to the rota coordinator and your clinical supervisor about compassionate leave for the funeral.",
+      "brief": "Compassionate leave is separate from annual leave, and the people who can arrange it need to know.",
+      "detailed": "A general message about the rota being full refers to annual leave; compassionate leave for the death of a close family member is handled differently in most trusts. Your clinical supervisor can support the request and help the department find cover. Asking openly is far better than trying to manage the gap yourself."
+    },
+    {
+      "id": "C",
+      "text": "Discuss with your educational supervisor whether to sit the exam as planned or defer it.",
+      "brief": "A considered decision about the exam, with someone who knows the options and your circumstances.",
+      "detailed": "Sitting an exam in the days after a close bereavement is a real risk to your performance, and many exam bodies have processes for deferral or mitigating circumstances. Your educational supervisor can help you weigh whether to proceed and what evidence you would need. The decision is yours, but it is better made with support than alone."
+    },
+    {
+      "id": "D",
+      "text": "Call in sick on the day of the funeral.",
+      "brief": "Dishonest, when there is a legitimate route for exactly this situation.",
+      "detailed": "Reporting sickness when you are attending a funeral is not truthful, and it denies the department notice to arrange cover. Compassionate leave exists precisely so that doctors don't have to choose between grieving and honesty."
+    },
+    {
+      "id": "E",
+      "text": "Keep working your normal shifts and revise every evening, so that you don't fall behind.",
+      "brief": "Pushing through may feel responsible, but it ignores the effect grief is already having on you.",
+      "detailed": "This is the response many doctors default to, and it can work for a while. But you already find it hard to concentrate, and adding late-night revision to full shifts in the week of a funeral risks your wellbeing, your performance in the exam and potentially your safety at work."
+    },
+    {
+      "id": "F",
+      "text": "Tell someone you trust how you are feeling, and use the support available, such as staff support services.",
+      "brief": "Grief that is affecting your concentration deserves attention, not just endurance.",
+      "detailed": "Difficulty concentrating after a sudden bereavement is normal, but it can affect your safety at work as well as your exam. Talking to a friend, a supervisor or the trust's staff support service makes it more likely that you notice if it gets worse, and that colleagues make allowances. Looking after your own health is part of practising safely."
+    },
+    {
+      "id": "G",
+      "text": "Withdraw from the exam online tonight, so that you have one less thing to think about this week.",
+      "brief": "Deferral may be the right choice, but doing it without advice may cost you mitigation and support.",
+      "detailed": "Withdrawing could be a sensible decision, but doing it without advice may mean you lose your fee or a sitting unnecessarily, when the exam body might have offered a deferral for bereavement. It also leaves your supervisors unaware of what you are dealing with."
+    },
+    {
+      "id": "H",
+      "text": "Ask a colleague to cover your on-call next week so that you can catch up on your revision.",
+      "brief": "Solves a scheduling problem but leaves your circumstances unaddressed and moves the burden onto a colleague.",
+      "detailed": "This avoids the conversation you need to have. Colleagues often help, but they can do so more fairly when the department knows, and you would miss the compassionate leave and supervisor support that exist for your situation."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you cope with personal adversity that collides with work and training, and whether you use legitimate support rather than private workarounds.",
+    "keyDetails": "The funeral clashes with a shift, the exam is days later, and grief is already affecting your concentration. The rota message about no more leave is about annual leave and does not rule out compassionate leave.",
+    "reasoning": "[B] deals with the funeral through the proper route, [C] makes a considered decision about the exam, and [F] looks after your wellbeing. Together they address all three pressures openly. The distractors either work around the system ([A], [H]), are dishonest ([D]), push on regardless of the toll the bereavement is taking ([E]), or make a big decision in silence ([G]).",
+    "competing": "[E] appeals because it looks like resilience. But resilience in this paper means coping sustainably and seeking support when needed, not simply pushing harder."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Managing risks posed by your health'; looking after your own wellbeing."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors whose health is affected, if difficulties persist."
+    }
+  ],
+  "tags": [
+    "bereavement",
+    "wellbeing",
+    "exams",
+    "rota"
+  ]
+}

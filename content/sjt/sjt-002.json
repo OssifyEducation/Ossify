@@ -1,0 +1,108 @@
+{
+  "id": "sjt-002",
+  "version": 2,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "format": "multiple_choice",
+  "title": "Three bleeps at 2 am",
+  "setting": "Medical wards, night shift",
+  "attribute": "Coping with pressure",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Escalation",
+    "Managing workload"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are the F2 doctor covering four medical wards overnight. At 02:00 you are on Ward 7 rewriting a drug chart that has run out of space. Within ten minutes you are bleeped three times.\n\nA nurse on Ward 9 tells you that Mrs Hale, 81, admitted two days ago with a urinary tract infection, now has a NEWS2 score of 7 with a blood pressure of 84/50. A nurse on Ward 5 asks you to verify the death of a patient who died peacefully on an end-of-life care plan an hour ago. Meanwhile, the nurse on Ward 7 tells you that a patient's son has just arrived and wants to speak to a doctor about his father's CT scan, which has not yet been reported.\n\nThe medical registrar is busy in the Emergency Department. There is a hospital-at-night coordinator on duty.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Finish rewriting the drug chart before leaving Ward 7, as it will only take a few more minutes.",
+      "brief": "Completing the task in hand feels efficient, but a few minutes matter more to a hypotensive patient than to a chart.",
+      "detailed": "This is the commonest trap in prioritisation questions. Nothing on the drug chart is time-critical at 2 am. Mrs Hale's blood pressure is. If the chart is needed for morning medicines, you or the coordinator can make sure it gets done later."
+    },
+    {
+      "id": "B",
+      "text": "Contact the hospital-at-night coordinator to explain your workload and ask for help prioritising or reallocating the other tasks.",
+      "brief": "This is what the coordinator is there for, and it stops the death verification and the anxious relative being forgotten while you are with Mrs Hale.",
+      "detailed": "Coping with pressure in the MSRA rarely means doing everything yourself. The coordinator can see the whole hospital's workload, may be able to send another doctor or a senior nurse to verify the death, and can let Ward 7 know when you are likely to be free. It is the action that makes sure the tasks you are not doing are still handled, which is what makes this combination of three answers complete."
+    },
+    {
+      "id": "C",
+      "text": "Ask the Ward 7 nurse to tell the son that no doctor is available tonight and that he should phone in the morning.",
+      "brief": "It dismisses a worried relative and is not even accurate; a short conversation can usually happen later in the shift.",
+      "detailed": "The son cannot be given a scan result that does not yet exist, but he can be told that, and he can be offered a time to talk. Turning him away outright damages trust and often produces a more difficult conversation, or a complaint, later. A better approach is to ask the nurse to explain that you have been called to an emergency and will come when you can."
+    },
+    {
+      "id": "D",
+      "text": "Go to Mrs Hale straight away, asking the nurse to start oxygen if needed, repeat her observations and prepare for cultures.",
+      "brief": "A NEWS2 of 7 with hypotension in an older patient with a known infection is possible septic shock, and the clock starts now.",
+      "detailed": "Of the four tasks, only this one carries a risk of death in the next hour. A NEWS2 score of 7 or more triggers an emergency response under the Royal College of Physicians' framework, and the combination of hypotension and a source of infection makes sepsis the working diagnosis. Giving the nurse clear instructions as you set off means time is not lost while you walk across the hospital."
+    },
+    {
+      "id": "E",
+      "text": "Ask the Ward 9 nurse to give a fluid bolus and recheck the blood pressure in an hour, while you finish the remaining tasks on Ward 7 first.",
+      "brief": "Remote management of a NEWS2 of 7 leaves an unwell patient without medical assessment for an hour or more.",
+      "detailed": "A fluid bolus may well be part of the right treatment, which is what makes this option plausible. But prescribing over the phone without seeing her, and then waiting an hour to recheck, misses the diagnostic work-up, the source control and the escalation that a score of 7 demands. It also commits you to the lowest-priority tasks while the highest-priority one waits."
+    },
+    {
+      "id": "F",
+      "text": "Speak briefly to the son before you leave Ward 7, explaining that his father's scan has not yet been reported.",
+      "brief": "It sounds quick, but a worried relative rarely takes two minutes, and Mrs Hale needs you now.",
+      "detailed": "There is nothing wrong with the content of this conversation, and in a quieter moment it would be the right thing to do. The issue is timing: even a short conversation delays the review of a patient who may be in septic shock, and relatives understandably have follow-up questions. Asking the nurse to explain that you will return is kinder in the long run."
+    },
+    {
+      "id": "G",
+      "text": "Phone the medical registrar to tell them about Mrs Hale and that you may need them to come and help.",
+      "brief": "A NEWS2 of 7 calls for senior involvement, and the registrar can only plan around you if they know.",
+      "detailed": "The registrar being in the Emergency Department is a reason to call early, not a reason to hold off. They may need to triage between several sick patients, and a heads-up now lets them decide when to come or whether to send critical care outreach. Calling does not mean you cannot cope; at this score, escalation is part of the expected response."
+    },
+    {
+      "id": "H",
+      "text": "Verify the death on Ward 5 first, as the family are likely to be waiting at the bedside.",
+      "brief": "A kind instinct, but verifying an expected death is not urgent and must not come before a deteriorating patient.",
+      "detailed": "Families value timely verification and it should not be left until morning. It is, however, an expected death on an end-of-life care plan, so a delay of an hour or two does not change anything clinically. If the delay is likely to be long, the coordinator can arrange for someone else to verify, or for the nurses to explain the delay to the family."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This is a prioritisation question under time pressure: which patient needs you first, and how do you make sure everything else still gets done when you cannot do it yourself?",
+    "keyDetails": "The figures that matter are the NEWS2 of 7 and the blood pressure of 84/50 in an older patient with a known infection. Equally important are the two resources the stem tells you about: a registrar who is busy but reachable, and a hospital-at-night coordinator.",
+    "reasoning": "[D], [G] and [B] together resolve the whole situation. You go to the sickest patient with interim instructions already given ([D]), you escalate her early to someone more senior ([G]), and you hand the coordination of the rest of your list to the person whose job that is ([B]). Each of the other options either puts a less urgent task ahead of Mrs Hale ([A], [H], [F]) or manages her deterioration at a distance ([E]). [C] is the only one that is unprofessional in itself rather than mistimed.",
+    "competing": "[H] and [F] both reflect real compassion, and choosing them does not suggest poor values. The marks go to recognising that compassion for the family is best served by arranging for someone to see them, not by delaying care for the patient who is deteriorating."
+  },
+  "references": [
+    {
+      "title": "National Early Warning Score (NEWS) 2",
+      "publisher": "Royal College of Physicians",
+      "year": 2017,
+      "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/",
+      "note": "An aggregate score of 7 or more prompts an emergency response."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Responding to safety risks'; Domain 1, 'Being competent'."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "night shift",
+    "sepsis",
+    "escalation"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sjt-015",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-015",
+  "format": "ranking",
+  "title": "Declining blood",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting autonomy",
+    "Valid refusal",
+    "Team communication"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on labour ward. Mrs Mensah, 31, is a Jehovah's Witness. During her pregnancy she discussed this at length with a consultant, on her own, and completed an advance decision refusing blood transfusion, which is in her notes. An hour after delivery she has a postpartum haemorrhage; the registrar and consultant are managing it with drugs and other measures she has agreed to.\n\nMrs Mensah is alert and, when asked again, calmly confirms that she does not want blood even if she may die without it. A midwife says quietly to you, \"She's not thinking straight. We should just give it.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree with the midwife that blood should be given because her life is at risk.",
+      "brief": "Giving blood against a valid refusal would be unlawful and a profound breach of her trust.",
+      "detailed": "The midwife's distress is understandable, and many staff find this situation very hard. But Mrs Mensah has capacity and a valid advance decision, and she has confirmed her refusal. A belief that she is 'not thinking straight' because her choice is dangerous is not the same as a lack of capacity, and transfusing her against her will would be assault."
+    },
+    {
+      "id": "B",
+      "text": "Ask her husband to try to persuade her to accept blood.",
+      "brief": "Recruiting a family member to change a capacitous patient's decision puts her under pressure.",
+      "detailed": "Her husband may share her beliefs or may not, but either way, enlisting him to persuade her uses a close relationship to apply pressure at a frightening moment. The decision is hers. Involving her husband in support is fine if she wants that, but not as a way of overriding her."
+    },
+    {
+      "id": "C",
+      "text": "Make sure her refusal, and the alternatives she will accept, are clearly known to everyone involved in her care.",
+      "brief": "Her decision is valid, and the team needs to act on it in an emergency where people may be tempted not to.",
+      "detailed": "An adult with capacity can refuse any treatment, including life-saving treatment, and her refusal is supported by an advance decision and repeated now. In a fast-moving haemorrhage, the risk is that someone acts on instinct. Making sure every member of the team knows her wishes, and which alternatives such as cell salvage or particular medicines she accepts, both respects her and focuses the team on what can be done."
+    },
+    {
+      "id": "D",
+      "text": "Speak with Mrs Mensah, privately and gently, to confirm she understands the risks and that the decision is her own.",
+      "brief": "Checking that her refusal is informed and free of pressure is good practice, done sensitively.",
+      "detailed": "A refusal should be informed and voluntary. Asking her gently, away from family or other members of her community, whether she understands what may happen and whether this is truly her own choice is respectful, not a way of changing her mind. It ranks second because she has already discussed this privately with a consultant and recorded an advance decision, so the team's adherence to her refusal is the more pressing matter."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a capacitous patient's refusal of life-saving treatment based on her beliefs, and support colleagues to do the same under emotional pressure.",
+    "keyDetails": "She has an advance decision, she is alert, and she has confirmed her refusal now. The registrar and consultant are managing the bleed within her wishes. The midwife's suggestion rests on equating a dangerous choice with impaired judgement.",
+    "reasoning": "[C] ensures the whole team acts on her valid refusal, and [D] sensitively confirms it is informed and voluntary. [B] and [A] both try to override her, by pressure in [B] and by force in [A].",
+    "competing": "Ordering [C] and [D] is the only real judgement call; both are appropriate, and you would do both. The midwife's reaction is worth acknowledging: supporting a colleague who finds this distressing, after the emergency, is part of good teamwork."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting a patient's decision to refuse treatment, even if it may result in serious harm or death."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "A person is not to be treated as unable to make a decision merely because it is unwise."
+    },
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs and values in decisions about their care."
+    }
+  ],
+  "tags": [
+    "refusal of treatment",
+    "religion",
+    "obstetrics",
+    "capacity"
+  ]
+}

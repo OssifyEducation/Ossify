@@ -1,0 +1,93 @@
+{
+  "id": "sjt-023",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-023",
+  "format": "ranking",
+  "title": "Reported without a word",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to feedback",
+    "Professional relationships",
+    "Reflective practice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Last week you forgot to request a patient's kidney function test the day after starting her on a new blood pressure tablet. The pharmacist spotted the omission the following morning, the test was done, and the result was normal.\n\nToday you receive an email from your clinical supervisor saying that the ward sister has reported the omission to her, and asking to meet this week. The ward sister has not mentioned it to you. You feel embarrassed and a little angry that she went over your head.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the ward sister for a quiet word, to understand her concerns and agree how you can raise issues with each other directly.",
+      "brief": "Repairs a working relationship that matters, without being defensive.",
+      "detailed": "You may never know exactly why she went to your supervisor; she may have been following policy or may have had other concerns. A calm conversation lets you hear her view, and agreeing to raise things directly in future helps you both. Approached without resentment, it is likely to improve how you work together."
+    },
+    {
+      "id": "B",
+      "text": "Avoid working with the ward sister where possible over the coming weeks.",
+      "brief": "Avoidance damages teamwork on the ward, and it is patients who lose out.",
+      "detailed": "Steering clear of a senior nurse on your own ward is impractical and harms communication about patients. It also leaves the tension unresolved and suggests you haven't taken the feedback on board. Of the five options, it is the least professional."
+    },
+    {
+      "id": "C",
+      "text": "Meet your supervisor, acknowledge the omission, and discuss what you have changed to prevent it happening again.",
+      "brief": "Owning the mistake openly and showing what you've learned is the most constructive response.",
+      "detailed": "The omission was real, even if no harm resulted, and your supervisor's meeting is an opportunity rather than a punishment. Acknowledging it plainly, and describing a concrete change such as how you now record follow-up tests when prescribing, shows insight. It also makes the conversation about learning rather than blame."
+    },
+    {
+      "id": "D",
+      "text": "Write a reflection on the omission in your portfolio.",
+      "brief": "Useful for learning, but on its own it doesn't address the meeting or the working relationship.",
+      "detailed": "Reflection is valuable, and you would probably do this as well. Ranked on its own, though, it is a private action that doesn't deal with the supervisor's request or with the ward sister. It sits below the two options that address the situation directly."
+    },
+    {
+      "id": "E",
+      "text": "Email the ward sister to tell her she should have spoken to you before going to your supervisor.",
+      "brief": "Your frustration may be understandable, but an email complaint is likely to sound defensive and escalate things.",
+      "detailed": "There is a fair point to be made about raising issues directly, but making it by email, while you are still feeling annoyed, invites a defensive reply and puts the focus on her conduct rather than your omission. A face-to-face conversation in a calmer moment achieves the same goal without the friction."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "D",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to criticism of your own performance, especially when you dislike the way it was raised.",
+    "keyDetails": "The omission was yours, even though no harm resulted. The feedback came indirectly, which is the source of your irritation. Your supervisor has asked to meet, so there is an established, supportive route to deal with it.",
+    "reasoning": "[C] owns the mistake and focuses on learning, and [A] repairs the working relationship. [D] is useful but private. [E] and [B] are driven by the hurt feelings rather than the issue, with [B] doing the most damage to teamwork.",
+    "competing": "Whether the ward sister should have spoken to you first is a fair question, and [A] gives you a constructive way to raise it. The key ranks [C] first because the omission, not the manner of reporting, is the issue you are responsible for."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on and learning from your practice; Domain 3, working constructively with colleagues."
+    },
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Reporting and learning from errors, including those that don't cause harm."
+    }
+  ],
+  "tags": [
+    "feedback",
+    "errors",
+    "teamwork",
+    "reflection"
+  ]
+}

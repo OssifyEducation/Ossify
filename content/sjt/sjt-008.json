@@ -1,0 +1,110 @@
+{
+  "id": "sjt-008",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-008",
+  "format": "multiple_choice",
+  "title": "The locum's unfinished list",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Continuity of care",
+    "Patient safety",
+    "Candour"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. On Monday morning the practice manager asks you to look at the task list left by a locum GP who worked on Thursday and Friday and has now left.\n\nMost tasks are routine, but one stands out: on Thursday the locum saw Mrs Novak, 49, with a new breast lump and documented \"urgent suspected cancer referral\". No referral has been sent. Several other tasks on the list, such as blood results and repeat prescriptions, are also marked incomplete.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Email the locum to ask her to come back and complete her outstanding tasks, as they were her patients.",
+      "brief": "The locum is not available, and waiting for her to respond leaves an urgent referral unsent.",
+      "detailed": "It is reasonable to let the locum know what happened, perhaps through the agency, so she can reflect on it. But relying on her to return delays the referral and the other tasks indefinitely. The work has passed to the practice, and someone there needs to act today."
+    },
+    {
+      "id": "B",
+      "text": "Make sure Mrs Novak's urgent referral is sent today, checking her notes and involving your supervisor if needed.",
+      "brief": "This is the time-critical task on the list, and four days have already been lost.",
+      "detailed": "Urgent suspected cancer referrals exist to get patients seen quickly, and every extra day matters to Mrs Novak. Reviewing the consultation note confirms what was found and what was intended, and you can then send the referral yourself or with your supervisor, depending on the practice's arrangements for trainees. The point is that it leaves the building today."
+    },
+    {
+      "id": "C",
+      "text": "Leave the list for the locum agency to resolve, as the locum was working on the agency's behalf.",
+      "brief": "Responsibility for the practice's patients does not transfer to an agency.",
+      "detailed": "The agency supplies the locum but has no role in the clinical care of Mrs Novak or the other patients. Treating this as the agency's problem means no one acts on the referral or the results. The practice holds responsibility for its patients' continuing care, and you are now aware of the gap."
+    },
+    {
+      "id": "D",
+      "text": "Send the referral today, and let Mrs Novak's hospital appointment letter explain the next steps to her.",
+      "brief": "Fixes the clinical gap but leaves her uninformed about a delay that may matter to her.",
+      "detailed": "Sending the referral is the most important action, which is why this option is tempting. But a few days can matter in a suspected cancer pathway, and Mrs Novak may notice the delay herself. Not telling her denies her an honest explanation and an apology, and may damage her trust if she finds out later."
+    },
+    {
+      "id": "E",
+      "text": "Tell the practice manager and duty GP, so the rest of the list is reviewed and the lost referral is logged.",
+      "brief": "Makes sure every unfinished task gets an owner and that the practice learns how a referral was lost.",
+      "detailed": "You have found one serious gap; there may be others among the blood results and prescriptions. The duty GP can triage the remaining tasks, and recording a significant event lets the practice look at why a locum could leave without handing over, which is likely to happen again unless something changes. This turns a one-off rescue into a safer system."
+    },
+    {
+      "id": "F",
+      "text": "Work through the whole list yourself over lunch, so that the duty GP and the practice aren't disrupted.",
+      "brief": "Conscientious, but it hides a system failure and may leave tasks outside your competence or knowledge.",
+      "detailed": "Clearing the list quietly may feel helpful, but some tasks, such as interpreting results for patients you don't know, may need a GP's input. It also means no one learns that a locum left without handing over, so the same thing will happen again. Good intentions don't replace telling the people responsible for the practice."
+    },
+    {
+      "id": "G",
+      "text": "Report the locum to the GMC for leaving the practice without handing over her outstanding work.",
+      "brief": "A disproportionate response to what is, at least initially, a handover failure that needs local review.",
+      "detailed": "There is no suggestion yet of a pattern or of a risk that local processes cannot manage. The practice's significant event process and feedback to the agency are the proportionate routes. A regulator referral might become relevant if a review revealed serious or repeated concerns, but it is not a first step and does nothing for Mrs Novak today."
+    },
+    {
+      "id": "H",
+      "text": "Phone Mrs Novak to explain the delay, apologise, and tell her when to expect her appointment.",
+      "brief": "She has been waiting for a call that was never going to come, and she deserves to know why.",
+      "detailed": "A delay in an urgent cancer referral is exactly the kind of event patients should be told about promptly and honestly. Mrs Novak may already be worried that she has not been contacted. Explaining, apologising and giving her a timescale respects her, rebuilds trust, and means she knows to chase it if she hears nothing."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you deal with loose ends left by someone else: getting the urgent clinical task done, making the system safe, and being honest with the patient affected.",
+    "keyDetails": "The urgent referral is four days late and concerns a possible cancer. The locum has gone, so the practice must act. The list contains other incomplete tasks, which means the problem is wider than one patient.",
+    "reasoning": "[B] deals with the most urgent clinical risk, [E] makes sure nothing else on the list is missed and that the practice learns from it, and [H] is honest with the patient. Together they resolve the situation for Mrs Novak and for the practice. The distractors push responsibility elsewhere ([A], [C]), skip candour ([D]), hide the system failure ([F]) or escalate out of proportion ([G]).",
+    "competing": "[F] appeals to conscientious candidates, and in a small practice you might well help with the list. The difference is doing it openly, with the duty GP aware and the incident recorded, rather than quietly absorbing a failure that will recur."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Telling patients promptly when something has gone wrong with their care, and apologising."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Responding to safety risks'; continuity and coordination of care."
+    }
+  ],
+  "tags": [
+    "handover",
+    "general practice",
+    "cancer referral",
+    "significant event"
+  ]
+}

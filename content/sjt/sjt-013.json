@@ -1,0 +1,99 @@
+{
+  "id": "sjt-013",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-013",
+  "format": "ranking",
+  "title": "Short-staffed at night",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Raising concerns",
+    "Escalation",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working a run of nights on a general medical ward. For the past three weeks the ward has regularly had one fewer registered nurse at night than its agreed safe minimum. On two occasions this week, patients have fallen without anyone seeing; one fractured her wrist.\n\nThe nurses tell you they have raised the staffing with their matron, who said she is \"aware of the problem\". Tonight there is again one nurse short, and the remaining two nurses are visibly stretched.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Contact the night site manager now about tonight's unsafe staffing, and do so on any further nights it happens.",
+      "brief": "Escalates the risk on the night it exists, to the person who can move staff tonight.",
+      "detailed": "The site manager is responsible for staffing across the hospital overnight and may be able to redeploy a nurse or bring in bank staff. Raising it in real time is the action most likely to protect patients tonight. Doing it on every affected night also builds a record that the problem is persistent, which a single conversation would not."
+    },
+    {
+      "id": "B",
+      "text": "Report the trust's staffing problems directly to the Care Quality Commission.",
+      "brief": "Regulators can be approached, but going straight to one bypasses local routes you haven't yet used.",
+      "detailed": "Raising concerns with a regulator is appropriate when local routes have failed or are not suitable, and staff are protected when they do so. Here, though, you have not yet used the internal routes yourself. Going straight to the regulator is a significant step that may also be slower to help the patients on the ward tonight."
+    },
+    {
+      "id": "C",
+      "text": "Tell the nurses that staffing is a nursing management issue and not something for the doctors to get involved in.",
+      "brief": "Patient safety is everyone's responsibility, and two falls and a fracture make this a medical concern too.",
+      "detailed": "This option abdicates responsibility. Patients have been harmed, and doctors share the duty to act when systems put patients at risk. It also leaves the nurses feeling unsupported, and makes it less likely they will raise concerns with doctors in future."
+    },
+    {
+      "id": "D",
+      "text": "Raise the concern with the trust's Freedom to Speak Up guardian.",
+      "brief": "A legitimate route, particularly when concerns raised through line management don't seem to be acted on.",
+      "detailed": "Freedom to Speak Up guardians exist for situations where staff feel concerns are not being heard. The nurses' experience with the matron suggests this may be one of them. It ranks below the first two because the direct routes, real-time escalation and incident reporting, haven't yet been tried by you, and they are likely to be quicker."
+    },
+    {
+      "id": "E",
+      "text": "Report the falls and the staffing shortfalls through the incident reporting system, and let your consultant know about the concern.",
+      "brief": "Creates a formal record linking harm to staffing, and brings in a senior doctor who can push for change.",
+      "detailed": "Incident reports turn anecdote into evidence: two unwitnessed falls and a fracture, alongside the staffing figures, are exactly what a trust needs to see. Telling your consultant adds medical weight to a concern that has so far gone only through nursing management. It ranks second only because it doesn't change the staffing tonight."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "E",
+      "D",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you raise concerns about a system problem that is causing harm, using routes in a sensible order and not assuming someone else will deal with it.",
+    "keyDetails": "The shortfall is persistent (three weeks), has caused harm (two falls, one fracture), and is happening again tonight. The nurses have tried their line manager without result, which shows the usual route isn't working. You have not yet raised it yourself.",
+    "reasoning": "[A] deals with tonight's risk and [E] creates the record and senior support needed for lasting change. [D] is a good route if those don't work. [B] is legitimate in principle but premature here, and [C] wrongly treats patient safety as someone else's job.",
+    "competing": "[E] can reasonably be argued as the best option, since it is the step most likely to fix the problem for good. The key puts [A] first because the risk is present tonight, and only the site manager can change tonight's staffing. Near-miss scoring treats the two as adjacent, so swapping them costs little."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Your duty to act when patient safety is compromised, and the order of routes for raising concerns."
+    },
+    {
+      "title": "Freedom to Speak Up",
+      "publisher": "NHS England",
+      "year": null,
+      "url": "https://www.england.nhs.uk/ourwork/freedom-to-speak-up/",
+      "note": "The role of Freedom to Speak Up guardians."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting patient safety incidents so that organisations can learn from them."
+    }
+  ],
+  "tags": [
+    "raising concerns",
+    "staffing",
+    "falls",
+    "night shift"
+  ]
+}

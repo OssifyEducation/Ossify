@@ -1,0 +1,110 @@
+{
+  "id": "sjt-020",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-020",
+  "format": "multiple_choice",
+  "title": "No time in theatre",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Advocating for training",
+    "Teamwork",
+    "Using proper channels"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in general surgery and hope to apply for surgical training. Your placement description promises two theatre sessions a week.\n\nFor the past six weeks, every theatre session you were due to attend has been cancelled for you at short notice so that you can cover the wards, because of rota gaps. Your colleagues on the same rotation seem to get to theatre regularly. You have six weeks of the placement left.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Refuse to cover the wards when you are next asked to miss theatre.",
+      "brief": "Refusing outright could leave patients without a doctor, which isn't an acceptable way to protect training.",
+      "detailed": "Your frustration is understandable, but ward cover exists because patients need a doctor. Refusing at short notice could leave the wards unsafe, and it is unlikely to fix the underlying problem. The right approach is to raise the issue through your supervisor and exception reporting."
+    },
+    {
+      "id": "B",
+      "text": "Discuss with your clinical supervisor how you can get the theatre time your placement is meant to include.",
+      "brief": "Your supervisor is responsible for your learning on this placement and can help protect sessions.",
+      "detailed": "Clinical supervisors can often negotiate protected time once they know there is a problem. Raising it now, with six weeks left, gives time for a plan. It also documents the issue, which matters if it affects your progress or future placements."
+    },
+    {
+      "id": "C",
+      "text": "Stop attending the morning handover so that you aren't the one asked to cover.",
+      "brief": "Avoids the request at the cost of missing important clinical information and shifting the problem to others.",
+      "detailed": "Handover is where patient information is passed on; skipping it to avoid being asked to cover puts patients at risk and is unfair on colleagues. It is avoidance rather than a solution."
+    },
+    {
+      "id": "D",
+      "text": "Accept that service needs come first and stop asking about theatre time.",
+      "brief": "Service needs do sometimes take priority, but six weeks of lost training deserves to be raised.",
+      "detailed": "Accepting occasional disruption is part of working in the NHS, which is what makes this option feel mature. But losing every theatre session for six weeks is a pattern, not an occasional need, and your placement is meant to provide this learning. Raising it appropriately is reasonable and expected."
+    },
+    {
+      "id": "E",
+      "text": "Tell the consultant you won't do any more ward cover unless you are guaranteed theatre time.",
+      "brief": "A legitimate concern raised as an ultimatum, which is likely to sour relationships without solving anything.",
+      "detailed": "Your consultant may well be sympathetic and able to help, but making your cooperation conditional puts them in a difficult position and frames the problem as a dispute. The same concern raised with your supervisor, alongside an exception report, is far more likely to lead to a fair solution."
+    },
+    {
+      "id": "F",
+      "text": "Ask a friend in theatre to sign off procedures in your portfolio that you haven't done.",
+      "brief": "Fills the gap in your portfolio dishonestly.",
+      "detailed": "This would be falsifying your training record, with consequences for your probity and potentially for patient safety if you were later assumed to be competent in procedures you haven't performed. Missing training must be addressed honestly, not hidden."
+    },
+    {
+      "id": "G",
+      "text": "Talk to your fellow F2s about sharing ward cover fairly, so that theatre sessions are rotated.",
+      "brief": "A practical team solution, given that colleagues on the same rotation are getting to theatre.",
+      "detailed": "The rota gaps aren't your colleagues' fault, and they may not realise you have missed every session. Agreeing a fair rotation of ward cover is a simple, collegiate fix that keeps the wards safe while sharing the learning opportunities more evenly."
+    },
+    {
+      "id": "H",
+      "text": "Submit an exception report for the training opportunities you have missed.",
+      "brief": "Exception reports cover missed education as well as extra hours, and they alert your supervisor and the trust.",
+      "detailed": "Under the junior doctor contract, exception reporting is the formal way to record that you have missed educational opportunities your work schedule promised. It triggers a review with your supervisor and helps the trust see where rota gaps are eroding training, which is information it needs to fix the underlying problem."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you advocate for your own training when service pressures crowd it out, using constructive and proper routes rather than confrontation or avoidance.",
+    "keyDetails": "The problem is persistent (six weeks), specific to you (colleagues are getting to theatre), and there is still time to fix it (six weeks left). Ward cover is genuinely needed, so any solution must keep the wards safe.",
+    "reasoning": "[B] brings in the person responsible for your training, [G] solves the fairness problem with your colleagues, and [H] records the lost training formally so the trust can act. The distractors either risk patient safety ([A], [C]), give up on training altogether ([D]), escalate unhelpfully ([E]) or are dishonest ([F]).",
+    "competing": "[D] looks like a mature acceptance of NHS pressures. Accepting occasional disruption is reasonable; accepting that one trainee loses every training session for weeks is not, and raising it is part of being a responsible trainee."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, keeping your knowledge and skills up to date; Domain 3, contributing to a fair training environment."
+    },
+    {
+      "title": "Leadership and management for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/leadership-and-management-for-all-doctors",
+      "note": "Raising issues that affect the quality of education and training through appropriate channels."
+    }
+  ],
+  "tags": [
+    "training",
+    "rota",
+    "exception reporting",
+    "surgery"
+  ]
+}

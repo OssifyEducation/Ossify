@@ -1,0 +1,84 @@
+{
+  "id": "sjt-005",
+  "version": 2,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "format": "ranking",
+  "title": "A message on Instagram",
+  "setting": "Orthopaedic ward (after discharge)",
+  "attribute": "Professional integrity",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Professional boundaries",
+    "Social media",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an orthopaedic ward. Four days ago you discharged Ms Patel, 34, after a three-week admission for an open ankle fracture that needed surgical fixation. You got on well during her stay and often chatted when you had a spare moment.\n\nThis evening, at home, you receive a follow request from her personal Instagram account, followed by a direct message: \"Hope you don't mind me getting in touch! My wound has gone a bit red around the stitches. Do you think that's normal?\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ignore both the follow request and the message, since she is no longer under your care and you are off duty.",
+      "brief": "Protects the boundary but leaves a potentially important clinical concern unanswered.",
+      "detailed": "Not engaging with a patient on a personal account is reasonable in itself, and some doctors would see this as the safest choice. The difficulty is that she has told you about a symptom that could indicate infection in an open fracture. If she takes your silence as reassurance, the delay could matter. Maintaining a boundary does not require you to ignore a safety concern you have been made aware of."
+    },
+    {
+      "id": "B",
+      "text": "Reply that you can't give medical advice on social media and that she should contact the ward or her GP today. Don't accept the request.",
+      "brief": "Keeps the boundary and makes sure a possible wound infection after an open fracture is looked at today.",
+      "detailed": "Redness around the wound after fixation of an open fracture may be an early sign of infection, which can be serious, so you cannot simply let the message go. The GMC's social media guidance asks doctors who are contacted by patients this way to direct them to an appropriate healthcare setting. A short, friendly reply does that without engaging in a clinical conversation or a personal one."
+    },
+    {
+      "id": "C",
+      "text": "Accept the follow request and reply with advice about her wound, as you know her case and her operation well.",
+      "brief": "Blurs the professional relationship and gives clinical advice about a wound you cannot see.",
+      "detailed": "Knowing her case well is precisely what makes this tempting, and the intention is to help. But accepting the request turns a professional relationship into a personal online one, and advising on a wound by message, without examination, notes or follow-up, risks false reassurance. Of the four options it is the only one that both crosses the boundary and creates a clinical risk."
+    },
+    {
+      "id": "D",
+      "text": "Do not reply on Instagram, and ask the nurse in charge of the ward to phone Ms Patel about her wound using the contact details in her notes.",
+      "brief": "Uses an official channel to act on the clinical concern, though it is slower and less direct than [B].",
+      "detailed": "This keeps your private account entirely separate from your work, and makes sure someone qualified follows up the wound through proper channels. It ranks below [B] because it routes the message through a busy ward in the evening, adds delay, and leaves Ms Patel without any reply, so she may not realise she needs to act. It is still a responsible response, and much better than [A] or [C]."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests professional boundaries when a former patient contacts you through a personal channel, and whether you can keep that boundary without losing sight of a clinical concern she has raised.",
+    "keyDetails": "The two details that drive the ranking are the channel (her personal Instagram, out of hours) and the content (redness around the wound of a recently fixed open fracture). A response has to deal with both.",
+    "reasoning": "[B] handles both problems at once: it keeps the relationship professional and gets her to appropriate care today. [D] also keeps the boundary and acts on the concern, but more slowly and less transparently. [A] keeps the boundary but drops the clinical concern, and [C] does the reverse while creating a new boundary problem, which is why it comes last.",
+    "competing": "Some doctors argue that any reply on a personal account blurs the boundary, which would place [D] above [B]. The GMC's guidance supports a brief redirecting reply, and in this case speed matters because of the infection risk. That said, [B] and [D] are adjacent in the key, so near-miss scoring treats this as a close call."
+  },
+  "references": [
+    {
+      "title": "Using social media as a medical professional",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/using-social-media-as-a-medical-professional/using-social-media-as-a-medical-professional",
+      "note": "Direct patients who contact you through social media to an appropriate healthcare setting."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Maintaining professional boundaries'."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "social media",
+    "wound infection",
+    "orthopaedics"
+  ]
+}

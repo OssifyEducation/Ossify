@@ -9,9 +9,10 @@ const byId = (id) => BANK.find((q) => q.id === id);
 const clone = (o) => JSON.parse(JSON.stringify(o));
 
 // ── Question bank ────────────────────────────────────────────────────────────
-test("bank: five questions, schema-valid, unique ids", () => {
-  assert.equal(BANK.length, 5);
+test("bank: schema-valid, unique ids, practice pool only in the browser bundle", () => {
+  assert.ok(BANK.length >= 5);
   assert.deepEqual(SJT.validateBank(BANK), []);
+  assert.ok(BANK.every((q) => (q.pool || "practice") === "practice"), "mock questions must not ship to the browser");
 });
 
 test("bank: covers both official formats, all three attributes and a 4-option ranking item", () => {
@@ -21,7 +22,7 @@ test("bank: covers both official formats, all three attributes and a 4-option ra
   ["Professional integrity", "Coping with pressure", "Empathy and sensitivity"].forEach((a) => assert.ok(attrs.has(a), a));
   assert.ok(BANK.some((q) => q.format === "ranking" && q.options.length === 4));
   assert.ok(BANK.some((q) => q.format === "ranking" && q.options.length === 5));
-  assert.equal(new Set(BANK.map((q) => q.setting)).size, 5, "settings should all differ");
+  assert.ok(new Set(BANK.map((q) => q.setting)).size >= Math.min(BANK.length, 12), "settings should be varied");
 });
 
 test("bank: explanations avoid the banned stock phrases", () => {
@@ -58,11 +59,12 @@ test("ranking: exact key scores 20/20 (5 options) and 16/16 (4 options)", () => 
 });
 
 test("ranking: adjacent swap keeps near-miss credit (18/20)", () => {
-  const q = byId("sjt-003"); // key A B C D E
-  const r = SJT.scoreResponse(q, ["A", "B", "D", "C", "E"]);
+  const q = byId("sjt-003");
+  const k = q.key.order, resp = [k[0], k[1], k[3], k[2], k[4]];
+  const r = SJT.scoreResponse(q, resp);
   assert.equal(r.marks, 18);
-  const c = r.breakdown.find((b) => b.optionId === "C");
-  assert.deepEqual([c.idealRank, c.givenRank, c.marks], [3, 4, 3]);
+  const third = r.breakdown.find((b) => b.optionId === k[2]);
+  assert.deepEqual([third.idealRank, third.givenRank, third.marks], [3, 4, 3]);
 });
 
 test("ranking: matches the published worked example pattern (DABEC vs DCEAB = 12)", () => {
@@ -92,20 +94,22 @@ test("ranking: custom matrix is honoured (config is swappable)", () => {
   const q = byId("sjt-001");
   const cfg = clone(SJT.DEFAULT_CONFIG);
   cfg.ranking.matrices = { 5: [[4,3,2,1,0],[3,4,3,2,1],[2,2,4,3,2],[1,2,3,4,3],[0,1,2,3,4]] };
-  // C (ideal 3) placed 2nd: linear gives 3, this matrix gives 2.
-  const resp = ["A", "C", "B", "D", "E"];
+  // The 3rd-ideal option placed 2nd: linear gives 3, this matrix gives 2.
+  const k = q.key.order, resp = [k[0], k[2], k[1], k[3], k[4]];
   assert.equal(SJT.scoreResponse(q, resp).marks, 18);
   assert.equal(SJT.scoreResponse(q, resp, cfg).marks, 17);
 });
 
 // ── Multiple-choice scoring ──────────────────────────────────────────────────
 test("multiple choice: 3, 2, 1, 0 keyed options → 12, 8, 4, 0", () => {
-  const q = byId("sjt-002"); // key A B C
-  assert.equal(SJT.scoreResponse(q, ["C", "A", "B"]).marks, 12);
-  assert.equal(SJT.scoreResponse(q, ["A", "B", "D"]).marks, 8);
-  const one = SJT.scoreResponse(q, ["A", "E", "G"]);
-  assert.equal(one.marks, 4); assert.deepEqual(one.missed.sort(), ["B", "C"]);
-  assert.equal(SJT.scoreResponse(q, ["D", "E", "F"]).marks, 0);
+  const q = byId("sjt-002");
+  const [k1, k2, k3] = q.key.correct;
+  const off = q.options.map((o) => o.id).filter((x) => !q.key.correct.includes(x));
+  assert.equal(SJT.scoreResponse(q, [k3, k1, k2]).marks, 12);
+  assert.equal(SJT.scoreResponse(q, [k1, k2, off[0]]).marks, 8);
+  const one = SJT.scoreResponse(q, [k1, off[0], off[1]]);
+  assert.equal(one.marks, 4); assert.deepEqual(one.missed.sort(), [k2, k3].sort());
+  assert.equal(SJT.scoreResponse(q, off.slice(0, 3)).marks, 0);
 });
 
 test("multiple choice: must select exactly three distinct options", () => {
@@ -142,24 +146,69 @@ test("selectQuestions: presets and 'all' never duplicate and never exceed the ba
     const s = SJT.selectQuestions(BANK, c, 42);
     assert.equal(new Set(s.ids).size, s.ids.length, "duplicates for " + c);
     assert.equal(s.ids.length, c === "all" ? BANK.length : Math.min(c, BANK.length));
-    assert.equal(s.available, 5);
-    assert.equal(s.shortfall, c === "all" ? 0 : Math.max(0, c - 5));
+    assert.equal(s.available, BANK.length);
+    assert.equal(s.shortfall, c === "all" ? 0 : Math.max(0, c - BANK.length));
   });
 });
 
 test("selectQuestions: same seed → same set; custom counts 1–100 valid", () => {
   assert.deepEqual(SJT.selectQuestions(BANK, 3, 7).ids, SJT.selectQuestions(BANK, 3, 7).ids);
-  for (let n = 1; n <= 100; n++) assert.equal(SJT.selectQuestions(BANK, n, n).ids.length, Math.min(n, 5));
+  for (let n = 1; n <= 100; n++) assert.equal(SJT.selectQuestions(BANK, n, n).ids.length, Math.min(n, BANK.length));
   assert.throws(() => SJT.selectQuestions(BANK, 0, 1));
   assert.throws(() => SJT.selectQuestions(BANK, 2.5, 1));
 });
 
 test("selectQuestions: de-duplicates a bank with repeated ids", () => {
   const s = SJT.selectQuestions(BANK.concat([BANK[0]]), "all", 1);
-  assert.equal(s.ids.length, 5);
+  assert.equal(s.ids.length, BANK.length);
 });
 
 test("sessionTotals sums marks across answered questions only", () => {
   const t = SJT.sessionTotals({ a: { marks: 18, max: 20 }, b: { marks: 8, max: 12 }, c: null });
   assert.deepEqual(t, { marks: 26, max: 32, answered: 2, percent: 81 });
+});
+
+// ── Authoring rules ──────────────────────────────────────────────────────────
+test("authoring: [X] references must point at real options; bare letters rejected", () => {
+  const q = clone(byId("sjt-001"));
+  q.explanation.reasoning = "Option [Z] is best.";
+  assert.ok(SJT.validateQuestion(q).some((e) => /\[Z\], which is not an option/.test(e)));
+  q.explanation.reasoning = "C comes first, then E.";
+  assert.ok(SJT.validateQuestion(q).some((e) => /bare option letter/.test(e)));
+  q.explanation.reasoning = "A short reply to [C] is fine.";
+  assert.deepEqual(SJT.validateQuestion(q), []);
+});
+
+test("authoring: pool must be practice or mock-1..4", () => {
+  const q = clone(byId("sjt-001"));
+  q.pool = "mock-5";
+  assert.ok(SJT.validateQuestion(q).some((e) => /pool must be/.test(e)));
+  q.pool = "mock-2";
+  assert.deepEqual(SJT.validateQuestion(q), []);
+});
+
+test("bank report: no answer-position or length cues in the live bank", () => {
+  const r = SJT.bankReport(BANK);
+  assert.deepEqual(r.warnings, []);
+  BANK.filter((q) => q.format === "ranking").forEach((q) =>
+    assert.notEqual(q.key.order.join(""), q.options.map((o) => o.id).join(""), q.id + " key is alphabetical"));
+});
+
+test("bank report: flags alphabetical keys, length cues and near-duplicate stems", () => {
+  const a = clone(byId("sjt-001"));
+  a.key.order = a.options.map((o) => o.id);
+  const b = clone(byId("sjt-003")); b.id = "sjt-903";
+  const c = clone(byId("sjt-003")); c.id = "sjt-904";
+  const w = SJT.bankReport([a, b, c]).warnings.join("\n");
+  assert.match(w, /key order is alphabetical/);
+  assert.match(w, /sjt-903 and sjt-904 have similar stems/);
+});
+
+test("bank: every question cites only approved references and has full option explanations", () => {
+  const LIB = require("../content/sjt-references.json");
+  const urls = new Set(Object.keys(LIB).filter((k) => k[0] !== "_").map((k) => LIB[k].url));
+  BANK.forEach((q) => {
+    q.references.forEach((r) => assert.ok(urls.has(r.url), q.id + " cites " + r.url));
+    q.options.forEach((o) => assert.ok(o.detailed.length > o.brief.length, q.id + " option " + o.id + " detailed should expand on brief"));
+  });
 });

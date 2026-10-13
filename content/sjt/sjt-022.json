@@ -1,0 +1,116 @@
+{
+  "id": "sjt-022",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-022",
+  "format": "multiple_choice",
+  "title": "Please don't tell my mum",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Confidentiality with young people",
+    "Assessing competence",
+    "Safeguarding"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a gynaecology outpatient clinic. Chloe, 15, has been referred with heavy periods and attends with her mother. The consultant has suggested the combined pill as one treatment option.\n\nWhile her mother steps out to move the car, Chloe tells you she has a boyfriend, who is 16, and that they are planning to have sex. She asks whether the pill would also work as contraception and begs you not to tell her mother about the boyfriend.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her mother about the boyfriend when she returns, as Chloe is under 16.",
+      "brief": "Being under 16 does not on its own remove a young person's right to confidentiality.",
+      "detailed": "Many people assume parents must be told, which is why this option is tempting. But a competent young person is entitled to confidentiality, and breaching it without good reason would damage her trust in doctors and may deter her from seeking sexual health advice in future."
+    },
+    {
+      "id": "B",
+      "text": "Decline to discuss contraception, and tell her she can come back when she is 16.",
+      "brief": "Refusing advice to a young person who is likely to have sex anyway may put her at greater risk.",
+      "detailed": "Declining may feel like the safe option, but it doesn't stop her having sex. It just means she may do so without contraception or advice. GMC guidance supports providing contraceptive advice to competent under-16s where it is in their best interests."
+    },
+    {
+      "id": "C",
+      "text": "Assess whether Chloe understands the advice well enough to make her own decisions about contraception.",
+      "brief": "Under-16s can consent to contraception if they are competent, so this is the key judgement.",
+      "detailed": "Young people under 16 can consent to their own treatment, including contraception, if they have the maturity and understanding to do so. The Fraser guidance, followed in GMC guidance on 0–18s, sets out what to consider for contraceptive advice. Assessing this properly determines whether you can act on her request in confidence."
+    },
+    {
+      "id": "D",
+      "text": "Prescribe the pill without asking about the relationship, to avoid embarrassing her.",
+      "brief": "Respects her request but skips the safeguarding enquiry that every under-16 consultation needs.",
+      "detailed": "Providing contraception may well be appropriate, but not without understanding her situation. Avoiding the questions to spare embarrassment means you might miss signs of pressure or exploitation. A brief, sensitive conversation is part of competent care."
+    },
+    {
+      "id": "E",
+      "text": "Encourage her to involve her mother, but reassure her that if she is competent you will respect her confidentiality.",
+      "brief": "Supports family involvement without making it a condition of care.",
+      "detailed": "Involving a parent is generally in a young person's interests, and you should encourage it. But if Chloe is competent and still prefers not to, she is entitled to confidentiality like any other patient, unless there is a risk of serious harm. Making this clear helps her trust you and makes it more likely she will seek advice in future."
+    },
+    {
+      "id": "F",
+      "text": "Tell her you will have to inform social services, because she is under 16 and planning to have sex.",
+      "brief": "Sexual activity under 16 isn't automatically a safeguarding referral when the relationship appears consensual and between peers.",
+      "detailed": "Every case needs assessment, and referral would be needed if there were signs of abuse or exploitation. But a consensual relationship with a 16-year-old does not by itself require one, and telling her it does is inaccurate and likely to stop her seeking help."
+    },
+    {
+      "id": "G",
+      "text": "Suggest she sees her GP or a sexual health clinic about contraception, since today's appointment is only about her periods.",
+      "brief": "Not wrong in itself, but it deflects her at the moment she has chosen to ask you.",
+      "detailed": "This is the subtle distractor. Referring her on is sometimes sensible, and a sexual health clinic may be well placed to help. But she has raised it now, the pill was already being considered for her periods, and deflecting her loses the chance to assess her competence and safety while she is in front of you."
+    },
+    {
+      "id": "H",
+      "text": "Ask her about the relationship, including whether she feels under any pressure.",
+      "brief": "Sexual activity under 16 always warrants a sensitive safeguarding enquiry, even when the partner is close in age.",
+      "detailed": "A 16-year-old partner is close in age, which makes exploitation less likely, but you still need to know whether the relationship is consensual and free of pressure, and whether there are any other concerns. Asking sensitively is part of good care and doesn't imply suspicion. If concerns emerged, the confidentiality picture would change."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your handling of confidentiality and consent with a young person under 16, including the safeguarding judgement that sits alongside it.",
+    "keyDetails": "Chloe is 15 and asking for advice she can consent to herself if she is competent. Her partner is 16, which makes exploitation less likely, though not impossible. The pill is already being considered for her periods, so the clinical question is close to hand. Her mother is about to return.",
+    "reasoning": "[C] determines whether Chloe can make this decision herself, [E] encourages family involvement while respecting her rights, and [H] carries out the safeguarding enquiry. Together they answer her question safely. The distractors either breach confidentiality ([A], [F]), withhold care ([B], [G]) or skip the safeguarding conversation ([D]).",
+    "competing": "[G] is the most defensible distractor, as referral to specialist sexual health services is sometimes the right call. The key prefers dealing with her question while she is with you, because she has chosen this moment and the treatment is already under discussion."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Confidentiality, competence and contraceptive advice for young people under 16."
+    },
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "When to share information to protect children and young people from harm."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "The duty of confidentiality to all patients, including young people."
+    }
+  ],
+  "tags": [
+    "young people",
+    "confidentiality",
+    "contraception",
+    "safeguarding"
+  ]
+}

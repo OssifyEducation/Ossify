@@ -1,0 +1,92 @@
+{
+  "id": "sjt-021",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-021",
+  "format": "ranking",
+  "title": "Choosing a different path",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting autonomy",
+    "Exploring patients' beliefs",
+    "Shared decision making"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a haematology and oncology clinic. Ms Lewis, 38, has early-stage Hodgkin lymphoma. Her consultant has explained that chemotherapy offers a very good chance of cure.\n\nMs Lewis has now told the clinic nurse that she has decided not to have chemotherapy. She plans to follow a strict diet and have high-dose vitamin infusions at a private clinic she found online. The consultant has been called to the ward, and you have been asked to see her before she leaves. She seems calm and articulate, and she is clearly well informed about her diagnosis.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her that alternative therapies don't work and that she is making a serious mistake.",
+      "brief": "The concern may be justified, but delivered this way it is likely to make her stop listening.",
+      "detailed": "There is no good evidence that diet or vitamin infusions cure lymphoma, and she should know that. But telling her she is making a mistake, rather than exploring her reasons, is likely to make her defensive, reduce her trust in the team, and make it less likely she will return if she changes her mind."
+    },
+    {
+      "id": "B",
+      "text": "Accept her decision without further discussion, and write to her GP to say she has declined treatment.",
+      "brief": "Respects her autonomy in a narrow sense, but without checking that her decision is informed or offering further support.",
+      "detailed": "Ms Lewis has the right to refuse treatment, and an unwise decision is not evidence of a lack of capacity. But respecting autonomy also means making sure her decision is informed and that she has had a chance to discuss it. Discharging her without any exploration abandons her at a point where a conversation might change her course."
+    },
+    {
+      "id": "C",
+      "text": "Arrange for her to see the consultant again, with a specialist nurse, before she makes a final decision.",
+      "brief": "A decision with such high stakes deserves a further conversation with the senior clinician responsible.",
+      "detailed": "The consultant can answer detailed questions about the treatment and its effects that you may not be able to. A specialist nurse can provide continuing support. Arranging this doesn't mean you think she is wrong; it means she has the best possible basis for a decision with major consequences."
+    },
+    {
+      "id": "D",
+      "text": "Explore what led her to this choice, and check she understands the likely outcomes with and without chemotherapy.",
+      "brief": "Understanding her reasons is the basis for any useful conversation, and she must have the information she needs.",
+      "detailed": "Patients who decline effective treatment often have specific fears, such as infertility, hair loss, or a relative's bad experience, that can be addressed. Asking open questions shows respect and may reveal misunderstandings. Checking that she understands the likely consequences of each path makes sure her decision is informed, without pressuring her."
+    },
+    {
+      "id": "E",
+      "text": "Give her written information about her treatment options, and make sure she knows she can change her mind at any time.",
+      "brief": "Supports her decision-making and keeps the door open, though on its own it doesn't explore her reasons.",
+      "detailed": "Written information lets her review the facts in her own time, and knowing she can return without judgement makes it easier for her to reconsider later. This ranks below the first two because, without a conversation about why she has decided this, it may not address what actually matters to her."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "E",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a capacitous patient declines highly effective treatment: respecting her right to decide while making sure the decision is informed and that the door stays open.",
+    "keyDetails": "The treatment offers a very good chance of cure, so the stakes are high. She appears to have capacity, and an unwise choice does not mean she lacks it. Her reasons haven't yet been explored, and the consultant is temporarily unavailable.",
+    "reasoning": "[D] explores her reasons and understanding, [C] brings in senior and specialist support, and [E] supports her in her own time. [A] and [B] fail in opposite directions: [A] confronts without listening, and [B] accepts without engaging.",
+    "competing": "[A] versus [B] is the hardest call. Some argue that accepting her decision respects autonomy better than criticising it. The key ranks [B] lowest because it ends the conversation entirely, whereas [A], though poorly delivered, at least keeps the clinical concern in view."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "A person is not to be treated as unable to make a decision merely because it is unwise."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Exploring patients' values and supporting them to make informed decisions, including refusal."
+    }
+  ],
+  "tags": [
+    "autonomy",
+    "refusal",
+    "oncology",
+    "alternative medicine"
+  ]
+}
