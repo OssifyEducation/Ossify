@@ -1,0 +1,85 @@
+{
+  "id": "sjt-061",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-061",
+  "format": "ranking",
+  "title": "\"Just say I've seen him\"",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Honesty",
+    "Patient safety",
+    "Supporting colleagues"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. An hour ago the consultant asked your colleague, Dr Hart, to see Mr Ward, 70, who has abdominal pain, in cubicle 7. Dr Hart has been busy with another patient and hasn't seen him yet.\n\nThe consultant is walking towards you. Dr Hart quickly says, \"If he asks, just tell him I've seen the man in cubicle 7 and he's fine. I'll get to him in a minute.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to see Mr Ward yourself, if you have the capacity.",
+      "brief": "Makes sure he is seen soon, and helps a stretched colleague.",
+      "detailed": "This deals with the practical problem: Mr Ward needs assessing. It ranks second because it doesn't replace giving the consultant accurate information; if you're also busy, Mr Ward still needs to be prioritised."
+    },
+    {
+      "id": "B",
+      "text": "Tell the consultant that Dr Hart has seen Mr Ward, as he asked.",
+      "brief": "A direct lie that could leave an unwell patient unassessed.",
+      "detailed": "Loyalty to a colleague is understandable, but this is dishonest and could delay the assessment of a patient who may be seriously unwell."
+    },
+    {
+      "id": "C",
+      "text": "Suggest Dr Hart tells the consultant himself that he hasn't managed to see Mr Ward yet.",
+      "brief": "The right outcome, but leaves it to Dr Hart, and the consultant is almost with you.",
+      "detailed": "Encouraging him to be honest himself is good, and he may well agree. But with the consultant about to ask you, it relies on Dr Hart acting in time."
+    },
+    {
+      "id": "D",
+      "text": "Tell Dr Hart you won't do that, and that the consultant needs to know Mr Ward hasn't been seen.",
+      "brief": "Being honest protects Mr Ward, and your colleague, from a false picture.",
+      "detailed": "If the consultant believes Mr Ward has been seen and is fine, he may not be prioritised, and abdominal pain in a 70-year-old can be serious. Refusing to lie, and making sure the consultant has accurate information, protects the patient. It also protects Dr Hart from a far bigger problem later."
+    },
+    {
+      "id": "E",
+      "text": "Tell the consultant that you're not sure, and that he should ask Dr Hart.",
+      "brief": "Evasive and not honest: you know Mr Ward hasn't been seen.",
+      "detailed": "This may feel like a way of not lying, but saying you're not sure, when you know Mr Ward hasn't been seen, is itself misleading. It also delays the information the consultant needs."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "C",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you stay honest when a colleague asks you to cover for him, and recognise the risk to the patient.",
+    "keyDetails": "Mr Ward is 70 with abdominal pain and hasn't been seen. The consultant is about to ask. Dr Hart is busy rather than negligent.",
+    "reasoning": "[D] refuses to lie and makes sure the consultant knows, and [A] makes sure Mr Ward is seen. [C] is honest in intent but relies on Dr Hart, [E] is evasive, and [B] is dishonest.",
+    "competing": "Some would put offering to see Mr Ward first. You may do both, but the key ranks honesty first because the consultant's decisions about the department depend on accurate information."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty and integrity; Domain 3, raising concerns about patient safety."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "covering for colleagues",
+    "emergency department"
+  ]
+}

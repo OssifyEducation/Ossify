@@ -1,0 +1,78 @@
+{
+  "id": "sjt-055",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-055",
+  "format": "ranking",
+  "title": "A short-tempered registrar",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Discretion",
+    "Team wellbeing"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. For the past two weeks your registrar, Dr Mensah, has been short-tempered with everyone, snapping at nurses and juniors on ward rounds. Several colleagues have complained to you about it.\n\nToday one of the nurses tells you that Dr Mensah's partner has recently left him. He has never discussed his personal life with you, but you have a good working relationship.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Keep out of his way until he seems to be feeling better.",
+      "brief": "Avoids friction but leaves him unsupported and the team's problem unaddressed.",
+      "detailed": "Avoidance is an understandable response to someone who is snapping at people. But it leaves him isolated, and doesn't help the colleagues who are affected by his behaviour."
+    },
+    {
+      "id": "B",
+      "text": "Make a point of being friendly and supportive towards him on ward rounds.",
+      "brief": "Small kindnesses help, but don't give him a chance to talk or find support.",
+      "detailed": "Being friendly and patient with him at work can ease the tension and show you're on his side. It ranks second because, on its own, it doesn't give him the chance to talk or point him towards support such as occupational health."
+    },
+    {
+      "id": "C",
+      "text": "Find a quiet moment to ask Dr Mensah how he is, and whether there's anything that would help.",
+      "brief": "A private, kind question opens the door without assuming anything.",
+      "detailed": "You don't need to mention what you've heard. Asking simply how he is, in private, gives him the chance to talk if he wants to, and you can mention the staff support available. A colleague noticing can make a real difference, and he may be more aware of his behaviour than people think."
+    },
+    {
+      "id": "D",
+      "text": "Tell the consultant that Dr Mensah is struggling, without speaking to him first.",
+      "brief": "The consultant may need to know about the effect on the team, but going behind his back about his private life is premature.",
+      "detailed": "If his behaviour continues to affect the team or patient care, it may need raising with the consultant. But repeating details of his private life, without speaking to him first, risks embarrassing him and breaching his trust."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a senior colleague who appears to be struggling, with sensitivity to his privacy.",
+    "keyDetails": "His behaviour is affecting the team. You've heard about his personal situation second-hand. You have a good working relationship with him.",
+    "reasoning": "[C] offers support directly and privately, and [B] supports him more indirectly. [D] escalates prematurely and shares private information, and [A] leaves him and the team unsupported.",
+    "competing": "If his behaviour began to affect patient care, raising it with the consultant would become appropriate. The key reflects that, at this stage, a supportive conversation is the right first step."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and contributing to a positive working environment."
+    }
+  ],
+  "tags": [
+    "colleague wellbeing",
+    "teamwork",
+    "cardiology",
+    "support"
+  ]
+}

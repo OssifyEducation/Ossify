@@ -1,0 +1,85 @@
+{
+  "id": "sjt-051",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-051",
+  "format": "ranking",
+  "title": "An extension to training",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to setbacks",
+    "Seeking support",
+    "Planning"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. You have just been told that your ARCP panel has given you an outcome requiring a three-month extension to your training, mainly because of gaps in your portfolio. Earlier in the year you had a difficult few months after a close family bereavement, which you feel the panel didn't take into account.\n\nYou feel upset and embarrassed, and you were hoping to start a clinical fellowship in August.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell your colleagues that the ARCP panel treated you unfairly.",
+      "brief": "Venting may feel better, but it won't change the outcome and may affect how you're seen.",
+      "detailed": "It's natural to want to share your frustration. But telling colleagues the panel was unfair, before you've understood its reasons or used the proper routes, is unlikely to help and may be unprofessional."
+    },
+    {
+      "id": "B",
+      "text": "Meet your educational supervisor to understand the panel's reasons and agree a plan for the extension.",
+      "brief": "Understanding exactly what's needed is the fastest route through the extension.",
+      "detailed": "An extension usually comes with specific requirements. Meeting your supervisor to understand them, and to plan how to meet them, gives you control over what happens next. They can also advise on whether your circumstances were properly considered."
+    },
+    {
+      "id": "C",
+      "text": "Talk to someone you trust about how you're feeling.",
+      "brief": "A setback like this is hard, and support helps you deal with it well.",
+      "detailed": "Feeling upset and embarrassed is understandable, and talking it through with a friend, family member or your trust's staff support service can help. It ranks third because it doesn't address the practical steps, though it is important alongside them."
+    },
+    {
+      "id": "D",
+      "text": "Put in only the minimum effort during the extension, as the outcome wasn't your fault.",
+      "brief": "Disengaging risks a further adverse outcome, whatever the fairness of the first.",
+      "detailed": "If you believe the outcome was unfair, the right response is to raise it properly. Disengaging from the extension makes it more likely you'll fall short again, and affects your colleagues and patients."
+    },
+    {
+      "id": "E",
+      "text": "Ask for information about the ARCP review process, and seek advice if you think the decision was wrong.",
+      "brief": "If relevant information wasn't considered, there is a formal way to raise it.",
+      "detailed": "ARCP outcomes can be reviewed, and if your circumstances weren't taken into account, that may be relevant. Finding out how the process works, and taking advice before deciding, is a reasonable step. It ranks below planning with your supervisor because that conversation will help you decide whether a review is worthwhile."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an adverse training outcome: constructively, using proper routes, and looking after yourself.",
+    "keyDetails": "The outcome is mainly about portfolio gaps. You believe your circumstances weren't taken into account. You're upset, and you have plans that may be affected.",
+    "reasoning": "[B] makes a practical plan, [E] uses the formal route if you think something was missed, and [C] looks after your wellbeing. [A] and [D] are reactions to the frustration rather than responses to the outcome.",
+    "competing": "Some would rank seeking a review higher, given the bereavement. The key puts the supervisor meeting first because it clarifies whether a review is justified and what the extension involves."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on feedback and taking responsibility for your development."
+    }
+  ],
+  "tags": [
+    "ARCP",
+    "training",
+    "setbacks",
+    "resilience"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-060",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-060",
+  "format": "multiple_choice",
+  "title": "\"I'll post it online\"",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "De-escalation",
+    "Explaining decisions",
+    "Fair allocation of resources"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Mr Barker, 81, was admitted yesterday with a chest infection and is in a six-bed bay. His daughter approaches you, angry, saying the bay is noisy and her father hasn't slept.\n\nShe demands that he is moved to the side room opposite. When you hesitate, she holds up her phone and says that unless he is moved within the hour she'll post a video online naming you and the nurses. The side room is occupied by a patient with C. difficile.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree to ask the nurse in charge to find Mr Barker a side room within the hour.",
+      "brief": "Side rooms are allocated on clinical need, not in response to threats.",
+      "detailed": "This would end the confrontation quickly, which is what makes it tempting. But side rooms are allocated for infection control and other clinical needs, and giving way to a threat would be unfair to other patients and make the same thing more likely next time."
+    },
+    {
+      "id": "B",
+      "text": "Explain that filming staff on the ward isn't allowed, and ask her to put her phone away.",
+      "brief": "A fair point, but it focuses on the threat rather than her concern, and may escalate things.",
+      "detailed": "Wards often have policies about filming, and it's reasonable to mention them at some point. But leading with this treats her as a problem to be managed rather than a worried relative, and is likely to make her angrier."
+    },
+    {
+      "id": "C",
+      "text": "Stay calm, listen, and acknowledge her concern about her father's sleep.",
+      "brief": "Listening often defuses anger and shows you take her seriously.",
+      "detailed": "Behind the threat is a worry about her father. Acknowledging that, calmly and without becoming defensive, is often enough to lower the temperature and lets you understand what would help."
+    },
+    {
+      "id": "D",
+      "text": "Tell her that naming staff online could be treated as harassment.",
+      "brief": "Sounds like a counter-threat and is likely to escalate things.",
+      "detailed": "Staff are protected from harassment, and the trust may act if they are targeted. But responding to a threat with a threat is unlikely to calm her, and doesn't address her concern."
+    },
+    {
+      "id": "E",
+      "text": "Explain that the side room is needed for a patient with an infection.",
+      "brief": "Reveals another patient's diagnosis, which is confidential.",
+      "detailed": "It may seem honest to explain why the room isn't available, and in general terms you can say side rooms are prioritised for clinical reasons. But naming the patient's infection, or implying who is in the room, breaches their confidentiality."
+    },
+    {
+      "id": "F",
+      "text": "Ask the nurses to deal with her, as room allocation is a nursing decision.",
+      "brief": "Bed allocation is often led by nurses, but passing her on now leaves her feeling dismissed.",
+      "detailed": "The nurse in charge usually manages bed allocation, so involving them is sensible. But walking away from an angry relative, rather than engaging with her and then involving the nurse in charge, is likely to escalate things."
+    },
+    {
+      "id": "G",
+      "text": "Explain how side rooms are allocated, and what could help her father rest in the bay.",
+      "brief": "Honest about the limits, while offering practical help.",
+      "detailed": "You can explain, without naming anyone, that side rooms are allocated according to clinical need. Offering practical steps, such as eye masks, earplugs, reviewing night-time observations and noise in the bay, shows you are trying to help."
+    },
+    {
+      "id": "H",
+      "text": "Involve the nurse in charge, and tell her how to raise a complaint if she remains unhappy.",
+      "brief": "Brings in the person who manages beds, and gives her a proper route for her concerns.",
+      "detailed": "The nurse in charge can look at whether a move to a quieter area is possible. Explaining how to contact the Patient Advice and Liaison Service (PALS) or make a complaint gives her a legitimate route that is far more likely to help than a video."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond calmly to a threat from a relative, keeping to fair, clinically based decisions while addressing her real concern.",
+    "keyDetails": "Her concern about his sleep is reasonable. The side room is needed for infection control. Her threat is designed to put you under pressure.",
+    "reasoning": "[C] lowers the tension, [G] explains the limits honestly and offers help, and [H] brings in the right person and gives her a route to complain. The distractors give in to the threat ([A]), escalate ([B], [D]), breach another patient's confidentiality ([E]), or pass her on ([F]).",
+    "competing": "[E] is the subtle one: explaining why a room is unavailable feels honest, but naming another patient's infection breaches their confidentiality."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating with patients and those close to them; Domain 4, fair use of resources."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Not disclosing other patients' information."
+    }
+  ],
+  "tags": [
+    "difficult relatives",
+    "threats",
+    "side rooms",
+    "social media"
+  ]
+}

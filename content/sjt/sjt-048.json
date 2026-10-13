@@ -1,0 +1,102 @@
+{
+  "id": "sjt-048",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-048",
+  "format": "multiple_choice",
+  "title": "An absent supervisor",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Managing your training",
+    "Advocating for yourself",
+    "Using proper channels"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a psychiatry placement. Your educational supervisor has cancelled your last three meetings at short notice and doesn't reply to emails. Your annual review of competence progression (ARCP) is in eight weeks.\n\nYour e-portfolio still needs your supervisor's mid-point review and several sign-offs, and you are worried about falling behind. Colleagues say she is very stretched with clinical work.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Complete your supervisor's sections of the review yourself, so that she only needs to sign them.",
+      "brief": "Supervisor reviews must reflect the supervisor's own judgement, not yours.",
+      "detailed": "It may seem helpful to a busy supervisor, and some do ask trainees to draft parts of a review. But writing her assessment of you, for her to sign without discussion, undermines its purpose and could be seen as misrepresenting your progress."
+    },
+    {
+      "id": "B",
+      "text": "Email your supervisor proposing specific times to meet, and explain your ARCP deadline.",
+      "brief": "A clear, specific request makes it easier for a busy supervisor to say yes.",
+      "detailed": "Open-ended requests are easy to put off. Offering particular slots and explaining that the ARCP is eight weeks away makes the need concrete and shows you are being organised. Many supervisors respond well once they understand the deadline."
+    },
+    {
+      "id": "C",
+      "text": "Wait for your supervisor to get in touch, as she knows your ARCP date.",
+      "brief": "Passive, when the meetings are already slipping and the deadline is fixed.",
+      "detailed": "Assuming she will remember is understandable, but three cancelled meetings suggest she won't without a prompt. Taking responsibility for your own training includes chasing what you need."
+    },
+    {
+      "id": "D",
+      "text": "Ask the foundation programme tutor or administrator for advice on getting the meetings you need.",
+      "brief": "They oversee supervision and can help if the usual route isn't working.",
+      "detailed": "Foundation programme tutors and administrators deal with supervision problems regularly and can contact supervisors, arrange alternatives, or make sure the ARCP panel is aware. Asking for advice is not a complaint; it is using the support built into the programme."
+    },
+    {
+      "id": "E",
+      "text": "Give feedback about your supervisor in the GMC's national training survey, and wait for the deanery to act.",
+      "brief": "A legitimate feedback route, but too slow to help with an ARCP in eight weeks.",
+      "detailed": "The national training survey is a valuable way of highlighting problems with supervision, and you might well mention it there. But it runs once a year and won't produce a meeting in time for your review."
+    },
+    {
+      "id": "F",
+      "text": "Keep working on the parts of your portfolio you can complete without your supervisor.",
+      "brief": "Progress on reflections and assessments by other assessors reduces the pressure later.",
+      "detailed": "Much of the portfolio, such as supervised learning events with other clinicians and reflective entries, doesn't depend on your educational supervisor. Completing these now means the meeting, when it happens, can focus on the sign-offs only she can give."
+    },
+    {
+      "id": "G",
+      "text": "Ask another consultant you work with to sign off your educational supervisor's review instead.",
+      "brief": "Another consultant can't stand in for your educational supervisor without the programme's agreement.",
+      "detailed": "Other consultants can complete supervised learning events and give feedback, but the educational supervisor's review is a specific role. Substituting someone else without agreement from the programme could leave your ARCP evidence incomplete."
+    },
+    {
+      "id": "H",
+      "text": "Turn up at your supervisor's clinic and insist on meeting her between patients.",
+      "brief": "Shows urgency, but is likely to irritate her and disrupt her patients.",
+      "detailed": "Your frustration is understandable, but confronting her in clinic puts her in a difficult position and is unlikely to lead to the considered review you need."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you take responsibility for your own training when supervision isn't happening, using constructive and proper routes.",
+    "keyDetails": "Three meetings have been cancelled, emails aren't answered, and the ARCP is eight weeks away. Your supervisor is overstretched rather than unwilling. Much of the portfolio doesn't depend on her.",
+    "reasoning": "[B] makes a clear, specific request, [D] brings in the programme's support, and [F] makes progress where you can. The distractors either misuse the supervisor's role ([A], [G]), wait passively ([C], [E]), or confront her unhelpfully ([H]).",
+    "competing": "[E] is legitimate feedback but works on the wrong timescale. Raising supervision problems in the national survey is reasonable as well as, not instead of, getting help now."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, taking responsibility for your learning and development."
+    }
+  ],
+  "tags": [
+    "supervision",
+    "ARCP",
+    "portfolio",
+    "training"
+  ]
+}

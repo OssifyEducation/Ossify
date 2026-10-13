@@ -1,0 +1,92 @@
+{
+  "id": "sjt-059",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-059",
+  "format": "ranking",
+  "title": "A comment on the ward round",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Challenging inappropriate behaviour",
+    "Supporting colleagues",
+    "Using proper channels"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in general surgery. On the ward round, Dr Price, the consultant, asks Dr Lewis, a female F1, to present a patient. When she hesitates, he says to the patient, laughing, \"Don't worry, she's better at making tea than diagnoses — that's why we keep her around.\"\n\nDr Lewis smiles, but looks upset. Last week she told you that he often makes comments like this. Dr Price glances at you, as if expecting you to laugh.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Reassure Dr Lewis that it was only a joke and she shouldn't take it personally.",
+      "brief": "Minimises her experience and discourages her from raising it.",
+      "detailed": "This may be meant kindly, but it suggests her reaction is the problem rather than his behaviour, and may stop her seeking help."
+    },
+    {
+      "id": "B",
+      "text": "Report the comment through the trust's reporting system, even if Dr Lewis prefers you didn't.",
+      "brief": "A pattern of comments may need reporting, but acting without discussing it with her is premature.",
+      "detailed": "Repeated undermining of a junior colleague is a serious concern, and you can raise what you witnessed. But doing so immediately, against her wishes and before talking it through, may leave her feeling her choices weren't respected. It's not wrong in itself, which is why this question is hard."
+    },
+    {
+      "id": "C",
+      "text": "Laugh along with Dr Price's comment during the ward round, so things don't become awkward.",
+      "brief": "Endorses the comment in front of a patient and colleagues.",
+      "detailed": "It's common to laugh awkwardly when a senior makes a joke, but doing so here signals that the behaviour is acceptable and leaves Dr Lewis isolated. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Speak to Dr Price privately, explaining that the comment was inappropriate and upsetting.",
+      "brief": "Challenging the behaviour directly is appropriate, if you feel able to.",
+      "detailed": "GMC guidance expects doctors to act when they see a colleague being undermined. A calm, private conversation may help Dr Price understand the effect of his comments. It ranks below supporting Dr Lewis because she may have views on how it's raised, and as an F2 you may also want advice before challenging a consultant."
+    },
+    {
+      "id": "E",
+      "text": "After the ward round, ask Dr Lewis how she is and talk about what she would like to do.",
+      "brief": "She is the person most affected, and her wishes should shape what happens next.",
+      "detailed": "Supporting her comes first: she is upset, and this is part of a pattern. Talking with her about the options, such as speaking to Dr Price, her educational supervisor, or the trust's reporting route, helps her decide, and means any action reflects her wishes where possible."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "B",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a senior undermines a colleague with a discriminatory remark, balancing support for her, challenge, and reporting.",
+    "keyDetails": "The comment was made in front of a patient. Dr Lewis looks upset and has told you it has happened before. You are junior to the consultant.",
+    "reasoning": "[E] supports Dr Lewis and puts her wishes at the centre, [D] challenges the behaviour, and [B] reports it, though prematurely. [A] minimises her experience and [C] reinforces the behaviour.",
+    "competing": "Many would argue [D] should come first, since GMC guidance says doctors should challenge such behaviour. Both are appropriate; the key puts Dr Lewis first because she is upset now and has a say in how it's taken forward. [B] would rise if she agreed or if the pattern continued."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Contributing to a positive working and training environment': acting when a colleague is bullied, harassed or undermined."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Harassment related to sex is unlawful under the Equality Act 2010."
+    }
+  ],
+  "tags": [
+    "undermining",
+    "sexism",
+    "consultants",
+    "speaking up"
+  ]
+}

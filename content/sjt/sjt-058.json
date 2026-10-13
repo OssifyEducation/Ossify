@@ -1,0 +1,102 @@
+{
+  "id": "sjt-058",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-058",
+  "format": "multiple_choice",
+  "title": "In front of the waiting room",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Dignity",
+    "Responding to concerns",
+    "Advocacy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Ahmed, 52, has lost her hair because of chemotherapy and wears a wig. This morning she went for an MRI scan.\n\nWhen she comes back she is tearful. She tells you that, because the wig has metal clips, a member of staff asked her to take it off in the waiting area, in front of other patients and a porter. She says she felt \"humiliated\".",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Say that you're sorry this happened, and listen to how she feels about it.",
+      "brief": "Acknowledging her distress is the most important first response.",
+      "detailed": "Mrs Ahmed has been through an upsetting experience, and hair loss is often one of the hardest parts of chemotherapy. Saying sorry that it happened, and giving her time to talk, shows that you take her feelings seriously. It doesn't require you to know exactly what happened in the scanner."
+    },
+    {
+      "id": "B",
+      "text": "Tell her that metal must be removed before an MRI, so staff had no choice.",
+      "brief": "True about the metal, but misses the point: it was how and where it was removed.",
+      "detailed": "MRI safety does require metal to be removed, so it may seem helpful to explain this. But her distress is about being asked to do it in front of others, and the explanation could sound as though you are defending what happened."
+    },
+    {
+      "id": "C",
+      "text": "With her agreement, let the radiology department know, so it can be addressed.",
+      "brief": "Feedback helps the department make sure this doesn't happen to others.",
+      "detailed": "There are usually private changing areas for this, and the department will want to know if they weren't used. Raising it, with her agreement, through the department manager or the trust's incident reporting system, helps protect the dignity of future patients."
+    },
+    {
+      "id": "D",
+      "text": "Suggest she wears a headscarf rather than a wig for future scans.",
+      "brief": "Practical, but puts the responsibility on her rather than on the service.",
+      "detailed": "This may help in future, but it implies the problem was her choice of wig rather than how she was treated. She should be able to wear what makes her comfortable and still be treated with dignity."
+    },
+    {
+      "id": "E",
+      "text": "Ask a female nurse to talk to her about it later, as she may prefer that.",
+      "brief": "Assumes what she wants, and delays a response she needs now.",
+      "detailed": "Some patients do prefer to talk to someone of the same gender, but she has chosen to tell you. Passing her on without asking her may seem like you don't want to deal with it."
+    },
+    {
+      "id": "F",
+      "text": "Explain that the member of staff was probably under pressure to keep the scans running on time.",
+      "brief": "Excuses the behaviour rather than acknowledging her experience.",
+      "detailed": "Radiology departments are busy, and the staff member may not have intended any harm. But offering an excuse on their behalf doesn't help Mrs Ahmed and may make her feel her experience doesn't matter."
+    },
+    {
+      "id": "G",
+      "text": "Refer her to the clinical psychology service for support with her body image.",
+      "brief": "May be helpful later, but turns a dignity issue into a problem with her.",
+      "detailed": "Psychological support can help people adjust to hair loss, and she might value it. But offering it as the response to this incident suggests the issue is her reaction rather than how she was treated."
+    },
+    {
+      "id": "H",
+      "text": "Offer to record in her notes that she should be given privacy to remove her wig in future.",
+      "brief": "A practical step that helps prevent a repeat.",
+      "detailed": "She is likely to have more scans. A note in her records, with her agreement, means future staff know to offer her a private space, which gives her some control and protects her dignity."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a patient's dignity hasn't been respected: acknowledging her feelings, acting to prevent a repeat, and avoiding defensive responses.",
+    "keyDetails": "The metal clips did need removing; the problem was where it happened. She is likely to need more scans. She has chosen to tell you.",
+    "reasoning": "[A] acknowledges her distress, [C] makes sure the department learns from it, and [H] protects her at future scans. The distractors defend or excuse what happened ([B], [F]), shift the responsibility onto her ([D], [G]), or pass her on ([E]).",
+    "competing": "[B] is factually correct, which makes it tempting, but answering a dignity concern with a safety rule misses why she is upset."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity and respect; Domain 3, responding to concerns about care."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "privacy",
+    "oncology",
+    "hair loss"
+  ]
+}

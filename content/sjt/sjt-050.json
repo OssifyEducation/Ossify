@@ -1,0 +1,109 @@
+{
+  "id": "sjt-050",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-050",
+  "format": "multiple_choice",
+  "title": "A call from Oscar's father",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Parental responsibility",
+    "Confidentiality",
+    "Safeguarding"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a children's surgical ward. Oscar, 6, had an appendicectomy yesterday and is recovering well. His mother told the nurses on admission that she and Oscar's father are separated, that he \"has no contact\" with Oscar, and that she doesn't want him told anything.\n\nThis afternoon a man phones the ward, says he is Oscar's father, and asks you how Oscar's operation went. He sounds worried and says he only found out from a friend.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that you can't share details until you've checked who he is and his position.",
+      "brief": "You can't verify a caller's identity or parental responsibility on the phone.",
+      "detailed": "Anyone can say they are a parent on the phone. Explaining calmly that you need to confirm his identity and whether he has parental responsibility before sharing information protects Oscar while not dismissing a worried father. It also gives you time to find out what you need to know."
+    },
+    {
+      "id": "B",
+      "text": "Check whether any court orders or safeguarding concerns affect his father's involvement.",
+      "brief": "Separation alone doesn't remove a father's rights; a court order or safeguarding concern might.",
+      "detailed": "Many separated fathers have parental responsibility and the right to information about their child, even if the mother would rather they didn't. What matters is whether there is a court order restricting his involvement, or a safeguarding concern. Checking this establishes whether you can share information, and how."
+    },
+    {
+      "id": "C",
+      "text": "Tell him you can't give him any information, as Oscar's mother has asked you not to.",
+      "brief": "The mother's wishes alone don't override a father's parental responsibility.",
+      "detailed": "Respecting the mother's request feels like the cautious choice. But if the father has parental responsibility and there's no court order or safeguarding concern, he may be entitled to information about Oscar. Refusing on the mother's word alone may be wrong."
+    },
+    {
+      "id": "D",
+      "text": "Discuss the situation with your registrar or the safeguarding team before sharing anything.",
+      "brief": "Questions of parental responsibility and conflicting parental wishes benefit from senior advice.",
+      "detailed": "This is a common but complex situation, with legal and safeguarding dimensions. A senior or the safeguarding team can help you decide what can be shared, with whom, and how to handle the mother's wishes alongside the father's rights."
+    },
+    {
+      "id": "E",
+      "text": "Give him a brief update on how the operation went, as he says he is Oscar's father and is clearly worried.",
+      "brief": "Shares information before confirming who he is or whether anything restricts his involvement.",
+      "detailed": "If he is Oscar's father with parental responsibility, he may be entitled to know. But you can't confirm that on the phone, and there may be reasons, such as a court order, why information shouldn't be shared. Giving an update now skips the checks."
+    },
+    {
+      "id": "F",
+      "text": "Tell him which ward Oscar is on and the visiting times, so he can come and see him.",
+      "brief": "Reveals Oscar's location before you know whether that is safe.",
+      "detailed": "Encouraging contact may seem kind, but if there are court orders or safeguarding concerns, telling him where Oscar is could put Oscar or his mother at risk. This needs checking first."
+    },
+    {
+      "id": "G",
+      "text": "Ask Oscar whether he would like his father to know how he is.",
+      "brief": "Places a six-year-old in the middle of his parents' conflict.",
+      "detailed": "Children's views matter, but asking a six-year-old to decide whether his father is told about his operation puts an unfair burden on him and doesn't address the legal question."
+    },
+    {
+      "id": "H",
+      "text": "Ask Oscar's mother whether she would be willing to update his father herself.",
+      "brief": "Puts the decision back on her, and doesn't settle whether you can share information.",
+      "detailed": "Encouraging parents to communicate can sometimes help, but the mother has made her wishes clear. Asking her to call him doesn't settle whether you can share information, and may inflame the situation."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a request for information about a child from a separated parent, balancing confidentiality, parental responsibility and safeguarding.",
+    "keyDetails": "The caller's identity is unverified. The mother has asked that he isn't told anything, but separation alone doesn't remove a father's rights. You don't know about any court orders or safeguarding concerns.",
+    "reasoning": "[A] protects Oscar while you check, [B] establishes the facts that determine what can be shared, and [D] brings in senior and safeguarding advice. The distractors either refuse or share without checking ([C], [E], [F]), or push the decision onto Oscar or his mother ([G], [H]).",
+    "competing": "[C] feels like the safe option, but it treats the mother's wishes as decisive when the law may not. That's why checking for court orders or concerns matters more than either parent's preference."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Parental responsibility, and sharing information with parents."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Verifying identity and the legal basis before disclosing information."
+    }
+  ],
+  "tags": [
+    "parental responsibility",
+    "confidentiality",
+    "paediatrics",
+    "separated parents"
+  ]
+}

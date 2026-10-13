@@ -1,0 +1,110 @@
+{
+  "id": "sjt-056",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-056",
+  "format": "multiple_choice",
+  "title": "A migraine before teaching",
+  "setting": "Non-clinical (teaching)",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Probity with medicines",
+    "Fitness to work",
+    "Self-care"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. This morning you are due to present at the foundation teaching programme in the education centre, and this afternoon you start a 12-hour on-call shift on the medical wards.\n\nTwenty minutes before your talk you feel a migraine coming on, with visual aura and a building headache. Sumatriptan usually works well for you, but you've left yours at home. Another F2 says: \"I can grab you some sumatriptan from the stock cupboard on Ward 6. Nobody will mind.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept your colleague's offer to bring you sumatriptan from the ward stock cupboard.",
+      "brief": "Ward stock is for patients; taking it for yourself is misuse of hospital medicines.",
+      "detailed": "This is tempting because it's quick and the drug would help. But ward stock is supplied for the treatment of patients, and taking it for personal use, however small the amount, is a probity issue that could have serious consequences for you and your colleague."
+    },
+    {
+      "id": "B",
+      "text": "Ask your colleague to write a hospital prescription for sumatriptan for you.",
+      "brief": "Informal prescribing between colleagues bypasses proper assessment and records.",
+      "detailed": "GMC prescribing guidance advises against doctors prescribing for colleagues or people close to them except in limited circumstances. Your colleague isn't responsible for your care and has no access to your records, so this isn't an appropriate route to get the medicine."
+    },
+    {
+      "id": "C",
+      "text": "Write yourself a prescription for sumatriptan to collect from the hospital pharmacy.",
+      "brief": "Self-prescribing is discouraged and hospital prescriptions are for patients.",
+      "detailed": "GMC guidance says doctors should avoid prescribing for themselves wherever possible. A hospital prescription is also meant for patients under the trust's care. This would be inappropriate even though the medicine is one you take regularly."
+    },
+    {
+      "id": "D",
+      "text": "Tell the teaching organiser you're unwell, and ask if someone else can present.",
+      "brief": "Being honest about being unwell lets the organiser plan around it.",
+      "detailed": "A migraine with aura can make it hard to concentrate or speak clearly. Telling the organiser early gives them time to swap the order of talks or ask someone else to step in, which is better for everyone than struggling through or disappearing at the last minute."
+    },
+    {
+      "id": "E",
+      "text": "Buy a migraine treatment from a pharmacy, such as the one in the hospital entrance.",
+      "brief": "Gets you treatment through a legitimate route.",
+      "detailed": "Sumatriptan is available from pharmacies in the UK without a prescription for adults with established migraine, and simple painkillers are also available. Buying your own treatment, and checking with the pharmacist that it's appropriate for you, avoids any question of misusing hospital stock."
+    },
+    {
+      "id": "F",
+      "text": "Warn the on-call registrar that you may not be fit for this afternoon's shift.",
+      "brief": "Early warning gives the team the best chance of arranging cover if you need it.",
+      "detailed": "You may well feel better by the afternoon, but if you don't, the team will need to find cover. Telling the registrar now, rather than at the start of the shift, makes that much easier and puts patient safety first. You owe it to patients not to work if you aren't fit to."
+    },
+    {
+      "id": "G",
+      "text": "Give your talk and start the on-call shift, taking breaks when you can.",
+      "brief": "Admirable commitment, but risks working while unwell without telling anyone who could help.",
+      "detailed": "Wanting not to let people down is understandable. But carrying on without treatment or support risks a poor talk and, more importantly, an on-call shift where you aren't safe to make decisions."
+    },
+    {
+      "id": "H",
+      "text": "Drive home to collect your own sumatriptan, and come back in time for the shift.",
+      "brief": "Gets your own medicine, but driving with an aura may be unsafe and you'd miss your talk unannounced.",
+      "detailed": "Using your own medication is the right instinct. But driving while you have visual disturbance from an aura could be dangerous, and leaving without telling the organiser would leave the teaching session without a speaker."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you look after your health through legitimate routes, without misusing medicines, while protecting the people who depend on you.",
+    "keyDetails": "The drug is in ward stock, and a colleague is offering to get it. You have a talk in twenty minutes and an on-call shift later. You may not be fit to do either.",
+    "reasoning": "[D] and [F] are honest about your health so others can plan, and [E] gets you treatment properly. The distractors misuse medicines or prescribing ([A], [B], [C]), or put yourself and others at risk ([G], [H]).",
+    "competing": "[H] has the right instinct, using your own medicine, but the driving and the missed talk make it weaker than buying treatment on site and telling people."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Avoiding prescribing for yourself or for those close to you."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty and integrity; Domain 1, your health and fitness to work."
+    }
+  ],
+  "tags": [
+    "self-prescribing",
+    "ward stock",
+    "doctors' health",
+    "probity"
+  ]
+}

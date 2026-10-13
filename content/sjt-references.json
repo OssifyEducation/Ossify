@@ -221,5 +221,11 @@
     "publisher": "National Institute for Health and Care Excellence",
     "year": 2022,
     "url": "https://www.nice.org.uk/guidance/ng229"
+  },
+  "newbornhearing": {
+    "title": "Screening tests for you and your baby: hearing loss",
+    "publisher": "NHS screening programmes (GOV.UK)",
+    "year": null,
+    "url": "https://www.gov.uk/government/publications/screening-tests-for-you-and-your-baby/hearing-loss"
   }
 }

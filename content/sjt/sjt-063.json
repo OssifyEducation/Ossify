@@ -1,0 +1,93 @@
+{
+  "id": "sjt-063",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-063",
+  "format": "ranking",
+  "title": "A foot check that wasn't",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Honesty about errors",
+    "Record keeping",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Last night, during a very busy on-call, you clerked Mr Osei, 74, who has type 2 diabetes. On the admission proforma you ticked \"feet examined — no ulceration\", although you didn't actually examine his feet.\n\nThis afternoon a nurse finds an ulcer on his heel and asks you whether it was there when he was admitted.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the nurse that the ulcer must have developed since admission.",
+      "brief": "A false statement that could mislead an investigation.",
+      "detailed": "This would compound the original error with a deliberate falsehood, and could wrongly suggest the ulcer was caused by care on the ward. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Tell the nurse and your registrar that you didn't actually examine his feet last night.",
+      "brief": "Honesty is essential, and the team needs to know when the ulcer could have developed.",
+      "detailed": "The record currently suggests the ulcer developed in hospital, which affects how it is investigated, managed and reported. Admitting that you didn't examine his feet, although it's uncomfortable, gives the team accurate information and is the honest response."
+    },
+    {
+      "id": "C",
+      "text": "Add a dated entry to the notes explaining that the feet weren't examined on admission.",
+      "brief": "Corrects the record without altering the original.",
+      "detailed": "Records shouldn't be altered, but a clear, dated note that the earlier entry was incorrect keeps the record accurate. It ranks below telling the team and treating the ulcer because those matter more for Mr Osei right now."
+    },
+    {
+      "id": "D",
+      "text": "Tell the nurse that you can't remember whether the ulcer was there when you clerked him.",
+      "brief": "Misleading: you know you didn't examine his feet.",
+      "detailed": "This avoids an outright lie, but it is misleading, because you know you didn't examine his feet, and it leaves the record misleading too."
+    },
+    {
+      "id": "E",
+      "text": "Make sure the ulcer is assessed, and refer him to the diabetic foot team.",
+      "brief": "A diabetic foot ulcer needs prompt specialist assessment.",
+      "detailed": "Foot ulcers in people with diabetes can deteriorate quickly. Making sure it is assessed properly and referred to the specialist team is essential for Mr Osei's care. It ranks second because the honest answer to the nurse's question comes first, and is quick."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you are honest about an error in your own records, and correct it properly, while making sure the patient is cared for.",
+    "keyDetails": "You documented an examination you didn't do. The nurse is asking a direct question. The answer affects whether the ulcer is treated as hospital-acquired.",
+    "reasoning": "[B] is honest with the team, [E] makes sure he gets the right care, and [C] corrects the record properly. [D] is evasive and [A] is a lie.",
+    "competing": "Some would put referring the ulcer first, on the basis that patient care comes first. The key puts the honest answer first because it's immediate, and the nurse needs it to act correctly. You should also reflect on what happened with your educational supervisor."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open and honest with colleagues when things go wrong."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, keeping clear, accurate records; Domain 4, honesty."
+    }
+  ],
+  "tags": [
+    "documentation",
+    "honesty",
+    "diabetic foot",
+    "candour"
+  ]
+}

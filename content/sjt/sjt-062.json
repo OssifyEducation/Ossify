@@ -1,0 +1,110 @@
+{
+  "id": "sjt-062",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-062",
+  "format": "multiple_choice",
+  "title": "Turned away",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Access to care",
+    "Personal beliefs",
+    "Raising concerns"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in a GP practice. Ms Patel, 24, comes back to reception in tears. She had unprotected sex two days ago and saw Dr Hughes, a salaried GP, asking for emergency contraception.\n\nShe says Dr Hughes told her he doesn't provide emergency contraception because of his religious beliefs, and that she should \"think carefully about her choices\". He didn't tell her where else she could get it. The receptionist asks if you can help.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Make sure Ms Patel can get emergency contraception today, at the practice if possible.",
+      "brief": "Emergency contraception is time-sensitive, and she has a right to access it.",
+      "detailed": "Emergency contraception is more effective the sooner it is used. GMC guidance allows doctors to opt out of some procedures because of their beliefs, but says patients must still be able to access care. Seeing her yourself, or arranging for someone else to, ensures she isn't disadvantaged. She should also be told about all the options: a copper intrauterine device is the most effective method and can be fitted up to five days after unprotected sex."
+    },
+    {
+      "id": "B",
+      "text": "Tell Ms Patel that she can buy emergency contraception from a local pharmacy without an appointment.",
+      "brief": "True, but leaves a distressed patient to sort it out herself.",
+      "detailed": "Oral emergency contraception is available from pharmacies, so this is accurate. But she has come to the practice for help, is upset, and may need advice about all her options, including an intrauterine device. Sending her away again isn't a good response to what has happened."
+    },
+    {
+      "id": "C",
+      "text": "Tell Dr Hughes his religious views have no place in medicine.",
+      "brief": "Doctors may hold beliefs; the issue is how he treated her.",
+      "detailed": "GMC guidance accepts that doctors can opt out of some procedures for reasons of conscience. The problem is that he expressed disapproval and didn't make sure she could get care elsewhere. Attacking his beliefs is unhelpful and unprofessional."
+    },
+    {
+      "id": "D",
+      "text": "Report Dr Hughes to the GMC straight away.",
+      "brief": "Premature: a concern like this should be raised locally first.",
+      "detailed": "His conduct may need to be addressed, but this is a matter for the practice to look at first, through your supervisor or the practice lead. Referral to the GMC is for serious concerns that can't be handled locally."
+    },
+    {
+      "id": "E",
+      "text": "Book Ms Patel a routine appointment with another GP next week.",
+      "brief": "Too late; emergency contraception is time-critical.",
+      "detailed": "Seeing another GP is the right idea, but a routine appointment next week would be too late for emergency contraception to be effective."
+    },
+    {
+      "id": "F",
+      "text": "Apologise for her experience, and explain how she can give feedback if she wishes.",
+      "brief": "Acknowledges what happened and gives her a route to raise it.",
+      "detailed": "She has been upset by how she was treated. An apology for her experience, without criticising your colleague, and information on how to raise a concern or complaint, respects her and allows the practice to learn."
+    },
+    {
+      "id": "G",
+      "text": "Let your GP supervisor know what happened, so the practice can prevent a repeat.",
+      "brief": "The practice needs to know, so that patients can always access this care.",
+      "detailed": "Practices should have arrangements so that a doctor's objection never stops patients getting care. Telling your supervisor allows the practice to review those arrangements and to speak to Dr Hughes."
+    },
+    {
+      "id": "H",
+      "text": "Explain to Ms Patel that Dr Hughes is entitled to his beliefs.",
+      "brief": "True in part, but defends him rather than helping her.",
+      "detailed": "Doctors are entitled to their beliefs, but this doesn't answer her distress, and it overlooks that he shouldn't have expressed disapproval or left her without access to care."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make sure a patient gets time-sensitive care when a colleague's personal beliefs have got in the way, and raise the problem appropriately.",
+    "keyDetails": "Emergency contraception is time-critical. Doctors can opt out on grounds of conscience, but must not obstruct access or express disapproval. Ms Patel is distressed.",
+    "reasoning": "[A] gets her the care she needs, [F] acknowledges her experience and gives her a route to raise it, and [G] makes sure the practice addresses the problem. The distractors either don't help her enough ([B], [E]), defend or attack Dr Hughes ([C], [H]), or escalate prematurely ([D]).",
+    "competing": "[B] is accurate, but on its own it leaves a distressed patient to arrange her own care, when you can make sure she gets it today."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Doctors who object to providing a treatment must make sure patients can access it, and must not express disapproval of their lifestyle or choices."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly; Domain 3, raising concerns."
+    }
+  ],
+  "tags": [
+    "personal beliefs",
+    "emergency contraception",
+    "access to care",
+    "general practice"
+  ]
+}

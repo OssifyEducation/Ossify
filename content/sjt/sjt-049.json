@@ -1,0 +1,99 @@
+{
+  "id": "sjt-049",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-049",
+  "format": "ranking",
+  "title": "Leaving before the scan",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Assessing capacity",
+    "Persuasion",
+    "Best interests"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the Emergency Department at 01:00. Mr Wood, 32, has been drinking heavily and fell down a flight of stairs. He has a scalp wound, vomited once on arrival, and his GCS is 14. The registrar has requested an urgent CT head.\n\nMr Wood pulls out his cannula, says he is \"fine\" and that he's going home, and starts walking towards the exit. He is unsteady and slurring his words. His friend, who brought him in, has left.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask security to stop him leaving while his capacity is assessed.",
+      "brief": "May be justified if you reasonably believe he lacks capacity, but premature as a first step.",
+      "detailed": "If there is reason to believe a patient lacks capacity and is at serious risk, proportionate steps to stop him leaving can be lawful while he is assessed. This option isn't wrong in itself, which is what makes the question hard. It ranks third because talking to him and assessing capacity should come first, and restraint should be the last resort."
+    },
+    {
+      "id": "B",
+      "text": "Ask your registrar to help assess whether Mr Wood has capacity to refuse the scan.",
+      "brief": "Whether he can be kept depends on his capacity, and a head injury plus alcohol may impair it.",
+      "detailed": "If Mr Wood has capacity, he can refuse; if he doesn't, the team may act in his best interests to keep him safe, including preventing him from leaving. Intoxication and a possible brain injury can both affect capacity, so a proper, decision-specific assessment is essential, and it is a judgement best made with a senior. It ranks just after talking to him only because you can start that straight away; in practice you'd do both at once."
+    },
+    {
+      "id": "C",
+      "text": "Try to persuade him to stay, explaining the risk of bleeding inside the skull in simple terms.",
+      "brief": "The least restrictive first step, and many patients stay once they understand the specific risk.",
+      "detailed": "Talking to him calmly, in plain words, about why the scan matters may be enough to change his mind. It is the least restrictive option, and giving him this information is also the first step of any capacity assessment. If he won't listen, the decision about whether he can be kept needs senior input quickly."
+    },
+    {
+      "id": "D",
+      "text": "Let him leave, document his refusal, and advise him to come back if he feels worse.",
+      "brief": "Treats him as having capacity without assessing it, despite clear reasons to doubt it.",
+      "detailed": "Adults with capacity can refuse investigations, and documenting a refusal and giving head injury advice are good practice. But Mr Wood is intoxicated, has a head injury and is confused enough to be slurring and unsteady. Letting him leave without assessing his capacity could mean missing a bleed that proves fatal."
+    },
+    {
+      "id": "E",
+      "text": "Call the police and ask them to take him somewhere safe for the night.",
+      "brief": "Inappropriate: the police aren't a substitute for medical assessment of a head injury.",
+      "detailed": "The police may need to be involved if someone is at risk in a public place, but a patient in an emergency department with a possible brain injury needs medical assessment, not custody. This would move him away from the care he needs."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "A",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a patient who wants to leave when both intoxication and a head injury may be affecting his capacity, balancing autonomy against his safety.",
+    "keyDetails": "He has a head injury, has vomited, has a GCS of 14, and has been drinking. He is unsteady and slurring. A CT has been requested urgently. He is alone.",
+    "reasoning": "[C] tries to secure his agreement in the least restrictive way, and [B] addresses the central question of capacity with senior support. [A] may be needed but should follow assessment, [D] assumes capacity without checking, and [E] removes him from medical care altogether.",
+    "competing": "This is hard because the order of [C] and [B] is close: in practice you'd talk to him while calling for help. The ordering of [A] and [D] reflects that, where capacity is doubtful and the risk is serious, a proportionate step to keep him safe while he's assessed is more defensible than letting him go."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Assessing capacity for a specific decision; giving the person relevant information."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Acting in a person's best interests when they lack capacity."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Patients' right to refuse, and assessing capacity when it's in doubt."
+    }
+  ],
+  "tags": [
+    "capacity",
+    "head injury",
+    "intoxication",
+    "emergency department"
+  ]
+}
