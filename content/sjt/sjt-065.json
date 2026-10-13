@@ -1,0 +1,85 @@
+{
+  "id": "sjt-065",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-065",
+  "format": "ranking",
+  "title": "A repeat hearing test",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Explaining uncertainty",
+    "Reassurance",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the postnatal ward. Baby Lily, two days old, had her newborn hearing screen this morning. It didn't show a clear response in one ear, and the screener has arranged a second test before discharge.\n\nLily's parents stop you as you pass. They are anxious and ask you whether this means she is deaf.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to ask the screener to come and talk to them about the second test.",
+      "brief": "The screener can give detailed information and answer their questions.",
+      "detailed": "The screener knows the test well and can explain exactly what will happen. Arranging this is helpful; it ranks second because the parents are anxious now, and you can give them accurate information straight away."
+    },
+    {
+      "id": "B",
+      "text": "Tell them the screener will explain everything at the second test.",
+      "brief": "Not wrong, but leaves them worrying until then.",
+      "detailed": "The screener will explain the test, but the parents are anxious now. Putting them off when you could give them some accurate information misses an opportunity to help."
+    },
+    {
+      "id": "C",
+      "text": "Explain that a second test is common and doesn't necessarily mean hearing loss.",
+      "brief": "Honest, accurate information is reassuring without making promises.",
+      "detailed": "It's common for newborns not to give a clear response on the first test, often because of fluid or a temporary blockage in the ear, background noise, or the baby being unsettled. Most babies who need a second test don't have permanent hearing loss. Explaining this honestly, without promising a result, gives the parents real reassurance."
+    },
+    {
+      "id": "D",
+      "text": "Reassure them that you are sure Lily's hearing will turn out to be completely normal.",
+      "brief": "Kind, but makes a promise you can't keep.",
+      "detailed": "This is tempting, as you want to relieve their worry. But you can't know the result, and if Lily does have a hearing problem, false reassurance would damage their trust."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you communicate uncertainty to anxious parents: honestly, accurately, and without false reassurance.",
+    "keyDetails": "A second test is common and doesn't necessarily mean hearing loss. The parents are anxious now. You can't know the result.",
+    "reasoning": "[C] gives accurate, honest reassurance, and [A] arranges more detailed information. [B] defers when you could help, and [D] makes a promise you can't keep.",
+    "competing": "Some would rank deferral last, since it doesn't help at all. The key puts false reassurance last because it could damage their trust if Lily does have a hearing problem."
+  },
+  "references": [
+    {
+      "title": "Screening tests for you and your baby: hearing loss",
+      "publisher": "NHS screening programmes (GOV.UK)",
+      "year": null,
+      "url": "https://www.gov.uk/government/publications/screening-tests-for-you-and-your-baby/hearing-loss",
+      "note": "A second test doesn't necessarily mean hearing loss; common reasons include fluid in the ear and an unsettled baby."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, giving patients and families honest information."
+    }
+  ],
+  "tags": [
+    "newborn screening",
+    "hearing",
+    "uncertainty",
+    "parents"
+  ]
+}

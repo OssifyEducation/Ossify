@@ -1,0 +1,85 @@
+{
+  "id": "sjt-047",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-047",
+  "format": "ranking",
+  "title": "Sign me in?",
+  "setting": "Non-clinical (teaching)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Probity",
+    "Supporting students",
+    "Teaching"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor who runs a weekly teaching session for final-year medical students on your ward. Attendance is recorded on a sheet that you sign, and the medical school uses it to check students have met their attendance requirements.\n\nTom, one of the students, missed yesterday's session. Today he asks you to sign the sheet for him, explaining that he had \"a family thing\" he had to deal with. He seems a little embarrassed.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to go over the main points of the session with him at another time.",
+      "brief": "A kind way to help him catch up on what he missed.",
+      "detailed": "This helps Tom's learning, which is the point of the session, and is a generous offer. On its own, though, it doesn't deal with his request to sign the sheet."
+    },
+    {
+      "id": "B",
+      "text": "Sign it, and suggest he does the same for you if you ever miss a session.",
+      "brief": "Creates a false record and invites further dishonesty.",
+      "detailed": "This combines the falsification of signing with an explicit suggestion of reciprocal dishonesty. It turns a single lapse into an arrangement, and is the least professional option."
+    },
+    {
+      "id": "C",
+      "text": "Sign the sheet, as he had a genuine reason for missing the session.",
+      "brief": "Sympathetic, but it records attendance that didn't happen.",
+      "detailed": "His reason may well be genuine, which is what makes this tempting. But the sheet records attendance, not reasons, and signing it would be dishonest. Authorised absence is for the medical school to decide."
+    },
+    {
+      "id": "D",
+      "text": "Ask Tom whether everything is all right, and mention the student support services if he needs them.",
+      "brief": "His 'family thing' may be serious, and a little interest may make a difference.",
+      "detailed": "Students often hide significant difficulties. Asking gently whether he is okay, and making sure he knows where to get support, shows care and may help him. It ranks below declining because the attendance question still needs a clear, honest answer."
+    },
+    {
+      "id": "E",
+      "text": "Decline to sign, and suggest he speaks to the medical school about the session he missed.",
+      "brief": "Keeps the record accurate while pointing him to the people who can authorise an absence.",
+      "detailed": "Signing would create a false record, however understandable his reason. The medical school will have a process for authorised absence, and genuine family problems are exactly what it exists for. Declining kindly, and explaining what he can do instead, solves his problem honestly."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "A",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep records honest when a sympathetic request makes falsifying them feel harmless.",
+    "keyDetails": "The sheet is used by the medical school to check attendance. Tom has a reason that may be genuine. He's embarrassed, which makes refusing feel unkind.",
+    "reasoning": "[E] keeps the record honest and directs him to the right process, [D] attends to his wellbeing, and [A] helps his learning. [C] and [B] both falsify the record, and [B] adds a suggestion of further dishonesty.",
+    "competing": "Some would put asking about his wellbeing first, as the kinder opening. You might well start the conversation that way, but the key ranks the honest answer to his request first because that is the decision being tested."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Acting with honesty and integrity'; Domain 1, supporting the education of students."
+    }
+  ],
+  "tags": [
+    "probity",
+    "teaching",
+    "medical students",
+    "attendance"
+  ]
+}

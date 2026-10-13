@@ -1,0 +1,84 @@
+{
+  "id": "sjt-053",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-053",
+  "format": "ranking",
+  "title": "An invitation for a drink",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Professional boundaries",
+    "Honest communication",
+    "Seeking advice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Over the past three months you have seen Mr Collins, 34, regularly for a knee injury, and you have got on well. At what is likely to be his final appointment for the knee, he thanks you and asks whether you'd like to go for a drink with him some time.\n\nHe remains registered at the practice, and you are working there for another two months.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Let your GP supervisor know about the invitation, and record it briefly in the notes.",
+      "brief": "Being open about boundary issues protects you and the patient.",
+      "detailed": "Telling your supervisor and making a factual note is standard practice when a patient makes a personal approach. It means the practice is aware if anything further happens, and shows you handled it professionally. It ranks second because the most important thing is how you respond to him in the moment."
+    },
+    {
+      "id": "B",
+      "text": "Accept, as this is his final appointment for the knee.",
+      "brief": "He remains a patient at the practice where you work, so this crosses a professional boundary.",
+      "detailed": "The end of one episode of care doesn't end the doctor–patient relationship, especially while he remains registered where you work and you may see him again. Accepting would blur the boundary and could undermine trust in you and the practice."
+    },
+    {
+      "id": "C",
+      "text": "Make light of the invitation and move on without giving a clear answer.",
+      "brief": "Avoids awkwardness but may leave him thinking the answer is 'not yet'.",
+      "detailed": "Laughing it off is a common response to an awkward moment. But without a clear answer, Mr Collins may misunderstand and ask again, which can be more uncomfortable for both of you later."
+    },
+    {
+      "id": "D",
+      "text": "Politely decline, explaining that it wouldn't be appropriate while he is a patient at the practice.",
+      "brief": "Clear, kind, and maintains the professional relationship.",
+      "detailed": "Mr Collins remains a patient at the practice where you work, and you have been his doctor for months. A friendly but clear refusal, without embarrassing him, maintains the boundary that protects both of you. Being straightforward also avoids any misunderstanding."
+    },
+    {
+      "id": "E",
+      "text": "Suggest that you could meet once he has registered with a different practice.",
+      "brief": "Implies a relationship would be fine with a change of practice, and encourages him to act on it.",
+      "detailed": "Relationships with former patients aren't always prohibited, but GMC guidance asks doctors to consider factors such as the nature of the previous relationship and the patient's vulnerability. Suggesting he change practice so you can meet invites him to end a clinical relationship for personal reasons, which isn't appropriate."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "C",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you maintain professional boundaries when a patient you've got on well with makes a personal approach.",
+    "keyDetails": "Mr Collins is still registered at the practice, and you are working there for two more months. You have seen him regularly. The approach is friendly and respectful, which makes declining feel awkward.",
+    "reasoning": "[D] maintains the boundary clearly and kindly, and [A] makes sure the approach is recorded and the practice is aware. [C] avoids the issue, [E] suggests a way round the boundary, and [B] crosses it.",
+    "competing": "Some would put informing the supervisor first. You would do both, but the key ranks the clear response first because it's what prevents any misunderstanding with Mr Collins."
+  },
+  "references": [
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Personal relationships with current and former patients."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "relationships",
+    "general practice"
+  ]
+}

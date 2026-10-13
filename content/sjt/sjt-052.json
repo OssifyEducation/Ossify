@@ -1,0 +1,109 @@
+{
+  "id": "sjt-052",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-052",
+  "format": "multiple_choice",
+  "title": "A mother on the phone",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Crisis response",
+    "Listening to carers",
+    "Urgent escalation"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor working in an out-of-hours GP service. At 21:30 you call back Mrs Grey, whose son Ben, 19, is autistic. She is very distressed.\n\nBen has been increasingly agitated for two days, smashed a door tonight, and said he wants to \"end it all\". Mrs Grey has tried the local mental health crisis line three times but couldn't get through. She says Ben is now in his room with the door shut, she doesn't think she could get him into the car, and she doesn't know what to do.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Advise Mrs Grey to keep trying the crisis line until she gets through.",
+      "brief": "Leaves a distressed parent to keep calling a line that isn't answering.",
+      "detailed": "The crisis line is the right service, but she has already tried three times. Telling her to keep trying puts the burden back on her, when you can contact the team directly."
+    },
+    {
+      "id": "B",
+      "text": "Advise her to bring Ben to the Emergency Department straight away.",
+      "brief": "May be appropriate, but she may not be able to get him there safely, and the crisis team may be better placed.",
+      "detailed": "Emergency departments do assess people in mental health crisis, and this could be part of the plan. But Ben is shut in his room and agitated, and moving him may not be safe or possible. Arranging the right assessment, and calling 999 if there's immediate danger, is more appropriate than an instruction to travel."
+    },
+    {
+      "id": "C",
+      "text": "Suggest she gives Ben a dose of any sedating medication he has at home.",
+      "brief": "Advising medication without assessment is unsafe.",
+      "detailed": "Sedating medication may have a role in Ben's care, but recommending it over the phone, without knowing what he has, his history or the risks, could cause harm."
+    },
+    {
+      "id": "D",
+      "text": "Book Ben a routine appointment with his own GP for the next available slot.",
+      "brief": "Far too slow for someone talking about ending his life.",
+      "detailed": "Ben's GP should be informed and involved in his ongoing care, but a routine appointment doesn't address tonight's risk."
+    },
+    {
+      "id": "E",
+      "text": "Tell her this sounds more like a behavioural problem related to his autism than a mental health crisis.",
+      "brief": "Dismisses a disclosure of suicidal thoughts and risks missing a serious risk.",
+      "detailed": "Autistic people can have distress that looks like behaviour, but they also have higher rates of mental health problems and suicide. Attributing his statements to autism without assessment is dismissive and potentially dangerous."
+    },
+    {
+      "id": "F",
+      "text": "Ask whether anyone is in immediate danger, and advise her to call 999 if they are.",
+      "brief": "Immediate safety is the first question, and emergency services may be needed.",
+      "detailed": "Ben has spoken about ending his life and has been destructive tonight. Finding out whether he or anyone else is at immediate risk, for example whether he has access to means or is harming himself now, decides how urgent the response must be. If there is immediate danger, 999 is the right call."
+    },
+    {
+      "id": "G",
+      "text": "Stay calm, listen, and find out what is happening now and what usually helps Ben.",
+      "brief": "A calm, listening approach helps her and gives you the information you need.",
+      "detailed": "Mrs Grey knows Ben well. Listening to her account, and asking what usually helps him when he is distressed, gives you a clearer picture of the risk and of how to support them both tonight. A calm voice on the phone can also help her feel less alone."
+    },
+    {
+      "id": "H",
+      "text": "Contact the mental health crisis team yourself to arrange an urgent assessment for Ben.",
+      "brief": "Professional routes to the crisis team often work when public lines are busy.",
+      "detailed": "Services usually have direct professional lines, and a referral from a clinician carries weight. Arranging an urgent assessment yourself takes the burden off a distressed parent and makes sure Ben's risk is assessed by the right team tonight."
+    }
+  ],
+  "key": {
+    "correct": [
+      "F",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a carer reporting a mental health crisis when services seem unreachable: assessing immediate risk, supporting the carer, and getting the right help.",
+    "keyDetails": "Ben has talked about ending his life and has been destructive tonight. His mother can't reach the crisis line. He is shut in his room, so his current state is unknown.",
+    "reasoning": "[F] establishes immediate safety, [G] supports Mrs Grey and gathers information, and [H] arranges the specialist assessment he needs. The distractors either leave the burden with her ([A]), give unsafe or impractical advice ([B], [C]), delay ([D]), or dismiss the risk ([E]).",
+    "competing": "[B] is reasonable in some situations, and the crisis team might advise it. The key prefers arranging assessment directly because Ben may not be safe or willing to travel."
+  },
+  "references": [
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Responding to people at risk of self-harm or suicide, including urgent assessment."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, working with carers and responding to patients' needs."
+    }
+  ],
+  "tags": [
+    "mental health crisis",
+    "autism",
+    "carers",
+    "out-of-hours"
+  ]
+}

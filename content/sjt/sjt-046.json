@@ -1,0 +1,110 @@
+{
+  "id": "sjt-046",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-046",
+  "format": "multiple_choice",
+  "title": "Pressure sores from the care home",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Safeguarding adults",
+    "Documentation",
+    "Clinical care"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Sutton, 86, has advanced dementia and lives in a nursing home. She has been admitted with pneumonia.\n\nOn examination you find a deep, foul-smelling pressure ulcer over her sacrum and she appears very thin. Her weight has fallen from 58 kg to 46 kg since a clinic visit five months ago. The transfer letter from the nursing home doesn't mention the ulcer or any weight loss.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Document the ulcer and her weight carefully, including photographs if trust policy allows.",
+      "brief": "Accurate records made now are essential for her care and for any safeguarding enquiry.",
+      "detailed": "A clear description of the ulcer's size, depth and appearance, her current weight and the fall since her last recorded weight, and photographs where policy permits, creates an objective record. It supports her treatment and gives any later enquiry the evidence it needs without relying on memory."
+    },
+    {
+      "id": "B",
+      "text": "Phone the nursing home manager to ask what happened before deciding whether to raise any concern.",
+      "brief": "Their account may be useful later, but making your decision depend on it may compromise a safeguarding enquiry.",
+      "detailed": "It is natural to want the full picture before raising a concern, and the home's explanation will be important. But the decision about whether to make a safeguarding referral shouldn't depend on an informal call to the people whose care may be in question. The safeguarding lead can advise on how and when the home is contacted."
+    },
+    {
+      "id": "C",
+      "text": "Tell Mrs Sutton's son that you think the nursing home has been neglecting her.",
+      "brief": "Shares a conclusion that hasn't been established, which may cause distress and complicate an enquiry.",
+      "detailed": "Her family should be kept informed, and they may raise concerns themselves. But telling them that neglect has occurred, before any enquiry, presents an assumption as fact. It is better to explain what you have found and that you are looking into it."
+    },
+    {
+      "id": "D",
+      "text": "Raise your concerns when you start planning her discharge back to the nursing home.",
+      "brief": "Delays the concern for days, and other residents may also be at risk.",
+      "detailed": "Discharge planning is a natural point to discuss the home, but waiting until then delays any enquiry. If there is a problem with care at the home, other residents may be affected now."
+    },
+    {
+      "id": "E",
+      "text": "Discuss your concerns with the hospital's safeguarding team about a possible referral.",
+      "brief": "A severe, unreported pressure ulcer and major weight loss may indicate neglect.",
+      "detailed": "Mrs Sutton can't speak up for herself, and the combination of a severe ulcer, major weight loss and a transfer letter that mentions neither raises a real concern about the care she has received. The safeguarding lead can help you decide whether a referral to the local authority is needed. The local authority then has a duty to make enquiries."
+    },
+    {
+      "id": "F",
+      "text": "Report the nursing home directly to the Care Quality Commission.",
+      "brief": "The regulator may need to know, but the local safeguarding route comes first.",
+      "detailed": "The CQC regulates care homes and receives information about poor care, so this isn't unreasonable in itself. But the established route for a concern about an individual is through the hospital's safeguarding team and the local authority, which can also inform the regulator if appropriate."
+    },
+    {
+      "id": "G",
+      "text": "Make sure her pressure ulcer and nutrition are assessed and managed now.",
+      "brief": "Whatever the cause, she needs treatment for both problems today.",
+      "detailed": "The ulcer may be infected, and severe malnutrition affects healing and recovery from pneumonia. Asking the tissue viability nurse and dietitian to assess her, and starting appropriate wound care, pressure relief and nutrition support, is part of looking after her properly."
+    },
+    {
+      "id": "H",
+      "text": "Accept that pressure ulcers and weight loss are common in frail patients with advanced dementia.",
+      "brief": "They are common, but the severity and the lack of any record of them still need explaining.",
+      "detailed": "Frail people with dementia are at high risk of both problems, and some ulcers develop despite good care. But a deep, unreported ulcer and a fifth of her body weight lost in five months shouldn't be accepted without asking whether her care was adequate."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise possible neglect of an adult who can't speak for herself, and respond through the proper routes while treating her.",
+    "keyDetails": "The ulcer is severe and wasn't mentioned in the transfer letter. She has lost about a fifth of her body weight. She has advanced dementia, so she can't tell you what has happened.",
+    "reasoning": "[A] creates the evidence, [E] starts the safeguarding process with the right people, and [G] treats her. The distractors either compromise or pre-empt the enquiry ([B], [C]), delay it ([D]), bypass the local route ([F]), or dismiss the concern ([H]).",
+    "competing": "[B] is the most tempting distractor, since the home's account will matter. The key leaves it out because the decision to raise a safeguarding concern shouldn't hinge on an informal call to the provider."
+  },
+  "references": [
+    {
+      "title": "Care Act 2014, section 42 (enquiry by local authority)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2014,
+      "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/42",
+      "note": "The local authority's duty to make enquiries where an adult with care needs may be experiencing neglect."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, protecting patients who may be vulnerable; Domain 1, keeping clear and accurate records."
+    }
+  ],
+  "tags": [
+    "safeguarding adults",
+    "neglect",
+    "pressure ulcers",
+    "care homes"
+  ]
+}

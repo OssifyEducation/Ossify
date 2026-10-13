@@ -1,0 +1,110 @@
+{
+  "id": "sjt-064",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-064",
+  "format": "multiple_choice",
+  "title": "Weekend on-call",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Recognising the unwell patient",
+    "Asking for help"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a Saturday day shift, covering about 120 general surgical inpatients across four wards. You have a list of ten patients needing IV fluid prescriptions, and two other jobs.\n\nA nurse on Ward 8 bleeps you. Mr Turner, 68, is two days after a bowel resection and has developed central chest pain. His heart rate is 110 and his blood pressure is 105/70. Your registrar is in theatre with an emergency laparotomy.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Write the fluid prescriptions first, as they are quick and many patients depend on them.",
+      "brief": "Fluids matter, but chest pain in a post-operative patient is potentially life-threatening.",
+      "detailed": "This is the trap. Ten fluid prescriptions are important and may feel more manageable, but Mr Turner could have a myocardial infarction, a pulmonary embolus or an anastomotic leak. He must be assessed first."
+    },
+    {
+      "id": "B",
+      "text": "Ask the nurse to do an ECG and repeat his observations, and go to see Mr Turner now.",
+      "brief": "He needs urgent assessment, and an ECG will be ready when you arrive.",
+      "detailed": "Chest pain with a raised heart rate after major surgery needs immediate assessment. Asking for an ECG and repeat observations before you arrive saves time, and seeing him promptly lets you recognise and treat a serious cause."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurse to give him GTN and call you back if the pain persists.",
+      "brief": "Treats a possible cardiac cause without assessment, and may be dangerous if he's hypotensive.",
+      "detailed": "GTN may be used for cardiac chest pain, but giving it without assessment risks dropping his blood pressure further and delays finding out what is wrong."
+    },
+    {
+      "id": "D",
+      "text": "Ask the ward nurses which fluid prescriptions are most urgent, and do those first afterwards.",
+      "brief": "Some patients will need fluids sooner than others; the nurses can tell you which.",
+      "detailed": "Patients who are nil by mouth, have low urine output or whose fluids have run out need prescriptions sooner than others. Asking the nurses to prioritise the list means the most urgent are done first once you've seen Mr Turner."
+    },
+    {
+      "id": "E",
+      "text": "Update the registrar about Mr Turner once you've assessed him.",
+      "brief": "Your registrar needs to know about a sick patient and whether you need help.",
+      "detailed": "Even if the registrar is in theatre, they will want to know about a deteriorating post-operative patient, and can arrange support or advise you. Being clear if your workload is unmanageable gives them the chance to help."
+    },
+    {
+      "id": "F",
+      "text": "Prescribe the same standard 24-hour maintenance regimen for every patient on the list.",
+      "brief": "Fluid needs vary widely; blanket prescribing risks harm.",
+      "detailed": "This would clear the list quickly, but fluid prescriptions should be based on each patient's needs, including their electrolytes and fluid balance. A standard regimen could be harmful for some."
+    },
+    {
+      "id": "G",
+      "text": "Ask the nurse to call the medical registrar to see Mr Turner instead.",
+      "brief": "May be needed later, but he first needs assessment by his own team.",
+      "detailed": "Medical advice can be valuable for post-operative chest pain, but Mr Turner is a surgical patient and you are the doctor covering him. He needs your assessment first."
+    },
+    {
+      "id": "H",
+      "text": "Ask the nurses to phone you the patients' fluid requirements so you can prescribe them verbally.",
+      "brief": "Verbal prescribing of routine IV fluids isn't safe practice.",
+      "detailed": "This saves time, but routine prescriptions should be written by the prescriber after assessment, not given verbally, to avoid errors."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you prioritise a potentially unwell patient over routine tasks, organise the rest of your work safely, and keep your seniors informed.",
+    "keyDetails": "Mr Turner has chest pain, a tachycardia and a borderline blood pressure two days after major surgery. The fluid list is long but less urgent. Your registrar is in theatre.",
+    "reasoning": "[B] assesses the sickest patient first, [D] prioritises the remaining work sensibly, and [E] keeps your senior informed. The distractors either prioritise the wrong task ([A]), treat without assessment ([C]), use unsafe shortcuts ([F], [H]), or pass the patient on ([G]).",
+    "competing": "[A] is the hard distractor: clearing a list feels productive, but a potentially serious problem in one patient takes priority."
+  },
+  "references": [
+    {
+      "title": "National Early Warning Score (NEWS) 2",
+      "publisher": "Royal College of Physicians",
+      "year": 2017,
+      "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/",
+      "note": "Escalation of care for patients with abnormal observations."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising patients according to clinical need; Domain 3, asking for help."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "on-call",
+    "chest pain",
+    "surgery"
+  ]
+}

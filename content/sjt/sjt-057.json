@@ -1,0 +1,85 @@
+{
+  "id": "sjt-057",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-057",
+  "format": "ranking",
+  "title": "No cover for a break",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Teamwork",
+    "Looking after yourself",
+    "Resolving conflict"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a 12-hour day shift in intensive care. It has been busy, and seven hours in you haven't had a break. You ask Dr Kaur, the other junior doctor on the unit, to hold your bleep for 30 minutes. She says she's too busy.\n\nTen minutes later you see her sitting at the desk scrolling through her phone. You are tired, hungry, and starting to feel irritated.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Dr Kaur calmly whether now would be a good time, and explain you haven't had a break all day.",
+      "brief": "A calm, direct request gives her the chance to help without feeling accused.",
+      "detailed": "You don't know what she was doing on her phone; she might have been checking a guideline or dealing with a personal call. Asking again, without assuming the worst, and explaining that you haven't eaten all day, is the simplest way to get your break and keep a good working relationship."
+    },
+    {
+      "id": "B",
+      "text": "Keep working and take your break later in the shift, when the unit is quieter.",
+      "brief": "Avoids conflict, but working tired and hungry for longer affects your performance.",
+      "detailed": "Sometimes a break really does have to wait. But putting it off indefinitely, when you are already tired, makes mistakes more likely, and the unit may not get quieter."
+    },
+    {
+      "id": "C",
+      "text": "Put your bleep on the desk next to Dr Kaur and tell her you're going for your break.",
+      "brief": "Forces the issue and risks bleeps going unanswered if she doesn't accept it.",
+      "detailed": "You are entitled to a break, but leaving your bleep with someone who hasn't agreed to hold it means calls could be missed, which puts patients at risk. It is also likely to cause a confrontation."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse in charge or your registrar to help organise breaks for the team.",
+      "brief": "Breaks are a team responsibility, and seniors can help arrange them.",
+      "detailed": "If the request to Dr Kaur doesn't work, the nurse in charge or registrar can help organise cover so that everyone gets a break. It ranks second because talking to her directly first is quicker and less formal."
+    },
+    {
+      "id": "E",
+      "text": "Tell the other staff on the unit that Dr Kaur refused to cover you and then sat on her phone.",
+      "brief": "Undermines a colleague without knowing the facts, and won't get you a break.",
+      "detailed": "This is how irritation often comes out, but complaining to others about her behaviour, without knowing why she was on her phone, creates tension on the unit and doesn't solve your problem."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "B",
+      "E",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you deal with frustration at a colleague while still looking after yourself and keeping patients safe.",
+    "keyDetails": "You haven't had a break in seven hours. You don't know what Dr Kaur was doing on her phone. A bleep can't be left unattended in intensive care.",
+    "reasoning": "[A] resolves things directly and without accusation, and [D] gets senior help if that doesn't work. [B] avoids conflict at the cost of your own wellbeing, [E] creates conflict without solving anything, and [C] risks patient safety.",
+    "competing": "Putting off your break ranks above complaining about her because it at least doesn't damage the team, though it isn't sustainable."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working constructively with colleagues; Domain 1, looking after your own health."
+    }
+  ],
+  "tags": [
+    "breaks",
+    "teamwork",
+    "intensive care",
+    "fatigue"
+  ]
+}

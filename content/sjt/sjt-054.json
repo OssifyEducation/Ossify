@@ -1,0 +1,109 @@
+{
+  "id": "sjt-054",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-054",
+  "format": "multiple_choice",
+  "title": "Discharges during an outbreak",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Infection prevention and control",
+    "Managing pressure",
+    "Communication with care providers"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an elderly care ward. The ward has just been closed to admissions because of a norovirus outbreak; four patients in one bay have diarrhoea and vomiting.\n\nThree of your patients were due to be discharged today: Mr Fox to his own home with his wife, Mrs Dean to a residential care home, and Mr Hale, who has been in the affected bay but has no symptoms, to his own home. The bed manager calls, asking you to complete all three discharges quickly because the hospital needs beds.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Complete all three discharges today, as each patient is medically fit to leave.",
+      "brief": "Medical fitness alone isn't enough during an outbreak; exposure and destination matter too.",
+      "detailed": "The pressure for beds is real, which is what makes this tempting. But sending an exposed patient to a care home, or discharging without following the outbreak policy, risks spreading norovirus to vulnerable people outside the hospital."
+    },
+    {
+      "id": "B",
+      "text": "Assess each patient's symptoms and exposure, and follow the outbreak policy.",
+      "brief": "Whether each discharge is safe depends on that patient's exposure and the policy, not on bed pressures.",
+      "detailed": "Outbreak policies usually allow some discharges, often to patients' own homes, provided the patient and family are informed, while restricting others. Checking each patient's symptoms and contact with the affected bay is the basis for deciding which discharges can go ahead safely."
+    },
+    {
+      "id": "C",
+      "text": "Ask the infection prevention and control team how each discharge should be handled.",
+      "brief": "The team can advise on the specific rules for this outbreak.",
+      "detailed": "Infection control teams deal with outbreak discharges every winter, and they will know local policy, for example how long care homes need patients to be symptom-free and whether exposed contacts can go home. Their advice supports a safe decision for each patient."
+    },
+    {
+      "id": "D",
+      "text": "Postpone all three discharges until the outbreak has been declared over.",
+      "brief": "Overcautious: some discharges are often safe and keeping patients in hospital carries its own risks.",
+      "detailed": "This feels safe, which is why it's a hard distractor. But keeping well patients in an outbreak ward increases their chance of infection and delays beds for others. Policies usually allow carefully considered discharges, especially to patients' own homes."
+    },
+    {
+      "id": "E",
+      "text": "Tell Mrs Dean's care home about the outbreak before arranging her transfer.",
+      "brief": "A care home needs to know, so it can protect its other residents.",
+      "detailed": "Norovirus spreads rapidly in care homes and can be very harmful to frail residents. Care homes need to be told about outbreaks so they can decide, with advice, whether and when to accept a resident back. Being open protects the home's residents and maintains trust between services."
+    },
+    {
+      "id": "F",
+      "text": "Arrange Mrs Dean's transfer as planned, and let the care home learn of the outbreak from her discharge summary.",
+      "brief": "The home needs to know before she arrives, not afterwards.",
+      "detailed": "The discharge summary may well mention the outbreak, but the home would find out only when she arrives, too late to decide, with advice, whether and when to accept her back. Norovirus spreads rapidly in care homes and can be very harmful to frail residents."
+    },
+    {
+      "id": "G",
+      "text": "Ask the bed manager to decide which discharges should go ahead.",
+      "brief": "Bed managers coordinate flow, but the clinical and infection control decisions aren't theirs.",
+      "detailed": "The bed manager has a legitimate interest in freeing beds and can help with logistics. But whether a patient is safe to discharge during an outbreak is a clinical decision, informed by infection control advice."
+    },
+    {
+      "id": "H",
+      "text": "Move the three patients to the discharge lounge, so they can leave from there.",
+      "brief": "Moving potentially exposed patients around the hospital could spread the outbreak.",
+      "detailed": "Discharge lounges help with flow, but transferring patients from an outbreak ward to a shared area risks spreading infection, and doesn't address whether each discharge is appropriate."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you balance pressure on beds against infection control during an outbreak, making patient-by-patient decisions and communicating honestly with other services.",
+    "keyDetails": "The ward is closed because of norovirus. The three patients differ: one is going to a care home, one has been in the affected bay, and one is neither. The bed manager is pressing for speed.",
+    "reasoning": "[B] assesses each patient, [C] brings in expert advice, and [E] makes sure the care home can protect its residents. The distractors either ignore the outbreak ([A], [F], [H]), overcorrect ([D]), or hand a clinical decision to the wrong person ([G]).",
+    "competing": "[D] is the trap here: it sounds responsible, but blanket postponement keeps patients at risk in an outbreak ward and blocks beds unnecessarily. The skill is in judging each discharge on its merits."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Responding to safety risks'; working with other services in patients' interests."
+    },
+    {
+      "title": "Leadership and management for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/leadership-and-management-for-all-doctors",
+      "note": "Taking account of the wider system, including other care providers, in decisions."
+    }
+  ],
+  "tags": [
+    "infection control",
+    "norovirus",
+    "discharge",
+    "care homes"
+  ]
+}
