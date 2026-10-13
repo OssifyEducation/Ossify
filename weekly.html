@@ -214,7 +214,7 @@ async function init(){
   }
   // Load weekly leaderboard
   const{data:entries}=await sb.from('weekly_entries').select('*').eq('week_start',weekStart).order('score',{ascending:false}).limit(50);
-  const{data:allProfiles}=await sb.from('profiles').select('id,username,full_name,hospital_trust').in('id',(entries||[]).map(e=>e.user_id));
+  const{data:allProfiles}=await sb.rpc('get_public_profiles',{p_ids:(entries||[]).map(e=>e.user_id)});
   const profileMap={};(allProfiles||[]).forEach(p=>profileMap[p.id]=p);
 
   renderLobby(challenge, entry, entries, profileMap, weekStart);

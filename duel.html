@@ -87,6 +87,14 @@
 .sr-name{font-size:13.5px;font-weight:500;color:var(--pu-dark);}
 .sr-sub{font-size:11.5px;color:var(--muted);}
 
+.nudge{background:var(--pu-pale);border:0.5px solid var(--pu-light);border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;}
+.nudge-txt{flex:1 1 260px;display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--pu-dark);}
+.nudge-txt span{font-size:12px;color:var(--moss);}
+.nudge-row{display:flex;gap:8px;flex:1 1 260px;}
+.nudge-row input{flex:1;min-width:0;padding:9px 12px;border:1px solid var(--lav-border);border-radius:9px;font-size:13.5px;font-family:var(--font-sans);background:#fff;color:var(--ink);outline:none;}
+.nudge-row input:focus{border-color:var(--pu-mid);}
+.nudge-msg{flex-basis:100%;font-size:12px;}
+.nudge-msg.err{color:var(--red);}
 </style>
 <link rel="stylesheet" href="css/ossify-dark.css">
 </head>
@@ -145,8 +153,9 @@
 <div class="duel-hero">
   <div class="duel-hero-tag">Competitive · Head-to-Head</div>
   <h2>Challenge a colleague.</h2>
-  <p>Find another Ossify user by their username or email address. You'll both answer the same 10 questions. The one with higher accuracy (then speed) wins — and earns the Duel Victor badge.</p>
+  <p>Find a colleague by name, username or email. You'll both answer the same 10 questions — higher score wins, then faster time. Every win earns 25 XP, and your first unlocks the Duel Victor badge.</p>
 </div>
+<div id="usernameNudge"></div>
 <div class="duel-grid">
   <div class="duel-card">
     <div class="duel-card-hdr">
@@ -162,7 +171,7 @@
       <div id="challengeBar" class="challenge-bar" style="display:none;">
         <div>
           <div class="challenge-bar-info">Challenge <span id="challengeName"></span></div>
-          <div class="challenge-bar-sub">They'll receive a notification to accept</div>
+          <div class="challenge-bar-sub">You play first — they'll see it in their duels list</div>
         </div>
         <button class="btn-challenge" id="challengeBtn" onclick="sendChallenge()">
           <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -177,15 +186,16 @@
         <div class="duel-card-title"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Your duels</div>
         <div class="duel-card-count" id="duelsCount">0 total</div>
       </div>
+      <div id="duelsMsg" class="search-err" style="display:none;margin:12px 18px 0;"></div>
       <div id="duelsList"><div aria-busy="true"><span class="sr-only">Loading…</span><div class="skel-row"><span class="skel skel-circle" style="width:30px;height:30px"></span><div class="skel-txt"><span class="skel skel-line" style="width:58%"></span><span class="skel skel-line" style="width:30%;height:8px"></span></div><span class="skel" style="width:54px;height:16px"></span></div><div class="skel-row"><span class="skel skel-circle" style="width:30px;height:30px"></span><div class="skel-txt"><span class="skel skel-line" style="width:44%"></span><span class="skel skel-line" style="width:38%;height:8px"></span></div><span class="skel" style="width:54px;height:16px"></span></div><div class="skel-row"><span class="skel skel-circle" style="width:30px;height:30px"></span><div class="skel-txt"><span class="skel skel-line" style="width:66%"></span><span class="skel skel-line" style="width:26%;height:8px"></span></div><span class="skel" style="width:54px;height:16px"></span></div></div></div>
     </div>
     <div class="duel-card">
       <div class="duel-card-hdr"><div class="duel-card-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How duels work</div></div>
       <div class="how-duels">
-        <div class="how-item"><div class="how-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div><div class="how-title">Find by username or email</div><div class="how-desc">Search for any Ossify user by their @username or email address and send a challenge.</div></div></div>
+        <div class="how-item"><div class="how-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div><div class="how-title">Find a colleague</div><div class="how-desc">Search by name, @username or exact email address and send a challenge. You play first, then they have 3 days to reply.</div></div></div>
         <div class="how-item"><div class="how-ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><div class="how-title">Same 10 questions</div><div class="how-desc">You both answer the same 10 randomly selected questions from the full bank.</div></div></div>
-        <div class="how-item"><div class="how-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="how-title">Speed matters</div><div class="how-desc">Higher accuracy wins. If tied, the faster time wins.</div></div></div>
-        <div class="how-item"><div class="how-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div><div><div class="how-title">Win XP and badges</div><div class="how-desc">Win a duel and earn the Duel Victor badge (75 XP).</div></div></div>
+        <div class="how-item"><div class="how-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="how-title">Speed matters</div><div class="how-desc">Higher score wins. If tied, the faster time wins — the clock runs from when you start your turn.</div></div></div>
+        <div class="how-item"><div class="how-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div><div><div class="how-title">Win XP and badges</div><div class="how-desc">Every win earns 25 XP (10 each for an exact draw). Your first win unlocks the Duel Victor badge (+75 XP).</div></div></div>
       </div>
     </div>
   </div>
@@ -199,11 +209,9 @@ const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
 const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 // ── State ─────────────────────────────────────────────────────────────────────
-let myId=null, myProfile=null, selectedUser=null, searchMode='username';
-// Duel gameplay state
-let currentDuel=null, duelRole=null;
-let duelQuestions=[], duelAnswers={}, duelCurrentIdx=0, duelStartTime=null;
-let timerInterval=null, realtimeChan=null;
+let myId=null, myProfile=null, selectedUser=null, hasAccess=false, searchHits=[];
+// Current turn: {duelId, role, questions:[{id,stem,options}], answers:{qid:idx}, idx, startedAtMs}
+let play=null, duelPending=-1, timerInterval=null, realtimeChan=null;
 
 // ── Auth helpers ──────────────────────────────────────────────────────────────
 function signOut(){sb.auth.signOut().then(()=>window.location.href='login.html');}
@@ -214,11 +222,30 @@ function updateTopbar(p){
   document.getElementById('sidebarStreak').innerHTML=`<svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${s} day streak`;
 }
 function setUserInfo(name,uname){
-  const ini=ossifyInitials(name);
-  document.getElementById('userAv').textContent=ini;
+  document.getElementById('userAv').textContent=ossifyInitials(name);
   document.getElementById('userName').textContent=name||'Doctor';
   document.getElementById('userUsername').textContent=uname?'@'+uname:'';
 }
+
+// Server error codes → plain English
+const ERRS={
+  duel_requires_subscription:'Head-to-Head duels are part of a paid plan.',
+  opponent_no_access:'That player doesn\'t have duel access yet — they need a paid plan.',
+  invalid_opponent:'You can\'t challenge that player.',
+  duel_already_open:'You already have an open duel with this player. Finish or cancel it first.',
+  too_many_challenges:'You\'ve sent a lot of challenges today — try again tomorrow.',
+  not_enough_questions:'Couldn\'t pick questions right now. Please try again.',
+  duel_not_found:'That duel couldn\'t be found.',
+  duel_expired:'This duel has expired.',
+  duel_closed:'This duel is already finished.',
+  turn_already_played:'You\'ve already played this duel.',
+  waiting_for_challenger:'The challenger hasn\'t played yet.',
+  turn_not_active:'This turn has already been submitted.',
+  cannot_cancel:'This duel can no longer be cancelled — your opponent has started.',
+  cannot_decline:'This duel can no longer be declined.',
+};
+function friendly(err){const m=(err&&err.message)||String(err||'');const k=Object.keys(ERRS).find(k=>m.includes(k));return k?ERRS[k]:('Something went wrong: '+m);}
+function showErr(msg){const e=document.getElementById('searchError');if(!e)return;e.textContent=msg;e.style.display=msg?'block':'none';}
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init(){
@@ -229,31 +256,68 @@ async function init(){
   myProfile=p;
   if(p)updateTopbar(p);
   setUserInfo(ossifyDisplayName(p, session.user), p?.username);
+  const{data:access}=await sb.rpc('duel_access');
+  hasAccess=access===true;
+  if(!hasAccess){renderGate();return;}
+  renderUsernameNudge();
   await loadDuels();
   subscribeRealtime();
 }
 
-// ── Realtime: refresh duels list when any duel changes ───────────────────────
+function renderGate(){
+  const grid=document.querySelector('.duel-grid');
+  if(grid)grid.outerHTML=`<div class="free-gate">
+    <h3>Head-to-Head is a paid feature</h3>
+    <p>Upgrade to challenge colleagues to 10-question duels, earn XP for every win and unlock the Duel Victor badge.</p>
+    <a href="pricing.html" class="btn-cta" style="display:inline-flex;text-decoration:none;">View pricing →</a>
+  </div>`;
+}
+
+// ── Username nudge ────────────────────────────────────────────────────────────
+function renderUsernameNudge(){
+  const el=document.getElementById('usernameNudge');
+  if(!el)return;
+  if(myProfile?.username){el.innerHTML='';return;}
+  el.innerHTML=`<div class="nudge">
+    <div class="nudge-txt"><strong>Set a username so colleagues can find you.</strong><span>Without one, people can only find you by your exact email.</span></div>
+    <div class="nudge-row">
+      <input id="nudgeInput" type="text" placeholder="e.g. drjsmith" maxlength="20" autocomplete="off">
+      <button class="btn-search" onclick="saveUsername()">Save</button>
+    </div>
+    <div id="nudgeMsg" class="nudge-msg"></div>
+  </div>`;
+  document.getElementById('nudgeInput').addEventListener('keydown',e=>{if(e.key==='Enter')saveUsername();});
+}
+async function saveUsername(){
+  const msg=document.getElementById('nudgeMsg');
+  const v=document.getElementById('nudgeInput').value.trim().replace(/^@/,'').toLowerCase();
+  if(!/^[a-z0-9_.]{3,20}$/.test(v)){msg.textContent='Use 3–20 letters, numbers, dots or underscores.';msg.className='nudge-msg err';return;}
+  const{error}=await sb.from('profiles').update({username:v}).eq('id',myId);
+  if(error){msg.textContent=error.code==='23505'?'That username is taken — try another.':'Couldn\'t save: '+error.message;msg.className='nudge-msg err';return;}
+  myProfile.username=v;
+  document.getElementById('userUsername').textContent='@'+v;
+  document.getElementById('usernameNudge').innerHTML=`<div class="nudge"><div class="nudge-txt"><strong>You're @${esc(v)}.</strong><span>Colleagues can now find you by name or username.</span></div></div>`;
+}
+
+// ── Realtime: refresh the list when any of my duels change ───────────────────
 function subscribeRealtime(){
   if(realtimeChan)sb.removeChannel(realtimeChan);
   realtimeChan=sb.channel('duel-changes')
-    .on('postgres_changes',{event:'*',schema:'public',table:'duels'},()=>loadDuels())
+    .on('postgres_changes',{event:'*',schema:'public',table:'duels'},()=>{if(!play)loadDuels();})
     .subscribe();
 }
 
 // ── Search ────────────────────────────────────────────────────────────────────
-let searchHits=[];
 async function doSearch(){
   const val=document.getElementById('searchInput').value.trim().replace(/^@/,'');
-  const errEl=document.getElementById('searchError');
   const resEl=document.getElementById('searchResults');
-  errEl.style.display='none'; resEl.innerHTML='';
+  showErr(''); resEl.innerHTML='';
   document.getElementById('challengeBar').style.display='none'; selectedUser=null;
   if(val.length<2){showErr('Type at least 2 characters.');return;}
   const{data,error}=await sb.rpc('search_players',{p_query:val});
   if(error){showErr('Search failed: '+error.message);return;}
   searchHits=data||[];
-  if(!searchHits.length){showErr('No player found matching "'+val+'". Ask them for their exact email, or to set a username in Account.');return;}
+  if(!searchHits.length){showErr('No player found matching "'+val+'". Ask them for their exact email, or to set a username.');return;}
   resEl.innerHTML=searchHits.map((u,i)=>`<div class="search-result" onclick="selectUser(${i})">
       <div class="sr-av">${esc(ossifyInitials(u.full_name||u.username))}</div>
       <div><div class="sr-name">${esc(u.full_name||(u.username?'@'+u.username:'Ossify player'))}</div><div class="sr-sub">${u.username?'@'+esc(u.username):''} ${u.hospital_trust?'· '+esc(u.hospital_trust):''}</div></div>
@@ -263,72 +327,44 @@ async function doSearch(){
 function selectUser(i){
   const u=searchHits[i]; if(!u)return;
   const name=u.full_name||(u.username?'@'+u.username:'Ossify player');
-  selectedUser={id:u.id,name,uname:u.username,info:u.hospital_trust};
+  selectedUser={id:u.id,name};
   document.querySelectorAll('#searchResults .search-result').forEach((el,j)=>el.classList.toggle('selected',j===i));
   document.getElementById('challengeBar').style.display='flex';
   document.getElementById('challengeName').textContent=name;
-  document.getElementById('challengeBtn').textContent='Send challenge';
-  document.getElementById('challengeBtn').disabled=false;
+  const btn=document.getElementById('challengeBtn');
+  btn.textContent='Send challenge'; btn.disabled=false;
 }
 
-// ── Send challenge: fetch questions → challenger plays first ──────────────────
+// ── Send challenge → challenger plays first ──────────────────────────────────
 async function sendChallenge(){
   if(!selectedUser)return;
   const btn=document.getElementById('challengeBtn');
-  btn.textContent='Loading questions…'; btn.disabled=true;
-  showErr('');
-  const{data:qs,error:qErr}=await sb.rpc('get_random_questions',{p_topic:'',p_type:'SBA',p_domain:'',p_count:10});
-  if(qErr||!qs?.length){btn.textContent='Error — try again';btn.disabled=false;showErr('Could not fetch questions: '+(qErr?.message||''));return;}
-  const qIds=qs.map(q=>q.id);
-  const{data:duel,error}=await sb.from('duels').insert({
-    challenger_id:myId, opponent_id:selectedUser.id,
-    question_ids:qIds, status:'pending',
-  }).select().single();
-  if(error){btn.textContent='Error — try again';btn.disabled=false;showErr('Failed: '+error.message);return;}
-  currentDuel=duel; duelRole='challenger'; duelQuestions=qs;
-  startDuelPlay();
-}
-function showErr(msg){const e=document.getElementById('searchError');e.textContent=msg;e.style.display=msg?'block':'none';}
-
-// ── Accept/Decline ────────────────────────────────────────────────────────────
-async function acceptDuel(duelId){
-  const{data:duel}=await sb.from('duels').select('*').eq('id',duelId).single();
-  if(!duel){alert('Duel not found.');return;}
-  if(duel.challenger_score===null&&duel.challenger_score!==0){
-    alert('The challenger hasn\'t answered yet. Check back shortly!');return;
-  }
-  const{data:qs}=await sb.from('questions')
-    .select('id,question_id,type,topic,domain,stem,options,correct_answer,tutor_content')
-    .in('id',duel.question_ids);
-  if(!qs?.length){alert('Could not load questions.');return;}
-  const ordered=duel.question_ids.map(id=>qs.find(q=>q.id===id)).filter(Boolean);
-  currentDuel=duel; duelRole='opponent'; duelQuestions=ordered;
-  startDuelPlay();
+  btn.textContent='Setting up…'; btn.disabled=true; showErr('');
+  const{data:duelId,error}=await sb.rpc('create_duel',{p_opponent:selectedUser.id});
+  if(error){btn.textContent='Send challenge';btn.disabled=false;showErr(friendly(error));return;}
+  await startTurn(duelId);
 }
 
-async function declineDuel(duelId){
-  if(!confirm('Decline this challenge?'))return;
-  await sb.from('duels').update({status:'declined'}).eq('id',duelId);
-  loadDuels();
-}
-
-// ── Duel play ─────────────────────────────────────────────────────────────────
-function startDuelPlay(){
-  duelAnswers={}; duelCurrentIdx=0; duelStartTime=Date.now();
+// ── Start / resume a turn ─────────────────────────────────────────────────────
+async function startTurn(duelId){
+  const{data,error}=await sb.rpc('start_duel_turn',{p_duel:duelId});
+  if(error){showListMsg(friendly(error));loadDuels();return;}
+  if(!data?.questions?.length){showListMsg('Could not load the questions for this duel.');return;}
+  play={duelId,role:data.role,questions:data.questions,answers:{},idx:0,startedAtMs:Date.now()-(data.elapsed||0)*1000};
   if(timerInterval)clearInterval(timerInterval);
-  renderPlayScreen();
-  renderDuelQ(0);
+  renderPlayScreen(); renderDuelQ(0); updateTimer();
   timerInterval=setInterval(updateTimer,1000);
 }
+function showListMsg(m){const e=document.getElementById('duelsMsg');if(e){e.textContent=m;e.style.display=m?'block':'none';}else alert(m);}
 
 function renderPlayScreen(){
   document.getElementById('mainContent').innerHTML=`
     <div style="max-width:720px;margin:0 auto;padding:0 4px;">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
-        <button onclick="abandonDuel()" style="background:transparent;border:0.5px solid var(--lav-border);border-radius:8px;padding:7px 13px;font-size:12.5px;font-weight:500;font-family:var(--font-sans);color:var(--muted);cursor:pointer;">← Abandon</button>
+        <button onclick="leaveDuel()" style="background:transparent;border:0.5px solid var(--lav-border);border-radius:8px;padding:7px 13px;font-size:12.5px;font-weight:500;font-family:var(--font-sans);color:var(--muted);cursor:pointer;">← Leave</button>
         <div style="flex:1;">
           <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;">
-            <span id="duelQLabel">Question 1 of ${duelQuestions.length}</span>
+            <span id="duelQLabel">Question 1 of ${play.questions.length}</span>
             <span id="duelTimer" style="font-weight:600;color:var(--pu-dark);">0:00</span>
           </div>
           <div style="height:5px;background:var(--pu-pale);border-radius:4px;overflow:hidden;">
@@ -340,15 +376,14 @@ function renderPlayScreen(){
     </div>`;
 }
 
-let duelPending=-1;
+const LETTERS=['A','B','C','D','E','F','G','H','I','J'];
 function renderDuelQ(idx){
-  const q=duelQuestions[idx];
+  const q=play.questions[idx];
   if(!q){finishDuel();return;}
   duelPending=-1;
-  document.getElementById('duelQLabel').textContent=`Question ${idx+1} of ${duelQuestions.length}`;
-  document.getElementById('duelBar').style.width=`${(idx/duelQuestions.length)*100}%`;
-  const letters=['A','B','C','D','E','F','G','H','I','J'];
-  const isLast=idx===duelQuestions.length-1;
+  document.getElementById('duelQLabel').textContent=`Question ${idx+1} of ${play.questions.length}`;
+  document.getElementById('duelBar').style.width=`${(idx/play.questions.length)*100}%`;
+  const isLast=idx===play.questions.length-1;
   document.getElementById('duelQArea').innerHTML=`
     <div style="background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;">
       <div style="padding:18px 22px 0;">
@@ -357,7 +392,7 @@ function renderDuelQ(idx){
         <div id="duelOpts" style="display:flex;flex-direction:column;gap:7px;margin-bottom:18px;">
           ${(q.options||[]).map((opt,i)=>`
             <button onclick="duelSelect(${i})" data-idx="${i}" style="display:flex;align-items:flex-start;gap:13px;width:100%;padding:13px 16px;background:#fff;border:1px solid var(--lav-border);border-radius:10px;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:13.5px;color:var(--ink);transition:all .15s;">
-              <span style="font-size:11.5px;font-weight:700;color:var(--pu-mid);background:var(--pu-pale);border-radius:6px;min-width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">${letters[i]}</span>
+              <span style="font-size:11.5px;font-weight:700;color:var(--pu-mid);background:var(--pu-pale);border-radius:6px;min-width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">${LETTERS[i]}</span>
               <span>${esc(opt)}</span>
             </button>`).join('')}
         </div>
@@ -371,17 +406,12 @@ function renderDuelQ(idx){
 }
 
 function duelSelect(idx){
-  if(duelPending!==-1&&duelPending===idx)return;
   duelPending=idx;
   document.querySelectorAll('#duelOpts button').forEach((btn,i)=>{
-    const letter=btn.querySelector('span');
-    if(i===idx){
-      btn.style.borderColor='var(--pu-mid)';btn.style.background='var(--pu-ultra)';
-      if(letter){letter.style.background='var(--pu-mid)';letter.style.color='#fff';}
-    } else {
-      btn.style.borderColor='var(--lav-border)';btn.style.background='#fff';
-      const l=btn.querySelector('span');if(l){l.style.background='var(--pu-pale)';l.style.color='var(--pu-mid)';}
-    }
+    const l=btn.querySelector('span'); const on=i===idx;
+    btn.style.borderColor=on?'var(--pu-mid)':'var(--lav-border)';
+    btn.style.background=on?'var(--pu-ultra)':'#fff';
+    if(l){l.style.background=on?'var(--pu-mid)':'var(--pu-pale)';l.style.color=on?'#fff':'var(--pu-mid)';}
   });
   const sub=document.getElementById('duelSubmit');
   if(sub){sub.disabled=false;sub.style.opacity='1';}
@@ -389,171 +419,166 @@ function duelSelect(idx){
 
 function duelSubmit(){
   if(duelPending===-1)return;
-  const q=duelQuestions[duelCurrentIdx];
-  duelAnswers[q.question_id]=duelPending;
-  duelCurrentIdx++;
-  if(duelCurrentIdx>=duelQuestions.length)finishDuel();
-  else renderDuelQ(duelCurrentIdx);
+  const q=play.questions[play.idx];
+  play.answers[q.id]=duelPending;
+  play.idx++;
+  if(play.idx>=play.questions.length)finishDuel();
+  else renderDuelQ(play.idx);
 }
 
+function fmtTime(secs){secs=Math.max(0,secs|0);return`${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}`;}
 function updateTimer(){
-  const secs=Math.floor((Date.now()-duelStartTime)/1000);
-  const m=Math.floor(secs/60),s=secs%60;
   const el=document.getElementById('duelTimer');
-  if(el)el.textContent=`${m}:${String(s).padStart(2,'0')}`;
+  if(el&&play)el.textContent=fmtTime((Date.now()-play.startedAtMs)/1000);
 }
 
-function abandonDuel(){
-  if(!confirm('Abandon this duel? Your progress will not be saved.'))return;
-  clearInterval(timerInterval);
-  currentDuel=null;
-  showHomeScreen();
+function leaveDuel(){
+  if(!confirm('Leave this duel? Your answers so far won\'t be saved, but the clock keeps running — you can resume from your duels list.'))return;
+  clearInterval(timerInterval); play=null; location.reload();
 }
 
-// ── Finish duel ───────────────────────────────────────────────────────────────
+// ── Finish: the server marks it ───────────────────────────────────────────────
 async function finishDuel(){
   clearInterval(timerInterval);
-  const timeSecs=Math.round((Date.now()-duelStartTime)/1000);
-  let score=0;
-  duelQuestions.forEach(q=>{
-    if(duelAnswers[q.question_id]===q.correct_answer)score++;
-  });
-  const total=duelQuestions.length;
-
-  // Save score to duel record
-  const update={};
-  let newStatus='pending';
-  if(duelRole==='challenger'){
-    update.challenger_score=score; update.challenger_time=timeSecs;
-  } else {
-    update.opponent_score=score; update.opponent_time=timeSecs;
-    if(currentDuel.challenger_score!==null){
-      update.status='completed'; update.completed_at=new Date().toISOString();
-      newStatus='completed';
-    }
+  const btn=document.getElementById('duelSubmit');
+  if(btn){btn.disabled=true;btn.textContent='Marking…';}
+  const answers=play.questions.map(q=>({question_id:q.id,selected:play.answers[q.id]??-1}));
+  let res=null,lastErr=null;
+  for(let attempt=0;attempt<3&&!res;attempt++){
+    const{data,error}=await sb.rpc('submit_duel_turn',{p_duel:play.duelId,p_answers:answers});
+    if(error){lastErr=error; if(/turn_not_active|duel_closed|duel_expired|duel_not_found/.test(error.message))break; await new Promise(r=>setTimeout(r,1200));}
+    else res=data;
   }
-  const{data:updatedDuel}=await sb.from('duels').update(update).eq('id',currentDuel.id).select().single();
-  const duel=updatedDuel||{...currentDuel,...update};
-
-  // Show per-question reveal then results
-  showDuelReveal(duel,score,total,timeSecs,newStatus==='completed');
+  if(!res){
+    document.getElementById('duelQArea').innerHTML=`<div class="search-err" style="display:block;">${esc(friendly(lastErr))}</div>
+      <button onclick="finishDuel()" class="btn-search" style="margin-top:10px;">Try again</button>
+      <button onclick="location.reload()" style="margin-top:10px;margin-left:8px;background:none;border:0.5px solid var(--lav-border);border-radius:9px;padding:10px 16px;cursor:pointer;color:var(--muted);">Back to duels</button>`;
+    return;
+  }
+  showDuelReveal(res);
 }
 
-// ── Reveal answers ────────────────────────────────────────────────────────────
-function showDuelReveal(duel,score,total,timeSecs,isComplete){
-  const letters=['A','B','C','D','E','F','G','H','I','J'];
-  const rows=duelQuestions.map((q,i)=>{
-    const picked=duelAnswers[q.question_id];
-    const correct=q.correct_answer;
-    const isRight=picked===correct;
+// ── Reveal ────────────────────────────────────────────────────────────────────
+function showDuelReveal(res){
+  const byId={}; (res.answers||[]).forEach(a=>byId[a.question_id]=a);
+  const rows=play.questions.map(q=>{
+    const a=byId[q.id]||{}; const ok=!!a.is_correct;
+    const picked=(a.selected!=null&&a.selected>=0)?LETTERS[a.selected]:'—';
     return`<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:0.5px solid var(--lav-border);">
-      <div style="font-size:12px;font-weight:700;color:${isRight?'#16a34a':'var(--red)'}">${isRight?'✓':'✗'}</div>
-      <div style="flex:1;font-size:12.5px;color:var(--ink);line-height:1.5;">${esc(q.stem.slice(0,90))}…</div>
-      <div style="font-size:11.5px;font-weight:600;color:${isRight?'#16a34a':'var(--red)'};">${isRight?letters[correct]:letters[picked||0]+'→'+letters[correct]}</div>
+      <div style="font-size:12px;font-weight:700;color:${ok?'#16a34a':'var(--red)'}">${ok?'✓':'✗'}</div>
+      <div style="flex:1;font-size:12.5px;color:var(--ink);line-height:1.5;">${esc((q.stem||'').slice(0,90))}…</div>
+      <div style="font-size:11.5px;font-weight:600;color:${ok?'#16a34a':'var(--red)'};">${ok?LETTERS[a.correct_answer]:picked+'→'+LETTERS[a.correct_answer]}</div>
     </div>`;
   }).join('');
+  const total=res.total||play.questions.length;
+  const pct=Math.round((res.score/total)*100);
 
-  const m=Math.floor(timeSecs/60),s=timeSecs%60;
-  const timeStr=`${m}:${String(s).padStart(2,'0')}`;
-  const pct=Math.round((score/total)*100);
-
-  let resultBanner='';
-  if(isComplete){
-    const cScore=duel.challenger_score||0, oScore=duel.opponent_score||0;
-    const myScore=duelRole==='challenger'?cScore:oScore;
-    const theirScore=duelRole==='challenger'?oScore:cScore;
-    const won=myScore>theirScore||(myScore===theirScore&&(duelRole==='challenger'?duel.challenger_time:duel.opponent_time)<(duelRole==='challenger'?duel.opponent_time:duel.challenger_time));
-    resultBanner=`<div style="background:${won?'var(--pu-pale)':'var(--pk-pale)'};border:0.5px solid ${won?'var(--pu-light)':'var(--pk-border)'};border-radius:12px;padding:16px 18px;margin-bottom:16px;text-align:center;">
-      <div style="font-size:28px;margin-bottom:6px;">${won?'🏆':'😤'}</div>
-      <div style="font-family:var(--font-serif);font-size:20px;font-weight:500;color:var(--pu-dark);">${won?'You won!':'You lost'}</div>
-      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Your score: ${myScore}/${total} · Opponent: ${theirScore}/${total}</div>
+  let banner;
+  if(res.completed){
+    const iAmChallenger=res.role==='challenger';
+    const mine=iAmChallenger?res.challenger_score:res.opponent_score;
+    const theirs=iAmChallenger?res.opponent_score:res.challenger_score;
+    const outcome=res.winner_id==null?'draw':(res.winner_id===myId?'won':'lost');
+    const ico={won:'🏆',lost:'😤',draw:'🤝'}[outcome];
+    const title={won:'You won!',lost:'You lost',draw:'It\'s a draw'}[outcome];
+    banner=`<div style="background:${outcome==='lost'?'var(--pk-pale)':'var(--pu-pale)'};border:0.5px solid ${outcome==='lost'?'var(--pk-border)':'var(--pu-light)'};border-radius:12px;padding:16px 18px;margin-bottom:16px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:6px;">${ico}</div>
+      <div style="font-family:var(--font-serif);font-size:20px;font-weight:500;color:var(--pu-dark);">${title}</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">You ${mine}/${total} · Opponent ${theirs}/${total}${mine===theirs&&outcome!=='draw'?' · decided on time':''}</div>
+      ${res.xp_awarded?`<div style="font-size:13px;font-weight:600;color:var(--pu-mid);margin-top:6px;">+${res.xp_awarded} XP${outcome==='won'?' · Duel Victor badge unlocked if it\'s your first win':''}</div>`:''}
     </div>`;
   } else {
-    resultBanner=`<div style="background:var(--pu-pale);border:0.5px solid var(--pu-light);border-radius:12px;padding:14px 18px;margin-bottom:16px;text-align:center;">
-      <div style="font-size:13px;font-weight:600;color:var(--pu-dark);">Your answers submitted ✓</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;">Waiting for ${duelRole==='challenger'?'your opponent to accept':'the results'}…</div>
+    banner=`<div style="background:var(--pu-pale);border:0.5px solid var(--pu-light);border-radius:12px;padding:14px 18px;margin-bottom:16px;text-align:center;">
+      <div style="font-size:13px;font-weight:600;color:var(--pu-dark);">Your answers are in ✓</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;">Your opponent has 3 days to play. You'll see the result in your duels list.</div>
     </div>`;
   }
 
   document.getElementById('mainContent').innerHTML=`
     <div style="max-width:720px;margin:0 auto;">
-      ${resultBanner}
+      ${banner}
       <div style="background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;overflow:hidden;margin-bottom:14px;">
         <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:0.5px solid var(--lav-border);">
-          <div style="font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--pu-dark);">${score}/${total}</div>
-          <div style="font-size:13px;color:var(--muted);">${pct}% · ${timeStr}</div>
+          <div style="font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--pu-dark);">${res.score}/${total}</div>
+          <div style="font-size:13px;color:var(--muted);">${pct}% · ${fmtTime(res.time)}</div>
         </div>
         ${rows}
       </div>
-      <button onclick="showHomeScreen()" style="width:100%;padding:12px;background:var(--pu-mid);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;font-family:var(--font-sans);cursor:pointer;">Back to duels</button>
+      <button onclick="location.reload()" style="width:100%;padding:12px;background:var(--pu-mid);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;font-family:var(--font-sans);cursor:pointer;">Back to duels</button>
     </div>`;
+  play=null;
 }
 
-// ── Home screen ───────────────────────────────────────────────────────────────
-function showHomeScreen(){
-  currentDuel=null; duelRole=null; duelQuestions=[]; duelAnswers={};
-  location.reload(); // simplest way to restore original HTML
+// ── Cancel / decline ──────────────────────────────────────────────────────────
+async function cancelDuel(id){
+  if(!confirm('Cancel this challenge?'))return;
+  const{error}=await sb.rpc('cancel_duel',{p_duel:id});
+  showListMsg(error?friendly(error):''); loadDuels();
+}
+async function declineDuel(id){
+  if(!confirm('Decline this challenge?'))return;
+  const{error}=await sb.rpc('decline_duel',{p_duel:id});
+  showListMsg(error?friendly(error):''); loadDuels();
 }
 
-// ── Load duels list ───────────────────────────────────────────────────────────
+// ── Duels list ────────────────────────────────────────────────────────────────
+function timeLeft(iso){
+  const ms=new Date(iso)-Date.now(); if(ms<=0)return'expiring';
+  const h=Math.floor(ms/3600000); if(h>=24)return`${Math.floor(h/24)}d ${h%24}h left`;
+  if(h>=1)return`${h}h left`; return`${Math.max(1,Math.floor(ms/60000))}m left`;
+}
+const BTN='font-size:11.5px;font-weight:600;border-radius:6px;padding:4px 11px;cursor:pointer;font-family:var(--font-sans);';
+const BTN_PRI=BTN+'color:var(--pu-dark);background:var(--pu-pale);border:0.5px solid var(--pu-light);';
+const BTN_SEC=BTN+'color:var(--muted);background:none;border:0.5px solid var(--lav-border);font-weight:500;';
+
 async function loadDuels(){
-  const{data:duels}=await sb.from('duels')
-    .select('*,challenger:profiles!challenger_id(full_name,username),opponent:profiles!opponent_id(full_name,username)')
-    .or(`challenger_id.eq.${myId},opponent_id.eq.${myId}`)
-    .order('created_at',{ascending:false}).limit(20);
   const container=document.getElementById('duelsList');
   if(!container)return;
-  if(!duels?.length){container.innerHTML='<div class="empty-state">No duels yet. Challenge someone to get started.</div>';document.getElementById('duelsCount').textContent='0 total';return;}
-  document.getElementById('duelsCount').textContent=duels.length+' total';
+  const{data:duels,error}=await sb.rpc('get_my_duels',{p_limit:30});
+  if(error){container.innerHTML=`<div class="empty-state">Couldn't load your duels. ${esc(error.message)}</div>`;return;}
+  const n=duels?.length||0;
+  document.getElementById('duelsCount').textContent=n+' total';
+  if(!n){container.innerHTML='<div class="empty-state">No duels yet. Challenge someone to get started.</div>';return;}
   container.innerHTML=duels.map(d=>{
-    const isChallenger=d.challenger_id===myId;
-    const other=isChallenger?d.opponent:d.challenger;
-    const name=other?.full_name||'Doctor';
-    const ini=ossifyInitials(name);
-    const myScore=isChallenger?d.challenger_score:d.opponent_score;
-    const theirScore=isChallenger?d.opponent_score:d.challenger_score;
-    let statusHtml='',actionHtml='';
+    const ch=d.role==='challenger';
+    const name=d.other_name||'Ossify player';
+    let status='',actions='',sub=`${ch?'You challenged':'Challenged you'} · ${d.total} questions`;
     if(d.status==='pending'){
-      if(isChallenger){
-        statusHtml=`<span class="duel-status pending">${myScore!==null?'Awaiting opponent':'Play first →'}</span>`;
-        if(myScore===null)actionHtml=`<button onclick="resumeChallenger('${d.id}')" style="margin-top:6px;font-size:11.5px;font-weight:600;color:var(--pu-mid);background:none;border:none;cursor:pointer;padding:0;">Play your turn →</button>`;
+      sub+=` · ${timeLeft(d.expires_at)}`;
+      if(ch&&d.my_turn){
+        status=`<span class="duel-status pending">Your turn</span>`;
+        actions=`<button onclick="startTurn('${d.id}')" style="${BTN_PRI}">${d.my_started?'Resume →':'Play your turn →'}</button><button onclick="cancelDuel('${d.id}')" style="${BTN_SEC}">Cancel</button>`;
+      } else if(ch){
+        status=`<span class="duel-status pending">Awaiting ${esc(name.split(' ')[0])}</span>`;
+        actions=`<button onclick="cancelDuel('${d.id}')" style="${BTN_SEC}">Cancel</button>`;
+      } else if(d.my_turn){
+        status=`<span class="duel-status active">They scored ${d.their_score}/${d.total}</span>`;
+        actions=d.my_started
+          ?`<button onclick="startTurn('${d.id}')" style="${BTN_PRI}">Resume →</button>`
+          :`<button onclick="startTurn('${d.id}')" style="${BTN_PRI}">Accept & play →</button><button onclick="declineDuel('${d.id}')" style="${BTN_SEC}">Decline</button>`;
       } else {
-        statusHtml=`<span class="duel-status pending">${theirScore!==null?`They scored ${theirScore}/${(d.question_ids||[]).length}. Your turn!`:'Waiting for challenger…'}</span>`;
-        if(theirScore!==null)actionHtml=`<div style="display:flex;gap:7px;margin-top:6px;"><button onclick="acceptDuel('${d.id}')" style="font-size:11.5px;font-weight:600;color:var(--pu-dark);background:var(--pu-pale);border:0.5px solid var(--pu-light);border-radius:6px;padding:4px 11px;cursor:pointer;">Accept →</button><button onclick="declineDuel('${d.id}')" style="font-size:11.5px;color:var(--muted);background:none;border:0.5px solid var(--lav-border);border-radius:6px;padding:4px 11px;cursor:pointer;">Decline</button></div>`;
+        status=`<span class="duel-status pending">Waiting for challenger</span>`;
       }
     } else if(d.status==='completed'){
-      const won=isChallenger?(d.challenger_score>d.opponent_score||(d.challenger_score===d.opponent_score&&d.challenger_time<d.opponent_time))
-                            :(d.opponent_score>d.challenger_score||(d.opponent_score===d.challenger_score&&d.opponent_time<d.challenger_time));
-      statusHtml=`<span class="duel-status ${won?'won':'lost'}">${won?'🏆 Won':'😤 Lost'} · ${myScore}–${theirScore}</span>`;
-    } else if(d.status==='declined'){
-      statusHtml=`<span class="duel-status lost">Declined</span>`;
+      const o=d.winner_id==null?'draw':(d.winner_id===myId?'won':'lost');
+      status=`<span class="duel-status ${o==='lost'?'lost':'won'}">${{won:'🏆 Won',lost:'Lost',draw:'🤝 Draw'}[o]} · ${d.my_score}–${d.their_score}</span>`;
+    } else {
+      const lbl={declined:'Declined',cancelled:'Cancelled',expired:'Expired'}[d.status]||d.status;
+      status=`<span class="duel-status lost" style="opacity:.75">${lbl}</span>`;
     }
     return`<div class="duel-item">
       <div class="duel-vs">
-        <div class="sr-av" style="width:34px;height:34px;font-size:11px;">${ini}</div>
-        <div><div class="duel-vs-name">${name}</div><div class="duel-vs-sub">${isChallenger?'You challenged':'Challenged you'} · ${(d.question_ids||[]).length} questions</div>
-        ${actionHtml}</div>
+        <div class="sr-av" style="width:34px;height:34px;font-size:11px;">${esc(ossifyInitials(name))}</div>
+        <div><div class="duel-vs-name">${esc(name)}</div><div class="duel-vs-sub">${sub}</div>
+        ${actions?`<div style="display:flex;gap:7px;margin-top:6px;flex-wrap:wrap;">${actions}</div>`:''}</div>
       </div>
-      ${statusHtml}
+      ${status}
     </div>`;
   }).join('');
 }
 
-// Resume challenger's own play if they left mid-game
-async function resumeChallenger(duelId){
-  const{data:duel}=await sb.from('duels').select('*').eq('id',duelId).single();
-  if(!duel)return;
-  const{data:qs}=await sb.from('questions')
-    .select('id,question_id,type,topic,domain,stem,options,correct_answer,tutor_content')
-    .in('id',duel.question_ids);
-  if(!qs)return;
-  const ordered=duel.question_ids.map(id=>qs.find(q=>q.id===id)).filter(Boolean);
-  currentDuel=duel; duelRole='challenger'; duelQuestions=ordered;
-  startDuelPlay();
-}
-
 // Utility
-function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function esc(s){return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
 init();
 
