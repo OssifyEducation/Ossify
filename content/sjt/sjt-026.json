@@ -1,0 +1,109 @@
+{
+  "id": "sjt-026",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-026",
+  "format": "multiple_choice",
+  "title": "Tears in the mess",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Practical help",
+    "Signposting"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a general medical ward. You walk into the doctors' mess and find Priya, another F2, crying. She tells you she has just received an email about a formal complaint from a patient's family, who say she was dismissive when their father was dying last week.\n\nShe says she did her best on a very busy night and wonders whether she is \"cut out for this\". She is due back on the ward in ten minutes to start the afternoon jobs.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Reassure her that complaints are common and this one will probably come to nothing.",
+      "brief": "Kindly meant, but you don't know that, and it may feel dismissive of how she feels right now.",
+      "detailed": "It is true that many complaints are resolved without formal action, which is why this is tempting. But you haven't seen the complaint, and quick reassurance can make her feel her distress isn't being taken seriously. Better to listen first and let her supervisor give an informed view."
+    },
+    {
+      "id": "B",
+      "text": "Suggest she goes home for the rest of the day, and offer to cover her patients yourself.",
+      "brief": "Generous, but it decides for her and leaves you covering two doctors' work without anyone else knowing.",
+      "detailed": "If Priya feels unable to work, going home may be right, but that is for her to decide with her registrar or consultant, who can arrange proper cover. Offering to take on all her patients yourself, unseen, risks an unsafe afternoon for both of you."
+    },
+    {
+      "id": "C",
+      "text": "Sit with Priya and let her talk about what happened before offering any advice.",
+      "brief": "She needs to be heard first; advice offered too quickly can feel like being managed rather than supported.",
+      "detailed": "Receiving a complaint, especially about a patient's death, is one of the most distressing experiences in early training. Listening without rushing to fix things lets Priya say what she feels and shows you take her seriously. It also helps you judge how she is coping, which shapes everything else you do."
+    },
+    {
+      "id": "D",
+      "text": "Read the complaint with her now and help her draft a response this afternoon.",
+      "brief": "Responding while she is this upset, before advice from her supervisor, is premature.",
+      "detailed": "Complaint responses are usually coordinated through the trust's complaints team, with input from a supervisor. Drafting one now, in distress, risks a defensive or overly apologetic reply. There is plenty of time to respond properly."
+    },
+    {
+      "id": "E",
+      "text": "Tell her she should contact her medical defence organisation straight away.",
+      "brief": "Sensible at some point, but not what she needs in the next ten minutes.",
+      "detailed": "Many doctors do contact their medical defence organisation about a complaint, and it can be helpful. Raising it as the first thing you say, while she is crying, frames the situation as a legal threat and may increase her fear. It can be suggested later, once she has spoken to her supervisor."
+    },
+    {
+      "id": "F",
+      "text": "Offer to let the ward know she'll be a little late back, so she has time to compose herself.",
+      "brief": "A small practical step that takes the immediate pressure off without taking over.",
+      "detailed": "Going straight back onto a ward in tears is hard for Priya and not ideal for her patients. A short delay, explained simply to the nurse in charge or the registrar, is easy to arrange and usually welcomed. It gives her space without making any larger decision on her behalf."
+    },
+    {
+      "id": "G",
+      "text": "Encourage her to talk to her educational supervisor about the complaints process and support.",
+      "brief": "Her supervisor can put the complaint in context and guide her through the response.",
+      "detailed": "Complaints follow a process, and most are resolved locally with a written response and reflection. Her supervisor can explain what will happen, help her respond, and make sure she has pastoral support. Knowing that complaints are common and survivable often eases the fear of what comes next."
+    },
+    {
+      "id": "H",
+      "text": "Mention to the consultant that Priya seems unable to cope, so that her workload can be reduced.",
+      "brief": "Speaks for her without her agreement, and in terms that could affect how she is seen.",
+      "detailed": "Senior support may well help, but describing her as unable to cope, without her knowledge, risks undermining her and breaching her trust. If you are worried about her, encourage her to talk to the consultant or her supervisor herself, or ask her whether she would like you to mention it."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a distressed colleague in the moment: listening, easing immediate pressure, and pointing her to the right ongoing support, without taking over.",
+    "keyDetails": "Priya has just received the complaint and is upset now. She has ten minutes before returning to work. She has questioned whether she is cut out for medicine, which suggests her confidence has been hit hard. You haven't seen the complaint.",
+    "reasoning": "[C] gives her the space she needs, [F] removes the immediate time pressure, and [G] connects her with the person best placed to guide her through the complaint. The distractors are all well-meant, which is what makes this question hard: [A] reassures without knowledge, [B] and [H] take decisions out of her hands, [D] rushes a formal response, and [E] raises the legal angle at the wrong moment.",
+    "competing": "[E] is the closest call; contacting a defence organisation is often sensible after a complaint. The key leaves it out because, in the next ten minutes, Priya needs support and practical breathing space more than legal advice."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and contributing to a positive working environment."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors when distress persists."
+    }
+  ],
+  "tags": [
+    "colleague wellbeing",
+    "complaints",
+    "support",
+    "medicine"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": "sjt-029",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-029",
+  "format": "ranking",
+  "title": "An examination under anaesthesia",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Consent for intimate examinations",
+    "Speaking up",
+    "Supporting students"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a gynaecology theatre list. Ms Okoro, 34, has just been anaesthetised for a laparoscopy. As the team prepares, the registrar tells a final-year medical student that this is \"a good chance to practise a bimanual examination\" before the operation starts.\n\nYou were present when Ms Okoro was consented on the ward, and you know that a student examination was not mentioned. The consent form does not refer to one either.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the registrar straight away, before the examination happens, that Ms Okoro hasn't consented to it.",
+      "brief": "This stops an intimate examination without consent, which is the priority.",
+      "detailed": "An intimate examination on an anaesthetised patient requires her explicit consent, given in advance, including for an examination by a student. Raising it now, calmly and factually, prevents a serious breach of her trust. Most registrars, once reminded, will stop immediately."
+    },
+    {
+      "id": "B",
+      "text": "Let the consultant know about what happened after the list has finished.",
+      "brief": "The consultant should know, but raising it only afterwards does nothing to protect Ms Okoro today.",
+      "detailed": "This kind of lapse should be fed back so it doesn't happen again, and the consultant responsible for the list is the right person. On its own, though, it comes too late: by the end of the list the examination may already have happened."
+    },
+    {
+      "id": "C",
+      "text": "Quietly tell the student that they should not carry out the examination without her consent.",
+      "brief": "Protects the patient and the student, though it bypasses the person who gave the instruction.",
+      "detailed": "The student is in a difficult position, being asked by a senior to do something they may not realise is wrong. Telling them helps them refuse and protects them from a professional lapse. It ranks below speaking to the registrar because the registrar is the one making the decision and could ask someone else."
+    },
+    {
+      "id": "D",
+      "text": "Leave the decision to the registrar, who is supervising the student.",
+      "brief": "Deferring to seniority here allows an examination without consent to go ahead.",
+      "detailed": "The registrar is senior and responsible for the student, which is why staying quiet can feel appropriate. But you know the patient hasn't consented, and every member of the team has a duty to act. Leaving it allows a serious breach of her dignity and trust."
+    },
+    {
+      "id": "E",
+      "text": "Raise consent for examinations under anaesthesia as a general topic at the next departmental teaching session.",
+      "brief": "Useful education, but it doesn't deal with the patient in front of you.",
+      "detailed": "Teaching about consent may prevent future problems, and departments have had to address this issue nationally. But as a response to an examination about to happen today, it is indirect and too late."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act to protect an anaesthetised patient's dignity and right to consent, even when it means challenging a senior.",
+    "keyDetails": "The patient is anaesthetised and cannot object. You know she didn't consent to a student examination. The examination hasn't happened yet, so there is still time to stop it.",
+    "reasoning": "[A] stops it at the source, and [C] protects the patient and the student but less directly. [B] and [E] address the problem later or in general terms, and [D] lets it go ahead.",
+    "competing": "This is designed as one of the clearer questions in the set: the only real judgement is between [A] and [C], and the key puts the registrar first because they are making the decision."
+  },
+  "references": [
+    {
+      "title": "Intimate examinations and chaperones",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/intimate-examinations-and-chaperones",
+      "note": "Consent for intimate examinations, including examinations under anaesthesia and by students."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Consent must be specific to the examination or procedure."
+    }
+  ],
+  "tags": [
+    "consent",
+    "intimate examination",
+    "students",
+    "theatre"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sjt-041",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-041",
+  "format": "ranking",
+  "title": "Faulty suction",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Raising concerns",
+    "Patient safety",
+    "Escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor assisting in the emergency theatre. As the team prepares for a laparotomy on a patient with a suspected perforated bowel, the scrub nurse mentions that the main suction unit has been cutting out intermittently.\n\nShe says it has already been reported twice in the past fortnight, but nothing has been done. A portable suction unit is available in the recovery area. The surgeon is scrubbing and the anaesthetist is about to start.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Mention the faulty suction at the next departmental meeting.",
+      "brief": "Raises awareness, but slowly and informally.",
+      "detailed": "A departmental meeting may be weeks away, and mentioning it there doesn't guarantee action. It is better than nothing, but it is the weakest of the active responses."
+    },
+    {
+      "id": "B",
+      "text": "Raise the repeated failure with the theatre manager after the case.",
+      "brief": "Takes the problem to someone with the authority to get the equipment fixed or replaced.",
+      "detailed": "The theatre manager can arrange repair or replacement, and needs to know that reports haven't led to action. This is a good follow-up, though it ranks below the actions that protect the patient now and create a formal record."
+    },
+    {
+      "id": "C",
+      "text": "Report the fault again through the incident system, noting that the previous reports weren't acted on.",
+      "brief": "Creates a further record and highlights that earlier reports have been ignored.",
+      "detailed": "A third report, explicitly mentioning that two earlier ones produced no action, helps make the case that the problem is systemic. It is an important step, but it doesn't make today's operation any safer, which is why it ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Tell the surgeon and anaesthetist about the suction now, so a backup unit can be brought in first.",
+      "brief": "The risk is to this patient, today, and the team needs to know before starting.",
+      "detailed": "Suction failing during a laparotomy for perforation, or during an airway emergency, could be dangerous. Raising it before the case starts gives the team a chance to bring in the portable unit and decide whether it is safe to proceed. It addresses the immediate risk to the patient in front of you."
+    },
+    {
+      "id": "E",
+      "text": "Assume the theatre team will manage, as the fault has already been reported.",
+      "brief": "Leaves a known risk unaddressed during a high-risk operation.",
+      "detailed": "The fact that the fault has been reported twice without action is exactly why you shouldn't assume it will be handled. Saying nothing risks the suction failing at a critical moment, with no backup ready."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "B",
+      "A",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise an equipment safety concern in time to protect the current patient, and then make sure the system problem is addressed.",
+    "keyDetails": "The suction has failed intermittently and has been reported twice without action. A backup is available. The operation is about to start and is high-risk.",
+    "reasoning": "[D] protects today's patient, [C] records the problem formally, and [B] takes it to someone who can fix it. [A] is slow and informal, and [E] does nothing.",
+    "competing": "Some would rank the theatre manager above the incident report. The key prefers the formal report because it creates a record that the earlier reports were ignored; in practice you would do both."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Your duty to raise concerns about equipment and systems that put patients at risk."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting patient safety incidents and near misses."
+    }
+  ],
+  "tags": [
+    "equipment",
+    "raising concerns",
+    "theatre",
+    "patient safety"
+  ]
+}

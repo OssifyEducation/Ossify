@@ -1,0 +1,109 @@
+{
+  "id": "sjt-030",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-030",
+  "format": "multiple_choice",
+  "title": "We're going home",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "De-escalation",
+    "Partnership with parents",
+    "Escalation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a children's ward. Noah, 4 months, has bronchiolitis. He needs a little oxygen and is feeding poorly, so the registrar has advised that he stays overnight.\n\nWhen you explain this, Noah's father becomes angry. He raises his voice, says that his son is \"fine\", that he has two other children at home and no one to look after them, and that he is taking Noah home now. Noah's mother is not here. A nurse is standing nearby.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him that if he takes Noah home, you will have to involve social services.",
+      "brief": "A threat at this stage is likely to escalate things and is not an accurate statement of the process.",
+      "detailed": "Parents taking a child home against medical advice can, in some circumstances, raise safeguarding concerns, which is why this option is tempting. But using it as a threat in the first minutes of a conversation damages trust and may provoke him to leave. Safeguarding decisions are made by seniors, based on risk, not used as leverage."
+    },
+    {
+      "id": "B",
+      "text": "Agree that Noah can go home with advice to return if he gets worse, to avoid a confrontation.",
+      "brief": "Ends the confrontation but discharges a baby who needs oxygen, against the registrar's advice.",
+      "detailed": "Avoiding conflict is understandable, but Noah currently needs oxygen and the decision to keep him was made by the registrar. Agreeing to discharge on your own, under pressure, may put him at risk overnight."
+    },
+    {
+      "id": "C",
+      "text": "Acknowledge his frustration and explain clearly why the team wants Noah to stay tonight.",
+      "brief": "Shows you have heard him and gives him the clinical reasons he needs to make a decision.",
+      "detailed": "Anger often comes from fear and practical pressure. Acknowledging that this is hard, then explaining in plain terms that Noah needs oxygen and may tire with feeding overnight, gives his father the information he lacks. Many parents change their minds once they understand the specific risks."
+    },
+    {
+      "id": "D",
+      "text": "Ask security to wait near the ward entrance in case he tries to leave with Noah.",
+      "brief": "Disproportionate at this point, and likely to inflame the situation.",
+      "detailed": "Security may be needed if anyone's safety is at risk, but nothing here suggests that yet. Calling them pre-emptively signals that you see him as a threat and is likely to escalate an encounter that could still be resolved by talking."
+    },
+    {
+      "id": "E",
+      "text": "Ask what makes staying difficult for the family, and whether anything could help.",
+      "brief": "The barrier may be solvable, for example childcare or the other parent taking over.",
+      "detailed": "His objection is practical: two other children at home. Exploring options, such as whether Noah's mother or another relative could stay, or whether the ward can help with arrangements, may remove the conflict entirely. It treats him as a partner in Noah's care rather than an obstacle."
+    },
+    {
+      "id": "F",
+      "text": "Ask your registrar to come and speak to him if he still wants to take Noah home.",
+      "brief": "A senior should be involved if a parent wants to take a child home against advice.",
+      "detailed": "If he still intends to leave, a registrar can reassess Noah, discuss the risks with more authority, and decide whether any safeguarding considerations arise. It also means the conversation isn't left on the shoulders of a junior doctor facing an angry parent."
+    },
+    {
+      "id": "G",
+      "text": "Tell him the decision has been made by the registrar and isn't open for discussion.",
+      "brief": "Shuts down the conversation and leaves his practical problem unaddressed.",
+      "detailed": "Appealing to the registrar's authority may feel firm, but it gives the father no reason to change his mind and no help with his situation. It is likely to harden his position."
+    },
+    {
+      "id": "H",
+      "text": "Leave the conversation to the nurse, as he seems more angry with you than with her.",
+      "brief": "Steps away from your responsibility to explain the medical plan.",
+      "detailed": "Nurses are often skilled at defusing situations, and asking for her support is fine. But leaving the medical explanation to her entirely, because the father is angry with you, isn't fair to her and may mean he doesn't get the information he needs."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle an angry parent who wants to take a child home against advice: de-escalating, solving the underlying problem where possible, and involving a senior.",
+    "keyDetails": "Noah needs oxygen and the registrar has advised admission. His father's objection is practical (two children at home), not a disagreement about medicine. His anger is rising, and you are on your own with a nurse nearby.",
+    "reasoning": "[C] explains the reasons, [E] tries to solve the real barrier, and [F] brings in senior support if he still wants to leave. The distractors either escalate ([A], [D]), give in ([B]), shut him down ([G]), or step away ([H]).",
+    "competing": "[A] is the hard one, because a parent removing a baby who needs oxygen could become a safeguarding issue. That judgement belongs to the registrar, after attempts to resolve the situation, not to an opening threat."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Working in partnership with parents, and when a child's safety overrides parental decisions."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating with patients and those close to them."
+    }
+  ],
+  "tags": [
+    "angry parent",
+    "paediatrics",
+    "de-escalation",
+    "discharge against advice"
+  ]
+}

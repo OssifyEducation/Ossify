@@ -203,5 +203,23 @@
     "publisher": "National Institute for Health and Care Excellence",
     "year": 2022,
     "url": "https://www.nice.org.uk/guidance/ng222"
+  },
+  "fitnote": {
+    "title": "Getting the most out of the fit note: guidance for healthcare professionals",
+    "publisher": "Department for Work and Pensions (GOV.UK)",
+    "year": 2023,
+    "url": "https://www.gov.uk/government/publications/fit-note-guidance-for-healthcare-professionals/getting-the-most-out-of-the-fit-note-guidance-for-healthcare-professionals"
+  },
+  "deathcert": {
+    "title": "Changes to the death certification process",
+    "publisher": "Department of Health and Social Care (GOV.UK)",
+    "year": 2024,
+    "url": "https://www.gov.uk/government/publications/changes-to-the-death-certification-process"
+  },
+  "ng229": {
+    "title": "Fetal monitoring in labour (NG229)",
+    "publisher": "National Institute for Health and Care Excellence",
+    "year": 2022,
+    "url": "https://www.nice.org.uk/guidance/ng229"
   }
 }

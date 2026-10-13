@@ -69,14 +69,27 @@ function compile(d) {
   return q;
 }
 
+// Writers tend to make the right answer the longest. Refuse a draft file where that happens too often.
+function longestIsKeyed(q) {
+  const keyed = q.format === "ranking" ? [q.key.order[0]] : q.key.correct;
+  const max = Math.max(...q.options.map((o) => o.text.length));
+  return q.options.some((o) => keyed.includes(o.id) && o.text.length === max);
+}
+
 const files = fs.readdirSync(SRC).filter((f) => f.endsWith(".js")).sort();
-let n = 0;
+let n = 0, failed = false;
 for (const f of files) {
   const drafts = require(path.join(SRC, f));
-  for (const d of drafts) {
-    const q = compile(d);
+  const qs = drafts.map(compile);
+  const cue = qs.filter(longestIsKeyed).map((q) => q.id);
+  if (qs.length >= 5 && cue.length > Math.ceil(qs.length * 0.4)) {
+    console.error(`${f}: the longest option is the keyed answer in ${cue.length} of ${qs.length} questions (${cue.join(", ")}); rebalance option lengths`);
+    failed = true;
+  }
+  for (const q of qs) {
     fs.writeFileSync(path.join(OUT, q.id + ".json"), JSON.stringify(q, null, 2) + "\n");
     n++;
   }
 }
 console.log(`compiled ${n} drafts from ${files.length} file(s)`);
+if (failed) process.exit(1);

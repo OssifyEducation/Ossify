@@ -1,0 +1,109 @@
+{
+  "id": "sjt-044",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-044",
+  "format": "multiple_choice",
+  "title": "A fit note for the past fortnight",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Fit notes",
+    "Honest certification",
+    "Using records"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a GP practice. Mr Shah, 41, works in a warehouse and has had low back pain for two weeks. He has been off work since it started. He tells you his employer now needs a fit note covering the whole absence.\n\nHis records show a telephone consultation with another GP at the practice twelve days ago, which documents acute low back pain, advice to rest and take analgesia, and a plan to review if not improving. No fit note was issued then. Today you assess him and agree he is still not fit for his job.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Decline to cover any period before today, as you didn't see him before.",
+      "brief": "A common misconception: fit notes can cover earlier dates when they are based on an earlier assessment.",
+      "detailed": "This feels like the cautious, honest option, which is why it is tempting. But DWP guidance allows earlier dates when they are supported by an earlier assessment, including one by another clinician. Refusing outright leaves Mr Shah without a legitimate fit note he may be entitled to."
+    },
+    {
+      "id": "B",
+      "text": "Write the fit note from the day his absence started, as he is clearly in a lot of pain when you see him now.",
+      "brief": "Certifies days that nobody assessed, based only on how he is today.",
+      "detailed": "Mr Shah's account is credible, but his current pain doesn't establish that he was unfit on days before any clinician assessed him. Certifying those days would go beyond what you know."
+    },
+    {
+      "id": "C",
+      "text": "Review the record of the earlier phone consultation to see how his back pain affected him then.",
+      "brief": "An earlier assessment by a colleague may allow you to cover part of the earlier period.",
+      "detailed": "DWP guidance allows a fit note to include earlier dates when they are based on an earlier assessment, which can be a telephone consultation. Checking what the other GP documented tells you whether it supports Mr Shah being unfit for work from that date."
+    },
+    {
+      "id": "D",
+      "text": "Enter the date he stopped work as the assessment date, as that is when his symptoms began.",
+      "brief": "This would create a false record of an assessment that didn't happen.",
+      "detailed": "The assessment date must reflect when an assessment actually took place. Entering an earlier date, when no assessment happened, falsifies the fit note, however justified the absence may seem."
+    },
+    {
+      "id": "E",
+      "text": "Ask Mr Shah to come back in a week, when you can judge his recovery better.",
+      "brief": "Delays a fit note he needs now for his employer.",
+      "detailed": "You have assessed him today and agree he is unfit for work, so there is no reason to delay. Asking him to return leaves him without the documentation his employer needs."
+    },
+    {
+      "id": "F",
+      "text": "Tell him you need a letter from his employer before you can consider a fit note.",
+      "brief": "Adds an unnecessary hurdle; the fit note is based on your assessment, not the employer's request.",
+      "detailed": "Employers don't need to request a fit note in writing, and the decision depends on your clinical assessment. Asking for a letter delays things without improving the accuracy of the note."
+    },
+    {
+      "id": "G",
+      "text": "Issue a fit note from the earlier consultation, entering that consultation's date as the assessment date.",
+      "brief": "This is how the fit note can legitimately cover earlier dates, if the record supports it.",
+      "detailed": "If the earlier record supports it, you can enter that consultation's date as the date of assessment and cover the period from then. This is honest because it reflects a real assessment made by a healthcare professional at the time."
+    },
+    {
+      "id": "H",
+      "text": "Explain to Mr Shah which dates you can cover and why, so that he and his employer understand.",
+      "brief": "Being clear about the limits avoids confusion and keeps the process transparent.",
+      "detailed": "There may be a few days before the earlier consultation that you can't certify, because nobody assessed him then. Explaining this clearly, and that short absences can usually be self-certified with an employer, helps Mr Shah resolve things with his employer without anyone being asked to certify what they didn't assess."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honest certification when a patient needs a fit note for an absence that began before you saw him, and whether you know what the rules allow.",
+    "keyDetails": "There is a documented telephone consultation twelve days ago with another GP. His absence began two weeks ago, a couple of days before that call. You've assessed him today and agree he is unfit.",
+    "reasoning": "[C] checks the earlier assessment, [G] uses it legitimately, and [H] explains the limits clearly. The distractors either refuse unnecessarily ([A]), certify unassessed days ([B], [D]), or add needless delay ([E], [F]).",
+    "competing": "Note too that employees can usually self-certify the first seven days of sickness, so the days before the earlier consultation may not need a fit note at all. This is hard because [A] feels like the safe, honest choice, and [D] looks like a small adjustment. The distinction is between using a genuine earlier assessment, which is allowed, and certifying days or assessment dates that don't reflect an actual assessment, which isn't."
+  },
+  "references": [
+    {
+      "title": "Getting the most out of the fit note: guidance for healthcare professionals",
+      "publisher": "Department for Work and Pensions (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/fit-note-guidance-for-healthcare-professionals/getting-the-most-out-of-the-fit-note-guidance-for-healthcare-professionals",
+      "note": "Section 11: fit notes that include earlier dates, based on an earlier assessment."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Acting with honesty and integrity' in documents you sign."
+    }
+  ],
+  "tags": [
+    "fit notes",
+    "certification",
+    "general practice",
+    "probity"
+  ]
+}

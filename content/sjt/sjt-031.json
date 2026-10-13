@@ -1,0 +1,93 @@
+{
+  "id": "sjt-031",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-031",
+  "format": "ranking",
+  "title": "Four moves in one night",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honest communication",
+    "Raising concerns",
+    "Responding to relatives"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Brown, 88, has dementia and was admitted two days ago with a urinary tract infection. Overnight she was moved between wards four times because of pressure on beds, and this morning she is much more confused and has had a fall without injury.\n\nHer daughter arrives, visibly upset, and asks you, \"Why on earth was she moved four times? Nobody told me anything.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her how to contact the Patient Advice and Liaison Service if she would like a formal response.",
+      "brief": "A helpful route for a formal response, but not a substitute for answering her now.",
+      "detailed": "PALS can investigate and provide a formal reply, and it is right to mention it. On its own, though, it sends her elsewhere without the explanation you can give straight away."
+    },
+    {
+      "id": "B",
+      "text": "Explain that the moves were due to pressure on beds, apologise, and ask that she isn't moved again.",
+      "brief": "Truthful, apologetic, and focused on preventing more harm.",
+      "detailed": "Mrs Brown's daughter deserves a straight answer. Explaining that the moves were due to bed pressures, not her mother's clinical needs, acknowledging the effect on her, and apologising for both the moves and the lack of communication responds to what she has asked. Asking for her mother to stay put addresses the harm directly."
+    },
+    {
+      "id": "C",
+      "text": "Raise the number of moves and their effect with the ward manager and your consultant as a concern about her care.",
+      "brief": "Repeated moves of a patient with dementia are a safety issue that the senior team should know about.",
+      "detailed": "Moving a confused older patient four times in a night increases delirium and falls, and Mrs Brown has already fallen. Raising this with the ward manager and consultant helps protect her now and highlights a pattern the hospital needs to address. It ranks second because the daughter's question needs an honest answer first."
+    },
+    {
+      "id": "D",
+      "text": "Tell her the moves were for clinical reasons, to avoid getting into hospital bed pressures.",
+      "brief": "This is untrue, and it misleads a relative about why her mother was harmed.",
+      "detailed": "This may feel like protecting the hospital, but it is simply dishonest. If she later learns the truth, which is likely, she will lose trust in the team entirely. It is the only option that actively misleads her."
+    },
+    {
+      "id": "E",
+      "text": "Say that ward moves are decided by the bed managers, and that you can't comment on them.",
+      "brief": "Deflects responsibility and leaves her without an answer you are able to give.",
+      "detailed": "The bed managers do make these decisions, but you know why the moves happened and can explain it. Refusing to comment leaves her feeling dismissed and is likely to increase her distress."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "C",
+      "A",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty about system failures that have affected a patient, and whether you act on the harm as well as explaining it.",
+    "keyDetails": "The moves were for bed pressures, not clinical reasons. Mrs Brown has dementia, is more confused and has fallen, so the moves have caused harm. Her daughter wasn't informed, which adds to her distress.",
+    "reasoning": "[B] answers honestly and tries to prevent further moves, and [C] raises the safety issue with the right people. [A] offers a formal route but doesn't answer her now. [E] deflects, and [D] misleads, which is worse.",
+    "competing": "Some would rank [C] first because it addresses the safety issue. The key puts answering the daughter first because she has asked directly, and the request for no further moves within [B] deals with the immediate risk."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with patients and those close to them when care has gone wrong, including system failures."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Acting with honesty and integrity'."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "bed pressures",
+    "dementia",
+    "relatives"
+  ]
+}
