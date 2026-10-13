@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="js/ossify-theme.js"></script>
+<script src="js/ossify-shortcuts.js" defer></script>
+<script src="js/ossify-mobile.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Dilemmas — Ossify</title>
+<meta name="description" content="MSRA Professional Dilemmas (SJT) practice: ranking and multiple-choice scenarios with transparent scoring and full explanations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
+<link rel="stylesheet" href="css/ossify.css">
+<link rel="stylesheet" href="css/sjt.css">
+<link rel="stylesheet" href="css/ossify-dark.css">
+</head>
+<body>
+
+<aside class="sb">
+  <div class="sb-logo" onclick="location.href='dashboard.html'" title="Go to dashboard">
+    <svg width="90" height="42" viewBox="0 0 110 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="-1,10 10,5 21,10 10,15" fill="rgba(255,255,255,0.75)"/>
+      <line x1="21" y1="10" x2="21" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="21" cy="19.5" r="2" fill="#f472b6"/>
+      <text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text>
+    </svg>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Overview</div>
+  <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+  <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Learn</div>
+  <a class="nv" href="acronyms.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="12" y1="7" x2="16" y2="7"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="15" x2="16" y2="15"/></svg>Glossary</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Revision</div>
+  <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
+  <a class="nv on" href="sjt.html" aria-current="page"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg>Professional Dilemmas</a>
+  <a class="nv" href="exam.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
+  <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
+  <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Account</div>
+  <a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Help</div>
+  <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+  <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+  <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
+  </div>
+  <div class="sb-foot">
+    <div class="sb-av-row">
+      <div class="sb-av" id="userAv"></div>
+      <div>
+        <div class="sb-uname" id="userName"></div>
+        <div class="sb-usub" id="userSub"></div>
+      </div>
+    </div>
+    <button class="sb-signout" onclick="ossifySignOut()">Sign out</button>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="tb-title">Professional Dilemmas</div>
+    <div class="tb-r">
+      <span class="session-meta" id="sessionMeta" aria-live="polite"></span>
+      <span class="model-chip" title="Scores use Ossify's practice scoring model, not the official MSRA algorithm">Practice scoring</span>
+      <button class="btn-end" id="endBtn" type="button" onclick="askFinish()" style="display:none">Finish session</button>
+    </div>
+  </div>
+  <div class="progress-bar-wrap" aria-hidden="true"><div class="progress-bar-fill" id="progressBar" style="width:0%"></div></div>
+
+  <div class="content">
+    <aside class="config-panel" aria-label="Session setup">
+      <div class="config-hdr"><div class="config-title">Configure</div><span class="sjt-tag">SJT</span></div>
+      <div class="config-body" id="configBody">
+        <div class="filter-label" id="countLabel">Number of questions</div>
+        <div class="count-grid" role="radiogroup" aria-labelledby="countLabel" id="countGrid"></div>
+        <div class="custom-wrap" id="customWrap" hidden>
+          <label for="customCount" class="sr-only">Custom number of questions (1 to 100)</label>
+          <input id="customCount" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="1–100" aria-describedby="customMsg">
+          <div class="custom-msg" id="customMsg" aria-live="polite"></div>
+        </div>
+        <div class="filter-label" id="fbLabel">Show answers</div>
+        <div class="seg" role="radiogroup" aria-labelledby="fbLabel">
+          <button type="button" role="radio" class="seg-btn on" aria-checked="true" data-fb="each" onclick="setFeedback('each')">After each</button>
+          <button type="button" role="radio" class="seg-btn" aria-checked="false" data-fb="end" onclick="setFeedback('end')">At the end</button>
+        </div>
+        <div class="sel-summary" id="selSummary" aria-live="polite"></div>
+        <button class="start-btn" id="startBtn" type="button" onclick="startSession()">Start session</button>
+      </div>
+      <div id="qNavWrap" hidden>
+        <div class="q-nav-hdr"><div class="q-nav-title">Questions</div><div class="q-nav-legend"><span class="lg lg-todo"></span>To do <span class="lg lg-done"></span>Done</div></div>
+        <div class="q-grid" id="qGrid"></div>
+      </div>
+    </aside>
+
+    <main class="q-area" id="mainArea" tabindex="-1">
+      <section class="splash" id="splash">
+        <div id="resumeBanner" class="resume-banner" hidden>
+          <div class="rb-info"><strong>You have an unfinished session</strong><span id="resumeDesc"></span></div>
+          <div class="rb-acts">
+            <button class="rb-btn-resume" type="button" onclick="resumeSession()">Resume →</button>
+            <button class="rb-btn-discard" type="button" onclick="discardSession()">Discard</button>
+          </div>
+        </div>
+        <div class="splash-kicker">MSRA · Paper 1</div>
+        <h2>Professional Dilemmas</h2>
+        <p class="splash-lede">Practise the situational judgement paper as it is set: you answer as an F2 doctor, and each scenario asks you either to <strong>rank</strong> four or five actions or to <strong>choose the three</strong> that together best resolve the situation.</p>
+        <div class="fmt-grid">
+          <div class="fmt">
+            <div class="fmt-hd">Ranking</div>
+            <p>Place every option from most to least appropriate. You don't need a perfect order to score well: each option earns marks according to how close it is to the key.</p>
+            <div class="fmt-marks">Up to 4 marks per option · 20 per scenario</div>
+          </div>
+          <div class="fmt">
+            <div class="fmt-hd">Multiple choice</div>
+            <p>Choose exactly three of eight actions. Each keyed action you select earns marks; there is no negative marking.</p>
+            <div class="fmt-marks">4 marks per keyed action · 12 per scenario</div>
+          </div>
+        </div>
+        <details class="model-note">
+          <summary>How Ossify scores your answers</summary>
+          <p>The mark maxima above come from NHS England's published MSRA practice paper. The exact credit for a "near miss" in ranking questions isn't published, so Ossify uses a transparent practice model: 4 marks for an option in its keyed position, 3 if it is one place out, 2 if two places, 1 if three and 0 if four. Your score is an educational guide, not an official MSRA result or a prediction of your scaled score.</p>
+        </details>
+        <p class="splash-foot">The real paper has 50 scenarios in 95 minutes, roughly 1 minute 54 seconds each. Topic Mode is untimed so you can think each one through.</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="modal" id="finishModal" role="dialog" aria-modal="true" aria-labelledby="finishTitle" hidden>
+  <div class="modal-card">
+    <h3 id="finishTitle">Finish this session?</h3>
+    <p id="finishText"></p>
+    <div class="modal-acts">
+      <button type="button" class="btn-primary" onclick="finishSession()">Finish and see results</button>
+      <button type="button" class="btn-ghost" onclick="closeFinish()">Keep going</button>
+    </div>
+  </div>
+</div>
+<div class="sr-only" id="announcer" aria-live="assertive"></div>
+
+<script src="js/sjt-engine.js"></script>
+<script src="js/sjt-questions.js"></script>
+<script src="js/sjt-app.js"></script>
+<script>
+// Sidebar user info (optional: the SJT bank itself needs no network)
+var sb = null;
+try { sb = window.supabase.createClient('https://judtpdikbidvccclftvq.supabase.co', 'sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj'); } catch (e) {}
+function ossifySignOut(){ if (sb) sb.auth.signOut().then(function(){ location.href='login.html'; }); else location.href='login.html'; }
+(async function () {
+  try {
+    if (!sb) return;
+    var res = await sb.auth.getUser(); var user = res.data && res.data.user;
+    if (!user) return;
+    var nm = ossifyDisplayName(null, user);
+    document.getElementById('userAv').textContent = ossifyInitials(nm, user.email);
+    document.getElementById('userName').textContent = nm;
+    document.getElementById('userSub').textContent = 'Ossify member';
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
