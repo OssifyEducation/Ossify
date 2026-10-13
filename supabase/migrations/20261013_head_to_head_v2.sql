@@ -63,7 +63,7 @@ returns void language sql volatile security definer set search_path = public as 
 $$;
 
 create or replace function public._display_name(p profiles)
-returns text language sql stable as $$
+returns text language sql stable set search_path = public as $$
   select coalesce(nullif(btrim(p.full_name), ''),
                   case when nullif(btrim(p.username), '') is not null then '@' || btrim(p.username) end,
                   'Ossify player');
