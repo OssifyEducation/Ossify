@@ -1,0 +1,92 @@
+{
+  "id": "sjt-037",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-037",
+  "format": "ranking",
+  "title": "No concerns",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Handover",
+    "Risk assessment",
+    "Escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor starting a night shift covering an acute psychiatric ward. At handover, the day F2 lists Mr Price, 34, admitted with depression, as \"no concerns\" before leaving.\n\nAn hour later, while reviewing the notes, you see an entry from 16:00 in which a nurse records that Mr Price disclosed suicidal thoughts with a possible plan. There is no record of a medical review since then, and his observation level hasn't changed.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Document the discrepancy between the handover and the notes.",
+      "brief": "Worth doing, but documentation alone doesn't address the risk.",
+      "detailed": "Recording what you found is good practice and helps any later review. On its own, though, it leaves Mr Price unassessed overnight."
+    },
+    {
+      "id": "B",
+      "text": "Discuss Mr Price's risk with the on-call psychiatry registrar.",
+      "brief": "A change in risk in an inpatient with depression warrants senior input.",
+      "detailed": "Decisions about observation levels and risk management after a disclosure like this benefit from a registrar's view, and may need a change in the care plan. It ranks second because your own assessment comes first and gives the registrar what they need to advise."
+    },
+    {
+      "id": "C",
+      "text": "Rely on the handover, as the day F2 saw Mr Price today and knows him better.",
+      "brief": "Ignores clear information in the notes that contradicts the handover.",
+      "detailed": "Trusting a colleague's handover is normally reasonable. But you have read a specific, recent entry describing suicidal thoughts with a plan. Ignoring it because the handover said otherwise leaves a high-risk patient without the review he needs."
+    },
+    {
+      "id": "D",
+      "text": "Review Mr Price tonight, and check his current observation level with the nurse in charge.",
+      "brief": "A recent disclosure of suicidal thoughts with a plan needs a medical review, and the observation level may need to change.",
+      "detailed": "The handover missed something important, and you are now responsible for him. Seeing him, assessing his current risk, and agreeing with the nurse in charge whether his observations should be increased is the action that keeps him safe tonight."
+    },
+    {
+      "id": "E",
+      "text": "Contact the day F2 to clarify the handover and to find out whether anything else was missed.",
+      "brief": "Useful for completing the picture, but it doesn't make the patient safer by itself.",
+      "detailed": "The day F2 may know more, for example that a review did happen but wasn't documented. Contacting them, without blame, may fill gaps and helps them learn. But it is secondary to assessing and protecting the patient."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "E",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your response when a handover misses a significant risk: acting on the information you now have, rather than on what you were told.",
+    "keyDetails": "The disclosure was recent, included a possible plan, and hasn't been reviewed. Observation levels haven't changed. You are now responsible for him overnight.",
+    "reasoning": "[D] assesses and protects the patient, [B] brings in senior input, and [E] completes the picture. [A] records the problem without acting on it, and [C] ignores it.",
+    "competing": "Some would put the registrar call first. In practice you might call while heading to the ward. The key puts your own review first because it gives the registrar the current information they need."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, handover and continuity of care; 'Responding to safety risks'."
+    },
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Assessing and managing risk in people who have self-harmed or are at risk of suicide."
+    }
+  ],
+  "tags": [
+    "handover",
+    "suicide risk",
+    "psychiatry",
+    "night shift"
+  ]
+}

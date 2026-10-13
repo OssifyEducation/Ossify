@@ -1,0 +1,110 @@
+{
+  "id": "sjt-032",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-032",
+  "format": "multiple_choice",
+  "title": "A patient no one wants to see",
+  "setting": "Oncology & palliative care",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Fair treatment",
+    "Pain management",
+    "Supporting the team"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology ward. Mr Doyle, 62, has metastatic lung cancer. Over the past few days he has shouted at several nurses and called them \"useless\".\n\nYou notice that his call bell is now often left ringing for longer than others', and that his 14:00 dose of oral morphine hasn't been given; it is now 15:30. A nurse tells you, \"Nobody wants to go in there.\" When you see Mr Doyle, he is in obvious pain and says that nobody listens to him.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Make sure Mr Doyle's pain is reassessed now and that his morphine is given.",
+      "brief": "He is in pain and has missed a dose; that comes first, whatever his behaviour.",
+      "detailed": "A missed dose of regular analgesia in a patient with metastatic cancer is a clinical problem in its own right, and uncontrolled pain may be part of why he is so angry. Making sure he is reassessed and treated now is the first duty to him."
+    },
+    {
+      "id": "B",
+      "text": "Ask for Mr Doyle to be moved to a side room, where he won't upset other staff or patients.",
+      "brief": "May reduce friction, but risks isolating him further and makes it easier to neglect him.",
+      "detailed": "A side room might be appropriate for some patients, but moving him so that he is out of sight is likely to increase the gaps in his care rather than reduce them."
+    },
+    {
+      "id": "C",
+      "text": "Tell Mr Doyle that staff won't tolerate abusive behaviour and that his care may be affected.",
+      "brief": "Setting boundaries is fine, but threatening his care is not.",
+      "detailed": "Staff are entitled to work without abuse, and it may be appropriate to explain this to him calmly. But linking his behaviour to the quality of his care is wrong: patients' care must not be affected by how they behave, even when behaviour needs addressing."
+    },
+    {
+      "id": "D",
+      "text": "Talk to the nurse in charge about what you've noticed and how to manage his behaviour fairly.",
+      "brief": "Raises the drift in his care openly and supports the staff, who are finding him difficult.",
+      "detailed": "The nurses are under real strain, and their feelings are understandable. But care must not be rationed because of behaviour. Discussing it with the nurse in charge allows the team to agree an approach, such as pairing staff for his care or setting clear expectations with him, while making sure his needs are met."
+    },
+    {
+      "id": "E",
+      "text": "Accept that staff are entitled to limit their contact with a patient who is abusing them.",
+      "brief": "Staff protection matters, but not at the expense of a patient's basic care.",
+      "detailed": "Trusts do have policies to protect staff from abuse, which is why this sounds reasonable. But those policies don't allow patients to go without pain relief or answers to their call bell. The solution is to manage the behaviour while maintaining care."
+    },
+    {
+      "id": "F",
+      "text": "Write to Mr Doyle under the trust's violence and aggression policy, warning him about his behaviour.",
+      "brief": "A formal warning may eventually be appropriate, but not as a response to a missed dose of morphine.",
+      "detailed": "Formal warnings exist and are sometimes necessary. But issuing one isn't usually an F2's decision, and doing so now ignores the clinical problem in front of you and the likely reasons for his anger."
+    },
+    {
+      "id": "G",
+      "text": "Report the nurses to the ward manager for neglecting Mr Doyle's care.",
+      "brief": "Frames the problem as individual misconduct, when it reflects a team struggling with a difficult situation.",
+      "detailed": "There has been a lapse in care, and it needs addressing, which is why this option is tempting. But going straight to a formal report about neglect, without discussing it with the nurse in charge, is likely to damage working relationships and misses the underlying problem."
+    },
+    {
+      "id": "H",
+      "text": "Explore with Mr Doyle what is behind his anger, such as pain, fear or feeling unheard.",
+      "brief": "Understanding the cause of his behaviour is often the key to changing it.",
+      "detailed": "Anger in patients with advanced cancer is often driven by pain, fear, loss of control or feeling ignored, and he has told you that nobody listens. Taking time to understand this can lead to practical changes, such as better pain control or a palliative care review, that improve both his experience and the staff's."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make sure a patient whose behaviour is difficult still receives fair and safe care, and how you support colleagues who are struggling with him.",
+    "keyDetails": "He has missed a dose of morphine and is in pain. Staff are avoiding him after being shouted at. He says nobody listens, which hints at the cause of his anger.",
+    "reasoning": "[A] deals with the immediate clinical need, [D] addresses the team's response openly and supportively, and [H] looks for the cause of his behaviour. The distractors either isolate or threaten him ([B], [C], [F]), accept a lower standard of care ([E]), or escalate against colleagues out of proportion ([G]).",
+    "competing": "[E] reflects a genuine tension between staff wellbeing and patient care. Both matter, and the key is managing behaviour without rationing care, rather than choosing one over the other."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly; care must not be affected by a patient's behaviour or lifestyle."
+    },
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Managing pain and symptoms for patients approaching the end of life."
+    }
+  ],
+  "tags": [
+    "fair treatment",
+    "difficult patients",
+    "pain",
+    "oncology"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "sjt-038",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-038",
+  "format": "multiple_choice",
+  "title": "Should I sign it?",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Explaining DNACPR",
+    "Exploring values",
+    "Continuity with the consultant"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a general medical ward. Mrs Hughes, 79, has severe COPD and was admitted with an exacerbation. On this morning's ward round her consultant mentioned that \"we should think about a DNACPR form\" and said she'd come back to talk about it.\n\nIn the afternoon, Mrs Hughes asks you, looking worried, \"Should I sign this DNACPR form? Does it mean you'll stop treating me?\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her that patients sign the form to show that they agree with the decision.",
+      "brief": "Factually wrong: patients don't sign DNACPR forms.",
+      "detailed": "DNACPR decisions are recorded by clinicians, who must discuss them with the patient where appropriate. Telling her she has to sign gives her false information and may make her feel the decision rests on her signature."
+    },
+    {
+      "id": "B",
+      "text": "Advise her to agree to it, as her consultant has recommended it.",
+      "brief": "Pre-empts a discussion that hasn't happened and doesn't explore her views.",
+      "detailed": "The consultant has only raised the idea, and Mrs Hughes hasn't had the conversation yet. Advising her to agree, without understanding her wishes or explaining what it means, isn't shared decision-making."
+    },
+    {
+      "id": "C",
+      "text": "Tell her that DNACPR is a medical decision for her consultant, so she doesn't need to worry about it.",
+      "brief": "Partly true, but dismissive, and patients should be involved in these discussions.",
+      "detailed": "The decision about whether CPR would be clinically appropriate is ultimately medical, which is what makes this tempting. But patients should usually be involved and informed, and telling her not to worry ignores her clear anxiety."
+    },
+    {
+      "id": "D",
+      "text": "Suggest that her family explain it to her when they visit this evening.",
+      "brief": "Passes a medical explanation to people who may not understand it themselves.",
+      "detailed": "Families can be an important support, and Mrs Hughes might want them involved. But they aren't responsible for explaining DNACPR, and may share her misunderstandings."
+    },
+    {
+      "id": "E",
+      "text": "Explain that DNACPR is about CPR only, and that all her other appropriate treatment would continue.",
+      "brief": "Corrects the most common and most frightening misunderstanding about DNACPR.",
+      "detailed": "Many patients believe DNACPR means they won't be treated. Explaining that it applies only to cardiopulmonary resuscitation if her heart stops, and that her COPD treatment, antibiotics and everything else would continue, often relieves a great deal of anxiety."
+    },
+    {
+      "id": "F",
+      "text": "Ask what she understands about CPR and what matters most to her about her care.",
+      "brief": "Her understanding and values shape the conversation, and the decision.",
+      "detailed": "Finding out what she knows about CPR and its likely outcome in someone with severe COPD, and what she values, makes the later discussion with her consultant more meaningful. It treats her as a partner in the decision rather than someone to be informed."
+    },
+    {
+      "id": "G",
+      "text": "Give her a leaflet about DNACPR and leave her to read it.",
+      "brief": "Leaflets help, but not in place of a conversation when she is worried.",
+      "detailed": "Written information is useful and can support a discussion. But handing her a leaflet and walking away, when she has asked you directly and is clearly anxious, misses the chance to reassure her."
+    },
+    {
+      "id": "H",
+      "text": "Let her consultant know about her questions, so that the discussion can continue with her.",
+      "brief": "The consultant is leading this decision and needs to know Mrs Hughes is worried.",
+      "detailed": "A DNACPR discussion should involve the senior clinician responsible, and Mrs Hughes is clearly anxious. Passing on her questions means the consultant can come back sooner and address what matters to her."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you can respond to a patient's anxiety about DNACPR with accurate information and appropriate involvement of her consultant.",
+    "keyDetails": "Mrs Hughes thinks she must sign a form and fears DNACPR means stopping treatment. Her consultant has raised the topic and is leading the discussion.",
+    "reasoning": "[E] corrects her misunderstanding, [F] explores her views, and [H] keeps the consultant involved. The distractors either give wrong information ([A]), pre-empt the decision ([B]), dismiss her ([C]), or pass the explanation to others ([D], [G]).",
+    "competing": "[G] is the most reasonable distractor, since leaflets are often helpful. The difference is that she has asked you directly, and a short conversation is what she needs right now."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Discussing CPR decisions with patients, and what DNACPR does and doesn't mean."
+    },
+    {
+      "title": "ReSPECT: Recommended Summary Plan for Emergency Care and Treatment",
+      "publisher": "Resuscitation Council UK",
+      "year": null,
+      "url": "https://www.resus.org.uk/respect",
+      "note": "Recording recommendations about emergency care, including CPR, after discussion with the patient."
+    }
+  ],
+  "tags": [
+    "DNACPR",
+    "end of life",
+    "communication",
+    "COPD"
+  ]
+}

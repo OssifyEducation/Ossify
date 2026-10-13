@@ -1,0 +1,110 @@
+{
+  "id": "sjt-034",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-034",
+  "format": "multiple_choice",
+  "title": "Two alarms at once",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Escalation",
+    "Delegation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the intensive care unit at night. The ICU registrar has been called to the Emergency Department for a trauma patient, so you are the only doctor on the unit.\n\nWithin a minute, two alarms sound. Mr Chen, in bed 3, is ventilated and his oxygen saturations have suddenly fallen to 82%. Mrs Ward, in bed 7, is recovering from surgery on high-flow nasal oxygen, and her saturations have drifted down to 89% over the past hour. Experienced ICU nurses are with both patients.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Call the ICU registrar or consultant on call to come back to the unit.",
+      "brief": "Two deteriorating patients and one F2 is beyond what you should manage alone.",
+      "detailed": "A sudden desaturation in a ventilated patient can be life-threatening, and you will need senior help quickly. Calling now means help is on the way while you start assessing. The registrar may need to prioritise between the unit and ED, but they can only do that if they know."
+    },
+    {
+      "id": "B",
+      "text": "Go to Mr Chen first, as a sudden fall in a ventilated patient's saturations may mean a tube problem.",
+      "brief": "A sudden drop in a ventilated patient is the more immediately dangerous of the two.",
+      "detailed": "Problems such as tube displacement or blockage, a disconnected circuit, a pneumothorax or equipment failure can cause rapid deterioration and need immediate action. Mrs Ward's saturations have drifted more slowly and she is breathing for herself, so Mr Chen is the more urgent of the two."
+    },
+    {
+      "id": "C",
+      "text": "Assess the two patients in the order in which the alarms went off.",
+      "brief": "The order of alarms says nothing about which patient is sicker.",
+      "detailed": "Assessing in strict order might feel fair and systematic, but prioritisation should be based on clinical urgency. Here, the sudden fall in a ventilated patient is more dangerous than a gradual drift in a self-ventilating one."
+    },
+    {
+      "id": "D",
+      "text": "Fast-bleep the anaesthetic registrar in theatre rather than your own registrar.",
+      "brief": "Bypasses the person responsible for the unit, who needs to know what is happening.",
+      "detailed": "Anaesthetists may well help in an emergency, and in some hospitals they are the next line of support. But your own registrar is responsible for the unit, and should be contacted first so they can decide how best to get help to you."
+    },
+    {
+      "id": "E",
+      "text": "Review both patients' charts before going to either bedside.",
+      "brief": "Time spent on charts delays bedside assessment of a ventilated patient in trouble.",
+      "detailed": "Charts can provide useful context, but when a ventilated patient's saturations suddenly fall, the bedside is where the problem will be found and fixed."
+    },
+    {
+      "id": "F",
+      "text": "Ask Mr Chen's nurse to increase his oxygen to 100%, and wait 15 minutes to see if it improves before assessing.",
+      "brief": "Increasing oxygen is reasonable, but waiting 15 minutes to assess a sudden desaturation is not.",
+      "detailed": "Increasing the inspired oxygen is often one of the first steps, which is what makes this tempting. But a sudden desaturation in a ventilated patient needs immediate assessment for a correctable cause. Waiting a quarter of an hour could be dangerous."
+    },
+    {
+      "id": "G",
+      "text": "Ask Mrs Ward's nurse to increase her oxygen, stay with her, and call you at once if she worsens.",
+      "brief": "Uses the nurse's skills to keep the second patient safe while you deal with the first.",
+      "detailed": "ICU nurses are highly skilled, and asking them to adjust oxygen and monitor closely is appropriate delegation. It means Mrs Ward is being actively managed and that you will hear immediately if she becomes the priority."
+    },
+    {
+      "id": "H",
+      "text": "Call the critical care outreach team to come and help on the unit.",
+      "brief": "Outreach teams generally support wards, not the ICU itself, and your registrar is the right first call.",
+      "detailed": "Outreach teams are a valuable resource for deteriorating patients on wards, but they are not usually the source of medical help within the ICU. Calling them instead of your registrar may delay the right support reaching you."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests prioritisation when two patients deteriorate at once and you are the only doctor present.",
+    "keyDetails": "Mr Chen's desaturation is sudden and he is ventilated; Mrs Ward's is gradual and she is breathing on her own. Experienced nurses are with both. The registrar is away but contactable.",
+    "reasoning": "[A] gets senior help coming, [B] deals with the more dangerous patient first, and [G] makes sure the other patient is actively managed while you are busy. The distractors either prioritise on the wrong basis ([C]), contact the wrong person ([D], [H]), or delay bedside assessment ([E], [F]).",
+    "competing": "[F] contains a reasonable first step, increasing oxygen, alongside an unreasonable one, waiting to assess. The key rewards the combination that both treats and assesses promptly."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, recognising the limits of your competence; Domain 3, 'Responding to safety risks'."
+    },
+    {
+      "title": "Leadership and management for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/leadership-and-management-for-all-doctors",
+      "note": "Delegating appropriately and making sure tasks are within the competence of the person carrying them out."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "intensive care",
+    "escalation",
+    "delegation"
+  ]
+}

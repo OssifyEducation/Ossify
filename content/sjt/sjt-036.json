@@ -1,0 +1,110 @@
+{
+  "id": "sjt-036",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-036",
+  "format": "multiple_choice",
+  "title": "I didn't know what they were doing",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Consent",
+    "Raising concerns with colleagues",
+    "Patient-centred communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a respiratory ward. Yesterday afternoon the registrar performed a pleural aspiration on Mr Evans, 70, while you were in clinic. There is a procedure note in the records but no consent form or documented discussion of consent.\n\nOn today's ward round, Mr Evans tells you he \"didn't really understand what they were doing\" with the needle in his back. The site is sore but looks clean, and his breathing is much better. He asks you, a little anxiously, what was done and why.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the registrar to complete a consent form today and date it for yesterday.",
+      "brief": "Backdating a consent form would create a false record.",
+      "detailed": "This would make the records look complete, but it would be dishonest: a consent form must reflect what was discussed and when. If consent was obtained verbally, the right step is a clearly dated retrospective note explaining that, not a backdated form."
+    },
+    {
+      "id": "B",
+      "text": "Reassure Mr Evans that consent forms are often missed and that it isn't a problem.",
+      "brief": "Dismisses his concern and misrepresents the importance of consent.",
+      "detailed": "It may be true that documentation is sometimes incomplete, but Mr Evans is telling you he didn't understand a procedure performed on him. Waving it away doesn't answer his questions and suggests consent doesn't matter."
+    },
+    {
+      "id": "C",
+      "text": "Explain to Mr Evans what the procedure was and why it was done, and answer his questions.",
+      "brief": "He has a right to understand what was done to him, and you can explain it from the records.",
+      "detailed": "Whatever happened yesterday, Mr Evans is confused and anxious now. Explaining that fluid was drained from around his lung to help his breathing, why it was needed and what to look out for, addresses his immediate concern and respects him. You can be honest that you weren't there, while still giving him a clear account."
+    },
+    {
+      "id": "D",
+      "text": "Speak to the registrar about Mr Evans's concerns and the lack of documented consent.",
+      "brief": "The registrar needs to know, and may be able to explain what was discussed.",
+      "detailed": "There may have been a verbal consent discussion that wasn't recorded, or Mr Evans may not have taken in what he was told while unwell. Raising it directly with the registrar, without accusation, allows them to reflect, to document what happened, and to speak to Mr Evans if needed. Missing consent documentation should also prompt them to consider whether anything else needs to be done."
+    },
+    {
+      "id": "E",
+      "text": "Make sure the pain at the procedure site is assessed and managed.",
+      "brief": "He has a symptom that needs attention, whatever the answer about consent.",
+      "detailed": "A sore aspiration site is usually minor, but it should be examined and treated with appropriate analgesia. Addressing it shows Mr Evans that his concerns are being taken seriously, and helps rule out a complication."
+    },
+    {
+      "id": "F",
+      "text": "Report the registrar to the medical director for performing a procedure without consent.",
+      "brief": "Disproportionate before the facts are known, and bypasses local routes.",
+      "detailed": "You don't yet know whether consent was obtained verbally. Escalating straight to the medical director on the basis of missing paperwork is out of proportion, and skips the conversation with the registrar that may clarify what happened."
+    },
+    {
+      "id": "G",
+      "text": "Suggest to Mr Evans that he makes a formal complaint about the way the procedure was handled.",
+      "brief": "Patients should know how to raise concerns, but prompting a complaint before answering his questions is premature.",
+      "detailed": "If Mr Evans remains unhappy after an explanation, telling him about PALS or the complaints process is appropriate. Suggesting it first, before you've explained the procedure or spoken to the registrar, may escalate things unnecessarily."
+    },
+    {
+      "id": "H",
+      "text": "Write in Mr Evans's notes that the procedure was performed without his consent.",
+      "brief": "Records a conclusion you can't yet support; the absence of a form isn't proof that consent wasn't given.",
+      "detailed": "Accurate records matter, and it would be reasonable to document what Mr Evans has told you. But stating as fact that he didn't consent, before speaking to the registrar, may be wrong and would be unfair to a colleague."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a patient may not have understood a procedure performed by a senior colleague: supporting the patient, raising it with the colleague, and keeping records accurate.",
+    "keyDetails": "There is no documented consent, but that doesn't prove there was none. Mr Evans is anxious and has a sore site. The procedure was clinically helpful. You weren't present.",
+    "reasoning": "[C] answers the patient's questions, [D] raises the issue with the person who can clarify it, and [E] deals with his symptom. The distractors either falsify or prejudge the record ([A], [H]), dismiss the patient ([B]), or escalate before the facts are known ([F], [G]).",
+    "competing": "[H] is tempting because accurate documentation matters. The distinction is between recording what Mr Evans told you, which is appropriate, and recording a conclusion that hasn't been established."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Making sure patients understand procedures, and recording consent discussions."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns with colleagues directly where appropriate."
+    }
+  ],
+  "tags": [
+    "consent",
+    "procedures",
+    "documentation",
+    "colleague"
+  ]
+}

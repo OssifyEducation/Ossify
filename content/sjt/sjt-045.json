@@ -1,0 +1,92 @@
+{
+  "id": "sjt-045",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-045",
+  "format": "ranking",
+  "title": "A worrying trace",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Challenging decisions",
+    "Escalation",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on labour ward. Ms Begum, 29, is having her labour induced with an oxytocin infusion. The registrar reviewed the CTG 30 minutes ago and decided to continue the infusion.\n\nSince then, the CTG has developed a rising baseline heart rate and repeated late decelerations, which you and the midwife both find concerning. The registrar is on the ward, assessing another woman, and has said she will come back \"shortly\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Contact the consultant on call to ask for their view on the CTG.",
+      "brief": "Appropriate if the registrar can't come promptly or concerns remain, but she is on the ward now.",
+      "detailed": "Consultants on labour ward expect to be called when there are concerns about a CTG, and this would be the right step if the registrar were delayed or if you still had concerns after her review. It ranks third because the registrar is a few metres away and can review almost immediately."
+    },
+    {
+      "id": "B",
+      "text": "Tell the registrar clearly what the CTG now shows, and ask her to review it again straight away.",
+      "brief": "The trace has changed since her decision, and she needs to know now.",
+      "detailed": "The registrar's decision was based on the CTG 30 minutes ago. New concerning features may need prompt action, including stopping the oxytocin and assessing Ms Begum and the baby. Telling her specifically what has changed, and asking for an immediate review, is the quickest way to get the right decision from the person responsible."
+    },
+    {
+      "id": "C",
+      "text": "Agree with the midwife that she reduces or stops the oxytocin while you get the registrar to review.",
+      "brief": "A reasonable safety step in line with national guidance on concerning CTGs, pending senior review.",
+      "detailed": "NICE guidance on fetal monitoring advises considering stopping or reducing oxytocin when there are concerning features on the CTG, and midwives commonly do this while awaiting review. It reduces the stress on the baby while the registrar comes. It ranks second because it changes a plan the registrar made, so she must be told immediately, which is why telling her comes first."
+    },
+    {
+      "id": "D",
+      "text": "Accept the registrar's decision, as she has much more experience of interpreting CTGs than you.",
+      "brief": "Her decision was based on an earlier trace that has since changed.",
+      "detailed": "Deferring to experience is often reasonable. But the CTG has changed since she made her decision, and both you and the midwife are concerned. Accepting the plan without telling her about the change could put the baby at risk."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "C",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act when new information changes the basis of a senior's decision, combining an immediate safety step with prompt escalation.",
+    "keyDetails": "The CTG has changed since the registrar's review, and both you and the midwife are concerned. The registrar is nearby. The oxytocin is still running, and it can make fetal distress worse.",
+    "reasoning": "[B] brings the change straight to the decision-maker, and [C] reduces the risk while she comes. [A] is the right escalation if she can't, and [D] defers to a decision based on outdated information.",
+    "competing": "Some would put stopping the oxytocin first, since it acts immediately. In practice the midwife may do this while you speak to the registrar, and near-miss scoring treats the two as adjacent. The key puts telling the registrar first because she is on the ward and needs to know her plan is being changed."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, speaking up when you have concerns about a decision; 'Responding to safety risks'."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Escalating concerns about patient safety, including to more senior colleagues."
+    },
+    {
+      "title": "Fetal monitoring in labour (NG229)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng229",
+      "note": "Responding to concerning CTG features, including stopping or reducing oxytocin."
+    }
+  ],
+  "tags": [
+    "CTG",
+    "obstetrics",
+    "escalation",
+    "disagreeing with seniors"
+  ]
+}

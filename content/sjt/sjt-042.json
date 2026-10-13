@@ -1,0 +1,102 @@
+{
+  "id": "sjt-042",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-042",
+  "format": "multiple_choice",
+  "title": "Unwell before the weekend",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Fitness to work",
+    "Communicating absence",
+    "Self-care"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor rostered for a weekend of on-call shifts on the medical wards, starting at 08:00 on Saturday. You wake at 06:00 with a fever of 38.6°C, a severe sore throat and aching muscles. You feel too unwell to work safely.\n\nYou know the rota is already stretched and that there is no cover arranged for your shift.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Phone the on-call manager or rota coordinator as early as possible to say you can't work.",
+      "brief": "Early notice gives the trust the best chance of finding cover.",
+      "detailed": "Telling the right person as soon as you know means a replacement can be found before the shift starts. Following the trust's sickness reporting procedure also makes sure your absence is properly recorded."
+    },
+    {
+      "id": "B",
+      "text": "Go in to work, as there is no cover, and wear a mask.",
+      "brief": "A mask doesn't make you fit to work when you are feverish and unwell.",
+      "detailed": "The rota pressure is real, and this option reflects a strong sense of duty. But you have already judged that you can't work safely. Working while unwell risks errors, and exposing vulnerable patients to infection."
+    },
+    {
+      "id": "C",
+      "text": "Let the medical registrar on call know, so they can plan for being a doctor short.",
+      "brief": "The registrar needs to know who will and won't be on the wards this weekend.",
+      "detailed": "If cover isn't found quickly, the registrar will need to prioritise work differently. A brief message to them, alongside the formal report, helps the team plan and shows you have thought about the effect of your absence."
+    },
+    {
+      "id": "D",
+      "text": "Stay at home and rest until you are well enough to work safely.",
+      "brief": "Working while febrile and unwell risks both your patients and your colleagues.",
+      "detailed": "A fever and muscle aches will affect your concentration and judgement, and an infection could spread to vulnerable patients. Resting, and returning when you are well, is the responsible choice, even when the rota is stretched."
+    },
+    {
+      "id": "E",
+      "text": "Ask a friend on the rota to cover your shift informally, without involving the rota coordinator.",
+      "brief": "Solves today's gap privately, but leaves the official rota wrong.",
+      "detailed": "A colleague might be willing to help, but informal arrangements can leave the rota inaccurate and may breach working-time rules for your friend. Absence and cover should go through the proper channels."
+    },
+    {
+      "id": "F",
+      "text": "Take paracetamol and decide at 08:00 whether you feel well enough to start.",
+      "brief": "Masking a fever doesn't make you fit, and waiting until 08:00 leaves no time to find cover.",
+      "detailed": "Paracetamol may reduce your temperature and make you feel briefly better, which is why this is tempting. But it doesn't change the underlying illness, and leaving the decision until the shift starts makes it much harder for the trust to arrange cover."
+    },
+    {
+      "id": "G",
+      "text": "Text a colleague and ask them to pass on that you're unwell.",
+      "brief": "Relies on someone else to report your absence through the right route.",
+      "detailed": "Your colleague might pass the message on, but it may not reach the right person in time, and it isn't a substitute for reporting your absence yourself."
+    },
+    {
+      "id": "H",
+      "text": "Work the morning, then leave if you feel worse.",
+      "brief": "Starts a shift you've already judged you can't do safely, and may leave the wards short at short notice.",
+      "detailed": "This seems like a compromise, but it exposes patients to your illness, risks errors, and may create a gap later in the day that is even harder to fill."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you put patient safety and honest communication ahead of a sense of duty when you are too unwell to work.",
+    "keyDetails": "You have a fever and feel unwell, and you have already judged that you can't work safely. The rota is stretched and there is no cover. It is two hours before your shift starts.",
+    "reasoning": "[A] reports your absence early through the right route, [C] lets the clinical team plan, and [D] looks after your health and protects patients. The distractors either have you working while unwell ([B], [F], [H]) or handle your absence informally ([E], [G]).",
+    "competing": "Pressure on the rota makes options like [B] and [H] feel responsible. In this paper, coping with pressure includes recognising when you aren't fit to work and handling it properly."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Managing risks posed by your health'."
+    }
+  ],
+  "tags": [
+    "sickness",
+    "fitness to work",
+    "rota",
+    "self-care"
+  ]
+}

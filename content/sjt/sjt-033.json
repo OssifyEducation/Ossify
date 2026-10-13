@@ -1,0 +1,93 @@
+{
+  "id": "sjt-033",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-033",
+  "format": "ranking",
+  "title": "The wrong weight",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Candour",
+    "Medication safety",
+    "Seeking senior advice"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a children's ward. Two hours ago you discharged Amira, 3, after a viral illness, and gave her parents verbal and written advice about giving paracetamol at home.\n\nWhile writing your discharge summary, you realise you calculated the dose from another child's weight on the ward. The dose you advised is higher than recommended for Amira and could be harmful if given regularly over the next day or two. Her parents have a mobile number recorded in the notes.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Post a corrected written advice sheet to the family.",
+      "brief": "Corrects the information, but far too slowly to prevent harm.",
+      "detailed": "A written correction is useful as a follow-up, but it would arrive after the doses that matter have already been given."
+    },
+    {
+      "id": "B",
+      "text": "Explain the error to the family at Amira's follow-up appointment next week.",
+      "brief": "Delays both the correction and the disclosure until after any harm could have occurred.",
+      "detailed": "Waiting a week means Amira could receive repeated doses at the wrong level in the meantime, and the family would be told about the error long after it mattered. It fails on safety and on candour."
+    },
+    {
+      "id": "C",
+      "text": "Phone Amira's parents now to correct the dose and find out how much she has had so far.",
+      "brief": "Stops any further incorrect doses straight away, which is the most urgent step.",
+      "detailed": "The risk comes from repeated doses, so the priority is to reach the family before the next one. Phoning now lets you give the correct dose, explain the error honestly, and find out exactly how much Amira has had, which you'll need to judge whether anything else is required."
+    },
+    {
+      "id": "D",
+      "text": "Tell your registrar what happened and check whether any further action is needed.",
+      "brief": "A senior should know, and may need to advise on the doses already given.",
+      "detailed": "Depending on how much Amira has received, she might need assessment or a blood test, and your registrar can help decide. Telling a senior also means the error is handled openly. It ranks second because the call to the parents is the time-critical step."
+    },
+    {
+      "id": "E",
+      "text": "Complete an incident report about the incorrect dose advice.",
+      "brief": "Important for learning, but it can wait until the child is safe.",
+      "detailed": "Using the wrong child's weight is a classic error, and reporting it helps the ward look at how weights are recorded and checked. It is the right thing to do once the immediate risk is dealt with."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "E",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your response to a medication error you made that could still harm a child: acting quickly to prevent harm, being honest, and involving a senior.",
+    "keyDetails": "The risk is from repeated doses over the next day or two, so time matters. You have the parents' number. The error is yours, and it hasn't been noticed by anyone else.",
+    "reasoning": "[C] prevents further harm and starts honest disclosure, [D] brings in senior advice about doses already given, and [E] supports learning. [A] and [B] are too slow, and [B] also delays telling the family.",
+    "competing": "Some would argue for telling the registrar first. In practice you'd do both within minutes, but phoning the family stops the next dose, which is why it comes first."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Telling patients, or their parents, promptly when something has gone wrong."
+    },
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Giving patients clear and accurate information about their medicines."
+    }
+  ],
+  "tags": [
+    "medication error",
+    "candour",
+    "paediatrics",
+    "discharge"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sjt-027",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-027",
+  "format": "ranking",
+  "title": "Dinner with a drug company",
+  "setting": "Non-clinical (teaching)",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Managing conflicts of interest",
+    "Industry sponsorship",
+    "Organising teaching"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor and organise the weekly teaching programme for the foundation doctors in your hospital. A pharmaceutical representative contacts you offering to host next month's session at an expensive local restaurant.\n\nDinner and drinks would be free, and a cardiology consultant, paid by the company, would give a talk on the management of atrial fibrillation, including the company's new anticoagulant. Several of your colleagues are keen, as attendance at teaching has been poor.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Decline the offer and arrange an independent speaker on atrial fibrillation for the usual teaching slot.",
+      "brief": "Keeps the teaching independent and still covers the topic, though without checking whether any form of support would be allowed.",
+      "detailed": "Declining avoids the conflict of interest entirely, and an independent speaker gives balanced teaching on anticoagulation. It ranks second only because it skips the step of checking policy and seeking advice, which may have identified an acceptable way to work with the company, or simply confirmed this decision."
+    },
+    {
+      "id": "B",
+      "text": "Accept the offer, but make sure everyone knows the session is sponsored and that the speaker is paid by the company.",
+      "brief": "Transparency helps, but a free dinner at an expensive restaurant is still hospitality that could influence prescribing.",
+      "detailed": "Declaring the sponsorship is better than hiding it, and colleagues can weigh the teaching accordingly. But hospitality of this kind is exactly what guidance on conflicts of interest warns against, because it can shape judgement even when people believe it won't. Transparency is necessary but not sufficient."
+    },
+    {
+      "id": "C",
+      "text": "Accept the offer on behalf of the group, as the speaker is a respected consultant.",
+      "brief": "The speaker's reputation doesn't remove the influence of a company-funded dinner and talk.",
+      "detailed": "A respected consultant may well give a careful talk, which is what makes this tempting. But the session would still be funded and framed by a company promoting its own drug, at a venue chosen to attract attendance. Accepting without checking policy or declaring the sponsorship leaves you and your colleagues exposed to undue influence."
+    },
+    {
+      "id": "D",
+      "text": "Accept, and agree to the representative's request to share the attendees' contact details afterwards.",
+      "brief": "Adds a breach of colleagues' personal information to an already problematic arrangement.",
+      "detailed": "Sharing colleagues' contact details with a company without their consent is a data protection problem in its own right, and it turns a teaching session into a marketing opportunity. Of the five options, it creates the most risk for the most people."
+    },
+    {
+      "id": "E",
+      "text": "Check the trust's policy on industry sponsorship, and ask the postgraduate education lead before replying.",
+      "brief": "Establishes the rules and gets senior advice before committing the teaching programme to anything.",
+      "detailed": "Trusts have policies on industry involvement in education, and the postgraduate team will know how sponsored sessions can be run, if at all. Checking first means any decision you make is defensible and transparent. It also protects you from being placed in a position where a company is effectively shaping your colleagues' teaching."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise and manage a conflict of interest when industry offers hospitality tied to education.",
+    "keyDetails": "The offer combines expensive hospitality with a company-paid speaker discussing the company's own drug. You are organising teaching for others, so your decision affects your colleagues too. Low attendance makes the offer attractive, which is the pressure in the scenario.",
+    "reasoning": "[E] checks the rules and seeks advice, and [A] avoids the conflict while still covering the topic. [B], [C] and [D] all accept the offer, with progressively less protection: [B] is transparent, [C] isn't, and [D] adds a breach of personal data.",
+    "competing": "Some would put [A] first, as it is the cleanest outcome. The key ranks checking policy first because it is the step that makes any decision sound, and it may lead to the same result. Near-miss scoring treats the two as adjacent."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Gifts, hospitality and sponsorship, and managing conflicts of interest openly."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Managing conflicts of interest'."
+    }
+  ],
+  "tags": [
+    "conflicts of interest",
+    "pharmaceutical industry",
+    "teaching",
+    "probity"
+  ]
+}

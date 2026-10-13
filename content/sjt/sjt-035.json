@@ -1,0 +1,85 @@
+{
+  "id": "sjt-035",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-035",
+  "format": "ranking",
+  "title": "She's just sleeping",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Breaking bad news",
+    "Compassion",
+    "Supporting relatives"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor working with an out-of-hours GP service. At 23:00 you are sent to the home of Mrs Lewis, 84, who has advanced dementia and is on the practice's palliative care register. Her husband, 88, phoned because she was \"very drowsy\".\n\nWhen you arrive, you find that Mrs Lewis has died, peacefully, some time in the last hour. Mr Lewis is sitting beside her, holding her hand. He tells you she is \"just sleeping\" and asks whether you think she'll be more awake in the morning. He lives alone with her.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Sit with Mr Lewis and gently explain that his wife has died, giving him time and checking what he understands.",
+      "brief": "He is entitled to the truth, told with kindness and at his pace.",
+      "detailed": "Mr Lewis may already sense what has happened, or may genuinely not realise. Sitting down, using clear words such as 'died', and then giving him time to absorb the news is both honest and compassionate. Checking what he understands helps you judge how he is coping and whether he needs more explanation."
+    },
+    {
+      "id": "B",
+      "text": "Avoid telling him until a relative arrives, as he may not cope with the news on his own.",
+      "brief": "Well meant, but it means misleading him about his wife's death for an unknown length of time.",
+      "detailed": "Wanting to protect him from distress is understandable. But he has asked you directly about her, and avoiding the truth means deceiving him, perhaps for hours, about the most important event in his life. It also takes away his chance to say goodbye knowing she has died."
+    },
+    {
+      "id": "C",
+      "text": "Explain that his wife has died, verify the death, and arrange for the district nurse to call in tomorrow morning.",
+      "brief": "Honest and efficient, but it risks leaving him alone with the news overnight.",
+      "detailed": "This covers the essential tasks, including telling him the truth, and a district nurse visit is helpful. But it treats the visit as a set of jobs, and doesn't check whether he has anyone with him tonight. It is the right content without enough care."
+    },
+    {
+      "id": "D",
+      "text": "Ask whether there is a family member or neighbour you can call to come and be with him.",
+      "brief": "He shouldn't be alone tonight, and practical support matters once he knows.",
+      "detailed": "An 88-year-old who has just lost his wife, at night, needs someone with him. Offering to call a relative or neighbour makes sure he has support after you leave. It ranks second because it follows naturally once he has been told."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you break the news of a death to a bereaved spouse who believes she is asleep, balancing honesty with compassion.",
+    "keyDetails": "The death was expected and peaceful. Mr Lewis is elderly, lives alone with her, and has asked you a direct question. It is late at night.",
+    "reasoning": "[A] tells him honestly and kindly, and [D] makes sure he isn't left alone. [C] is honest but practically abandons him, and [B] deceives him to spare him distress.",
+    "competing": "This is a hard question because [C] and [B] each fail in a different way. The key ranks dishonesty last, because Mr Lewis has asked directly and has a right to know, but some argue that leaving him alone is the greater harm. Near-miss scoring reflects that both are poor."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Supporting those close to the patient around the time of death."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating honestly and compassionately."
+    }
+  ],
+  "tags": [
+    "death",
+    "breaking bad news",
+    "out-of-hours",
+    "bereavement"
+  ]
+}

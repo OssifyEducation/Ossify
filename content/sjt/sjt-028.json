@@ -1,0 +1,109 @@
+{
+  "id": "sjt-028",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-028",
+  "format": "multiple_choice",
+  "title": "Whose patient is he?",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Escalation",
+    "Managing interteam conflict"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Mr Ali, 58, has type 1 diabetes and came to the Emergency Department with abdominal pain and vomiting five hours ago. His blood tests suggest diabetic ketoacidosis, but he also has right upper quadrant tenderness.\n\nThe medical registrar thinks the tenderness suggests a surgical cause and that he should be admitted under surgery; your surgical registrar thinks the pain is from the DKA and that he is a medical patient. The ED doctor tells you the two registrars have been arguing on the phone. Mr Ali has had initial fluids, but his insulin infusion hasn't been started while ED waits for an admitting team, and he is getting more drowsy.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the ED doctor that it is a medical problem and that the surgical team won't accept him.",
+      "brief": "Takes sides in the dispute and leaves a deteriorating patient no closer to being treated.",
+      "detailed": "This simply repeats your registrar's position and continues the stand-off. The ED doctor needs a plan for the patient, not a message about which team won't take him."
+    },
+    {
+      "id": "B",
+      "text": "Make sure Mr Ali's insulin infusion and DKA treatment start now, whichever team takes him.",
+      "brief": "He is deteriorating, and the dispute about ownership must not delay treatment that both teams agree he needs.",
+      "detailed": "Both registrars agree he has DKA; they disagree only about who should look after him. Increasing drowsiness in DKA is a warning sign, and fluid and insulin treatment shouldn't wait for an argument to be settled. Working with the ED team to start the trust protocol is the most important thing you can do."
+    },
+    {
+      "id": "C",
+      "text": "Accept Mr Ali under the surgical team to end the argument, even though your registrar disagrees.",
+      "brief": "Pragmatic, but you would be accepting a patient against your registrar's decision without resolving the clinical question.",
+      "detailed": "Ending the stand-off has obvious appeal, and someone does need to take responsibility. But accepting him against your registrar's view, without any agreement, may cause confusion about who is making decisions. It is better to make sure treatment starts and that the seniors settle ownership quickly."
+    },
+    {
+      "id": "D",
+      "text": "Ask your registrar to agree a plan with the medical registrar, involving consultants if needed.",
+      "brief": "The disagreement needs resolving at the right level, quickly, rather than continuing by phone.",
+      "detailed": "Disputes about which team takes a patient are common and are best settled by the seniors involved, escalating to consultants if necessary. Telling your registrar that treatment has been delayed adds urgency. It also makes clear that the patient, not the argument, is the priority."
+    },
+    {
+      "id": "E",
+      "text": "Wait for the medical team to finish their assessment before seeing him yourself.",
+      "brief": "More waiting for a patient whose treatment is already delayed.",
+      "detailed": "Waiting for another team adds to the delay that is already harming him. Seeing him yourself, and making sure treatment begins, is more important than the order in which teams assess him."
+    },
+    {
+      "id": "F",
+      "text": "Explain to Mr Ali that the teams are discussing who should look after him, so he understands the delay.",
+      "brief": "Honesty about delays is good, but this doesn't get his treatment started and may worry him.",
+      "detailed": "Patients deserve to know why they are waiting, and you might well explain this at some point. But telling a drowsy patient about an argument between teams does nothing for his DKA, and may reduce his confidence in his care."
+    },
+    {
+      "id": "G",
+      "text": "Make sure the notes record which team is responsible for Mr Ali until the decision is made.",
+      "brief": "A patient without a named team falls through the gaps; clarity protects him in the meantime.",
+      "detailed": "While teams argue, nobody may be reviewing results or responding to deterioration. A clear note of who is responsible for now, agreed with the ED team, means someone is accountable for his care, even if that changes later."
+    },
+    {
+      "id": "H",
+      "text": "Complete an incident report about the delay before doing anything else.",
+      "brief": "Reporting is appropriate later, but not before the patient's treatment is under way.",
+      "detailed": "A five-hour delay in starting DKA treatment because of a dispute between teams is worth reporting so that the hospital can improve how these situations are handled. But it is not the first priority while the patient is getting worse."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep the patient at the centre when teams are in conflict, getting care started and making sure the disagreement is resolved at the right level.",
+    "keyDetails": "Mr Ali has DKA, which both registrars accept, and is becoming more drowsy. Treatment hasn't started after five hours. The dispute is only about which team he belongs to.",
+    "reasoning": "[B] deals with the immediate danger, [D] gets the dispute resolved by people with the authority to resolve it, and [G] makes sure someone is accountable in the meantime. The distractors either continue the dispute ([A]), short-circuit it in a way that creates new confusion ([C]), delay care ([E], [H]), or address the patient's understanding instead of his treatment ([F]).",
+    "competing": "[C] is the strongest distractor, because someone does need to take ownership. The difference is that accepting him against your registrar's decision settles nothing clinically, whereas starting treatment and escalating does."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Responding to safety risks'; working with colleagues in patients' interests."
+    },
+    {
+      "title": "Leadership and management for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/leadership-and-management-for-all-doctors",
+      "note": "Resolving disagreements between teams so that patient care isn't compromised."
+    }
+  ],
+  "tags": [
+    "interteam conflict",
+    "DKA",
+    "surgery",
+    "patient safety"
+  ]
+}

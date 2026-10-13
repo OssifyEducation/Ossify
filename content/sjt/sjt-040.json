@@ -1,0 +1,102 @@
+{
+  "id": "sjt-040",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-040",
+  "format": "multiple_choice",
+  "title": "Just follow the protocol",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Recognising limits",
+    "Using protocols",
+    "Seeking supervision"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the Emergency Department. Aisha, 19, has type 1 diabetes and has diabetic ketoacidosis. She is alert and her observations are stable.\n\nYour registrar is leading a trauma call in resus and asks you to manage Aisha, saying, \"Just follow the DKA protocol, it's all there.\" You have never managed DKA before, although you have seen it done. The department is very busy.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Wait until the registrar is free before starting any treatment.",
+      "brief": "Delaying treatment in DKA can cause harm, and the protocol exists to avoid exactly this.",
+      "detailed": "Waiting might feel safer when you are unfamiliar with a condition. But DKA worsens without treatment, and the registrar may be in resus for some time. A stable patient on a clear protocol, with supervision arranged, should not wait."
+    },
+    {
+      "id": "B",
+      "text": "Start treatment using the trust's DKA protocol, which is written for junior doctors to follow.",
+      "brief": "Protocol-driven treatment of a stable patient is within an F2's competence, with supervision.",
+      "detailed": "DKA protocols set out fluids, insulin and monitoring step by step, precisely so that doctors who don't manage DKA often can treat it safely. Aisha is stable, so starting treatment now, carefully following the protocol, is appropriate and avoids a harmful delay."
+    },
+    {
+      "id": "C",
+      "text": "Decline to see Aisha, explaining that DKA is beyond your competence.",
+      "brief": "Overstates the limits of your competence and leaves her without a doctor.",
+      "detailed": "Recognising your limits is important, but treating a stable patient with a clear protocol and supervision isn't beyond an F2. Refusing leaves Aisha untreated in a busy department and doesn't reflect the support that is available."
+    },
+    {
+      "id": "D",
+      "text": "Ask Aisha how her DKA has usually been managed in previous admissions.",
+      "brief": "Her experience may be useful, but it isn't a basis for planning treatment.",
+      "detailed": "Patients with recurrent DKA often know a lot about their condition, and listening to her is good practice. But her recollection isn't a substitute for the protocol or for senior oversight."
+    },
+    {
+      "id": "E",
+      "text": "Ask the on-call medical registrar to take over Aisha's care, as medical teams usually manage DKA.",
+      "brief": "Moves responsibility elsewhere when your own registrar has asked you to manage her.",
+      "detailed": "In some hospitals the medical team takes over patients with DKA early, and a referral may well be appropriate in due course. But asking them to take over immediately, because you are unfamiliar with DKA, bypasses your own registrar's plan and may delay treatment."
+    },
+    {
+      "id": "F",
+      "text": "Tell your registrar you haven't managed DKA before, and agree when they will review her.",
+      "brief": "Being open about your experience means your supervisor can plan their oversight.",
+      "detailed": "Your registrar may assume you've done this before. Saying clearly that you haven't, and agreeing a time for them to check on Aisha or for you to update them, makes the supervision explicit. This is how doctors safely extend their competence."
+    },
+    {
+      "id": "G",
+      "text": "Manage Aisha using the protocol, and report back to the registrar once she is stable.",
+      "brief": "Treats her, but leaves your registrar unaware that you haven't done this before.",
+      "detailed": "Following the protocol is right, which makes this option tempting. But not telling your registrar that this is your first time means they may not check on you as closely as they should. Being open about your experience is part of working safely."
+    },
+    {
+      "id": "H",
+      "text": "Ask an experienced ED nurse to work with you to set up the fluids and insulin infusion.",
+      "brief": "Experienced nurses often know the protocol well and can help you avoid errors.",
+      "detailed": "ED nurses frequently manage DKA infusions and can help you check calculations, set up the infusion correctly, and monitor glucose and ketones. Working with them is both safe and a good way to learn."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests the line between recognising your limits and refusing work that is within your competence with appropriate support.",
+    "keyDetails": "Aisha is stable. There is a clear protocol. You have seen DKA managed but never done it yourself. Your registrar is busy but present in the department.",
+    "reasoning": "[B] starts treatment, [F] makes your supervision explicit, and [H] uses the expertise around you. The distractors either delay or refuse care ([A], [C]), lean on the patient or another team instead of the plan ([D], [E]), or hide your inexperience ([G]).",
+    "competing": "This is hard because [G] is almost right; the only difference from the key is telling your registrar that you haven't done this before. That difference is exactly what safe supervision depends on."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, 'Being competent': working within your competence and seeking help when you need it."
+    }
+  ],
+  "tags": [
+    "limits of competence",
+    "DKA",
+    "emergency department",
+    "supervision"
+  ]
+}

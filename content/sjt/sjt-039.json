@@ -1,0 +1,100 @@
+{
+  "id": "sjt-039",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-039",
+  "format": "ranking",
+  "title": "Codeine from the cupboard",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Challenging colleagues",
+    "Medicines safety",
+    "Supporting colleagues"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Late on a busy shift, you see Jack, an F1 on your team, take two codeine tablets from the ward stock cupboard and swallow them.\n\nWhen he notices you, he laughs and says, \"Splitting headache, I'll replace them tomorrow.\" He has seemed tired and short-tempered over the past few weeks, and you've noticed him looking for painkillers before.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Let it go, as codeine for a headache seems harmless enough.",
+      "brief": "Overlooks both the misuse of ward medicines and a pattern that may indicate a problem.",
+      "detailed": "A single dose of codeine is unlikely to harm Jack, but the issue isn't the dose. Taking ward stock is a probity concern, and repeated use of opioid painkillers, alongside changes in mood, may indicate a dependence that needs support. Letting it go helps no one."
+    },
+    {
+      "id": "B",
+      "text": "Suggest Jack keeps his own painkillers in his bag in future, rather than using the ward's stock.",
+      "brief": "Treats it as a minor practical issue and ignores the warning signs.",
+      "detailed": "Advising him not to take ward stock is right in itself, which is why this is tempting. But it treats a possible sign of a deeper problem as a matter of convenience, and does nothing about the pattern you've observed."
+    },
+    {
+      "id": "C",
+      "text": "Complete an incident report about the medicines taken from ward stock.",
+      "brief": "Appropriate in principle, but on its own it doesn't support Jack or address the pattern.",
+      "detailed": "Medicines going missing from stock should be recorded, and the ward may need to reconcile its stock. But an incident report alone, without speaking to Jack or a senior, may not reach the people who can help him."
+    },
+    {
+      "id": "D",
+      "text": "Let Jack's clinical supervisor or your registrar know what you have seen.",
+      "brief": "A senior needs to know, especially given the pattern you've noticed.",
+      "detailed": "One episode might be dealt with between colleagues, but you've seen him looking for painkillers before. A senior can make sure he is supported, for example through occupational health, and that any risk to patients is managed. It ranks second because speaking to Jack first gives him the chance to explain and seek help himself."
+    },
+    {
+      "id": "E",
+      "text": "Speak to Jack privately, explain that taking ward stock isn't acceptable, and ask how he is.",
+      "brief": "Addresses the behaviour directly and kindly, and opens a conversation about his wellbeing.",
+      "detailed": "Taking medicines from ward stock is not acceptable, whatever the reason, and Jack needs to hear that. But the pattern you've noticed, tiredness, irritability and repeatedly looking for painkillers, suggests something more may be going on. A private conversation that is both clear and caring is more likely to lead to him getting help than one that is purely disciplinary."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "C",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your response to a colleague misusing ward medicines, where the behaviour may signal a health problem as well as a probity one.",
+    "keyDetails": "Jack has taken codeine from ward stock, and it isn't the first time he's looked for painkillers. He has seemed tired and irritable. He treats it lightly.",
+    "reasoning": "[E] challenges the behaviour and opens a supportive conversation, and [D] brings in a senior given the pattern. [C] records it but may not help Jack. [B] and [A] treat it as trivial, with [A] doing nothing at all.",
+    "competing": "Some would go to the supervisor first, especially given the pattern. The key starts with Jack because a private, caring conversation often makes it easier for a colleague to accept help, and you would inform a senior anyway."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Acting when a colleague's health or conduct may put patients at risk, with support where possible."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues; Domain 4, acting with honesty and integrity."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors with health problems, including substance misuse."
+    }
+  ],
+  "tags": [
+    "colleague health",
+    "medicines misuse",
+    "surgery",
+    "probity"
+  ]
+}

@@ -45,6 +45,7 @@ and `content/sjt-blueprint.csv` (what each question is meant to test).
   Let the weakness be implicit in the action, as it would be in real life ("Work through the list yourself over lunch").
 - Every option must be judgeable on its own: no "If [another option] fails, …" and no "X, or Y" choices inside one option.
 - In choose-3 items, at least three of the five distractors should be actions a reasonable F2 might genuinely choose.
+- Prefer distractors that are reasonable-but-weaker (wrong timing, wrong person, incomplete) over ones that are plainly unethical; at most one plainly unprofessional option per question.
 
 ## 4. Explanations (the Ossify standard)
 For every option:
