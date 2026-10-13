@@ -21,6 +21,7 @@
 
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function rich(s) { return esc(s).replace(/\[([A-H])\]/g, '<strong class="optref">$1</strong>'); }
   function paras(s) { return String(s || "").split(/\n\s*\n/).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join(""); }
   function announce(msg) { var a = $("announcer"); if (a) { a.textContent = ""; setTimeout(function () { a.textContent = msg; }, 30); } }
   function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); } catch (e) {} }
@@ -288,9 +289,9 @@
     }
 
     var ex = q.explanation;
-    h += '<div class="ex-sec"><div class="ex-hd">The judgement being tested</div><p>' + esc(ex.issue) + "</p></div>" +
-      '<div class="ex-sec"><div class="ex-hd">What matters in the scenario</div><p>' + esc(ex.keyDetails) + "</p></div>" +
-      '<div class="ex-sec"><div class="ex-hd">' + (isRank ? "Why the key is ordered this way" : "Why these three") + "</div><p>" + esc(ex.reasoning) + "</p>" + (ex.competing ? "<p>" + esc(ex.competing) + "</p>" : "") + "</div>";
+    h += '<div class="ex-sec"><div class="ex-hd">The judgement being tested</div><p>' + rich(ex.issue) + "</p></div>" +
+      '<div class="ex-sec"><div class="ex-hd">What matters in the scenario</div><p>' + rich(ex.keyDetails) + "</p></div>" +
+      '<div class="ex-sec"><div class="ex-hd">' + (isRank ? "Why the key is ordered this way" : "Why these three") + "</div><p>" + rich(ex.reasoning) + "</p>" + (ex.competing ? "<p>" + rich(ex.competing) + "</p>" : "") + "</div>";
 
     var order = isRank ? q.key.order : q.options.map(function (o) { return o.id; });
     h += '<div class="ex-sec"><div class="ex-hd">Option by option</div>' + order.map(function (id) {
@@ -299,8 +300,8 @@
       var you = isRank ? " · you ranked it " + (r.response.indexOf(id) + 1) : (r.response.indexOf(id) >= 0 ? " · you chose it" : "");
       var tagCls = isRank ? "na" : (q.key.correct.indexOf(id) >= 0 ? "ok" : "na");
       return '<div class="oe"><span class="oe-ltr">' + id + '</span><div class="oe-body"><div class="oe-head"><span class="oe-text">' + esc(o.text) + '</span><span class="pill ' + tagCls + '">' + tag + you + "</span></div>" +
-        '<div class="oe-brief" id="b-' + q.id + "-" + id + '">' + esc(o.brief) + "</div>" +
-        '<div class="oe-detail" id="d-' + q.id + "-" + id + '" hidden>' + esc(o.detailed) + "</div>" +
+        '<div class="oe-brief" id="b-' + q.id + "-" + id + '">' + rich(o.brief) + "</div>" +
+        '<div class="oe-detail" id="d-' + q.id + "-" + id + '" hidden>' + rich(o.detailed) + "</div>" +
         '<button type="button" class="det-toggle" data-detail="' + q.id + "-" + id + '" aria-expanded="false">Detailed explanation</button></div></div>';
     }).join("") + "</div>";
 

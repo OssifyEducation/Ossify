@@ -1,0 +1,207 @@
+{
+  "_about": "Approved sources for SJT explanations. Every question reference must use a URL from this list (checked by scripts/build-sjt.js). Each was verified to resolve on 13 October 2026; titles and dates are as published.",
+  "gmp": {
+    "title": "Good medical practice",
+    "publisher": "General Medical Council",
+    "year": 2024,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice"
+  },
+  "candour": {
+    "title": "Openness and honesty when things go wrong: the professional duty of candour",
+    "publisher": "General Medical Council and Nursing and Midwifery Council",
+    "year": 2022,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong"
+  },
+  "consent": {
+    "title": "Decision making and consent",
+    "publisher": "General Medical Council",
+    "year": 2020,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent"
+  },
+  "confidentiality": {
+    "title": "Confidentiality: good practice in handling patient information",
+    "publisher": "General Medical Council",
+    "year": 2017,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality"
+  },
+  "concerns": {
+    "title": "Raising and acting on concerns about patient safety",
+    "publisher": "General Medical Council",
+    "year": 2012,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns"
+  },
+  "boundaries": {
+    "title": "Maintaining personal and professional boundaries",
+    "publisher": "General Medical Council",
+    "year": 2024,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries"
+  },
+  "leadership": {
+    "title": "Leadership and management for all doctors",
+    "publisher": "General Medical Council",
+    "year": 2012,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/leadership-and-management-for-all-doctors"
+  },
+  "children": {
+    "title": "Protecting children and young people: the responsibilities of all doctors",
+    "publisher": "General Medical Council",
+    "year": 2012,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people"
+  },
+  "eol": {
+    "title": "Treatment and care towards the end of life: good practice in decision making",
+    "publisher": "General Medical Council",
+    "year": 2010,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life"
+  },
+  "prescribing": {
+    "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+    "publisher": "General Medical Council",
+    "year": 2021,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices"
+  },
+  "coi": {
+    "title": "Identifying and managing conflicts of interest",
+    "publisher": "General Medical Council",
+    "year": 2024,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest"
+  },
+  "beliefs": {
+    "title": "Personal beliefs and medical practice",
+    "publisher": "General Medical Council",
+    "year": 2013,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice"
+  },
+  "u18": {
+    "title": "0–18 years: guidance for all doctors",
+    "publisher": "General Medical Council",
+    "year": 2007,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years"
+  },
+  "chaperones": {
+    "title": "Intimate examinations and chaperones",
+    "publisher": "General Medical Council",
+    "year": 2024,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/intimate-examinations-and-chaperones"
+  },
+  "socialmedia": {
+    "title": "Using social media as a medical professional",
+    "publisher": "General Medical Council",
+    "year": 2024,
+    "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/using-social-media-as-a-medical-professional/using-social-media-as-a-medical-professional"
+  },
+  "mca1": {
+    "title": "Mental Capacity Act 2005, section 1 (the principles)",
+    "publisher": "UK Parliament (legislation.gov.uk)",
+    "year": 2005,
+    "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1"
+  },
+  "mca4": {
+    "title": "Mental Capacity Act 2005, section 4 (best interests)",
+    "publisher": "UK Parliament (legislation.gov.uk)",
+    "year": 2005,
+    "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4"
+  },
+  "mha5": {
+    "title": "Mental Health Act 1983, section 5 (application in respect of patient already in hospital)",
+    "publisher": "UK Parliament (legislation.gov.uk)",
+    "year": 1983,
+    "url": "https://www.legislation.gov.uk/ukpga/1983/20/section/5"
+  },
+  "careact42": {
+    "title": "Care Act 2014, section 42 (enquiry by local authority)",
+    "publisher": "UK Parliament (legislation.gov.uk)",
+    "year": 2014,
+    "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/42"
+  },
+  "equality": {
+    "title": "Equality Act 2010",
+    "publisher": "UK Parliament (legislation.gov.uk)",
+    "year": 2010,
+    "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents"
+  },
+  "candourlaw": {
+    "title": "Health and Social Care Act 2008 (Regulated Activities) Regulations 2014, regulation 20 (duty of candour)",
+    "publisher": "UK Parliament (legislation.gov.uk)",
+    "year": 2014,
+    "url": "https://www.legislation.gov.uk/uksi/2014/2936/regulation/20"
+  },
+  "workingtogether": {
+    "title": "Working together to safeguard children",
+    "publisher": "Department for Education (GOV.UK)",
+    "year": 2023,
+    "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2"
+  },
+  "dvla": {
+    "title": "Assessing fitness to drive: a guide for medical professionals",
+    "publisher": "Driver and Vehicle Licensing Agency (GOV.UK)",
+    "year": null,
+    "url": "https://www.gov.uk/government/publications/assessing-fitness-to-drive-a-guide-for-medical-professionals"
+  },
+  "fgm": {
+    "title": "Mandatory reporting of female genital mutilation: procedural information",
+    "publisher": "Home Office (GOV.UK)",
+    "year": null,
+    "url": "https://www.gov.uk/government/publications/mandatory-reporting-of-female-genital-mutilation-procedural-information"
+  },
+  "ftsu": {
+    "title": "Freedom to Speak Up",
+    "publisher": "NHS England",
+    "year": null,
+    "url": "https://www.england.nhs.uk/ourwork/freedom-to-speak-up/"
+  },
+  "psirf": {
+    "title": "Patient Safety Incident Response Framework",
+    "publisher": "NHS England",
+    "year": 2022,
+    "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/"
+  },
+  "news2": {
+    "title": "National Early Warning Score (NEWS) 2",
+    "publisher": "Royal College of Physicians",
+    "year": 2017,
+    "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/"
+  },
+  "sepsis": {
+    "title": "Suspected sepsis: recognition, diagnosis and early management (NG51)",
+    "publisher": "National Institute for Health and Care Excellence",
+    "year": 2024,
+    "url": "https://www.nice.org.uk/guidance/ng51"
+  },
+  "ng108": {
+    "title": "Decision-making and mental capacity (NG108)",
+    "publisher": "National Institute for Health and Care Excellence",
+    "year": 2018,
+    "url": "https://www.nice.org.uk/guidance/ng108"
+  },
+  "respect": {
+    "title": "ReSPECT: Recommended Summary Plan for Emergency Care and Treatment",
+    "publisher": "Resuscitation Council UK",
+    "year": null,
+    "url": "https://www.resus.org.uk/respect"
+  },
+  "practitionerhealth": {
+    "title": "NHS Practitioner Health",
+    "publisher": "NHS Practitioner Health",
+    "year": null,
+    "url": "https://www.practitionerhealth.nhs.uk/"
+  },
+  "nmccode": {
+    "title": "The Code: professional standards of practice and behaviour for nurses, midwives and nursing associates",
+    "publisher": "Nursing and Midwifery Council",
+    "year": 2018,
+    "url": "https://www.nmc.org.uk/standards/code/"
+  },
+  "ng225": {
+    "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+    "publisher": "National Institute for Health and Care Excellence",
+    "year": 2022,
+    "url": "https://www.nice.org.uk/guidance/ng225"
+  },
+  "ng222": {
+    "title": "Depression in adults: treatment and management (NG222)",
+    "publisher": "National Institute for Health and Care Excellence",
+    "year": 2022,
+    "url": "https://www.nice.org.uk/guidance/ng222"
+  }
+}

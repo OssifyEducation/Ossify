@@ -1,0 +1,117 @@
+{
+  "id": "sjt-018",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-018",
+  "format": "multiple_choice",
+  "title": "He handles my money now",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Safeguarding adults",
+    "Sensitive enquiry",
+    "Working with the safeguarding lead"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Mrs Kowalski, 82, attends with her son because she has lost weight. She has no known cognitive impairment.\n\nHer son answers most of your questions. He mentions that he \"handles her money now\" and keeps her bank card. Mrs Kowalski looks at him before answering anything, and when he is on his phone she says quietly that she often has \"nothing left for food by the end of the month\". When you glance at her, she shakes her head slightly, as if asking you not to pursue it.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Find a way to see Mrs Kowalski on her own, for example during the examination.",
+      "brief": "She cannot speak freely with her son present, and seeing patients alone is routine and unremarkable.",
+      "detailed": "Many practices see older patients alone for part of a consultation, so asking her son to step out for an examination draws little attention. It gives Mrs Kowalski a safe opportunity to say more, and you can then judge what she wants and whether she is at risk. Without this, everything else depends on information filtered through her son."
+    },
+    {
+      "id": "B",
+      "text": "Tell her son that you are concerned he may be taking his mother's money.",
+      "brief": "Confronting him could put Mrs Kowalski at greater risk and close off further disclosure.",
+      "detailed": "You don't yet know what is happening, and confronting the son on suspicion alone may lead him to restrict her contact with the practice or retaliate against her. Concerns about possible abuse are best explored with the person at risk and through safeguarding processes, not by challenging the suspected perpetrator directly."
+    },
+    {
+      "id": "C",
+      "text": "Ask her gently, when you are alone, how things are at home, including money and whether she feels safe.",
+      "brief": "Open, sensitive questions let her tell her story on her own terms.",
+      "detailed": "Financial abuse often comes with other forms of control. Asking open questions about her daily life, her money and whether she feels safe, without suggesting answers or criticising her son, makes disclosure easier. Her answers will also help you understand whether her weight loss has a social cause rather than, or as well as, a medical one."
+    },
+    {
+      "id": "D",
+      "text": "Respect her signal not to pursue it, and focus the consultation on her weight loss alone.",
+      "brief": "Her wishes matter, but you can't respect them properly until you have given her a safe chance to express them.",
+      "detailed": "A shake of the head in front of her son is not a considered decision. She may be frightened, embarrassed, or protecting him. Respecting autonomy means giving her the chance to speak freely, and then taking her wishes seriously, not dropping the subject because she cannot raise it safely in front of him."
+    },
+    {
+      "id": "E",
+      "text": "Discuss your concerns with the practice safeguarding lead and agree whether to refer to adult social care.",
+      "brief": "Safeguarding decisions shouldn't rest on one F2's judgement, and the lead knows the local process.",
+      "detailed": "Possible financial abuse of an older adult is a safeguarding concern. The practice lead can help you decide whether to refer to the local authority, which has a duty to make enquiries, and how to involve Mrs Kowalski in that decision. If she has capacity and declines, there may still be grounds to share information if she or others are at serious risk; the lead can help you weigh that."
+    },
+    {
+      "id": "F",
+      "text": "Phone the police to report suspected financial abuse.",
+      "brief": "There's no immediate danger, and going straight to the police skips her views and the safeguarding route.",
+      "detailed": "The police have a role in serious crime, and financial abuse can be a crime. But nothing suggests immediate danger, and you don't yet know what Mrs Kowalski wants. The safeguarding process, through the practice lead and the local authority, is the proportionate first route."
+    },
+    {
+      "id": "G",
+      "text": "Ask her son to bring in her bank statements at her next appointment.",
+      "brief": "Alerts him to your concern and relies on him to provide evidence about himself.",
+      "detailed": "This is an attempt to gather facts, but it puts the person who may be controlling her money in charge of the evidence, and signals your suspicion. It may lead him to change how he presents things or to limit her contact with the practice."
+    },
+    {
+      "id": "H",
+      "text": "Tell her that you will have to report this to social services, whether or not she agrees to that happening.",
+      "brief": "Overstates your duty and may stop her talking to you; adults with capacity are usually involved in the decision.",
+      "detailed": "For an adult with capacity, safeguarding referrals are normally made with her knowledge and, where possible, her consent. There are exceptions, for example where others are at risk or the harm is serious, but announcing a referral as inevitable at this stage is likely to frighten her and close down the conversation."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your response to possible financial abuse of an older adult: creating a safe space for her to speak, and using safeguarding processes rather than acting alone.",
+    "keyDetails": "Her son controls her money and her answers. She drops a hint about running out of money for food and then signals you to leave it, which she can't safely say otherwise. She has no known cognitive impairment, so her views will matter a great deal.",
+    "reasoning": "[A] and [C] give her a safe opportunity to tell you what is happening, and [E] brings in the right expertise to decide what to do next. The distractors either confront the son ([B], [G]), drop the concern ([D]), escalate disproportionately ([F]), or misrepresent her rights ([H]).",
+    "competing": "[D] is tempting because it seems to respect her wishes. The point is that she hasn't yet had a safe chance to express them. Once she has, and if she has capacity and declines help, her wishes carry great weight, unless she or others face serious harm."
+  },
+  "references": [
+    {
+      "title": "Care Act 2014, section 42 (enquiry by local authority)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2014,
+      "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/42",
+      "note": "The local authority's duty to make enquiries where an adult may be experiencing abuse, including financial abuse."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information to protect patients from serious harm, and involving them where possible."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, protecting patients who may be vulnerable."
+    }
+  ],
+  "tags": [
+    "safeguarding adults",
+    "financial abuse",
+    "general practice",
+    "older people"
+  ]
+}

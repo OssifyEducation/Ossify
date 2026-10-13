@@ -1,0 +1,78 @@
+{
+  "id": "sjt-025",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-025",
+  "format": "ranking",
+  "title": "A major incident after nights",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Fatigue and safety",
+    "Major incident response",
+    "Communicating availability"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. At 08:30 you are walking to your car after finishing a run of three night shifts. You have been awake for 15 hours.\n\nYour phone receives a text from the hospital: a major incident has been declared after a coach crash, and off-duty staff who are available should contact the Emergency Department's staff coordination point.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Phone the coordination point, explain you have just finished nights, and ask how you can be most useful.",
+      "brief": "Lets the people running the response decide how to use you, with full knowledge of your state.",
+      "detailed": "Major incident plans depend on staff contacting the coordination point rather than turning up unannounced. Telling them you have just finished nights allows them to make a sensible choice: they may need you for a non-clinical role now, or, more often, they will want you to rest so that you can staff a later shift. Either way, you have offered help responsibly."
+    },
+    {
+      "id": "B",
+      "text": "Go home without responding to the message, as you are off duty after nights.",
+      "brief": "Being off duty is legitimate, but not responding at all leaves the department unaware of who may be available.",
+      "detailed": "You are not obliged to work after a run of nights, and resting is reasonable. But the department is trying to plan staffing for the hours and days ahead, and a quick response saying you could help later would be useful information. This ranks above the final option because it doesn't put patients at risk."
+    },
+    {
+      "id": "C",
+      "text": "Return straight to the Emergency Department and start seeing patients.",
+      "brief": "Well meant, but working exhausted and outside the coordinated response puts patients at risk.",
+      "detailed": "The instinct to help is admirable. But arriving without checking in bypasses the coordination that major incidents depend on, and after 15 hours awake your capacity for safe decision-making is reduced. Fatigue-related errors in a chaotic situation can harm patients, which is why this ranks last."
+    },
+    {
+      "id": "D",
+      "text": "Go home to sleep, and text the department that you can come in for a later shift if needed.",
+      "brief": "Prioritises safety and offers help later, though without checking what the department actually needs now.",
+      "detailed": "After three nights, and 15 hours awake, your judgement is likely to be impaired, and resting so you can return later is often exactly what departments want. This ranks second because it decides on your behalf what the response needs, without speaking to the coordination point."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to an emergency call for help in a way that is useful to the response and safe for patients, given your own fatigue.",
+    "keyDetails": "You have just finished three nights and have been awake for 15 hours. The message asks available staff to contact a coordination point, not to come in. Major incidents often need staff over the following days, not just in the first few hours.",
+    "reasoning": "[A] offers help through the right channel, with honest information about your state. [D] makes a sensible choice to rest but without checking the department's needs. [B] rests but fails to communicate. [C] turns up exhausted and uncoordinated, which is the least safe option.",
+    "competing": "Some candidates rank [C] above [B], reasoning that helping beats not helping. The key reflects that in a major incident, uncoordinated arrivals of tired staff can add to the risk rather than reduce it."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Managing risks posed by your health', including fatigue; Domain 2, 'Helping in emergencies'."
+    }
+  ],
+  "tags": [
+    "major incident",
+    "fatigue",
+    "emergency department",
+    "teamwork"
+  ]
+}

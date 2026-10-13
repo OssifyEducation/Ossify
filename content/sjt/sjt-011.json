@@ -1,0 +1,93 @@
+{
+  "id": "sjt-011",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-011",
+  "format": "ranking",
+  "title": "Will I need an operation?",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Recognising limits",
+    "Honest communication",
+    "Managing uncertainty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an orthopaedic ward. Mrs Clarke, 71, was admitted this afternoon after a fall, with a fracture of her right shoulder. Her CT scan has been reported as showing a displaced three-part fracture of the proximal humerus. Whether to operate will be decided by the consultant at tomorrow morning's trauma meeting.\n\nOn the evening ward round, Mrs Clarke tells you she has been looking at her scan report on the patient app. She is anxious and asks, \"Does this mean I need an operation? I need to know whether to cancel my granddaughter's wedding next month.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her that because the fracture is displaced, she will probably need an operation to fix it.",
+      "brief": "Gives a prediction you are not in a position to make, which may turn out to be wrong.",
+      "detailed": "Displaced proximal humerus fractures in older patients are often managed without surgery, depending on many factors the consultant will weigh. A confident prediction from you might lead her to cancel plans unnecessarily, or leave her feeling misled if the plan changes. It is a well-meant answer that goes beyond your competence."
+    },
+    {
+      "id": "B",
+      "text": "Tell her that you are not able to discuss her scan, and that she will need to wait for the consultant.",
+      "brief": "Avoids overstepping, but withholds information she is entitled to and leaves her anxious overnight.",
+      "detailed": "You are right not to predict the treatment decision, which is what makes this tempting. But refusing to discuss a report she has already read leaves her alone with frightening terminology for a whole night. You can explain what the scan shows without deciding what will be done about it."
+    },
+    {
+      "id": "C",
+      "text": "Ask the on-call registrar whether he could talk her through the likely options this evening.",
+      "brief": "A reasonable step if he is free, though the decision will still not be made until tomorrow.",
+      "detailed": "The registrar can talk about likely options with more authority than you, which might ease her anxiety tonight. It ranks second because the on-call registrar may be busy with emergencies, and even he can't give a definite answer before the trauma meeting. It is a good supplement to an honest explanation, not a substitute for one."
+    },
+    {
+      "id": "D",
+      "text": "Reassure her that operations are rarely done at her age, so she shouldn't worry about the wedding.",
+      "brief": "Speculative, possibly wrong, and makes an assumption about treatment based on her age.",
+      "detailed": "This combines the problems of the previous option with an unfounded generalisation. Age alone does not decide whether a fracture is fixed; her function, bone quality and wishes all matter. False reassurance may lead to greater distress tomorrow, and suggesting age rules out an option is a poor basis for any treatment discussion."
+    },
+    {
+      "id": "E",
+      "text": "Explain the scan in plain terms, say the consultant will discuss treatment tomorrow, and note her questions.",
+      "brief": "Honest about what is known and what isn't, and makes sure her concerns reach the person who will decide.",
+      "detailed": "Mrs Clarke is entitled to understand her own report, and explaining it in plain terms reduces the fear that technical language often creates. Being clear that the treatment decision rests with the consultant, who will see her tomorrow, sets an honest expectation. Writing down her questions, including the wedding, makes sure they are answered rather than lost between shifts."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "B",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you can be honest and helpful with an anxious patient while staying within the limits of what you know and what you are entitled to decide.",
+    "keyDetails": "Mrs Clarke has already read her report, so withholding it achieves little. The treatment decision is genuinely undecided and belongs to the consultant tomorrow. She has a specific, practical concern (the wedding), which tells you what matters to her.",
+    "reasoning": "[E] is honest and makes sure her concerns are taken forward. [C] adds senior input but cannot settle the question tonight. [B] avoids overstepping but leaves her without help. [A] and [D] both predict a decision you can't make, and [D] adds an unfounded assumption about age.",
+    "competing": "Some would put [C] first, reasoning that a registrar's view is worth more than yours. It may be, if he is free, but he can't decide either, and an honest explanation is needed whoever gives it. The ordering of [B] and [A] turns on which harm is worse: a night of uncertainty, or a confident prediction that may prove wrong."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, 'Being competent': recognising and working within the limits of your competence."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Sharing information in a way patients can understand, and being honest about uncertainty."
+    }
+  ],
+  "tags": [
+    "limits of competence",
+    "communication",
+    "orthopaedics",
+    "uncertainty"
+  ]
+}

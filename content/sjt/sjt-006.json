@@ -1,0 +1,116 @@
+{
+  "id": "sjt-006",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-006",
+  "format": "multiple_choice",
+  "title": "A scan result in the corridor",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Breaking bad news",
+    "Confidentiality",
+    "Seeking senior support"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Daniel, 24, came in with three weeks of worsening headaches and vomiting. His CT head has just been reported as showing a large mass with surrounding swelling, likely to be a tumour. Your registrar has referred him to the neurosurgical team, who will review him within the next couple of hours. Daniel knows he has had a scan but has not yet been told the result.\n\nAs you leave the cubicle area, his mother arrives and stops you in the corridor. She is breathless from rushing and asks, \"What have they found? Please just tell me.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain to his mother that you need to speak with Daniel first, and that you will ask him whether he would like her there.",
+      "brief": "Daniel is an adult with capacity, so the result is his to hear first, and this response respects that without shutting his mother out.",
+      "detailed": "However frightened she is, his mother has no right to Daniel's information ahead of him, and telling her in a corridor would take away his chance to decide who hears what. Most patients in Daniel's position want family with them, so offering to ask him is likely to bring her into the room within minutes. Saying this warmly, and explaining why, usually defuses the immediate pressure far better than a flat refusal."
+    },
+    {
+      "id": "B",
+      "text": "Tell his mother quietly that the scan has shown a growth, so she can prepare herself before seeing him.",
+      "brief": "Well meant, but it discloses an adult's diagnosis to a relative without his consent, before he has heard it himself.",
+      "detailed": "The impulse is kind, because it spares the mother a shock at the bedside. But Daniel is 24 and entitled to hear his own diagnosis first and to decide who else is told. If he later learns his mother knew before he did, it may damage his trust in the team and complicate his relationship with her at a very difficult time."
+    },
+    {
+      "id": "C",
+      "text": "Tell Daniel that his scan needs a specialist to look at it, and that the neurosurgeons will explain more when they arrive.",
+      "brief": "Not a lie, but it holds back a result he is entitled to and will very likely ask about directly.",
+      "detailed": "There is sense in letting the specialist team give details about treatment, but Daniel is waiting anxiously and the key finding is already known. If he asks what the scan showed and receives a vague answer, he may later feel misled. It is better to explain the main finding now, with appropriate support, and leave the detailed treatment discussion to neurosurgery."
+    },
+    {
+      "id": "D",
+      "text": "Ask your registrar to join you when Daniel is told the result.",
+      "brief": "A suspected brain tumour is a conversation that should be led or supported by someone senior, and it needs a plan.",
+      "detailed": "Daniel will ask questions you may not be able to answer, about surgery, prognosis or what the next hours hold, and a registrar can answer more of them and coordinate with neurosurgery. Planning it together also avoids the common failure in a busy department, where everyone assumes someone else has done it. This is not passing the task on: it makes sure the conversation happens well and soon."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse looking after Daniel to tell him the result while you go and see your next patient.",
+      "brief": "Delegates a significant and difficult conversation to someone who did not order the scan and may not be able to answer his questions.",
+      "detailed": "Nurses are often skilled at difficult conversations, but this one belongs to the medical team, who know the clinical picture and the plan with neurosurgery. Handing it over because the department is busy risks the news being delivered without the information Daniel will want, and puts the nurse in an unfair position."
+    },
+    {
+      "id": "F",
+      "text": "Find a quiet room, check what Daniel already understands, and explain honestly what the scan shows and what happens next.",
+      "brief": "Daniel needs to hear the result honestly, in private, at a pace that suits him, and with a clear account of the next steps.",
+      "detailed": "Starting from what he already knows or fears lets you pitch the conversation correctly. Being honest that the scan shows a mass that is probably a tumour, while being clear about what is not yet known, respects him and avoids false reassurance that would unravel within hours. A concrete plan (who he will see next, when, and what they will do) gives him something to hold on to."
+    },
+    {
+      "id": "G",
+      "text": "Give his mother a leaflet about brain tumours to read while she waits to see Daniel.",
+      "brief": "Discloses the likely diagnosis indirectly, and does so before Daniel himself knows.",
+      "detailed": "Handing over a leaflet amounts to telling her the diagnosis, just without saying it. It has the same confidentiality problem as telling her outright, and it leaves her to digest frightening and possibly irrelevant information on her own in a corridor."
+    },
+    {
+      "id": "H",
+      "text": "Ask his mother to wait in the relatives' room until the neurosurgeons have seen Daniel, and tell Daniel nothing until then either.",
+      "brief": "Delays both conversations for hours and leaves two anxious people without information that is already known.",
+      "detailed": "Putting everything on hold until the specialists arrive feels safe, but it leaves Daniel lying in a cubicle with his anxiety and his mother cut off from him. The neurosurgical review may take longer than expected, and the core result does not depend on it. Delaying in this way also fails to respond to what Daniel himself might want."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle serious news when a relative is pressing for information before the patient has heard it, and whether you can be both honest and kind under that pressure.",
+    "keyDetails": "Daniel is 24 and has capacity, so the information is his. He has not yet been told. The finding is serious but the full picture is uncertain until neurosurgery review. His mother is distressed and physically in front of you, which is exactly what makes a corridor disclosure tempting.",
+    "reasoning": "The three keyed actions together make sure Daniel hears the news first ([A]), from the right people ([D]), and in the right way ([F]). His mother is not ignored: offering to ask Daniel whether he wants her there is the quickest route to her being with him. The distractors either breach his confidentiality ([B], [G]), delay or blur the truth ([C], [H]), or hand the task to someone who should not be carrying it ([E]).",
+    "competing": "Some candidates feel [C] is the safer choice because the specialists will know more. The core finding is already established, though, and Daniel is waiting. Telling him honestly now, with the detailed treatment discussion left to neurosurgery, is kinder than leaving him to guess."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with those close to the patient: with consent, and respecting the patient's wishes."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Sharing information patients want or need, honestly and at their pace."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, 'Patients, partnership and communication'."
+    }
+  ],
+  "tags": [
+    "breaking bad news",
+    "confidentiality",
+    "relatives",
+    "emergency department"
+  ]
+}

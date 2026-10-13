@@ -1,0 +1,100 @@
+{
+  "id": "sjt-004",
+  "version": 2,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "format": "multiple_choice",
+  "title": "Comments in recovery",
+  "setting": "Day-surgery unit",
+  "attribute": "Professional integrity",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Challenging unprofessional behaviour",
+    "Supporting colleagues",
+    "Using appropriate channels"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. For the past three weeks, on the Tuesday day-case list, you have heard Mr Reid, a specialty doctor in your team, make sarcastic remarks to Ella, a newly qualified recovery nurse, about how \"slow\" she is. Today he did so in front of two patients who were waiting to go home.\n\nLater, you find Ella in the staff room. She looks upset. Mr Reid is generally well regarded and has been supportive of you during your placement.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Speak to Mr Reid privately, explaining what you have observed and how his comments are coming across.",
+      "brief": "A calm, private conversation is often the most effective and proportionate first challenge, even with a senior colleague.",
+      "detailed": "Many people who behave like this have not recognised the effect on others, particularly in front of patients. Raising it one to one, by describing specific behaviour rather than labelling him, gives Mr Reid the chance to change without loss of face. It takes some courage as an F2, and his support for you makes it harder, not less necessary. If the conversation feels unsafe or does not help, the next step is [H]."
+    },
+    {
+      "id": "B",
+      "text": "Tell Mr Reid in front of the recovery team that his comments are unacceptable.",
+      "brief": "Right sentiment, wrong setting: a public confrontation is likely to escalate things and may make life harder for Ella.",
+      "detailed": "Challenging the behaviour is correct, but doing it publicly turns a professional concern into a confrontation. It invites a defensive reaction, embarrasses Ella further by making her the centre of a dispute, and risks a scene in a clinical area where patients are recovering. The same message delivered privately ([A]) is far more likely to work."
+    },
+    {
+      "id": "C",
+      "text": "Suggest to Ella that she tries to work a little faster so that Mr Reid has less reason to comment.",
+      "brief": "Places the responsibility on the person being belittled rather than on the behaviour.",
+      "detailed": "This may be meant as practical advice, but it implies that Mr Reid's remarks are a fair response to her pace. Nothing in the stem suggests Ella's work is unsafe, and even if it were, sarcasm in front of patients is not an acceptable way to address it. Advice like this tends to make people less likely to report poor behaviour in future."
+    },
+    {
+      "id": "D",
+      "text": "Post in the junior doctors' group chat to ask whether anyone else has noticed Mr Reid's behaviour.",
+      "brief": "An informal, written and widely shared discussion of a named colleague is unprofessional and unfair to him.",
+      "detailed": "Wanting to know whether others have seen the same thing is understandable, but a group chat is not a confidential or fair place to raise it. Messages can be forwarded, they cannot be withdrawn, and they give Mr Reid no chance to respond. If corroboration matters, the consultant ([H]) is the person to gather it."
+    },
+    {
+      "id": "E",
+      "text": "Ask Ella how she is and listen to how she feels about what has been happening.",
+      "brief": "She is visibly upset, and checking on her is both kind and the first step in finding out what she wants to happen.",
+      "detailed": "Ella is newly qualified and is unlikely to feel able to challenge a doctor herself. A private, supportive conversation acknowledges what you have seen, tells her she is not imagining it, and lets you understand whether this has been happening beyond the Tuesday list. It also means anything you do next takes her wishes into account rather than acting over her head."
+    },
+    {
+      "id": "F",
+      "text": "Email the medical director with a description of Mr Reid's behaviour.",
+      "brief": "A serious formal step that skips the local, proportionate routes and the people best placed to act.",
+      "detailed": "The medical director may eventually need to know if the behaviour persists or is part of a wider problem, so this is not a wrong instinct in principle. As a first response, though, it bypasses the clinical lead, gives neither Mr Reid nor his consultant the chance to put things right, and may not be what Ella wants. Proportionate escalation starts locally."
+    },
+    {
+      "id": "G",
+      "text": "Leave it, as Mr Reid has been supportive to you and Ella has not asked for help.",
+      "brief": "Personal loyalty is not a reason to ignore repeated undermining of a colleague, and Ella's silence is unsurprising.",
+      "detailed": "Junior staff rarely ask for help with the behaviour of senior doctors, so her not asking tells you little. The GMC expects doctors to treat colleagues with kindness, courtesy and respect, and to help create a working environment where poor behaviour is challenged. Mr Reid's kindness towards you is real, and the question is testing whether you let it override that expectation."
+    },
+    {
+      "id": "H",
+      "text": "Let the consultant who leads the day-case list know about the pattern you have observed.",
+      "brief": "The behaviour is repeated and has now happened in front of patients, so the senior responsible for the team should be aware.",
+      "detailed": "A single throwaway remark might be dealt with informally, but three weeks of repeated comments, now witnessed by patients, is a pattern that the clinical lead needs to know about. Telling the consultant uses the normal line of accountability, protects Ella if it continues, and does not depend on you alone being able to change Mr Reid's behaviour. Together with [E] and [A], it fully addresses the situation."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "The question is whether, and how, you challenge repeated undermining behaviour by a senior colleague towards someone more junior, when that colleague has been good to you.",
+    "keyDetails": "Three details tip the balance towards acting: the behaviour is repeated over three weeks, it has now happened in front of patients, and Ella is newly qualified. Mr Reid's support for you is the pressure the scenario introduces, and it is not a reason to stay silent.",
+    "reasoning": "The three keyed answers each cover a different side of the problem: support for the person affected ([E]), a direct and proportionate challenge to the person responsible ([A]), and making sure the senior accountable for the team knows ([H]). The distractors fail in recognisable ways. [B] challenges in the wrong setting, [C] blames the target, [G] ignores the issue, [D] gossips, and [F] escalates out of proportion.",
+    "competing": "Some candidates feel an F2 should not challenge a specialty doctor directly and would replace [A] with something else. The GMC's expectations of how colleagues treat each other apply regardless of grade, and a private, factual conversation is the least confrontational way to meet them. If you did not feel safe doing it, going straight to the consultant would be reasonable, and the scenario allows for that."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Treating colleagues with kindness, courtesy and respect' and 'Contributing to a positive working and training environment'."
+    }
+  ],
+  "tags": [
+    "teamwork",
+    "respect",
+    "undermining",
+    "raising concerns"
+  ]
+}

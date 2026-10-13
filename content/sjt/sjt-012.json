@@ -1,0 +1,116 @@
+{
+  "id": "sjt-012",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-012",
+  "format": "multiple_choice",
+  "title": "Home or a care home?",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Mental capacity",
+    "Patient-centred decision making",
+    "Managing family conflict"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Adeyemi, 84, has mild cognitive impairment and is recovering from a hip fracture. The therapists think she would need carers four times a day to be safe at home.\n\nHer daughter wants her to move into a care home near the daughter's house. Her son insists she goes home with carers, as she \"always said she'd never go into a home\". The two argue loudly at the bedside, and the daughter turns to you and says, \"Just tell him she can't manage at home.\" Mrs Adeyemi's capacity to decide where to live has not been formally assessed.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange for Mrs Adeyemi's capacity to decide where she lives to be assessed, giving her the support she needs to take part.",
+      "brief": "The whole decision turns on whether she can make it herself, and nobody has yet checked.",
+      "detailed": "Mild cognitive impairment does not mean she lacks capacity, and the law starts from a presumption that she has it. An assessment specific to this decision, with practicable steps taken to help her understand the options, settles who decides. If she has capacity, the choice is hers, even if it seems risky to others. If she doesn't, the decision must be made in her best interests, taking account of her known wishes."
+    },
+    {
+      "id": "B",
+      "text": "Tell the son that the therapists' assessment means his mother can't safely go home.",
+      "brief": "Takes sides and presents a recommendation as if it were a decision.",
+      "detailed": "The therapists have described what support she would need, not ruled out going home; carers four times a day is a package many people live with. Telling the son otherwise takes his sister's side and pre-empts both Mrs Adeyemi's view and a proper assessment. It is likely to escalate the conflict rather than settle it."
+    },
+    {
+      "id": "C",
+      "text": "Find out whether either child holds a lasting power of attorney for health and welfare, and follow that child's view.",
+      "brief": "A sensible question, but an attorney's role only arises if she lacks capacity, and even then it is about her best interests.",
+      "detailed": "This is the hard distractor. Knowing about any lasting power of attorney is useful, and you would ask. But an attorney for health and welfare can act only if Mrs Adeyemi lacks capacity for this decision, which has not been established, and even then must act in her best interests, not on their own preferences. 'Following that child's view' skips both steps."
+    },
+    {
+      "id": "D",
+      "text": "Record that the family disagree and wait for them to agree before planning discharge.",
+      "brief": "Leaves the decision to two people who don't decide it, and leaves Mrs Adeyemi in hospital meanwhile.",
+      "detailed": "Documenting the disagreement is fine, but waiting for the children to agree treats it as their decision when it is Mrs Adeyemi's, or failing that, a best-interests decision made with her at the centre. It risks a long and harmful hospital stay while nothing moves forward."
+    },
+    {
+      "id": "E",
+      "text": "Speak with Mrs Adeyemi on her own to find out what she wants and what matters most to her.",
+      "brief": "Her voice has been missing from an argument about her own future.",
+      "detailed": "With her children arguing over her, Mrs Adeyemi may not feel able to say what she wants. A calm conversation alone gives her the space to do so, and her views matter whatever the outcome of a capacity assessment: they are central to any best-interests decision too. It may also reveal practical concerns, about loneliness or about stairs, that change the options."
+    },
+    {
+      "id": "F",
+      "text": "Ask both children to leave the ward until they can discuss the matter calmly.",
+      "brief": "May be needed if the argument continues, but it doesn't address the decision itself.",
+      "detailed": "If the argument is upsetting Mrs Adeyemi or other patients, asking the family to step away briefly is reasonable. As a response to the underlying problem, though, it does nothing: the question of where she lives and who decides remains, and excluding both children alienates people whose support she will need."
+    },
+    {
+      "id": "G",
+      "text": "Suggest a meeting with Mrs Adeyemi, the team and, if she agrees, both children, to discuss the options.",
+      "brief": "Brings the conflict into a structured setting where the facts and her wishes can be heard.",
+      "detailed": "A planned meeting with the therapists and discharge coordinator lets everyone hear the same information about what support at home would look like. If Mrs Adeyemi has capacity, it supports her decision; if she lacks it, it is the natural forum for a best-interests discussion. It moves the argument away from the bedside and gives both children a fair hearing."
+    },
+    {
+      "id": "H",
+      "text": "Go along with the daughter's view, as she lives nearby and will be most involved in her care.",
+      "brief": "Practical considerations matter, but they don't give the daughter the right to decide.",
+      "detailed": "The daughter's proximity is relevant to the practicalities of either plan, and her concern is genuine. But neither child decides where their mother lives. Siding with one because of convenience bypasses Mrs Adeyemi's own wishes and the legal framework for making the decision."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you can keep a patient at the centre of a decision about her own future when her family are in conflict, and whether you apply the principles of mental capacity correctly under pressure.",
+    "keyDetails": "The decisive fact is that her capacity for this decision has not been assessed. She has mild impairment, not established incapacity. The therapists have described a care need, not a verdict. And the daughter is asking you to settle an argument that isn't yours, or hers, to settle.",
+    "reasoning": "[A] establishes who decides, [E] brings Mrs Adeyemi's own views into the open, and [G] provides a fair setting for the decision, whichever route it takes. The distractors all hand the decision to someone else, whether a sibling ([B], [H]), an attorney without the legal basis to act ([C]), or nobody at all ([D]), or deal with the noise rather than the problem ([F]).",
+    "competing": "[C] is where many candidates go wrong. Checking for a lasting power of attorney is sensible, but an attorney's authority depends on her lacking capacity, and even then they must act in her best interests. If the capacity assessment found she lacked capacity and an attorney existed, the attorney's involvement would become central, but only within that framework."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "The presumption of capacity; an unwise decision is not proof of incapacity; practicable steps to support decision making."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Best-interests decisions, including the person's past and present wishes."
+    },
+    {
+      "title": "Decision-making and mental capacity (NG108)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2018,
+      "url": "https://www.nice.org.uk/guidance/ng108",
+      "note": "Supporting people to make their own decisions and involving families appropriately."
+    }
+  ],
+  "tags": [
+    "capacity",
+    "discharge planning",
+    "family conflict",
+    "older people"
+  ]
+}

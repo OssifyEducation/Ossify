@@ -1,0 +1,91 @@
+{
+  "id": "sjt-001",
+  "version": 2,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "format": "ranking",
+  "title": "A missed antiepileptic",
+  "setting": "Respiratory ward",
+  "attribute": "Professional integrity",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Openness and candour",
+    "Patient safety",
+    "Seeking senior advice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a respiratory ward. Mr Okafor, 46, was admitted yesterday evening with community-acquired pneumonia, and you clerked him. He has epilepsy, well controlled on levetiracetam twice daily.\n\nReviewing his drug chart on the morning ward round, you realise you did not prescribe his levetiracetam when you clerked him. He has missed last night's and this morning's doses. He has not had a seizure and is sitting up chatting to his wife. The nurse looking after him has not noticed the omission.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Complete an incident report describing the omission.",
+      "brief": "The right thing to do, but it protects future patients rather than this one, so it sits below the actions that help Mr Okafor directly.",
+      "detailed": "Missed critical medicines at the point of admission are a recurring safety problem, and reporting them is how a ward or trust spots patterns, such as the clerking template not prompting medicines reconciliation. Filing a report is not an admission of incompetence and should not be avoided out of embarrassment. On its own, though, it does nothing for Mr Okafor's seizure risk or his right to know, which is why it ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Prescribe the levetiracetam now and carry on with the ward round, as he has come to no harm.",
+      "brief": "A deliberate decision to conceal your own error, resting on the false premise that the risk has passed.",
+      "detailed": "Prescribing the drug is correct, which is what makes this option tempting. The problem is the choice to stay silent. 'No harm' is not established: the risk from the missed doses persists, and no one with seniority has reviewed whether he needs extra cover. Concealment also removes the chance for the team to learn from the omission. Choosing silence to protect yourself is a breach of the honesty expected of every doctor, which is why this ranks last even though it reaches the same prescription as [C]."
+    },
+    {
+      "id": "C",
+      "text": "Prescribe the levetiracetam now and ask your registrar whether any additional dose is needed to cover the missed doses.",
+      "brief": "Deals with the ongoing clinical risk first and brings in senior judgement on the one decision you should not make alone.",
+      "detailed": "Every hour without levetiracetam lowers Mr Okafor's seizure threshold, and he is already unwell with pneumonia, which can provoke seizures on its own. Restarting the drug is the single action that protects him, and whether to give an extra dose to catch up is a pharmacological judgement worth checking with your registrar (and, if needed, the ward pharmacist) rather than guessing. It also means a senior now knows about the error, which makes everything else easier to do properly."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse to give a dose now from ward stock, and prescribe it retrospectively once the busy ward round has finished.",
+      "brief": "Gets the drug into the patient quickly, but asks a colleague to administer without a prescription and leaves the error undisclosed and unreviewed.",
+      "detailed": "This is the pressured shortcut: it feels efficient on a busy ward round and does reduce the seizure risk. But it asks the nurse to give a medicine outside the prescribing process, which exposes her professionally and creates a misleading record. It also skips the senior check on dosing in [C] and the disclosure in [E]. Because it at least addresses the clinical risk and is not designed to hide anything, it ranks above [B]."
+    },
+    {
+      "id": "E",
+      "text": "Explain to Mr Okafor that his levetiracetam was missed, apologise and tell him what is being done about it.",
+      "brief": "Prompt, honest disclosure is expected when an error could still cause harm, and here it plainly could.",
+      "detailed": "The GMC's candour guidance asks you to speak to the patient as soon as possible after you realise something has gone wrong, and to explain what happened and what is being done. The same guidance accepts that patients may not need to know about an incident that has not caused and will not cause harm. That exception does not fit here: two missed doses of an antiepileptic leave a real risk over the next day or so, and Mr Okafor needs to know so that he and his wife can recognise warning signs and report them. It ranks just below [C] only because restarting the drug cannot wait for the conversation; in practice you would do both within minutes."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "A",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "The judgement here is how to respond to your own mistake: fixing the clinical risk, being honest with the patient, and making sure the error is reviewed, in an order that keeps Mr Okafor safe.",
+    "keyDetails": "Three details carry the scenario. The drug is an antiepileptic, so the omission carries a risk that persists after the missed doses. The error is yours and nobody else has noticed, so whether anyone finds out depends entirely on you. And he is well at the moment, which is exactly what makes keeping quiet tempting.",
+    "reasoning": "[C] comes first because it removes the danger and gets senior input on the catch-up dose. [E] follows immediately: the candour duty applies because harm remains possible, and Mr Okafor needs the information to keep himself safe. [A] is important for the system but does not help him today. [D] and [B] both restart the drug, so the difference between them lies in honesty: [D] is a procedural shortcut that sidelines a colleague, while [B] is a choice to conceal.",
+    "competing": "It is reasonable to ask whether telling Mr Okafor will alarm him unnecessarily; the GMC itself says patients may not need to know about genuine no-harm incidents. The answer turns on whether harm is still possible, and with an antiepileptic it is. If you are unsure in a similar case, discuss disclosure with a senior rather than deciding to stay silent."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Speaking to patients as soon as possible; near misses and no-harm incidents; reporting errors."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, 'Being open if things go wrong'; Domain 3, 'Responding to safety risks'."
+    }
+  ],
+  "tags": [
+    "candour",
+    "medication error",
+    "prescribing",
+    "epilepsy"
+  ]
+}

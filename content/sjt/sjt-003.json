@@ -1,0 +1,97 @@
+{
+  "id": "sjt-003",
+  "version": 2,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "format": "ranking",
+  "title": "\"Just talk to me\"",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Patient-centred communication",
+    "Respecting autonomy",
+    "Working with relatives"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP surgery. Mr Thompson, 79, has come for a review of his blood pressure medication. His daughter drove him to the appointment and has come into the room with him.\n\nEach time you ask Mr Thompson a question, his daughter answers for him. When you ask about side effects, she says, \"He gets muddled, it's easier if you just talk to me.\" There is no record of cognitive impairment in his notes. Mr Thompson looks at you, sighs, and says quietly that the new tablet makes him \"a bit dizzy when I get up in the morning\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Mr Thompson whether he would like to speak with you on his own for part of the appointment.",
+      "brief": "A routine and respectful offer that gives him space to raise things he may not say in front of his daughter.",
+      "detailed": "Offering some time alone is good practice with older patients who attend with family, and it can surface concerns about mood, independence or the family relationship itself. It ranks below [D] because it is a step further: doing it immediately, before you have tried simply re-centring the conversation, can feel pointed to the daughter. If Mr Thompson keeps deferring to her, or seems uneasy, this becomes the right next move."
+    },
+    {
+      "id": "B",
+      "text": "Reassure Mr Thompson that dizziness is common when starting blood pressure tablets and usually settles with time.",
+      "brief": "You are talking to him, but you are closing down the one symptom he has volunteered, and it may matter.",
+      "detailed": "Dizziness on standing in a 79-year-old who has recently started an antihypertensive suggests postural hypotension, and that brings a real risk of falls. It deserves a focused history and a lying and standing blood pressure, not reassurance. The option is tempting because it is kind in tone and does involve the patient directly, but it treats his contribution as something to soothe rather than something to act on."
+    },
+    {
+      "id": "C",
+      "text": "Address your questions to the daughter, as she seems to know his medication routine well.",
+      "brief": "Excludes a patient who has shown he can speak for himself, on the strength of an unsupported claim that he is muddled.",
+      "detailed": "It is the path of least resistance and, in the short term, may even produce a tidier medication history. But it accepts the daughter's view of her father's cognition without assessment, and it overrides his autonomy in a decision about his own treatment. It also means his report of dizziness is likely to be lost. Of all the options, this one moves furthest from treating him as the person you are there to see."
+    },
+    {
+      "id": "D",
+      "text": "Keep directing your questions to Mr Thompson, thanking his daughter and inviting her to add anything he misses.",
+      "brief": "Keeps the consultation with the patient while treating the daughter as an ally rather than an obstacle.",
+      "detailed": "Nothing in the notes suggests Mr Thompson lacks capacity, and he has just answered a question perfectly clearly. Under the Mental Capacity Act you start from a presumption of capacity, so the consultation should be with him. Doing this warmly, by acknowledging the daughter's support and giving her a defined role, avoids embarrassing either of them and usually changes the dynamic without anyone having to say so."
+    },
+    {
+      "id": "E",
+      "text": "Tell the daughter that her father has the right to answer for himself and ask her to let him speak.",
+      "brief": "The principle is right but the delivery is likely to humiliate the daughter and make the rest of the appointment harder.",
+      "detailed": "Mr Thompson does have that right, and if gentler approaches fail, a clear statement may be needed. As an opening move, though, it puts the daughter on the defensive in front of her father, and she is probably the person who helps him with his tablets every day. Losing her cooperation makes any change to his medication harder to put into practice. It still keeps the focus on the patient, which is why it ranks above [B] and [C]."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "E",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "The issue is how to keep an older patient at the centre of his own consultation when a well-meaning relative is speaking over him, without alienating the relative.",
+    "keyDetails": "Mr Thompson has no recorded cognitive impairment and has just described a specific, plausible side effect in his own words. The daughter is clearly involved in his care. Both facts matter: the first tells you whose consultation this is, and the second tells you why you want to keep her on side.",
+    "reasoning": "[D] is the best response because it achieves the goal, putting the patient back at the centre, at no cost to the relationship. [A] is a sensible escalation of the same aim. [E] is right in principle but likely to backfire. [B] and [C] are the weakest because each, in a different way, lets his own account fall away: [B] by dismissing his symptom and [C] by not listening to him at all.",
+    "competing": "The ordering of [E] and [B] is the closest call. [E] risks the relationship but keeps the patient's voice in the room; [B] keeps the relationship but discards what he said. Near-miss scoring means swapping them still earns most of the available marks, and the explanation above is the reason the key puts [E] first. If you had genuine concerns about his cognition, the right step would be to assess it, not to defer to the daughter."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "A person must be assumed to have capacity unless it is established that they lack it."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent"
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, 'Patients, partnership and communication'."
+    }
+  ],
+  "tags": [
+    "communication",
+    "autonomy",
+    "older people",
+    "relatives",
+    "general practice"
+  ]
+}

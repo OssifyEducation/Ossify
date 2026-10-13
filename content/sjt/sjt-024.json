@@ -1,0 +1,116 @@
+{
+  "id": "sjt-024",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-024",
+  "format": "multiple_choice",
+  "title": "Better off without me",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Suicide risk enquiry",
+    "Safety planning",
+    "Seeking supervision"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Liam, 26, booked a routine appointment about poor sleep. He tells you he lost his job two months ago, is behind on his rent and has stopped seeing his friends.\n\nTowards the end of the ten-minute appointment, looking at the floor, he says, \"Sometimes I think everyone would be better off without me.\" You are already running 20 minutes late and the waiting room is full.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Liam directly whether he is having thoughts of ending his life, and whether he has made any plans.",
+      "brief": "His comment needs a direct, unflinching question; asking about suicide doesn't put the idea there.",
+      "detailed": "A remark like Liam's can be a cautious way of testing whether it is safe to say more. Asking directly and calmly whether he has thought about ending his life, whether he has made plans, and whether he has taken any steps tells you how urgent his situation is. It also tells him that you have heard him and can talk about it."
+    },
+    {
+      "id": "B",
+      "text": "Agree a safety plan with him, including who he can contact and what to do if he feels worse.",
+      "brief": "Gives him concrete steps and contacts to use if things get worse before you see him again.",
+      "detailed": "A safety plan, worked out with Liam, identifies his warning signs, things that help, people he can turn to, and crisis contacts such as a helpline, NHS 111 or emergency services. It is something he takes away and can use, which matters more than any reassurance you could offer in the time left."
+    },
+    {
+      "id": "C",
+      "text": "Reassure Liam that losing a job is a common reason to feel low, and that the feelings usually pass.",
+      "brief": "Normalising may sound kind, but it skips past what he has just told you.",
+      "detailed": "Job loss is a common trigger for low mood, but Liam has just told you something that may indicate suicidal thoughts. Responding with general reassurance tells him that you haven't really heard him, and may make him less likely to say more."
+    },
+    {
+      "id": "D",
+      "text": "Prescribe an antidepressant and ask him to come back in a month.",
+      "brief": "Treatment may be appropriate later, but it doesn't address the immediate risk.",
+      "detailed": "Medication may have a role once his symptoms have been assessed properly, but prescribing at the end of a rushed appointment without exploring his suicidal thoughts leaves the most important question unanswered. A month is also a long time to wait for review in this situation."
+    },
+    {
+      "id": "E",
+      "text": "Avoid asking him about suicide, in case raising it puts the idea in his head.",
+      "brief": "A common worry, but asking directly does not increase risk and not asking may miss it.",
+      "detailed": "This fear is widespread, which is why the option is tempting. In practice, asking clearly and compassionately about suicidal thoughts is how clinicians find out about risk, and patients often feel relieved to be asked. Avoiding the question leaves Liam's risk unknown."
+    },
+    {
+      "id": "F",
+      "text": "Arrange to see him again within a few days, and discuss the consultation with your GP supervisor today.",
+      "brief": "Early follow-up and senior input are needed for a patient with possible suicidal thoughts.",
+      "detailed": "You shouldn't carry an assessment like this alone. Your supervisor can help you judge the level of risk and whether he needs urgent mental health input. Arranging to see him soon keeps him connected to care and means his situation is reviewed before it can deteriorate unnoticed."
+    },
+    {
+      "id": "G",
+      "text": "Give him the number of a debt advice charity and end the consultation, as you are already running very late.",
+      "brief": "Practical help with his debts is useful, but not as a substitute for addressing what he has just said.",
+      "detailed": "Financial pressures are clearly contributing to how Liam feels, and debt advice could genuinely help. But ending the consultation now, after what he has just said, puts your timetable ahead of a potentially serious risk. The extra minutes needed are justified."
+    },
+    {
+      "id": "H",
+      "text": "Tell Liam you will need to let his family know how he is feeling.",
+      "brief": "Breaches his confidentiality without his agreement, and without any assessment of whether that is needed.",
+      "detailed": "Involving family can be helpful, and in some circumstances may be justified without consent to protect someone from serious harm. But you don't yet know his level of risk, and announcing it at this stage removes his control and may make him less willing to talk. Ask him whether he would like someone involved."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a possible disclosure of suicidal thoughts under time pressure, and whether you prioritise assessing and responding to risk.",
+    "keyDetails": "Liam's comment is indirect but significant, and it comes with recent job loss, financial strain and social withdrawal. The appointment was booked for something else, and you are running late, which is the pressure in the scenario.",
+    "reasoning": "[A] assesses the risk, [B] gives him a plan to keep himself safe, and [F] makes sure he is followed up and that you have senior support. The distractors either fail to engage with what he said ([C], [E], [G]), treat the problem without understanding the risk ([D]), or breach his confidentiality ([H]).",
+    "competing": "Running late is a real pressure in general practice, and [G] reflects a genuine attempt to help. But a disclosure like Liam's justifies the extra time, and colleagues will understand."
+  },
+  "references": [
+    {
+      "title": "Depression in adults: treatment and management (NG222)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng222",
+      "note": "Assessing risk, including suicidal ideation, in adults with depression."
+    },
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Safety planning and follow-up for people at risk of self-harm."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to patients' needs and concerns."
+    }
+  ],
+  "tags": [
+    "mental health",
+    "suicide risk",
+    "general practice",
+    "time pressure"
+  ]
+}

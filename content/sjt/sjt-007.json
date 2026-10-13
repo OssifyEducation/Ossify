@@ -1,0 +1,93 @@
+{
+  "id": "sjt-007",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-007",
+  "format": "ranking",
+  "title": "A drain that isn't there",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Accurate records",
+    "Raising concerns with colleagues",
+    "Patient safety"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in general surgery. Yesterday you assisted your registrar, Mr Bhatt, with an emergency laparoscopic appendicectomy on Mrs Ellis, 52. No drain was inserted.\n\nReviewing Mrs Ellis on this morning's ward round, you notice that Mr Bhatt's operation note says that a drain was placed in the pelvis. The nursing chart has a column for drain output, which reads \"nil\" for the last two entries. Mrs Ellis is recovering well. Mr Bhatt is in clinic for the rest of the morning but can be reached by bleep.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the nurse looking after Mrs Ellis that no drain was inserted, so she doesn't rely on the note or the drain chart.",
+      "brief": "A sensible interim safety step, though it leaves the inaccurate operation note in place.",
+      "detailed": "A nurse who believes there is a drain may chart 'nil' output and later worry it is blocked, or escalate when she cannot find it. Telling her directly removes that risk straight away. It ranks second because it deals with today's confusion but not the record itself, which other clinicians will read for the rest of Mrs Ellis's care."
+    },
+    {
+      "id": "B",
+      "text": "Edit the operation note on the electronic record yourself to remove the reference to the drain.",
+      "brief": "Altering another clinician's entry, even to correct it, undermines the integrity of the record.",
+      "detailed": "This is the most damaging option, despite the good intention. Medical records must show who wrote what and when; changing a colleague's entry, rather than adding your own dated note, erases that trail and could look like tampering if the record is ever reviewed. Correct entries are made by addition, never by editing someone else's words."
+    },
+    {
+      "id": "C",
+      "text": "Leave the note as it is, as Mr Bhatt is the senior surgeon and may know something you don't.",
+      "brief": "You were in theatre and saw what happened, so deferring to seniority here leaves a known inaccuracy in the record.",
+      "detailed": "Respecting seniority is reasonable when you are genuinely unsure, but you assisted at the operation and know no drain was placed. An uncorrected operation note can mislead the ward team and anyone who later reviews Mrs Ellis's care. Staying quiet also denies Mr Bhatt the chance to fix a mistake he would almost certainly want to know about."
+    },
+    {
+      "id": "D",
+      "text": "Bleep Mr Bhatt to point out that the operation note mentions a drain that wasn't inserted, and ask him to correct it.",
+      "brief": "Raises the discrepancy directly with the person who wrote the note, who can correct it properly.",
+      "detailed": "The most likely explanation is a template or memory slip, and Mr Bhatt is the right person to correct his own note with a dated addendum. Bleeping him is quick, respectful, and gets the record fixed at its source. It also avoids the confusion that follows when two doctors' entries contradict each other with no explanation."
+    },
+    {
+      "id": "E",
+      "text": "Complete an incident report about the inaccurate operation note without speaking to Mr Bhatt.",
+      "brief": "Reporting has value, but going straight to a formal report for what is probably a simple slip is a disproportionate first step.",
+      "detailed": "Incident reports help organisations spot patterns, for example a theatre template that pre-fills drains. Filing one is not wrong in itself. Doing it without first giving Mr Bhatt the chance to correct a likely error, though, is heavy-handed, and it leaves the note uncorrected in the meantime. It still ranks above the options that leave the error unaddressed or make it worse."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "E",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests what you do when you know a senior colleague's documentation is wrong, and whether you correct a record in a way that keeps patients safe and keeps the record trustworthy.",
+    "keyDetails": "You assisted at the operation, so you are certain no drain was placed. The error is in an operation note, which other teams rely on. Mrs Ellis is well, so there is no emergency, and Mr Bhatt is reachable, which makes speaking to him first practical.",
+    "reasoning": "[D] fixes the problem at its source and is quick to do. [A] protects Mrs Ellis while the note is corrected. [E] has some merit as a reporting step but skips the obvious conversation. [C] and [B] both leave the record compromised: [C] by passive acceptance, and [B], worse, by altering a colleague's entry.",
+    "competing": "Some would rank [A] first because it addresses the ward risk immediately. That is reasonable, and near-miss scoring treats the two as adjacent; the key puts [D] first because the risk to Mrs Ellis is low and correcting the note also corrects the drain chart. The ordering of [C] and [B] is the harder call: one leaves a known error alone, the other changes another doctor's record. Interfering with a record is treated as the more serious breach of probity."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Acting with honesty and integrity'; keeping clear, accurate records."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Acting on concerns about patient safety, starting locally where appropriate."
+    }
+  ],
+  "tags": [
+    "documentation",
+    "probity",
+    "surgery",
+    "challenging seniors"
+  ]
+}

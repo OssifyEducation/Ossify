@@ -1,0 +1,93 @@
+{
+  "id": "sjt-017",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-017",
+  "format": "ranking",
+  "title": "Leave this afternoon",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Challenging decisions",
+    "Risk assessment",
+    "Communicating concerns"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an inpatient psychiatric ward. Mr Hart, 45, is detained under the Mental Health Act with severe depression; he was admitted after a suicide attempt. His consultant plans to grant him four hours of unescorted leave to visit home this afternoon, as he has seemed brighter over the past week.\n\nThis morning Mr Hart told you he had \"sorted everything out\" and felt calm \"for the first time in months\". A nurse mentions that he gave his watch to another patient yesterday. The consultant, who hasn't seen him today, will confirm the leave at the ward round in an hour.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the ward's specialty registrar to raise your concerns with the consultant on your behalf.",
+      "brief": "Gets the information to the consultant, but less directly and with the risk that details are lost.",
+      "detailed": "Involving a registrar can feel safer when you are wary of challenging a consultant, and the registrar may add weight. But passing your observations through someone else risks them being diluted or arriving too late. You saw and heard these things, so you are best placed to describe them."
+    },
+    {
+      "id": "B",
+      "text": "Speak to the consultant before the ward round, describing exactly what Mr Hart said and what the nurse saw.",
+      "brief": "Specific, recent warning signs need to reach the person making the leave decision before it is made.",
+      "detailed": "A sudden sense of calm after a long depression and giving away possessions can be signs that someone has decided to end their life. The consultant's plan is based on a week of improvement; these observations, made this morning, may change it. Describing exactly what you heard and what was reported, rather than a vague sense of unease, gives the consultant what they need to reassess the risk."
+    },
+    {
+      "id": "C",
+      "text": "Write your observations in Mr Hart's notes and leave the leave decision to the consultant.",
+      "brief": "Documentation matters, but notes may not be read before the decision is made in an hour.",
+      "detailed": "Recording what you observed is good practice and you would do it whatever happens. On its own, though, it relies on the consultant reading the notes before the ward round, which is far from certain. When the concern is time-critical, documentation supports communication; it does not replace it."
+    },
+    {
+      "id": "D",
+      "text": "Tell Mr Hart that you are going to recommend his leave is cancelled.",
+      "brief": "Pre-empts a decision that isn't yours and may make him more distressed or less open.",
+      "detailed": "Telling him before you have spoken to the consultant could provoke anger, despair or a reluctance to share his feelings honestly, which would make it harder to assess his risk. It also commits you to a position that the consultant may not take. Your concerns should go to the decision-maker first."
+    },
+    {
+      "id": "E",
+      "text": "Suggest at the ward round that any leave today should be shorter or escorted.",
+      "brief": "Accepts the consultant's authority while looking for a way to reduce the risk you are worried about.",
+      "detailed": "The consultant may have reasons for granting leave that you aren't aware of, and the decision is theirs. Leave plans are often adjustable, and proposing a shorter period or an escort is a constructive way to reduce the risk. It ranks second because, on its own, it doesn't give the consultant the specific observations that may change the decision altogether."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you challenge a senior's decision when you have new information that changes the risk, and how you do it effectively.",
+    "keyDetails": "Mr Hart is detained after a suicide attempt. The warning signs (sudden calm, 'sorted everything out', giving away a possession) are recent and well recognised. The consultant hasn't seen him today, and the decision is an hour away.",
+    "reasoning": "[B] gets the key information to the decision-maker in time, and [E] offers a constructive way to reduce the risk. [A] and [C] both communicate the concern, but less effectively. [D] acts on the concern in the wrong direction, with the patient rather than the team.",
+    "competing": "The hardest ordering is [C] against [D]. Writing in the notes is passive but harmless; telling the patient prematurely is active and potentially harmful. Some would argue that doing nothing beyond documentation is worse when the risk is suicide; the key reflects that [D] could itself increase that risk."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, 'Responding to safety risks'; speaking up when you have concerns about a decision."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns, including with senior colleagues, when patient safety may be at risk."
+    }
+  ],
+  "tags": [
+    "mental health",
+    "suicide risk",
+    "disagreeing with seniors",
+    "leave"
+  ]
+}

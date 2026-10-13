@@ -1,0 +1,92 @@
+{
+  "id": "sjt-009",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-009",
+  "format": "ranking",
+  "title": "Waiting for her brother",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Compassionate communication",
+    "End-of-life care",
+    "Working within your role"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the intensive care unit. Sophie, 29, has a catastrophic brain injury after a cardiac arrest. After several days of assessment, the consultant has agreed with her parents that continuing intensive treatment is not in her best interests, and the plan is to withdraw ventilation this afternoon. She is sedated and comfortable.\n\nHer parents find you at the bedside. Her brother is flying back from Australia and lands tomorrow morning. They ask, tearfully, whether the withdrawal could wait until he arrives so he can say goodbye. The consultant is in a meeting for the next hour.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that the decision has been made with the consultant and the timing cannot be changed.",
+      "brief": "Inaccurate and unkind: the timing may well be flexible, and the family are not told so.",
+      "detailed": "Treating the timing as fixed, when nobody has considered the request, closes off something that matters enormously to the family. It may leave them with lasting regret and a sense that the team did not care about them. Of the five options, it is the only one that both gives wrong information and shuts the door on their request."
+    },
+    {
+      "id": "B",
+      "text": "Let the consultant know about the family's request as soon as possible, so the timing can be reconsidered with them.",
+      "brief": "The request is reasonable and the decision about timing belongs to the consultant, who needs to know about it now.",
+      "detailed": "Accommodating a family's wishes about the timing of withdrawal is often possible, particularly when the patient is stable and comfortable, as Sophie is. But it is a decision for the consultant, who will weigh it against Sophie's best interests and the unit's circumstances. Getting the message to them promptly, perhaps through the nurse in charge if the meeting cannot be interrupted, gives the request the best chance of being met."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurse to suggest to the family that her brother could join by video call if the withdrawal goes ahead today.",
+      "brief": "A thoughtful option to have in reserve, but suggesting it now pre-empts a decision that hasn't been made.",
+      "detailed": "Video calls have helped many families at the end of life, and it may be a useful fallback if the consultant decides the withdrawal cannot be delayed. Raised now, before the request has even been considered, it may come across as the team having already said no. It is better offered later, once the family has an answer."
+    },
+    {
+      "id": "D",
+      "text": "Tell the parents that you will pass on their request straight away, and ask whether there is anything else that would help them in the meantime.",
+      "brief": "Responds to the family with compassion and honesty, without promising something that isn't yours to decide.",
+      "detailed": "The parents need to know they have been heard, and they may have other wishes, such as music, particular visitors or religious support, that the team can help with. Being clear that you will take their request to the consultant, rather than deciding it yourself, keeps expectations realistic. It ranks just below informing the consultant only because the request cannot be answered until the consultant hears it."
+    },
+    {
+      "id": "E",
+      "text": "Agree to delay the withdrawal until her brother arrives, as it seems a reasonable request.",
+      "brief": "Compassionate, but you would be promising something that is not your decision to make.",
+      "detailed": "The request may well be granted, which is why agreeing feels natural. But if the consultant decides otherwise, perhaps because of Sophie's condition or the unit's circumstances, the family would face a reversal at the worst possible time. It is kinder to be honest that you will ask on their behalf than to promise and then retract."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "C",
+      "E",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond compassionately to a grieving family's request at the end of life, while staying honest about what you can and cannot decide.",
+    "keyDetails": "Sophie is stable and comfortable, so a short delay is unlikely to cause her harm. Her brother arrives tomorrow. The decision to withdraw was made by the consultant with the family, so any change in timing is also the consultant's call. The consultant is busy but reachable within the hour.",
+    "reasoning": "[B] gets the request to the person who can decide it, and [D] supports the family honestly while they wait. [C] is a sensible fallback offered too early. [E] and [A] are the weakest because each makes a decision that isn't yours: [E] promises a delay that may not happen, and [A] refuses one that may well be possible.",
+    "competing": "The closest call is between [B] and [D], which near-miss scoring treats as adjacent. You would do both within minutes, and the order matters less than doing both. The ordering of [E] and [A] reflects that a premature yes, though risky, comes from compassion, whereas an inaccurate no causes certain harm."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Involving those close to the patient in decisions, including the timing of withdrawal."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, 'Patients, partnership and communication'."
+    }
+  ],
+  "tags": [
+    "end of life",
+    "intensive care",
+    "relatives",
+    "withdrawal of treatment"
+  ]
+}

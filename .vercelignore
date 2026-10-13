@@ -1,0 +1,6 @@
+# Source material and tooling that must not be served by the website.
+# Mock-exam questions (with answers) live in content/sjt and are served only through the API.
+content/
+docs/
+scripts/
+tests/

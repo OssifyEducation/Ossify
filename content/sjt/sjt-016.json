@@ -1,0 +1,109 @@
+{
+  "id": "sjt-016",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-016",
+  "format": "multiple_choice",
+  "title": "An insurance letter",
+  "setting": "Out-of-hours / community",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honest documentation",
+    "Writing reports",
+    "Patient-centred communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working in an out-of-hours GP service. On Saturday you visited Mr Grant, 66, at home and diagnosed a chest infection.\n\nOn Monday he phones the service and asks to speak to you. His cruise left last Wednesday, three days before your visit, and he didn't go because he felt unwell. His travel insurer wants a doctor's letter confirming he was too ill to travel on Wednesday. \"You saw how poorly I was,\" he says. \"Could you just write that I wasn't fit to travel last week? Otherwise I lose £4,000.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Write a letter saying he 'reported feeling unwell for several days before my visit', based on his account.",
+      "brief": "Closer to honest, but presented as a fitness-to-travel letter it implies an opinion you can't give.",
+      "detailed": "Reporting what a patient told you is legitimate in a factual record, which is why this option is tempting. Written as a letter to support a claim that he was unfit to travel on Wednesday, though, it lends your professional authority to a conclusion you haven't reached. The difference between a factual report and a supportive letter matters."
+    },
+    {
+      "id": "B",
+      "text": "Refuse to provide any information to his insurer, as you didn't see him on the day in question.",
+      "brief": "Overcorrects: your findings from Saturday are relevant, and he is entitled to them.",
+      "detailed": "You are right not to certify something you didn't witness, but refusing to share anything goes too far. A factual report of your visit, with his consent, is reasonable and may help him. Refusing outright leaves a patient without information he is entitled to and damages his trust in the service."
+    },
+    {
+      "id": "C",
+      "text": "Record the date of your visit as Wednesday in the letter, as he was probably just as unwell then.",
+      "brief": "Falsifying a date in a medical document is dishonest, whatever your belief about his illness.",
+      "detailed": "This is straightforward falsification. Even if Mr Grant probably was unwell on Wednesday, changing the date of your visit creates a false record and would support a potentially fraudulent claim. Probity in documents is one of the clearest expectations of every doctor."
+    },
+    {
+      "id": "D",
+      "text": "Explain that you can only report what you found when you saw him on Saturday, not how he was before.",
+      "brief": "Honest about the limits of what you witnessed, which is exactly what a medical report must reflect.",
+      "detailed": "A doctor's letter carries weight because it records what the doctor actually knows. You saw Mr Grant three days after the cruise left; you cannot say from your own knowledge how unwell he was on Wednesday, even if a chest infection often builds up over several days. Explaining this clearly, and without judgement, is the starting point for helping him properly."
+    },
+    {
+      "id": "E",
+      "text": "Write the letter he asks for, since chest infections usually develop over several days.",
+      "brief": "Clinical plausibility is not the same as knowledge, and the letter would state something you can't vouch for.",
+      "detailed": "It is quite likely that Mr Grant was unwell on Wednesday, and your sympathy for his loss is understandable. But a letter stating he was unfit to travel on a day you didn't assess him certifies something you don't know. If the claim were investigated, it would be your signature on an unsupported statement."
+    },
+    {
+      "id": "F",
+      "text": "Offer to provide a factual report of your visit, with his consent, if the insurer asks for one.",
+      "brief": "Gives him genuine help within honest limits; insurers often accept factual records alongside other evidence.",
+      "detailed": "Your findings on Saturday are relevant evidence and he is entitled to have them shared, with his consent. A factual report of what he told you about the onset of his symptoms, clearly attributed to him, and what you found on examination is honest and may well support his claim. It is not the same as you certifying how he was on a day you didn't see him."
+    },
+    {
+      "id": "G",
+      "text": "Tell him that what he's asking for is insurance fraud, and end the call.",
+      "brief": "Accusatory and unhelpful; he may simply not understand what a doctor can certify.",
+      "detailed": "Most patients who ask for this kind of letter are not trying to defraud anyone; they believe they were ill and want help. Accusing him and ending the call damages the relationship and leaves him with no understanding of what you can legitimately do. A clear, kind explanation achieves the same boundary without the harm."
+    },
+    {
+      "id": "H",
+      "text": "Suggest he asks his own GP, who may hold records from before Wednesday, for supporting information.",
+      "brief": "Points him towards a source that may be able to speak to the relevant dates.",
+      "detailed": "If Mr Grant contacted his GP practice or a pharmacy before the cruise, there may be a record that genuinely supports his account. His GP is also better placed to provide the kind of report insurers commonly ask for. This gives him a realistic route rather than leaving him with a refusal."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty in certification: helping a patient with a genuine need while refusing to put your name to something you don't know to be true.",
+    "keyDetails": "You saw him three days after the date in question. He wants a statement about Wednesday, not about Saturday. The amount of money involved adds pressure, and his illness is real, which is what makes the request feel reasonable.",
+    "reasoning": "[D] sets the honest boundary, and [F] and [H] give him real ways forward: your own factual findings, and his GP for the earlier dates. Together they are honest and helpful. The distractors either cross the line into certifying what you didn't see ([A], [C], [E]) or hold the line in a way that is unhelpful or hostile ([B], [G]).",
+    "competing": "[A] is the closest call, because reporting what a patient tells you is legitimate. What makes it a distractor is its purpose and framing: a letter written to support a claim that he was unfit to travel, rather than a neutral record of your consultation."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, 'Acting with honesty and integrity': documents you write or sign must not be false or misleading."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information to insurers with the patient's consent."
+    }
+  ],
+  "tags": [
+    "probity",
+    "certification",
+    "insurance",
+    "out-of-hours"
+  ]
+}

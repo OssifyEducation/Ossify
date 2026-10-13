@@ -86,6 +86,22 @@
       if (!/Choose the 3 most appropriate/.test(q.instruction)) e("instruction should say 'Choose the 3 most appropriate…'");
     }
 
+    if (q.pool != null && !/^(practice|mock-[1-4])$/.test(q.pool)) e("pool must be practice or mock-1..mock-4");
+
+    // Option references in explanations are written as [A]; each must exist, and bare B–H letters are not allowed.
+    var texts = [];
+    q.options.forEach(function (o) { if (o) texts.push(o.brief, o.detailed); });
+    var exo = q.explanation || {};
+    Object.keys(exo).forEach(function (k) { texts.push(exo[k]); });
+    texts.forEach(function (t) {
+      if (typeof t !== "string") return;
+      var m, re = /\[([A-Z])\]/g;
+      while ((m = re.exec(t))) if (ids.indexOf(m[1]) < 0) e("explanation refers to [" + m[1] + "], which is not an option");
+      var bare = t.replace(/\[[A-Z]\]/g, "").match(/(^|[^\w'’])([B-H])(?=$|[^\w'’])/);
+      if (bare) e("bare option letter '" + bare[2] + "' — write option references as [" + bare[2] + "]");
+    });
+    q.options.forEach(function (o) { if (o && /\[[A-Z]\]/.test(o.text || "")) e("option " + o.id + " text must not contain [X] references"); });
+
     var ex = q.explanation || {};
     ["issue", "keyDetails", "reasoning"].forEach(function (k) { if (!isNonEmptyString(ex[k])) e("explanation." + k + " is required"); });
     if (!Array.isArray(q.references) || !q.references.length) e("at least one reference is required");
@@ -104,6 +120,67 @@
       if (q && q.id) { if (seen[q.id]) errs.push(q.id + ": duplicate id"); seen[q.id] = true; }
     });
     return errs;
+  }
+
+  // ── Bank-level quality report (warnings, not errors) ─────────────────────
+  function words(t) { return String(t || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(Boolean); }
+  function shingles(t, n) { var w = words(t), out = {}; for (var i = 0; i + n <= w.length; i++) out[w.slice(i, i + n).join(" ")] = 1; return out; }
+  function jaccard(a, b) {
+    var ka = Object.keys(a), inter = 0, nb = Object.keys(b).length;
+    ka.forEach(function (k) { if (b[k]) inter++; });
+    var uni = ka.length + nb - inter; return uni ? inter / uni : 0;
+  }
+  function bankReport(bank, opts) {
+    opts = opts || {};
+    var simThreshold = opts.similarity || 0.18;
+    var r = { byFormat: {}, byPool: {}, byAttribute: {}, rankFirstLetter: {}, mcKeyedLetter: {}, warnings: [] };
+    function inc(o, k) { o[k] = (o[k] || 0) + 1; }
+    bank.forEach(function (q) {
+      inc(r.byFormat, q.format); inc(r.byPool, q.pool || "practice"); inc(r.byAttribute, q.attribute);
+      var len = {}; q.options.forEach(function (o) { len[o.id] = (o.text || "").length; });
+      var lens = q.options.map(function (o) { return len[o.id]; }).sort(function (a, b) { return b - a; });
+      if (q.format === "ranking" && q.key && q.key.order) {
+        inc(r.rankFirstLetter, q.key.order[0]);
+        var top = q.key.order[0];
+        if (len[top] === lens[0] && lens[0] > 1.25 * lens[1]) r.warnings.push(q.id + ": the top-ranked option is clearly the longest (length cue)");
+        if (q.key.order.join("") === q.options.map(function (o) { return o.id; }).join("")) r.warnings.push(q.id + ": key order is alphabetical");
+      }
+      if (q.format === "multiple_choice" && q.key && q.key.correct) {
+        q.key.correct.forEach(function (k) { inc(r.mcKeyedLetter, k); });
+        var keyedLens = q.key.correct.map(function (k) { return len[k]; }).sort(function (a, b) { return b - a; });
+        if (keyedLens.join() === lens.slice(0, 3).join()) r.warnings.push(q.id + ": the three keyed options are the three longest (length cue)");
+      }
+    });
+    // Across the bank, the best option should not usually be the longest one.
+    var longestBest = 0, judged = 0;
+    bank.forEach(function (q) {
+      if (!q.key) return;
+      var best = q.format === "ranking" ? (q.key.order || [])[0] : null;
+      var keyed = q.format === "ranking" ? [best] : (q.key.correct || []);
+      var maxLen = Math.max.apply(null, q.options.map(function (o) { return (o.text || "").length; }));
+      judged++;
+      if (q.options.some(function (o) { return keyed.indexOf(o.id) >= 0 && (o.text || "").length === maxLen; })) longestBest++;
+    });
+    r.longestIsKeyed = { count: longestBest, of: judged };
+    var limit = function (n) { return Math.max(2, Math.ceil(n * 0.4)); };
+    if (judged >= 10 && longestBest > limit(judged)) r.warnings.push("the longest option is keyed in " + longestBest + " of " + judged + " questions (aim for at most " + limit(judged) + ")");
+
+    // Letter balance once the bank is big enough to judge
+    var nRank = r.byFormat.ranking || 0;
+    if (nRank >= 15) Object.keys(r.rankFirstLetter).forEach(function (L) {
+      if (r.rankFirstLetter[L] / nRank > 0.35) r.warnings.push("letter " + L + " is ranked first in " + r.rankFirstLetter[L] + " of " + nRank + " ranking questions");
+    });
+    var nMc = (r.byFormat.multiple_choice || 0) * 3;
+    if (nMc >= 45) Object.keys(r.mcKeyedLetter).forEach(function (L) {
+      if (r.mcKeyedLetter[L] / nMc > 0.2) r.warnings.push("letter " + L + " is keyed in " + r.mcKeyedLetter[L] + " of " + nMc + " multiple-choice keys");
+    });
+    // Near-duplicate scenarios (3-word shingles on the stem)
+    var sh = bank.map(function (q) { return shingles(q.stem, 3); });
+    for (var i = 0; i < bank.length; i++) for (var j = i + 1; j < bank.length; j++) {
+      var s = jaccard(sh[i], sh[j]);
+      if (s >= simThreshold) r.warnings.push(bank[i].id + " and " + bank[j].id + " have similar stems (" + Math.round(s * 100) + "% overlap)");
+    }
+    return r;
   }
 
   // ── Response validation ───────────────────────────────────────────────────
@@ -232,6 +309,7 @@
     linearMatrix: linearMatrix,
     validateQuestion: validateQuestion,
     validateBank: validateBank,
+    bankReport: bankReport,
     validateResponse: validateResponse,
     scoreResponse: scoreResponse,
     parseCount: parseCount,
