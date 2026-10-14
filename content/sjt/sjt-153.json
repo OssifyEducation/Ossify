@@ -1,0 +1,92 @@
+{
+  "id": "sjt-153",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-153",
+  "format": "ranking",
+  "title": "\"Is it because she's Black?\"",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Responding to complaints",
+    "De-escalation",
+    "Openness"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. Mrs Mensah, 74, was admitted with heart failure. Her diuretics were started six hours late because of a prescribing delay.\n\nHer son is angry. He says the delay happened because his mother is Black, and that the team doesn't care about her.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him how to raise his concerns formally, and offer to involve a senior.",
+      "brief": "Gives him a route for his concern to be looked into.",
+      "detailed": "A concern about discrimination should be looked into properly. Explaining how, and offering a senior conversation, takes it seriously."
+    },
+    {
+      "id": "B",
+      "text": "Ask security to attend, as he is making accusations against staff.",
+      "brief": "He is angry, not threatening.",
+      "detailed": "Accusations aren't aggression. Calling security would escalate the situation and may confirm his concern that his mother isn't being treated fairly."
+    },
+    {
+      "id": "C",
+      "text": "Explain honestly why the delay happened, as far as you know.",
+      "brief": "Honest information helps him understand.",
+      "detailed": "If you know why the delay happened, explaining it honestly may help. It ranks second because he first needs to feel heard."
+    },
+    {
+      "id": "D",
+      "text": "Tell him firmly that racism had nothing to do with it.",
+      "brief": "Dismisses his concern without investigation.",
+      "detailed": "You may believe this, but dismissing his concern outright isn't appropriate and is likely to escalate things."
+    },
+    {
+      "id": "E",
+      "text": "Listen, take his concern seriously, and apologise for the delay.",
+      "brief": "Acknowledging his concern and the delay shows respect.",
+      "detailed": "There was a delay, and his concern about racism must be taken seriously, not dismissed. Listening, and apologising for the delay, is the right start."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "A",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an angry relative who alleges discrimination: listening, being honest, and taking the concern seriously.",
+    "keyDetails": "There was a real delay. He believes it was because of race. He is angry, not threatening.",
+    "reasoning": "[E] acknowledges his concern, [C] explains honestly, and [A] gives him a formal route. [D] dismisses his concern, and [B] escalates inappropriately.",
+    "competing": "Some would explain the reason first. The key starts with listening and apologising because he needs to feel heard before an explanation will help."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to concerns; treating patients fairly."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment regardless of race."
+    }
+  ],
+  "tags": [
+    "complaints",
+    "racism",
+    "relatives",
+    "delays"
+  ]
+}

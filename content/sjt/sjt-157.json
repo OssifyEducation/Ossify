@@ -1,0 +1,85 @@
+{
+  "id": "sjt-157",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-157",
+  "format": "ranking",
+  "title": "Two calls at once",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Delegation",
+    "Communication"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor covering paediatrics overnight. A nurse on the children's ward tells you that Ben, 6, who has pneumonia, has a tissued cannula with maintenance fluids running through it, and his next dose of IV antibiotics is due in 30 minutes.\n\nAt the same moment, a midwife bleeps you to see a newborn on the postnatal ward who is grunting and has oxygen saturations of 89%.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask a colleague who is free whether they could re-site Ben's cannula.",
+      "brief": "Gets Ben's cannula sorted without delaying the newborn.",
+      "detailed": "Another doctor may be able to help with the cannula. It ranks second because the newborn's assessment comes first."
+    },
+    {
+      "id": "B",
+      "text": "Ask Ben's nurse to stop the infusion, and let her know when you expect to be back.",
+      "brief": "Keeps the nurse informed and prevents further tissuing.",
+      "detailed": "Stopping the infusion prevents further harm to the tissue, and telling the nurse your plan helps her manage Ben and his parents."
+    },
+    {
+      "id": "C",
+      "text": "Go to the newborn first.",
+      "brief": "A grunting baby with low saturations may be seriously unwell.",
+      "detailed": "Grunting and low saturations in a newborn can be signs of respiratory distress or infection, which need urgent assessment. Ben's antibiotics can wait a short time."
+    },
+    {
+      "id": "D",
+      "text": "Re-site Ben's cannula first, as it will only take a few minutes.",
+      "brief": "Cannulating a child can take longer than expected, and the newborn may be unwell.",
+      "detailed": "Cannulas in children are often difficult and can take much longer than planned, delaying the assessment of a newborn who may be seriously unwell. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse to give Ben's next dose orally instead.",
+      "brief": "Changing the route of an antibiotic needs assessment.",
+      "detailed": "Switching to oral antibiotics may be appropriate later, but it's a clinical decision that needs review, not a solution to a cannula problem."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "B",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you prioritise two calls and use colleagues to keep both patients safe.",
+    "keyDetails": "The newborn may be seriously unwell. Ben's antibiotics are due in 30 minutes. Other doctors may be available.",
+    "reasoning": "[C] sees the sickest patient first, [A] gets help for Ben, and [B] keeps the nurse informed. [E] changes treatment without assessment, and [D] delays the newborn.",
+    "competing": "The order of [A] and [B] is close. The key puts getting help first because it solves Ben's problem, whereas updating the nurse only manages it. [D] ranks last because delaying a possibly sick newborn carries the greatest risk."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising patients according to clinical need."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "paediatrics",
+    "neonates",
+    "cannulas"
+  ]
+}

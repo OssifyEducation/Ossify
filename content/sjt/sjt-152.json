@@ -1,0 +1,103 @@
+{
+  "id": "sjt-152",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-152",
+  "format": "multiple_choice",
+  "title": "A remark in the waiting room",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Challenging inappropriate behaviour",
+    "Patient dignity",
+    "Using proper channels"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in a GP practice. As you call your next patient, you hear a receptionist say loudly to a colleague, about a woman who has just checked in, \"No wonder she's always here, look at the size of her.\"\n\nSeveral people in the waiting room, including the woman, look up.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave it, as it isn't your role to manage reception staff.",
+      "brief": "You heard a remark that affected a patient.",
+      "detailed": "Managing staff isn't your role, but you can raise it. Ignoring it suggests it's acceptable."
+    },
+    {
+      "id": "B",
+      "text": "Check on the patient, and apologise for the remark.",
+      "brief": "She may be upset, and an apology shows the practice takes it seriously.",
+      "detailed": "She probably heard. A private, sincere apology for the comment, without making a scene, shows her she is respected."
+    },
+    {
+      "id": "C",
+      "text": "Speak to the receptionist privately about the remark.",
+      "brief": "A direct word may prevent it happening again.",
+      "detailed": "The receptionist may not have realised she would be heard, but the comment was unprofessional. A private conversation is the right first step."
+    },
+    {
+      "id": "D",
+      "text": "Tell the receptionist in front of the waiting room that her comment was unacceptable.",
+      "brief": "Public criticism may embarrass everyone, including the patient.",
+      "detailed": "The comment was unacceptable, but challenging her publicly draws more attention to the patient and humiliates the receptionist."
+    },
+    {
+      "id": "E",
+      "text": "Suggest to the patient that she makes a formal complaint.",
+      "brief": "She may wish to, but it puts the burden on her.",
+      "detailed": "She can complain if she wishes, but the practice should act regardless."
+    },
+    {
+      "id": "F",
+      "text": "Report the receptionist to the GMC.",
+      "brief": "Receptionists aren't GMC-registered, and this is a local matter.",
+      "detailed": "The GMC regulates doctors, not reception staff, and this is for the practice to address."
+    },
+    {
+      "id": "G",
+      "text": "Laugh it off with the receptionist later, and ask her to be more careful.",
+      "brief": "Makes light of a hurtful comment.",
+      "detailed": "Asking her to be careful is right, but laughing it off suggests the comment itself was acceptable."
+    },
+    {
+      "id": "H",
+      "text": "Let the practice manager know what happened.",
+      "brief": "The manager is responsible for staff conduct.",
+      "detailed": "The practice manager may need to address it, and may want to apologise to the patient on behalf of the practice."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a colleague's disrespectful remark about a patient: supporting the patient and addressing it properly.",
+    "keyDetails": "The patient probably heard. The comment was public. You aren't the receptionist's manager.",
+    "reasoning": "[B] supports the patient, [C] addresses it directly, and [H] involves the practice manager. The distractors ignore it or make light of it ([A], [G]), handle it publicly ([D]), shift the burden ([E]), or escalate wrongly ([F]).",
+    "competing": "[E] may seem supportive, but the practice should act whether or not she complains."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity; Domain 3, challenging disrespectful behaviour."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "weight stigma",
+    "reception staff",
+    "general practice"
+  ]
+}

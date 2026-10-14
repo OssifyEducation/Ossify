@@ -1,0 +1,85 @@
+{
+  "id": "sjt-159",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-159",
+  "format": "ranking",
+  "title": "Leaving without a troponin",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Challenging colleagues",
+    "Escalation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the Emergency Department. You notice Mr Ellis, 58, putting on his coat to leave. Glancing at his notes, you see a locum doctor recorded central chest pain radiating to his left arm this morning and a normal ECG, and discharged him. No troponin was taken.\n\nThe locum is with another patient nearby.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Mr Ellis that the locum has made a mistake.",
+      "brief": "Undermines a colleague before you know the facts.",
+      "detailed": "There may be a reason, and saying this could alarm Mr Ellis and damage trust in the department."
+    },
+    {
+      "id": "B",
+      "text": "Let Mr Ellis go, and arrange for him to be called back if a troponin is needed.",
+      "brief": "Recalling him may take hours, and he may be at risk.",
+      "detailed": "Recall systems exist, but if he is having a heart attack, he needs to be in hospital now. Letting him go is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Speak to the locum about the missing troponin.",
+      "brief": "He may have a reason, or may realise it was missed.",
+      "detailed": "The locum may have a clinical reason, or may have overlooked it. Asking him directly and respectfully is the quickest way to resolve it."
+    },
+    {
+      "id": "D",
+      "text": "Ask Mr Ellis to wait while you check his plan.",
+      "brief": "Stops him leaving before the question is answered.",
+      "detailed": "A normal ECG doesn't rule out a heart attack, and a troponin is usually needed with this history. Asking him to wait, without alarming him, keeps him safe while you check."
+    },
+    {
+      "id": "E",
+      "text": "Discuss it with the ED consultant in charge.",
+      "brief": "Appropriate if the locum isn't available or disagrees.",
+      "detailed": "The consultant can review the plan. It ranks third because asking the locum first is quicker and fairer."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "E",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a possible omission by a colleague to keep a patient safe, while treating the colleague fairly.",
+    "keyDetails": "Mr Ellis is leaving. His history suggests possible acute coronary syndrome. No troponin was taken. The locum is nearby.",
+    "reasoning": "[D] keeps him safe, [C] asks the locum, and [E] escalates. [A] undermines a colleague without the facts, and [B] lets him leave at risk.",
+    "competing": "This is hard because [D] and [C] would happen almost together. The key puts stopping him first because once he's left, it's much harder to put right. [B] ranks last because letting a possible heart attack go home carries the greatest risk; [A] is unprofessional, but at least he stays in the department."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when patients may be at risk because of a colleague's decision."
+    }
+  ],
+  "tags": [
+    "chest pain",
+    "locums",
+    "patient safety",
+    "emergency department"
+  ]
+}

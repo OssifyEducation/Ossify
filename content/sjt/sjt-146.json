@@ -1,0 +1,102 @@
+{
+  "id": "sjt-146",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-146",
+  "format": "multiple_choice",
+  "title": "Dating a former patient",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Professional boundaries",
+    "Supporting colleagues",
+    "Seeking advice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in obstetrics and gynaecology. Dr Kemp, another F2, tells you happily that he has started seeing Ms Hart, 29.\n\nYou realise she was admitted three weeks ago with an ectopic pregnancy, and Dr Kemp looked after her on the ward. He says they met again by chance at a party.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the consultant in charge of Ms Hart's care about the relationship straight away.",
+      "brief": "May be needed later, but a direct conversation with him comes first.",
+      "detailed": "The consultant may need to know if he doesn't reflect on it, but going straight to them, before speaking to him, may be disproportionate for a relationship that began after discharge."
+    },
+    {
+      "id": "B",
+      "text": "Speak to him privately about your concern.",
+      "brief": "A friendly, private word lets him reflect before things go further.",
+      "detailed": "Relationships with former patients aren't always prohibited, but the GMC asks doctors to consider how recent the care was and how vulnerable the patient was. Three weeks after a pregnancy loss, both are concerns. A private conversation gives him the chance to think it through."
+    },
+    {
+      "id": "C",
+      "text": "Leave it, as she is no longer his patient.",
+      "brief": "Her recent care and vulnerability still matter.",
+      "detailed": "She is a former patient, which is why this seems acceptable. But three weeks after an ectopic pregnancy, she may still be vulnerable, and he may care for her again."
+    },
+    {
+      "id": "D",
+      "text": "Report him to the GMC.",
+      "brief": "Disproportionate without local discussion.",
+      "detailed": "The GMC is for serious concerns that can't be managed locally. A relationship with a former patient may not be misconduct, and the facts need discussing first."
+    },
+    {
+      "id": "E",
+      "text": "Contact Ms Hart to warn her about the relationship.",
+      "brief": "Intrusive and inappropriate.",
+      "detailed": "Her relationships are her own business, and contacting her about this would be intrusive."
+    },
+    {
+      "id": "F",
+      "text": "Mention it to the other F2s, to see what they think.",
+      "brief": "Gossip that could harm both of them.",
+      "detailed": "Seeking others' views informally spreads private information and could damage his reputation and her privacy."
+    },
+    {
+      "id": "G",
+      "text": "Encourage him to seek advice from his educational supervisor.",
+      "brief": "A senior can help him judge whether the relationship is appropriate.",
+      "detailed": "His supervisor can advise him on the GMC guidance and how to protect himself and Ms Hart. Seeking advice himself is far better than it coming to light another way."
+    },
+    {
+      "id": "H",
+      "text": "Suggest he reads the GMC guidance on relationships with former patients.",
+      "brief": "The guidance sets out the factors he needs to consider.",
+      "detailed": "The guidance explains what to consider, such as the time since the care ended and the patient's vulnerability. Reading it helps him make an informed judgement."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a colleague starts a relationship with a recent, possibly vulnerable, former patient.",
+    "keyDetails": "Her admission was three weeks ago, for a pregnancy loss. He looked after her. They met again outside work.",
+    "reasoning": "[B] raises the concern directly, [G] points him to senior advice, and [H] points him to the guidance. The distractors escalate before speaking to him ([A], [D]), dismiss the concern ([C]), intrude ([E]), or gossip ([F]).",
+    "competing": "[A] is the tempting distractor: the consultant may need to know, but a direct conversation is the proportionate first step."
+  },
+  "references": [
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Relationships with former patients: time since care, and the patient's vulnerability."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "relationships",
+    "former patients",
+    "colleagues"
+  ]
+}

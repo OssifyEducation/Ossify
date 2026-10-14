@@ -1,0 +1,110 @@
+{
+  "id": "sjt-154",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-154",
+  "format": "multiple_choice",
+  "title": "Did the delay make a difference?",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Candour",
+    "Honesty about uncertainty",
+    "Communication"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in intensive care. Mr Allen, 66, was admitted from a medical ward last night with sepsis. The ward had called the critical care outreach team, who took 90 minutes to arrive because of other emergencies.\n\nHis family ask you whether the delay contributed to him becoming so unwell.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Be honest that you don't know, and that it will be looked into.",
+      "brief": "Honest about uncertainty, without speculating.",
+      "detailed": "The delay may or may not have made a difference, and you can't know yet. Being honest about that, and that it will be reviewed, respects their question."
+    },
+    {
+      "id": "B",
+      "text": "Reassure them that the delay made no difference.",
+      "brief": "You don't know this.",
+      "detailed": "This may be comforting, but it may not be true, and it could damage their trust if a review finds otherwise."
+    },
+    {
+      "id": "C",
+      "text": "Tell them that the delay probably did make things worse.",
+      "brief": "Speculation that you can't support.",
+      "detailed": "Honesty matters, but speculating before the facts are known could cause unnecessary distress."
+    },
+    {
+      "id": "D",
+      "text": "Explain that the outreach team was busy with other emergencies, so the delay was unavoidable.",
+      "brief": "True, but sounds like a justification rather than an answer.",
+      "detailed": "This is part of what happened, and may be shared, but on its own it sounds defensive and doesn't answer their question."
+    },
+    {
+      "id": "E",
+      "text": "Make sure the consultant knows the family have asked.",
+      "brief": "The consultant can give a fuller answer and explain any review.",
+      "detailed": "The consultant can discuss what is known, and how the delay will be reviewed. This is a conversation for a senior."
+    },
+    {
+      "id": "F",
+      "text": "Tell them you can't comment and that they should ask the consultant.",
+      "brief": "Closes down the conversation unhelpfully.",
+      "detailed": "The consultant should lead the fuller conversation, but refusing to engage at all may make them feel something is being hidden."
+    },
+    {
+      "id": "G",
+      "text": "Check that the delay has been reported through the incident system.",
+      "brief": "A delay like this should be reviewed so lessons can be learned.",
+      "detailed": "A 90-minute delay in a deteriorating patient should be reviewed. Checking it has been reported makes sure the family's question can be answered properly."
+    },
+    {
+      "id": "H",
+      "text": "Suggest they seek legal advice if they're concerned.",
+      "brief": "Premature and unhelpful.",
+      "detailed": "Families can seek advice, but suggesting it now implies wrongdoing and is likely to increase their distress."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you answer honestly when a family asks whether a delay in care caused harm, without speculating or being defensive.",
+    "keyDetails": "There was a 90-minute delay. Its effect is unknown. The family are asking you directly.",
+    "reasoning": "[A] is honest about uncertainty, [E] makes sure a senior follows up, and [G] makes sure the delay is reviewed. The distractors reassure or speculate ([B], [C]), sound defensive ([D]), close the conversation ([F]), or imply wrongdoing ([H]).",
+    "competing": "[D] is the hard distractor: it's true and may be part of the explanation, but on its own it answers a different question."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with families when something may have gone wrong."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reviewing patient safety incidents to learn from them."
+    }
+  ],
+  "tags": [
+    "candour",
+    "delays",
+    "sepsis",
+    "families"
+  ]
+}

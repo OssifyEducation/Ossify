@@ -1,0 +1,110 @@
+{
+  "id": "sjt-156",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-156",
+  "format": "multiple_choice",
+  "title": "The wrong dose on the letter",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Candour",
+    "Patient safety",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Reviewing a discharge letter you wrote, you notice you listed Mrs Ward's furosemide as 80 mg twice daily, when the plan was 40 mg once daily.\n\nShe went home two days ago. Her GP practice and community pharmacy will have received the letter.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Phone Mrs Ward to find out what dose she is taking and how she is.",
+      "brief": "She may be taking four times the intended dose.",
+      "detailed": "A higher dose of furosemide could cause dehydration, low blood pressure or kidney problems in an older person. Finding out what she is taking, and how she feels, tells you how urgent this is."
+    },
+    {
+      "id": "B",
+      "text": "Send an amended discharge letter by post.",
+      "brief": "Too slow if she is taking the wrong dose now.",
+      "detailed": "An amended letter is needed, but posting it could take days, while she may be taking too much now."
+    },
+    {
+      "id": "C",
+      "text": "Wait for her follow-up appointment next week to check.",
+      "brief": "Leaves her at risk for a week.",
+      "detailed": "She may be having side effects already, so waiting isn't safe."
+    },
+    {
+      "id": "D",
+      "text": "Contact her GP practice and pharmacy to correct the dose.",
+      "brief": "The GP needs the right information and may need to check her kidney function.",
+      "detailed": "Her GP and community pharmacy are working from the wrong dose. Correcting it with both, and asking the GP to arrange a blood test if needed, makes her care safe."
+    },
+    {
+      "id": "E",
+      "text": "Ask the ward pharmacist to sort it out.",
+      "brief": "It's your error, and you should lead putting it right.",
+      "detailed": "The pharmacist may help, but the error is yours, and you're best placed to contact her and her GP."
+    },
+    {
+      "id": "F",
+      "text": "Correct the letter on the hospital computer system.",
+      "brief": "The GP has already received the wrong letter, and she may already be taking the dose.",
+      "detailed": "Correcting the record is needed, but the letter has already been sent, and correcting it on the system doesn't reach the people using it."
+    },
+    {
+      "id": "G",
+      "text": "Tell Mrs Ward that the GP practice copied the dose incorrectly.",
+      "brief": "Dishonest; the error was yours.",
+      "detailed": "Blaming someone else is dishonest and could damage her trust in her GP."
+    },
+    {
+      "id": "H",
+      "text": "Tell your consultant and report it through the incident system.",
+      "brief": "Your senior needs to know, and the error should be recorded.",
+      "detailed": "Your consultant should know about an error affecting a discharged patient, and reporting it helps the trust learn. It also supports being open with Mrs Ward."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act promptly and openly on your own error after a patient has gone home.",
+    "keyDetails": "The dose is four times what was intended. She has been home for two days. The GP and pharmacy have the wrong information.",
+    "reasoning": "[A] finds out whether she is at risk, [D] corrects her ongoing care, and [H] involves your senior and reports it. The distractors are too slow ([B], [C]), pass it on ([E]), don't reach the people using the letter ([F]), or are dishonest ([G]).",
+    "competing": "[F] is the tempting option, but the letter has already been sent, so correcting the system doesn't stop her taking the wrong dose."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with patients and putting things right when something goes wrong."
+    },
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Making sure information about medicines is accurate when care is transferred."
+    }
+  ],
+  "tags": [
+    "errors",
+    "discharge letters",
+    "candour",
+    "diuretics"
+  ]
+}

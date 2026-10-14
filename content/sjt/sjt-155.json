@@ -1,0 +1,85 @@
+{
+  "id": "sjt-155",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-155",
+  "format": "ranking",
+  "title": "A shorter explanation",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Fair treatment",
+    "Interpreters",
+    "Advocacy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a paediatric ward. On the ward round, the consultant explains each child's plan to their parents in detail. When the team reaches Amira, 5, whose parents speak only Arabic, the consultant says a few words, smiles, and moves on.\n\nAmira's parents look confused. No interpreter was booked. Their adult nephew, who speaks English, usually visits in the evenings.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange a professional interpreter to explain the plan to Amira's parents.",
+      "brief": "They are entitled to the same information as other parents.",
+      "detailed": "Amira's parents need to understand her care to be involved in decisions. A professional interpreter, in person or by phone, makes this possible."
+    },
+    {
+      "id": "B",
+      "text": "Assume the nurses will explain the plan to them later.",
+      "brief": "Leaves them without information.",
+      "detailed": "The nurses may help, but assuming this means the parents may never get a proper explanation."
+    },
+    {
+      "id": "C",
+      "text": "Ask a relative who speaks English to translate the plan for them later.",
+      "brief": "Family interpreters may not convey the information accurately.",
+      "detailed": "A relative may help with day-to-day matters, but may not translate clinical information accurately."
+    },
+    {
+      "id": "D",
+      "text": "Mention to the consultant afterwards that Amira's parents didn't get the plan explained.",
+      "brief": "Helps make sure it doesn't happen again.",
+      "detailed": "The consultant may not have realised the effect. Raising it respectfully helps the team book interpreters in future. It ranks second because the parents need an explanation first."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make sure families who don't speak English receive the same information as others.",
+    "keyDetails": "The parents speak only Arabic. No interpreter was booked. They look confused.",
+    "reasoning": "[A] provides proper interpreting, and [D] helps change team practice. [C] uses an unreliable interpreter, and [B] assumes someone else will act.",
+    "competing": "Some would raise it with the consultant first. The key arranges the interpreter first because the parents need to understand their daughter's care now."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Making sure patients and parents have information in a form they can understand."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment regardless of race or language."
+    }
+  ],
+  "tags": [
+    "interpreters",
+    "fair treatment",
+    "paediatrics",
+    "parents"
+  ]
+}

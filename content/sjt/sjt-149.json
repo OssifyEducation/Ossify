@@ -1,0 +1,85 @@
+{
+  "id": "sjt-149",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-149",
+  "format": "ranking",
+  "title": "A friend at interview",
+  "setting": "Non-clinical (training)",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Conflicts of interest",
+    "Fairness",
+    "Probity"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor. You have been asked to sit on the interview panel for a junior clinical fellow post in your department, as the trainee representative.\n\nLooking at the shortlist the day before, you see that one of the candidates is Sam, a close friend from medical school.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Keep the friendship to yourself, and score him as you would anyone else.",
+      "brief": "Objectivity is no substitute for declaring an interest.",
+      "detailed": "You may well be objective, but others can't know that. An undeclared conflict could undermine the process and the other candidates' trust in it."
+    },
+    {
+      "id": "B",
+      "text": "Give Sam some tips about what the panel is looking for.",
+      "brief": "Gives him an unfair advantage.",
+      "detailed": "This would be unfair to other candidates and is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Avoid discussing the interview with Sam until it's over.",
+      "brief": "Keeps the process fair and protects you both.",
+      "detailed": "Talking to him about the interview, even innocently, could give him an unfair advantage or look as though it did. It ranks second because declaring the conflict is the essential step."
+    },
+    {
+      "id": "D",
+      "text": "Plan to score Sam as strictly as possible, to avoid any appearance of bias.",
+      "brief": "Overcorrecting is also unfair.",
+      "detailed": "Trying to compensate for bias by being harsher is still letting the friendship affect your scoring, and is unfair to him."
+    },
+    {
+      "id": "E",
+      "text": "Tell the panel chair about the friendship before the interviews start.",
+      "brief": "Declaring the conflict lets the chair decide how to manage it.",
+      "detailed": "A close friendship is a conflict of interest. Declaring it before the interviews means the chair can decide, for example, whether you should step aside for his interview or the whole process."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "D",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise and declare a conflict of interest so a selection process is fair.",
+    "keyDetails": "Sam is a close friend. You are on the panel. The interviews are tomorrow.",
+    "reasoning": "[E] declares the conflict, and [C] keeps the process fair. [D] lets the friendship distort your scoring in the other direction, [A] hides the conflict, and [B] gives him an advantage.",
+    "competing": "This is hard because [D] looks fair-minded. But overcorrecting is still bias, and it ranks above [A] only because it doesn't conceal the conflict from yourself."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Recognising and declaring conflicts of interest, including personal relationships."
+    }
+  ],
+  "tags": [
+    "conflicts of interest",
+    "interviews",
+    "fairness",
+    "friends"
+  ]
+}

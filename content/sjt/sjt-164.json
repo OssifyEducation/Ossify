@@ -1,0 +1,110 @@
+{
+  "id": "sjt-164",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-164",
+  "format": "multiple_choice",
+  "title": "Threats that follow you home",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Personal safety",
+    "Seeking support",
+    "Reporting incidents"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. Over the past week, Mr Doyle, a detained patient, has repeatedly threatened you, saying he knows where you live and will \"find you\" when he's discharged.\n\nYou are finding it hard to sleep and feel anxious walking to your car after work.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell your clinical supervisor about the threats.",
+      "brief": "Your supervisor can support you and help manage the risk.",
+      "detailed": "Threats like this are serious. Your supervisor can take them into account in Mr Doyle's care plan, consider your safety, and make sure you're supported."
+    },
+    {
+      "id": "B",
+      "text": "Keep it to yourself, as threats are part of working in psychiatry.",
+      "brief": "Threats shouldn't be accepted as normal, and you need support.",
+      "detailed": "Staff in psychiatry do face aggression, but threats to find you at home are serious and should be reported."
+    },
+    {
+      "id": "C",
+      "text": "Avoid Mr Doyle on the ward, but carry on as normal.",
+      "brief": "Doesn't address the threats or your anxiety.",
+      "detailed": "This may reduce contact, but doesn't deal with the risk or how it's affecting you."
+    },
+    {
+      "id": "D",
+      "text": "Report the threats through the incident reporting system.",
+      "brief": "A record helps the team assess risk and protect staff.",
+      "detailed": "Reporting the threats creates a record, which matters for Mr Doyle's risk assessment and for decisions about police involvement."
+    },
+    {
+      "id": "E",
+      "text": "Contact occupational health or the trust's staff support service.",
+      "brief": "Support can help with the anxiety you're feeling.",
+      "detailed": "The effect on your sleep and wellbeing is real. Staff support services can help you cope."
+    },
+    {
+      "id": "F",
+      "text": "Take sick leave until Mr Doyle is discharged.",
+      "brief": "May be needed, but doesn't address the risk after discharge.",
+      "detailed": "Time off may be appropriate if you're unwell, but the threats relate to his discharge, so this doesn't solve the problem."
+    },
+    {
+      "id": "G",
+      "text": "Tell Mr Doyle that you'll have him arrested if he threatens you again.",
+      "brief": "Likely to escalate the situation.",
+      "detailed": "Responding with a threat is unprofessional and may increase the risk."
+    },
+    {
+      "id": "H",
+      "text": "Contact the police yourself before speaking to the team.",
+      "brief": "Police involvement may be needed, but should usually be coordinated with the team.",
+      "detailed": "Threats can be reported to the police, which makes this a plausible option. But the team needs to know first, so the threats can be considered in his care and risk assessment, and police involvement can be coordinated."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you seek support and report threats from a patient, rather than accepting them as part of the job.",
+    "keyDetails": "The threats are repeated and specific. They are affecting your sleep and safety. Mr Doyle is detained.",
+    "reasoning": "[A] gets support and helps manage the risk, [D] records the threats, and [E] supports your wellbeing. The distractors normalise or avoid the problem ([B], [C]), don't solve it ([F]), escalate it ([G]), or act without the team ([H]).",
+    "competing": "[H] is the hard distractor: police involvement may well be needed, but should usually be coordinated with the clinical team."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, looking after your own health; Domain 3, reporting risks."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors."
+    }
+  ],
+  "tags": [
+    "threats",
+    "personal safety",
+    "wellbeing",
+    "psychiatry"
+  ]
+}
