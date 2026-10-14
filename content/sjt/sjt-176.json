@@ -1,0 +1,103 @@
+{
+  "id": "sjt-176",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-176",
+  "format": "multiple_choice",
+  "title": "The lights go out",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Emergency response",
+    "Patient safety",
+    "Teamwork"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a night shift in intensive care. There is a power cut, and for about 20 seconds several ventilators alarm and the lights go out, before the backup generator starts.\n\nSix patients on the unit are ventilated. The nurses are moving quickly between bed spaces.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Check that each ventilated patient is being ventilated effectively.",
+      "brief": "Patients' safety comes first.",
+      "detailed": "Ventilators may have restarted with different settings, or not at all. Working with the nurses to check each patient's ventilation, saturations and settings, and bagging by hand if needed, deals with the immediate risk."
+    },
+    {
+      "id": "B",
+      "text": "Phone the estates team to find out what happened before checking patients.",
+      "brief": "Patients come before the cause.",
+      "detailed": "Estates need to know, and someone should contact them, but checking patients comes first."
+    },
+    {
+      "id": "C",
+      "text": "Assume the ventilators are working, as the alarms have stopped.",
+      "brief": "Silence doesn't confirm effective ventilation.",
+      "detailed": "Alarms may have reset rather than resolved. You need to check each patient."
+    },
+    {
+      "id": "D",
+      "text": "Leave the checks to the nurses, as they manage the ventilators.",
+      "brief": "This is a team emergency, and your help is needed.",
+      "detailed": "Nurses are skilled with ventilators, but six patients need checking quickly, and doctors should help."
+    },
+    {
+      "id": "E",
+      "text": "Call the ICU registrar or consultant.",
+      "brief": "A senior needs to know and may need to attend.",
+      "detailed": "A power failure affecting ventilated patients is a serious event. A senior can help assess patients and coordinate the response."
+    },
+    {
+      "id": "F",
+      "text": "Report the event through the incident reporting system once patients are safe.",
+      "brief": "The trust needs to understand what happened.",
+      "detailed": "The failure and the delay before the generator started need investigating. Reporting it once patients are safe supports that."
+    },
+    {
+      "id": "G",
+      "text": "Reset the alarms on each ventilator so the unit is quieter.",
+      "brief": "Alarms may be warning of a real problem.",
+      "detailed": "Silencing alarms without checking why they are sounding could hide a dangerous problem."
+    },
+    {
+      "id": "H",
+      "text": "Start moving the most unstable patient to another unit.",
+      "brief": "Moving a ventilated patient is risky and not indicated.",
+      "detailed": "The backup power has started, so moving a patient would add risk without benefit."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an equipment failure that may affect critically ill patients, putting their safety first.",
+    "keyDetails": "Ventilators alarmed and power was lost briefly. Backup power is now on. Six patients are ventilated.",
+    "reasoning": "[A] checks patients, [E] calls a senior, and [F] reports the event. The distractors prioritise the cause ([B]), assume safety ([C], [G]), leave it to others ([D]), or add risk ([H]).",
+    "competing": "[B] is the tempting option, as estates need to know, but patients come first."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, responding in emergencies; Domain 3, reporting safety incidents."
+    }
+  ],
+  "tags": [
+    "equipment failure",
+    "ventilators",
+    "intensive care",
+    "emergencies"
+  ]
+}

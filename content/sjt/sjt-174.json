@@ -1,0 +1,109 @@
+{
+  "id": "sjt-174",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-174",
+  "format": "multiple_choice",
+  "title": "Not yet examined",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Challenging stigma",
+    "Clinical assessment",
+    "Advocacy"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Kane, 45, has schizophrenia and was admitted six hours ago with shortness of breath. His notes say \"known psychosis — approach with caution\", and no doctor has yet examined him.\n\nWhen you approach, he is calm and polite, but breathless.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the psychiatry liaison team to see him before you examine him.",
+      "brief": "Delays a medical assessment he needs now.",
+      "detailed": "Liaison psychiatry may be helpful, but he needs a medical assessment for his breathlessness now."
+    },
+    {
+      "id": "B",
+      "text": "Examine him yourself, explaining what you're doing as you go.",
+      "brief": "He needs assessment now.",
+      "detailed": "He has been breathless for six hours without a medical examination. He is calm, so there's no reason to delay, and explaining as you go helps him feel at ease."
+    },
+    {
+      "id": "C",
+      "text": "Tell the nurse in charge and your registrar about the delay.",
+      "brief": "A six-hour delay in assessment needs raising.",
+      "detailed": "This delay needs to be known so his care can be prioritised and the team can understand how it happened."
+    },
+    {
+      "id": "D",
+      "text": "Ask security to be present while you examine him.",
+      "brief": "Unnecessary for a calm patient, and stigmatising.",
+      "detailed": "Safety matters, but he is calm and polite. Bringing security would be unnecessary and could distress him."
+    },
+    {
+      "id": "E",
+      "text": "Assume his breathlessness may be anxiety related to his illness.",
+      "brief": "A dangerous assumption without assessment.",
+      "detailed": "Anxiety can cause breathlessness, but assuming it without examination risks missing a serious condition such as pneumonia or a pulmonary embolism."
+    },
+    {
+      "id": "F",
+      "text": "Ask a nurse to do his observations and call you if they're abnormal.",
+      "brief": "Observations alone aren't a medical assessment.",
+      "detailed": "Observations are needed, but he also needs to be examined."
+    },
+    {
+      "id": "G",
+      "text": "Remove the note from his record.",
+      "brief": "You can't remove another clinician's entry.",
+      "detailed": "The note may be unhelpful, but you can't delete it. You can raise it with the team and add your own observations."
+    },
+    {
+      "id": "H",
+      "text": "Raise with the team how the note may have delayed his care.",
+      "brief": "Labels can lead to unfair treatment.",
+      "detailed": "The note may have led staff to avoid him. Raising this constructively helps prevent the same thing happening to other patients with mental illness."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you treat a patient with mental illness fairly, assessing his physical symptoms promptly and challenging a label that has delayed his care.",
+    "keyDetails": "He has been breathless for six hours without examination. He is calm. A note in his record seems to have led staff to avoid him.",
+    "reasoning": "[B] assesses him, [C] raises the delay, and [H] addresses the label. The distractors delay assessment ([A], [F]), stigmatise him ([D]), make a dangerous assumption ([E]), or alter the record ([G]).",
+    "competing": "[A] is the hard distractor: liaison psychiatry can help, but his physical symptoms need assessing first."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly and without prejudice."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment of people with mental illness."
+    }
+  ],
+  "tags": [
+    "stigma",
+    "mental illness",
+    "physical health",
+    "acute medicine"
+  ]
+}

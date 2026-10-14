@@ -1,0 +1,103 @@
+{
+  "id": "sjt-170",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-170",
+  "format": "multiple_choice",
+  "title": "Thirteen hours, no breaks",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Safe working",
+    "Exception reporting",
+    "Fitness to work"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. It is 22:30, and you have just finished a 13-hour shift without a single break because the unit was so busy. Your next shift starts at 07:30 tomorrow.\n\nThis is the third time in two weeks this has happened. You feel exhausted.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept it as part of working in intensive care.",
+      "brief": "Normalises unsafe working.",
+      "detailed": "Intensive care is demanding, but missing all breaks and minimum rest repeatedly isn't safe or acceptable."
+    },
+    {
+      "id": "B",
+      "text": "Phone in sick tomorrow to get some rest.",
+      "brief": "Not honest unless you are unwell, and leaves the unit short.",
+      "detailed": "If you're too tired to work safely, you should say so honestly rather than call in sick."
+    },
+    {
+      "id": "C",
+      "text": "Submit an exception report for the missed breaks and short rest.",
+      "brief": "Exception reports record unsafe working so it can be addressed.",
+      "detailed": "Missed breaks and less than the minimum rest between shifts are exactly what exception reports are for. They alert your supervisor and the guardian of safe working hours."
+    },
+    {
+      "id": "D",
+      "text": "Have strong coffee before your next shift and carry on.",
+      "brief": "Doesn't address the underlying problem.",
+      "detailed": "Caffeine may help briefly, but it doesn't make you safe after inadequate rest, and the problem will continue."
+    },
+    {
+      "id": "E",
+      "text": "Raise the pattern with the guardian of safe working hours.",
+      "brief": "A repeated pattern suggests a rota problem that needs fixing.",
+      "detailed": "Three times in two weeks suggests a problem with staffing or the rota. Raising it with those responsible means it can be looked at."
+    },
+    {
+      "id": "F",
+      "text": "Arrange to swap tomorrow's shift informally with a colleague who is less tired.",
+      "brief": "May leave a colleague tired, and doesn't fix the rota.",
+      "detailed": "Swaps can help, but informal swaps bypass the rota and don't address the pattern."
+    },
+    {
+      "id": "G",
+      "text": "Be honest with the consultant tomorrow about how tired you are.",
+      "brief": "Patients' safety depends on you being fit to work.",
+      "detailed": "If you are too fatigued to make safe decisions, the consultant needs to know so they can support you. This is a professional responsibility, not a weakness."
+    },
+    {
+      "id": "H",
+      "text": "Post about the conditions on social media to raise awareness.",
+      "brief": "Bypasses routes that can fix the problem.",
+      "detailed": "Public awareness has its place, but posting online won't fix your rota and could identify colleagues or patients."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to unsafe working patterns, protecting patients and yourself through proper routes.",
+    "keyDetails": "No breaks in 13 hours, and less than the minimum rest before your next shift. It has happened repeatedly. You are exhausted.",
+    "reasoning": "[C] records it, [E] addresses the pattern, and [G] protects patients tomorrow. The distractors accept it ([A], [D]), are dishonest ([B]), bypass proper routes ([F]), or go public ([H]).",
+    "competing": "[F] is the tempting option, as swaps can help, but an informal swap doesn't fix the rota and may tire a colleague."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, making sure fatigue doesn't put patients at risk."
+    }
+  ],
+  "tags": [
+    "fatigue",
+    "exception reporting",
+    "rest breaks",
+    "intensive care"
+  ]
+}

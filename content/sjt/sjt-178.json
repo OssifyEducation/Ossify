@@ -1,0 +1,109 @@
+{
+  "id": "sjt-178",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-178",
+  "format": "multiple_choice",
+  "title": "Incomplete prescriptions",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Supporting colleagues",
+    "Raising concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in an out-of-hours GP service. The district nurses tell you that prescriptions for end-of-life medicines written by Dr Hall, another out-of-hours doctor, are often missing doses or frequencies, so they can't give the drugs.\n\nThey are frustrated and say they have stopped asking Dr Hall to correct them because he is rude to them. Dr Hall is on shift tonight, and two of his prescriptions from this evening are incomplete.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Make sure tonight's incomplete prescriptions are corrected.",
+      "brief": "Patients at the end of life may be left without symptom control.",
+      "detailed": "Patients may be in pain or distress tonight. Making sure their prescriptions are completed, by Dr Hall or another doctor, comes first."
+    },
+    {
+      "id": "B",
+      "text": "Correct Dr Hall's prescriptions yourself whenever the nurses ask.",
+      "brief": "Helps tonight, but hides the problem.",
+      "detailed": "This helps patients in the short term, but doesn't address the pattern or Dr Hall's behaviour."
+    },
+    {
+      "id": "C",
+      "text": "Speak to Dr Hall privately about the nurses' concerns.",
+      "brief": "He may not realise the impact.",
+      "detailed": "He may not know how often this happens, or the effect on patients. A private, factual conversation gives him the chance to put it right."
+    },
+    {
+      "id": "D",
+      "text": "Tell the nurses to make a formal complaint about Dr Hall.",
+      "brief": "Leaves the problem with them.",
+      "detailed": "They can complain, but you have heard about a risk to patients, and can act yourself."
+    },
+    {
+      "id": "E",
+      "text": "Tell the nurses it isn't your place to get involved.",
+      "brief": "Ignores a risk to patients.",
+      "detailed": "It may feel awkward, but patients at the end of life are affected."
+    },
+    {
+      "id": "F",
+      "text": "Raise the pattern with the service's clinical lead.",
+      "brief": "A pattern affecting patients, and staff relationships, needs addressing.",
+      "detailed": "Repeated incomplete prescriptions, and nurses avoiding a colleague, are risks to patients. The clinical lead can address both."
+    },
+    {
+      "id": "G",
+      "text": "Mention the nurses' concerns to the other doctors on shift.",
+      "brief": "Spreads the concern without addressing it.",
+      "detailed": "Others may have noticed, but discussing it informally doesn't fix it and may be unfair to Dr Hall."
+    },
+    {
+      "id": "H",
+      "text": "Report Dr Hall to the GMC.",
+      "brief": "Disproportionate before local routes are tried.",
+      "detailed": "This may be needed if it continues, but local routes come first."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a colleague's repeated errors and poor relationships with other professionals, protecting patients first.",
+    "keyDetails": "The prescriptions are for end-of-life medicines. The problem is repeated. The nurses have stopped asking him.",
+    "reasoning": "[A] protects patients tonight, [C] speaks to Dr Hall, and [F] addresses the pattern. The distractors hide it ([B]), pass it back ([D]), ignore it ([E]), spread it ([G]), or escalate disproportionately ([H]).",
+    "competing": "[B] is the tempting option because it helps patients, but it hides a pattern that needs fixing."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Writing complete and accurate prescriptions."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working with colleagues and acting on risks to patients."
+    }
+  ],
+  "tags": [
+    "prescribing",
+    "district nurses",
+    "end of life",
+    "team conflict"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-183",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-183",
+  "format": "ranking",
+  "title": "Will he go home?",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating uncertainty",
+    "Supporting families",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a stroke ward. Mr Hughes, 82, had a large stroke four days ago and has weakness on his right side and difficulty swallowing. He lives alone, and he has said he wants to go home. He has asked the team to keep his daughter fully informed.\n\nHis daughter asks you, tearfully, whether this means he'll never be able to go home.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer a meeting with the consultant and therapists to discuss his progress and plans.",
+      "brief": "A team meeting can give her a fuller picture.",
+      "detailed": "The therapists and consultant can explain his progress and what support might be possible. It ranks third because she needs a response now."
+    },
+    {
+      "id": "B",
+      "text": "Suggest she asks the consultant at the next ward round.",
+      "brief": "Passes the question on without engaging.",
+      "detailed": "The consultant can give more detail, but simply passing it on leaves her without support now."
+    },
+    {
+      "id": "C",
+      "text": "Explain honestly that it's too early to know, and that recovery will become clearer over the coming weeks.",
+      "brief": "Honest about uncertainty without being falsely hopeful.",
+      "detailed": "Recovery after stroke varies, and four days in, it's uncertain. Being honest about this, and that the team will learn more with rehabilitation, respects her question."
+    },
+    {
+      "id": "D",
+      "text": "Tell her he will probably need to go into a care home.",
+      "brief": "Premature, and likely to cause distress.",
+      "detailed": "This may turn out to be true, but saying so four days after a stroke, before rehabilitation, is premature and could take away hope unnecessarily."
+    },
+    {
+      "id": "E",
+      "text": "Ask her what she understands so far, and what worries her most.",
+      "brief": "Understanding her worries helps you respond to what matters to her.",
+      "detailed": "She may be worried about his recovery, his wishes, or caring for him. Asking first helps you answer honestly and sensitively."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you communicate uncertainty after a serious stroke, honestly and with compassion.",
+    "keyDetails": "It is four days after the stroke. He lives alone and wants to go home. His daughter is upset.",
+    "reasoning": "[E] explores her concerns, [C] is honest about uncertainty, and [A] arranges a fuller discussion. [B] passes the question on, and [D] is premature and distressing.",
+    "competing": "Some would explain the uncertainty first. The key starts by asking about her worries, which helps you answer what matters to her."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating honestly with patients and those close to them."
+    }
+  ],
+  "tags": [
+    "stroke",
+    "uncertainty",
+    "families",
+    "discharge"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-182",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-182",
+  "format": "multiple_choice",
+  "title": "An ECG and a student",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Emergency care",
+    "Supporting students"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in cardiology. You are about to sign off a medical student's assessment, which needs to be submitted today.\n\nA nurse asks you to look at an ECG for a patient with new chest pain, saying it may show an ST-elevation myocardial infarction.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Finish signing off the assessment first, as it will take five minutes.",
+      "brief": "Delays a potential emergency.",
+      "detailed": "Five minutes may seem small, but in a STEMI, delays matter."
+    },
+    {
+      "id": "B",
+      "text": "Ask the student to look at the ECG while you finish the assessment.",
+      "brief": "A student can't assess a possible STEMI.",
+      "detailed": "This may be a learning opportunity later, but a qualified doctor needs to assess the ECG now."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurse to repeat the ECG and call you back.",
+      "brief": "Delays assessment of a possible STEMI.",
+      "detailed": "A repeat ECG may be useful, but you need to look at the first one now."
+    },
+    {
+      "id": "D",
+      "text": "Look at the ECG straight away.",
+      "brief": "A possible STEMI needs immediate review.",
+      "detailed": "If the ECG shows a STEMI, the patient needs urgent treatment, and every minute matters."
+    },
+    {
+      "id": "E",
+      "text": "Sign off the assessment without reviewing it, to save time.",
+      "brief": "Dishonest, and unfair to the student.",
+      "detailed": "This would mean signing an assessment you haven't reviewed."
+    },
+    {
+      "id": "F",
+      "text": "Get the cardiology registrar to see the patient with you.",
+      "brief": "A possible STEMI needs senior input quickly.",
+      "detailed": "The registrar can confirm the ECG findings and arrange urgent treatment, such as primary angioplasty."
+    },
+    {
+      "id": "G",
+      "text": "Tell the student you can't sign the assessment today.",
+      "brief": "Unnecessary, as you can finish it later today.",
+      "detailed": "The patient comes first, but you can still help the student meet the deadline."
+    },
+    {
+      "id": "H",
+      "text": "Apologise to the student and agree a time to finish the assessment today.",
+      "brief": "Respects the student's deadline while prioritising the patient.",
+      "detailed": "The student's assessment matters, and agreeing a time to finish it today makes sure they aren't disadvantaged."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you prioritise a potential emergency while still respecting a colleague's needs.",
+    "keyDetails": "The ECG may show a STEMI. The assessment is due today but isn't urgent in clinical terms.",
+    "reasoning": "[D] looks at the ECG, [F] brings senior help, and [H] respects the student's deadline. The distractors delay ([A], [C]), inappropriately delegate ([B]), or are dishonest or unnecessary ([E], [G]).",
+    "competing": "[G] may seem honest, but you can finish the assessment later in the day."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising patients according to clinical need."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "STEMI",
+    "students",
+    "cardiology"
+  ]
+}

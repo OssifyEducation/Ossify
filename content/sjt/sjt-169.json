@@ -1,0 +1,86 @@
+{
+  "id": "sjt-169",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-169",
+  "format": "ranking",
+  "title": "\"Just fill it in and I'll sign\"",
+  "setting": "Non-clinical (training)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Honest assessment",
+    "Managing your training",
+    "Seeking advice"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor near the end of your placement. Your educational supervisor is very busy. She emails to say she hasn't had time to complete your end-of-placement report, and asks you to fill in her section yourself so she can \"just sign it\".\n\nThe report is used at your annual review.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Complete her section honestly, rating yourself fairly, as she asked.",
+      "brief": "Honest ratings are still your judgement, not hers.",
+      "detailed": "This is tempting because it's what she asked, and you might be fair. But it's still not her assessment, and signing it would misrepresent who made the judgement."
+    },
+    {
+      "id": "B",
+      "text": "Offer to send her a summary of your achievements and evidence to help her write it.",
+      "brief": "Saves her time without writing her assessment for her.",
+      "detailed": "Many supervisors appreciate a summary of the evidence in your portfolio. This helps her without you writing her judgement. It ranks second because the first option keeps the assessment entirely hers."
+    },
+    {
+      "id": "C",
+      "text": "Complete her section, rating yourself highly in every area.",
+      "brief": "Dishonest and self-serving.",
+      "detailed": "This would misrepresent your performance in a report used to judge your progress. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Ask your foundation programme tutor for advice.",
+      "brief": "Useful if she can't complete it, though less direct.",
+      "detailed": "The tutor can advise on what's acceptable and help if she can't complete it in time. It ranks third because a direct, helpful reply may solve it."
+    },
+    {
+      "id": "E",
+      "text": "Reply that you'd prefer her to complete it, and offer a short meeting.",
+      "brief": "Respects her time while keeping the assessment hers.",
+      "detailed": "Her report should reflect her judgement. Offering a short meeting, at a time that suits her, makes it easier for her to complete it properly."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "B",
+      "D",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep assessments honest when a busy supervisor suggests a shortcut.",
+    "keyDetails": "The report should be her judgement. It is used at your annual review. She is busy, not dishonest.",
+    "reasoning": "[E] keeps the assessment hers, [B] helps her without writing it, and [D] seeks advice. [A] writes her judgement for her, and [C] does so dishonestly.",
+    "competing": "This is hard because [A] is honest in content. It ranks below the others because it still misrepresents who made the assessment."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in assessments and records of your training."
+    }
+  ],
+  "tags": [
+    "assessment",
+    "supervisors",
+    "ARCP",
+    "probity"
+  ]
+}

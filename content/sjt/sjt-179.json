@@ -1,0 +1,92 @@
+{
+  "id": "sjt-179",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-179",
+  "format": "ranking",
+  "title": "Can't get on the couch",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Reasonable adjustments",
+    "Dignity",
+    "Advocacy"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a GP practice, sitting in with a GP partner. Mr Owen, 50, uses a wheelchair and has come in with abdominal pain. He can't transfer onto the examination couch without help.\n\nThe GP suggests skipping the abdominal examination and \"seeing how it goes\", then asks what you think.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Raise with the GP afterwards the need for reasonable adjustments for disabled patients.",
+      "brief": "Helps make sure future patients get equal care.",
+      "detailed": "The GP may not have thought about the options. Raising it respectfully helps the practice improve. It ranks third because Mr Owen's care comes first."
+    },
+    {
+      "id": "B",
+      "text": "Examine his abdomen as fully as possible in his wheelchair.",
+      "brief": "A partial examination is better than none.",
+      "detailed": "Some examination is possible in a wheelchair, and may identify a problem needing urgent attention. It ranks second because a full examination should be attempted first."
+    },
+    {
+      "id": "C",
+      "text": "Ask Mr Owen what would help, and look for a height-adjustable couch.",
+      "brief": "He knows what works for him, and equipment may be available.",
+      "detailed": "Mr Owen may know how he is usually examined, and the practice may have equipment that makes it possible. This is a reasonable adjustment that allows proper care."
+    },
+    {
+      "id": "D",
+      "text": "Skip the examination as the GP suggests.",
+      "brief": "Denies him an examination because of his disability.",
+      "detailed": "This means he receives a lower standard of care because he uses a wheelchair. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Skip the examination, but arrange an ultrasound scan instead.",
+      "brief": "A scan doesn't replace examination.",
+      "detailed": "A scan may be useful, but skipping the examination means potentially important signs are missed, and the decision is based on his disability."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "A",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make reasonable adjustments so a disabled patient receives the same standard of care.",
+    "keyDetails": "He has abdominal pain and needs examining. He can't transfer without help. The GP suggests skipping it.",
+    "reasoning": "[C] looks for adjustments, [B] examines as far as possible, and [A] improves practice. [E] substitutes a test, and [D] denies him care.",
+    "competing": "This is hard because [B] is reasonable and quick. The key prefers asking him and looking for equipment first because it may allow a full examination."
+  },
+  "references": [
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Duty to make reasonable adjustments for disabled people."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly."
+    }
+  ],
+  "tags": [
+    "disability",
+    "reasonable adjustments",
+    "examination",
+    "general practice"
+  ]
+}

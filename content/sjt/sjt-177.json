@@ -1,0 +1,85 @@
+{
+  "id": "sjt-177",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-177",
+  "format": "ranking",
+  "title": "Extra shifts to pay the bills",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Wellbeing",
+    "Signposting"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an elderly care ward. Grace, a healthcare assistant, looks exhausted. When you ask if she's all right, she tells you she has been working extra bank shifts most days for a month to pay off debts, and is barely sleeping.\n\nShe asks you not to tell anyone.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her about the trust's financial wellbeing and staff support services.",
+      "brief": "Practical support can help her address the cause.",
+      "detailed": "Many trusts offer financial advice and hardship support. Knowing about them may help her reduce her hours. It ranks third because it's less immediate than supporting her and her health."
+    },
+    {
+      "id": "B",
+      "text": "Listen, and ask how she is coping.",
+      "brief": "She has confided in you and needs to feel heard.",
+      "detailed": "Financial pressure and exhaustion are hard to talk about. Listening, without judgement, shows care and helps you understand how she is."
+    },
+    {
+      "id": "C",
+      "text": "Encourage her to talk to her manager or occupational health about her hours.",
+      "brief": "Her hours may be affecting her health and her work.",
+      "detailed": "Working most days for a month while barely sleeping may affect her health and patient care. Her manager or occupational health can help, and she can choose to speak to them."
+    },
+    {
+      "id": "D",
+      "text": "Tell her that her finances are none of your business.",
+      "brief": "Dismisses her distress.",
+      "detailed": "You asked, and she confided in you. This is dismissive, and leaves her unsupported and possibly unsafe at work."
+    },
+    {
+      "id": "E",
+      "text": "Offer to lend her some money.",
+      "brief": "Kind, but blurs professional boundaries.",
+      "detailed": "This is generous, but lending money to a colleague can create difficulties, and doesn't address her debts or exhaustion."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "C",
+      "A",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague in financial difficulty whose exhaustion may affect her health and work.",
+    "keyDetails": "She is exhausted and barely sleeping. The cause is financial. She asked you not to tell anyone.",
+    "reasoning": "[B] listens, [C] encourages her to get help with her hours, and [A] offers practical support. [E] blurs boundaries, and [D] dismisses her.",
+    "competing": "If her exhaustion were clearly putting patients at risk, you might need to raise it even without her agreement. At this stage, encouraging her to seek help is the right approach."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and acting when patient safety may be affected."
+    }
+  ],
+  "tags": [
+    "colleague wellbeing",
+    "fatigue",
+    "financial stress",
+    "healthcare assistants"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-166",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-166",
+  "format": "multiple_choice",
+  "title": "A timeline that 'looks better'",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honest records",
+    "Integrity under pressure",
+    "Seeking advice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. A family has complained that their mother, Mrs Ellis, waited too long to be reviewed after a fall on the ward last week. You reviewed her, but didn't write your note until two hours later.\n\nYour registrar asks you to add a note to the record dated and timed at the time of the fall, \"so the timeline looks better\".",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Add the note as asked, as you did review her.",
+      "brief": "The note would still misrepresent when it was written.",
+      "detailed": "You did review her, which makes this tempting. But the note would suggest it was written at the time, which isn't true."
+    },
+    {
+      "id": "B",
+      "text": "Decline, explaining that you can't backdate an entry.",
+      "brief": "Backdating creates a false record.",
+      "detailed": "A note timed to look as though it was written earlier would misrepresent what happened, and could mislead the complaint investigation. Declining, politely, keeps the record honest."
+    },
+    {
+      "id": "C",
+      "text": "Offer to add a clearly dated retrospective note giving any relevant detail.",
+      "brief": "Late entries are acceptable when they are clearly labelled.",
+      "detailed": "If you have useful information to add, such as when you actually reviewed her, you can write a new entry with today's date and time, making clear it is retrospective. That adds detail without misleading anyone."
+    },
+    {
+      "id": "D",
+      "text": "Add the note without any date or time.",
+      "brief": "Undated entries are poor practice and may also mislead.",
+      "detailed": "This avoids backdating, but undated entries can be read as contemporaneous, and records must show when entries were made."
+    },
+    {
+      "id": "E",
+      "text": "Tell the family that your registrar asked you to change the notes.",
+      "brief": "Not the right route, and may inflame the complaint.",
+      "detailed": "The family deserve an honest response, but this isn't the way to raise your concern. Speaking to your consultant is the right route."
+    },
+    {
+      "id": "F",
+      "text": "Report your registrar to the GMC.",
+      "brief": "Disproportionate before raising it locally.",
+      "detailed": "The request is a concern, but a single request you declined is best raised locally first."
+    },
+    {
+      "id": "G",
+      "text": "Agree, but add a note elsewhere explaining that the entry was backdated.",
+      "brief": "Still creates a misleading entry.",
+      "detailed": "This tries to balance honesty with the registrar's request, but the backdated entry itself would still be misleading."
+    },
+    {
+      "id": "H",
+      "text": "Seek advice from your consultant or the trust's complaints team.",
+      "brief": "Seniors can advise on responding to the complaint properly.",
+      "detailed": "Your consultant or the complaints team can advise on how to contribute honestly to the response, including writing a statement about what happened."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep records honest when a senior asks you to change them to look better in a complaint.",
+    "keyDetails": "You did review her, but wrote the note later. The record is relevant to a complaint. Your registrar is asking you to backdate.",
+    "reasoning": "[B] declines, [C] offers an honest alternative, and [H] seeks advice. The distractors misrepresent the record ([A], [D], [G]), or handle the concern inappropriately ([E], [F]).",
+    "competing": "[G] is the tempting distractor, as it seems to keep some honesty, but the backdated entry itself would still mislead."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in records; Domain 1, recording when entries are made."
+    }
+  ],
+  "tags": [
+    "records",
+    "backdating",
+    "complaints",
+    "probity"
+  ]
+}

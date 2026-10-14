@@ -1,0 +1,110 @@
+{
+  "id": "sjt-168",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-168",
+  "format": "multiple_choice",
+  "title": "A disclosure at pre-op assessment",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Sensitive history-taking",
+    "Safeguarding",
+    "Documentation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a pre-operative assessment clinic. Mrs Ahmed, 32, is having a laparoscopic cholecystectomy. While taking her history, she tells you that she had female genital mutilation (FGM) as a child, before she came to the UK.\n\nShe has two daughters, aged 4 and 7.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Report the FGM to the police under the mandatory reporting duty.",
+      "brief": "The mandatory duty applies to girls under 18, not adult women.",
+      "detailed": "Doctors must report known FGM in girls under 18 to the police. Mrs Ahmed is an adult, so the duty doesn't apply to her, though safeguarding for her daughters still needs considering."
+    },
+    {
+      "id": "B",
+      "text": "Take no further action, as it happened long ago and abroad.",
+      "brief": "Overlooks her health needs and her daughters' possible risk.",
+      "detailed": "The FGM happened before she came to the UK, but her health and her daughters' safety still need considering."
+    },
+    {
+      "id": "C",
+      "text": "Refer her daughters to children's social care immediately, without discussion.",
+      "brief": "Premature without assessing the risk.",
+      "detailed": "A referral may be needed, but the safeguarding team should help assess the risk first, and she should usually be involved."
+    },
+    {
+      "id": "D",
+      "text": "Thank her for telling you, and ask whether she has any related health problems.",
+      "brief": "A sensitive response and an offer of help with any effects.",
+      "detailed": "FGM can cause long-term physical and psychological problems. Responding sensitively, without judgement, and asking whether she has any problems she'd like help with, puts her care first."
+    },
+    {
+      "id": "E",
+      "text": "Ask her husband whether he intends FGM for their daughters.",
+      "brief": "Not your role, and could put her and her daughters at risk.",
+      "detailed": "Raising this with her husband without her consent could put her in a difficult or unsafe position."
+    },
+    {
+      "id": "F",
+      "text": "Record the disclosure in her notes, following the trust's FGM guidance.",
+      "brief": "Accurate recording is required and supports her care.",
+      "detailed": "Trusts have guidance on recording FGM in a woman's records. This supports her care and any safeguarding assessment for her daughters."
+    },
+    {
+      "id": "G",
+      "text": "Postpone her operation until the safeguarding assessment is complete.",
+      "brief": "Her surgery doesn't depend on the safeguarding process.",
+      "detailed": "The two issues are separate. Postponing her operation would be unfair and unnecessary."
+    },
+    {
+      "id": "H",
+      "text": "Discuss the possible risk to her daughters with the trust's safeguarding team.",
+      "brief": "Daughters of women who have had FGM may be at risk, which needs assessing.",
+      "detailed": "Having had FGM doesn't mean she would allow it for her daughters, and many women strongly oppose it. But the risk needs to be considered, and the safeguarding team can advise on assessment and any referral."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond sensitively to an adult's disclosure of FGM, while recognising the possible risk to her daughters.",
+    "keyDetails": "Mrs Ahmed is an adult; the FGM happened in childhood, abroad. She has two young daughters.",
+    "reasoning": "[D] responds sensitively and offers help, [F] records it properly, and [H] considers her daughters' safety. The distractors misapply the law ([A]), take no action ([B]), act prematurely ([C], [G]), or risk her safety ([E]).",
+    "competing": "[A] is the trap: the mandatory reporting duty applies to girls under 18, not to adult women."
+  },
+  "references": [
+    {
+      "title": "Mandatory reporting of female genital mutilation: procedural information",
+      "publisher": "Home Office (GOV.UK)",
+      "year": null,
+      "url": "https://www.gov.uk/government/publications/mandatory-reporting-of-female-genital-mutilation-procedural-information",
+      "note": "The mandatory reporting duty applies to known FGM in under-18s."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Assessing risk to children."
+    }
+  ],
+  "tags": [
+    "FGM",
+    "safeguarding",
+    "pre-operative assessment",
+    "women's health"
+  ]
+}

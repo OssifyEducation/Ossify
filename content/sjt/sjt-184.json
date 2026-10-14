@@ -1,0 +1,109 @@
+{
+  "id": "sjt-184",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-184",
+  "format": "multiple_choice",
+  "title": "A DNACPR form without a discussion",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "DNACPR decisions",
+    "Communication with families",
+    "Escalation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the Emergency Department. Mrs Evans, 79, has been sent in from her nursing home with pneumonia. She has mild dementia and is drowsy but responds to her name.\n\nHer DNACPR form, completed by her GP a month ago, says \"discussed with patient: no; discussed with family: no\" with no reason given. Her son, who has just arrived, says he didn't know it existed.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Discuss the form with the ED consultant, who can review the decision.",
+      "brief": "A senior needs to make a decision about CPR now.",
+      "detailed": "A DNACPR decision without any discussion, or a reason for not discussing it, needs reviewing. The consultant can make a decision based on her current condition, with her and her son involved."
+    },
+    {
+      "id": "B",
+      "text": "Ignore the form, as it wasn't discussed with anyone.",
+      "brief": "The form should be reviewed, not ignored.",
+      "detailed": "The lack of discussion is a concern, but the decision may still be clinically appropriate. It should be reviewed by a senior, not simply disregarded."
+    },
+    {
+      "id": "C",
+      "text": "Follow the form, as it was completed by a doctor.",
+      "brief": "A decision made without discussion needs reviewing.",
+      "detailed": "The form was completed by a doctor, but the absence of any discussion, or reason why not, means it should be reviewed."
+    },
+    {
+      "id": "D",
+      "text": "Tell her son the form must be followed, as it's a clinical decision.",
+      "brief": "Dismisses his involvement.",
+      "detailed": "Doctors decide whether CPR would work, but families should be consulted. This is dismissive."
+    },
+    {
+      "id": "E",
+      "text": "Explain the form to her son, and ask about her wishes.",
+      "brief": "He should be involved, and may know her wishes.",
+      "detailed": "Families should usually be involved in DNACPR decisions. Explaining the form and listening to him helps the team understand her wishes."
+    },
+    {
+      "id": "F",
+      "text": "Report the GP who completed the form to the GMC.",
+      "brief": "Premature; there may be an explanation.",
+      "detailed": "The process may have been flawed, but this should be raised locally first."
+    },
+    {
+      "id": "G",
+      "text": "Ask Mrs Evans, while she's drowsy, whether she wants to be resuscitated.",
+      "brief": "She may not be able to engage in this conversation now.",
+      "detailed": "Her wishes matter, but discussing resuscitation while she is drowsy and unwell may not give a meaningful answer."
+    },
+    {
+      "id": "H",
+      "text": "Record what has been discussed, and the current decision, clearly.",
+      "brief": "Clear documentation makes sure the decision is understood.",
+      "detailed": "Recording the discussion and the decision, whatever it is, makes sure the team knows what to do if she deteriorates."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you deal with a DNACPR decision that appears to have been made without the required discussion.",
+    "keyDetails": "The form records no discussion with Mrs Evans or her family. Her son didn't know about it. She is unwell.",
+    "reasoning": "[A] gets a senior review, [E] involves her son, and [H] records the decision. The distractors ignore or follow the form uncritically ([B], [C]), dismiss her son ([D]), escalate prematurely ([F]), or try to discuss it when she can't engage ([G]).",
+    "competing": "[B] and [C] are both tempting. The form shouldn't be ignored or followed blindly; it needs a senior review."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Involving patients and families in CPR decisions."
+    },
+    {
+      "title": "ReSPECT: Recommended Summary Plan for Emergency Care and Treatment",
+      "publisher": "Resuscitation Council UK",
+      "year": null,
+      "url": "https://www.resus.org.uk/respect",
+      "note": "Recording and reviewing emergency care recommendations."
+    }
+  ],
+  "tags": [
+    "DNACPR",
+    "families",
+    "nursing homes",
+    "emergency department"
+  ]
+}

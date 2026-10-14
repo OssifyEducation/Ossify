@@ -1,0 +1,85 @@
+{
+  "id": "sjt-173",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-173",
+  "format": "ranking",
+  "title": "Safety-netting that fell short",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to feedback",
+    "Safety-netting",
+    "Reflection"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in an out-of-hours GP service. A GP who audits telephone consultations reviews some of your recent calls. She tells you that in several, your safety-netting advice was too vague, for example \"call back if it gets worse\".\n\nYou feel your advice was reasonable for the patients involved.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Use a structured approach to safety-netting in future calls.",
+      "brief": "Specific advice protects patients.",
+      "detailed": "Safety-netting should tell patients what to look out for, what to do, and how soon. Adopting a structure helps. It ranks third because understanding the feedback comes first."
+    },
+    {
+      "id": "B",
+      "text": "Ignore the feedback, as she isn't your supervisor.",
+      "brief": "Feedback is valuable whoever gives it.",
+      "detailed": "She audits calls as part of the service's quality process, and her feedback is relevant to patient safety."
+    },
+    {
+      "id": "C",
+      "text": "Explain that the patients were low risk, so detailed safety-netting wasn't needed.",
+      "brief": "Defensive; low-risk patients still need clear advice.",
+      "detailed": "Your judgement may have been reasonable, but even low-risk patients need clear advice about what to watch for."
+    },
+    {
+      "id": "D",
+      "text": "Listen to some of your recorded calls to identify patterns.",
+      "brief": "Reviewing your own practice helps you see the gaps.",
+      "detailed": "Hearing your own calls can reveal habits you weren't aware of. It ranks second because her specific feedback guides what to look for."
+    },
+    {
+      "id": "E",
+      "text": "Ask her for specific examples, and how you could improve.",
+      "brief": "Specific feedback helps you change your practice.",
+      "detailed": "Understanding exactly what was missing, such as which symptoms to watch for and when to seek help, gives you something concrete to improve."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "A",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to feedback that challenges your practice: openly and constructively.",
+    "keyDetails": "The feedback is specific and comes from a quality review. You feel your advice was reasonable.",
+    "reasoning": "[E] seeks specific feedback, [D] reviews your practice, and [A] improves it. [C] is defensive, and [B] dismisses it.",
+    "competing": "Some would adopt a structured approach first. The key starts with understanding the feedback, which shows what to change."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on feedback and improving practice."
+    }
+  ],
+  "tags": [
+    "feedback",
+    "safety-netting",
+    "telephone consultations",
+    "out-of-hours"
+  ]
+}
