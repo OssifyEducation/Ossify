@@ -1,0 +1,102 @@
+{
+  "id": "sjt-144",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-144",
+  "format": "multiple_choice",
+  "title": "Running over time",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to feedback",
+    "Consultation skills",
+    "Time management"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a GP practice. Your GP trainer tells you that your consultations regularly run 10 minutes over, that patients are waiting too long, and that you need to improve.\n\nYou feel your thoroughness is important for patient safety, and you're worried about missing something.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Keep consulting exactly as you are, as patient safety matters more than waiting times.",
+      "brief": "Safety matters, but so do patients kept waiting.",
+      "detailed": "Your concern for safety is right, but long waits affect other patients and colleagues, and the feedback suggests you can improve."
+    },
+    {
+      "id": "B",
+      "text": "Cut consultations to ten minutes, whatever the patient's problem.",
+      "brief": "Rigid limits risk missing important problems.",
+      "detailed": "This would meet targets, but cutting consultations short regardless of complexity could affect safety."
+    },
+    {
+      "id": "C",
+      "text": "Ask reception to book you only simple problems.",
+      "brief": "Avoids the problem and limits your learning.",
+      "detailed": "This may reduce overruns, but limits your experience and doesn't address the underlying issue."
+    },
+    {
+      "id": "D",
+      "text": "Stop safety-netting, as it takes time.",
+      "brief": "Safety-netting is an essential part of a consultation.",
+      "detailed": "Safety-netting can be done efficiently, but stopping it would put patients at risk."
+    },
+    {
+      "id": "E",
+      "text": "Ask your trainer to observe some of your consultations.",
+      "brief": "Specific observation shows where you can be more efficient.",
+      "detailed": "Watching your consultations, with patients' consent, can show where time goes, such as long histories or unstructured endings. This gives you specific things to work on."
+    },
+    {
+      "id": "F",
+      "text": "Work on techniques such as agenda-setting and focused history-taking.",
+      "brief": "Better structure saves time without losing safety.",
+      "detailed": "Consultation skills such as agreeing the agenda early and focusing the history help you work efficiently while staying thorough. These skills improve with practice."
+    },
+    {
+      "id": "G",
+      "text": "Ask your trainer whether longer appointments would be appropriate for now.",
+      "brief": "Many practices give F2s longer slots while they develop.",
+      "detailed": "It's common for F2s to have longer appointments while they gain experience. Asking about this is reasonable, alongside working on your skills."
+    },
+    {
+      "id": "H",
+      "text": "Work through your lunch breaks to catch up.",
+      "brief": "Doesn't address the cause, and isn't sustainable.",
+      "detailed": "This may help you catch up, but it doesn't address why you're running late, and will tire you."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to feedback about your efficiency, improving your skills without compromising safety.",
+    "keyDetails": "The feedback is specific. You value thoroughness. Patients are waiting too long.",
+    "reasoning": "[E] identifies where time goes, [F] improves your skills, and [G] looks for reasonable adjustment while you develop. The distractors ignore the feedback ([A]), compromise safety ([B], [D]), avoid the issue ([C]), or are unsustainable ([H]).",
+    "competing": "[A] is the hard distractor: your concern for safety is valid, but efficiency can be improved without losing it."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on feedback and developing your practice."
+    }
+  ],
+  "tags": [
+    "feedback",
+    "consultation skills",
+    "general practice",
+    "time management"
+  ]
+}

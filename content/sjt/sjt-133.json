@@ -1,0 +1,85 @@
+{
+  "id": "sjt-133",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-133",
+  "format": "ranking",
+  "title": "What did he tell you?",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Supporting carers",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a community mental health team. Today you assessed Mr Webb, 26, who has depression. He has capacity, has no thoughts of harming himself, and asked that his family aren't told about his assessment.\n\nHis mother, with whom he lives, phones you. She is very worried and asks you what he said in the assessment.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Give her information about support for carers.",
+      "brief": "Helpful, but less central than the steps above.",
+      "detailed": "Carers' support services can help her cope. It ranks fourth because it doesn't address her immediate question or concerns."
+    },
+    {
+      "id": "B",
+      "text": "Listen to her concerns and what she has noticed at home.",
+      "brief": "You can receive information from her without sharing his.",
+      "detailed": "Confidentiality doesn't stop you listening. What she has noticed may be important for his care, and listening shows you take her worries seriously."
+    },
+    {
+      "id": "C",
+      "text": "Tell her what he said, as she is his main carer.",
+      "brief": "Breaches his confidentiality against his clear wishes.",
+      "detailed": "Living with him doesn't give her a right to his information. Sharing it against his wishes, without a reason such as serious risk, breaches his confidentiality."
+    },
+    {
+      "id": "D",
+      "text": "Ask Mr Webb whether he would be willing for some information to be shared with her.",
+      "brief": "He may agree to some sharing, which could help them both.",
+      "detailed": "People sometimes change their minds, or agree to limited sharing. Asking him respects his wishes and may allow you to support his mother."
+    },
+    {
+      "id": "E",
+      "text": "Explain that you can't discuss what he said without his consent.",
+      "brief": "Honest about the limits of what you can share.",
+      "detailed": "Explaining kindly why you can't share details helps her understand, without suggesting you're being unhelpful. It ranks third because listening and asking him are more constructive."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "E",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a worried relative while respecting a patient's confidentiality.",
+    "keyDetails": "He has capacity and has asked that his family aren't told. His mother lives with him and is worried.",
+    "reasoning": "[B] listens, [D] seeks his consent, [E] explains the limits, and [A] offers support. [C] breaches his confidentiality.",
+    "competing": "Some would explain the limits first. The key starts by listening, because her information may be important and she needs to feel heard. Asking Mr Webb ranks above explaining the limits because, if he agrees, his mother can be properly involved."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Listening to relatives and carers while respecting a patient's confidentiality."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "carers",
+    "mental health",
+    "relatives"
+  ]
+}

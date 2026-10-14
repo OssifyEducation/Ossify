@@ -1,0 +1,102 @@
+{
+  "id": "sjt-140",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-140",
+  "format": "multiple_choice",
+  "title": "Just put it in my logbook",
+  "setting": "Non-clinical (training)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honest records",
+    "Supporting colleagues",
+    "Training"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. Dr Hughes, another F2, is applying for core surgical training and needs more logged procedures. She asks you to confirm in her e-logbook that she performed a skin lesion excision last week.\n\nYou were there, but she observed while you did the procedure.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that you can't confirm she performed it, as she observed.",
+      "brief": "The logbook must reflect what she actually did.",
+      "detailed": "Logbooks are used to judge applicants' experience. Confirming she performed a procedure she observed would be dishonest."
+    },
+    {
+      "id": "B",
+      "text": "Suggest she logs it accurately, as observed.",
+      "brief": "Logbooks usually record observed procedures too.",
+      "detailed": "Many logbooks have a category for procedures observed or assisted. Logging it accurately still shows her interest and experience."
+    },
+    {
+      "id": "C",
+      "text": "Confirm it, as she has done similar procedures before.",
+      "brief": "Previous experience doesn't change what happened in this case.",
+      "detailed": "She may be competent, which makes this tempting, but the record would still be false."
+    },
+    {
+      "id": "D",
+      "text": "Offer to help her find chances to do it under supervision.",
+      "brief": "Helps her build genuine experience.",
+      "detailed": "Supporting her to gain real experience helps her application honestly, and is a constructive response to her request."
+    },
+    {
+      "id": "E",
+      "text": "Confirm it as 'assisted', as a compromise.",
+      "brief": "She didn't assist either.",
+      "detailed": "This feels like a middle ground, but she observed, so it would still be inaccurate."
+    },
+    {
+      "id": "F",
+      "text": "Report her to the training programme director for asking.",
+      "brief": "Disproportionate for a request you can simply decline.",
+      "detailed": "Repeated attempts to falsify records would need reporting, but a single request is best dealt with by declining and explaining."
+    },
+    {
+      "id": "G",
+      "text": "Tell other colleagues that she asked you to falsify her logbook.",
+      "brief": "Unprofessional and damaging.",
+      "detailed": "This would damage her reputation and doesn't address the issue."
+    },
+    {
+      "id": "H",
+      "text": "Agree, but only this once.",
+      "brief": "Falsification is still falsification.",
+      "detailed": "A one-off doesn't make a false record acceptable."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you maintain honesty in training records when a colleague asks for help with her application.",
+    "keyDetails": "She observed the procedure. The logbook will be used for her application. You are being asked to confirm it.",
+    "reasoning": "[A] keeps the record honest, [B] suggests an accurate alternative, and [D] supports her honestly. The distractors falsify the record ([C], [E], [H]), or respond disproportionately or unprofessionally ([F], [G]).",
+    "competing": "[E] is the tempting distractor, as it seems a compromise, but it's still inaccurate."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in records and applications."
+    }
+  ],
+  "tags": [
+    "logbooks",
+    "applications",
+    "probity",
+    "colleagues"
+  ]
+}

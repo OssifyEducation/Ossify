@@ -1,0 +1,109 @@
+{
+  "id": "sjt-134",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-134",
+  "format": "multiple_choice",
+  "title": "Charts filled in at the end of the shift",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Raising concerns",
+    "Honest records"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an elderly care ward at 19:30. You notice two healthcare assistants completing the pressure-area care charts for several patients, filling in two-hourly turns for the whole day.\n\nYou have been on the ward most of the afternoon and didn't see some of those patients being turned. One of them, Mrs Lee, has a pressure ulcer.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Speak to the healthcare assistants privately about what you saw.",
+      "brief": "Well meant, but the nurse in charge is better placed to address it.",
+      "detailed": "A direct conversation can be appropriate, and they may have a reason, such as turns done but not recorded. But possible falsification of records, affecting patient care, needs the nurse in charge."
+    },
+    {
+      "id": "B",
+      "text": "Make sure patients at high risk, including Mrs Lee, have their skin checked now.",
+      "brief": "If turns were missed, these patients need checking.",
+      "detailed": "Missed turns put frail patients at risk of new or worsening pressure damage. Checking their skin now deals with the immediate risk."
+    },
+    {
+      "id": "C",
+      "text": "Leave it, as nursing documentation is a matter for the nursing team.",
+      "brief": "It affects patient care, so it's your concern too.",
+      "detailed": "Nursing records are the nursing team's responsibility, but you have seen something that may mean patients aren't receiving care."
+    },
+    {
+      "id": "D",
+      "text": "Raise your concern with the nurse in charge.",
+      "brief": "The nurse in charge can check what happened and address it.",
+      "detailed": "The nurse in charge is responsible for the ward tonight and can find out whether turns were missed, and make sure care is given properly."
+    },
+    {
+      "id": "E",
+      "text": "Report the healthcare assistants to the Nursing and Midwifery Council.",
+      "brief": "HCAs aren't NMC registrants, and local routes come first.",
+      "detailed": "Healthcare assistants aren't registered with the NMC, and concerns like this are first for the ward and trust to look into."
+    },
+    {
+      "id": "F",
+      "text": "Report your concern through the incident reporting system.",
+      "brief": "Records a possible pattern so it can be investigated.",
+      "detailed": "Inaccurate charts and possibly missed care are a safety concern. Reporting it allows the ward manager and trust to look into it fairly."
+    },
+    {
+      "id": "G",
+      "text": "Correct the charts yourself to show which turns you didn't see.",
+      "brief": "You can't alter others' records, and you didn't see the whole day.",
+      "detailed": "This may seem honest, but you can't change their records, and you weren't watching every patient all afternoon."
+    },
+    {
+      "id": "H",
+      "text": "Ask the patients' relatives to keep an eye on whether they are turned.",
+      "brief": "Shifts responsibility to families.",
+      "detailed": "Families may notice, but it isn't their role to monitor care, and this doesn't address the concern."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a concern that records are being falsified and care missed, protecting patients first.",
+    "keyDetails": "The charts were completed retrospectively. You didn't see some turns. One patient has a pressure ulcer. There may be an innocent explanation.",
+    "reasoning": "[B] protects patients now, [D] involves the person responsible tonight, and [F] records the concern formally. The distractors handle it informally ([A]), ignore it or pass it to families ([C], [H]), escalate inappropriately ([E]), or alter records ([G]).",
+    "competing": "[A] is the hard distractor: speaking to them directly can be appropriate, but possible falsification of records, with patients at risk, needs the nurse in charge."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about care and records."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when patients may not be receiving the care they need."
+    }
+  ],
+  "tags": [
+    "pressure ulcers",
+    "records",
+    "raising concerns",
+    "elderly care"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-132",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-132",
+  "format": "multiple_choice",
+  "title": "A report you can't interpret",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Recognising limits",
+    "Honesty",
+    "Seeking advice"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in a GP practice. Mrs Jones, 45, has brought a letter with her genetic test results from a private company. Her mother and sister were both diagnosed with breast cancer in their thirties.\n\nThe report describes a \"variant of uncertain significance\" in a gene, and she asks you what it means for her and her children. You aren't sure.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain what you think a variant of uncertain significance probably means.",
+      "brief": "A guess may mislead her on an important question.",
+      "detailed": "You may have a general idea, which makes this tempting, but explaining something you're unsure of could mislead her about her risk or her children's."
+    },
+    {
+      "id": "B",
+      "text": "Look it up online during the consultation and explain what you find.",
+      "brief": "May help you understand, but not enough to advise her on her risk.",
+      "detailed": "A quick search may tell you what the term means in general, but not what this result means for her, and she may need specialist interpretation."
+    },
+    {
+      "id": "C",
+      "text": "Tell her honestly that you're not sure, and that you'll find out.",
+      "brief": "Honesty about your limits is better than guessing.",
+      "detailed": "Genetic reports can be complex, and getting it wrong could cause unnecessary worry or false reassurance. Being honest, and committing to find out, is the right approach."
+    },
+    {
+      "id": "D",
+      "text": "Tell her that private tests aren't reliable, so she should ignore it.",
+      "brief": "Dismissive and potentially wrong.",
+      "detailed": "Some private tests have limitations, but dismissing the result entirely is wrong, and her family history may warrant assessment anyway."
+    },
+    {
+      "id": "E",
+      "text": "Ask her to contact the private company for an explanation.",
+      "brief": "May help, but leaves her without NHS support for a family history that may need it.",
+      "detailed": "The company may explain the report, but her family history may need NHS assessment, and she has come to you for help."
+    },
+    {
+      "id": "F",
+      "text": "Reassure her that uncertain results usually turn out to be harmless.",
+      "brief": "Reassurance you're not in a position to give.",
+      "detailed": "Many variants of uncertain significance are later reclassified as harmless, but you can't know about this one, and her family history matters."
+    },
+    {
+      "id": "G",
+      "text": "Discuss the report with your GP supervisor.",
+      "brief": "Your supervisor can advise on the result and the next steps.",
+      "detailed": "Your supervisor may know what to do or how to get specialist advice. It also helps you learn."
+    },
+    {
+      "id": "H",
+      "text": "Consider a referral to clinical genetics, with your supervisor.",
+      "brief": "Genetics specialists can interpret the result in the context of her family history.",
+      "detailed": "Clinical genetics teams can interpret uncertain results and assess her family history. This is likely to be needed regardless of the report."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise the limits of your knowledge and seek help, rather than guessing on an important question.",
+    "keyDetails": "The result is uncertain. She has a strong family history of breast cancer. She is asking about her children too.",
+    "reasoning": "[C] is honest, [G] seeks advice, and [H] gets specialist input. The distractors guess or reassure without knowledge ([A], [B], [F]), dismiss the result ([D]), or pass the problem back to her ([E]).",
+    "competing": "[F] is tempting because it's often true, but you can't apply it to her result with confidence."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, recognising and working within the limits of your competence."
+    }
+  ],
+  "tags": [
+    "genetics",
+    "competence",
+    "general practice",
+    "uncertainty"
+  ]
+}

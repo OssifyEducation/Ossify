@@ -12306,6 +12306,1915 @@
         "emergency department",
         "errors"
       ]
+    },
+    {
+      "id": "sjt-126",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-126",
+      "format": "multiple_choice",
+      "title": "Bleeding on the postnatal ward",
+      "setting": "Obstetrics & gynaecology",
+      "attribute": "Coping with pressure",
+      "topic": "Prioritisation and competing demands",
+      "gmcDomains": [
+        "Knowledge, skills and development"
+      ],
+      "competencies": [
+        "Prioritisation",
+        "Emergency response",
+        "Delegation"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor on the postnatal ward. You are writing the discharge prescription for a woman whose husband is waiting to take her home, and the midwife has asked you to finish it quickly.\n\nAnother midwife runs in to say that Mrs Ali, who gave birth an hour ago, is bleeding heavily and looks pale. She has pulled the emergency buzzer.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Finish the discharge prescription first, as it will only take two minutes.",
+          "brief": "Even two minutes matters in a haemorrhage.",
+          "detailed": "It may feel efficient to finish, but the bleeding woman needs help now, and you can return to the prescription afterwards."
+        },
+        {
+          "id": "B",
+          "text": "Go to Mrs Ali straight away.",
+          "brief": "A postpartum haemorrhage is an emergency, and you need to be there.",
+          "detailed": "Heavy bleeding after birth can become life-threatening within minutes. Going straight away lets you help assess her and start treatment alongside the midwives."
+        },
+        {
+          "id": "C",
+          "text": "Make sure the obstetric registrar has been called.",
+          "brief": "A senior obstetrician needs to lead the response.",
+          "detailed": "The emergency buzzer usually summons help, but checking that the registrar is on the way makes sure senior help arrives. Postpartum haemorrhage needs experienced management."
+        },
+        {
+          "id": "D",
+          "text": "Ask the midwife to start the haemorrhage protocol, and say you'll come once you've finished.",
+          "brief": "Midwives can start treatment, but a doctor is needed now.",
+          "detailed": "Midwives are trained to begin managing a postpartum haemorrhage, which makes this tempting. But she has called for medical help, and you should go."
+        },
+        {
+          "id": "E",
+          "text": "Phone the anaesthetist yourself before going to see Mrs Ali.",
+          "brief": "The anaesthetist may be needed, but the emergency call usually summons them, and you should attend first.",
+          "detailed": "Anaesthetic support is often needed in a major haemorrhage, but the obstetric emergency team is normally summoned by the buzzer. Phoning separately delays your arrival."
+        },
+        {
+          "id": "F",
+          "text": "Ask the waiting husband to be patient, explaining that there's an emergency on the ward.",
+          "brief": "Not your priority, and discloses information about another patient.",
+          "detailed": "He may need to be told there's a delay, but that isn't your job now, and mentioning an emergency on the ward isn't necessary."
+        },
+        {
+          "id": "G",
+          "text": "Ask another F2 to finish the discharge prescription before you go.",
+          "brief": "Organising the prescription delays you reaching the emergency.",
+          "detailed": "Delegating is sensible later, but arranging it before you go delays your response to a life-threatening situation."
+        },
+        {
+          "id": "H",
+          "text": "Tell the first midwife that the discharge prescription will have to wait.",
+          "brief": "Keeps your colleague informed so she can explain the delay to the family.",
+          "detailed": "The discharge isn't urgent. Letting the midwife know means she can explain to the woman and her husband, rather than leaving them wondering."
+        }
+      ],
+      "key": {
+        "correct": [
+          "B",
+          "C",
+          "H"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you recognise an emergency and prioritise it over routine work, while keeping colleagues informed.",
+        "keyDetails": "Mrs Ali is bleeding heavily and looks pale, an hour after birth. The emergency buzzer has been pulled. The discharge is routine.",
+        "reasoning": "[B] responds to the emergency, [C] makes sure senior help is coming, and [H] lets your colleague manage the routine task. The distractors delay your response ([A], [D], [E], [G]), or focus on the wrong person ([F]).",
+        "competing": "[D] is tempting because midwives do start haemorrhage management, but she has called for medical help."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 1, prioritising patients according to clinical need, and responding in emergencies."
+        }
+      ],
+      "tags": [
+        "postpartum haemorrhage",
+        "prioritisation",
+        "emergencies",
+        "obstetrics"
+      ]
+    },
+    {
+      "id": "sjt-127",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-127",
+      "format": "ranking",
+      "title": "Will I play again?",
+      "setting": "Orthopaedics",
+      "attribute": "Empathy and sensitivity",
+      "topic": "Breaking bad news and uncertainty",
+      "gmcDomains": [
+        "Patients, partnership and communication"
+      ],
+      "competencies": [
+        "Breaking bad news",
+        "Honesty",
+        "Responding to emotion"
+      ],
+      "difficulty": "easy",
+      "stem": "You are an F2 doctor in orthopaedics. Jamie, 24, is a professional footballer who has had surgery for a complex knee injury. This morning the consultant told him the injury may mean he can't play professionally again.\n\nWhen you see him later, he is staring at the wall and asks you, \"Is that it, then? Is my career over?\"",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reassure him that many players come back from serious knee injuries.",
+          "brief": "Well meant, but may give false hope.",
+          "detailed": "Some players do return, which makes this tempting, but you don't know his prognosis, and false hope may make the news harder later."
+        },
+        {
+          "id": "B",
+          "text": "Sit down with him, and ask what he understood from the consultant.",
+          "brief": "Understanding what he heard helps you respond to his real worries.",
+          "detailed": "After devastating news, people often take in only part of what was said. Sitting with him and asking what he understood shows you care, and lets you respond honestly to what he is actually worried about."
+        },
+        {
+          "id": "C",
+          "text": "Tell him he should think about other careers now.",
+          "brief": "Premature and dismissive of his distress.",
+          "detailed": "Planning may eventually help, but saying this now, when the outcome is uncertain, is unkind and may increase his distress."
+        },
+        {
+          "id": "D",
+          "text": "Be honest that it's uncertain, and that recovery will become clearer over the coming months.",
+          "brief": "Honest without being falsely hopeful or crushing.",
+          "detailed": "The consultant said the injury may end his career, not that it will. Being honest about that uncertainty respects him. It ranks second because listening first helps you pitch it right."
+        },
+        {
+          "id": "E",
+          "text": "Offer to arrange for him to talk to the consultant and physiotherapist about his rehabilitation.",
+          "brief": "Gives him a route to more detailed answers.",
+          "detailed": "The consultant and physiotherapist can give him a clearer picture. It ranks third because he needs a response from you now."
+        }
+      ],
+      "key": {
+        "order": [
+          "B",
+          "D",
+          "E",
+          "A",
+          "C"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you respond to a patient's distress after uncertain bad news: listening, being honest, and avoiding false hope or premature conclusions.",
+        "keyDetails": "His career may be over, but it isn't certain. He is in shock. He has asked you directly.",
+        "reasoning": "[B] listens, [D] is honest about uncertainty, and [E] gives him a route to more information. [A] offers false hope, and [C] is premature and dismissive.",
+        "competing": "Some would put honesty first. The key starts by listening, because his question may carry a range of worries you need to understand first."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 2, communicating honestly and supporting patients."
+        }
+      ],
+      "tags": [
+        "bad news",
+        "uncertainty",
+        "orthopaedics",
+        "young adults"
+      ]
+    },
+    {
+      "id": "sjt-128",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-128",
+      "format": "multiple_choice",
+      "title": "A pattern of prescribing errors",
+      "setting": "Elderly care ward",
+      "attribute": "Professional integrity",
+      "topic": "A colleague's error or poor performance",
+      "gmcDomains": [
+        "Colleagues, culture and safety"
+      ],
+      "competencies": [
+        "Patient safety",
+        "Supporting colleagues",
+        "Raising concerns"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor on an elderly care ward. The ward pharmacist tells you that Dr Grey, an F1 on your team, has made five prescribing errors this week, including a tenfold dose error that was caught before it reached the patient.\n\nThe pharmacist asks you not to say that she was the one who raised it, as she works closely with Dr Grey.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Tell the pharmacist you can't act unless she agrees to be named.",
+          "brief": "Patient safety concerns can be raised without naming the source.",
+          "detailed": "Being open is important, but you can act on the concern without naming her. Refusing to act leaves the risk in place."
+        },
+        {
+          "id": "B",
+          "text": "Check all of Dr Grey's prescriptions yourself for the rest of the week.",
+          "brief": "Well meant, but not sustainable or a solution.",
+          "detailed": "This may catch errors in the short term, but you can't check every prescription, and it doesn't address why the errors are happening."
+        },
+        {
+          "id": "C",
+          "text": "Tell Dr Grey that the pharmacist has been reporting her errors.",
+          "brief": "Breaks the pharmacist's request and may damage their working relationship.",
+          "detailed": "You can raise the errors without saying who told you. Naming the pharmacist goes against her request and could make it harder for her to raise concerns again."
+        },
+        {
+          "id": "D",
+          "text": "Encourage the pharmacist to report the errors through the incident reporting system.",
+          "brief": "Formal reporting allows patterns to be spotted and addressed.",
+          "detailed": "Incident reports are how a trust learns about patterns of errors. Pharmacists routinely report errors they intercept as part of their role, so reporting them needn't identify her as the person who raised the pattern with you."
+        },
+        {
+          "id": "E",
+          "text": "Speak to Dr Grey supportively about her prescribing.",
+          "brief": "She may be struggling, and may not realise the pattern.",
+          "detailed": "A tenfold error suggests she may be under pressure or unsure of something. A supportive conversation, focused on helping her, may reveal the cause, and you can discuss errors you know of without naming the pharmacist."
+        },
+        {
+          "id": "F",
+          "text": "Leave it to the pharmacist, as the errors were caught.",
+          "brief": "Errors caught this time may not be caught next time.",
+          "detailed": "The system worked this week, but a pattern of errors means patients are at risk."
+        },
+        {
+          "id": "G",
+          "text": "Let your consultant or Dr Grey's clinical supervisor know about the pattern.",
+          "brief": "A pattern of serious errors needs senior support.",
+          "detailed": "Repeated errors, including a potentially serious one, need her supervisor's involvement so she can be supported and patients protected. This isn't a disciplinary step."
+        },
+        {
+          "id": "H",
+          "text": "Raise Dr Grey's errors at the next team meeting, so everyone can learn.",
+          "brief": "Group learning is useful, but naming her publicly isn't.",
+          "detailed": "Learning from errors as a team is valuable, but discussing an individual's errors in a meeting could humiliate her."
+        }
+      ],
+      "key": {
+        "correct": [
+          "D",
+          "E",
+          "G"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you respond to a pattern of errors by a colleague, protecting patients and supporting her, while respecting the person who raised it.",
+        "keyDetails": "Five errors in a week, including a tenfold dose. The pharmacist doesn't want to be named. Dr Grey may be struggling.",
+        "reasoning": "[D] makes sure the errors are formally recorded, [E] supports Dr Grey, and [G] involves her supervisor. The distractors fail to act ([A], [F]), address the symptom not the cause ([B]), betray the pharmacist ([C]), or are public ([H]).",
+        "competing": "[B] is tempting because it protects patients in the short term, but it doesn't solve the problem."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 3, acting when a colleague's performance may put patients at risk, and supporting them."
+        },
+        {
+          "title": "Raising and acting on concerns about patient safety",
+          "publisher": "General Medical Council",
+          "year": 2012,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+          "note": "Raising concerns about patient safety."
+        }
+      ],
+      "tags": [
+        "prescribing errors",
+        "colleagues",
+        "pharmacists",
+        "patient safety"
+      ]
+    },
+    {
+      "id": "sjt-129",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-129",
+      "format": "ranking",
+      "title": "How much warfarin?",
+      "setting": "Cardiology / respiratory",
+      "attribute": "Coping with pressure",
+      "topic": "Handover, continuity and loose ends",
+      "gmcDomains": [
+        "Knowledge, skills and development",
+        "Colleagues, culture and safety"
+      ],
+      "competencies": [
+        "Safe prescribing",
+        "Handover",
+        "Clarifying uncertainty"
+      ],
+      "difficulty": "hard",
+      "stem": "You are an F2 doctor on an evening shift in cardiology. A nurse asks you to prescribe tonight's warfarin for Mr Hunt, 75, who takes it for atrial fibrillation. Today's INR is 2.4.\n\nThe day team didn't mention it at handover. The only record is a handwritten note on the drug chart saying \"5 mg? — check\". Mr Hunt is asleep, and the day doctor has gone home but is usually reachable by phone.",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Prescribe 5 mg, as noted on the chart.",
+          "brief": "A dose marked \"check\" hasn't been confirmed.",
+          "detailed": "The note itself says it needs checking. Prescribing an unconfirmed warfarin dose risks bleeding or under-treatment."
+        },
+        {
+          "id": "B",
+          "text": "Ask the on-call pharmacist for advice.",
+          "brief": "A pharmacist can help, though they may need the same records.",
+          "detailed": "Pharmacists are expert in anticoagulation and may have access to his records. It ranks third because you can usually check the records yourself first."
+        },
+        {
+          "id": "C",
+          "text": "Phone the day doctor to ask about the dose.",
+          "brief": "They may know what was intended, though they may not answer.",
+          "detailed": "The day doctor may have been about to clarify the dose. It ranks second because the records are more reliable, and the doctor may not be reachable."
+        },
+        {
+          "id": "D",
+          "text": "Omit tonight's dose, and leave it for the day team to sort out.",
+          "brief": "One missed dose is low risk at this INR, but leaving it unresolved isn't ideal.",
+          "detailed": "With an INR of 2.4, missing one dose for atrial fibrillation carries little immediate risk, so this is safer than guessing. But it leaves the problem for others when you could probably resolve it."
+        },
+        {
+          "id": "E",
+          "text": "Check his records to find his usual warfarin dose.",
+          "brief": "His records should show the dose that has kept his INR in range.",
+          "detailed": "His anticoagulation clinic record, GP prescription list or admission medicines reconciliation should show his usual dose. With an INR of 2.4, his usual dose is probably the right one."
+        }
+      ],
+      "key": {
+        "order": [
+          "E",
+          "C",
+          "B",
+          "D",
+          "A"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you deal with an unclear handover of a high-risk drug, resolving the uncertainty rather than guessing or passing it on.",
+        "keyDetails": "Warfarin is high-risk. The only note says \"check\". His INR is in range. His records are likely to show his usual dose.",
+        "reasoning": "[E] finds the reliable answer, [C] asks the person who may know, and [B] gets expert help. [D] avoids harm but leaves it unresolved, and [A] prescribes an unconfirmed dose.",
+        "competing": "This is hard because [D] is not unsafe: one omitted dose at this INR is low risk. It ranks below the other options because you can usually resolve the question tonight, and above [A] because guessing a warfarin dose is riskier than omitting one."
+      },
+      "references": [
+        {
+          "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+          "publisher": "General Medical Council",
+          "year": 2021,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+          "note": "Making sure you have enough information to prescribe safely."
+        }
+      ],
+      "tags": [
+        "warfarin",
+        "handover",
+        "prescribing",
+        "anticoagulation"
+      ]
+    },
+    {
+      "id": "sjt-130",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-130",
+      "format": "multiple_choice",
+      "title": "Parents who disagree",
+      "setting": "Paediatrics",
+      "attribute": "Empathy and sensitivity",
+      "topic": "End of life, DNACPR and ceilings of care",
+      "gmcDomains": [
+        "Patients, partnership and communication"
+      ],
+      "competencies": [
+        "Supporting families",
+        "Shared decision-making",
+        "Escalation"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor on a paediatric ward. Max, 4, has a severe neurodegenerative condition and is in hospital with his third chest infection this year. The consultant has discussed with his parents whether he should be ventilated again if he deteriorates.\n\nHis mother wants to focus on his comfort; his father wants everything done. Both have parental responsibility. This afternoon his father asks you to promise that Max will be ventilated if needed.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Listen to his father's views and worries.",
+          "brief": "Understanding his perspective is the first step.",
+          "detailed": "His father may be frightened of losing his son or feel he is giving up on him. Listening carefully, without judgement, shows respect and may reveal what matters most to him."
+        },
+        {
+          "id": "B",
+          "text": "Reassure him that Max will be ventilated if he needs it.",
+          "brief": "A promise you can't make.",
+          "detailed": "This would comfort him now, but the decision hasn't been made, and the promise could set up conflict with his wife and the team."
+        },
+        {
+          "id": "C",
+          "text": "Tell him the mother's view should take priority, as she is Max's main carer.",
+          "brief": "Both parents have parental responsibility.",
+          "detailed": "Being Max's main carer doesn't give her view priority. Both parents have parental responsibility, and decisions should be made in Max's best interests."
+        },
+        {
+          "id": "D",
+          "text": "Explain that you can't promise this, as it's a shared decision.",
+          "brief": "Honest about your role and the shared decision.",
+          "detailed": "Promising something you can't guarantee would be dishonest and could undermine the consultant's discussions with both parents. Explaining that the decision will be made with the consultant and both parents is honest."
+        },
+        {
+          "id": "E",
+          "text": "Let the consultant know about the conversation and the parents' disagreement.",
+          "brief": "The consultant needs to know, and may arrange further support.",
+          "detailed": "The consultant may arrange another meeting, involve the palliative care team, or seek further advice if the disagreement can't be resolved."
+        },
+        {
+          "id": "F",
+          "text": "Suggest that he applies to the court if he disagrees.",
+          "brief": "Premature; disagreements are usually resolved through discussion.",
+          "detailed": "Courts can resolve disagreements about children's treatment, but suggesting this to a parent at this stage is premature and could escalate the conflict."
+        },
+        {
+          "id": "G",
+          "text": "Tell him that doctors make decisions about ventilation, not parents.",
+          "brief": "Dismisses the parents' role in decisions about their son.",
+          "detailed": "Doctors don't have to provide treatment they don't believe is in a child's best interests, but parents should be fully involved in these decisions. This is dismissive."
+        },
+        {
+          "id": "H",
+          "text": "Suggest he talks to his wife to reach agreement before speaking to the team again.",
+          "brief": "Puts the burden of resolving the disagreement on the parents.",
+          "detailed": "Parents talking to each other may help, but it's the team's role to support them in reaching a decision, not to leave them to resolve it alone."
+        }
+      ],
+      "key": {
+        "correct": [
+          "A",
+          "D",
+          "E"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you support a parent in a disagreement over end-of-life care for a child, honestly and within your role.",
+        "keyDetails": "Both parents have parental responsibility. The consultant is leading the discussion. Max's father wants a promise you can't give.",
+        "reasoning": "[A] listens, [D] is honest about how the decision will be made, and [E] keeps the consultant informed. The distractors make a promise you can't keep ([B]), take sides ([C]), escalate prematurely ([F]), dismiss the parents' role ([G]), or leave them to resolve it alone ([H]).",
+        "competing": "[H] may seem helpful, but the team should support both parents to reach a decision in Max's best interests."
+      },
+      "references": [
+        {
+          "title": "0–18 years: guidance for all doctors",
+          "publisher": "General Medical Council",
+          "year": 2007,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+          "note": "Decision-making with parents, including when they disagree."
+        },
+        {
+          "title": "Treatment and care towards the end of life: good practice in decision making",
+          "publisher": "General Medical Council",
+          "year": 2010,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+          "note": "Decisions about life-sustaining treatment, including for children."
+        }
+      ],
+      "tags": [
+        "end of life",
+        "parents",
+        "ventilation",
+        "paediatrics"
+      ]
+    },
+    {
+      "id": "sjt-131",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-131",
+      "format": "ranking",
+      "title": "A handover at 23:00",
+      "setting": "Out-of-hours / community",
+      "attribute": "Professional integrity",
+      "topic": "An impaired or unwell colleague",
+      "gmcDomains": [
+        "Colleagues, culture and safety"
+      ],
+      "competencies": [
+        "Patient safety",
+        "Raising concerns",
+        "Professional judgement"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor finishing an evening shift at an out-of-hours GP base. At 23:00 you hand over to Dr Lowe, who is working overnight.\n\nYou notice a strong smell of cannabis, his eyes are red, and he seems slow to respond. A colleague mentioned last week that she had noticed the same thing. He'll be the only doctor on overnight. The shift's clinical lead is in the building.",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hand over, and email the clinical lead your concerns tonight.",
+          "brief": "Raises the concern, but may not be read until it's too late.",
+          "detailed": "Writing it down creates a record, but the clinical lead may not see an email until the morning, by which time patients may have been at risk."
+        },
+        {
+          "id": "B",
+          "text": "Speak to Dr Lowe privately about what you have noticed.",
+          "brief": "Gives him the chance to explain or step back.",
+          "detailed": "There may be an explanation, but a private conversation gives him the chance to respond, and he may decide himself that he shouldn't work. It ranks second because it doesn't, on its own, protect patients if he insists he's fine."
+        },
+        {
+          "id": "C",
+          "text": "Tell the shift's clinical lead your concern before you leave.",
+          "brief": "The clinical lead can assess whether he's fit to work and arrange cover.",
+          "detailed": "He will be the only doctor overnight, so patients may be at risk tonight. The clinical lead is responsible for the service and can make a judgement, and arrange cover if needed."
+        },
+        {
+          "id": "D",
+          "text": "Hand over as normal, as you can't be sure he has used cannabis.",
+          "brief": "Leaves patients at risk overnight.",
+          "detailed": "You can't be certain, but the signs are clear enough, and the stakes high enough, that you need to raise it. Doing nothing is the least appropriate option."
+        },
+        {
+          "id": "E",
+          "text": "Mention your concern to the receptionist and driver on shift.",
+          "brief": "Spreads an unverified concern without getting it to someone who can act.",
+          "detailed": "They may notice problems overnight, but they aren't able to assess or act on his fitness to work, and telling them may unfairly damage his reputation."
+        }
+      ],
+      "key": {
+        "order": [
+          "C",
+          "B",
+          "A",
+          "E",
+          "D"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you act on a concern that a colleague may be impaired, when patients will depend on him overnight.",
+        "keyDetails": "He will be the only doctor overnight. The signs are clear, and a colleague has noticed the same before. You are about to leave.",
+        "reasoning": "[C] gets someone who can act, [B] gives him the chance to respond, and [A] raises it but too slowly. [E] spreads the concern unhelpfully, and [D] ignores the risk.",
+        "competing": "Some would speak to Dr Lowe first. That's reasonable; the key puts the clinical lead first because he will be alone overnight, and the decision about his fitness isn't yours or his alone."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 3, acting when a colleague may not be fit to practise."
+        },
+        {
+          "title": "Raising and acting on concerns about patient safety",
+          "publisher": "General Medical Council",
+          "year": 2012,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+          "note": "Raising concerns promptly when patients may be at risk."
+        }
+      ],
+      "tags": [
+        "impaired colleague",
+        "substance use",
+        "out-of-hours",
+        "patient safety"
+      ]
+    },
+    {
+      "id": "sjt-132",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-132",
+      "format": "multiple_choice",
+      "title": "A report you can't interpret",
+      "setting": "General practice",
+      "attribute": "Coping with pressure",
+      "topic": "Working beyond competence and asking for help",
+      "gmcDomains": [
+        "Knowledge, skills and development"
+      ],
+      "competencies": [
+        "Recognising limits",
+        "Honesty",
+        "Seeking advice"
+      ],
+      "difficulty": "easy",
+      "stem": "You are an F2 doctor in a GP practice. Mrs Jones, 45, has brought a letter with her genetic test results from a private company. Her mother and sister were both diagnosed with breast cancer in their thirties.\n\nThe report describes a \"variant of uncertain significance\" in a gene, and she asks you what it means for her and her children. You aren't sure.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Explain what you think a variant of uncertain significance probably means.",
+          "brief": "A guess may mislead her on an important question.",
+          "detailed": "You may have a general idea, which makes this tempting, but explaining something you're unsure of could mislead her about her risk or her children's."
+        },
+        {
+          "id": "B",
+          "text": "Look it up online during the consultation and explain what you find.",
+          "brief": "May help you understand, but not enough to advise her on her risk.",
+          "detailed": "A quick search may tell you what the term means in general, but not what this result means for her, and she may need specialist interpretation."
+        },
+        {
+          "id": "C",
+          "text": "Tell her honestly that you're not sure, and that you'll find out.",
+          "brief": "Honesty about your limits is better than guessing.",
+          "detailed": "Genetic reports can be complex, and getting it wrong could cause unnecessary worry or false reassurance. Being honest, and committing to find out, is the right approach."
+        },
+        {
+          "id": "D",
+          "text": "Tell her that private tests aren't reliable, so she should ignore it.",
+          "brief": "Dismissive and potentially wrong.",
+          "detailed": "Some private tests have limitations, but dismissing the result entirely is wrong, and her family history may warrant assessment anyway."
+        },
+        {
+          "id": "E",
+          "text": "Ask her to contact the private company for an explanation.",
+          "brief": "May help, but leaves her without NHS support for a family history that may need it.",
+          "detailed": "The company may explain the report, but her family history may need NHS assessment, and she has come to you for help."
+        },
+        {
+          "id": "F",
+          "text": "Reassure her that uncertain results usually turn out to be harmless.",
+          "brief": "Reassurance you're not in a position to give.",
+          "detailed": "Many variants of uncertain significance are later reclassified as harmless, but you can't know about this one, and her family history matters."
+        },
+        {
+          "id": "G",
+          "text": "Discuss the report with your GP supervisor.",
+          "brief": "Your supervisor can advise on the result and the next steps.",
+          "detailed": "Your supervisor may know what to do or how to get specialist advice. It also helps you learn."
+        },
+        {
+          "id": "H",
+          "text": "Consider a referral to clinical genetics, with your supervisor.",
+          "brief": "Genetics specialists can interpret the result in the context of her family history.",
+          "detailed": "Clinical genetics teams can interpret uncertain results and assess her family history. This is likely to be needed regardless of the report."
+        }
+      ],
+      "key": {
+        "correct": [
+          "C",
+          "G",
+          "H"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you recognise the limits of your knowledge and seek help, rather than guessing on an important question.",
+        "keyDetails": "The result is uncertain. She has a strong family history of breast cancer. She is asking about her children too.",
+        "reasoning": "[C] is honest, [G] seeks advice, and [H] gets specialist input. The distractors guess or reassure without knowledge ([A], [B], [F]), dismiss the result ([D]), or pass the problem back to her ([E]).",
+        "competing": "[F] is tempting because it's often true, but you can't apply it to her result with confidence."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 1, recognising and working within the limits of your competence."
+        }
+      ],
+      "tags": [
+        "genetics",
+        "competence",
+        "general practice",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "sjt-133",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-133",
+      "format": "ranking",
+      "title": "What did he tell you?",
+      "setting": "Psychiatry",
+      "attribute": "Empathy and sensitivity",
+      "topic": "Relatives and carers",
+      "gmcDomains": [
+        "Patients, partnership and communication"
+      ],
+      "competencies": [
+        "Confidentiality",
+        "Supporting carers",
+        "Communication"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor in a community mental health team. Today you assessed Mr Webb, 26, who has depression. He has capacity, has no thoughts of harming himself, and asked that his family aren't told about his assessment.\n\nHis mother, with whom he lives, phones you. She is very worried and asks you what he said in the assessment.",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Give her information about support for carers.",
+          "brief": "Helpful, but less central than the steps above.",
+          "detailed": "Carers' support services can help her cope. It ranks fourth because it doesn't address her immediate question or concerns."
+        },
+        {
+          "id": "B",
+          "text": "Listen to her concerns and what she has noticed at home.",
+          "brief": "You can receive information from her without sharing his.",
+          "detailed": "Confidentiality doesn't stop you listening. What she has noticed may be important for his care, and listening shows you take her worries seriously."
+        },
+        {
+          "id": "C",
+          "text": "Tell her what he said, as she is his main carer.",
+          "brief": "Breaches his confidentiality against his clear wishes.",
+          "detailed": "Living with him doesn't give her a right to his information. Sharing it against his wishes, without a reason such as serious risk, breaches his confidentiality."
+        },
+        {
+          "id": "D",
+          "text": "Ask Mr Webb whether he would be willing for some information to be shared with her.",
+          "brief": "He may agree to some sharing, which could help them both.",
+          "detailed": "People sometimes change their minds, or agree to limited sharing. Asking him respects his wishes and may allow you to support his mother."
+        },
+        {
+          "id": "E",
+          "text": "Explain that you can't discuss what he said without his consent.",
+          "brief": "Honest about the limits of what you can share.",
+          "detailed": "Explaining kindly why you can't share details helps her understand, without suggesting you're being unhelpful. It ranks third because listening and asking him are more constructive."
+        }
+      ],
+      "key": {
+        "order": [
+          "B",
+          "D",
+          "E",
+          "A",
+          "C"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you support a worried relative while respecting a patient's confidentiality.",
+        "keyDetails": "He has capacity and has asked that his family aren't told. His mother lives with him and is worried.",
+        "reasoning": "[B] listens, [D] seeks his consent, [E] explains the limits, and [A] offers support. [C] breaches his confidentiality.",
+        "competing": "Some would explain the limits first. The key starts by listening, because her information may be important and she needs to feel heard. Asking Mr Webb ranks above explaining the limits because, if he agrees, his mother can be properly involved."
+      },
+      "references": [
+        {
+          "title": "Confidentiality: good practice in handling patient information",
+          "publisher": "General Medical Council",
+          "year": 2017,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+          "note": "Listening to relatives and carers while respecting a patient's confidentiality."
+        }
+      ],
+      "tags": [
+        "confidentiality",
+        "carers",
+        "mental health",
+        "relatives"
+      ]
+    },
+    {
+      "id": "sjt-134",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-134",
+      "format": "multiple_choice",
+      "title": "Charts filled in at the end of the shift",
+      "setting": "Elderly care ward",
+      "attribute": "Professional integrity",
+      "topic": "Raising concerns about systems and safety",
+      "gmcDomains": [
+        "Colleagues, culture and safety"
+      ],
+      "competencies": [
+        "Patient safety",
+        "Raising concerns",
+        "Honest records"
+      ],
+      "difficulty": "hard",
+      "stem": "You are an F2 doctor on an elderly care ward at 19:30. You notice two healthcare assistants completing the pressure-area care charts for several patients, filling in two-hourly turns for the whole day.\n\nYou have been on the ward most of the afternoon and didn't see some of those patients being turned. One of them, Mrs Lee, has a pressure ulcer.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Speak to the healthcare assistants privately about what you saw.",
+          "brief": "Well meant, but the nurse in charge is better placed to address it.",
+          "detailed": "A direct conversation can be appropriate, and they may have a reason, such as turns done but not recorded. But possible falsification of records, affecting patient care, needs the nurse in charge."
+        },
+        {
+          "id": "B",
+          "text": "Make sure patients at high risk, including Mrs Lee, have their skin checked now.",
+          "brief": "If turns were missed, these patients need checking.",
+          "detailed": "Missed turns put frail patients at risk of new or worsening pressure damage. Checking their skin now deals with the immediate risk."
+        },
+        {
+          "id": "C",
+          "text": "Leave it, as nursing documentation is a matter for the nursing team.",
+          "brief": "It affects patient care, so it's your concern too.",
+          "detailed": "Nursing records are the nursing team's responsibility, but you have seen something that may mean patients aren't receiving care."
+        },
+        {
+          "id": "D",
+          "text": "Raise your concern with the nurse in charge.",
+          "brief": "The nurse in charge can check what happened and address it.",
+          "detailed": "The nurse in charge is responsible for the ward tonight and can find out whether turns were missed, and make sure care is given properly."
+        },
+        {
+          "id": "E",
+          "text": "Report the healthcare assistants to the Nursing and Midwifery Council.",
+          "brief": "HCAs aren't NMC registrants, and local routes come first.",
+          "detailed": "Healthcare assistants aren't registered with the NMC, and concerns like this are first for the ward and trust to look into."
+        },
+        {
+          "id": "F",
+          "text": "Report your concern through the incident reporting system.",
+          "brief": "Records a possible pattern so it can be investigated.",
+          "detailed": "Inaccurate charts and possibly missed care are a safety concern. Reporting it allows the ward manager and trust to look into it fairly."
+        },
+        {
+          "id": "G",
+          "text": "Correct the charts yourself to show which turns you didn't see.",
+          "brief": "You can't alter others' records, and you didn't see the whole day.",
+          "detailed": "This may seem honest, but you can't change their records, and you weren't watching every patient all afternoon."
+        },
+        {
+          "id": "H",
+          "text": "Ask the patients' relatives to keep an eye on whether they are turned.",
+          "brief": "Shifts responsibility to families.",
+          "detailed": "Families may notice, but it isn't their role to monitor care, and this doesn't address the concern."
+        }
+      ],
+      "key": {
+        "correct": [
+          "B",
+          "D",
+          "F"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you act on a concern that records are being falsified and care missed, protecting patients first.",
+        "keyDetails": "The charts were completed retrospectively. You didn't see some turns. One patient has a pressure ulcer. There may be an innocent explanation.",
+        "reasoning": "[B] protects patients now, [D] involves the person responsible tonight, and [F] records the concern formally. The distractors handle it informally ([A]), ignore it or pass it to families ([C], [H]), escalate inappropriately ([E]), or alter records ([G]).",
+        "competing": "[A] is the hard distractor: speaking to them directly can be appropriate, but possible falsification of records, with patients at risk, needs the nurse in charge."
+      },
+      "references": [
+        {
+          "title": "Raising and acting on concerns about patient safety",
+          "publisher": "General Medical Council",
+          "year": 2012,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+          "note": "Raising concerns about care and records."
+        },
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 3, acting when patients may not be receiving the care they need."
+        }
+      ],
+      "tags": [
+        "pressure ulcers",
+        "records",
+        "raising concerns",
+        "elderly care"
+      ]
+    },
+    {
+      "id": "sjt-135",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-135",
+      "format": "ranking",
+      "title": "Unwell mid-shift",
+      "setting": "Out-of-hours / community",
+      "attribute": "Coping with pressure",
+      "topic": "Your own health, fatigue and wellbeing",
+      "gmcDomains": [
+        "Knowledge, skills and development",
+        "Colleagues, culture and safety"
+      ],
+      "competencies": [
+        "Fitness to work",
+        "Infection control",
+        "Communication"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor on an evening out-of-hours GP shift. Halfway through, you start vomiting and have diarrhoea. You feel weak, and you suspect norovirus, which is going round your household.\n\nThere are three calls waiting for you, including two home visits to care homes.",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tell the clinical lead now, and arrange to hand over your waiting calls.",
+          "brief": "You aren't fit to work, and the calls need reallocating.",
+          "detailed": "You are unwell and probably infectious, and home visits to care homes risk spreading norovirus to frail residents. Telling the clinical lead straight away lets them reallocate your calls."
+        },
+        {
+          "id": "B",
+          "text": "Carry on with your shift, taking fluids and anti-diarrhoeal medication.",
+          "brief": "Risks spreading infection to vulnerable patients.",
+          "detailed": "Wanting to finish your shift is understandable, but visiting care homes while you probably have norovirus could cause an outbreak among frail residents."
+        },
+        {
+          "id": "C",
+          "text": "Go home, and phone the clinical lead once you get there.",
+          "brief": "Leaving is right, but your calls are left unallocated in the meantime.",
+          "detailed": "You need to stop working, but leaving before telling anyone means your waiting calls sit unallocated until you phone."
+        },
+        {
+          "id": "D",
+          "text": "Phone the most urgent waiting patient yourself, then tell the clinical lead.",
+          "brief": "Well meant, but delays telling the person who can reallocate everything.",
+          "detailed": "Making sure the most urgent patient isn't delayed is a caring instinct, and you can do it from the base without infection risk. But it delays the lead's response, and you may not be well enough."
+        }
+      ],
+      "key": {
+        "order": [
+          "A",
+          "D",
+          "C",
+          "B"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you recognise that you aren't fit to work and manage stopping safely, protecting patients from infection and making sure their care continues.",
+        "keyDetails": "You are probably infectious. Two calls are to care homes. Calls are waiting.",
+        "reasoning": "[A] stops you working and arranges for your calls to be covered, [D] is well meant but delays the lead, and [C] leaves calls unallocated. [B] puts vulnerable patients at risk of infection.",
+        "competing": "Some would put going home above phoning the urgent patient. The key prefers [D] because it can be done safely by phone and doesn't leave patients unallocated, though [A] is better than both."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 1, not working when your health may put patients at risk."
+        }
+      ],
+      "tags": [
+        "infection",
+        "fitness to work",
+        "out-of-hours",
+        "care homes"
+      ]
+    },
+    {
+      "id": "sjt-136",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-136",
+      "format": "multiple_choice",
+      "title": "A form he can read",
+      "setting": "General surgery",
+      "attribute": "Empathy and sensitivity",
+      "topic": "Cultural, religious and language needs",
+      "gmcDomains": [
+        "Patients, partnership and communication"
+      ],
+      "competencies": [
+        "Consent",
+        "Language needs",
+        "Respecting patients"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor in general surgery. Mr Kowalski, 61, is having a planned hernia repair tomorrow. He speaks conversational English, and the registrar has explained the operation to him.\n\nWhen you bring the consent form for him to sign, he says politely that he would like to read it in Polish before signing, as he wants to be sure he understands the risks.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Ask his son, who speaks fluent English, to translate the form for him.",
+          "brief": "Family members aren't reliable interpreters for consent.",
+          "detailed": "This is convenient, and his son may translate well. But family members may soften or omit information, and professional interpreting is expected for consent."
+        },
+        {
+          "id": "B",
+          "text": "Arrange a professional Polish interpreter to go through the form with him.",
+          "brief": "Makes sure his consent is properly informed, in his own language.",
+          "detailed": "Conversational English doesn't always extend to medical risks. A professional interpreter, in person or by phone, can go through the form and answer his questions accurately."
+        },
+        {
+          "id": "C",
+          "text": "Explain that the consent form is a formality, as the registrar has already explained the operation.",
+          "brief": "Consent is about understanding, not the form, and he has said he isn't sure.",
+          "detailed": "The discussion matters more than the form, but he has told you he wants to be sure he understands the risks. Dismissing this undermines his consent."
+        },
+        {
+          "id": "D",
+          "text": "Use an online translation tool to translate the form for him.",
+          "brief": "Machine translation of medical risks may be inaccurate.",
+          "detailed": "Online tools can help with simple phrases, but they may mistranslate medical terms."
+        },
+        {
+          "id": "E",
+          "text": "Ask him to sign now, and say you'll arrange a translation for him to keep.",
+          "brief": "Consent should come after understanding, not before.",
+          "detailed": "Providing a translation is helpful, but asking him to sign before he understands undermines the purpose of consent."
+        },
+        {
+          "id": "F",
+          "text": "Check whether the trust has written information about the operation in Polish.",
+          "brief": "Translated information helps him understand and remember the risks.",
+          "detailed": "Many trusts have patient information leaflets in common languages. Written information he can read in his own time supports an informed decision."
+        },
+        {
+          "id": "G",
+          "text": "Reassure him that he doesn't need to sign until he understands.",
+          "brief": "Respects his request and makes clear he won't be rushed.",
+          "detailed": "The operation is planned, so there is time. Making clear that he can take time to understand before signing respects his request."
+        },
+        {
+          "id": "H",
+          "text": "Postpone his operation until a translated consent form can be produced.",
+          "brief": "Probably unnecessary, as an interpreter can help today.",
+          "detailed": "Postponing may be needed if he can't be helped to understand in time, but an interpreter can usually help today."
+        }
+      ],
+      "key": {
+        "correct": [
+          "B",
+          "F",
+          "G"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you respond to a patient's language needs so that his consent is properly informed.",
+        "keyDetails": "He speaks conversational English but wants to understand the risks in Polish. The operation is planned for tomorrow.",
+        "reasoning": "[B] provides professional interpreting, [F] offers written information in his language, and [G] reassures him he won't be rushed. The distractors use unreliable translation ([A], [D]), dismiss his request ([C]), reverse the order of consent ([E]), or delay unnecessarily ([H]).",
+        "competing": "[A] is the tempting option because it's quick and his son is fluent, but family members aren't suitable interpreters for consent."
+      },
+      "references": [
+        {
+          "title": "Decision making and consent",
+          "publisher": "General Medical Council",
+          "year": 2020,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+          "note": "Making sure patients have information in a form they can understand, including using interpreters."
+        }
+      ],
+      "tags": [
+        "consent",
+        "interpreters",
+        "language",
+        "surgery"
+      ]
+    },
+    {
+      "id": "sjt-137",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-137",
+      "format": "ranking",
+      "title": "Before the inspection",
+      "setting": "Intensive care",
+      "attribute": "Professional integrity",
+      "topic": "Probity in records, forms and certification",
+      "gmcDomains": [
+        "Trust and professionalism"
+      ],
+      "competencies": [
+        "Honest records",
+        "Raising concerns",
+        "Integrity under pressure"
+      ],
+      "difficulty": "easy",
+      "stem": "You are an F2 doctor in intensive care. An inspection is due next week. The audit nurse has found that hourly observations for one patient are missing for six hours of last Tuesday's night shift, when you were the doctor covering the unit.\n\nAs you reviewed the patient that night, she asks you to fill them in from memory, saying, \"They were probably normal, and it'll look terrible if they're blank.\"",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fill in the observations as asked, as they were probably normal.",
+          "brief": "Falsifies the record.",
+          "detailed": "This would create a false record before an inspection. It is dishonest and is the least appropriate option."
+        },
+        {
+          "id": "B",
+          "text": "Let the nurse in charge know about the missing records.",
+          "brief": "The nursing lead should know, though this follows declining.",
+          "detailed": "Observations are usually recorded by nurses, so the nurse in charge needs to know. It ranks third because declining and reporting it come first."
+        },
+        {
+          "id": "C",
+          "text": "Suggest the gap is reported as an incident, so the reason can be looked into.",
+          "brief": "A missing record may mean missed observations, which matters for safety.",
+          "detailed": "A six-hour gap may mean observations weren't done, or weren't recorded. Reporting it means the reason can be found and addressed."
+        },
+        {
+          "id": "D",
+          "text": "Fill in only the values you are confident about, marking them as retrospective.",
+          "brief": "Late entries can be legitimate, but not observations reconstructed from memory a week later.",
+          "detailed": "Retrospective entries are acceptable when clearly marked and based on genuine knowledge, such as notes made at the time. Observation values remembered a week later aren't reliable."
+        },
+        {
+          "id": "E",
+          "text": "Decline, explaining that you can't fill in observations you don't have a record of.",
+          "brief": "Records must reflect what was actually measured.",
+          "detailed": "Writing in values from memory, a week later, would be guesswork presented as fact. Declining, and explaining why, keeps the record honest."
+        }
+      ],
+      "key": {
+        "order": [
+          "E",
+          "C",
+          "B",
+          "D",
+          "A"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you keep records honest under pressure, and treat a gap in observations as a safety issue rather than an appearance problem.",
+        "keyDetails": "The observations are a week old and weren't recorded. An inspection is due. The nurse wants the gap filled.",
+        "reasoning": "[E] keeps the record honest, [C] treats the gap as a safety issue, and [B] informs the nursing lead. [D] is a reconstruction presented as a record, and [A] is falsification.",
+        "competing": "[D] looks honest because it's labelled as retrospective, but values remembered a week later aren't reliable enough to record as observations."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 4, honesty in records; Domain 1, keeping clear and accurate records made at the time."
+        }
+      ],
+      "tags": [
+        "records",
+        "falsification",
+        "inspection",
+        "intensive care"
+      ]
+    },
+    {
+      "id": "sjt-138",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-138",
+      "format": "multiple_choice",
+      "title": "No scan tonight",
+      "setting": "General surgery",
+      "attribute": "Coping with pressure",
+      "topic": "Disagreeing with a senior's decision",
+      "gmcDomains": [
+        "Colleagues, culture and safety",
+        "Knowledge, skills and development"
+      ],
+      "competencies": [
+        "Escalating concerns",
+        "Clinical reasoning",
+        "Professional communication"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor on a surgical night shift. Mrs Clark, 72, has worsening abdominal pain two days after a colonoscopy. She is tender across her abdomen, her heart rate is 112, and her lactate is 3.1.\n\nYou suspect a perforation. The registrar, who is very busy in ED, says over the phone that it's probably constipation and that a CT can wait until the morning.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Request the CT scan yourself, without discussing it further.",
+          "brief": "Goes around the registrar without telling them.",
+          "detailed": "You may be right that she needs a scan, but requesting it without discussion undermines the registrar and may not be accepted by radiology."
+        },
+        {
+          "id": "B",
+          "text": "Accept the registrar's decision, as they are more experienced.",
+          "brief": "Seniority doesn't remove your responsibility to act on your concerns.",
+          "detailed": "The registrar's judgement deserves respect, but her findings are concerning, and you should make sure they've been fully considered."
+        },
+        {
+          "id": "C",
+          "text": "Explain your findings to the registrar again, specifically.",
+          "brief": "Clear, specific information may change the decision.",
+          "detailed": "The registrar may not have taken in her heart rate, lactate and recent colonoscopy. Repeating them clearly, using a structured format such as SBAR, gives them the full picture."
+        },
+        {
+          "id": "D",
+          "text": "Tell Mrs Clark that you think the registrar is wrong.",
+          "brief": "Undermines the team and may frighten her.",
+          "detailed": "Being honest with patients matters, but telling her you disagree with your senior isn't helpful and may cause distress."
+        },
+        {
+          "id": "E",
+          "text": "Ask the registrar to come and review her.",
+          "brief": "A senior review in person may change the decision.",
+          "detailed": "Her findings justify a senior assessment. Asking the registrar to see her, when they can, is a reasonable request."
+        },
+        {
+          "id": "F",
+          "text": "Arrange an erect chest X-ray yourself to gather more evidence.",
+          "brief": "May help, but isn't the main issue and may be falsely reassuring.",
+          "detailed": "An erect chest X-ray can show free air, and requesting one is within your role. But a normal X-ray doesn't rule out perforation, and it doesn't address the need for senior review."
+        },
+        {
+          "id": "G",
+          "text": "Document your disagreement in the notes and review her in the morning.",
+          "brief": "Documents the concern without acting on it.",
+          "detailed": "A record is important, but it doesn't help her tonight."
+        },
+        {
+          "id": "H",
+          "text": "Tell the registrar that you'd like to discuss her with the on-call consultant.",
+          "brief": "Open escalation is appropriate when you remain worried about a sick patient.",
+          "detailed": "If you're still concerned, you can escalate further. Telling the registrar first keeps it open and respectful, and is better for the team than going behind their back."
+        }
+      ],
+      "key": {
+        "correct": [
+          "C",
+          "E",
+          "H"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you escalate a concern about a sick patient when a busy senior disagrees, clearly and respectfully.",
+        "keyDetails": "She has tachycardia, a raised lactate and abdominal tenderness after a colonoscopy. The registrar is busy and hasn't seen her.",
+        "reasoning": "[C] gives the registrar the full picture, [E] asks for a review, and [H] escalates openly. The distractors go around the registrar ([A]), accept a decision you're worried about ([B], [G]), involve the patient inappropriately ([D]), or rely on an investigation that may mislead ([F]).",
+        "competing": "[F] is the hard distractor: an erect chest X-ray is a reasonable test, but it can be falsely reassuring and doesn't replace a senior review. Whatever the decision about imaging, you should also start appropriate treatment for possible sepsis while you escalate."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 3, escalating concerns about patients' safety."
+        },
+        {
+          "title": "National Early Warning Score (NEWS) 2",
+          "publisher": "Royal College of Physicians",
+          "year": 2017,
+          "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/",
+          "note": "Escalating care for patients with abnormal physiology."
+        }
+      ],
+      "tags": [
+        "escalation",
+        "seniors",
+        "perforation",
+        "surgery"
+      ]
+    },
+    {
+      "id": "sjt-139",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-139",
+      "format": "ranking",
+      "title": "Old fractures on the X-ray",
+      "setting": "Orthopaedics",
+      "attribute": "Empathy and sensitivity",
+      "topic": "Safeguarding children and vulnerable adults",
+      "gmcDomains": [
+        "Patients, partnership and communication",
+        "Colleagues, culture and safety"
+      ],
+      "competencies": [
+        "Child safeguarding",
+        "Documentation",
+        "Communication with parents"
+      ],
+      "difficulty": "hard",
+      "stem": "You are an F2 doctor in the fracture clinic. Isla, 11 months, has a clavicle fracture. Her parents say she fell from a changing table yesterday.\n\nThe radiologist's report also notes healing fractures of several ribs at the back of her chest, probably a few weeks old. Her parents haven't mentioned any earlier injury.",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Arrange fracture clinic follow-up for the clavicle, as the rib fractures are healing.",
+          "brief": "Misses a serious safeguarding concern.",
+          "detailed": "The rib fractures may be healing, but their presence in an infant, unexplained, is a major warning sign. Sending her home could put her at serious risk."
+        },
+        {
+          "id": "B",
+          "text": "Record the history her parents gave, and the X-ray findings, carefully.",
+          "brief": "An accurate record is vital in any safeguarding process.",
+          "detailed": "Writing down exactly what the parents said, when, and what the X-ray shows supports a fair assessment. It ranks second because getting the right people involved comes first."
+        },
+        {
+          "id": "C",
+          "text": "Ask her parents directly whether they have hurt her.",
+          "brief": "Accusatory, and could compromise the assessment.",
+          "detailed": "This may feel direct and honest, but it's accusatory before any assessment, and could put Isla at risk if they take her home."
+        },
+        {
+          "id": "D",
+          "text": "Discuss Isla urgently with the on-call paediatric registrar and the safeguarding team.",
+          "brief": "Unexplained rib fractures in an infant need urgent safeguarding assessment.",
+          "detailed": "Posterior rib fractures in a baby are strongly associated with non-accidental injury and need urgent assessment by paediatrics and the safeguarding team, who will decide on further tests and involving children's social care."
+        },
+        {
+          "id": "E",
+          "text": "Explain to her parents that the X-ray shows older injuries that need to be looked into.",
+          "brief": "Being open with parents is usually right, but how and when should be agreed with seniors.",
+          "detailed": "Parents should usually be told about safeguarding concerns, unless that would put the child at risk. The decision about what to say, and when, should be made with the paediatric and safeguarding team."
+        }
+      ],
+      "key": {
+        "order": [
+          "D",
+          "B",
+          "E",
+          "C",
+          "A"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you recognise a serious safeguarding sign in an infant and act through the proper routes.",
+        "keyDetails": "Isla is 11 months old. Posterior rib fractures are highly suspicious. The parents haven't given an explanation.",
+        "reasoning": "[D] gets urgent specialist involvement, [B] records the facts, and [E] is open with the parents but should be agreed with seniors. [C] is accusatory, and [A] misses the concern.",
+        "competing": "This is hard because [B] and [E] are both appropriate. The key puts the record first because it's always needed, whereas what to tell the parents, and when, depends on the safeguarding team's advice."
+      },
+      "references": [
+        {
+          "title": "Working together to safeguard children",
+          "publisher": "Department for Education (GOV.UK)",
+          "year": 2023,
+          "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+          "note": "Acting when a child may be at risk of significant harm."
+        },
+        {
+          "title": "Protecting children and young people: the responsibilities of all doctors",
+          "publisher": "General Medical Council",
+          "year": 2012,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+          "note": "Doctors' responsibilities to protect children."
+        }
+      ],
+      "tags": [
+        "child safeguarding",
+        "non-accidental injury",
+        "fractures",
+        "infants"
+      ]
+    },
+    {
+      "id": "sjt-140",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-140",
+      "format": "multiple_choice",
+      "title": "Just put it in my logbook",
+      "setting": "Non-clinical (training)",
+      "attribute": "Professional integrity",
+      "topic": "Probity in training, research, audit and applications",
+      "gmcDomains": [
+        "Trust and professionalism"
+      ],
+      "competencies": [
+        "Honest records",
+        "Supporting colleagues",
+        "Training"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor. Dr Hughes, another F2, is applying for core surgical training and needs more logged procedures. She asks you to confirm in her e-logbook that she performed a skin lesion excision last week.\n\nYou were there, but she observed while you did the procedure.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Explain that you can't confirm she performed it, as she observed.",
+          "brief": "The logbook must reflect what she actually did.",
+          "detailed": "Logbooks are used to judge applicants' experience. Confirming she performed a procedure she observed would be dishonest."
+        },
+        {
+          "id": "B",
+          "text": "Suggest she logs it accurately, as observed.",
+          "brief": "Logbooks usually record observed procedures too.",
+          "detailed": "Many logbooks have a category for procedures observed or assisted. Logging it accurately still shows her interest and experience."
+        },
+        {
+          "id": "C",
+          "text": "Confirm it, as she has done similar procedures before.",
+          "brief": "Previous experience doesn't change what happened in this case.",
+          "detailed": "She may be competent, which makes this tempting, but the record would still be false."
+        },
+        {
+          "id": "D",
+          "text": "Offer to help her find chances to do it under supervision.",
+          "brief": "Helps her build genuine experience.",
+          "detailed": "Supporting her to gain real experience helps her application honestly, and is a constructive response to her request."
+        },
+        {
+          "id": "E",
+          "text": "Confirm it as 'assisted', as a compromise.",
+          "brief": "She didn't assist either.",
+          "detailed": "This feels like a middle ground, but she observed, so it would still be inaccurate."
+        },
+        {
+          "id": "F",
+          "text": "Report her to the training programme director for asking.",
+          "brief": "Disproportionate for a request you can simply decline.",
+          "detailed": "Repeated attempts to falsify records would need reporting, but a single request is best dealt with by declining and explaining."
+        },
+        {
+          "id": "G",
+          "text": "Tell other colleagues that she asked you to falsify her logbook.",
+          "brief": "Unprofessional and damaging.",
+          "detailed": "This would damage her reputation and doesn't address the issue."
+        },
+        {
+          "id": "H",
+          "text": "Agree, but only this once.",
+          "brief": "Falsification is still falsification.",
+          "detailed": "A one-off doesn't make a false record acceptable."
+        }
+      ],
+      "key": {
+        "correct": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you maintain honesty in training records when a colleague asks for help with her application.",
+        "keyDetails": "She observed the procedure. The logbook will be used for her application. You are being asked to confirm it.",
+        "reasoning": "[A] keeps the record honest, [B] suggests an accurate alternative, and [D] supports her honestly. The distractors falsify the record ([C], [E], [H]), or respond disproportionately or unprofessionally ([F], [G]).",
+        "competing": "[E] is the tempting distractor, as it seems a compromise, but it's still inaccurate."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 4, honesty in records and applications."
+        }
+      ],
+      "tags": [
+        "logbooks",
+        "applications",
+        "probity",
+        "colleagues"
+      ]
+    },
+    {
+      "id": "sjt-141",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-141",
+      "format": "ranking",
+      "title": "A research opportunity",
+      "setting": "Non-clinical (training)",
+      "attribute": "Coping with pressure",
+      "topic": "Rotas, leave, and training versus service",
+      "gmcDomains": [
+        "Knowledge, skills and development",
+        "Colleagues, culture and safety"
+      ],
+      "competencies": [
+        "Managing your training",
+        "Teamwork",
+        "Honesty"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor. A professor offers you the chance to join a research project, which would strengthen your application for academic training. It involves four half-day sessions over the next month.\n\nThree of the sessions clash with your rostered ward shifts, and your team is already short of doctors.",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Discuss the opportunity with your educational supervisor.",
+          "brief": "Your supervisor can advise, and may support study leave.",
+          "detailed": "Your supervisor can help you weigh the opportunity against your training needs and may support a request for study leave, which is the proper route for time out of clinical work. This is the natural first step."
+        },
+        {
+          "id": "B",
+          "text": "Ask the professor whether the sessions could be scheduled differently.",
+          "brief": "May help, but depends on the research team's flexibility.",
+          "detailed": "There may be some flexibility, which would avoid the clash. It ranks third because you can't rely on it."
+        },
+        {
+          "id": "C",
+          "text": "Decline the opportunity, as service commitments come first.",
+          "brief": "Safe, but gives up an opportunity that could probably be arranged.",
+          "detailed": "Putting patients first is important, but this may be a valuable opportunity that could be fitted in with planning. Declining without trying is overly cautious."
+        },
+        {
+          "id": "D",
+          "text": "Ask the rota coordinator whether any shifts could be swapped.",
+          "brief": "Proper swaps keep the ward staffed while allowing you to take part.",
+          "detailed": "Rota coordinators can often arrange swaps, keeping the ward staffed. It ranks second because your supervisor's support, and any study leave, come first."
+        },
+        {
+          "id": "E",
+          "text": "Call in sick on the days that clash.",
+          "brief": "Dishonest, and leaves the ward short.",
+          "detailed": "This is dishonest and puts extra pressure on an already short-staffed team. It is the least appropriate option."
+        }
+      ],
+      "key": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C",
+          "E"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you balance a training opportunity against service commitments, honestly and through proper routes.",
+        "keyDetails": "The opportunity is valuable. Three sessions clash with shifts. The team is short-staffed.",
+        "reasoning": "[A] gets advice and support for study leave, [D] looks for proper swaps, and [B] explores flexibility. [C] gives up too readily, and [E] is dishonest.",
+        "competing": "Some would go straight to the rota coordinator, as swaps are the practical fix. The key starts with your supervisor because study leave for research is agreed through them, and their support makes any rota change easier."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 1, managing your development; Domain 4, honesty with employers."
+        }
+      ],
+      "tags": [
+        "research",
+        "rotas",
+        "study leave",
+        "training"
+      ]
+    },
+    {
+      "id": "sjt-142",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-142",
+      "format": "multiple_choice",
+      "title": "No amputation",
+      "setting": "General surgery",
+      "attribute": "Empathy and sensitivity",
+      "topic": "Autonomy, capacity and refusal",
+      "gmcDomains": [
+        "Patients, partnership and communication"
+      ],
+      "competencies": [
+        "Respecting autonomy",
+        "Exploring concerns",
+        "Informed decisions"
+      ],
+      "difficulty": "easy",
+      "stem": "You are an F2 doctor on a vascular surgery ward. Mr Ross, 68, has a gangrenous foot from peripheral arterial disease and diabetes. The consultant has recommended a below-knee amputation, without which the infection is likely to spread and could be fatal.\n\nMr Ross says firmly that he won't have his leg amputated. He seems alert and understands what he has been told.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Ask him about his reasons and what worries him most.",
+          "brief": "Understanding his reasons may reveal concerns that can be addressed.",
+          "detailed": "He may fear losing independence, pain, or how others will see him. Exploring this shows respect and may reveal information or support that would help him decide."
+        },
+        {
+          "id": "B",
+          "text": "Ask his family to persuade him to change his mind.",
+          "brief": "Pressure from family isn't appropriate, and involves them without his consent.",
+          "detailed": "Families can support patients, but enlisting them to change his mind puts pressure on him and may breach his confidentiality."
+        },
+        {
+          "id": "C",
+          "text": "Make sure he understands the likely consequences of refusing, and any alternatives.",
+          "brief": "An informed refusal needs a clear understanding of the risks.",
+          "detailed": "He should understand that the infection may spread and could be fatal, and what other options, including palliative care, might be available. This supports an informed decision, whatever he chooses."
+        },
+        {
+          "id": "D",
+          "text": "Arrange the amputation in his best interests, as refusing could be fatal.",
+          "brief": "A patient with capacity can refuse life-saving treatment.",
+          "detailed": "Best-interests decisions apply only to people who lack capacity. He appears to have capacity, so his refusal must be respected."
+        },
+        {
+          "id": "E",
+          "text": "Accept his decision and document it, without further discussion.",
+          "brief": "Respects autonomy, but misses the chance to make sure his decision is informed.",
+          "detailed": "His decision must be respected, but a decision this serious deserves a careful conversation to make sure he understands and to address his concerns."
+        },
+        {
+          "id": "F",
+          "text": "Ask the psychiatry team to assess him, as refusing life-saving treatment suggests he lacks capacity.",
+          "brief": "An unwise decision isn't evidence of a lack of capacity.",
+          "detailed": "Capacity should be assessed if there's doubt, but refusing treatment, even life-saving treatment, doesn't on its own mean someone lacks capacity."
+        },
+        {
+          "id": "G",
+          "text": "Tell him he will die a painful death if he doesn't agree.",
+          "brief": "Coercive, and may not be accurate.",
+          "detailed": "He should understand the risks, but framing them this way is frightening and coercive, and palliative care can manage pain."
+        },
+        {
+          "id": "H",
+          "text": "Let the consultant know, so they can discuss it with him further.",
+          "brief": "A decision this serious needs senior involvement.",
+          "detailed": "The consultant may want to discuss it again, offer alternatives, or involve other specialists. Keeping them informed is essential."
+        }
+      ],
+      "key": {
+        "correct": [
+          "A",
+          "C",
+          "H"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you respond when a patient with capacity refuses life-saving treatment: exploring his reasons and making sure his decision is informed.",
+        "keyDetails": "He appears to have capacity. The consequences of refusing could be fatal. His reasons are unknown.",
+        "reasoning": "[A] explores his reasons, [C] makes sure his decision is informed, and [H] involves the consultant. The distractors pressure or coerce him ([B], [G]), override his decision ([D]), close the discussion too early ([E]), or question his capacity without reason ([F]).",
+        "competing": "[E] looks like respect for autonomy, but a decision this serious deserves a fuller conversation first."
+      },
+      "references": [
+        {
+          "title": "Decision making and consent",
+          "publisher": "General Medical Council",
+          "year": 2020,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+          "note": "Respecting the decisions of patients with capacity, including refusal of life-saving treatment."
+        },
+        {
+          "title": "Mental Capacity Act 2005, section 1 (the principles)",
+          "publisher": "UK Parliament (legislation.gov.uk)",
+          "year": 2005,
+          "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+          "note": "An unwise decision doesn't mean a lack of capacity."
+        }
+      ],
+      "tags": [
+        "refusal",
+        "capacity",
+        "amputation",
+        "surgery"
+      ]
+    },
+    {
+      "id": "sjt-143",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-143",
+      "format": "ranking",
+      "title": "The patient in the next bed",
+      "setting": "Intensive care",
+      "attribute": "Professional integrity",
+      "topic": "Confidentiality and information sharing",
+      "gmcDomains": [
+        "Trust and professionalism"
+      ],
+      "competencies": [
+        "Confidentiality",
+        "Courtesy",
+        "Communication"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor in intensive care. Mrs Moore is visiting her husband. As you finish speaking with her, she points to the next bed and says, \"That's Tom Fielding — he's a family friend. How is he doing? His wife hasn't been answering her phone.\"\n\nMr Fielding is seriously ill.",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tell her how he is, as she is a family friend.",
+          "brief": "Breaches his confidentiality.",
+          "detailed": "Being a friend doesn't entitle her to his information. This is the least appropriate option."
+        },
+        {
+          "id": "B",
+          "text": "Suggest she keeps trying his wife, who can decide what to share.",
+          "brief": "Points her to the person who can share information.",
+          "detailed": "Mr Fielding's wife can decide what to share with friends. Suggesting this helps Mrs Moore without breaching confidentiality."
+        },
+        {
+          "id": "C",
+          "text": "Politely explain that you can't discuss other patients.",
+          "brief": "Kind and clear, and protects his confidentiality.",
+          "detailed": "Mrs Moore's concern is genuine, but Mr Fielding's information is confidential. Explaining this politely, without confirming anything about his condition, is the right response."
+        },
+        {
+          "id": "D",
+          "text": "Offer to let his nurse know that a friend asked after him.",
+          "brief": "A kind gesture that passes on her concern without disclosing anything.",
+          "detailed": "His family may appreciate knowing friends are asking. Passing this on, without sharing anything with Mrs Moore, is harmless and kind. It ranks third because it's less important than protecting his confidentiality."
+        },
+        {
+          "id": "E",
+          "text": "Tell her he is being well looked after, without giving details.",
+          "brief": "Still discusses his care with someone not entitled to it.",
+          "detailed": "This seems harmless and kind, but it still discusses his care with someone who isn't entitled to information about him, and may give a misleading impression of how he is."
+        }
+      ],
+      "key": {
+        "order": [
+          "C",
+          "B",
+          "D",
+          "E",
+          "A"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you protect a patient's confidentiality when someone close to him asks, kindly and clearly.",
+        "keyDetails": "Mrs Moore is a friend, not family. Mr Fielding is seriously ill. His wife can decide what to share.",
+        "reasoning": "[C] protects his confidentiality, [B] points her to his wife, and [D] passes on her concern. [E] and [A] both disclose information, with [A] disclosing more.",
+        "competing": "Some would see [E] as harmless, but any information about his condition is confidential."
+      },
+      "references": [
+        {
+          "title": "Confidentiality: good practice in handling patient information",
+          "publisher": "General Medical Council",
+          "year": 2017,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+          "note": "Not sharing information about patients with friends without consent."
+        }
+      ],
+      "tags": [
+        "confidentiality",
+        "visitors",
+        "intensive care"
+      ]
+    },
+    {
+      "id": "sjt-144",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-144",
+      "format": "multiple_choice",
+      "title": "Running over time",
+      "setting": "General practice",
+      "attribute": "Coping with pressure",
+      "topic": "Responding to criticism, feedback and your own underperformance",
+      "gmcDomains": [
+        "Knowledge, skills and development"
+      ],
+      "competencies": [
+        "Responding to feedback",
+        "Consultation skills",
+        "Time management"
+      ],
+      "difficulty": "hard",
+      "stem": "You are an F2 doctor in a GP practice. Your GP trainer tells you that your consultations regularly run 10 minutes over, that patients are waiting too long, and that you need to improve.\n\nYou feel your thoroughness is important for patient safety, and you're worried about missing something.",
+      "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+      "selectCount": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "Keep consulting exactly as you are, as patient safety matters more than waiting times.",
+          "brief": "Safety matters, but so do patients kept waiting.",
+          "detailed": "Your concern for safety is right, but long waits affect other patients and colleagues, and the feedback suggests you can improve."
+        },
+        {
+          "id": "B",
+          "text": "Cut consultations to ten minutes, whatever the patient's problem.",
+          "brief": "Rigid limits risk missing important problems.",
+          "detailed": "This would meet targets, but cutting consultations short regardless of complexity could affect safety."
+        },
+        {
+          "id": "C",
+          "text": "Ask reception to book you only simple problems.",
+          "brief": "Avoids the problem and limits your learning.",
+          "detailed": "This may reduce overruns, but limits your experience and doesn't address the underlying issue."
+        },
+        {
+          "id": "D",
+          "text": "Stop safety-netting, as it takes time.",
+          "brief": "Safety-netting is an essential part of a consultation.",
+          "detailed": "Safety-netting can be done efficiently, but stopping it would put patients at risk."
+        },
+        {
+          "id": "E",
+          "text": "Ask your trainer to observe some of your consultations.",
+          "brief": "Specific observation shows where you can be more efficient.",
+          "detailed": "Watching your consultations, with patients' consent, can show where time goes, such as long histories or unstructured endings. This gives you specific things to work on."
+        },
+        {
+          "id": "F",
+          "text": "Work on techniques such as agenda-setting and focused history-taking.",
+          "brief": "Better structure saves time without losing safety.",
+          "detailed": "Consultation skills such as agreeing the agenda early and focusing the history help you work efficiently while staying thorough. These skills improve with practice."
+        },
+        {
+          "id": "G",
+          "text": "Ask your trainer whether longer appointments would be appropriate for now.",
+          "brief": "Many practices give F2s longer slots while they develop.",
+          "detailed": "It's common for F2s to have longer appointments while they gain experience. Asking about this is reasonable, alongside working on your skills."
+        },
+        {
+          "id": "H",
+          "text": "Work through your lunch breaks to catch up.",
+          "brief": "Doesn't address the cause, and isn't sustainable.",
+          "detailed": "This may help you catch up, but it doesn't address why you're running late, and will tire you."
+        }
+      ],
+      "key": {
+        "correct": [
+          "E",
+          "F",
+          "G"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests how you respond to feedback about your efficiency, improving your skills without compromising safety.",
+        "keyDetails": "The feedback is specific. You value thoroughness. Patients are waiting too long.",
+        "reasoning": "[E] identifies where time goes, [F] improves your skills, and [G] looks for reasonable adjustment while you develop. The distractors ignore the feedback ([A]), compromise safety ([B], [D]), avoid the issue ([C]), or are unsustainable ([H]).",
+        "competing": "[A] is the hard distractor: your concern for safety is valid, but efficiency can be improved without losing it."
+      },
+      "references": [
+        {
+          "title": "Good medical practice",
+          "publisher": "General Medical Council",
+          "year": 2024,
+          "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+          "note": "Domain 1, reflecting on feedback and developing your practice."
+        }
+      ],
+      "tags": [
+        "feedback",
+        "consultation skills",
+        "general practice",
+        "time management"
+      ]
+    },
+    {
+      "id": "sjt-145",
+      "version": 1,
+      "status": "draft-for-review",
+      "pool": "practice",
+      "blueprint": "sjt-145",
+      "format": "ranking",
+      "title": "\"There's no point\"",
+      "setting": "Elderly care ward",
+      "attribute": "Empathy and sensitivity",
+      "topic": "Mental health, distress and stigma",
+      "gmcDomains": [
+        "Patients, partnership and communication"
+      ],
+      "competencies": [
+        "Recognising depression",
+        "Risk assessment",
+        "Compassion"
+      ],
+      "difficulty": "moderate",
+      "stem": "You are an F2 doctor on an elderly care ward. Mrs Bell, 81, is recovering from a fall. Her husband of 55 years died two months ago.\n\nThe nurses say she has eaten very little for several days. When you ask her about it, she says quietly, \"There's no point any more.\"",
+      "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ask the dietitian to review her intake.",
+          "brief": "Her nutrition matters, but the cause needs addressing.",
+          "detailed": "Poor intake in an older person is a concern, and a dietitian can help. It ranks third because her mood is the likely cause."
+        },
+        {
+          "id": "B",
+          "text": "Sit with her, and gently ask how she has been feeling.",
+          "brief": "Her words may reflect grief, depression, or suicidal thoughts, and need exploring.",
+          "detailed": "Older people who have been recently bereaved are at higher risk of depression and suicide. Asking gently and directly about how she feels, including about suicidal thoughts, is the only way to know, and doesn't increase risk."
+        },
+        {
+          "id": "C",
+          "text": "Encourage her to eat, explaining that she needs to keep her strength up.",
+          "brief": "Well meant, but misses what she is telling you.",
+          "detailed": "This is a natural response, but it doesn't address what lies behind \"there's no point\"."
+        },
+        {
+          "id": "D",
+          "text": "Discuss her with your senior, and consider a referral to the liaison psychiatry team.",
+          "brief": "She may need specialist assessment.",
+          "detailed": "Her low mood and poor intake may need specialist assessment and support. It ranks second because talking to her first helps you understand what she needs."
+        }
+      ],
+      "key": {
+        "order": [
+          "B",
+          "D",
+          "A",
+          "C"
+        ]
+      },
+      "explanation": {
+        "issue": "This tests whether you recognise possible depression and suicide risk in a bereaved older patient, and respond with care.",
+        "keyDetails": "She was recently widowed. She has stopped eating. She says there's no point.",
+        "reasoning": "[B] explores her feelings and risk, [D] gets specialist help, and [A] addresses her nutrition. [C] misses what she is telling you.",
+        "competing": "Some would refer to the dietitian earlier, given her poor intake, but addressing the cause comes first."
+      },
+      "references": [
+        {
+          "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+          "publisher": "National Institute for Health and Care Excellence",
+          "year": 2022,
+          "url": "https://www.nice.org.uk/guidance/ng225",
+          "note": "Asking about suicidal thoughts and responding to people at risk."
+        }
+      ],
+      "tags": [
+        "bereavement",
+        "depression",
+        "older people",
+        "suicide risk"
+      ]
     }
   ];
   if (typeof module === "object" && module.exports) module.exports = QUESTIONS;

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-127",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-127",
+  "format": "ranking",
+  "title": "Will I play again?",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Breaking bad news",
+    "Honesty",
+    "Responding to emotion"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in orthopaedics. Jamie, 24, is a professional footballer who has had surgery for a complex knee injury. This morning the consultant told him the injury may mean he can't play professionally again.\n\nWhen you see him later, he is staring at the wall and asks you, \"Is that it, then? Is my career over?\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Reassure him that many players come back from serious knee injuries.",
+      "brief": "Well meant, but may give false hope.",
+      "detailed": "Some players do return, which makes this tempting, but you don't know his prognosis, and false hope may make the news harder later."
+    },
+    {
+      "id": "B",
+      "text": "Sit down with him, and ask what he understood from the consultant.",
+      "brief": "Understanding what he heard helps you respond to his real worries.",
+      "detailed": "After devastating news, people often take in only part of what was said. Sitting with him and asking what he understood shows you care, and lets you respond honestly to what he is actually worried about."
+    },
+    {
+      "id": "C",
+      "text": "Tell him he should think about other careers now.",
+      "brief": "Premature and dismissive of his distress.",
+      "detailed": "Planning may eventually help, but saying this now, when the outcome is uncertain, is unkind and may increase his distress."
+    },
+    {
+      "id": "D",
+      "text": "Be honest that it's uncertain, and that recovery will become clearer over the coming months.",
+      "brief": "Honest without being falsely hopeful or crushing.",
+      "detailed": "The consultant said the injury may end his career, not that it will. Being honest about that uncertainty respects him. It ranks second because listening first helps you pitch it right."
+    },
+    {
+      "id": "E",
+      "text": "Offer to arrange for him to talk to the consultant and physiotherapist about his rehabilitation.",
+      "brief": "Gives him a route to more detailed answers.",
+      "detailed": "The consultant and physiotherapist can give him a clearer picture. It ranks third because he needs a response from you now."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "E",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient's distress after uncertain bad news: listening, being honest, and avoiding false hope or premature conclusions.",
+    "keyDetails": "His career may be over, but it isn't certain. He is in shock. He has asked you directly.",
+    "reasoning": "[B] listens, [D] is honest about uncertainty, and [E] gives him a route to more information. [A] offers false hope, and [C] is premature and dismissive.",
+    "competing": "Some would put honesty first. The key starts by listening, because his question may carry a range of worries you need to understand first."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating honestly and supporting patients."
+    }
+  ],
+  "tags": [
+    "bad news",
+    "uncertainty",
+    "orthopaedics",
+    "young adults"
+  ]
+}
