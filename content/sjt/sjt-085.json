@@ -1,0 +1,78 @@
+{
+  "id": "sjt-085",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-085",
+  "format": "ranking",
+  "title": "The phones are down",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Responding to system failures",
+    "Teamwork",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. At 08:15 on Monday morning, the practice phone lines stop working. Patients can't get through to book urgent appointments, and several have already come to reception to say they've been unable to call.\n\nThe practice manager is not in yet, and the duty GP, Dr Wells, has just started seeing patients. Your first patient is booked for 08:30.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Let the practice manager and the duty GP know straight away.",
+      "brief": "They need to act quickly to restore the lines and make a plan.",
+      "detailed": "The practice manager can report the fault and set up alternative arrangements, such as a temporary number. The duty GP needs to know so urgent requests can be managed. Telling them immediately starts the response."
+    },
+    {
+      "id": "B",
+      "text": "Offer to help the duty GP see patients who arrive with urgent problems.",
+      "brief": "Helpful, but less important than organising the practice's response.",
+      "detailed": "More patients than usual may turn up in person, and helping the duty GP with them is useful. It ranks third because organising the practice's response, and telling patients how to get help, reaches far more people."
+    },
+    {
+      "id": "C",
+      "text": "Help the reception team put up a message online and at the door about how to get help.",
+      "brief": "Patients need to know how to get help, including NHS 111 and 999.",
+      "detailed": "A message on the website and at the door, explaining the problem and directing patients to NHS 111 or 999 in an emergency, helps keep patients safe while the lines are down."
+    },
+    {
+      "id": "D",
+      "text": "Start your booked clinic, and leave the phone problem to the reception team.",
+      "brief": "Leaves a significant safety issue to others.",
+      "detailed": "Your patients are important, but patients who can't contact the practice may be at risk. Helping the team respond is part of your role."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a system failure that affects patient access, working with the team to keep patients safe.",
+    "keyDetails": "The phones are down at the busiest time. The practice manager isn't in yet, and the duty GP is busy. Patients are already affected.",
+    "reasoning": "[A] starts the practice's response, [C] keeps patients informed and safe, and [B] helps individual patients. [D] leaves the problem to others.",
+    "competing": "Some would put the public message first. The key puts informing the practice manager and duty GP first because they can arrange alternatives quickly."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, responding to risks to patient safety caused by systems."
+    }
+  ],
+  "tags": [
+    "system failure",
+    "general practice",
+    "patient access",
+    "teamwork"
+  ]
+}

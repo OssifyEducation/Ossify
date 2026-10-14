@@ -1,0 +1,92 @@
+{
+  "id": "sjt-083",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-083",
+  "format": "ranking",
+  "title": "She won't talk to me",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating with young people",
+    "Building rapport",
+    "Patience"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a paediatric ward. Zara, 12, has been admitted with weight loss and a low heart rate, and the team suspects an eating disorder. Her parents are at the bedside.\n\nWhen you try to take a history, Zara turns away, pulls the blanket over her head, and says she isn't talking to any more doctors.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Take the history from her parents and leave Zara to rest.",
+      "brief": "Gets information, but misses the chance to engage her.",
+      "detailed": "Her parents can give a useful history, and you will need it. But leaving Zara out entirely misses the chance to build trust, and her own account matters."
+    },
+    {
+      "id": "B",
+      "text": "Ask her whether she would find it easier to talk without her parents there.",
+      "brief": "Young people may speak more freely on their own.",
+      "detailed": "Many young people find it easier to talk without their parents present, especially about eating and feelings. Offering this choice gives her some control."
+    },
+    {
+      "id": "C",
+      "text": "Introduce yourself, and tell her she doesn't have to talk right now.",
+      "brief": "Taking the pressure off often helps a young person engage later.",
+      "detailed": "Zara may be frightened, angry or overwhelmed. Explaining who you are and why you're there, and making it clear you won't force her to talk now, respects her and leaves the door open for later."
+    },
+    {
+      "id": "D",
+      "text": "Tell her she will have to stay in hospital longer if she doesn't cooperate.",
+      "brief": "A threat that is likely to damage trust.",
+      "detailed": "Using pressure may seem a way to get her talking, but it is likely to make her more resistant and damage her trust in the team."
+    },
+    {
+      "id": "E",
+      "text": "Talk to the nursing team and her parents about what she enjoys and what helps her.",
+      "brief": "Useful for building rapport, though not with Zara herself.",
+      "detailed": "Knowing her interests and what calms her can help you engage her later. It ranks third because it doesn't involve Zara directly."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "E",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you engage a distressed young person who doesn't want to talk, with patience and respect.",
+    "keyDetails": "Zara is 12 and medically unwell. She has seen several doctors. Her parents are present.",
+    "reasoning": "[C] reduces pressure and builds trust, [B] gives her a choice about who is present, and [E] prepares you to engage her later. [A] leaves her out, and [D] threatens her.",
+    "competing": "Some would rank asking about her parents first. The key starts with introducing yourself and taking the pressure off because she has just refused to talk."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Communicating with children and young people, and involving them in decisions."
+    },
+    {
+      "title": "Medical emergencies in eating disorders (MEED): guidance on recognition and management (CR233)",
+      "publisher": "Royal College of Psychiatrists",
+      "year": 2022,
+      "url": "https://www.rcpsych.ac.uk/improving-care/campaigning-for-better-mental-health-policy/college-reports/2022-college-reports/cr233",
+      "note": "Medical risk in young people with eating disorders."
+    }
+  ],
+  "tags": [
+    "young people",
+    "eating disorders",
+    "communication",
+    "paediatrics"
+  ]
+}

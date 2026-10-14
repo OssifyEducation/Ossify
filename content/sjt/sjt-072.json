@@ -1,0 +1,109 @@
+{
+  "id": "sjt-072",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-072",
+  "format": "multiple_choice",
+  "title": "Care in the corridor",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Raising concerns",
+    "Using proper channels"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in the Emergency Department. For several weeks, patients have routinely been cared for on trolleys in a corridor, where there are no call bells or oxygen points.\n\nTonight there are eight patients in the corridor. One, an elderly woman with pneumonia, needs oxygen, and you notice that the portable cylinder beside her is almost empty.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Make sure the corridor patients are safe now, starting with the woman needing oxygen.",
+      "brief": "Immediate risks to patients come first.",
+      "detailed": "Replacing her oxygen cylinder, and checking that the other corridor patients can be observed and can call for help, deals with the immediate danger. Whatever the wider problem, the patients in front of you need to be safe tonight."
+    },
+    {
+      "id": "B",
+      "text": "Post about the conditions on social media to draw public attention to them.",
+      "brief": "Public posts can breach confidentiality and bypass routes that can fix the problem.",
+      "detailed": "Corridor care is a matter of public concern, and some staff feel strongly about raising awareness. But posting about it risks identifying patients, and bypasses the people who can act on the problem."
+    },
+    {
+      "id": "C",
+      "text": "Accept the conditions as an unavoidable part of winter pressures.",
+      "brief": "Normalising an unsafe environment leaves patients at risk.",
+      "detailed": "Departments are under huge pressure and you may feel powerless. But accepting that patients regularly lack oxygen and call bells means the risks are never addressed."
+    },
+    {
+      "id": "D",
+      "text": "Contact the Care Quality Commission as your first step.",
+      "brief": "The trust should have the chance to respond first.",
+      "detailed": "The CQC can receive concerns from staff, but raising it within the trust is usually the first step, as the trust is best placed to respond quickly."
+    },
+    {
+      "id": "E",
+      "text": "Decline to see patients in the corridor until conditions improve.",
+      "brief": "Leaves patients without care, which makes them less safe.",
+      "detailed": "The conditions are unacceptable, but refusing to see patients puts them at further risk and doesn't change anything."
+    },
+    {
+      "id": "F",
+      "text": "Report the risks through the trust's incident reporting system.",
+      "brief": "Formal reports create a record the trust has to act on.",
+      "detailed": "Incident reports show the scale and pattern of a problem, which helps managers make the case for change. Reporting tonight's oxygen problem, and the lack of call bells, is straightforward and expected."
+    },
+    {
+      "id": "G",
+      "text": "Raise the concern with the ED consultant in charge.",
+      "brief": "The consultant can act tonight and escalate within the trust.",
+      "detailed": "The consultant in charge can take immediate steps, such as finding more portable oxygen, and can raise the problem with senior managers. Telling them is a key part of raising a concern properly."
+    },
+    {
+      "id": "H",
+      "text": "Encourage the patients in the corridor to make formal complaints to the trust about the conditions.",
+      "brief": "Places the responsibility for raising concerns on patients.",
+      "detailed": "Patients are entitled to complain, but it's the responsibility of staff to raise safety concerns. Asking unwell patients to do this shifts that responsibility onto them."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you protect patients from an immediate risk and raise a systemic safety concern through proper routes.",
+    "keyDetails": "Corridor care has become routine. There are no call bells or oxygen points, and one patient's oxygen is running out.",
+    "reasoning": "[A] deals with the immediate risk, and [F] and [G] raise the wider concern formally and with someone who can act tonight. The distractors bypass local routes ([B], [D]), accept the risk ([C]), harm patients' care ([E]), or shift responsibility to patients ([H]).",
+    "competing": "[D] is a legitimate route in some circumstances, but raising it within the trust first is usually expected."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Your duty to raise concerns about patient safety, and the usual order of routes."
+    },
+    {
+      "title": "Freedom to Speak Up",
+      "publisher": "NHS England",
+      "year": null,
+      "url": "https://www.england.nhs.uk/ourwork/freedom-to-speak-up/",
+      "note": "Freedom to Speak Up guardians as an additional route for staff."
+    }
+  ],
+  "tags": [
+    "corridor care",
+    "raising concerns",
+    "emergency department",
+    "patient safety"
+  ]
+}

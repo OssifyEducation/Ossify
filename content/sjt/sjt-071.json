@@ -1,0 +1,86 @@
+{
+  "id": "sjt-071",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-071",
+  "format": "ranking",
+  "title": "Staying the night",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Communication with relatives",
+    "Teamwork",
+    "Compassion"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. Mr Jones, 58, is sedated and ventilated after a cardiac arrest. He is critically ill, but his condition has been stable today.\n\nAt 21:00 his wife and two adult children tell you they want to stay at his bedside overnight. The unit normally allows one visitor overnight only in exceptional circumstances, and the nurse in charge has told them that space is needed around the bed for care tonight. The family are upset and ask you to let them stay.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Reassure them that the team will phone them straight away if his condition changes.",
+      "brief": "Helpful reassurance, though it doesn't address their wish to be with him.",
+      "detailed": "Knowing they'll be called can make leaving easier. It ranks third because it doesn't respond to their wish to stay, which may be possible in part."
+    },
+    {
+      "id": "B",
+      "text": "Discuss with the nurse in charge whether one of them could stay, and where the others could rest.",
+      "brief": "Works with the nursing team to find a compromise.",
+      "detailed": "The unit's policy allows flexibility in exceptional circumstances. Talking with the nurse in charge about whether one relative could stay, and whether there's a relatives' room nearby, may meet the family's needs while respecting the team's judgement."
+    },
+    {
+      "id": "C",
+      "text": "Let all three stay, telling the nurse in charge it is a medical decision.",
+      "brief": "Overrides a colleague's judgement about safe care and undermines the team.",
+      "detailed": "This would please the family, but the nurse in charge has explained why space is needed. Overruling her undermines the team and could compromise his care."
+    },
+    {
+      "id": "D",
+      "text": "Tell them visiting is a nursing matter, so you can't help.",
+      "brief": "Dismissive, and leaves them feeling unheard.",
+      "detailed": "The nurse in charge does manage visiting, but refusing to engage leaves a frightened family without support. You can listen and help even if the decision isn't yours."
+    },
+    {
+      "id": "E",
+      "text": "Listen to their concerns, and explain why the unit limits overnight visitors.",
+      "brief": "Understanding their fear, and explaining the reasons, often eases the conflict.",
+      "detailed": "The family may be frightened he will die in the night without them. Listening, and explaining that the limits are about giving him safe care rather than keeping them away, shows you take their feelings seriously and may help them accept a compromise."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "B",
+      "A",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a distressed family while respecting the unit's need to provide safe care, working with the nursing team.",
+    "keyDetails": "Mr Jones is critically ill but stable. The policy allows exceptions. The nurse in charge has explained why space is needed. The family are frightened.",
+    "reasoning": "[E] listens and explains, [B] looks for a compromise with the nurse in charge, and [A] offers reassurance. [D] dismisses the family and [C] overrides a colleague.",
+    "competing": "Some would put the discussion with the nurse in charge first. The key starts with listening, because understanding what the family most need shapes the compromise you look for."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, supporting those close to patients; Domain 3, respecting colleagues' roles."
+    }
+  ],
+  "tags": [
+    "relatives",
+    "visiting",
+    "intensive care",
+    "teamwork"
+  ]
+}

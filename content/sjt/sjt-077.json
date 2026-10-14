@@ -1,0 +1,92 @@
+{
+  "id": "sjt-077",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-077",
+  "format": "ranking",
+  "title": "A disclosure in clinic",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Responding to disclosure",
+    "Safeguarding",
+    "Confidentiality"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in an antenatal clinic. Ms Reid, 26, is 28 weeks pregnant with her first baby. When you ask routinely about her safety at home, she becomes tearful and says her partner has pushed and slapped her several times, most recently last week.\n\nHer partner is in the waiting room. She begs you not to tell anyone, saying it will make things worse.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Give her information about local domestic abuse services, discreetly.",
+      "brief": "Useful, though less than a supported plan.",
+      "detailed": "Information about specialist services, given in a way her partner won't find, is helpful. It ranks third because she needs more than a leaflet: a risk assessment and support."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you'd like to involve the safeguarding midwife, and why.",
+      "brief": "Specialist support is needed, and being open with her keeps her trust.",
+      "detailed": "Domestic abuse in pregnancy is a safeguarding concern, and the safeguarding midwife can help with risk assessment and support. Explaining why, and what that involves, respects her while making sure she gets help. Information can be shared without her consent if the risk is serious."
+    },
+    {
+      "id": "C",
+      "text": "Speak to her partner in the waiting room about what she has told you.",
+      "brief": "Could put her at serious risk.",
+      "detailed": "Raising the abuse with her partner could make him angry and increase the danger to her. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Listen, thank her for telling you, and ask about her immediate safety.",
+      "brief": "A supportive response and a check on immediate risk come first.",
+      "detailed": "Disclosing abuse takes courage. Responding calmly and without judgement, and asking whether she is safe to go home today, helps her feel believed and lets you judge how urgent the risk is."
+    },
+    {
+      "id": "E",
+      "text": "Promise you won't tell anyone, so that she keeps trusting you.",
+      "brief": "A promise you may not be able to keep.",
+      "detailed": "Her trust matters, but you may need to share information to protect her and her baby. Promising confidentiality you can't guarantee could damage her trust more later."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "A",
+      "E",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a disclosure of domestic abuse in pregnancy: supporting her, assessing risk, and being honest about the limits of confidentiality.",
+    "keyDetails": "She is pregnant and has been assaulted repeatedly. Her partner is nearby. She has asked you not to tell anyone.",
+    "reasoning": "[D] responds supportively and assesses immediate risk, [B] involves specialist help openly, and [A] gives her information. [E] makes a promise you can't keep, and [C] puts her at risk.",
+    "competing": "Some would put involving the safeguarding midwife first. The key starts with listening and immediate safety because her response to you now affects whether she accepts further help."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information without consent to protect a person from serious harm."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, protecting patients who may be vulnerable."
+    }
+  ],
+  "tags": [
+    "domestic abuse",
+    "pregnancy",
+    "safeguarding",
+    "confidentiality"
+  ]
+}

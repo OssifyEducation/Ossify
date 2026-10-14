@@ -1,0 +1,117 @@
+{
+  "id": "sjt-068",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-068",
+  "format": "multiple_choice",
+  "title": "\"I'd rather not be here\"",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Risk assessment",
+    "Escalation",
+    "Compassionate communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. Ms Hill, 23, is an informal inpatient with severe anorexia nervosa. Her BMI is 12.8 and her team has planned nasogastric feeding, which she agreed to yesterday.\n\nToday she refuses the feed. She tells you, calmly, \"I'd rather die than be fed. Maybe it would be better for everyone if I did.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept her decision, as she is an adult and has the right to refuse treatment.",
+      "brief": "Severe anorexia can affect capacity to make decisions about food, and her life may be at risk.",
+      "detailed": "Adults can refuse treatment, which is what makes this tempting. But in severe anorexia, the illness itself can impair a person's ability to weigh up decisions about eating, and she has just spoken about dying. Her refusal needs urgent senior review, not simple acceptance."
+    },
+    {
+      "id": "B",
+      "text": "Explain that she may be detained under the Mental Health Act if she keeps refusing.",
+      "brief": "May become relevant, but raised now it sounds like a threat rather than care.",
+      "detailed": "Detention may need to be considered, and patients should be told honestly about the options. But leading with it, before you've understood why she is refusing, is likely to feel coercive and damage her trust in you."
+    },
+    {
+      "id": "C",
+      "text": "Ask her gently what she means, and whether she has thought about ending her life.",
+      "brief": "Her words need exploring; asking directly about suicidal thoughts doesn't increase risk.",
+      "detailed": "She may be expressing the fear and distress that anorexia brings, or she may be having thoughts of suicide. Asking calmly and directly is the only way to find out, and gives her the chance to talk about how she feels."
+    },
+    {
+      "id": "D",
+      "text": "Agree she can skip today's feed if she eats a snack you agree together.",
+      "brief": "Undermines the treatment plan without the team's agreement.",
+      "detailed": "Negotiating feels like a compassionate compromise, but at her weight missing nutrition carries real risk, and changing the plan isn't your decision to make alone. It should be discussed with her team."
+    },
+    {
+      "id": "E",
+      "text": "Phone her parents and ask them to come in to persuade her.",
+      "brief": "She is an adult; contacting her family needs her agreement.",
+      "detailed": "Families are often important in recovery, but Ms Hill is 23. Involving her parents without her consent breaches her confidentiality and may damage her trust in the team."
+    },
+    {
+      "id": "F",
+      "text": "Arrange her transfer to a medical ward, where feeding can be started more easily.",
+      "brief": "Medical admission may be needed, but it's a decision for her senior team.",
+      "detailed": "Some patients with severe malnutrition do need medical admission. But arranging a transfer on your own initiative, without senior review, isn't appropriate and doesn't address her refusal."
+    },
+    {
+      "id": "G",
+      "text": "Tell the ward's senior doctor urgently about her refusal and what she has said.",
+      "brief": "Her refusal and her words both need urgent senior review.",
+      "detailed": "Refusal of feeding at this weight is a medical emergency, and what she has said raises concern about suicide. Her consultant or the on-call senior needs to know now, so they can review her, consider her capacity and decide on the next steps, which may include the Mental Health Act."
+    },
+    {
+      "id": "H",
+      "text": "Make sure her physical risk is reassessed, including observations, bloods and an ECG.",
+      "brief": "Severe malnutrition carries risks that need monitoring, whether or not she is fed.",
+      "detailed": "At a BMI of 12.8 she is at high medical risk, including from heart problems and electrolyte disturbances. Making sure her observations, bloods and ECG are checked helps the team judge how urgent the situation is, as recommended in national guidance on medical emergencies in eating disorders."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient with severe anorexia who refuses nutrition and speaks about dying: exploring what she means, recognising the medical risk, and escalating.",
+    "keyDetails": "Her BMI is 12.8. She agreed to feeding yesterday but refuses today. She has spoken about dying. She is an informal patient, and anorexia can affect capacity in decisions about food.",
+    "reasoning": "[C] explores her distress and suicide risk, [G] gets urgent senior review, and [H] makes sure her physical risk is understood. The distractors either accept the refusal without review ([A]), coerce or bargain ([B], [D]), breach her confidentiality ([E]), or act beyond your role ([F]).",
+    "competing": "[A] is the trap: respecting autonomy is usually right, but here the illness may impair her decision-making and her life is at risk, so her refusal needs senior assessment."
+  },
+  "references": [
+    {
+      "title": "Medical emergencies in eating disorders (MEED): guidance on recognition and management (CR233)",
+      "publisher": "Royal College of Psychiatrists",
+      "year": 2022,
+      "url": "https://www.rcpsych.ac.uk/improving-care/campaigning-for-better-mental-health-policy/college-reports/2022-college-reports/cr233",
+      "note": "Recognising and managing medical risk in severe eating disorders."
+    },
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Assessing and responding to people who talk about ending their lives."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Capacity is decision-specific and can be impaired by mental illness."
+    }
+  ],
+  "tags": [
+    "anorexia",
+    "refusal",
+    "suicide risk",
+    "psychiatry"
+  ]
+}
