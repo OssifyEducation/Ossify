@@ -76,7 +76,7 @@ FAMILIES = [
    (OOH, "A patient seen on a home visit asks for an insurance letter saying he was unfit to travel on a date before you saw him."),
    (OG, "The discharge summary template auto-fills 'VTE assessment complete' even though you haven't done it."),
    (CARD, "A colleague asks you to use his login to request a scan because his account is locked."),
-   (GP, "You are asked to complete a firearms licence medical report on a patient you have never met."),
+   (GP, "A patient you have met twice asks you to countersign his passport application as someone who has known him for two years."),
    (ICU, "The audit nurse asks you to complete missing observation charts from memory before an inspection."),
  ]),
  ("P6", P, "Probity in training, research, audit and applications", [

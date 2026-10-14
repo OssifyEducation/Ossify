@@ -1,0 +1,85 @@
+{
+  "id": "sjt-075",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-075",
+  "format": "ranking",
+  "title": "Countersigning a passport",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Probity",
+    "Honest communication",
+    "Helping patients"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Mr Novak, 40, whom you have seen twice in the last three months for his asthma, asks you to countersign his passport application. He is travelling soon and says it would really help him.\n\nThe form asks the countersignatory to confirm that they have known the applicant for at least two years.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to ask whether a GP partner who has looked after him for years could sign it.",
+      "brief": "Well meant, but knowing someone only as a patient may not meet the requirements.",
+      "detailed": "A partner may have treated him for longer, but countersignatories are expected to know the applicant personally, not just professionally. This puts a colleague in a difficult position."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you can't countersign, as you haven't known him for two years.",
+      "brief": "Honest and clear, and avoids signing a false statement.",
+      "detailed": "The countersignatory confirms that they have known the applicant for at least two years. Signing would mean making a false declaration. Explaining kindly why you can't do it is honest and helps him understand what he needs."
+    },
+    {
+      "id": "C",
+      "text": "Suggest he asks someone who meets the requirements, such as a longstanding friend.",
+      "brief": "Helps him find a way forward.",
+      "detailed": "Pointing him towards someone who has known him for the required time, such as a friend, neighbour or colleague, helps him solve the problem. It ranks second because it follows from explaining why you can't sign."
+    },
+    {
+      "id": "D",
+      "text": "Countersign the application, as you are a doctor and know who he is.",
+      "brief": "Makes a false declaration on an official document.",
+      "detailed": "You can confirm who he is, which makes this tempting. But signing a declaration that you have known him for two years, when you haven't, is dishonest."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "C",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep to the truth when signing official documents, even when a patient's request seems harmless.",
+    "keyDetails": "You have known him for three months, as a patient. The form asks you to confirm two years' acquaintance.",
+    "reasoning": "[B] declines honestly, [C] helps him find an appropriate countersignatory, and [A] is well meant but doesn't meet the requirements. [D] is a false declaration.",
+    "competing": "[A] may seem helpful, but countersignatories should know the applicant personally, and this places a colleague under pressure."
+  },
+  "references": [
+    {
+      "title": "Countersigning passport applications and photos",
+      "publisher": "HM Passport Office (GOV.UK)",
+      "year": null,
+      "url": "https://www.gov.uk/countersigning-passport-applications",
+      "note": "Who can countersign a passport application, and how long they must have known the applicant."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty when signing documents."
+    }
+  ],
+  "tags": [
+    "probity",
+    "forms",
+    "passport",
+    "general practice"
+  ]
+}

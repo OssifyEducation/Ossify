@@ -227,5 +227,17 @@
     "publisher": "NHS screening programmes (GOV.UK)",
     "year": null,
     "url": "https://www.gov.uk/government/publications/screening-tests-for-you-and-your-baby/hearing-loss"
+  },
+  "meed": {
+    "title": "Medical emergencies in eating disorders (MEED): guidance on recognition and management (CR233)",
+    "publisher": "Royal College of Psychiatrists",
+    "year": 2022,
+    "url": "https://www.rcpsych.ac.uk/improving-care/campaigning-for-better-mental-health-policy/college-reports/2022-college-reports/cr233"
+  },
+  "passport": {
+    "title": "Countersigning passport applications and photos",
+    "publisher": "HM Passport Office (GOV.UK)",
+    "year": null,
+    "url": "https://www.gov.uk/countersigning-passport-applications"
   }
 }

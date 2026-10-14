@@ -1,0 +1,84 @@
+{
+  "id": "sjt-081",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-081",
+  "format": "ranking",
+  "title": "Overheard in the café",
+  "setting": "Non-clinical (social)",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Supporting colleagues",
+    "Proportionate response"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor having lunch in the busy hospital café with Dr Lee, another F2. Dr Lee starts talking loudly about a patient on his ward, a local headteacher admitted after an overdose, using the patient's name.\n\nYou notice people at the next table looking over.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Change the subject to something unrelated.",
+      "brief": "May stop the conversation, but he may not realise why.",
+      "detailed": "Changing the subject can be a discreet way of stopping the conversation. But if he doesn't realise why, he may do the same again."
+    },
+    {
+      "id": "B",
+      "text": "Join in the conversation, as he is a colleague discussing work.",
+      "brief": "Continues the breach in public.",
+      "detailed": "Discussing patients with colleagues can be appropriate, but not in a public place where others can hear. Joining in makes the breach worse."
+    },
+    {
+      "id": "C",
+      "text": "Report the breach to his educational supervisor straight away.",
+      "brief": "Disproportionate for a first lapse that you can address directly.",
+      "detailed": "Breaches of confidentiality are serious, and may need reporting if they continue. But for a first, unintentional lapse, speaking to him directly is more proportionate and constructive."
+    },
+    {
+      "id": "D",
+      "text": "Mention it to him privately afterwards, so he is more careful in future.",
+      "brief": "Helps him learn, though it doesn't stop the breach now.",
+      "detailed": "A private conversation later helps him reflect on what happened. It ranks second because the more pressing issue is stopping the conversation now."
+    },
+    {
+      "id": "E",
+      "text": "Quietly remind Dr Lee that people nearby can hear.",
+      "brief": "Stops the breach immediately, discreetly.",
+      "detailed": "A quiet word stops the conversation without embarrassing him in public. He has probably not realised how loudly he is talking or how identifiable the patient is."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "A",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a colleague breaching confidentiality in public, proportionately and constructively.",
+    "keyDetails": "The patient is named and identifiable, and the information is sensitive. People nearby are listening. It seems unintentional.",
+    "reasoning": "[E] stops the breach immediately and discreetly, [D] helps him learn from it, and [A] may stop it but without explanation. [C] is disproportionate, and [B] makes it worse.",
+    "competing": "Some would rank changing the subject above the private conversation, as it acts immediately. The key prefers explaining because it prevents a repeat."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Not discussing patients where you can be overheard."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "colleagues",
+    "public places"
+  ]
+}

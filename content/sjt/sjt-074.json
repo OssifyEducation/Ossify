@@ -1,0 +1,102 @@
+{
+  "id": "sjt-074",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-074",
+  "format": "multiple_choice",
+  "title": "Consent through her daughter",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Consent",
+    "Using interpreters",
+    "Patient advocacy"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a general medical ward. Mrs Rahman, 67, speaks little English. She is due to have a gastroscopy tomorrow morning to investigate weight loss.\n\nLooking at her consent form, you see from the notes that consent was taken yesterday with her 15-year-old granddaughter interpreting. When you greet Mrs Rahman, she smiles and nods, but doesn't appear to understand your questions.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept the consent, as her granddaughter speaks fluent English.",
+      "brief": "A child shouldn't interpret for consent, and you can't be sure Mrs Rahman understood.",
+      "detailed": "Fluency isn't the issue. A 15-year-old may not understand medical terms, may soften information about possible cancer, and shouldn't be put in that position. Without a professional interpreter, you can't be confident the consent is valid."
+    },
+    {
+      "id": "B",
+      "text": "Ask a member of the domestic staff who speaks her language to help.",
+      "brief": "Untrained staff may misinterpret, and it may compromise her privacy.",
+      "detailed": "Using a bilingual staff member can seem a practical solution, and some trusts allow trained bilingual clinical staff to interpret. But a member of domestic staff isn't trained in medical interpreting and may not keep her information confidential."
+    },
+    {
+      "id": "C",
+      "text": "Arrange a professional interpreter to check her understanding before the procedure.",
+      "brief": "Consent needs to be confirmed in a language she understands.",
+      "detailed": "A professional interpreter, in person or by phone or video, allows you or the endoscopy team to check what she understands about the procedure, its risks and the alternatives, and whether she wants to go ahead."
+    },
+    {
+      "id": "D",
+      "text": "Let the doctor who took consent know about your concern.",
+      "brief": "They need to know so the consent can be checked and the practice not repeated.",
+      "detailed": "Raising this with the colleague who took consent, constructively, gives them the chance to put it right and learn from it. It also makes sure the endoscopy team know consent needs to be confirmed."
+    },
+    {
+      "id": "E",
+      "text": "Make sure her need for an interpreter is clearly recorded in her notes.",
+      "brief": "Prevents the same problem at future appointments.",
+      "detailed": "A clear note of her preferred language, and that a professional interpreter is needed, helps every member of the team communicate with her properly."
+    },
+    {
+      "id": "F",
+      "text": "Cancel the gastroscopy until a family member can come in to interpret.",
+      "brief": "Unnecessary delay, and family members aren't the right interpreters for consent.",
+      "detailed": "Delay may be needed if an interpreter can't be found, but cancelling now is premature, and relying on another family member doesn't solve the problem."
+    },
+    {
+      "id": "G",
+      "text": "Ask her granddaughter to interpret again, going through the form more carefully.",
+      "brief": "Repeats the problem of using a child to interpret for consent.",
+      "detailed": "Taking more time is well meant, but it doesn't address why a child shouldn't interpret, especially for information that may be sensitive."
+    },
+    {
+      "id": "H",
+      "text": "Use a translation app on your phone to confirm she understands.",
+      "brief": "Apps can mistranslate medical information and aren't suitable for consent.",
+      "detailed": "Translation apps can help with simple communication, which makes this tempting. But they can mistranslate medical terms and can't check understanding, so they aren't a reliable basis for consent."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise that consent obtained through a child interpreter may not be valid, and make sure the patient can make an informed decision.",
+    "keyDetails": "Her granddaughter is 15. The procedure is investigating weight loss, which may involve difficult news. Mrs Rahman doesn't appear to understand you.",
+    "reasoning": "[C] makes sure her consent is properly informed, [D] raises it with the colleague involved, and [E] prevents a repeat. The distractors either accept consent that may be invalid ([A], [G]), use unsuitable interpreters ([B], [H]), or delay unnecessarily ([F]).",
+    "competing": "[B] and [H] are the hard distractors, as both seem practical. Trained bilingual clinical staff can be appropriate in some trusts, but domestic staff and apps aren't a reliable basis for consent."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Making sure patients have the information they need in a way they can understand, including using interpreters."
+    }
+  ],
+  "tags": [
+    "consent",
+    "interpreters",
+    "language",
+    "family members"
+  ]
+}

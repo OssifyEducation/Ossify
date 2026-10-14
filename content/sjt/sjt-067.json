@@ -1,0 +1,92 @@
+{
+  "id": "sjt-067",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-067",
+  "format": "ranking",
+  "title": "Nobody told me",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communication with relatives",
+    "Continuity of care",
+    "Owning mistakes"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Lowe, 89, has advanced dementia and lacks capacity to make decisions about her care. On yesterday's ward round her consultant decided that she should not receive CPR and that her care should continue on the ward rather than in intensive care. The plan says \"discuss with son\", but there is no record that this happened.\n\nHer son, Mr Lowe, has just seen the DNACPR form in her notes folder. He is upset and asks you why no one spoke to him.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange for the consultant to meet him today to discuss the decision.",
+      "brief": "The consultant made the decision and should discuss it with him.",
+      "detailed": "Mr Lowe may have questions about the decision itself, or views about what his mother would have wanted, which the consultant needs to hear. Arranging a meeting soon shows the team takes his concerns seriously. It ranks second only because he deserves a response from you now."
+    },
+    {
+      "id": "B",
+      "text": "Document your conversation with him and his concerns in the notes.",
+      "brief": "Records the discussion and his views for the team.",
+      "detailed": "A clear note of what you discussed and what he said means the consultant and the rest of the team know where things stand. It's important, but less so than responding to him directly."
+    },
+    {
+      "id": "C",
+      "text": "Tell him the team may not have been able to reach him yesterday.",
+      "brief": "An unsupported excuse that avoids taking responsibility.",
+      "detailed": "This may be true, but there's no record of an attempt, so it's a guess offered as an excuse. It is likely to frustrate him and doesn't address what went wrong."
+    },
+    {
+      "id": "D",
+      "text": "Explain that resuscitation decisions are made by doctors, so his agreement wasn't needed.",
+      "brief": "Partly true, but it ignores the team's duty to consult him and dismisses his concerns.",
+      "detailed": "Families can't insist on CPR, so it's true their agreement isn't required. But they should be consulted, and telling him his involvement didn't matter is likely to cause further distress and a complaint."
+    },
+    {
+      "id": "E",
+      "text": "Apologise that he wasn't told, and explain the decision and the reasons for it.",
+      "brief": "He should have been involved; an apology and an honest explanation start to put that right.",
+      "detailed": "When a patient lacks capacity, those close to her should be consulted about a DNACPR decision unless that isn't practicable. Mr Lowe should have been spoken to. Acknowledging this, and explaining the decision in plain language, is honest and helps rebuild his trust."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a planned conversation with a family didn't happen: acknowledging the gap, explaining honestly, and putting it right.",
+    "keyDetails": "Mrs Lowe lacks capacity. The plan said to discuss with her son, but there is no record this happened. He found out by seeing the form.",
+    "reasoning": "[E] acknowledges the failure and explains the decision, [A] gives him the chance to discuss it with the decision-maker, and [B] records the conversation. [C] offers an excuse and [D] dismisses his role.",
+    "competing": "Some would put arranging the consultant meeting first. The key ranks your own response first because he is upset and asking you now, and you can explain the decision while the meeting is arranged."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Consulting those close to a patient who lacks capacity about CPR decisions."
+    },
+    {
+      "title": "ReSPECT: Recommended Summary Plan for Emergency Care and Treatment",
+      "publisher": "Resuscitation Council UK",
+      "year": null,
+      "url": "https://www.resus.org.uk/respect",
+      "note": "Recording and communicating emergency care and treatment recommendations."
+    }
+  ],
+  "tags": [
+    "DNACPR",
+    "relatives",
+    "communication",
+    "handover"
+  ]
+}

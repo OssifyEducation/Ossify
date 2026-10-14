@@ -1,0 +1,102 @@
+{
+  "id": "sjt-078",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-078",
+  "format": "multiple_choice",
+  "title": "An offer of authorship",
+  "setting": "Non-clinical (research)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Research integrity",
+    "Honesty",
+    "Career development"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. A consultant you worked with in your previous rotation emails to say her team has had a paper accepted by a journal. She offers to add you as an author \"to help with your specialty applications\".\n\nYou weren't involved in the study, the analysis or the writing. You know an extra publication would strengthen your application.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Thank her, but explain you can't be an author as you didn't contribute.",
+      "brief": "Honest, and protects you both from a misleading author list.",
+      "detailed": "Authorship signals that you contributed to and can take responsibility for the work. Declining politely, and thanking her for thinking of you, keeps the record honest and maintains a good relationship."
+    },
+    {
+      "id": "B",
+      "text": "Ask whether you could contribute properly to a future project.",
+      "brief": "Turns a kind offer into a genuine opportunity.",
+      "detailed": "She clearly wants to help your career. Asking to be involved in future research, where you could earn authorship, is a constructive way to accept her support honestly."
+    },
+    {
+      "id": "C",
+      "text": "Check the journal's authorship criteria, so you can explain your reasons.",
+      "brief": "Grounds your decision in the published standards.",
+      "detailed": "Most journals follow recognised authorship criteria, which require a substantial contribution and approval of the final version. Knowing these makes it easier to explain your decision without seeming to criticise her."
+    },
+    {
+      "id": "D",
+      "text": "Accept, as she is senior and it is her decision who is listed.",
+      "brief": "Being added by a senior doesn't make the authorship legitimate.",
+      "detailed": "Senior authors often decide the author list, which is why this is tempting. But authorship has to reflect contribution, and you would be responsible for a misleading claim if you accepted."
+    },
+    {
+      "id": "E",
+      "text": "Accept, and contribute by proofreading the final version before publication.",
+      "brief": "A late, minor task doesn't meet the criteria for authorship.",
+      "detailed": "This feels like earning your place, but proofreading an accepted paper isn't the substantial contribution authorship requires. It would still misrepresent your role."
+    },
+    {
+      "id": "F",
+      "text": "Accept, but leave the paper off your job applications.",
+      "brief": "The author list would still be inaccurate.",
+      "detailed": "This avoids misleading an interview panel, but the published author list would still claim a contribution you didn't make."
+    },
+    {
+      "id": "G",
+      "text": "Report the consultant to the trust's research governance team.",
+      "brief": "Premature; declining the offer resolves the issue.",
+      "detailed": "Gift authorship is a recognised research integrity issue, but this is a single offer that you can decline. Reporting it without discussing it with her first is disproportionate."
+    },
+    {
+      "id": "H",
+      "text": "Suggest she adds a colleague who helped with data collection instead.",
+      "brief": "The author list isn't yours to decide.",
+      "detailed": "If a colleague contributed, they may deserve credit, but it isn't your role to suggest changes to her author list. It also doesn't address the problem with the offer itself."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty in research when a well-meant offer would misrepresent your contribution.",
+    "keyDetails": "You made no contribution. The offer is kindly meant. A publication would help your application.",
+    "reasoning": "[A] declines honestly, [B] turns the offer into a real opportunity, and [C] grounds your decision in published standards. The distractors all accept a role you didn't have ([D], [E], [F]), or respond disproportionately or beyond your role ([G], [H]).",
+    "competing": "[E] is the most tempting option, as it feels like you'd be earning your place, but a minor late task doesn't meet authorship criteria."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in research and in your applications."
+    }
+  ],
+  "tags": [
+    "research integrity",
+    "authorship",
+    "applications",
+    "probity"
+  ]
+}

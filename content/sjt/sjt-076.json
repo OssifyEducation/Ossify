@@ -1,0 +1,110 @@
+{
+  "id": "sjt-076",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-076",
+  "format": "multiple_choice",
+  "title": "She wants to stop",
+  "setting": "Oncology & palliative care",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Advocacy",
+    "Shared decision-making",
+    "Communicating with seniors"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Clarke, 71, has metastatic ovarian cancer. On this morning's ward round her consultant recommended a further cycle of chemotherapy, and Mrs Clarke nodded along.\n\nLater, while you are taking her blood, she tells you quietly that she is exhausted and doesn't want any more chemotherapy, but she \"didn't want to seem ungrateful\" to the consultant, who has looked after her for three years.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Reassure her that the consultant knows best, so she should continue.",
+      "brief": "Overrides her views and discourages her from deciding for herself.",
+      "detailed": "Her consultant's experience is valuable, but treatment decisions should reflect what matters to the patient. Encouraging her to defer undermines her right to decide."
+    },
+    {
+      "id": "B",
+      "text": "Ask her what matters most to her now, and what is behind her decision.",
+      "brief": "Understanding her reasons helps everyone respect her wishes.",
+      "detailed": "She may be exhausted by side effects, have different priorities for the time she has, or be worried about something that could be addressed. Exploring this gently helps her think it through and means her wishes can be accurately represented."
+    },
+    {
+      "id": "C",
+      "text": "Cancel her chemotherapy booking, as she has told you she doesn't want it.",
+      "brief": "Acts on a private conversation without involving her or the consultant properly.",
+      "detailed": "Her wishes should be respected, but cancelling treatment yourself, without a proper discussion with her consultant, takes the decision out of the right forum and may not reflect a considered choice."
+    },
+    {
+      "id": "D",
+      "text": "Encourage her to tell the consultant, and offer to be with her.",
+      "brief": "Supports her to speak for herself, with you alongside.",
+      "detailed": "The decision is hers, and it is better coming from her. Offering to be with her, or to help her prepare what she wants to say, makes it easier for her to raise it with someone she respects and doesn't want to disappoint."
+    },
+    {
+      "id": "E",
+      "text": "Keep what she said between the two of you, as she told you in confidence.",
+      "brief": "Information relevant to her treatment should be shared within the team, ideally with her agreement.",
+      "detailed": "She may have meant it privately, which makes this tempting. But keeping it to yourself means she may receive treatment she doesn't want. The right approach is to help her share it, or to share it with her agreement."
+    },
+    {
+      "id": "F",
+      "text": "Refer her to the palliative care team yourself.",
+      "brief": "Palliative care may help, but this bypasses her consultant and her own decision.",
+      "detailed": "Palliative care support may well be appropriate, but referring her without discussion with the consultant, or her agreement, doesn't address the treatment decision and may confuse her care."
+    },
+    {
+      "id": "G",
+      "text": "Tell her husband, so that he can help her decide.",
+      "brief": "Shares her confidential views without consent, and the decision is hers.",
+      "detailed": "Families can be a great support, but she hasn't asked for her husband to be involved. Telling him what she said in private breaches her confidentiality."
+    },
+    {
+      "id": "H",
+      "text": "With her permission, tell the consultant before chemotherapy is booked.",
+      "brief": "Makes sure the treatment plan reflects what she has told you.",
+      "detailed": "If she finds it too hard to raise herself, telling the consultant, with her agreement, makes sure her wishes are known before treatment goes ahead. Most consultants would want to know."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you advocate for a patient whose wishes differ from her consultant's plan, helping her voice be heard through the right channels.",
+    "keyDetails": "Mrs Clarke has capacity. She doesn't want more chemotherapy but feels unable to say so. She has a long relationship with her consultant.",
+    "reasoning": "[B] explores what matters to her, [D] supports her to speak up, and [H] makes sure her wishes are known. The distractors either override her ([A]), act beyond your role ([C], [F]), keep important information from the team ([E]), or breach her confidentiality ([G]).",
+    "competing": "[E] looks like respect for her privacy, but information about her treatment wishes needs to reach the team, ideally with her agreement."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Patients' right to decide about treatment, and supporting them to make decisions."
+    },
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Discussing goals of care with patients approaching the end of life."
+    }
+  ],
+  "tags": [
+    "advocacy",
+    "chemotherapy",
+    "shared decision-making",
+    "oncology"
+  ]
+}

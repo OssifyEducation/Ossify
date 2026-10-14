@@ -1,0 +1,85 @@
+{
+  "id": "sjt-079",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-079",
+  "format": "ranking",
+  "title": "An unwelcome exception report",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Advocating for safe working",
+    "Managing conflict",
+    "Using proper channels"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an elderly care ward. For several weeks you have regularly stayed two hours after your shift to finish jobs, and you have submitted exception reports as your contract allows.\n\nYour clinical supervisor calls you in and says, \"When I was a junior we just got on with it. These reports make the department look bad.\" You find this upsetting, as the late finishes are leaving you exhausted.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain calmly that the reports are about the workload, not criticism of the team.",
+      "brief": "A calm explanation may change how she sees them.",
+      "detailed": "Your supervisor may see the reports as a complaint. Explaining that they reflect the workload, and that they help the department make the case for more staff, may help her see them differently and keeps the relationship constructive."
+    },
+    {
+      "id": "B",
+      "text": "Add extra time to your future reports, so the department sees how bad the problem is.",
+      "brief": "Falsifying reports is dishonest.",
+      "detailed": "Your frustration is understandable, but exaggerating your hours is dishonest and would undermine your credibility and the reporting system."
+    },
+    {
+      "id": "C",
+      "text": "Keep submitting exception reports when you work beyond your hours.",
+      "brief": "Exception reports are a legitimate safety mechanism.",
+      "detailed": "Exception reports exist so that problems with workload and safe working are recorded and addressed. Continuing to submit them accurately is your right, and helps your colleagues too."
+    },
+    {
+      "id": "D",
+      "text": "Ask the guardian of safe working hours for advice.",
+      "brief": "The guardian oversees exception reporting and can help if there is pressure not to report.",
+      "detailed": "The guardian is independent of your supervisor and is responsible for making sure exception reporting works properly. They can advise you and, if needed, address any pressure not to report. It ranks just below continuing to report because that is the essential step."
+    },
+    {
+      "id": "E",
+      "text": "Stop submitting reports, to keep a good relationship with your supervisor.",
+      "brief": "Leaves the problem hidden and your exhaustion unaddressed.",
+      "detailed": "Keeping the peace may feel easier, but stopping the reports means the workload problem goes unrecorded, and your fatigue may affect patient safety."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "D",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to pressure not to report unsafe working, maintaining a professional relationship while using proper mechanisms.",
+    "keyDetails": "You are regularly working late and are exhausted. Your reports are legitimate. Your supervisor is critical of them.",
+    "reasoning": "[A] addresses the misunderstanding directly, [C] keeps the system working, and [D] gets independent advice. [E] gives in to pressure, and [B] is dishonest.",
+    "competing": "This is hard because [A], [C] and [D] are all appropriate. Some would put the guardian first, given the pressure; the key starts with a calm conversation because it may resolve things without escalation."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, raising concerns about working conditions that may affect patient safety."
+    }
+  ],
+  "tags": [
+    "exception reporting",
+    "workload",
+    "supervision",
+    "fatigue"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": "sjt-080",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-080",
+  "format": "multiple_choice",
+  "title": "No insulin, thank you",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Exploring concerns",
+    "Shared decision-making",
+    "Respecting autonomy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Ahmed, 54, has type 2 diabetes and was admitted with very high blood glucose. His HbA1c is well above target despite tablets, and the medical team has recommended starting insulin.\n\nHe has refused three times, saying he wants to try harder with his diet. He works as a lorry driver.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him that he won't be discharged until he agrees to start insulin.",
+      "brief": "Coercive, and not a legitimate condition of discharge.",
+      "detailed": "Making discharge conditional on accepting treatment pressures him unfairly and undermines his right to refuse."
+    },
+    {
+      "id": "B",
+      "text": "Assess his capacity, and give insulin in his best interests if he lacks it.",
+      "brief": "Refusing advice isn't evidence that someone lacks capacity.",
+      "detailed": "Capacity should be assessed if there's reason to doubt it, but adults are presumed to have capacity, and an unwise decision doesn't mean someone lacks it. Nothing suggests he can't make this decision."
+    },
+    {
+      "id": "C",
+      "text": "Ask his wife to persuade him to accept insulin.",
+      "brief": "Involving his family without his agreement doesn't respect his decision.",
+      "detailed": "Family support can help, but enlisting his wife to change his mind, without his agreement, breaches his confidentiality and puts pressure on him."
+    },
+    {
+      "id": "D",
+      "text": "Agree to a trial of diet alone and discharge him without arranging follow-up.",
+      "brief": "Respecting his choice still requires a safe plan.",
+      "detailed": "His choice to try diet first can be respected, but he still needs monitoring and follow-up to make sure his glucose is controlled."
+    },
+    {
+      "id": "E",
+      "text": "Ask him what worries him about starting insulin.",
+      "brief": "His concerns may be specific and addressable.",
+      "detailed": "People refuse insulin for many reasons: fear of injections or hypoglycaemia, stigma, or, as a lorry driver, worry about his licence. Finding out what lies behind his refusal is the first step to helping him make an informed decision."
+    },
+    {
+      "id": "F",
+      "text": "Explain the risks of high blood glucose and the treatment options available.",
+      "brief": "An informed decision needs clear information about all the options.",
+      "detailed": "He should understand the risks of persistently high glucose and the treatment options, which may include other medications. This helps him weigh up his choice, whatever he decides."
+    },
+    {
+      "id": "G",
+      "text": "Ask the diabetes specialist team to see him.",
+      "brief": "Specialists can discuss options in depth and support him after discharge.",
+      "detailed": "The diabetes team can explore alternatives, address specific concerns such as driving, and provide follow-up. Their involvement supports a well-informed decision."
+    },
+    {
+      "id": "H",
+      "text": "Reassure him that starting insulin won't affect his lorry licence.",
+      "brief": "Inaccurate: insulin treatment has specific implications for vocational driving.",
+      "detailed": "Drivers of lorries who are treated with insulin must meet specific DVLA requirements and inform the DVLA. False reassurance could lead him to make a decision based on wrong information, and could put him and others at risk."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a patient with capacity refuses recommended treatment: exploring his reasons, informing his decision, and respecting it.",
+    "keyDetails": "He has refused repeatedly. He is a lorry driver, which may affect his concerns. Nothing suggests he lacks capacity.",
+    "reasoning": "[E] explores his concerns, [F] informs his decision, and [G] brings in specialist support. The distractors either coerce him ([A], [C]), question his capacity without reason ([B]), discharge him unsafely ([D]), or give inaccurate reassurance ([H]).",
+    "competing": "[B] is the subtle distractor: capacity should be assessed when there's doubt, but refusal alone isn't evidence of a lack of capacity."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting patients' decisions, and supporting them with information."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Presumption of capacity; an unwise decision doesn't mean a lack of capacity."
+    },
+    {
+      "title": "Assessing fitness to drive: a guide for medical professionals",
+      "publisher": "Driver and Vehicle Licensing Agency (GOV.UK)",
+      "year": null,
+      "url": "https://www.gov.uk/government/publications/assessing-fitness-to-drive-a-guide-for-medical-professionals",
+      "note": "Insulin-treated drivers and vocational licensing."
+    }
+  ],
+  "tags": [
+    "refusal",
+    "diabetes",
+    "insulin",
+    "driving"
+  ]
+}

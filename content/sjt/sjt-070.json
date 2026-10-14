@@ -1,0 +1,102 @@
+{
+  "id": "sjt-070",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-070",
+  "format": "multiple_choice",
+  "title": "Sedation you haven't been trained to give",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Recognising limits of competence",
+    "Communicating with seniors",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. Mr Evans, 64, is booked for an elective DC cardioversion for atrial fibrillation this afternoon. The anaesthetist who usually provides sedation for the list has been called to an emergency.\n\nThe consultant asks you to give propofol sedation so the list can go ahead. You have never given propofol and haven't been trained in sedation or airway management. The consultant says, \"It's straightforward. I'll talk you through it.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Give the sedation, as the consultant has offered to talk you through it.",
+      "brief": "Guidance doesn't replace training in sedation and airway management.",
+      "detailed": "The consultant's offer is well meant, and supervised learning is how skills are gained. But propofol sedation can cause airway compromise and low blood pressure, and managing those requires training you don't have. Being talked through it isn't a safe substitute."
+    },
+    {
+      "id": "B",
+      "text": "Use midazolam instead, which you have given before for a procedure.",
+      "brief": "Switching drugs doesn't solve the lack of training in sedation for this procedure.",
+      "detailed": "Familiarity with one drug in another setting doesn't make you competent to provide sedation for cardioversion. Changing the drug yourself also departs from the planned procedure without discussion."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurse on the list whether she could give the sedation instead.",
+      "brief": "Passes the problem on rather than solving it.",
+      "detailed": "Some nurses are trained in sedation, but asking without knowing her competence, or whether local policy allows it, shifts the risk rather than addressing it."
+    },
+    {
+      "id": "D",
+      "text": "Explain to the consultant that you haven't been trained to give sedation.",
+      "brief": "Being honest about your limits protects the patient.",
+      "detailed": "It can be hard to say no to a consultant, especially when they're keen to help. But explaining clearly that you haven't been trained in sedation or airway management is essential for Mr Evans's safety, and most consultants will respect it."
+    },
+    {
+      "id": "E",
+      "text": "Cancel the procedure yourself and rebook it for a day when an anaesthetist is available.",
+      "brief": "The decision about the list isn't yours to make alone.",
+      "detailed": "Postponing may well be the outcome, but cancelling without agreement from the consultant or patient bypasses the people responsible for the list and leaves Mr Evans uninformed."
+    },
+    {
+      "id": "F",
+      "text": "Ask whether another anaesthetist or a sedation-trained colleague could cover.",
+      "brief": "Looks for a safe way for the procedure to go ahead.",
+      "detailed": "There may be another anaesthetist or a trained colleague available later in the afternoon. Suggesting this helps the consultant find a safe solution rather than simply saying no."
+    },
+    {
+      "id": "G",
+      "text": "Agree to give the sedation, as the consultant is responsible for the decision.",
+      "brief": "You remain responsible for your own actions, whoever asked you.",
+      "detailed": "Seniors are responsible for delegating appropriately, but you remain accountable for what you do. Agreeing to do something you aren't trained to do, because you've been asked, puts the patient at risk."
+    },
+    {
+      "id": "H",
+      "text": "Offer to help with the parts of the procedure you are competent in.",
+      "brief": "Shows willingness and supports the team within your limits.",
+      "detailed": "You may be able to help with preparing Mr Evans, checking the ECG and defibrillator, or monitoring him under supervision. Offering what you can do safely is constructive and supports the team."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise the limits of your competence under pressure from a senior, and help find a safe alternative.",
+    "keyDetails": "You haven't been trained in sedation or airway management. The consultant is supportive but under pressure to keep the list going. Propofol sedation carries airway and cardiovascular risks.",
+    "reasoning": "[D] is honest about your limits, [F] looks for a safe solution, and [H] offers what you can do. The distractors either give sedation you aren't trained in ([A], [B], [G]), pass on the problem ([C]), or act beyond your authority ([E]).",
+    "competing": "[A] is the most tempting option: supervised learning is valuable. But sedation needs training in managing complications, not just guidance on giving the drug."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, recognising and working within the limits of your competence."
+    }
+  ],
+  "tags": [
+    "competence",
+    "sedation",
+    "cardioversion",
+    "consultants"
+  ]
+}

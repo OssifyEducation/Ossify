@@ -1,0 +1,93 @@
+{
+  "id": "sjt-073",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-073",
+  "format": "ranking",
+  "title": "After the stillbirth",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Self-care",
+    "Seeking support",
+    "Fitness to work"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in obstetrics. Today you were involved in the delivery of a stillborn baby at 38 weeks. You spent time with the parents afterwards, and they were devastated.\n\nThis evening at home, you can't stop thinking about it, and you feel tearful and unsettled. You are due back on the labour ward at 08:00 tomorrow.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Contact the trust's staff support service for confidential support.",
+      "brief": "Useful support, though less immediate than talking to your team.",
+      "detailed": "Staff support services offer confidential help, and they're valuable if your distress continues. It ranks third because your own team can offer support in the context of tomorrow's shift."
+    },
+    {
+      "id": "B",
+      "text": "Have a few drinks this evening to help you switch off before tomorrow.",
+      "brief": "An unhelpful way of coping, and risky before an early shift on the labour ward.",
+      "detailed": "Wanting to switch off is understandable, and many people turn to alcohol after a hard day. But it doesn't help you process what happened, and drinking the evening before an 08:00 labour ward shift could affect your fitness to work. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Talk to your registrar or consultant about how you are feeling.",
+      "brief": "Seniors understand how affecting these events are, and can offer support and advice.",
+      "detailed": "Senior colleagues have usually been through similar experiences and expect juniors to be affected. Talking to them helps you process what happened, and lets them support you, for example with your duties tomorrow."
+    },
+    {
+      "id": "D",
+      "text": "Phone in sick tomorrow morning so you have time to recover.",
+      "brief": "Avoidance at short notice, without support.",
+      "detailed": "Taking time off can be right if you aren't fit to work, but phoning in sick at short notice, without talking to anyone, leaves the ward short and doesn't help you process what happened."
+    },
+    {
+      "id": "E",
+      "text": "Ask about a team debrief after the event.",
+      "brief": "Debriefs help the whole team reflect and support each other.",
+      "detailed": "Many units hold debriefs after stillbirths. They help staff understand what happened and see they aren't alone in being affected. It ranks second because it may not happen straight away."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "A",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise the effect of a distressing event on you and seek appropriate support, so you can work safely.",
+    "keyDetails": "The event was very distressing. You are affected this evening and due back on the labour ward tomorrow morning.",
+    "reasoning": "[C] gets immediate support from seniors, [E] uses the team's debrief, and [A] uses confidential support. [D] avoids the problem at the team's expense, and [B] is an unhelpful way of coping that could affect your work tomorrow.",
+    "competing": "[C], [E] and [A] can all be done, and any of them is reasonable. The key puts your seniors first because they can support you before tomorrow's shift, while a debrief and staff support may take longer to arrange. Being tearful the same evening is a normal reaction, which is why phoning in sick without talking to anyone ranks low."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, looking after your own health and wellbeing."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors' mental health."
+    }
+  ],
+  "tags": [
+    "wellbeing",
+    "stillbirth",
+    "debrief",
+    "obstetrics"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-066",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-066",
+  "format": "multiple_choice",
+  "title": "Notes that say nothing",
+  "setting": "Out-of-hours / community",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Clinical assessment",
+    "Record keeping",
+    "Raising concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working a shift in an out-of-hours GP service. You see Maisie, 3, who has had a fever for two days. Her mother says they were seen at the same centre nine hours ago by Dr Baker, a locum GP.\n\nDr Baker's entry reads only: \"Viral illness. Safety-netted.\" There are no observations or examination findings recorded. Looking back, you notice that his other entries from that shift are similarly brief.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Assess Maisie fully yourself and record your findings clearly.",
+      "brief": "She needs a complete assessment now, whatever happened earlier.",
+      "detailed": "You can't rely on an earlier assessment that wasn't recorded. A full history, examination and set of observations, clearly documented, means Maisie is assessed properly and the next clinician has a clear record to work from."
+    },
+    {
+      "id": "B",
+      "text": "Ask Maisie's mother what was checked at the earlier visit.",
+      "brief": "Her account may fill some of the gaps in the record.",
+      "detailed": "The mother can tell you whether Maisie's temperature was taken, whether she was examined, and what advice was given. This helps you judge how things have changed, though it doesn't replace your own assessment."
+    },
+    {
+      "id": "C",
+      "text": "Add the details the mother describes to Dr Baker's entry, so the record is complete.",
+      "brief": "You can't alter another clinician's entry; record what she tells you in your own note.",
+      "detailed": "Completing the record seems helpful, but adding to someone else's entry makes it look as though he recorded those findings. What the mother tells you belongs in your own, dated entry, attributed to her."
+    },
+    {
+      "id": "D",
+      "text": "Tell Maisie's mother that the previous doctor doesn't appear to have examined her properly.",
+      "brief": "You don't know what was done, only what was written down.",
+      "detailed": "Being open with families matters, but you don't know that Dr Baker failed to examine Maisie; you only know he didn't record it. Suggesting otherwise could cause unnecessary distress and damage trust in the service."
+    },
+    {
+      "id": "E",
+      "text": "Raise the standard of Dr Baker's notes with the clinical lead for the shift.",
+      "brief": "A pattern of poor records is a safety risk that the service needs to know about.",
+      "detailed": "Brief notes across a whole shift make it hard for other clinicians to provide safe care. The clinical lead can look into it and give feedback, which is a proportionate first step that doesn't rely on you judging his clinical practice."
+    },
+    {
+      "id": "F",
+      "text": "Take the note as evidence that the earlier assessment was normal, since a diagnosis was given.",
+      "brief": "A diagnosis without recorded findings gives you little to rely on.",
+      "detailed": "It is reasonable to assume a colleague acted properly, and he may well have examined her. But with no findings recorded, you can't use the earlier visit as a baseline, and Maisie may have changed since."
+    },
+    {
+      "id": "G",
+      "text": "Report Dr Baker to the GMC, as his notes are well below the expected standard.",
+      "brief": "Premature: the service should look at this first.",
+      "detailed": "Poor record keeping can become a fitness-to-practise concern, but a first concern like this is best raised locally, where it can be looked into and addressed. The GMC is for concerns that can't be managed that way."
+    },
+    {
+      "id": "H",
+      "text": "Ask the other clinicians on shift whether they have noticed problems with Dr Baker's work.",
+      "brief": "Seeking others' views informally risks gossip rather than a proper review.",
+      "detailed": "It may feel like checking whether there's a real pattern, but asking around informally can damage a colleague's reputation without giving him a fair hearing. The clinical lead is the right person to look at this."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you deal with poor record keeping by a colleague: caring for the patient in front of you and raising the issue proportionately.",
+    "keyDetails": "Maisie has been ill for two days and returned within nine hours. The earlier entry has no findings. The problem seems to affect all of Dr Baker's notes on that shift.",
+    "reasoning": "[A] makes sure Maisie is properly assessed, [B] gathers what information is available, and [E] raises the pattern with the right person. The distractors either alter or misuse the record ([C], [F]), jump to conclusions ([D], [G]), or handle the concern informally ([H]).",
+    "competing": "[F] is the subtle distractor: assuming a colleague acted properly is usually fair, but it can't replace your own assessment when nothing was recorded."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, keeping clear, accurate records; Domain 3, acting on concerns about colleagues' practice."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns locally first, in proportion to the risk."
+    }
+  ],
+  "tags": [
+    "record keeping",
+    "out-of-hours",
+    "colleague performance",
+    "febrile child"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sjt-069",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-069",
+  "format": "ranking",
+  "title": "Unsteady hands",
+  "setting": "Orthopaedics",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Speaking up",
+    "Patient safety",
+    "Escalation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor assisting in orthopaedic theatre. Your registrar, Dr Shaw, is fixing a wrist fracture under general anaesthetic. The consultant is in the hospital but not in theatre. The fracture is exposed, but the operation could safely be paused.\n\nDr Shaw looks pale and sweaty, and his hands are shaking so much that he has struggled to place a wire twice. When you quietly ask whether he's all right, he says, \"I'm fine, let's just get this done.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him clearly that you think he should stop, for the patient's safety.",
+      "brief": "Patient safety comes first, and a clear statement gives him the chance to pause.",
+      "detailed": "Your first question was gentle, and he brushed it off. Saying clearly that you're concerned for the patient, and that you think he should stop, is the most direct way of protecting the patient, and gives him the chance to step back without losing face."
+    },
+    {
+      "id": "B",
+      "text": "Continue assisting, and ask him after the operation how he is feeling.",
+      "brief": "Caring towards him, but it leaves the patient at risk.",
+      "detailed": "Concern for Dr Shaw is appropriate, and he may be unwell. But carrying on as though nothing is wrong puts the patient at risk of harm."
+    },
+    {
+      "id": "C",
+      "text": "Report your concerns about Dr Shaw's health to the consultant as soon as the operation has finished.",
+      "brief": "Raises the concern, but only after the patient has been exposed to the risk.",
+      "detailed": "The consultant does need to know about Dr Shaw's health. But waiting until the operation is over leaves the patient at risk, when you could act now."
+    },
+    {
+      "id": "D",
+      "text": "Ask a member of the theatre team to call the consultant to theatre now.",
+      "brief": "The consultant can take over or supervise, but will take time to arrive.",
+      "detailed": "The consultant needs to know and may need to take over. Calling them is essential, but the patient is at risk now, which is why stopping the procedure and getting immediate support rank higher."
+    },
+    {
+      "id": "E",
+      "text": "Ask the anaesthetist to support you in pausing the operation.",
+      "brief": "A senior colleague already in theatre can add weight to your concern immediately.",
+      "detailed": "The anaesthetist shares responsibility for the patient and is present now. Their support makes it much more likely the operation will be paused safely. It ranks second because you should first raise the concern directly with Dr Shaw."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "E",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you speak up when a senior colleague appears unfit to continue a procedure, putting the patient's safety first.",
+    "keyDetails": "Dr Shaw's hands are shaking and he has struggled with the wire. He looks unwell. He dismissed your first, gentle question. The consultant isn't in theatre.",
+    "reasoning": "[A] raises the concern directly, [E] brings immediate senior support from someone already present, and [D] gets the consultant. [C] delays action until after the risk, and [B] doesn't act at all.",
+    "competing": "This is hard because [A], [E] and [D] would ideally happen almost together. The key ranks them by how quickly each protects the patient: speaking to Dr Shaw is immediate, the anaesthetist is in the room, and the consultant will take time to arrive."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when a colleague's health may put patients at risk."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns promptly when patient safety is at risk."
+    }
+  ],
+  "tags": [
+    "unwell colleague",
+    "theatre",
+    "speaking up",
+    "patient safety"
+  ]
+}

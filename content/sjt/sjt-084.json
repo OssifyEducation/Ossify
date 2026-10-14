@@ -1,0 +1,109 @@
+{
+  "id": "sjt-084",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-084",
+  "format": "multiple_choice",
+  "title": "Lunch is on the house",
+  "setting": "Out-of-hours / community",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Gifts and hospitality",
+    "Professional boundaries",
+    "Fairness"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor working at an urgent treatment centre. Three months ago you treated Mr Price, 30, for a hand fracture, and he was very grateful.\n\nHe now works at a café near the centre, and over the past two weeks he has refused to let you pay for your lunch four times, saying, \"After what you did for me, it's the least I can do.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept the meals, as he is no longer your patient.",
+      "brief": "He may well be your patient again, and the meals are repeated.",
+      "detailed": "He is a former patient, which is what makes this seem acceptable. But you work nearby and may treat him again, and a regular benefit could create, or seem to create, an obligation."
+    },
+    {
+      "id": "B",
+      "text": "Thank him, and explain that you'd like to pay for your meals.",
+      "brief": "Polite and clear, and keeps the relationship professional.",
+      "detailed": "His gratitude is genuine, and you don't need to make him feel awkward. Thanking him and explaining that you'd prefer to pay ends the arrangement kindly and avoids any suggestion of an obligation."
+    },
+    {
+      "id": "C",
+      "text": "Stop going to the café so the situation doesn't arise.",
+      "brief": "Avoids the issue without addressing it.",
+      "detailed": "This avoids the gifts, but it doesn't explain anything to him and may seem rude. A friendly conversation is more honest."
+    },
+    {
+      "id": "D",
+      "text": "Tell the café manager that he has been giving you free food.",
+      "brief": "Could get him into trouble for a well-meant gesture.",
+      "detailed": "He may not be entitled to give food away, but raising this with his employer could cost him his job over a gesture of gratitude. Talking to him directly is fairer."
+    },
+    {
+      "id": "E",
+      "text": "Check the trust's policy on gifts from patients, and declare them if required.",
+      "brief": "Repeated free meals may count as gifts that should be declared.",
+      "detailed": "Many trusts require staff to declare gifts above a certain value or frequency. Checking the policy, and declaring the meals if needed, shows openness."
+    },
+    {
+      "id": "F",
+      "text": "Accept the meals, but leave a generous tip each time to make up for them.",
+      "brief": "Doesn't address the issue and may confuse things further.",
+      "detailed": "This seems a fair compromise, but you would still be accepting regular gifts. It doesn't solve the problem of an ongoing benefit from a patient."
+    },
+    {
+      "id": "G",
+      "text": "Treat him the same as any other patient if he needs care from you again.",
+      "brief": "Fair treatment is the point of avoiding gifts.",
+      "detailed": "The concern about gifts is that they could affect, or appear to affect, the care you give. If he comes back to the centre, treating him exactly as you would anyone else maintains trust."
+    },
+    {
+      "id": "H",
+      "text": "Accept, but tell him he won't get any special treatment at the centre.",
+      "brief": "Accepting while making this point is awkward and doesn't remove the appearance of influence.",
+      "detailed": "Being clear that his care won't be affected is honest, but continuing to accept regular gifts still creates the appearance of influence."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle repeated gifts from a former patient you may treat again, keeping professional boundaries without causing offence.",
+    "keyDetails": "The gifts are small but repeated. He is a former patient, and you work nearby. He is grateful, not trying to gain influence.",
+    "reasoning": "[B] ends the arrangement kindly, [E] is open about it, and [G] keeps his future care fair. The distractors accept gifts in different forms ([A], [F], [H]), avoid the issue ([C]), or treat him unfairly ([D]).",
+    "competing": "[F] looks like a fair compromise, which is why this item is hard: but the regular benefit, and its appearance, remain."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Accepting gifts and hospitality from patients."
+    },
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Relationships with former patients."
+    }
+  ],
+  "tags": [
+    "gifts",
+    "boundaries",
+    "former patients",
+    "urgent care"
+  ]
+}

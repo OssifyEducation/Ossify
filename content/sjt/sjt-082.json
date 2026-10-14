@@ -1,0 +1,102 @@
+{
+  "id": "sjt-082",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-082",
+  "format": "multiple_choice",
+  "title": "\"Disorganised\"",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to feedback",
+    "Self-improvement",
+    "Professional relationships"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a general medical ward. On the post-take ward round you present a new patient. Halfway through, your consultant interrupts and says in front of the team, \"This is disorganised. I can't follow it. Let's move on.\"\n\nYou feel embarrassed. You had been on call all night and had little time to prepare.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain to the consultant in front of the team that you had little time to prepare.",
+      "brief": "Sounds defensive and is unlikely to help in the moment.",
+      "detailed": "Your reason is genuine, but raising it in front of the team, during the ward round, is likely to come across as an excuse and won't help either of you."
+    },
+    {
+      "id": "B",
+      "text": "Raise a formal complaint about being criticised in public.",
+      "brief": "Disproportionate for a single comment about a presentation.",
+      "detailed": "Repeated public humiliation can be a form of undermining and may need raising. But a single critical comment about your presentation is better addressed by seeking feedback."
+    },
+    {
+      "id": "C",
+      "text": "Ask the registrar to present your patients for the rest of the week.",
+      "brief": "Avoiding the task stops you improving.",
+      "detailed": "This avoids further embarrassment but means you miss the chance to improve, and adds to your registrar's workload."
+    },
+    {
+      "id": "D",
+      "text": "Ask the consultant later for specific feedback on how to improve.",
+      "brief": "Turns criticism into something you can act on.",
+      "detailed": "General criticism is hard to learn from. Asking, at a calmer moment, what would have made the presentation easier to follow gives you concrete things to work on and shows you take feedback seriously."
+    },
+    {
+      "id": "E",
+      "text": "Accept that the consultant is hard to please, and carry on as before.",
+      "brief": "Dismisses feedback that might be useful.",
+      "detailed": "Some consultants are more critical than others, but writing off the feedback means missing the chance to improve."
+    },
+    {
+      "id": "F",
+      "text": "Reflect on the feedback, and use a clear structure for future presentations.",
+      "brief": "Improvement is the best response.",
+      "detailed": "Even if the delivery was harsh, the feedback may be useful. Thinking about what went wrong, and using a consistent structure for presentations, will help you next time."
+    },
+    {
+      "id": "G",
+      "text": "Tell your colleagues that the consultant was unfair to you.",
+      "brief": "Doesn't help you improve and may create tension.",
+      "detailed": "It's natural to want sympathy, but complaining to colleagues doesn't address the feedback and may affect team relationships."
+    },
+    {
+      "id": "H",
+      "text": "Practise presenting cases with a colleague or your registrar.",
+      "brief": "Practice and feedback build skill.",
+      "detailed": "Rehearsing with a colleague, or asking your registrar to watch you present, gives you a chance to improve in a supportive setting."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to critical feedback given publicly: constructively, without defensiveness or overreaction.",
+    "keyDetails": "The comment was blunt and public. You were tired after a night on call. The criticism may still be partly fair.",
+    "reasoning": "[D], [F] and [H] all use the feedback to improve. The distractors are defensive ([A]), disproportionate ([B]), avoidant ([C], [E]), or unconstructive ([G]).",
+    "competing": "[B] would become appropriate if the consultant repeatedly humiliated you or others; a single comment is better addressed directly."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on feedback and developing your practice."
+    }
+  ],
+  "tags": [
+    "feedback",
+    "presenting",
+    "resilience",
+    "consultants"
+  ]
+}
