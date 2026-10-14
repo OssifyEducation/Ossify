@@ -1,0 +1,93 @@
+{
+  "id": "sjt-189",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-189",
+  "format": "ranking",
+  "title": "\"I'm afraid of him\"",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Responding to disclosure",
+    "Safeguarding",
+    "Personal safety"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in cardiology. Mrs Wood, the wife of your patient Mr Wood, stops you in the corridor. She is shaking and says quietly that she is afraid of her husband, who has hit her several times, and that she dreads him coming home.\n\nMr Wood is in a bay nearby. They have no children.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Contact the hospital safeguarding team for advice.",
+      "brief": "They can advise on next steps and her safety.",
+      "detailed": "The safeguarding team can advise on what to do, including referral to specialist services, and whether information needs to be shared. It ranks third because supporting her and giving her options comes first."
+    },
+    {
+      "id": "B",
+      "text": "Raise what she has told you with Mr Wood.",
+      "brief": "Could put her at serious risk.",
+      "detailed": "Confronting him could make him angry and increase the danger to her. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Give her information about domestic abuse support services.",
+      "brief": "Specialist services can help her plan for her safety.",
+      "detailed": "Domestic abuse services can provide advice, support and safety planning. Giving her information discreetly helps her access them."
+    },
+    {
+      "id": "D",
+      "text": "Take her somewhere private, and ask if she is safe now.",
+      "brief": "Privacy and immediate safety come first.",
+      "detailed": "She may be at risk, and she has taken a risk in telling you. Moving somewhere private, listening, and asking about her immediate safety is the right first step."
+    },
+    {
+      "id": "E",
+      "text": "Record what she has told you in Mr Wood's medical notes.",
+      "brief": "A record is needed, but not in his notes, where he might see it.",
+      "detailed": "Recording disclosures matters, but writing them in his notes could put her at risk if he sees them, and it records information about someone who isn't the patient. Advice on where to record it should come from the safeguarding team."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "A",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a disclosure of domestic abuse from a patient's relative, keeping her safe and getting specialist help.",
+    "keyDetails": "She is afraid and has been hit. He is nearby. She is not your patient, but she has disclosed to you.",
+    "reasoning": "[D] keeps her safe and listens, [C] gives her options, and [A] gets specialist advice. [E] could put her at risk, and [B] could put her in danger.",
+    "competing": "This is hard because [A] might be the first action for some. The key starts with her immediate safety and support because she has taken a risk in telling you."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information to protect people from serious harm."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to people who may be vulnerable."
+    }
+  ],
+  "tags": [
+    "domestic abuse",
+    "relatives",
+    "safeguarding",
+    "disclosure"
+  ]
+}

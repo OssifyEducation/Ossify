@@ -1,0 +1,109 @@
+{
+  "id": "sjt-188",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-188",
+  "format": "multiple_choice",
+  "title": "Discharged too soon?",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Escalating concerns",
+    "Patient safety",
+    "Professional communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Your consultant reviewed Mr Ford, 71, yesterday, and planned to discharge him today after treatment for pneumonia.\n\nThis morning his heart rate is 105, he has a new temperature of 38.1°C, and his CRP has risen. The consultant is in clinic and has asked you to complete the discharge.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Complete the discharge, as the consultant has made the decision.",
+      "brief": "The decision was made before these findings.",
+      "detailed": "The consultant's plan deserves respect, but it was made without knowing about this morning's changes."
+    },
+    {
+      "id": "B",
+      "text": "Cancel the discharge yourself without discussing it.",
+      "brief": "Not your decision alone, and leaves the consultant uninformed.",
+      "detailed": "Your concern is right, but the consultant should know and be involved in the decision."
+    },
+    {
+      "id": "C",
+      "text": "Phone the consultant and explain the new findings.",
+      "brief": "The consultant made the plan without these findings.",
+      "detailed": "The consultant decided yesterday, before he became tachycardic and febrile. Explaining the new findings gives them the chance to change the plan."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse in charge to hold the discharge until he's reviewed.",
+      "brief": "A short delay is safer than discharging a deteriorating patient.",
+      "detailed": "If the consultant agrees, a short delay allows a review and repeat tests, which is safer than sending him home."
+    },
+    {
+      "id": "E",
+      "text": "Review him yourself, and repeat his observations.",
+      "brief": "Your own assessment informs the discussion.",
+      "detailed": "Examining him and repeating his observations gives you a clear picture to discuss with the consultant."
+    },
+    {
+      "id": "F",
+      "text": "Tell Mr Ford that you disagree with the consultant's plan.",
+      "brief": "Undermines the consultant and may worry him.",
+      "detailed": "He should be told if the plan changes, but not that you disagree with your consultant."
+    },
+    {
+      "id": "G",
+      "text": "Ask another consultant to review him instead.",
+      "brief": "Bypasses his own consultant, who is contactable.",
+      "detailed": "A second opinion may be useful in some situations, but his consultant is available by phone."
+    },
+    {
+      "id": "H",
+      "text": "Complete the discharge, but ask his GP to see him tomorrow.",
+      "brief": "Shifts a risk you can deal with today.",
+      "detailed": "GP follow-up is useful, but he may be getting worse now, and this needs addressing in hospital."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you escalate new concerns about a patient's safety to a senior, rather than following an outdated plan.",
+    "keyDetails": "His heart rate, temperature and CRP have changed since the consultant's review. The consultant is contactable.",
+    "reasoning": "[C] informs the consultant, [D] suggests a safe alternative, and [E] gives you a clear assessment. The distractors follow the outdated plan ([A], [H]), act alone ([B], [G]), or undermine the consultant ([F]).",
+    "competing": "[H] is the tempting option because it includes follow-up, but the concern needs addressing before he leaves."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, escalating concerns about patient safety."
+    },
+    {
+      "title": "National Early Warning Score (NEWS) 2",
+      "publisher": "Royal College of Physicians",
+      "year": 2017,
+      "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/",
+      "note": "Responding to deteriorating observations."
+    }
+  ],
+  "tags": [
+    "discharge",
+    "escalation",
+    "deterioration",
+    "seniors"
+  ]
+}

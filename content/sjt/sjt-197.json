@@ -1,0 +1,85 @@
+{
+  "id": "sjt-197",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-197",
+  "format": "ranking",
+  "title": "\"This is your fault\"",
+  "setting": "Oncology & palliative care",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Responding to complaints",
+    "Composure",
+    "Honesty"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Grant's CT scan, needed to plan her chemotherapy, has been delayed by a week because of a booking error.\n\nHer husband is angry and, raising his voice, tells you it's your fault, although you only joined the team two days ago.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Find out what caused the delay, and when the scan can happen.",
+      "brief": "Practical information may reassure him.",
+      "detailed": "Finding out what happened and getting a new date addresses his main concern."
+    },
+    {
+      "id": "B",
+      "text": "Explain how to make a complaint, if he wishes.",
+      "brief": "Gives him a route for his concerns.",
+      "detailed": "He may want the delay looked into. Explaining how is helpful. It ranks third because addressing the delay comes first."
+    },
+    {
+      "id": "C",
+      "text": "Tell him you'll call security if he continues to raise his voice.",
+      "brief": "Escalates the situation.",
+      "detailed": "He is angry, but not threatening. This is likely to make things worse."
+    },
+    {
+      "id": "D",
+      "text": "Explain that you only joined the team two days ago.",
+      "brief": "True, but defensive.",
+      "detailed": "This may be true, but focusing on yourself doesn't help him."
+    },
+    {
+      "id": "E",
+      "text": "Listen, acknowledge his frustration, and apologise for the delay.",
+      "brief": "An apology for the delay isn't an admission of personal blame.",
+      "detailed": "He is worried about his wife. Listening and apologising for the delay, on behalf of the team, acknowledges that something went wrong."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "B",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an angry relative who blames you personally, focusing on his concerns rather than defending yourself.",
+    "keyDetails": "The delay was a booking error. You weren't involved. He is worried about his wife.",
+    "reasoning": "[E] acknowledges and apologises, [A] addresses the delay, and [B] gives a route to complain. [D] is defensive, and [C] escalates.",
+    "competing": "Some would find out about the delay first. The key starts with listening and apologising, which helps him feel heard."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to complaints."
+    }
+  ],
+  "tags": [
+    "complaints",
+    "relatives",
+    "delays",
+    "oncology"
+  ]
+}

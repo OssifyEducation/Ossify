@@ -1,0 +1,102 @@
+{
+  "id": "sjt-200",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-200",
+  "format": "multiple_choice",
+  "title": "Settling in",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Inclusion",
+    "Constructive feedback"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Dr Mensah has just joined the team after qualifying and working abroad. She is unfamiliar with the hospital's systems and NHS processes, and has been criticised several times by nurses for incomplete discharge paperwork.\n\nShe has a clinical supervisor in the team. She tells you she feels out of her depth and is thinking of leaving.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to show her how the discharge system works.",
+      "brief": "Practical help from a peer can make a big difference.",
+      "detailed": "Many of her difficulties may be due to unfamiliar systems. Showing her how things work is practical and supportive."
+    },
+    {
+      "id": "B",
+      "text": "Tell her about the trust's support for doctors new to the NHS.",
+      "brief": "Specialist support can help her adapt.",
+      "detailed": "Many trusts offer induction and support programmes for doctors new to the NHS. Knowing about them may help her settle."
+    },
+    {
+      "id": "C",
+      "text": "Encourage her to talk to her clinical supervisor.",
+      "brief": "Her supervisor can support her and address unfair criticism.",
+      "detailed": "Her supervisor can help with her learning and, if criticism is being delivered unhelpfully, raise it with the team."
+    },
+    {
+      "id": "D",
+      "text": "Reassure her that everyone finds a new hospital difficult at first, and that it gets easier.",
+      "brief": "Well meant, but doesn't help her practically.",
+      "detailed": "This is true, but on its own doesn't help with the problems she's facing."
+    },
+    {
+      "id": "E",
+      "text": "Tell the nurses to stop criticising her.",
+      "brief": "Some feedback may be valid, and this may cause conflict.",
+      "detailed": "The way feedback is given may need addressing, but some of it may be valid, and confronting the nurses may make things harder for her."
+    },
+    {
+      "id": "F",
+      "text": "Suggest she works harder to keep up.",
+      "brief": "Unhelpful and dismissive.",
+      "detailed": "She is struggling with unfamiliar systems, not effort."
+    },
+    {
+      "id": "G",
+      "text": "Complete her discharge paperwork for her.",
+      "brief": "Helps in the short term, but doesn't help her learn.",
+      "detailed": "This may relieve pressure, but she needs to learn the system herself."
+    },
+    {
+      "id": "H",
+      "text": "Agree that she might be better off leaving.",
+      "brief": "Unsupportive.",
+      "detailed": "This doesn't help her and may reinforce her feeling that she doesn't belong."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague adjusting to a new healthcare system.",
+    "keyDetails": "She is new to the NHS. The criticism relates to systems. She is thinking of leaving.",
+    "reasoning": "[A] offers practical help, [B] points to specialist support, and [C] involves her supervisor. The distractors reassure without helping ([D]), confront others ([E]), dismiss her ([F], [H]), or do her work for her ([G]).",
+    "competing": "[G] is the tempting option, but she needs to learn the system to succeed."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and contributing to a positive culture."
+    }
+  ],
+  "tags": [
+    "international medical graduates",
+    "colleague support",
+    "induction",
+    "orthopaedics"
+  ]
+}

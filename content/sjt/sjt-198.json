@@ -1,0 +1,109 @@
+{
+  "id": "sjt-198",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-198",
+  "format": "multiple_choice",
+  "title": "Not seen for a week",
+  "setting": "Non-clinical (training)",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Concern for colleagues",
+    "Escalation",
+    "Welfare"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. Your friend Dr Kemp, another F2, hasn't been at work for a week. She isn't on leave, and she hasn't replied to your messages or calls.\n\nA fortnight ago she told you she was struggling after her relationship ended. She lives alone.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her educational supervisor that you're worried.",
+      "brief": "They need to know, and can contact her or her next of kin.",
+      "detailed": "Her supervisor or the programme office will want to know, and may have contact details for her next of kin."
+    },
+    {
+      "id": "B",
+      "text": "Wait a few more days, as she may just need space.",
+      "brief": "Her absence and silence are out of character and concerning.",
+      "detailed": "She may need space, but a week's absence without explanation, after telling you she was struggling, is a cause for concern."
+    },
+    {
+      "id": "C",
+      "text": "Post in the foundation doctors' group chat asking if anyone has seen her.",
+      "brief": "Shares her absence widely.",
+      "detailed": "Others may have heard from her, but posting publicly spreads her private situation."
+    },
+    {
+      "id": "D",
+      "text": "Go to her flat and ask the landlord to let you in.",
+      "brief": "Not your role, and may not be safe or lawful.",
+      "detailed": "This may seem caring, but entering her home isn't your role. A welfare check by the police is safer."
+    },
+    {
+      "id": "E",
+      "text": "Report her absence as unprofessional to the rota coordinator.",
+      "brief": "Treats a welfare concern as a disciplinary issue.",
+      "detailed": "The rota coordinator may need to know, but framing it as unprofessional overlooks your concern for her."
+    },
+    {
+      "id": "F",
+      "text": "Try to reach her through a mutual friend or a family member.",
+      "brief": "Someone else may have heard from her.",
+      "detailed": "A friend or family member may know where she is, or be able to check on her."
+    },
+    {
+      "id": "G",
+      "text": "Keep messaging her until she replies.",
+      "brief": "Doesn't escalate a growing concern.",
+      "detailed": "Messaging shows care, but if she isn't replying, others need to know."
+    },
+    {
+      "id": "H",
+      "text": "Consider asking the police to check on her welfare.",
+      "brief": "Her silence, recent distress and living alone are concerning.",
+      "detailed": "If you can't reach her and are worried for her safety, the police can carry out a welfare check. Her recent distress and absence make this reasonable."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a concern for a colleague's welfare, escalating appropriately.",
+    "keyDetails": "She has been absent for a week, isn't answering, recently disclosed distress, and lives alone.",
+    "reasoning": "[A] informs those responsible, [F] uses her network, and [H] considers a welfare check. The distractors delay ([B], [G]), spread her situation ([C]), overstep ([D]), or misframe it ([E]).",
+    "competing": "[B] is the tempting option because she may want space, but her circumstances make it too risky to wait."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Support for doctors' mental health."
+    }
+  ],
+  "tags": [
+    "colleague welfare",
+    "absence",
+    "mental health",
+    "escalation"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "sjt-195",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-195",
+  "format": "ranking",
+  "title": "A letter from next door",
+  "setting": "Non-clinical (social)",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Boundaries",
+    "Confidentiality",
+    "Helpfulness"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. Your elderly neighbour, Mrs Price, knocks on your door with her husband's hospital discharge letter. He has just come home after a heart attack at another hospital.\n\nShe is worried and asks you to explain what it means. Her husband is resting at home and doesn't know she has come to you.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to explain medical terms, with her husband present and agreeing.",
+      "brief": "A kind, limited help, with his consent.",
+      "detailed": "Explaining general terms, with his agreement, can reassure them both. You should avoid giving advice about his treatment, which is for his own doctors, and point them to his GP for that."
+    },
+    {
+      "id": "B",
+      "text": "Read the letter and explain his treatment to her.",
+      "brief": "Shares his information without his consent, and advises on care you weren't involved in.",
+      "detailed": "Her husband hasn't agreed, and you weren't involved in his care, so you may give inaccurate advice. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Suggest they contact his GP or the hospital team, who know his care.",
+      "brief": "They can give accurate, personalised advice.",
+      "detailed": "His GP and the hospital team know his history and plan, and can answer questions about his treatment accurately. It ranks second only because a little help with the wording, with his agreement, is kinder now."
+    },
+    {
+      "id": "D",
+      "text": "Tell her politely that you can't help, as you weren't involved in his care.",
+      "brief": "Honest, but unhelpful to a worried neighbour.",
+      "detailed": "This is true, but she is worried, and you could at least point her in the right direction."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you help a worried neighbour while respecting confidentiality and boundaries.",
+    "keyDetails": "The letter is about her husband, who isn't there. You weren't involved in his care. She is worried.",
+    "reasoning": "[A] offers limited help with his consent, [C] directs them to the people who know his care, and [D] is honest but unhelpful. [B] breaches his confidentiality and oversteps your role.",
+    "competing": "Some would direct them to his GP first, as his doctors can give accurate advice. The key puts the limited, consented help first because it respects his confidentiality and helps a worried neighbour now, while still pointing them to his doctors for anything about his treatment."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information only with the patient's consent."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "neighbours",
+    "confidentiality",
+    "informal advice"
+  ]
+}

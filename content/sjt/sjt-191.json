@@ -1,0 +1,92 @@
+{
+  "id": "sjt-191",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-191",
+  "format": "ranking",
+  "title": "\"Nobody listens to me\"",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Listening",
+    "Challenging stigma",
+    "Responding to concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. Ms Carr, 28, has a diagnosis of emotionally unstable personality disorder. She tells you angrily that staff never listen to her because of her diagnosis.\n\nShe says she told the nurses two days ago that she had pain when passing urine, and nothing has been done.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that staff are very busy, so things sometimes take time.",
+      "brief": "Sounds like an excuse.",
+      "detailed": "This may be true, but it dismisses her concern and doesn't address the delay."
+    },
+    {
+      "id": "B",
+      "text": "Tell her how she can raise her concerns formally, if she wishes.",
+      "brief": "Gives her a route to have her experience looked into.",
+      "detailed": "Her experience may reflect a wider problem. Explaining how to raise concerns, such as through PALS, respects her right to do so."
+    },
+    {
+      "id": "C",
+      "text": "Listen, and acknowledge how frustrating this must be.",
+      "brief": "She needs to feel heard.",
+      "detailed": "People with this diagnosis often experience stigma in healthcare. Listening and acknowledging her frustration shows respect and may help rebuild trust."
+    },
+    {
+      "id": "D",
+      "text": "Suggest her diagnosis may make her feel that people aren't listening.",
+      "brief": "Dismisses her concern by attributing it to her diagnosis.",
+      "detailed": "This is exactly the kind of response she is describing, and is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Assess her urinary symptoms today.",
+      "brief": "Her physical symptoms need addressing.",
+      "detailed": "She may have a urinary tract infection, which should have been assessed. Doing so now shows her concern is taken seriously. It ranks second because she first needs to be heard."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "B",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you take a patient's concerns seriously and address diagnostic overshadowing.",
+    "keyDetails": "She has a diagnosis that is often stigmatised. Her physical symptoms have been ignored for two days. She is angry.",
+    "reasoning": "[C] listens, [E] addresses her symptoms, and [B] gives her a route to raise concerns. [A] excuses the delay, and [D] dismisses her because of her diagnosis.",
+    "competing": "Some would assess her symptoms first, and the two would happen almost together. The key starts with listening because her complaint is that she isn't heard; acknowledging that takes moments and makes the assessment more likely to go well."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly and without prejudice."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment of people with mental illness."
+    }
+  ],
+  "tags": [
+    "stigma",
+    "personality disorder",
+    "physical health",
+    "psychiatry"
+  ]
+}
