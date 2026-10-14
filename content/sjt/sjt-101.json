@@ -1,0 +1,86 @@
+{
+  "id": "sjt-101",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-101",
+  "format": "ranking",
+  "title": "Consent for a procedure you don't know",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Consent",
+    "Recognising limits",
+    "Learning"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Your registrar asks you to consent Mrs Ward, 48, for a laparoscopic cholecystectomy on tomorrow's list, saying he's too busy.\n\nYou have never consented a patient for this operation and don't know its specific risks or how often they occur.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the registrar whether he could supervise you taking consent, so you can learn.",
+      "brief": "Turns the request into a learning opportunity, with the safety of supervision.",
+      "detailed": "Learning to take consent under supervision is valuable. It ranks second because the registrar has said he is busy, so this may not be possible today."
+    },
+    {
+      "id": "B",
+      "text": "Tell the registrar you don't know the risks well enough, and ask him to take consent.",
+      "brief": "Consent should be taken by someone who knows the procedure and its risks.",
+      "detailed": "GMC guidance says that if you are asked to seek consent, you must have enough knowledge of the procedure and its risks. Being honest about this protects Mrs Ward and makes sure she gets accurate information."
+    },
+    {
+      "id": "C",
+      "text": "Ask the ward nurse to take consent, as she knows the procedure well.",
+      "brief": "Passes the task on to someone who may not be trained to do it.",
+      "detailed": "Some nurses are trained to take consent for specific procedures, but asking a ward nurse to do this without checking whether she is trained isn't appropriate."
+    },
+    {
+      "id": "D",
+      "text": "Get Mrs Ward to sign the form now, and tell her the surgeon will explain the risks tomorrow.",
+      "brief": "A signature without information isn't valid consent.",
+      "detailed": "Consent is a process of discussion, not a signature. Getting her to sign without explaining the risks doesn't meet the requirements for consent."
+    },
+    {
+      "id": "E",
+      "text": "Read about the operation and its risks, and take consent once you feel confident.",
+      "brief": "Learning the risks helps, but reading alone may not be enough.",
+      "detailed": "Reading the patient information and the risks may prepare you, and for some procedures it would be enough. But you may still be unable to answer her questions, which is why it ranks below involving your registrar."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "E",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise that taking consent requires knowledge of the procedure, and ask for help when you lack it.",
+    "keyDetails": "You don't know the operation's specific risks. Your registrar is busy. The operation is tomorrow, so there is time.",
+    "reasoning": "[B] is honest about your limits, [A] turns it into supervised learning, and [E] prepares you but may not be enough. [C] delegates inappropriately, and [D] doesn't produce valid consent.",
+    "competing": "Some would put supervision first, as it builds your skills. Both are good; the key starts with being honest because supervision may not be available today."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Delegating consent to someone with enough knowledge of the procedure and its risks."
+    }
+  ],
+  "tags": [
+    "consent",
+    "competence",
+    "surgery",
+    "supervision"
+  ]
+}

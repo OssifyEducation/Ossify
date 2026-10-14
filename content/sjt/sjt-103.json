@@ -1,0 +1,85 @@
+{
+  "id": "sjt-103",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-103",
+  "format": "ranking",
+  "title": "An unchecked resuscitaire",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Equipment safety",
+    "Raising concerns",
+    "Teamwork"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the paediatric ward. Looking for a form in the treatment room, you notice that the daily checklist for the ward's resuscitaire, which is used for newborns needing resuscitation, hasn't been signed for seven days.\n\nThe ward has been very short of staff this week.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Report the missed checks through the trust's incident reporting system.",
+      "brief": "Records the problem so the trust can learn from it.",
+      "detailed": "Reporting helps the trust see whether checks are being missed more widely, especially during staff shortages. It ranks second because making the equipment safe comes first."
+    },
+    {
+      "id": "B",
+      "text": "Leave it for the nursing team, as equipment checks are their responsibility.",
+      "brief": "Checks may be a nursing task, but the risk needs someone to act on it now.",
+      "detailed": "Equipment checks are usually done by nurses, so this may seem reasonable. But you've noticed a safety risk, and leaving it means the resuscitaire may still not be checked when a baby needs it."
+    },
+    {
+      "id": "C",
+      "text": "Raise it with the ward manager, so the checking process can be reviewed.",
+      "brief": "The process needs fixing, though this can wait until after the immediate check.",
+      "detailed": "The ward manager can look at why checks were missed and make sure they happen during busy periods. This is important, but less urgent than checking the equipment."
+    },
+    {
+      "id": "D",
+      "text": "Mention it at the next departmental meeting.",
+      "brief": "Too slow for a safety risk.",
+      "detailed": "Discussing it more widely may help in the long run, but waiting for a meeting leaves the equipment unchecked."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse in charge to arrange for the resuscitaire to be checked now.",
+      "brief": "Making sure the equipment works comes first.",
+      "detailed": "Unchecked resuscitation equipment may not work when a baby needs it. Making sure it is checked straight away removes the immediate risk."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "C",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a safety risk with equipment, and raise the system problem behind it.",
+    "keyDetails": "The resuscitaire hasn't been checked for a week. It is used in emergencies. The ward has been short-staffed.",
+    "reasoning": "[E] removes the immediate risk, [A] reports it, and [C] addresses the process. [D] is too slow, and [B] leaves the risk for someone else to notice.",
+    "competing": "Some would raise it with the ward manager before reporting. Both are appropriate; the key puts reporting first because it creates a formal record."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about equipment and systems that put patients at risk."
+    }
+  ],
+  "tags": [
+    "equipment",
+    "resuscitation",
+    "raising concerns",
+    "paediatrics"
+  ]
+}

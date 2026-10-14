@@ -1,0 +1,85 @@
+{
+  "id": "sjt-097",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-097",
+  "format": "ranking",
+  "title": "Jobs left undone",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Patient safety",
+    "Handover"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a general medical ward. For the past three weeks Dr Moss, the other F2 on the team, has regularly left jobs undone at the end of his shift, such as unrequested scans and unwritten discharge letters.\n\nYou have been finishing them after your own shift, often staying an hour late. He hasn't said anything about it, and you're starting to feel resentful.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree with him that unfinished jobs are handed over clearly at the end of each shift.",
+      "brief": "Makes sure jobs aren't missed, whoever finishes them.",
+      "detailed": "A clear handover means jobs are allocated rather than silently picked up. It ranks second because it deals with the practical problem but not with why it keeps happening."
+    },
+    {
+      "id": "B",
+      "text": "Talk to Dr Moss privately about the jobs, and ask how things are going.",
+      "brief": "A direct, supportive conversation may reveal the cause and solve it.",
+      "detailed": "He may be struggling with workload, his health, or something outside work, or may not realise the effect on you. Talking privately and without blame gives him the chance to explain, and you the chance to solve it together."
+    },
+    {
+      "id": "C",
+      "text": "Raise the pattern with your clinical supervisor.",
+      "brief": "Appropriate if it continues, but best after speaking to him.",
+      "detailed": "Your supervisor may need to know, especially if it affects patient care or he is struggling. It ranks third because a direct conversation is the proportionate first step."
+    },
+    {
+      "id": "D",
+      "text": "Keep finishing his jobs to avoid conflict.",
+      "brief": "Unsustainable, and hides a problem that may need addressing.",
+      "detailed": "This keeps patients safe in the short term, but you are becoming tired and resentful, and any underlying problem with Dr Moss goes unaddressed."
+    },
+    {
+      "id": "E",
+      "text": "Leave his unfinished jobs for him to complete on his next shift.",
+      "brief": "Puts patients at risk to make a point.",
+      "detailed": "Your frustration is understandable, but leaving scans and discharge letters undone, with no handover, could harm patients. This is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you deal with a colleague whose unfinished work is affecting you, keeping patients safe and addressing the problem constructively.",
+    "keyDetails": "The pattern has lasted three weeks. You've been staying late. You don't know why it's happening.",
+    "reasoning": "[B] addresses it directly and supportively, [A] makes the handover safe, and [C] escalates proportionately. [D] hides the problem, and [E] puts patients at risk.",
+    "competing": "Some would raise it with the supervisor before speaking to Dr Moss. The key starts with a direct conversation because it is quicker, fairer, and may reveal a problem he needs help with."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and making sure care continues safely."
+    }
+  ],
+  "tags": [
+    "colleagues",
+    "workload",
+    "handover",
+    "resentment"
+  ]
+}

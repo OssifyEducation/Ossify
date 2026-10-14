@@ -1,0 +1,93 @@
+{
+  "id": "sjt-093",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-093",
+  "format": "ranking",
+  "title": "\"Drug-seeking\"",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Non-discrimination",
+    "Pain assessment",
+    "Challenging labels"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Mr Price, 34, has a history of heroin use and is on a methadone programme. He came in four hours ago with severe abdominal pain.\n\nHis notes say \"likely drug-seeking\" and he has been given paracetamol only. His pain score hasn't been reassessed. He is now curled up on the trolley and says the pain is getting worse.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Check his methadone dose with his pharmacy, to plan his analgesia.",
+      "brief": "Useful for safe prescribing, though less urgent than assessing him.",
+      "detailed": "Knowing his methadone dose helps you plan effective and safe pain relief. It ranks third because assessing his abdomen comes first."
+    },
+    {
+      "id": "B",
+      "text": "Accept the note in the records, and ask him to wait for the surgical team.",
+      "brief": "Relies on a label rather than assessment.",
+      "detailed": "The surgical team may well need to see him, but accepting the label without question risks missing a serious condition and treats him unfairly."
+    },
+    {
+      "id": "C",
+      "text": "Assess his pain and abdomen yourself, as you would for any patient.",
+      "brief": "His symptoms need assessing on their merits.",
+      "detailed": "People who use drugs get serious illnesses too, and his worsening pain could be pancreatitis, perforation or another emergency. Assessing him properly, and treating his pain appropriately, is fair and safe care."
+    },
+    {
+      "id": "D",
+      "text": "Speak to the nurse in charge about reassessing his pain regularly.",
+      "brief": "Makes sure his pain is monitored from now on.",
+      "detailed": "Regular pain assessment is part of good emergency care. Making sure the nursing team reassesses him helps prevent further delay in treating him."
+    },
+    {
+      "id": "E",
+      "text": "Give him a further dose of paracetamol and reassess later.",
+      "brief": "Continues to under-treat severe pain without assessment.",
+      "detailed": "Caution with opioids is understandable, but repeating inadequate analgesia without assessing him risks missing a serious diagnosis and leaves him in pain."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "A",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you assess a patient fairly when a label in his notes may be leading to under-treatment.",
+    "keyDetails": "He has worsening severe abdominal pain. He has only had paracetamol, and his pain hasn't been reassessed. A label in his notes may be influencing his care.",
+    "reasoning": "[C] assesses him fairly, [D] makes sure his pain is monitored, and [A] supports safe prescribing. [E] under-treats him, and [B] relies on the label.",
+    "competing": "Some would rank checking his methadone dose second, as it affects prescribing. The key puts regular reassessment first because his pain has been ignored for four hours."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly and without prejudice."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment of all patients."
+    }
+  ],
+  "tags": [
+    "stigma",
+    "pain",
+    "substance use",
+    "emergency department"
+  ]
+}

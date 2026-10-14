@@ -1,0 +1,103 @@
+{
+  "id": "sjt-092",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-092",
+  "format": "multiple_choice",
+  "title": "\"Medical reasons\"",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Honesty",
+    "Challenging seniors",
+    "Patient communication"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in general surgery. Mr Ford, 66, was due to have a bowel operation today. Theatre overran and the list was stopped, so his operation was cancelled.\n\nYou hear your registrar tell Mr Ford that his operation has been cancelled \"for medical reasons\". Afterwards Mr Ford asks you, worried, what is wrong with him.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Mr Ford that, as far as you know, it was cancelled because theatre ran out of time.",
+      "brief": "He is worried, and he deserves an honest answer.",
+      "detailed": "Mr Ford now thinks something is medically wrong. Telling him honestly that the operation was cancelled because the list ran out of time relieves an unnecessary worry and is the truthful answer to his question."
+    },
+    {
+      "id": "B",
+      "text": "Tell Mr Ford that you'll ask the registrar to explain, without giving him an answer.",
+      "brief": "Leaves him worried, when you know the answer.",
+      "detailed": "It can feel awkward to contradict a senior, but leaving a worried patient without an answer, when you know it, isn't fair to him."
+    },
+    {
+      "id": "C",
+      "text": "Tell Mr Ford that the registrar wasn't being honest with him.",
+      "brief": "Criticises a colleague in front of a patient.",
+      "detailed": "He does need the truth, but framing it as your registrar lying undermines trust in the team. You can be honest about the reason without commenting on your colleague."
+    },
+    {
+      "id": "D",
+      "text": "Leave it, as the outcome for Mr Ford is the same.",
+      "brief": "The outcome may be the same, but he now believes he has a medical problem.",
+      "detailed": "His operation is cancelled either way, but he is worried there is something wrong with him. Leaving that misunderstanding in place is unkind and dishonest."
+    },
+    {
+      "id": "E",
+      "text": "Speak to the registrar privately about what Mr Ford was told.",
+      "brief": "Raising it directly gives him the chance to correct it.",
+      "detailed": "The registrar may not have realised how Mr Ford would interpret \"medical reasons\". Raising it privately and respectfully gives him the chance to put it right and to think about how he explains cancellations in future."
+    },
+    {
+      "id": "F",
+      "text": "Make sure Mr Ford is given a new date as soon as possible.",
+      "brief": "Reduces the impact of the cancellation on him.",
+      "detailed": "A cancelled bowel operation is stressful, and knowing when it will happen helps. Making sure he is rebooked promptly is part of looking after him."
+    },
+    {
+      "id": "G",
+      "text": "Report the registrar to the consultant before speaking to him yourself.",
+      "brief": "Escalating before a direct conversation is disproportionate.",
+      "detailed": "This may need raising more widely if it is a pattern, but a private conversation with the registrar is the proportionate first step."
+    },
+    {
+      "id": "H",
+      "text": "Record in the notes that the operation was cancelled for medical reasons.",
+      "brief": "Creates an inaccurate record.",
+      "detailed": "This would keep the notes consistent with what he was told, but the notes must reflect what actually happened."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you correct a misleading explanation given to a patient, honestly and without undermining your colleague.",
+    "keyDetails": "The real reason was that theatre ran out of time. Mr Ford is now worried something is wrong with him. He has asked you directly.",
+    "reasoning": "[A] answers him honestly, [E] raises it with the registrar, and [F] limits the impact of the cancellation. The distractors leave him misinformed ([B], [D], [H]), criticise the registrar to him ([C]), or escalate disproportionately ([G]).",
+    "competing": "[B] seems respectful of the registrar, but it leaves a worried patient without an answer you can give him."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty with patients; Domain 3, raising concerns with colleagues."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "cancellations",
+    "seniors",
+    "surgery"
+  ]
+}

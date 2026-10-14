@@ -1,0 +1,85 @@
+{
+  "id": "sjt-091",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-091",
+  "format": "ranking",
+  "title": "Postponed again",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "De-escalation",
+    "Honest communication",
+    "Personal safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Mr Shah, 58, has been nil by mouth since midnight for a hernia repair, which has just been postponed for the second time because emergency cases took priority.\n\nWhen you tell him, he shouts and swears at you, saying the hospital is \"a joke\" and that he has lost two days' pay. He isn't physically threatening, but other patients in the bay are watching.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Stay calm, acknowledge his frustration, and explain why it was postponed.",
+      "brief": "Acknowledging his frustration often de-escalates anger.",
+      "detailed": "His anger is understandable: he has been fasting and has lost income. Staying calm, acknowledging that this is frustrating, and explaining honestly why emergencies took priority, often lowers the temperature."
+    },
+    {
+      "id": "B",
+      "text": "Ask the nurse in charge to join you in the conversation.",
+      "brief": "Support helps you manage the situation safely.",
+      "detailed": "A second person can help de-escalate, and the nurse in charge may be able to help with practical issues such as food and rebooking. It ranks second because your own calm response comes first."
+    },
+    {
+      "id": "C",
+      "text": "Leave the bay and ask the nurses to speak to him once he has calmed down.",
+      "brief": "Avoids the conversation and leaves him without an explanation.",
+      "detailed": "You don't have to tolerate abuse, and leaving would be right if he became threatening. But he isn't, and walking away without explaining is likely to make him angrier."
+    },
+    {
+      "id": "D",
+      "text": "Promise him that he will be first on the list tomorrow.",
+      "brief": "A promise you can't guarantee, which may make things worse later.",
+      "detailed": "This would calm him down now, which makes it tempting. But emergencies could delay him again, and a broken promise would damage his trust further."
+    },
+    {
+      "id": "E",
+      "text": "Find out when his operation can be rescheduled, and let him know.",
+      "brief": "Useful information, though it doesn't address his anger now.",
+      "detailed": "A new date may reassure him. It ranks third because it takes time, and he needs a response now."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "B",
+      "E",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle an angry patient whose frustration is understandable, de-escalating without making promises you can't keep.",
+    "keyDetails": "He has been fasting and has lost pay. He is verbally abusive but not physically threatening. Other patients are watching.",
+    "reasoning": "[A] de-escalates, [B] brings support, and [E] provides useful information. [C] avoids him and [D] makes a promise you can't keep.",
+    "competing": "[C] would become appropriate if he were threatening. Here, a calm conversation is more likely to help."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating honestly with patients; Domain 3, your own safety."
+    }
+  ],
+  "tags": [
+    "angry patients",
+    "cancellations",
+    "de-escalation",
+    "surgery"
+  ]
+}

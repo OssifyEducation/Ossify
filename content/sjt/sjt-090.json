@@ -1,0 +1,109 @@
+{
+  "id": "sjt-090",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-090",
+  "format": "multiple_choice",
+  "title": "\"Just a midwife\"",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Speaking up",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the labour ward. Sarah, an experienced midwife, tells you that one of the registrars, Dr Hale, regularly dismisses her concerns about women in labour and has called her \"just a midwife\" in front of patients.\n\nShe says she now hesitates to call him, and is currently worried about a woman in room 4 whose labour isn't progressing.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her that Dr Hale is like that with everyone, so she shouldn't take it personally.",
+      "brief": "Minimises behaviour that affects patient safety.",
+      "detailed": "This may be true, but it normalises undermining and leaves her, and future patients, exposed to the same problem."
+    },
+    {
+      "id": "B",
+      "text": "Make sure her current concern about the woman in room 4 is reviewed by a senior now.",
+      "brief": "A clinical concern needs acting on, whatever the background.",
+      "detailed": "Her reluctance to call Dr Hale means a woman's care may be delayed. Making sure the concern reaches a senior now, by calling Dr Hale with her or another senior if needed, comes first."
+    },
+    {
+      "id": "C",
+      "text": "Suggest she brings her concerns to you instead of Dr Hale in future.",
+      "brief": "Bypasses the problem and puts concerns through someone less senior.",
+      "detailed": "This may feel supportive, but as an F2 you may not be the right person to manage obstetric concerns, and it avoids addressing Dr Hale's behaviour."
+    },
+    {
+      "id": "D",
+      "text": "Listen to her account and take it seriously.",
+      "brief": "She has raised a concern that affects her and patient safety.",
+      "detailed": "Being dismissed and belittled is undermining, and here it is making a midwife hesitant to escalate concerns. Listening carefully, and acknowledging that this isn't acceptable, supports her and helps you understand what has happened."
+    },
+    {
+      "id": "E",
+      "text": "Challenge Dr Hale about his behaviour in front of the labour ward team.",
+      "brief": "Public confrontation is likely to escalate rather than resolve it.",
+      "detailed": "His behaviour needs challenging, but doing so publicly is likely to make him defensive and could make things worse for Sarah."
+    },
+    {
+      "id": "F",
+      "text": "Advise her to report Dr Hale to the GMC.",
+      "brief": "Premature: local routes should be used first.",
+      "detailed": "Persistent undermining can become a fitness-to-practise concern, but the trust's processes are the right starting point."
+    },
+    {
+      "id": "G",
+      "text": "Tell her you can't act on something you haven't witnessed yourself.",
+      "brief": "Dismisses a colleague's concern and a safety risk.",
+      "detailed": "You may not have seen it, but her account is enough to warrant support and action, especially as it is affecting how she escalates concerns."
+    },
+    {
+      "id": "H",
+      "text": "Encourage her to raise it with the labour ward lead or a speaking-up guardian.",
+      "brief": "Patterns of undermining need addressing by those who can act.",
+      "detailed": "The labour ward lead or the Freedom to Speak Up guardian can look into a pattern of behaviour and act on it. Encouraging her to use these routes, and offering your support, helps make sure it is addressed."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a colleague being undermined, recognising its effect on patient safety.",
+    "keyDetails": "The undermining is repeated and public. It is making Sarah hesitate to escalate. She has a current concern about a woman in labour.",
+    "reasoning": "[B] deals with the immediate clinical risk, [D] supports Sarah, and [H] directs the concern to people who can act on it. The distractors minimise it ([A], [G]), work around it ([C]), or respond disproportionately ([E], [F]).",
+    "competing": "[C] feels supportive but leaves the underlying behaviour unaddressed and routes obstetric concerns through a junior."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when colleagues are undermined, and its effect on patient safety."
+    },
+    {
+      "title": "Freedom to Speak Up",
+      "publisher": "NHS England",
+      "year": null,
+      "url": "https://www.england.nhs.uk/ourwork/freedom-to-speak-up/",
+      "note": "Freedom to Speak Up as a route for raising concerns."
+    }
+  ],
+  "tags": [
+    "undermining",
+    "midwives",
+    "labour ward",
+    "speaking up"
+  ]
+}

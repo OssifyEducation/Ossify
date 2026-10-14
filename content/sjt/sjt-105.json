@@ -1,0 +1,85 @@
+{
+  "id": "sjt-105",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-105",
+  "format": "ranking",
+  "title": "Not eating",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Cultural sensitivity",
+    "Nutrition",
+    "Advocacy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mr Hussain, 79, is recovering from a urinary tract infection. The nurses tell you he has eaten very little for three days.\n\nWhen you ask him, he becomes upset and says he hasn't been able to find out whether the meals are halal, so he has only been eating bread and fruit.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Suggest he chooses the vegetarian option, as it should be acceptable.",
+      "brief": "Doesn't respect his specific needs.",
+      "detailed": "Some people who eat halal accept vegetarian meals, but he hasn't said so. Suggesting it as a solution doesn't take his needs seriously."
+    },
+    {
+      "id": "B",
+      "text": "Ask whether his family could bring in food for him.",
+      "brief": "Helpful while meals are arranged.",
+      "detailed": "Food from home can be reassuring and familiar, as long as it suits any dietary needs related to his illness. It ranks second because the hospital should provide suitable meals, and this shouldn't depend on his family."
+    },
+    {
+      "id": "C",
+      "text": "Ask the dietitian to review him, as he has eaten little for three days.",
+      "brief": "His nutrition needs reviewing, though the cause needs fixing first.",
+      "detailed": "Three days of poor intake in an older patient is a concern, and a dietitian can assess him. It ranks third because arranging suitable food addresses the cause."
+    },
+    {
+      "id": "D",
+      "text": "Apologise, and ask the ward team to arrange halal meals for him.",
+      "brief": "Hospitals can usually provide halal meals; this resolves the problem directly.",
+      "detailed": "Most hospitals offer halal meals, and the catering team can usually provide them quickly. Apologising that his needs weren't recognised, and arranging suitable meals, addresses both his distress and his nutrition."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise and address a patient's cultural and religious dietary needs, and the effect on his health.",
+    "keyDetails": "He has eaten little for three days. Halal meals are usually available. He is upset.",
+    "reasoning": "[D] solves the problem directly, [B] helps in the meantime, and [C] addresses his nutrition. [A] doesn't respect his needs.",
+    "competing": "Some would put the dietitian review higher, given three days of poor intake. The key ranks it third because getting him suitable food addresses the underlying cause."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with respect and meeting their needs."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment regardless of religion or belief."
+    }
+  ],
+  "tags": [
+    "culture",
+    "religion",
+    "nutrition",
+    "elderly care"
+  ]
+}

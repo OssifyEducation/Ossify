@@ -1,0 +1,86 @@
+{
+  "id": "sjt-087",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-087",
+  "format": "ranking",
+  "title": "Extra shifts on rest days",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Safe working hours",
+    "Honesty with employers",
+    "Fitness to practise"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in cardiology. A locum agency offers you well-paid twelve-hour shifts at another hospital on your next two rest days, which come straight after a week of long day shifts.\n\nTaking them would put you well over the 72-hour limit in a seven-day period set by your contract, and your contract requires you to tell your employer about any other work. You could do with the money.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept just one of the two shifts, to reduce the impact.",
+      "brief": "Still breaches the limit, though by less.",
+      "detailed": "This feels like a compromise, but if one shift still takes you over the limit, you would still be working while fatigued, and against your contract."
+    },
+    {
+      "id": "B",
+      "text": "Accept both shifts, and don't tell your employer, as they are at another hospital.",
+      "brief": "Unsafe and dishonest.",
+      "detailed": "Working at another hospital doesn't change the effect on your fatigue, and not declaring it breaches your contract. This is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Accept both shifts, and tell your employer about them afterwards.",
+      "brief": "Breaches the limit, even though you'd be open about it.",
+      "detailed": "Being open is better than hiding the work, but declaring it afterwards doesn't make it safe. You would still be working beyond the limit."
+    },
+    {
+      "id": "D",
+      "text": "Decline the shifts, as they would take you over the safe working limit.",
+      "brief": "Working limits exist to protect patients and you.",
+      "detailed": "The 72-hour limit is there because fatigue causes errors. Working twelve-hour shifts straight after a week of long days would leave you, and your patients, at risk. Declining is the safe choice, however useful the money."
+    },
+    {
+      "id": "E",
+      "text": "Look for locum shifts that fit within your limits, and tell your employer about them.",
+      "brief": "Allows you to earn extra safely and openly.",
+      "detailed": "Additional work is allowed when it fits within the limits and is declared. Looking for shifts that do fit is a reasonable way of meeting your financial needs. It ranks second because the decision about these particular shifts comes first."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "E",
+      "A",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you put patient safety and honesty with your employer ahead of financial gain.",
+    "keyDetails": "The shifts would breach the 72-hour limit and follow a week of long days. Your contract requires you to declare other work. You need the money.",
+    "reasoning": "[D] protects patients and you, and [E] finds a safe, open alternative. [A], [C] and [B] all breach the limit, with [B] adding dishonesty.",
+    "competing": "The order of [A] and [C] reflects the size of the breach: one shift is less unsafe than two, even though both are wrong."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, making sure your health and fatigue don't put patients at risk; Domain 4, honesty with employers."
+    }
+  ],
+  "tags": [
+    "locums",
+    "working hours",
+    "fatigue",
+    "probity"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "sjt-102",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-102",
+  "format": "multiple_choice",
+  "title": "Calls every hour",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communication with relatives",
+    "Supporting the team",
+    "Confidentiality"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a general medical ward. Mr Holt, 81, was admitted two days ago with pneumonia and is improving slowly. He has capacity and is happy for his wife to be kept informed.\n\nMrs Holt, who can't visit because she is unwell herself, has phoned the ward almost every hour since he was admitted. The nurses say it is taking up a lot of their time, and ask you to help.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the switchboard to stop putting Mrs Holt's calls through.",
+      "brief": "Cuts off a worried wife who can't visit.",
+      "detailed": "The calls are taking time, but blocking them would leave her with no information and is likely to increase her distress."
+    },
+    {
+      "id": "B",
+      "text": "Phone Mrs Holt to find out what she is worried about.",
+      "brief": "Understanding her worries may reduce the calls.",
+      "detailed": "She can't visit and may be frightened. A conversation about her worries, and an update from a doctor, may reassure her more than many short calls."
+    },
+    {
+      "id": "C",
+      "text": "Tell the nurses to let her calls go to voicemail.",
+      "brief": "Leaves her without information, and may worry her more.",
+      "detailed": "This reduces interruptions, but leaves a worried wife without updates, which may increase her calls."
+    },
+    {
+      "id": "D",
+      "text": "Tell Mrs Holt that you can't give her updates, because of confidentiality.",
+      "brief": "Incorrect: Mr Holt has agreed she can be informed.",
+      "detailed": "Confidentiality matters, but Mr Holt has agreed for her to be kept informed, so this is wrong and unkind."
+    },
+    {
+      "id": "E",
+      "text": "Agree with her a regular time each day for an update.",
+      "brief": "A predictable update reduces anxiety and calls.",
+      "detailed": "Knowing she will hear at a set time, perhaps once a day, from a named person often reassures relatives and reduces calls."
+    },
+    {
+      "id": "F",
+      "text": "Offer to update her yourself every hour, so the nurses are free.",
+      "brief": "Unsustainable, and it doesn't address her anxiety.",
+      "detailed": "This is generous but impractical, and simply moves the problem from the nurses to you."
+    },
+    {
+      "id": "G",
+      "text": "Ask Mr Holt whether he could phone his wife himself.",
+      "brief": "Hearing from him directly may reassure her most.",
+      "detailed": "He is improving and has capacity. Asking whether he would like to call her, perhaps using a ward phone or his own, may be the most reassuring update she could get."
+    },
+    {
+      "id": "H",
+      "text": "Suggest she contacts the Patient Advice and Liaison Service instead.",
+      "brief": "PALS isn't a source of clinical updates.",
+      "detailed": "PALS helps with concerns and complaints, but isn't the right place for updates on her husband's condition."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support an anxious relative while helping the team cope.",
+    "keyDetails": "Mr Holt has agreed she can be informed. She can't visit. The calls are taking up nurses' time.",
+    "reasoning": "[B] understands her worries, [E] sets up regular updates, and [G] uses the best source of reassurance. The distractors cut her off ([A], [C]), misuse confidentiality ([D]), are unsustainable ([F]), or misdirect her ([H]).",
+    "competing": "[F] looks helpful but moves the problem rather than solving it."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with those close to a patient, with the patient's agreement."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, supporting those close to patients."
+    }
+  ],
+  "tags": [
+    "relatives",
+    "communication",
+    "anxiety",
+    "nursing workload"
+  ]
+}

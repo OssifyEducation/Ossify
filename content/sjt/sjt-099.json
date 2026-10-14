@@ -1,0 +1,92 @@
+{
+  "id": "sjt-099",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-099",
+  "format": "ranking",
+  "title": "The ReSPECT form",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Advance care planning",
+    "Communication with families",
+    "Clinical judgement"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in an out-of-hours GP service. A paramedic phones you from the home of Mr Ellis, 86, who has end-stage heart failure. He is more breathless and drowsy tonight and can no longer take part in decisions.\n\nHis ReSPECT form, completed with him two months ago, records that he wants to stay at home, with care focused on comfort, and not to be admitted to hospital unless symptoms can't be managed at home. His daughter is insisting he goes to hospital.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Advise comfort care at home and arrange urgent support from the community nursing team.",
+      "brief": "Follows his wishes, though the conversation with his daughter should come first.",
+      "detailed": "If his symptoms can be managed at home, this follows the plan he made. It ranks third because acting on it before speaking to his daughter risks conflict at a distressing time."
+    },
+    {
+      "id": "B",
+      "text": "Speak to his daughter, explain what the form records about his wishes, and listen to her concerns.",
+      "brief": "She may not know about his wishes, and her fears need hearing.",
+      "detailed": "His daughter may be frightened or unaware of the conversations he had. Explaining what he wanted, and listening to her worries, often helps families accept a plan that respects his wishes."
+    },
+    {
+      "id": "C",
+      "text": "Tell the paramedic the ReSPECT form is legally binding, so it must be followed.",
+      "brief": "Incorrect: ReSPECT recommendations aren't legally binding.",
+      "detailed": "ReSPECT forms record recommendations to guide clinicians, not legally binding instructions. Telling the paramedic otherwise is wrong and skips the clinical judgement and conversation this situation needs."
+    },
+    {
+      "id": "D",
+      "text": "Advise the paramedic to take him to hospital, as his daughter wants.",
+      "brief": "Goes against his recorded wishes without a clinical reason.",
+      "detailed": "His daughter's distress matters, and admission would be right if his symptoms can't be managed at home. But admitting him simply because she asks overrides the wishes he recorded."
+    },
+    {
+      "id": "E",
+      "text": "Ask the paramedic what has changed, and whether it could be treated at home.",
+      "brief": "The recommendations apply to his situation; a clinical picture comes first.",
+      "detailed": "ReSPECT recommendations are made for a likely emergency, so you need to know what is happening tonight. A reversible problem that can be treated at home, or symptoms that can't be controlled there, would change what is appropriate."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "B",
+      "A",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you use an advance care plan in an emergency, balancing the patient's recorded wishes, clinical judgement, and a distressed relative.",
+    "keyDetails": "He lacks capacity now. His ReSPECT form records a clear preference for care at home unless symptoms can't be managed. His daughter disagrees. ReSPECT recommendations aren't legally binding.",
+    "reasoning": "[E] establishes the clinical picture, [B] explains his wishes to his daughter, and [A] follows the plan. [D] overrides his wishes without clinical reason, and [C] misstates the form's status.",
+    "competing": "This is hard because [E] and [B] would happen almost together. [C] is ranked last because it is factually wrong and ends the discussion, whereas [D] may yet turn out to be clinically necessary."
+  },
+  "references": [
+    {
+      "title": "ReSPECT: Recommended Summary Plan for Emergency Care and Treatment",
+      "publisher": "Resuscitation Council UK",
+      "year": null,
+      "url": "https://www.resus.org.uk/respect",
+      "note": "ReSPECT recommendations guide, but don't legally bind, emergency decisions."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Taking account of a person's past wishes when acting in their best interests."
+    }
+  ],
+  "tags": [
+    "ReSPECT",
+    "advance care planning",
+    "families",
+    "out-of-hours"
+  ]
+}

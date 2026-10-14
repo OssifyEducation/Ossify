@@ -1,0 +1,86 @@
+{
+  "id": "sjt-089",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-089",
+  "format": "ranking",
+  "title": "No one free to chaperone",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Chaperones",
+    "Dignity",
+    "Explaining examinations"
+  ],
+  "difficulty": "hard",
+  "stem": "You are a male F2 doctor in the Emergency Department. Mr Bello, 70, has passed black stools and you need to do a rectal examination. He is stable, and his blood results will take an hour.\n\nThe department is very busy and the nurses say no one is free to chaperone for at least 30 minutes. Mr Bello's wife is with him. He seems embarrassed about the examination.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Wait 30 minutes until a nurse is free, and do the examination then.",
+      "brief": "Reasonable when he's stable, though a suitable chaperone may be available sooner.",
+      "detailed": "Delaying an intimate examination until a chaperone is available is acceptable when the delay won't harm the patient, and he is stable. It ranks third because you haven't yet asked him, and someone else may be available sooner."
+    },
+    {
+      "id": "B",
+      "text": "Explain the examination, and ask whether he would like a chaperone.",
+      "brief": "He should understand the examination and be offered a chaperone, whatever your gender or his.",
+      "detailed": "GMC guidance says you should explain what an intimate examination involves and why, and offer a chaperone, whether or not you and the patient are the same gender. Asking him, and respecting his answer, gives him control at an embarrassing moment."
+    },
+    {
+      "id": "C",
+      "text": "Ask his wife, who is already at his bedside, to act as the chaperone.",
+      "brief": "A relative isn't an impartial chaperone, though he may want her present as well.",
+      "detailed": "GMC guidance says a relative or friend isn't an impartial observer and wouldn't usually be a suitable chaperone, but you should agree to a reasonable request to have them present as well. Using her instead of a chaperone, without asking him, doesn't meet the guidance."
+    },
+    {
+      "id": "D",
+      "text": "Do the examination now without offering a chaperone, as you are both men.",
+      "brief": "A chaperone should be offered regardless of gender.",
+      "detailed": "It's a common misconception that chaperones are only needed when doctor and patient are of different genders. Going ahead without offering one ignores GMC guidance and Mr Bello's evident embarrassment."
+    },
+    {
+      "id": "E",
+      "text": "Ask a healthcare assistant who is free to act as chaperone.",
+      "brief": "A trained staff member can be a suitable chaperone.",
+      "detailed": "A chaperone doesn't have to be a registered nurse; a healthcare assistant familiar with the examination can be suitable. It ranks second because you should first explain and ask what Mr Bello wants."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you protect a patient's dignity during an intimate examination when a chaperone isn't easily available.",
+    "keyDetails": "He is stable, so a short delay is safe. He is embarrassed. His wife is present but isn't an impartial observer. You and he are both men.",
+    "reasoning": "[B] explains and offers him a choice, [E] finds a suitable chaperone, and [A] delays safely. [C] uses an unsuitable chaperone, and [D] ignores the guidance altogether.",
+    "competing": "This is hard because [E] and [A] are both acceptable. The key prefers finding a suitable chaperone sooner, provided Mr Bello agrees, because it avoids an unnecessary delay. If he declines a chaperone, you can record that and proceed."
+  },
+  "references": [
+    {
+      "title": "Intimate examinations and chaperones",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/intimate-examinations-and-chaperones",
+      "note": "Offering a chaperone for intimate examinations, and who can act as one."
+    }
+  ],
+  "tags": [
+    "chaperones",
+    "intimate examination",
+    "dignity",
+    "emergency department"
+  ]
+}
