@@ -1,0 +1,85 @@
+{
+  "id": "sjt-113",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-113",
+  "format": "ranking",
+  "title": "A failed assessment",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to feedback",
+    "Learning",
+    "Resilience"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in respiratory medicine. Your registrar observed you inserting a chest drain under supervision as a formal assessment, and judged that you weren't yet competent, mainly because of your aseptic technique.\n\nYour fellow F2s have all passed the same assessment, and you feel embarrassed.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange further supervised practice, including in the skills lab.",
+      "brief": "Practice is how you'll improve.",
+      "detailed": "Supervised practice, including on simulators, helps you refine your technique safely. It ranks second because you first need to know what to work on."
+    },
+    {
+      "id": "B",
+      "text": "Avoid chest drains for the rest of the rotation.",
+      "brief": "Avoidance stops you developing the skill.",
+      "detailed": "This avoids further embarrassment, but means you won't develop the skill or demonstrate competence, and the gap in your training remains. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Ask the registrar for specific feedback on what to improve.",
+      "brief": "Specific feedback gives you a clear plan.",
+      "detailed": "Understanding exactly what went wrong with your technique lets you focus on it. Asking shows you take the assessment seriously."
+    },
+    {
+      "id": "D",
+      "text": "Ask a different registrar to repeat the assessment next week.",
+      "brief": "Premature: the feedback hasn't been addressed yet.",
+      "detailed": "Being assessed by different people is normal, but repeating the assessment before you've worked on the problem is unlikely to change the result, and could look like looking for an easier assessor."
+    },
+    {
+      "id": "E",
+      "text": "Reflect on the assessment in your portfolio.",
+      "brief": "Useful for learning, though less direct than practice.",
+      "detailed": "Reflecting helps you consolidate what you learn. It ranks third because practice and feedback make the bigger difference."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "E",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an assessment that shows you aren't yet competent: constructively, without avoidance or gaming the system.",
+    "keyDetails": "The concern is about aseptic technique, which matters for patient safety. Your peers have passed. You feel embarrassed.",
+    "reasoning": "[C] gets specific feedback, [A] improves your technique, and [E] consolidates learning. [D] repeats the assessment before addressing the feedback, and [B] avoids the skill altogether.",
+    "competing": "The order of [D] and [B] is close. [B] ranks last because it gives up on the skill entirely, whereas [D] at least keeps you working towards competence, if too soon."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, developing your skills and working within your competence."
+    }
+  ],
+  "tags": [
+    "assessment",
+    "feedback",
+    "procedures",
+    "resilience"
+  ]
+}

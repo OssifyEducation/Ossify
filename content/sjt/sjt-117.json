@@ -1,0 +1,92 @@
+{
+  "id": "sjt-117",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-117",
+  "format": "ranking",
+  "title": "A disclosure from a colleague",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Responding to disclosure",
+    "Speaking up"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on the acute medical unit. Priya, a physician associate, tells you in confidence that one of the consultants has repeatedly made sexual comments to her and touched her in a way that made her uncomfortable.\n\nShe is upset, says she's worried about her job, and isn't sure what to do.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her about the ways she can raise it, such as the Freedom to Speak Up guardian or HR.",
+      "brief": "Knowing the routes helps her make an informed choice.",
+      "detailed": "There are confidential routes for raising concerns about sexual harassment, and knowing them may make it easier for her to act. It ranks second because she first needs to feel heard."
+    },
+    {
+      "id": "B",
+      "text": "Offer to go with her if she decides to report it.",
+      "brief": "Practical support can make reporting less daunting.",
+      "detailed": "Having someone alongside can help her feel less alone. It ranks third because it follows her decision about what to do."
+    },
+    {
+      "id": "C",
+      "text": "Suggest she avoids working with him and tries to put it behind her.",
+      "brief": "Leaves the behaviour unchallenged and her unsupported.",
+      "detailed": "This may feel like protecting her, but it puts the burden on her and lets the behaviour continue, possibly towards others."
+    },
+    {
+      "id": "D",
+      "text": "Listen, tell her you believe her, and ask what support she would like.",
+      "brief": "Being believed and listened to is the most important first response.",
+      "detailed": "People who experience sexual harassment often fear they won't be believed. Listening, taking her seriously and asking what she wants respects her and helps her decide what to do next."
+    },
+    {
+      "id": "E",
+      "text": "Report the consultant yourself straight away, without discussing it with her.",
+      "brief": "May be necessary in some circumstances, but she should be involved first.",
+      "detailed": "Sexual harassment is serious, and doctors are expected to act on it. But reporting without talking to her takes away her control at a vulnerable time. You may need to act if others are at risk, but you should discuss it with her first."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "B",
+      "E",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a colleague's disclosure of sexual harassment: supporting her, respecting her choices, and making sure the behaviour can be addressed.",
+    "keyDetails": "The behaviour is repeated and involves a senior colleague. She is worried about her job. She has told you in confidence.",
+    "reasoning": "[D] listens and supports, [A] gives her options, and [B] offers practical support. [E] takes away her control, and [C] leaves the behaviour unaddressed.",
+    "competing": "Some would argue that acting yourself is required by GMC guidance. You may need to, especially if others are at risk, but the key reflects that involving her first is the right approach."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting on sexual harassment and supporting colleagues who experience it."
+    },
+    {
+      "title": "Freedom to Speak Up",
+      "publisher": "NHS England",
+      "year": null,
+      "url": "https://www.england.nhs.uk/ourwork/freedom-to-speak-up/",
+      "note": "Freedom to Speak Up as a confidential route for raising concerns."
+    }
+  ],
+  "tags": [
+    "sexual harassment",
+    "colleagues",
+    "speaking up",
+    "support"
+  ]
+}

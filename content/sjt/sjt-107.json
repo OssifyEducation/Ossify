@@ -1,0 +1,93 @@
+{
+  "id": "sjt-107",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-107",
+  "format": "ranking",
+  "title": "Before the family knows",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Raising concerns with seniors",
+    "Communication with families",
+    "End-of-life care"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in intensive care. Mrs Wright, 77, has been ventilated for ten days after a severe stroke and lacks capacity. On this morning's ward round the consultant decided that continuing treatment isn't in her best interests and that it should be withdrawn this afternoon.\n\nThere is no record in her notes of any discussion with her family about her wishes. The consultant has gone to a meeting and asks you to start the process with the nurses at 14:00.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the consultant when the family will be spoken to.",
+      "brief": "Raises the concern with the decision-maker before anything happens.",
+      "detailed": "When a patient lacks capacity, those close to her should be consulted about her wishes and best interests before such a decision is carried out. The consultant may already have spoken to them, or may have overlooked it. Asking directly is the respectful and safe first step."
+    },
+    {
+      "id": "B",
+      "text": "Ask the nurses whether they know of any discussion with the family.",
+      "brief": "May help, but only the consultant can confirm what was discussed.",
+      "detailed": "The nurses may have been present for a conversation that wasn't documented. It ranks third because only the consultant can confirm what was discussed, and time is short."
+    },
+    {
+      "id": "C",
+      "text": "Offer to be present when the consultant speaks to the family.",
+      "brief": "Supports the conversation and helps you learn.",
+      "detailed": "Being present helps the family, supports the consultant, and is valuable experience. It ranks second because it depends on the conversation happening, which is what you first need to establish."
+    },
+    {
+      "id": "D",
+      "text": "Phone the family yourself to tell them about the decision.",
+      "brief": "Not your conversation to have, and could cause great distress.",
+      "detailed": "The family do need to be involved, but a conversation about withdrawing treatment should be led by the consultant, who made the decision, not delivered by phone by a junior."
+    },
+    {
+      "id": "E",
+      "text": "Start the withdrawal at 14:00 as instructed, as it is the consultant's decision.",
+      "brief": "Proceeds with a serious irreversible step despite a clear concern.",
+      "detailed": "The decision is the consultant's, but carrying it out without raising a concern that the family haven't been involved could lead to serious harm and distress. This is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a concern with a senior before an irreversible decision is carried out, rather than staying silent or acting alone.",
+    "keyDetails": "Mrs Wright lacks capacity. The family don't appear to have been consulted. Withdrawal is planned for the afternoon. The consultant is contactable.",
+    "reasoning": "[A] raises the concern with the decision-maker, [C] supports the conversation, and [B] gathers information from the nurses. [D] oversteps your role, and [E] proceeds despite a clear concern.",
+    "competing": "Some would ask the nurses first. The key prefers contacting the consultant because only they can confirm whether the family were consulted, and time is short."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Consulting those close to a person who lacks capacity about their best interests."
+    },
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Involving those close to the patient in decisions about withdrawing treatment."
+    }
+  ],
+  "tags": [
+    "withdrawal of treatment",
+    "families",
+    "intensive care",
+    "seniors"
+  ]
+}

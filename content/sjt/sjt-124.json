@@ -1,0 +1,110 @@
+{
+  "id": "sjt-124",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-124",
+  "format": "multiple_choice",
+  "title": "Discharged to nowhere",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Safe discharge",
+    "Advocacy",
+    "Fair treatment"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a general medical ward at 21:30. Mr Rowe, 58, has been treated for cellulitis and is medically fit for discharge. He is homeless.\n\nThe bed manager asks you to discharge him now, as the bed is needed. Mr Rowe says he has nowhere to go tonight, and it is raining.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the nurse in charge and bed manager whether he can stay tonight.",
+      "brief": "A night-time discharge with nowhere to go is unsafe.",
+      "detailed": "Discharging him into the rain at night, with nowhere to go, risks his health and recovery. Raising this with the nurse in charge and bed manager may allow a safer morning discharge, or another solution."
+    },
+    {
+      "id": "B",
+      "text": "With his consent, refer him to the local housing authority.",
+      "brief": "Hospitals have a duty to refer people who are homeless, with their consent.",
+      "detailed": "Hospitals providing inpatient care in England must refer people who are homeless or at risk of homelessness to a local housing authority, with their consent. This starts the process of finding him accommodation."
+    },
+    {
+      "id": "C",
+      "text": "Discharge him now with a list of local night shelters and their phone numbers.",
+      "brief": "Information alone may not secure him a bed tonight.",
+      "detailed": "This seems practical, but shelters may be full at this time, and it doesn't address whether a night-time discharge is safe."
+    },
+    {
+      "id": "D",
+      "text": "Discharge him now, as he is medically fit and the bed is needed.",
+      "brief": "Medical fitness isn't the only consideration for a safe discharge.",
+      "detailed": "Pressure on beds is real, but a safe discharge considers where the patient is going, not just whether he is medically fit."
+    },
+    {
+      "id": "E",
+      "text": "Suggest he waits in the Emergency Department until the morning.",
+      "brief": "Moves the problem to an already busy department.",
+      "detailed": "This may seem kind, but the ED isn't a place to stay, and it doesn't solve his housing problem."
+    },
+    {
+      "id": "F",
+      "text": "Make sure he has his medication and a clear plan for follow-up.",
+      "brief": "Completing his treatment safely matters, whatever the discharge time.",
+      "detailed": "He may need to finish antibiotics and have the infection checked. Making sure he has what he needs, and knows where to go if it worsens, reduces the risk of readmission."
+    },
+    {
+      "id": "G",
+      "text": "Give him money for a hostel from your own pocket.",
+      "brief": "Kind, but blurs professional boundaries and doesn't address the system.",
+      "detailed": "The impulse is generous, but giving money personally isn't appropriate and doesn't address his housing needs."
+    },
+    {
+      "id": "H",
+      "text": "Ask security to escort him off the ward if he refuses to leave.",
+      "brief": "Escalates unnecessarily and treats him unfairly.",
+      "detailed": "He hasn't been aggressive. Involving security would be heavy-handed and unfair."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you advocate for a safe, fair discharge for a homeless patient when there is pressure on beds.",
+    "keyDetails": "He is medically fit but has nowhere to go. It is late and raining. Hospitals have a duty to refer homeless patients to the housing authority, with consent.",
+    "reasoning": "[A] raises the safety of discharging him tonight, [B] uses the duty to refer, and [F] makes sure his treatment continues. The distractors discharge him unsafely ([C], [D]), move the problem ([E]), blur boundaries ([G]), or escalate unfairly ([H]).",
+    "competing": "[C] is the hard distractor: information about shelters is useful, but on its own it doesn't make a night-time discharge safe."
+  },
+  "references": [
+    {
+      "title": "Homelessness: duty to refer (A guide to the duty to refer)",
+      "publisher": "Ministry of Housing, Communities and Local Government (GOV.UK)",
+      "year": null,
+      "url": "https://www.gov.uk/government/publications/homelessness-duty-to-refer/a-guide-to-the-duty-to-refer",
+      "note": "Hospitals' duty to refer people who are homeless to the local housing authority, with consent."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly and advocating for their needs."
+    }
+  ],
+  "tags": [
+    "homelessness",
+    "discharge",
+    "advocacy",
+    "bed pressures"
+  ]
+}

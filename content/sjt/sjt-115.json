@@ -1,0 +1,85 @@
+{
+  "id": "sjt-115",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-115",
+  "format": "ranking",
+  "title": "An offer of childcare",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Gifts",
+    "Professional boundaries",
+    "Gracious refusal"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics. Two weeks ago you recognised meningitis in Leo, 3, and he is now recovering well. His mother, who runs a nursery, is very grateful.\n\nOn the day of discharge she offers you a free place for your own toddler at her nursery for a year, worth several thousand pounds. Leo will continue to attend your hospital's clinic.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Thank her warmly, and explain that you can't accept a gift like this.",
+      "brief": "Kind, clear, and avoids a significant gift that could affect your judgement.",
+      "detailed": "Her gratitude is genuine, and you can acknowledge it. But a gift of this value, from the family of a child who will remain under your hospital's care, could affect, or be seen to affect, your judgement."
+    },
+    {
+      "id": "B",
+      "text": "Accept the free place, as she has offered it freely.",
+      "brief": "A valuable gift from a patient's family is inappropriate.",
+      "detailed": "Freely offered gifts can still create obligations, and this one is of significant value. Accepting it would be inappropriate."
+    },
+    {
+      "id": "C",
+      "text": "Accept a nursery place, but pay the normal fees.",
+      "brief": "Avoids the gift, but creates an ongoing personal and business relationship with the family.",
+      "detailed": "Paying removes the gift, but your child attending her nursery creates a continuing relationship with a family whose child is under your hospital's care, which could blur boundaries."
+    },
+    {
+      "id": "D",
+      "text": "Suggest she sends a card or something small for the whole ward team instead.",
+      "brief": "Lets her show gratitude in an acceptable way.",
+      "detailed": "Many families want to say thank you, and a card or a small gift for the team is usually acceptable. It ranks second because it follows declining the larger offer."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you decline a valuable gift from a patient's family graciously, while letting them express gratitude.",
+    "keyDetails": "The gift is worth thousands of pounds. Leo remains under the hospital's care. The mother is sincerely grateful.",
+    "reasoning": "[A] declines kindly, [D] offers an acceptable alternative, and [C] avoids the gift but blurs boundaries. [B] accepts an inappropriate gift.",
+    "competing": "Some would see [C] as acceptable, as no gift is involved. It ranks third because a continuing personal arrangement with the family creates a different boundary problem."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Accepting gifts from patients and those close to them."
+    },
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Maintaining professional boundaries with patients and their families."
+    }
+  ],
+  "tags": [
+    "gifts",
+    "boundaries",
+    "paediatrics",
+    "families"
+  ]
+}

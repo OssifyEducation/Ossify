@@ -1,0 +1,93 @@
+{
+  "id": "sjt-123",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-123",
+  "format": "ranking",
+  "title": "Would another hospital have found it?",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Responding to concerns",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics. Ellie, 6, has just been diagnosed with leukaemia. Her parents say she was seen twice in your hospital's Emergency Department over the past month with tiredness and bruising, and sent home.\n\nThey ask you whether she would have been diagnosed sooner at another hospital.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Say honestly that you don't know, and offer a talk with the consultant.",
+      "brief": "Honest about what you know, and makes sure they get a proper answer.",
+      "detailed": "You can't know whether the earlier visits were managed appropriately. Acknowledging their question, being honest that you don't know, and arranging for the consultant to discuss it with them is respectful and honest."
+    },
+    {
+      "id": "B",
+      "text": "Tell them how they can raise their concerns formally, if they wish.",
+      "brief": "Useful information, though they first need a response from the team.",
+      "detailed": "Knowing about the complaints process or PALS may help them. It ranks third because a conversation with the consultant should come first."
+    },
+    {
+      "id": "C",
+      "text": "Raise their concern with the consultant, so the earlier visits can be reviewed.",
+      "brief": "If something was missed, the team needs to know.",
+      "detailed": "Their question may highlight a missed opportunity. Raising it means the earlier visits can be reviewed properly, and the family can be told the outcome."
+    },
+    {
+      "id": "D",
+      "text": "Reassure them that the diagnosis wouldn't have been made any sooner.",
+      "brief": "False reassurance on a question you can't answer.",
+      "detailed": "You may want to ease their guilt or worry, but you don't know this, and it may not be true."
+    },
+    {
+      "id": "E",
+      "text": "Tell them that the other hospital has a better paediatric emergency service.",
+      "brief": "Speculative criticism that helps no one.",
+      "detailed": "This invites them to think their daughter's care was inadequate, without evidence, and undermines the team."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond honestly to a family's concern that a diagnosis was delayed.",
+    "keyDetails": "Ellie was seen twice before diagnosis. You don't know whether anything was missed. The parents are asking you directly.",
+    "reasoning": "[A] is honest and arranges a proper discussion, [C] makes sure the concern is reviewed, and [B] gives them information. [D] offers false reassurance, and [E] speculates.",
+    "competing": "Some would raise it with the consultant before responding. You would do both; the key puts responding to the parents first because they are asking you now."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with families when something may have gone wrong."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty with patients and those close to them."
+    }
+  ],
+  "tags": [
+    "candour",
+    "delayed diagnosis",
+    "paediatrics",
+    "families"
+  ]
+}

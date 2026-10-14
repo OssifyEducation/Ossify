@@ -1,0 +1,102 @@
+{
+  "id": "sjt-112",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-112",
+  "format": "multiple_choice",
+  "title": "A call from the press",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Dealing with the media",
+    "Using proper channels"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in the Emergency Department. A well-known television presenter has just been brought in after a car crash.\n\nYou answer the department phone, and the caller says she is a journalist. She asks whether the presenter is in the department and how badly hurt he is.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Confirm he is in the department, but say you can't give details.",
+      "brief": "Confirming his presence is itself a breach of confidentiality.",
+      "detailed": "This feels like a careful compromise, but simply confirming that he is a patient discloses confidential information."
+    },
+    {
+      "id": "B",
+      "text": "Tell her he is stable, so that inaccurate reports aren't published.",
+      "brief": "Discloses confidential information.",
+      "detailed": "Concern about inaccurate reporting is understandable, but you can't share information about him without his consent."
+    },
+    {
+      "id": "C",
+      "text": "Tell her you can't confirm or deny whether anyone is a patient.",
+      "brief": "Even confirming his presence would breach his confidentiality.",
+      "detailed": "Whether someone is in hospital is confidential information. Declining to confirm or deny, politely, protects him without giving anything away."
+    },
+    {
+      "id": "D",
+      "text": "Ask the presenter whether he would like you to talk to the journalist.",
+      "brief": "Not your role, and he is injured and in the middle of assessment.",
+      "detailed": "His wishes do matter, and the communications team will ask him. But approaching him yourself, while he is being assessed after a crash, isn't appropriate."
+    },
+    {
+      "id": "E",
+      "text": "Direct her to the trust's communications team.",
+      "brief": "Media enquiries should go through the press office.",
+      "detailed": "Trusts have communications teams to handle media enquiries, with the patient's agreement. Referring her there is the proper route."
+    },
+    {
+      "id": "F",
+      "text": "Let the nurse in charge know about the call.",
+      "brief": "The department may need to prepare for more enquiries.",
+      "detailed": "A call from the press suggests more may follow. The nurse in charge can alert the communications team and make sure staff are prepared."
+    },
+    {
+      "id": "G",
+      "text": "Take her number and promise to call back with an update.",
+      "brief": "Implies that information will be shared.",
+      "detailed": "This suggests you will give her information later, which you can't do."
+    },
+    {
+      "id": "H",
+      "text": "Mention to colleagues that he is in the department so they're prepared.",
+      "brief": "Spreads confidential information unnecessarily.",
+      "detailed": "Only staff involved in his care need to know he is there. Telling others unnecessarily increases the risk of a leak."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you protect a patient's confidentiality when the media ask about him.",
+    "keyDetails": "The caller is a journalist. The patient is well known. Even his presence is confidential.",
+    "reasoning": "[C] protects his confidentiality, [E] uses the proper route, and [F] prepares the department. The distractors disclose information ([A], [B], [H]), or act outside your role ([D], [G]).",
+    "competing": "[A] is the tempting option, but confirming his presence is a disclosure in itself."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Not disclosing information about patients, including whether they are patients, without consent."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "media",
+    "celebrities",
+    "emergency department"
+  ]
+}

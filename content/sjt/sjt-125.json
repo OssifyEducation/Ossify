@@ -1,0 +1,79 @@
+{
+  "id": "sjt-125",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-125",
+  "format": "ranking",
+  "title": "A missed scaphoid fracture",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Candour",
+    "Patient safety",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Yesterday you saw Ms Price, 24, who had fallen onto her outstretched hand. You looked at her X-ray, thought it was normal, and discharged her with advice.\n\nToday the radiologist's report says there is a scaphoid fracture.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Wait to see whether she comes back to the department with persistent wrist pain.",
+      "brief": "Leaves her untreated and unaware of the fracture.",
+      "detailed": "She may not return, and delays in treating scaphoid fractures can lead to lasting problems."
+    },
+    {
+      "id": "B",
+      "text": "Report it through the incident reporting system.",
+      "brief": "Supports learning, though less urgent than her treatment.",
+      "detailed": "Reporting helps the department learn. It ranks third because putting things right for her comes first."
+    },
+    {
+      "id": "C",
+      "text": "Contact Ms Price, apologise, and arrange for her to come back.",
+      "brief": "She needs to know and to be treated promptly; an apology is part of being open.",
+      "detailed": "A missed scaphoid fracture needs immobilisation and follow-up to reduce the risk of complications. Contacting her promptly, explaining what happened and apologising is honest and puts her care right."
+    },
+    {
+      "id": "D",
+      "text": "Let the ED consultant know what happened.",
+      "brief": "Your senior should know, and departments have processes for this.",
+      "detailed": "Many EDs have a process for acting on radiology reports and recalling patients. Involving your consultant makes sure it's handled properly. It ranks second because the most important thing is that Ms Price is treated."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act promptly and openly when you discover your own error.",
+    "keyDetails": "The fracture was missed. She needs treatment. You saw her yourself.",
+    "reasoning": "[C] is open and puts her care right, [D] involves your senior and the department's process, and [B] supports learning. [A] leaves her untreated.",
+    "competing": "Some would discuss it with the consultant first, especially if the department has a recall process. Either is reasonable; the key puts contacting her first because her treatment is time-sensitive."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Telling patients when something has gone wrong, apologising, and putting it right."
+    }
+  ],
+  "tags": [
+    "candour",
+    "missed fracture",
+    "emergency department",
+    "errors"
+  ]
+}

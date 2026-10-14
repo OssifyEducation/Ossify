@@ -1,0 +1,85 @@
+{
+  "id": "sjt-119",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-119",
+  "format": "ranking",
+  "title": "Hostility on the ward",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Teamwork",
+    "Patient safety",
+    "Escalation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. For a week, a staff nurse and a healthcare assistant have been openly hostile to each other, arguing in front of patients and refusing to pass on information.\n\nThis morning, a patient's observations weren't done on time because each thought the other was responsible.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell them in front of the team that their behaviour is unprofessional.",
+      "brief": "Public criticism is likely to make things worse.",
+      "detailed": "Their behaviour may be unprofessional, but a public reprimand from a junior doctor is likely to escalate the conflict."
+    },
+    {
+      "id": "B",
+      "text": "Make sure the patient's observations are done now.",
+      "brief": "The immediate risk to the patient needs addressing.",
+      "detailed": "Checking the patient is safe, and making sure it is clear who is responsible for her observations today, deals with the immediate risk, which comes first."
+    },
+    {
+      "id": "C",
+      "text": "Stay out of it, as it's a matter for the nursing team.",
+      "brief": "Ignores a problem that's now affecting patients.",
+      "detailed": "Staff conflicts are usually for their managers, but when patient care is affected, you have a responsibility to raise it."
+    },
+    {
+      "id": "D",
+      "text": "Speak to each of them separately to try to understand the problem.",
+      "brief": "Well meant, but mediating a nursing conflict isn't your role.",
+      "detailed": "Listening can help, and you may hear useful things. But you aren't their manager, and trying to resolve it yourself may complicate things. It ranks third because it doesn't involve the people who can act."
+    },
+    {
+      "id": "E",
+      "text": "Raise the conflict, and the missed observations, with the ward manager.",
+      "brief": "The ward manager can address the conflict and the risk to patients.",
+      "detailed": "The conflict is now affecting patient care. The ward manager is responsible for the nursing team and is best placed to deal with it, and needs to know about the missed observations. It ranks second only because the patient's safety needs checking first."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "D",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to conflict between colleagues once it starts to affect patient care.",
+    "keyDetails": "The conflict is happening in front of patients. Observations were missed. You aren't their manager.",
+    "reasoning": "[B] deals with the immediate risk, [E] brings in the person who can resolve the conflict, and [D] is well meant but outside your role. [C] ignores it, and [A] escalates it.",
+    "competing": "This is hard because [B] and [E] would happen close together. The key puts the patient first; the ward manager needs to know today so it doesn't happen again. Speaking to each colleague yourself is well meant but is the ward manager's role."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when team problems affect patient safety."
+    }
+  ],
+  "tags": [
+    "team conflict",
+    "nursing",
+    "patient safety",
+    "psychiatry"
+  ]
+}

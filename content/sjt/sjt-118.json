@@ -1,0 +1,109 @@
+{
+  "id": "sjt-118",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-118",
+  "format": "multiple_choice",
+  "title": "A study he owns shares in",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Conflicts of interest",
+    "Research integrity",
+    "Informed consent"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Your consultant, Dr Fisher, asks you to help recruit patients to a clinical study of a new device for monitoring heart rhythms.\n\nA colleague mentions that Dr Fisher owns shares in the company that makes the device. When you look at the patient information sheet, there is no mention of this.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Dr Fisher whether his interest has been declared.",
+      "brief": "A direct question may resolve your concern.",
+      "detailed": "His interest may already have been declared and managed, but it doesn't appear on the information sheet. Asking him directly and respectfully is a fair first step."
+    },
+    {
+      "id": "B",
+      "text": "Recruit patients as asked, as the study has been given ethics committee approval.",
+      "brief": "Ethics approval doesn't mean every conflict has been disclosed.",
+      "detailed": "Ethics approval is important, but if the committee wasn't told about his interest, approval doesn't address it."
+    },
+    {
+      "id": "C",
+      "text": "Tell patients that Dr Fisher will profit from the device.",
+      "brief": "Undermines a colleague before the facts are known.",
+      "detailed": "Patients may need to know about conflicts, but telling them this, before you know whether it has been declared, could be unfair and damaging."
+    },
+    {
+      "id": "D",
+      "text": "Make sure patients you approach understand that taking part is voluntary.",
+      "brief": "Patients must not feel pressured, whatever the conflict.",
+      "detailed": "Patients may feel obliged to agree when their own doctors ask. Making clear that saying no won't affect their care helps protect them."
+    },
+    {
+      "id": "E",
+      "text": "Refuse to have anything to do with the study.",
+      "brief": "May be needed later, but doesn't address the concern.",
+      "detailed": "You aren't obliged to take part in research, but simply refusing doesn't make sure patients are protected if the conflict hasn't been managed."
+    },
+    {
+      "id": "F",
+      "text": "Seek advice from the trust's research and development office.",
+      "brief": "They can check whether the conflict has been properly managed.",
+      "detailed": "The research office oversees studies in the trust and can confirm whether conflicts have been declared and whether patients should be told about them."
+    },
+    {
+      "id": "G",
+      "text": "Recruit only patients you think would benefit from the device.",
+      "brief": "Selection should follow the study criteria, not your judgement.",
+      "detailed": "This seems protective, but selecting patients outside the study criteria affects the research and doesn't address the conflict."
+    },
+    {
+      "id": "H",
+      "text": "Report Dr Fisher to the GMC.",
+      "brief": "Premature, as the facts aren't known.",
+      "detailed": "If an undeclared conflict was found, it might need reporting, but you first need to establish the facts locally."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a possible undeclared conflict of interest in research, protecting patients without assuming wrongdoing.",
+    "keyDetails": "The information sheet doesn't mention his shares. You don't know whether the interest has been declared. Patients may feel obliged to take part.",
+    "reasoning": "[A] raises it directly, [D] protects patients from pressure, and [F] gets independent advice. The distractors either ignore the concern ([B], [G]), assume wrongdoing ([C], [H]), or step back without protecting patients ([E]).",
+    "competing": "[B] is the tempting option, but ethics approval only covers what the committee was told."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Declaring and managing financial interests, including in research."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Making sure patients' decisions to take part are voluntary and informed."
+    }
+  ],
+  "tags": [
+    "research",
+    "conflicts of interest",
+    "consent",
+    "consultants"
+  ]
+}

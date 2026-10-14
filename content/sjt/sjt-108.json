@@ -1,0 +1,110 @@
+{
+  "id": "sjt-108",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-108",
+  "format": "multiple_choice",
+  "title": "Children at home",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Urgent action",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a psychiatric assessment unit at 23:00. Mr Ellis, 35, has schizophrenia and was brought in by police after being found confused in a park. He is calmer now.\n\nAs you are assessing him, he says his children, aged 4 and 7, are \"at home on their own\". He says their mother is \"away\", but can't say where, and gives you his home address.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Contact the police to ask them to check on the children's safety now.",
+      "brief": "Young children alone at night need an immediate safety check.",
+      "detailed": "If the children are alone, they are at immediate risk. The police can attend straight away and involve children's social care. Acting promptly matters more than establishing every detail first."
+    },
+    {
+      "id": "B",
+      "text": "Ask him calmly for more details about the children.",
+      "brief": "More information helps those responding, without delaying the call.",
+      "detailed": "He may be able to tell you whether a neighbour or relative is with them, or how long they have been alone. This helps the police and social care, and can be done while the call is made."
+    },
+    {
+      "id": "C",
+      "text": "Ask a nurse to phone his home number to see whether anyone answers.",
+      "brief": "An unanswered or answered call doesn't tell you the children are safe.",
+      "detailed": "This might seem a quick check, but young children may not answer, and even if someone does, a phone call can't establish whether they are safe and supervised. It shouldn't replace or delay a police check."
+    },
+    {
+      "id": "D",
+      "text": "Assume his statement is part of his illness until you can confirm it.",
+      "brief": "The cost of being wrong is too high.",
+      "detailed": "His statement could be affected by his illness, but if it's true, two young children are alone at night. You must act on the possibility."
+    },
+    {
+      "id": "E",
+      "text": "Wait until the morning, when the children's social care offices are open and can visit.",
+      "brief": "Far too slow for an immediate risk.",
+      "detailed": "There is an out-of-hours social care service, and the police can act now. Waiting until morning could leave young children alone overnight."
+    },
+    {
+      "id": "F",
+      "text": "Ask him to phone a neighbour to check on the children.",
+      "brief": "Relies on an unwell man and an unknown neighbour for a child's safety.",
+      "detailed": "A neighbour may help, but relying on him to arrange it, without any professional check, may leave the children unsafe."
+    },
+    {
+      "id": "G",
+      "text": "Leave a note for the day team to follow up.",
+      "brief": "Delays action on an immediate risk.",
+      "detailed": "The day team will need to know, but leaving it until then is far too slow."
+    },
+    {
+      "id": "H",
+      "text": "Inform the on-call psychiatrist, and record what he told you.",
+      "brief": "Seniors need to know, and the record matters for safeguarding.",
+      "detailed": "Your senior should be told about a serious safeguarding concern, and a clear record of what he said, when, and what you did supports the safeguarding process."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act immediately on a possible risk to children, even when the information comes from an unwell parent.",
+    "keyDetails": "Two young children may be alone at night. Their father is unwell and in hospital. Their mother's whereabouts are unknown.",
+    "reasoning": "[A] gets an immediate safety check, [B] gathers helpful details, and [H] informs your senior and records it. The distractors delay ([C], [E], [G]), dismiss the risk ([D]), or rely on an unreliable arrangement ([F]).",
+    "competing": "[D] is the trap: his statement may be affected by his illness, but you can't take that risk with young children."
+  },
+  "references": [
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Acting immediately when a child may be at risk of significant harm."
+    },
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Doctors' responsibilities to protect children, including children of adult patients."
+    }
+  ],
+  "tags": [
+    "child safeguarding",
+    "parental mental illness",
+    "psychiatry",
+    "out-of-hours"
+  ]
+}

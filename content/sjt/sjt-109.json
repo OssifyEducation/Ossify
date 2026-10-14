@@ -1,0 +1,85 @@
+{
+  "id": "sjt-109",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-109",
+  "format": "ranking",
+  "title": "A difficult reference",
+  "setting": "Non-clinical (training)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honest references",
+    "Feedback",
+    "Fairness"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor. Dr Lim, an F1 you supervised informally on your last rotation, asks you to write a reference for a clinical fellowship.\n\nShe was kind to patients and hardworking, but you had concerns about her prescribing: she made several errors, two of which reached patients, and the team discussed them with her at the time.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that you don't feel able to write a supportive reference, so she can ask someone else.",
+      "brief": "You can decline, though she loses a referee who knows her well.",
+      "detailed": "Doctors can decline to write a reference. This is honest, but it doesn't help her, and another referee may not know about the concerns. It ranks third because writing an honest reference serves both her and the employer better."
+    },
+    {
+      "id": "B",
+      "text": "Write a reference that focuses only on her strengths.",
+      "brief": "Omitting relevant concerns makes the reference misleading.",
+      "detailed": "Wanting to support a junior colleague is natural. But leaving out concerns about patient safety gives a misleading picture to an employer who is relying on you."
+    },
+    {
+      "id": "C",
+      "text": "Talk to her about the concerns you would need to include, before you write it.",
+      "brief": "Fair to her, and gives her the chance to decide whether to use you as a referee.",
+      "detailed": "Telling her what you would need to include is fair and open: it lets her know what to expect, and she may choose another referee. Doing this before writing means the reference won't come as a surprise."
+    },
+    {
+      "id": "D",
+      "text": "Write an honest reference that includes her strengths and, factually, the prescribing concerns.",
+      "brief": "A reference must be honest and include information relevant to the role.",
+      "detailed": "References are relied on by employers to make safe decisions. An honest, balanced reference includes her strengths and the relevant concerns, stated factually, along with how she responded to feedback. It ranks second only because talking to her first is fairer."
+    },
+    {
+      "id": "E",
+      "text": "Write a strongly positive reference, as she would struggle to find a post otherwise.",
+      "brief": "Actively misleading, and could put patients at risk.",
+      "detailed": "This puts her career ahead of patient safety and misleads the employer. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty when writing a reference for a colleague you like but have concerns about.",
+    "keyDetails": "There were real prescribing concerns, two reaching patients. She has strengths. The role is clinical.",
+    "reasoning": "[C] is open with her first, [D] writes an honest, balanced reference, and [A] is honest but less helpful. [B] misleads by omission, and [E] misleads actively.",
+    "competing": "This is hard because [C], [D] and [A] are all honest. The key prefers talking to her and then writing a balanced reference over declining, because that gives the employer the full picture and still recognises her strengths."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty when writing references and reports."
+    }
+  ],
+  "tags": [
+    "references",
+    "honesty",
+    "prescribing errors",
+    "probity"
+  ]
+}

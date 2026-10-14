@@ -1,0 +1,109 @@
+{
+  "id": "sjt-106",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-106",
+  "format": "multiple_choice",
+  "title": "A statement for the police",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty in documents",
+    "Confidentiality",
+    "Seeking advice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Last night you sutured a scalp wound for Mr Dale, 41, after a fight outside a pub. The triage nurse recorded that he smelled of alcohol; you didn't assess his level of intoxication.\n\nToday a police officer asks you for a written statement saying that Mr Dale was \"clearly intoxicated\" when he arrived. The officer says it would really help the case.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Write the statement as asked, as the triage notes support it.",
+      "brief": "The statement would claim something you didn't observe.",
+      "detailed": "The triage note records a smell of alcohol, which isn't the same as being clearly intoxicated, and in any case you didn't make that assessment. Writing it as asked would be inaccurate."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you can only describe what you observed and did yourself.",
+      "brief": "A statement must reflect your own knowledge, not what someone wants it to say.",
+      "detailed": "A statement from a doctor carries weight, so it must be accurate and within your own knowledge. You can describe his wound and what you did, but you can't say he was clearly intoxicated when you didn't assess that."
+    },
+    {
+      "id": "C",
+      "text": "Check whether there is consent or another legal basis for disclosure.",
+      "brief": "Disclosing information to the police needs consent or another lawful basis.",
+      "detailed": "Patients' information is confidential, even when the police ask for it. Disclosure usually needs the patient's consent, a court order, or a justification in the public interest, such as preventing or detecting serious crime. Checking this protects him and you."
+    },
+    {
+      "id": "D",
+      "text": "Ask the triage nurse to sign your statement as well, as she saw him on arrival.",
+      "brief": "Each person's statement should be their own account.",
+      "detailed": "The nurse may be asked to give her own statement, but adding her signature to yours mixes two accounts and doesn't make your statement accurate."
+    },
+    {
+      "id": "E",
+      "text": "Write that he \"appeared intoxicated\", based on the triage notes.",
+      "brief": "Still presents another person's observation as your own.",
+      "detailed": "This softens the wording, which makes it tempting, but it still reports something you didn't observe. If the information is needed, it should come from the triage nurse's own account or the records, disclosed lawfully."
+    },
+    {
+      "id": "F",
+      "text": "Ask your consultant or the trust's legal team for advice before writing it.",
+      "brief": "Statements for the police are unfamiliar for most F2s, and advice helps you get it right.",
+      "detailed": "Many trusts have guidance on providing statements, and seniors or the legal team can advise on what to include and whether disclosure is appropriate. Seeking advice is sensible before writing a document that may be used in court."
+    },
+    {
+      "id": "G",
+      "text": "Give the officer a copy of Mr Dale's notes, so they can draw their own conclusions.",
+      "brief": "Disclosing his records without a legal basis breaches confidentiality.",
+      "detailed": "Handing over records may seem more objective than writing a statement, but it discloses all of his confidential information, not just what is relevant, and without checking for consent or another lawful basis."
+    },
+    {
+      "id": "H",
+      "text": "Refuse to have anything to do with police requests.",
+      "brief": "Doctors can assist the police lawfully; a blanket refusal isn't appropriate.",
+      "detailed": "Doctors often help the police, within the law and their duties of confidentiality. Refusing outright, rather than finding out what can properly be provided, is unhelpful."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep documents honest under pressure, and handle requests from the police within the rules on confidentiality.",
+    "keyDetails": "You didn't assess his intoxication. The triage note records a smell of alcohol only. The police want a particular wording. You don't know whether he has consented.",
+    "reasoning": "[B] keeps your statement honest, [C] checks the legal basis for disclosure, and [F] gets appropriate advice. The distractors misrepresent what you observed ([A], [D], [E]), disclose without checking ([G]), or refuse unhelpfully ([H]).",
+    "competing": "[E] is the subtle distractor: softer wording seems honest, but it still reports someone else's observation as your own."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information to the police: consent, legal requirements, and the public interest."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in reports and statements."
+    }
+  ],
+  "tags": [
+    "police",
+    "statements",
+    "confidentiality",
+    "probity"
+  ]
+}

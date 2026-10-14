@@ -1,0 +1,103 @@
+{
+  "id": "sjt-122",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-122",
+  "format": "multiple_choice",
+  "title": "No more oxycodone?",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Safe prescribing",
+    "Managing conflict",
+    "Shared decision-making"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in a GP practice. Mr Dyer, 39, has just registered with the practice. His previous GP prescribed high-dose oxycodone for back pain for two years, and he asks for a repeat prescription.\n\nWhen you explain that you aren't comfortable continuing it without a review, he becomes angry, saying he'll be in agony and that you're treating him like an addict.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Issue the repeat prescription to avoid a confrontation.",
+      "brief": "Prescribing to avoid conflict isn't safe practice.",
+      "detailed": "This would calm things down, but you'd be prescribing a high-risk drug without the review you think is needed."
+    },
+    {
+      "id": "B",
+      "text": "Tell him he'll need to go back to his previous GP for this medication.",
+      "brief": "He is now your practice's patient.",
+      "detailed": "He has registered with your practice, so his care is now your responsibility."
+    },
+    {
+      "id": "C",
+      "text": "Acknowledge his frustration, and explain your reasons calmly.",
+      "brief": "Being heard reduces anger, and he deserves an explanation.",
+      "detailed": "He is worried about being left in pain. Acknowledging that, and explaining that you want to make sure his treatment is safe, rather than suggesting he is misusing it, may help him engage."
+    },
+    {
+      "id": "D",
+      "text": "Offer a review of his pain, and a plan that doesn't leave him without medication.",
+      "brief": "A safe plan avoids abrupt withdrawal and addresses his pain.",
+      "detailed": "Stopping high-dose opioids suddenly can cause withdrawal and pain. A review, and a plan that may include a bridging prescription and gradual changes, is safer than a refusal."
+    },
+    {
+      "id": "E",
+      "text": "Request his records from his previous practice.",
+      "brief": "His history helps you make a safe decision.",
+      "detailed": "His records will show the reasons for the prescription, previous reviews and any concerns, which help you plan his care."
+    },
+    {
+      "id": "F",
+      "text": "Ask reception to call security if he doesn't calm down.",
+      "brief": "Escalates a situation that can usually be de-escalated.",
+      "detailed": "Security may be needed if he becomes threatening, but he is angry rather than dangerous."
+    },
+    {
+      "id": "G",
+      "text": "Tell him that long-term opioid use usually indicates addiction.",
+      "brief": "Inaccurate and stigmatising.",
+      "detailed": "Long-term opioid use can lead to dependence, but this statement is stigmatising and likely to make things worse."
+    },
+    {
+      "id": "H",
+      "text": "Give him one more month's supply and ask him to book a review when he's ready.",
+      "brief": "Defers the review without a plan.",
+      "detailed": "A bridging prescription may be part of a plan, but without a booked review it simply postpones the problem."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you manage a patient's anger about a prescribing decision, balancing safety with compassion.",
+    "keyDetails": "He has been on high-dose oxycodone for two years. He is new to the practice. He is worried about pain and feels judged.",
+    "reasoning": "[C] de-escalates and explains, [D] offers a safe plan, and [E] gathers his history. The distractors prescribe or defer without review ([A], [H]), refuse responsibility ([B]), escalate ([F]), or stigmatise ([G]).",
+    "competing": "[H] is the tempting option: some bridging may be appropriate, but only as part of a planned review."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Reviewing and prescribing controlled drugs safely, including when taking over a patient's care."
+    }
+  ],
+  "tags": [
+    "opioids",
+    "prescribing",
+    "angry patients",
+    "general practice"
+  ]
+}

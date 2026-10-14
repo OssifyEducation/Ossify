@@ -1,0 +1,92 @@
+{
+  "id": "sjt-111",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-111",
+  "format": "ranking",
+  "title": "Declining a caesarean",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting autonomy",
+    "Informed decision-making",
+    "Documentation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the labour ward. Ms Okoye, 31, is in labour with her first baby. Labour has stopped progressing, and the registrar has recommended a caesarean section. The baby's heart rate is currently normal.\n\nMs Okoye says she doesn't want a caesarean and wants to keep trying. She seems calm and understands what the registrar has said. Her partner is upset with her decision.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask her partner to persuade her to accept the caesarean.",
+      "brief": "The decision is hers, and pressure from her partner isn't appropriate.",
+      "detailed": "Her partner's feelings are understandable, but the decision is hers. Enlisting him to persuade her puts pressure on her."
+    },
+    {
+      "id": "B",
+      "text": "Ask the consultant obstetrician to discuss the options with her.",
+      "brief": "A senior discussion helps make sure she has all the information.",
+      "detailed": "The consultant can discuss options such as continuing with close monitoring, and the points at which the risks would change. It ranks second because listening to her concerns comes first."
+    },
+    {
+      "id": "C",
+      "text": "Tell her that the team can override her decision if the baby is at risk.",
+      "brief": "Incorrect: a woman with capacity can refuse a caesarean, even if her baby is at risk.",
+      "detailed": "This is a common misconception. A pregnant woman with capacity has the right to refuse treatment, including a caesarean, even if her decision puts the baby at risk. Telling her otherwise is wrong and coercive."
+    },
+    {
+      "id": "D",
+      "text": "Document her decision and the discussion clearly.",
+      "brief": "Records the information given and her choice.",
+      "detailed": "A clear record of what she was told and what she decided protects her and the team. It ranks third because it follows the discussion."
+    },
+    {
+      "id": "E",
+      "text": "Make sure she understands the risks, and listen to her concerns.",
+      "brief": "An informed decision needs understanding, and her reasons may be addressable.",
+      "detailed": "She may have specific fears about surgery, recovery or future pregnancies. Making sure she understands the recommendation and the risks of continuing, and listening to her concerns, supports an informed decision."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "B",
+      "D",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a capacitous woman's right to refuse a recommended caesarean, while making sure her decision is informed.",
+    "keyDetails": "She appears to have capacity and understands the recommendation. The baby is currently well. Her partner disagrees.",
+    "reasoning": "[E] supports an informed decision, [B] brings in senior input, and [D] records it. [A] pressures her through her partner, and [C] misstates the law.",
+    "competing": "Some would put the consultant discussion first. The key starts with listening, because understanding her concerns shapes what the consultant needs to address."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting the decisions of patients with capacity, including refusal."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Presumption of capacity."
+    }
+  ],
+  "tags": [
+    "refusal",
+    "caesarean",
+    "autonomy",
+    "labour"
+  ]
+}

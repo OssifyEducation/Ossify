@@ -1,0 +1,109 @@
+{
+  "id": "sjt-116",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-116",
+  "format": "multiple_choice",
+  "title": "Broken down on the way",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Responding to the unexpected",
+    "Communication",
+    "Personal safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working with an out-of-hours GP service at 21:00. You are being driven to an urgent home visit to Mrs Fenn, 88, who has a high temperature and is more confused than usual. Her daughter is with her.\n\nOn a dark country road, the service car breaks down. The driver says the breakdown service will take at least an hour.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Order a taxi to take you to the visit, and tell the control centre afterwards.",
+      "brief": "Getting there is well meant, but control should know first and may have a faster option.",
+      "detailed": "Wanting to reach her quickly is right, but acting without telling control means they can't coordinate, and a taxi may take longer than a reassigned clinician."
+    },
+    {
+      "id": "B",
+      "text": "Wait for the breakdown service, then continue to the visit.",
+      "brief": "An hour's delay could be dangerous for an unwell, confused patient.",
+      "detailed": "She may have sepsis, and waiting an hour or more without telling anyone or checking on her could put her at risk."
+    },
+    {
+      "id": "C",
+      "text": "Ask Mrs Fenn's daughter to drive out and collect you.",
+      "brief": "Takes her away from her unwell mother.",
+      "detailed": "This would get you there, but it leaves Mrs Fenn alone and places an unfair burden on her daughter."
+    },
+    {
+      "id": "D",
+      "text": "Walk to the visit, as the address is a few miles away.",
+      "brief": "Slow and unsafe on a dark country road.",
+      "detailed": "Walking would take longer than other options and puts you at risk."
+    },
+    {
+      "id": "E",
+      "text": "Tell the control centre straight away, so the visit can be reassigned.",
+      "brief": "Another clinician may be able to reach Mrs Fenn sooner.",
+      "detailed": "Control can see which clinicians and cars are available, and reassign the visit so Mrs Fenn isn't left waiting. Telling them immediately gives them the most time to act."
+    },
+    {
+      "id": "F",
+      "text": "Advise the daughter to call NHS 111 again.",
+      "brief": "Sends her back into the system rather than managing the problem.",
+      "detailed": "The case has already been triaged as needing a visit. Asking her to call 111 again adds delay rather than solving the problem."
+    },
+    {
+      "id": "G",
+      "text": "Phone Mrs Fenn's daughter to ask how she is now, and give advice.",
+      "brief": "Her condition may have changed, and the family may need to call 999.",
+      "detailed": "A call lets you reassess the urgency, explain the delay, give safety advice, and tell her daughter to call 999 if her mother deteriorates or shows signs such as difficulty breathing. It keeps you involved in her care."
+    },
+    {
+      "id": "H",
+      "text": "Make sure you and the driver are safe while you wait.",
+      "brief": "Your own safety on a dark road matters too.",
+      "detailed": "Breakdowns on dark roads can be dangerous. Following the driver's and breakdown service's advice, such as using hazard lights and waiting somewhere safe, protects you both."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when an unexpected problem delays urgent care, keeping the patient safe and the service informed.",
+    "keyDetails": "Mrs Fenn may be seriously unwell. The delay is at least an hour. You are on a dark road.",
+    "reasoning": "[E] lets the service respond, [G] keeps track of Mrs Fenn's condition, and [H] keeps you safe. The distractors act without coordinating ([A]), delay ([B], [F]), burden the family ([C]), or are unsafe ([D]).",
+    "competing": "[A] is the tempting option because it shows initiative, but the control centre can usually find a quicker and safer solution."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, providing care in emergencies; Domain 3, working with colleagues to keep patients safe."
+    },
+    {
+      "title": "Suspected sepsis: recognition, diagnosis and early management (NG51)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2024,
+      "url": "https://www.nice.org.uk/guidance/ng51",
+      "note": "Recognising possible sepsis in an older person with fever and confusion."
+    }
+  ],
+  "tags": [
+    "out-of-hours",
+    "home visits",
+    "unexpected events",
+    "sepsis"
+  ]
+}
