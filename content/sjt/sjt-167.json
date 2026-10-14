@@ -1,0 +1,93 @@
+{
+  "id": "sjt-167",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-167",
+  "format": "ranking",
+  "title": "Antibiotics for a cold",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Antimicrobial stewardship",
+    "Respectful challenge",
+    "Learning"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in a GP practice, sitting in on your trainer's surgery. Mr Ward, 35, has had a cough and runny nose for three days. He has no other symptoms, and his examination is normal.\n\nHe asks for antibiotics, and your trainer begins to prescribe amoxicillin. You think antibiotics aren't indicated.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Report your trainer to the practice prescribing lead.",
+      "brief": "Disproportionate for a single prescribing decision.",
+      "detailed": "Prescribing patterns can be reviewed, but reporting a single decision without discussing it is disproportionate. It ranks above contradicting your trainer in front of the patient because it at least happens away from him."
+    },
+    {
+      "id": "B",
+      "text": "Tell Mr Ward during the consultation that you don't think he needs antibiotics.",
+      "brief": "Undermines your trainer in front of the patient.",
+      "detailed": "Your view may be right, but contradicting your trainer in front of the patient undermines them, may confuse him, and damages his trust in the practice. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Share your view, with reference to the guidance, when you discuss the case.",
+      "brief": "Raising evidence respectfully supports good prescribing.",
+      "detailed": "Guidance generally advises against antibiotics for simple respiratory infections. Sharing this respectfully contributes to good practice. It ranks second because asking first is fairer."
+    },
+    {
+      "id": "D",
+      "text": "Ask your trainer, after the consultation, what made them decide to prescribe.",
+      "brief": "Respectful, and you may learn something.",
+      "detailed": "Your trainer may have a reason you haven't considered. Asking privately, after the patient has left, is respectful and is a learning opportunity for you."
+    },
+    {
+      "id": "E",
+      "text": "Accept your trainer's decision, and reflect on it later.",
+      "brief": "Respects their role, but misses the chance to discuss it.",
+      "detailed": "Your trainer is responsible for the prescription, and reflecting is useful. But not discussing it misses a learning opportunity for you both."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "E",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you raise a disagreement with a senior's prescribing, respectfully and at the right time.",
+    "keyDetails": "The prescription seems not to be indicated. You are the junior. The patient is present.",
+    "reasoning": "[D] asks respectfully, [C] shares the evidence, and [E] defers without discussion. [A] is disproportionate, and [B] undermines your trainer in front of the patient.",
+    "competing": "The order of [D] and [C] is close; asking first is fairer, as there may be a reason you don't know."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Prescribing appropriately, including antimicrobials."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, raising concerns respectfully with colleagues."
+    }
+  ],
+  "tags": [
+    "antibiotics",
+    "stewardship",
+    "trainers",
+    "general practice"
+  ]
+}

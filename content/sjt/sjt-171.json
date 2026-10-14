@@ -1,0 +1,92 @@
+{
+  "id": "sjt-171",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-171",
+  "format": "ranking",
+  "title": "Detained, and refusing antibiotics",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Capacity assessment",
+    "Mental Health Act",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. Mr Rowe, 40, is detained under the Mental Health Act for treatment of schizophrenia. He has developed cellulitis of his leg, and the medical team recommends IV antibiotics.\n\nHe refuses, saying the nurses want to poison him.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the medical team whether oral antibiotics would be an alternative.",
+      "brief": "An alternative he accepts may be better than one he refuses.",
+      "detailed": "He may accept tablets more readily than a drip. It ranks third because his understanding and capacity need addressing first."
+    },
+    {
+      "id": "B",
+      "text": "Give the antibiotics under the Mental Health Act, as he is detained.",
+      "brief": "The Act covers treatment for mental disorder, not unrelated physical illness.",
+      "detailed": "Detention under the Mental Health Act allows treatment for his mental disorder, not for an unrelated physical illness like cellulitis. Treating him against his will would need another legal basis, such as the Mental Capacity Act if he lacks capacity."
+    },
+    {
+      "id": "C",
+      "text": "Accept his refusal and document it, as patients can refuse treatment.",
+      "brief": "His refusal may be affected by his illness, and needs assessing.",
+      "detailed": "Patients with capacity can refuse, but his belief about being poisoned raises doubt that needs assessing before accepting his refusal."
+    },
+    {
+      "id": "D",
+      "text": "Explore his concerns, and explain the treatment in simple terms.",
+      "brief": "Understanding his fears may help him accept treatment.",
+      "detailed": "His fear may be linked to his illness, but listening and explaining calmly may help him accept treatment. It also gives you information relevant to his capacity."
+    },
+    {
+      "id": "E",
+      "text": "Assess his capacity to decide about the antibiotics, with senior support.",
+      "brief": "Detention doesn't mean he lacks capacity for this decision.",
+      "detailed": "Capacity is decision-specific. His belief that he will be poisoned may affect his ability to weigh up the treatment, but this needs assessing, with senior help."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "E",
+      "A",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your understanding of capacity and consent for physical treatment in a patient detained under the Mental Health Act.",
+    "keyDetails": "He is detained for schizophrenia. The cellulitis is unrelated. His refusal is based on a belief that may be linked to his illness.",
+    "reasoning": "[D] explores his concerns, [E] assesses capacity, and [A] looks for an alternative. [C] accepts the refusal without assessment, and [B] misuses the Mental Health Act.",
+    "competing": "Some would assess capacity first. The key starts with exploring his concerns, which is part of any capacity assessment and may resolve the refusal."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Capacity is decision-specific."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Consent for physical treatment."
+    }
+  ],
+  "tags": [
+    "Mental Health Act",
+    "capacity",
+    "refusal",
+    "physical health"
+  ]
+}

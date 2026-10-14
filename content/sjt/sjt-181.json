@@ -1,0 +1,92 @@
+{
+  "id": "sjt-181",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-181",
+  "format": "ranking",
+  "title": "He answers for her",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Safeguarding",
+    "De-escalation",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in an antenatal clinic. Ms Ali, 24, is 20 weeks pregnant. Her partner answers every question for her, and she avoids eye contact.\n\nWhen you explain that you'd like to see her on her own for part of the appointment, he becomes angry and says, \"There's nothing she can't say in front of me.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him you suspect he is controlling her.",
+      "brief": "Accusatory and could put her at risk.",
+      "detailed": "Confronting him could make him angry and put her at greater risk after the appointment."
+    },
+    {
+      "id": "B",
+      "text": "Continue the appointment with him answering.",
+      "brief": "Misses the chance to check her safety.",
+      "detailed": "This avoids conflict, but she may not be able to speak freely, and any abuse may go unnoticed."
+    },
+    {
+      "id": "C",
+      "text": "Explain calmly that seeing women alone is routine.",
+      "brief": "A calm, routine framing may de-escalate and protect her.",
+      "detailed": "Seeing pregnant women alone is standard practice. Explaining that it applies to everyone may reassure him and avoids suggesting suspicion."
+    },
+    {
+      "id": "D",
+      "text": "Involve the midwife and find another opportunity to see her alone.",
+      "brief": "Another opportunity may arise without confrontation.",
+      "detailed": "A midwife may be able to see her alone, for example when she gives a urine sample. This avoids escalating while making sure she has a chance to speak."
+    },
+    {
+      "id": "E",
+      "text": "Document your concerns and inform the safeguarding midwife.",
+      "brief": "His behaviour may be a sign of abuse.",
+      "detailed": "Controlling behaviour can be a sign of domestic abuse. Recording your concerns and informing the safeguarding midwife helps make sure they are followed up."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "E",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a partner prevents a woman from speaking alone, recognising possible abuse while keeping her safe.",
+    "keyDetails": "He answers for her and is hostile to her being seen alone. She avoids eye contact. She is pregnant.",
+    "reasoning": "[C] de-escalates, [D] finds another opportunity, and [E] records and escalates. [B] misses the chance to help, and [A] puts her at risk.",
+    "competing": "Some would put the safeguarding referral first. The key starts by trying to see her alone, which may give her the chance to speak."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Protecting people at risk of serious harm."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, protecting patients who may be vulnerable."
+    }
+  ],
+  "tags": [
+    "domestic abuse",
+    "pregnancy",
+    "safeguarding",
+    "controlling behaviour"
+  ]
+}

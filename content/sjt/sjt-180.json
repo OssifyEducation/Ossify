@@ -1,0 +1,110 @@
+{
+  "id": "sjt-180",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-180",
+  "format": "multiple_choice",
+  "title": "Memes in the group chat",
+  "setting": "Non-clinical (social)",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Challenging discrimination",
+    "Social media",
+    "Supporting colleagues"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. Your hospital's foundation doctors have a WhatsApp group. Several members have started sharing memes mocking the accent and English of Dr Okafor, an international medical graduate who started recently. She isn't in the group.\n\nOthers are reacting with laughing emojis.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave the group quietly.",
+      "brief": "Avoids it, but leaves it unchallenged.",
+      "detailed": "This takes you out of it, but doesn't stop the memes or support Dr Okafor."
+    },
+    {
+      "id": "B",
+      "text": "Post in the group that the memes aren't acceptable.",
+      "brief": "A clear, calm challenge may stop it.",
+      "detailed": "Others may feel the same but not want to be first. A calm message saying the memes are unkind and unprofessional may be enough to stop it."
+    },
+    {
+      "id": "C",
+      "text": "Tell Dr Okafor about the memes so she can respond.",
+      "brief": "Could cause her distress, and places the burden on her.",
+      "detailed": "She may have a right to know, but telling her without support places the burden of responding on her."
+    },
+    {
+      "id": "D",
+      "text": "Share screenshots on social media to expose the behaviour.",
+      "brief": "Escalates publicly and could harm Dr Okafor further.",
+      "detailed": "This may draw attention to the problem, but could spread the memes further and humiliate her."
+    },
+    {
+      "id": "E",
+      "text": "Speak privately to the person who started the memes.",
+      "brief": "A direct conversation may help them reflect.",
+      "detailed": "They may not have thought about how it would feel to Dr Okafor. A private conversation is less defensive than a public challenge."
+    },
+    {
+      "id": "F",
+      "text": "Report the members to the GMC.",
+      "brief": "Disproportionate before local routes.",
+      "detailed": "The behaviour is unprofessional, but local routes should be used first."
+    },
+    {
+      "id": "G",
+      "text": "Raise it with your educational supervisor.",
+      "brief": "Harassment of a colleague may need addressing by others.",
+      "detailed": "Mocking a colleague's accent is harassment related to race or nationality. If it continues, or is widespread, it needs addressing by those responsible."
+    },
+    {
+      "id": "H",
+      "text": "Ignore it, as it's a private chat outside work.",
+      "brief": "Professional standards apply to how doctors treat colleagues, including online.",
+      "detailed": "Private chats can still breach professional standards, especially when they target a colleague."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you challenge discriminatory behaviour by colleagues online, proportionately and through the right routes.",
+    "keyDetails": "The memes target a colleague's accent and English. She isn't in the group. Others are joining in.",
+    "reasoning": "[B] challenges it, [E] addresses it directly, and [G] escalates appropriately. The distractors avoid it ([A], [H]), burden Dr Okafor ([C]), or escalate inappropriately ([D], [F]).",
+    "competing": "[C] may seem honest, but telling her without support places the burden on her."
+  },
+  "references": [
+    {
+      "title": "Using social media as a medical professional",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/using-social-media-as-a-medical-professional/using-social-media-as-a-medical-professional",
+      "note": "Doctors' conduct online, including in private groups."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Harassment related to race or nationality."
+    }
+  ],
+  "tags": [
+    "discrimination",
+    "social media",
+    "international medical graduates",
+    "colleagues"
+  ]
+}

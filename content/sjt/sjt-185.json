@@ -1,0 +1,85 @@
+{
+  "id": "sjt-185",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-185",
+  "format": "ranking",
+  "title": "A capacity assessment you haven't done before",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Capacity assessment",
+    "Recognising limits",
+    "Seeking help"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. The social worker asks you to assess whether Mrs Shaw, 84, who has early dementia, has capacity to decide to sell her house and give most of the money to a neighbour.\n\nYou have done capacity assessments for simple medical decisions, but never for a complex financial decision.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the social worker what information Mrs Shaw would need to understand for this decision.",
+      "brief": "Understanding the decision helps you assess her capacity for it.",
+      "detailed": "Capacity is decision-specific, so you need to know what she would need to understand, such as the value of the house and the consequences of giving the money away. It ranks second because senior support comes first."
+    },
+    {
+      "id": "B",
+      "text": "Tell your consultant that you'd like support with this assessment.",
+      "brief": "A complex decision needs someone with appropriate experience.",
+      "detailed": "Capacity assessments for complex financial decisions can be difficult, and the outcome matters a lot to Mrs Shaw. Asking your consultant for support or supervision is appropriate."
+    },
+    {
+      "id": "C",
+      "text": "Do the assessment yourself after reading the Mental Capacity Act Code of Practice.",
+      "brief": "Reading helps, but may not be enough for a complex decision.",
+      "detailed": "The Code of Practice is helpful, and you have done simpler assessments. But this decision is complex and may involve concerns about financial abuse, which need experience."
+    },
+    {
+      "id": "D",
+      "text": "Decline, as only psychiatrists can assess capacity.",
+      "brief": "Incorrect: capacity can be assessed by anyone appropriately involved.",
+      "detailed": "Capacity can be assessed by the person who needs the decision made, if they have the right skills. Psychiatric input may help, but it isn't required."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise when a task is beyond your experience and seek appropriate support, without wrongly refusing.",
+    "keyDetails": "The decision is complex and financial. There may be a risk of financial abuse. You haven't done this type of assessment before.",
+    "reasoning": "[B] seeks support, [A] prepares you for the assessment, and [C] relies on reading alone. [D] refuses on an incorrect basis.",
+    "competing": "The possibility of financial abuse, with most of the money going to a neighbour, also needs raising with the safeguarding team, whatever the outcome of the capacity assessment. Legal advice may also be needed for a decision of this size."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Capacity assessment for specific decisions."
+    },
+    {
+      "title": "Care Act 2014, section 42 (enquiry by local authority)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2014,
+      "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/42",
+      "note": "Concerns about financial abuse of adults with care needs."
+    }
+  ],
+  "tags": [
+    "capacity",
+    "financial decisions",
+    "competence",
+    "safeguarding"
+  ]
+}

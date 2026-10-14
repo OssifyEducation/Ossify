@@ -1,0 +1,85 @@
+{
+  "id": "sjt-175",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-175",
+  "format": "ranking",
+  "title": "Just one selfie",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Professional boundaries",
+    "Confidentiality",
+    "Social media"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. You have just treated a well-known footballer for a minor ankle injury. As he gets ready to leave, he cheerfully offers to take a selfie with you.\n\nOther patients are waiting nearby.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Thank him, and politely decline.",
+      "brief": "Friendly, and maintains a professional relationship.",
+      "detailed": "Photos with patients, especially in a clinical area, can compromise confidentiality, including of other patients, and blur boundaries. A friendly refusal is appropriate."
+    },
+    {
+      "id": "B",
+      "text": "Take the selfie and post it on your own social media.",
+      "brief": "Breaches his confidentiality and professional standards.",
+      "detailed": "Posting a photo with a patient discloses that he was treated, and is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Take the photo, but ask him not to post it.",
+      "brief": "Still takes a personal photo with a patient in a clinical area.",
+      "detailed": "This seems a compromise, but you can't control what happens to the photo, and other patients may be in the background."
+    },
+    {
+      "id": "D",
+      "text": "Suggest he contacts the trust's communications team if he'd like a photo with staff.",
+      "brief": "Redirects a request to the people who manage it.",
+      "detailed": "Some trusts arrange photos with well-known visitors in suitable settings. Pointing him there is polite, though not necessary. It ranks second because declining is the main point."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you maintain professional boundaries when a well-known patient offers a friendly gesture.",
+    "keyDetails": "He offered, cheerfully. You are in a clinical area with other patients. He is well known.",
+    "reasoning": "[A] declines politely, and [D] redirects the request. [C] still takes a personal photo, and [B] also discloses his treatment publicly.",
+    "competing": "Some would see [C] as harmless, but you can't control what happens to the photo once it's taken."
+  },
+  "references": [
+    {
+      "title": "Using social media as a medical professional",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/using-social-media-as-a-medical-professional/using-social-media-as-a-medical-professional",
+      "note": "Doctors' use of social media and photos with patients."
+    },
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Maintaining professional boundaries."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "social media",
+    "celebrities",
+    "photos"
+  ]
+}

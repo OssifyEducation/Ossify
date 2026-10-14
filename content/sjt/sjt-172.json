@@ -1,0 +1,102 @@
+{
+  "id": "sjt-172",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-172",
+  "format": "multiple_choice",
+  "title": "A handover sheet on the bus",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Information governance",
+    "Confidentiality",
+    "Reporting"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in general surgery. On the bus home, you find a printed surgical handover sheet on the seat next to you. It lists patients' names, dates of birth and diagnoses from your hospital.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Keep it safe and return it for confidential disposal.",
+      "brief": "Protects patients' information.",
+      "detailed": "The sheet contains confidential information. Keeping it safe and disposing of it through the hospital's confidential waste protects the patients."
+    },
+    {
+      "id": "B",
+      "text": "Leave it on the bus, as it isn't yours.",
+      "brief": "Leaves confidential information exposed.",
+      "detailed": "It isn't yours, but leaving it means others could read it."
+    },
+    {
+      "id": "C",
+      "text": "Put it in a bin at the bus stop.",
+      "brief": "Ordinary bins aren't secure.",
+      "detailed": "This gets rid of it, but a public bin isn't secure, and others could find and read it."
+    },
+    {
+      "id": "D",
+      "text": "Report it as an information governance incident.",
+      "brief": "The trust needs to know about the breach.",
+      "detailed": "A lost handover sheet is a data breach. Reporting it lets the trust assess the risk and learn from it."
+    },
+    {
+      "id": "E",
+      "text": "Take a photo of it to show the surgical team, then throw it away.",
+      "brief": "Creates another copy of confidential information.",
+      "detailed": "Photographing it creates a second copy of patients' confidential details on your personal phone, which adds to the breach rather than containing it."
+    },
+    {
+      "id": "F",
+      "text": "Read it to find out whose it is.",
+      "brief": "Reads confidential information unnecessarily.",
+      "detailed": "This seems sensible, but you don't need to read patient details to report it."
+    },
+    {
+      "id": "G",
+      "text": "Let the surgical team know a sheet was found.",
+      "brief": "Helps them check their handover practice.",
+      "detailed": "The team may not know a sheet was lost. Telling them helps prevent it happening again."
+    },
+    {
+      "id": "H",
+      "text": "Recycle it at home.",
+      "brief": "Household recycling isn't secure.",
+      "detailed": "Household recycling isn't confidential disposal, and the sheet could still be read by others before it is destroyed."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you protect confidential information you find, and report the breach.",
+    "keyDetails": "The sheet contains identifiable information. It was left in public. It belongs to your hospital.",
+    "reasoning": "[A] secures it, [D] reports the breach, and [G] helps prevent another. The distractors leave it exposed ([B], [C], [H]), add to the breach ([E]), or read it unnecessarily ([F]).",
+    "competing": "[F] may seem reasonable, but you don't need to read the details to report it."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Protecting patients' information and reporting breaches."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "information governance",
+    "handover",
+    "data breach"
+  ]
+}
