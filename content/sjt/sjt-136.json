@@ -1,0 +1,102 @@
+{
+  "id": "sjt-136",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-136",
+  "format": "multiple_choice",
+  "title": "A form he can read",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Consent",
+    "Language needs",
+    "Respecting patients"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Mr Kowalski, 61, is having a planned hernia repair tomorrow. He speaks conversational English, and the registrar has explained the operation to him.\n\nWhen you bring the consent form for him to sign, he says politely that he would like to read it in Polish before signing, as he wants to be sure he understands the risks.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask his son, who speaks fluent English, to translate the form for him.",
+      "brief": "Family members aren't reliable interpreters for consent.",
+      "detailed": "This is convenient, and his son may translate well. But family members may soften or omit information, and professional interpreting is expected for consent."
+    },
+    {
+      "id": "B",
+      "text": "Arrange a professional Polish interpreter to go through the form with him.",
+      "brief": "Makes sure his consent is properly informed, in his own language.",
+      "detailed": "Conversational English doesn't always extend to medical risks. A professional interpreter, in person or by phone, can go through the form and answer his questions accurately."
+    },
+    {
+      "id": "C",
+      "text": "Explain that the consent form is a formality, as the registrar has already explained the operation.",
+      "brief": "Consent is about understanding, not the form, and he has said he isn't sure.",
+      "detailed": "The discussion matters more than the form, but he has told you he wants to be sure he understands the risks. Dismissing this undermines his consent."
+    },
+    {
+      "id": "D",
+      "text": "Use an online translation tool to translate the form for him.",
+      "brief": "Machine translation of medical risks may be inaccurate.",
+      "detailed": "Online tools can help with simple phrases, but they may mistranslate medical terms."
+    },
+    {
+      "id": "E",
+      "text": "Ask him to sign now, and say you'll arrange a translation for him to keep.",
+      "brief": "Consent should come after understanding, not before.",
+      "detailed": "Providing a translation is helpful, but asking him to sign before he understands undermines the purpose of consent."
+    },
+    {
+      "id": "F",
+      "text": "Check whether the trust has written information about the operation in Polish.",
+      "brief": "Translated information helps him understand and remember the risks.",
+      "detailed": "Many trusts have patient information leaflets in common languages. Written information he can read in his own time supports an informed decision."
+    },
+    {
+      "id": "G",
+      "text": "Reassure him that he doesn't need to sign until he understands.",
+      "brief": "Respects his request and makes clear he won't be rushed.",
+      "detailed": "The operation is planned, so there is time. Making clear that he can take time to understand before signing respects his request."
+    },
+    {
+      "id": "H",
+      "text": "Postpone his operation until a translated consent form can be produced.",
+      "brief": "Probably unnecessary, as an interpreter can help today.",
+      "detailed": "Postponing may be needed if he can't be helped to understand in time, but an interpreter can usually help today."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to a patient's language needs so that his consent is properly informed.",
+    "keyDetails": "He speaks conversational English but wants to understand the risks in Polish. The operation is planned for tomorrow.",
+    "reasoning": "[B] provides professional interpreting, [F] offers written information in his language, and [G] reassures him he won't be rushed. The distractors use unreliable translation ([A], [D]), dismiss his request ([C]), reverse the order of consent ([E]), or delay unnecessarily ([H]).",
+    "competing": "[A] is the tempting option because it's quick and his son is fluent, but family members aren't suitable interpreters for consent."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Making sure patients have information in a form they can understand, including using interpreters."
+    }
+  ],
+  "tags": [
+    "consent",
+    "interpreters",
+    "language",
+    "surgery"
+  ]
+}

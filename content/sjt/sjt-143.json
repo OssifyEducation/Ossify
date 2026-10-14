@@ -1,0 +1,84 @@
+{
+  "id": "sjt-143",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-143",
+  "format": "ranking",
+  "title": "The patient in the next bed",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Courtesy",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. Mrs Moore is visiting her husband. As you finish speaking with her, she points to the next bed and says, \"That's Tom Fielding — he's a family friend. How is he doing? His wife hasn't been answering her phone.\"\n\nMr Fielding is seriously ill.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her how he is, as she is a family friend.",
+      "brief": "Breaches his confidentiality.",
+      "detailed": "Being a friend doesn't entitle her to his information. This is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Suggest she keeps trying his wife, who can decide what to share.",
+      "brief": "Points her to the person who can share information.",
+      "detailed": "Mr Fielding's wife can decide what to share with friends. Suggesting this helps Mrs Moore without breaching confidentiality."
+    },
+    {
+      "id": "C",
+      "text": "Politely explain that you can't discuss other patients.",
+      "brief": "Kind and clear, and protects his confidentiality.",
+      "detailed": "Mrs Moore's concern is genuine, but Mr Fielding's information is confidential. Explaining this politely, without confirming anything about his condition, is the right response."
+    },
+    {
+      "id": "D",
+      "text": "Offer to let his nurse know that a friend asked after him.",
+      "brief": "A kind gesture that passes on her concern without disclosing anything.",
+      "detailed": "His family may appreciate knowing friends are asking. Passing this on, without sharing anything with Mrs Moore, is harmless and kind. It ranks third because it's less important than protecting his confidentiality."
+    },
+    {
+      "id": "E",
+      "text": "Tell her he is being well looked after, without giving details.",
+      "brief": "Still discusses his care with someone not entitled to it.",
+      "detailed": "This seems harmless and kind, but it still discusses his care with someone who isn't entitled to information about him, and may give a misleading impression of how he is."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "D",
+      "E",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you protect a patient's confidentiality when someone close to him asks, kindly and clearly.",
+    "keyDetails": "Mrs Moore is a friend, not family. Mr Fielding is seriously ill. His wife can decide what to share.",
+    "reasoning": "[C] protects his confidentiality, [B] points her to his wife, and [D] passes on her concern. [E] and [A] both disclose information, with [A] disclosing more.",
+    "competing": "Some would see [E] as harmless, but any information about his condition is confidential."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Not sharing information about patients with friends without consent."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "visitors",
+    "intensive care"
+  ]
+}

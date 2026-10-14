@@ -1,0 +1,92 @@
+{
+  "id": "sjt-131",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-131",
+  "format": "ranking",
+  "title": "A handover at 23:00",
+  "setting": "Out-of-hours / community",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Raising concerns",
+    "Professional judgement"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor finishing an evening shift at an out-of-hours GP base. At 23:00 you hand over to Dr Lowe, who is working overnight.\n\nYou notice a strong smell of cannabis, his eyes are red, and he seems slow to respond. A colleague mentioned last week that she had noticed the same thing. He'll be the only doctor on overnight. The shift's clinical lead is in the building.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Hand over, and email the clinical lead your concerns tonight.",
+      "brief": "Raises the concern, but may not be read until it's too late.",
+      "detailed": "Writing it down creates a record, but the clinical lead may not see an email until the morning, by which time patients may have been at risk."
+    },
+    {
+      "id": "B",
+      "text": "Speak to Dr Lowe privately about what you have noticed.",
+      "brief": "Gives him the chance to explain or step back.",
+      "detailed": "There may be an explanation, but a private conversation gives him the chance to respond, and he may decide himself that he shouldn't work. It ranks second because it doesn't, on its own, protect patients if he insists he's fine."
+    },
+    {
+      "id": "C",
+      "text": "Tell the shift's clinical lead your concern before you leave.",
+      "brief": "The clinical lead can assess whether he's fit to work and arrange cover.",
+      "detailed": "He will be the only doctor overnight, so patients may be at risk tonight. The clinical lead is responsible for the service and can make a judgement, and arrange cover if needed."
+    },
+    {
+      "id": "D",
+      "text": "Hand over as normal, as you can't be sure he has used cannabis.",
+      "brief": "Leaves patients at risk overnight.",
+      "detailed": "You can't be certain, but the signs are clear enough, and the stakes high enough, that you need to raise it. Doing nothing is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Mention your concern to the receptionist and driver on shift.",
+      "brief": "Spreads an unverified concern without getting it to someone who can act.",
+      "detailed": "They may notice problems overnight, but they aren't able to assess or act on his fitness to work, and telling them may unfairly damage his reputation."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "A",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a concern that a colleague may be impaired, when patients will depend on him overnight.",
+    "keyDetails": "He will be the only doctor overnight. The signs are clear, and a colleague has noticed the same before. You are about to leave.",
+    "reasoning": "[C] gets someone who can act, [B] gives him the chance to respond, and [A] raises it but too slowly. [E] spreads the concern unhelpfully, and [D] ignores the risk.",
+    "competing": "Some would speak to Dr Lowe first. That's reasonable; the key puts the clinical lead first because he will be alone overnight, and the decision about his fitness isn't yours or his alone."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when a colleague may not be fit to practise."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns promptly when patients may be at risk."
+    }
+  ],
+  "tags": [
+    "impaired colleague",
+    "substance use",
+    "out-of-hours",
+    "patient safety"
+  ]
+}

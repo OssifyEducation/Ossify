@@ -1,0 +1,85 @@
+{
+  "id": "sjt-137",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-137",
+  "format": "ranking",
+  "title": "Before the inspection",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honest records",
+    "Raising concerns",
+    "Integrity under pressure"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in intensive care. An inspection is due next week. The audit nurse has found that hourly observations for one patient are missing for six hours of last Tuesday's night shift, when you were the doctor covering the unit.\n\nAs you reviewed the patient that night, she asks you to fill them in from memory, saying, \"They were probably normal, and it'll look terrible if they're blank.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Fill in the observations as asked, as they were probably normal.",
+      "brief": "Falsifies the record.",
+      "detailed": "This would create a false record before an inspection. It is dishonest and is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Let the nurse in charge know about the missing records.",
+      "brief": "The nursing lead should know, though this follows declining.",
+      "detailed": "Observations are usually recorded by nurses, so the nurse in charge needs to know. It ranks third because declining and reporting it come first."
+    },
+    {
+      "id": "C",
+      "text": "Suggest the gap is reported as an incident, so the reason can be looked into.",
+      "brief": "A missing record may mean missed observations, which matters for safety.",
+      "detailed": "A six-hour gap may mean observations weren't done, or weren't recorded. Reporting it means the reason can be found and addressed."
+    },
+    {
+      "id": "D",
+      "text": "Fill in only the values you are confident about, marking them as retrospective.",
+      "brief": "Late entries can be legitimate, but not observations reconstructed from memory a week later.",
+      "detailed": "Retrospective entries are acceptable when clearly marked and based on genuine knowledge, such as notes made at the time. Observation values remembered a week later aren't reliable."
+    },
+    {
+      "id": "E",
+      "text": "Decline, explaining that you can't fill in observations you don't have a record of.",
+      "brief": "Records must reflect what was actually measured.",
+      "detailed": "Writing in values from memory, a week later, would be guesswork presented as fact. Declining, and explaining why, keeps the record honest."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "B",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep records honest under pressure, and treat a gap in observations as a safety issue rather than an appearance problem.",
+    "keyDetails": "The observations are a week old and weren't recorded. An inspection is due. The nurse wants the gap filled.",
+    "reasoning": "[E] keeps the record honest, [C] treats the gap as a safety issue, and [B] informs the nursing lead. [D] is a reconstruction presented as a record, and [A] is falsification.",
+    "competing": "[D] looks honest because it's labelled as retrospective, but values remembered a week later aren't reliable enough to record as observations."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in records; Domain 1, keeping clear and accurate records made at the time."
+    }
+  ],
+  "tags": [
+    "records",
+    "falsification",
+    "inspection",
+    "intensive care"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "sjt-130",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-130",
+  "format": "multiple_choice",
+  "title": "Parents who disagree",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Supporting families",
+    "Shared decision-making",
+    "Escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a paediatric ward. Max, 4, has a severe neurodegenerative condition and is in hospital with his third chest infection this year. The consultant has discussed with his parents whether he should be ventilated again if he deteriorates.\n\nHis mother wants to focus on his comfort; his father wants everything done. Both have parental responsibility. This afternoon his father asks you to promise that Max will be ventilated if needed.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Listen to his father's views and worries.",
+      "brief": "Understanding his perspective is the first step.",
+      "detailed": "His father may be frightened of losing his son or feel he is giving up on him. Listening carefully, without judgement, shows respect and may reveal what matters most to him."
+    },
+    {
+      "id": "B",
+      "text": "Reassure him that Max will be ventilated if he needs it.",
+      "brief": "A promise you can't make.",
+      "detailed": "This would comfort him now, but the decision hasn't been made, and the promise could set up conflict with his wife and the team."
+    },
+    {
+      "id": "C",
+      "text": "Tell him the mother's view should take priority, as she is Max's main carer.",
+      "brief": "Both parents have parental responsibility.",
+      "detailed": "Being Max's main carer doesn't give her view priority. Both parents have parental responsibility, and decisions should be made in Max's best interests."
+    },
+    {
+      "id": "D",
+      "text": "Explain that you can't promise this, as it's a shared decision.",
+      "brief": "Honest about your role and the shared decision.",
+      "detailed": "Promising something you can't guarantee would be dishonest and could undermine the consultant's discussions with both parents. Explaining that the decision will be made with the consultant and both parents is honest."
+    },
+    {
+      "id": "E",
+      "text": "Let the consultant know about the conversation and the parents' disagreement.",
+      "brief": "The consultant needs to know, and may arrange further support.",
+      "detailed": "The consultant may arrange another meeting, involve the palliative care team, or seek further advice if the disagreement can't be resolved."
+    },
+    {
+      "id": "F",
+      "text": "Suggest that he applies to the court if he disagrees.",
+      "brief": "Premature; disagreements are usually resolved through discussion.",
+      "detailed": "Courts can resolve disagreements about children's treatment, but suggesting this to a parent at this stage is premature and could escalate the conflict."
+    },
+    {
+      "id": "G",
+      "text": "Tell him that doctors make decisions about ventilation, not parents.",
+      "brief": "Dismisses the parents' role in decisions about their son.",
+      "detailed": "Doctors don't have to provide treatment they don't believe is in a child's best interests, but parents should be fully involved in these decisions. This is dismissive."
+    },
+    {
+      "id": "H",
+      "text": "Suggest he talks to his wife to reach agreement before speaking to the team again.",
+      "brief": "Puts the burden of resolving the disagreement on the parents.",
+      "detailed": "Parents talking to each other may help, but it's the team's role to support them in reaching a decision, not to leave them to resolve it alone."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a parent in a disagreement over end-of-life care for a child, honestly and within your role.",
+    "keyDetails": "Both parents have parental responsibility. The consultant is leading the discussion. Max's father wants a promise you can't give.",
+    "reasoning": "[A] listens, [D] is honest about how the decision will be made, and [E] keeps the consultant informed. The distractors make a promise you can't keep ([B]), take sides ([C]), escalate prematurely ([F]), dismiss the parents' role ([G]), or leave them to resolve it alone ([H]).",
+    "competing": "[H] may seem helpful, but the team should support both parents to reach a decision in Max's best interests."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Decision-making with parents, including when they disagree."
+    },
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Decisions about life-sustaining treatment, including for children."
+    }
+  ],
+  "tags": [
+    "end of life",
+    "parents",
+    "ventilation",
+    "paediatrics"
+  ]
+}

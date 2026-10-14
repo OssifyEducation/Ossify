@@ -1,0 +1,78 @@
+{
+  "id": "sjt-145",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-145",
+  "format": "ranking",
+  "title": "\"There's no point\"",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Recognising depression",
+    "Risk assessment",
+    "Compassion"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Bell, 81, is recovering from a fall. Her husband of 55 years died two months ago.\n\nThe nurses say she has eaten very little for several days. When you ask her about it, she says quietly, \"There's no point any more.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the dietitian to review her intake.",
+      "brief": "Her nutrition matters, but the cause needs addressing.",
+      "detailed": "Poor intake in an older person is a concern, and a dietitian can help. It ranks third because her mood is the likely cause."
+    },
+    {
+      "id": "B",
+      "text": "Sit with her, and gently ask how she has been feeling.",
+      "brief": "Her words may reflect grief, depression, or suicidal thoughts, and need exploring.",
+      "detailed": "Older people who have been recently bereaved are at higher risk of depression and suicide. Asking gently and directly about how she feels, including about suicidal thoughts, is the only way to know, and doesn't increase risk."
+    },
+    {
+      "id": "C",
+      "text": "Encourage her to eat, explaining that she needs to keep her strength up.",
+      "brief": "Well meant, but misses what she is telling you.",
+      "detailed": "This is a natural response, but it doesn't address what lies behind \"there's no point\"."
+    },
+    {
+      "id": "D",
+      "text": "Discuss her with your senior, and consider a referral to the liaison psychiatry team.",
+      "brief": "She may need specialist assessment.",
+      "detailed": "Her low mood and poor intake may need specialist assessment and support. It ranks second because talking to her first helps you understand what she needs."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise possible depression and suicide risk in a bereaved older patient, and respond with care.",
+    "keyDetails": "She was recently widowed. She has stopped eating. She says there's no point.",
+    "reasoning": "[B] explores her feelings and risk, [D] gets specialist help, and [A] addresses her nutrition. [C] misses what she is telling you.",
+    "competing": "Some would refer to the dietitian earlier, given her poor intake, but addressing the cause comes first."
+  },
+  "references": [
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Asking about suicidal thoughts and responding to people at risk."
+    }
+  ],
+  "tags": [
+    "bereavement",
+    "depression",
+    "older people",
+    "suicide risk"
+  ]
+}

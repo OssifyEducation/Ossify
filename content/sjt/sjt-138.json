@@ -1,0 +1,110 @@
+{
+  "id": "sjt-138",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-138",
+  "format": "multiple_choice",
+  "title": "No scan tonight",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Escalating concerns",
+    "Clinical reasoning",
+    "Professional communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a surgical night shift. Mrs Clark, 72, has worsening abdominal pain two days after a colonoscopy. She is tender across her abdomen, her heart rate is 112, and her lactate is 3.1.\n\nYou suspect a perforation. The registrar, who is very busy in ED, says over the phone that it's probably constipation and that a CT can wait until the morning.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Request the CT scan yourself, without discussing it further.",
+      "brief": "Goes around the registrar without telling them.",
+      "detailed": "You may be right that she needs a scan, but requesting it without discussion undermines the registrar and may not be accepted by radiology."
+    },
+    {
+      "id": "B",
+      "text": "Accept the registrar's decision, as they are more experienced.",
+      "brief": "Seniority doesn't remove your responsibility to act on your concerns.",
+      "detailed": "The registrar's judgement deserves respect, but her findings are concerning, and you should make sure they've been fully considered."
+    },
+    {
+      "id": "C",
+      "text": "Explain your findings to the registrar again, specifically.",
+      "brief": "Clear, specific information may change the decision.",
+      "detailed": "The registrar may not have taken in her heart rate, lactate and recent colonoscopy. Repeating them clearly, using a structured format such as SBAR, gives them the full picture."
+    },
+    {
+      "id": "D",
+      "text": "Tell Mrs Clark that you think the registrar is wrong.",
+      "brief": "Undermines the team and may frighten her.",
+      "detailed": "Being honest with patients matters, but telling her you disagree with your senior isn't helpful and may cause distress."
+    },
+    {
+      "id": "E",
+      "text": "Ask the registrar to come and review her.",
+      "brief": "A senior review in person may change the decision.",
+      "detailed": "Her findings justify a senior assessment. Asking the registrar to see her, when they can, is a reasonable request."
+    },
+    {
+      "id": "F",
+      "text": "Arrange an erect chest X-ray yourself to gather more evidence.",
+      "brief": "May help, but isn't the main issue and may be falsely reassuring.",
+      "detailed": "An erect chest X-ray can show free air, and requesting one is within your role. But a normal X-ray doesn't rule out perforation, and it doesn't address the need for senior review."
+    },
+    {
+      "id": "G",
+      "text": "Document your disagreement in the notes and review her in the morning.",
+      "brief": "Documents the concern without acting on it.",
+      "detailed": "A record is important, but it doesn't help her tonight."
+    },
+    {
+      "id": "H",
+      "text": "Tell the registrar that you'd like to discuss her with the on-call consultant.",
+      "brief": "Open escalation is appropriate when you remain worried about a sick patient.",
+      "detailed": "If you're still concerned, you can escalate further. Telling the registrar first keeps it open and respectful, and is better for the team than going behind their back."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you escalate a concern about a sick patient when a busy senior disagrees, clearly and respectfully.",
+    "keyDetails": "She has tachycardia, a raised lactate and abdominal tenderness after a colonoscopy. The registrar is busy and hasn't seen her.",
+    "reasoning": "[C] gives the registrar the full picture, [E] asks for a review, and [H] escalates openly. The distractors go around the registrar ([A]), accept a decision you're worried about ([B], [G]), involve the patient inappropriately ([D]), or rely on an investigation that may mislead ([F]).",
+    "competing": "[F] is the hard distractor: an erect chest X-ray is a reasonable test, but it can be falsely reassuring and doesn't replace a senior review. Whatever the decision about imaging, you should also start appropriate treatment for possible sepsis while you escalate."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, escalating concerns about patients' safety."
+    },
+    {
+      "title": "National Early Warning Score (NEWS) 2",
+      "publisher": "Royal College of Physicians",
+      "year": 2017,
+      "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/",
+      "note": "Escalating care for patients with abnormal physiology."
+    }
+  ],
+  "tags": [
+    "escalation",
+    "seniors",
+    "perforation",
+    "surgery"
+  ]
+}

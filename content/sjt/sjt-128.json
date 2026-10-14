@@ -1,0 +1,109 @@
+{
+  "id": "sjt-128",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-128",
+  "format": "multiple_choice",
+  "title": "A pattern of prescribing errors",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Supporting colleagues",
+    "Raising concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. The ward pharmacist tells you that Dr Grey, an F1 on your team, has made five prescribing errors this week, including a tenfold dose error that was caught before it reached the patient.\n\nThe pharmacist asks you not to say that she was the one who raised it, as she works closely with Dr Grey.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the pharmacist you can't act unless she agrees to be named.",
+      "brief": "Patient safety concerns can be raised without naming the source.",
+      "detailed": "Being open is important, but you can act on the concern without naming her. Refusing to act leaves the risk in place."
+    },
+    {
+      "id": "B",
+      "text": "Check all of Dr Grey's prescriptions yourself for the rest of the week.",
+      "brief": "Well meant, but not sustainable or a solution.",
+      "detailed": "This may catch errors in the short term, but you can't check every prescription, and it doesn't address why the errors are happening."
+    },
+    {
+      "id": "C",
+      "text": "Tell Dr Grey that the pharmacist has been reporting her errors.",
+      "brief": "Breaks the pharmacist's request and may damage their working relationship.",
+      "detailed": "You can raise the errors without saying who told you. Naming the pharmacist goes against her request and could make it harder for her to raise concerns again."
+    },
+    {
+      "id": "D",
+      "text": "Encourage the pharmacist to report the errors through the incident reporting system.",
+      "brief": "Formal reporting allows patterns to be spotted and addressed.",
+      "detailed": "Incident reports are how a trust learns about patterns of errors. Pharmacists routinely report errors they intercept as part of their role, so reporting them needn't identify her as the person who raised the pattern with you."
+    },
+    {
+      "id": "E",
+      "text": "Speak to Dr Grey supportively about her prescribing.",
+      "brief": "She may be struggling, and may not realise the pattern.",
+      "detailed": "A tenfold error suggests she may be under pressure or unsure of something. A supportive conversation, focused on helping her, may reveal the cause, and you can discuss errors you know of without naming the pharmacist."
+    },
+    {
+      "id": "F",
+      "text": "Leave it to the pharmacist, as the errors were caught.",
+      "brief": "Errors caught this time may not be caught next time.",
+      "detailed": "The system worked this week, but a pattern of errors means patients are at risk."
+    },
+    {
+      "id": "G",
+      "text": "Let your consultant or Dr Grey's clinical supervisor know about the pattern.",
+      "brief": "A pattern of serious errors needs senior support.",
+      "detailed": "Repeated errors, including a potentially serious one, need her supervisor's involvement so she can be supported and patients protected. This isn't a disciplinary step."
+    },
+    {
+      "id": "H",
+      "text": "Raise Dr Grey's errors at the next team meeting, so everyone can learn.",
+      "brief": "Group learning is useful, but naming her publicly isn't.",
+      "detailed": "Learning from errors as a team is valuable, but discussing an individual's errors in a meeting could humiliate her."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a pattern of errors by a colleague, protecting patients and supporting her, while respecting the person who raised it.",
+    "keyDetails": "Five errors in a week, including a tenfold dose. The pharmacist doesn't want to be named. Dr Grey may be struggling.",
+    "reasoning": "[D] makes sure the errors are formally recorded, [E] supports Dr Grey, and [G] involves her supervisor. The distractors fail to act ([A], [F]), address the symptom not the cause ([B]), betray the pharmacist ([C]), or are public ([H]).",
+    "competing": "[B] is tempting because it protects patients in the short term, but it doesn't solve the problem."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when a colleague's performance may put patients at risk, and supporting them."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about patient safety."
+    }
+  ],
+  "tags": [
+    "prescribing errors",
+    "colleagues",
+    "pharmacists",
+    "patient safety"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-126",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-126",
+  "format": "multiple_choice",
+  "title": "Bleeding on the postnatal ward",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Emergency response",
+    "Delegation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the postnatal ward. You are writing the discharge prescription for a woman whose husband is waiting to take her home, and the midwife has asked you to finish it quickly.\n\nAnother midwife runs in to say that Mrs Ali, who gave birth an hour ago, is bleeding heavily and looks pale. She has pulled the emergency buzzer.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Finish the discharge prescription first, as it will only take two minutes.",
+      "brief": "Even two minutes matters in a haemorrhage.",
+      "detailed": "It may feel efficient to finish, but the bleeding woman needs help now, and you can return to the prescription afterwards."
+    },
+    {
+      "id": "B",
+      "text": "Go to Mrs Ali straight away.",
+      "brief": "A postpartum haemorrhage is an emergency, and you need to be there.",
+      "detailed": "Heavy bleeding after birth can become life-threatening within minutes. Going straight away lets you help assess her and start treatment alongside the midwives."
+    },
+    {
+      "id": "C",
+      "text": "Make sure the obstetric registrar has been called.",
+      "brief": "A senior obstetrician needs to lead the response.",
+      "detailed": "The emergency buzzer usually summons help, but checking that the registrar is on the way makes sure senior help arrives. Postpartum haemorrhage needs experienced management."
+    },
+    {
+      "id": "D",
+      "text": "Ask the midwife to start the haemorrhage protocol, and say you'll come once you've finished.",
+      "brief": "Midwives can start treatment, but a doctor is needed now.",
+      "detailed": "Midwives are trained to begin managing a postpartum haemorrhage, which makes this tempting. But she has called for medical help, and you should go."
+    },
+    {
+      "id": "E",
+      "text": "Phone the anaesthetist yourself before going to see Mrs Ali.",
+      "brief": "The anaesthetist may be needed, but the emergency call usually summons them, and you should attend first.",
+      "detailed": "Anaesthetic support is often needed in a major haemorrhage, but the obstetric emergency team is normally summoned by the buzzer. Phoning separately delays your arrival."
+    },
+    {
+      "id": "F",
+      "text": "Ask the waiting husband to be patient, explaining that there's an emergency on the ward.",
+      "brief": "Not your priority, and discloses information about another patient.",
+      "detailed": "He may need to be told there's a delay, but that isn't your job now, and mentioning an emergency on the ward isn't necessary."
+    },
+    {
+      "id": "G",
+      "text": "Ask another F2 to finish the discharge prescription before you go.",
+      "brief": "Organising the prescription delays you reaching the emergency.",
+      "detailed": "Delegating is sensible later, but arranging it before you go delays your response to a life-threatening situation."
+    },
+    {
+      "id": "H",
+      "text": "Tell the first midwife that the discharge prescription will have to wait.",
+      "brief": "Keeps your colleague informed so she can explain the delay to the family.",
+      "detailed": "The discharge isn't urgent. Letting the midwife know means she can explain to the woman and her husband, rather than leaving them wondering."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise an emergency and prioritise it over routine work, while keeping colleagues informed.",
+    "keyDetails": "Mrs Ali is bleeding heavily and looks pale, an hour after birth. The emergency buzzer has been pulled. The discharge is routine.",
+    "reasoning": "[B] responds to the emergency, [C] makes sure senior help is coming, and [H] lets your colleague manage the routine task. The distractors delay your response ([A], [D], [E], [G]), or focus on the wrong person ([F]).",
+    "competing": "[D] is tempting because midwives do start haemorrhage management, but she has called for medical help."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising patients according to clinical need, and responding in emergencies."
+    }
+  ],
+  "tags": [
+    "postpartum haemorrhage",
+    "prioritisation",
+    "emergencies",
+    "obstetrics"
+  ]
+}

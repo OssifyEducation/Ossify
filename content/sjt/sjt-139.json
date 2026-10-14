@@ -1,0 +1,93 @@
+{
+  "id": "sjt-139",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-139",
+  "format": "ranking",
+  "title": "Old fractures on the X-ray",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Documentation",
+    "Communication with parents"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the fracture clinic. Isla, 11 months, has a clavicle fracture. Her parents say she fell from a changing table yesterday.\n\nThe radiologist's report also notes healing fractures of several ribs at the back of her chest, probably a few weeks old. Her parents haven't mentioned any earlier injury.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange fracture clinic follow-up for the clavicle, as the rib fractures are healing.",
+      "brief": "Misses a serious safeguarding concern.",
+      "detailed": "The rib fractures may be healing, but their presence in an infant, unexplained, is a major warning sign. Sending her home could put her at serious risk."
+    },
+    {
+      "id": "B",
+      "text": "Record the history her parents gave, and the X-ray findings, carefully.",
+      "brief": "An accurate record is vital in any safeguarding process.",
+      "detailed": "Writing down exactly what the parents said, when, and what the X-ray shows supports a fair assessment. It ranks second because getting the right people involved comes first."
+    },
+    {
+      "id": "C",
+      "text": "Ask her parents directly whether they have hurt her.",
+      "brief": "Accusatory, and could compromise the assessment.",
+      "detailed": "This may feel direct and honest, but it's accusatory before any assessment, and could put Isla at risk if they take her home."
+    },
+    {
+      "id": "D",
+      "text": "Discuss Isla urgently with the on-call paediatric registrar and the safeguarding team.",
+      "brief": "Unexplained rib fractures in an infant need urgent safeguarding assessment.",
+      "detailed": "Posterior rib fractures in a baby are strongly associated with non-accidental injury and need urgent assessment by paediatrics and the safeguarding team, who will decide on further tests and involving children's social care."
+    },
+    {
+      "id": "E",
+      "text": "Explain to her parents that the X-ray shows older injuries that need to be looked into.",
+      "brief": "Being open with parents is usually right, but how and when should be agreed with seniors.",
+      "detailed": "Parents should usually be told about safeguarding concerns, unless that would put the child at risk. The decision about what to say, and when, should be made with the paediatric and safeguarding team."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "E",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise a serious safeguarding sign in an infant and act through the proper routes.",
+    "keyDetails": "Isla is 11 months old. Posterior rib fractures are highly suspicious. The parents haven't given an explanation.",
+    "reasoning": "[D] gets urgent specialist involvement, [B] records the facts, and [E] is open with the parents but should be agreed with seniors. [C] is accusatory, and [A] misses the concern.",
+    "competing": "This is hard because [B] and [E] are both appropriate. The key puts the record first because it's always needed, whereas what to tell the parents, and when, depends on the safeguarding team's advice."
+  },
+  "references": [
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Acting when a child may be at risk of significant harm."
+    },
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Doctors' responsibilities to protect children."
+    }
+  ],
+  "tags": [
+    "child safeguarding",
+    "non-accidental injury",
+    "fractures",
+    "infants"
+  ]
+}

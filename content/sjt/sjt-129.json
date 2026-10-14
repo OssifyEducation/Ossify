@@ -1,0 +1,86 @@
+{
+  "id": "sjt-129",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-129",
+  "format": "ranking",
+  "title": "How much warfarin?",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Safe prescribing",
+    "Handover",
+    "Clarifying uncertainty"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an evening shift in cardiology. A nurse asks you to prescribe tonight's warfarin for Mr Hunt, 75, who takes it for atrial fibrillation. Today's INR is 2.4.\n\nThe day team didn't mention it at handover. The only record is a handwritten note on the drug chart saying \"5 mg? — check\". Mr Hunt is asleep, and the day doctor has gone home but is usually reachable by phone.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Prescribe 5 mg, as noted on the chart.",
+      "brief": "A dose marked \"check\" hasn't been confirmed.",
+      "detailed": "The note itself says it needs checking. Prescribing an unconfirmed warfarin dose risks bleeding or under-treatment."
+    },
+    {
+      "id": "B",
+      "text": "Ask the on-call pharmacist for advice.",
+      "brief": "A pharmacist can help, though they may need the same records.",
+      "detailed": "Pharmacists are expert in anticoagulation and may have access to his records. It ranks third because you can usually check the records yourself first."
+    },
+    {
+      "id": "C",
+      "text": "Phone the day doctor to ask about the dose.",
+      "brief": "They may know what was intended, though they may not answer.",
+      "detailed": "The day doctor may have been about to clarify the dose. It ranks second because the records are more reliable, and the doctor may not be reachable."
+    },
+    {
+      "id": "D",
+      "text": "Omit tonight's dose, and leave it for the day team to sort out.",
+      "brief": "One missed dose is low risk at this INR, but leaving it unresolved isn't ideal.",
+      "detailed": "With an INR of 2.4, missing one dose for atrial fibrillation carries little immediate risk, so this is safer than guessing. But it leaves the problem for others when you could probably resolve it."
+    },
+    {
+      "id": "E",
+      "text": "Check his records to find his usual warfarin dose.",
+      "brief": "His records should show the dose that has kept his INR in range.",
+      "detailed": "His anticoagulation clinic record, GP prescription list or admission medicines reconciliation should show his usual dose. With an INR of 2.4, his usual dose is probably the right one."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "B",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you deal with an unclear handover of a high-risk drug, resolving the uncertainty rather than guessing or passing it on.",
+    "keyDetails": "Warfarin is high-risk. The only note says \"check\". His INR is in range. His records are likely to show his usual dose.",
+    "reasoning": "[E] finds the reliable answer, [C] asks the person who may know, and [B] gets expert help. [D] avoids harm but leaves it unresolved, and [A] prescribes an unconfirmed dose.",
+    "competing": "This is hard because [D] is not unsafe: one omitted dose at this INR is low risk. It ranks below the other options because you can usually resolve the question tonight, and above [A] because guessing a warfarin dose is riskier than omitting one."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Making sure you have enough information to prescribe safely."
+    }
+  ],
+  "tags": [
+    "warfarin",
+    "handover",
+    "prescribing",
+    "anticoagulation"
+  ]
+}

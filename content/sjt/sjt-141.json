@@ -1,0 +1,86 @@
+{
+  "id": "sjt-141",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-141",
+  "format": "ranking",
+  "title": "A research opportunity",
+  "setting": "Non-clinical (training)",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Managing your training",
+    "Teamwork",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. A professor offers you the chance to join a research project, which would strengthen your application for academic training. It involves four half-day sessions over the next month.\n\nThree of the sessions clash with your rostered ward shifts, and your team is already short of doctors.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Discuss the opportunity with your educational supervisor.",
+      "brief": "Your supervisor can advise, and may support study leave.",
+      "detailed": "Your supervisor can help you weigh the opportunity against your training needs and may support a request for study leave, which is the proper route for time out of clinical work. This is the natural first step."
+    },
+    {
+      "id": "B",
+      "text": "Ask the professor whether the sessions could be scheduled differently.",
+      "brief": "May help, but depends on the research team's flexibility.",
+      "detailed": "There may be some flexibility, which would avoid the clash. It ranks third because you can't rely on it."
+    },
+    {
+      "id": "C",
+      "text": "Decline the opportunity, as service commitments come first.",
+      "brief": "Safe, but gives up an opportunity that could probably be arranged.",
+      "detailed": "Putting patients first is important, but this may be a valuable opportunity that could be fitted in with planning. Declining without trying is overly cautious."
+    },
+    {
+      "id": "D",
+      "text": "Ask the rota coordinator whether any shifts could be swapped.",
+      "brief": "Proper swaps keep the ward staffed while allowing you to take part.",
+      "detailed": "Rota coordinators can often arrange swaps, keeping the ward staffed. It ranks second because your supervisor's support, and any study leave, come first."
+    },
+    {
+      "id": "E",
+      "text": "Call in sick on the days that clash.",
+      "brief": "Dishonest, and leaves the ward short.",
+      "detailed": "This is dishonest and puts extra pressure on an already short-staffed team. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "B",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you balance a training opportunity against service commitments, honestly and through proper routes.",
+    "keyDetails": "The opportunity is valuable. Three sessions clash with shifts. The team is short-staffed.",
+    "reasoning": "[A] gets advice and support for study leave, [D] looks for proper swaps, and [B] explores flexibility. [C] gives up too readily, and [E] is dishonest.",
+    "competing": "Some would go straight to the rota coordinator, as swaps are the practical fix. The key starts with your supervisor because study leave for research is agreed through them, and their support makes any rota change easier."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, managing your development; Domain 4, honesty with employers."
+    }
+  ],
+  "tags": [
+    "research",
+    "rotas",
+    "study leave",
+    "training"
+  ]
+}

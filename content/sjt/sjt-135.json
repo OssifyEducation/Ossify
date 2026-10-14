@@ -1,0 +1,79 @@
+{
+  "id": "sjt-135",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-135",
+  "format": "ranking",
+  "title": "Unwell mid-shift",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Fitness to work",
+    "Infection control",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an evening out-of-hours GP shift. Halfway through, you start vomiting and have diarrhoea. You feel weak, and you suspect norovirus, which is going round your household.\n\nThere are three calls waiting for you, including two home visits to care homes.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the clinical lead now, and arrange to hand over your waiting calls.",
+      "brief": "You aren't fit to work, and the calls need reallocating.",
+      "detailed": "You are unwell and probably infectious, and home visits to care homes risk spreading norovirus to frail residents. Telling the clinical lead straight away lets them reallocate your calls."
+    },
+    {
+      "id": "B",
+      "text": "Carry on with your shift, taking fluids and anti-diarrhoeal medication.",
+      "brief": "Risks spreading infection to vulnerable patients.",
+      "detailed": "Wanting to finish your shift is understandable, but visiting care homes while you probably have norovirus could cause an outbreak among frail residents."
+    },
+    {
+      "id": "C",
+      "text": "Go home, and phone the clinical lead once you get there.",
+      "brief": "Leaving is right, but your calls are left unallocated in the meantime.",
+      "detailed": "You need to stop working, but leaving before telling anyone means your waiting calls sit unallocated until you phone."
+    },
+    {
+      "id": "D",
+      "text": "Phone the most urgent waiting patient yourself, then tell the clinical lead.",
+      "brief": "Well meant, but delays telling the person who can reallocate everything.",
+      "detailed": "Making sure the most urgent patient isn't delayed is a caring instinct, and you can do it from the base without infection risk. But it delays the lead's response, and you may not be well enough."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise that you aren't fit to work and manage stopping safely, protecting patients from infection and making sure their care continues.",
+    "keyDetails": "You are probably infectious. Two calls are to care homes. Calls are waiting.",
+    "reasoning": "[A] stops you working and arranges for your calls to be covered, [D] is well meant but delays the lead, and [C] leaves calls unallocated. [B] puts vulnerable patients at risk of infection.",
+    "competing": "Some would put going home above phoning the urgent patient. The key prefers [D] because it can be done safely by phone and doesn't leave patients unallocated, though [A] is better than both."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, not working when your health may put patients at risk."
+    }
+  ],
+  "tags": [
+    "infection",
+    "fitness to work",
+    "out-of-hours",
+    "care homes"
+  ]
+}

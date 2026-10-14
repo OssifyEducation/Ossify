@@ -1,0 +1,109 @@
+{
+  "id": "sjt-142",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-142",
+  "format": "multiple_choice",
+  "title": "No amputation",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting autonomy",
+    "Exploring concerns",
+    "Informed decisions"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a vascular surgery ward. Mr Ross, 68, has a gangrenous foot from peripheral arterial disease and diabetes. The consultant has recommended a below-knee amputation, without which the infection is likely to spread and could be fatal.\n\nMr Ross says firmly that he won't have his leg amputated. He seems alert and understands what he has been told.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask him about his reasons and what worries him most.",
+      "brief": "Understanding his reasons may reveal concerns that can be addressed.",
+      "detailed": "He may fear losing independence, pain, or how others will see him. Exploring this shows respect and may reveal information or support that would help him decide."
+    },
+    {
+      "id": "B",
+      "text": "Ask his family to persuade him to change his mind.",
+      "brief": "Pressure from family isn't appropriate, and involves them without his consent.",
+      "detailed": "Families can support patients, but enlisting them to change his mind puts pressure on him and may breach his confidentiality."
+    },
+    {
+      "id": "C",
+      "text": "Make sure he understands the likely consequences of refusing, and any alternatives.",
+      "brief": "An informed refusal needs a clear understanding of the risks.",
+      "detailed": "He should understand that the infection may spread and could be fatal, and what other options, including palliative care, might be available. This supports an informed decision, whatever he chooses."
+    },
+    {
+      "id": "D",
+      "text": "Arrange the amputation in his best interests, as refusing could be fatal.",
+      "brief": "A patient with capacity can refuse life-saving treatment.",
+      "detailed": "Best-interests decisions apply only to people who lack capacity. He appears to have capacity, so his refusal must be respected."
+    },
+    {
+      "id": "E",
+      "text": "Accept his decision and document it, without further discussion.",
+      "brief": "Respects autonomy, but misses the chance to make sure his decision is informed.",
+      "detailed": "His decision must be respected, but a decision this serious deserves a careful conversation to make sure he understands and to address his concerns."
+    },
+    {
+      "id": "F",
+      "text": "Ask the psychiatry team to assess him, as refusing life-saving treatment suggests he lacks capacity.",
+      "brief": "An unwise decision isn't evidence of a lack of capacity.",
+      "detailed": "Capacity should be assessed if there's doubt, but refusing treatment, even life-saving treatment, doesn't on its own mean someone lacks capacity."
+    },
+    {
+      "id": "G",
+      "text": "Tell him he will die a painful death if he doesn't agree.",
+      "brief": "Coercive, and may not be accurate.",
+      "detailed": "He should understand the risks, but framing them this way is frightening and coercive, and palliative care can manage pain."
+    },
+    {
+      "id": "H",
+      "text": "Let the consultant know, so they can discuss it with him further.",
+      "brief": "A decision this serious needs senior involvement.",
+      "detailed": "The consultant may want to discuss it again, offer alternatives, or involve other specialists. Keeping them informed is essential."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a patient with capacity refuses life-saving treatment: exploring his reasons and making sure his decision is informed.",
+    "keyDetails": "He appears to have capacity. The consequences of refusing could be fatal. His reasons are unknown.",
+    "reasoning": "[A] explores his reasons, [C] makes sure his decision is informed, and [H] involves the consultant. The distractors pressure or coerce him ([B], [G]), override his decision ([D]), close the discussion too early ([E]), or question his capacity without reason ([F]).",
+    "competing": "[E] looks like respect for autonomy, but a decision this serious deserves a fuller conversation first."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting the decisions of patients with capacity, including refusal of life-saving treatment."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "An unwise decision doesn't mean a lack of capacity."
+    }
+  ],
+  "tags": [
+    "refusal",
+    "capacity",
+    "amputation",
+    "surgery"
+  ]
+}
