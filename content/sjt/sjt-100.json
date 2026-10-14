@@ -1,0 +1,109 @@
+{
+  "id": "sjt-100",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-100",
+  "format": "multiple_choice",
+  "title": "Alcohol on his breath",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Raising concerns",
+    "Supporting colleagues"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor starting a night shift on the medical wards. At handover you notice a strong smell of alcohol on the breath of Dr Byrne, the medical registrar you'll be working with overnight. His speech seems normal, but he is unusually cheerful.\n\nHe will be the most senior doctor in the hospital overnight, apart from the consultant on call from home.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Speak to Dr Byrne privately and tell him what you've noticed.",
+      "brief": "Gives him the chance to explain, or to step aside.",
+      "detailed": "There may be an explanation, but a strong smell of alcohol at the start of a night shift is a serious concern. Raising it with him privately and directly gives him the chance to respond, and may lead him to step back himself."
+    },
+    {
+      "id": "B",
+      "text": "Ignore it, as the alcohol may be from the night before.",
+      "brief": "He may still be over the limit, and patients' safety is at stake.",
+      "detailed": "It may be left over from the previous evening, but alcohol from the night before can still impair judgement. You can't safely ignore it when he will be leading the night's care."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurses to keep an eye on his decisions overnight.",
+      "brief": "Shares the concern informally without addressing it.",
+      "detailed": "This spreads your concern without dealing with it, and puts the nurses in a difficult position."
+    },
+    {
+      "id": "D",
+      "text": "Raise it with him in front of the handover team.",
+      "brief": "Public confrontation is likely to humiliate him.",
+      "detailed": "The concern is serious, but raising it publicly could humiliate him and make him defensive, when a private conversation and the consultant are the right routes."
+    },
+    {
+      "id": "E",
+      "text": "Report him to the GMC straight away.",
+      "brief": "The immediate risk needs managing tonight, locally.",
+      "detailed": "The GMC may become involved later, but it can't act tonight. The priority is to make sure patients are safe, which needs the consultant."
+    },
+    {
+      "id": "F",
+      "text": "Inform the on-call consultant of your concern.",
+      "brief": "The consultant needs to know, as patient safety tonight depends on it.",
+      "detailed": "Dr Byrne will be leading the hospital's medical care overnight. Whatever he says, the consultant must decide whether he is fit to work, and arrange cover if not."
+    },
+    {
+      "id": "G",
+      "text": "Offer to see his patients overnight so that he can rest in the doctors' mess.",
+      "brief": "Covers up the problem and leaves the hospital without a fit senior.",
+      "detailed": "This may feel kind, but it hides the problem, puts you beyond your competence, and leaves the hospital without a registrar overnight."
+    },
+    {
+      "id": "H",
+      "text": "Make a factual note of what you observed, and when.",
+      "brief": "A clear record helps any later review.",
+      "detailed": "Writing down what you noticed, such as the smell and his behaviour, and when, without opinion, supports a fair process if the concern is looked into."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you act when a senior colleague may be impaired by alcohol, putting patient safety first while treating him fairly.",
+    "keyDetails": "He will be the most senior doctor on site. There is a strong smell of alcohol and a change in his manner. The consultant is available by phone.",
+    "reasoning": "[A] raises it directly with him, [F] makes sure the consultant can act, and [H] records the facts. The distractors ignore or minimise the risk ([B], [C]), handle it inappropriately ([D], [E]), or cover it up ([G]).",
+    "competing": "[G] is the most tempting option, but it hides a serious safety problem rather than solving it."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when a colleague may not be fit to practise."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns promptly when patients may be at risk."
+    }
+  ],
+  "tags": [
+    "alcohol",
+    "impaired colleague",
+    "night shift",
+    "patient safety"
+  ]
+}

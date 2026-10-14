@@ -1,0 +1,102 @@
+{
+  "id": "sjt-088",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-088",
+  "format": "multiple_choice",
+  "title": "To mobilise or not",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Multidisciplinary working",
+    "Resolving disagreement",
+    "Clinical assessment"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Grant, 84, was admitted three days ago after a fall. The physiotherapist wants to start walking her today to prevent deconditioning. The nurse looking after her says Mrs Grant was dizzy this morning and refuses to let her get up.\n\nThe two of them come to you in the corridor, both frustrated, and ask you to decide. Your consultant is in clinic until this afternoon.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Support the nurse's decision, as she has been with Mrs Grant all morning.",
+      "brief": "Taking sides before assessing her doesn't resolve the clinical question.",
+      "detailed": "The nurse knows how Mrs Grant has been today, which matters. But siding with her without assessing the dizziness may leave Mrs Grant in bed unnecessarily."
+    },
+    {
+      "id": "B",
+      "text": "Support the physiotherapist, as mobilisation is her area of expertise.",
+      "brief": "Expertise in mobilisation doesn't settle whether the dizziness makes it unsafe.",
+      "detailed": "The physiotherapist is the expert on mobilising patients, but the nurse has raised a clinical concern that needs assessing first."
+    },
+    {
+      "id": "C",
+      "text": "Listen to both of their concerns before giving a view.",
+      "brief": "Each has a valid concern, and hearing both helps you understand the risk.",
+      "detailed": "Both colleagues want what's best for Mrs Grant: the physiotherapist is worried about deconditioning, the nurse about another fall. Listening to both, without taking sides, lowers the tension and gives you the information you need."
+    },
+    {
+      "id": "D",
+      "text": "Ask them to sort out the disagreement between themselves.",
+      "brief": "Leaves the conflict and the clinical question unresolved.",
+      "detailed": "Colleagues can often resolve disagreements themselves, but they have come to you because they can't. Sending them away doesn't help Mrs Grant."
+    },
+    {
+      "id": "E",
+      "text": "Review Mrs Grant yourself, including a lying and standing blood pressure.",
+      "brief": "An assessment can establish whether her dizziness makes walking unsafe today.",
+      "detailed": "Her dizziness may have a cause, such as postural hypotension or a medication effect, which affects whether it's safe to mobilise. Assessing her gives the team a clinical basis for their decision."
+    },
+    {
+      "id": "F",
+      "text": "Keep Mrs Grant in bed until the consultant reviews her this afternoon.",
+      "brief": "Delays a decision you can help make now, and bed rest has risks.",
+      "detailed": "Involving the consultant may be useful, but leaving her in bed all day risks deconditioning, and you can assess her now."
+    },
+    {
+      "id": "G",
+      "text": "Agree a plan with both of them and record it in her notes.",
+      "brief": "A shared, documented plan ends the disagreement and guides the rest of the team.",
+      "detailed": "Once you've heard both views and assessed her, agreeing a plan together, such as sitting her out first or walking with two staff later, and documenting it, means everyone knows what to do."
+    },
+    {
+      "id": "H",
+      "text": "Report the disagreement to the ward manager as a conflict between staff.",
+      "brief": "Disproportionate for a clinical difference of opinion.",
+      "detailed": "Ward managers can help with team conflict, but this is a reasonable clinical disagreement that can be resolved by assessment and discussion."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you resolve a disagreement between colleagues by focusing on the patient and making a shared, documented decision.",
+    "keyDetails": "Both concerns are clinically valid. Mrs Grant was dizzy this morning. The consultant isn't available until the afternoon.",
+    "reasoning": "[C] hears both views, [E] assesses the clinical question, and [G] agrees and records a plan. The distractors take sides without assessment ([A], [B]), avoid the issue ([D], [F]), or escalate disproportionately ([H]).",
+    "competing": "[F] sounds cautious, but bed rest in older patients carries real risks, and you can assess her now."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working collaboratively with colleagues and respecting their skills."
+    }
+  ],
+  "tags": [
+    "multidisciplinary team",
+    "falls",
+    "conflict",
+    "elderly care"
+  ]
+}

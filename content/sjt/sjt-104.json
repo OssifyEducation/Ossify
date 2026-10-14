@@ -1,0 +1,103 @@
+{
+  "id": "sjt-104",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-104",
+  "format": "multiple_choice",
+  "title": "News before surgery",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Fitness to work",
+    "Asking for help",
+    "Self-awareness"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a GP practice. Five minutes before your afternoon surgery, your sister texts to say your father has been taken to hospital with a suspected stroke.\n\nYou feel shaken and can't stop thinking about it. Your first patient is already waiting, and the surgery is fully booked.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell your GP supervisor, and that you may not be able to work this afternoon.",
+      "brief": "Your supervisor can help you decide and arrange cover.",
+      "detailed": "Being shaken by news like this is natural and may affect your concentration. Telling your supervisor means the practice can support you and arrange cover if needed."
+    },
+    {
+      "id": "B",
+      "text": "Start your surgery as normal and phone your family at the end.",
+      "brief": "You may not be able to concentrate, which could affect patient care.",
+      "detailed": "Carrying on can feel like the professional thing to do. But if you can't stop thinking about your father, your decisions may suffer, and you may regret not finding out more."
+    },
+    {
+      "id": "C",
+      "text": "Leave immediately, and phone the practice from the car.",
+      "brief": "Leaves the practice without warning and patients waiting.",
+      "detailed": "Wanting to get to your father is completely understandable. But leaving without speaking to anyone leaves patients waiting with no plan, and driving while shaken may not be safe."
+    },
+    {
+      "id": "D",
+      "text": "Take a few minutes to phone your sister and find out more.",
+      "brief": "Knowing more helps you decide whether you can work.",
+      "detailed": "A short call may tell you how serious things are and whether you need to go. It helps you make a clear decision rather than working while preoccupied."
+    },
+    {
+      "id": "E",
+      "text": "Start your surgery, and check your phone between patients for updates from your family.",
+      "brief": "Divides your attention between your family and your patients.",
+      "detailed": "This seems a compromise, but you would be distracted throughout, and patients may notice."
+    },
+    {
+      "id": "F",
+      "text": "Ask reception to cancel all of your afternoon appointments.",
+      "brief": "May be needed, but the practice should decide how to manage them.",
+      "detailed": "Some appointments may need to move, but cancelling all of them yourself, without your supervisor, may leave patients who need to be seen without care."
+    },
+    {
+      "id": "G",
+      "text": "Ask reception to hold your first patients for a few minutes.",
+      "brief": "Buys time to make a clear decision.",
+      "detailed": "A short delay gives you time to find out more and speak to your supervisor, and lets reception tell patients what's happening."
+    },
+    {
+      "id": "H",
+      "text": "Explain to each patient that you're having a difficult day.",
+      "brief": "Shifts your burden onto patients.",
+      "detailed": "Being honest is important, but sharing your personal distress with each patient is unprofessional and doesn't solve the problem."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise when personal distress may affect your fitness to work, and seek support so patients are safe.",
+    "keyDetails": "The news is serious and sudden. You are shaken. Patients are waiting.",
+    "reasoning": "[A] gets support and cover, [D] gives you the information to decide, and [G] buys time to do so. The distractors work while distracted ([B], [E]), leave without a plan ([C]), act beyond your role ([F]), or burden patients ([H]).",
+    "competing": "[B] is tempting because it seems professional, but working while preoccupied with a parent's stroke may put patients at risk."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, making sure your health or circumstances don't put patients at risk."
+    }
+  ],
+  "tags": [
+    "fitness to work",
+    "personal crisis",
+    "general practice",
+    "wellbeing"
+  ]
+}

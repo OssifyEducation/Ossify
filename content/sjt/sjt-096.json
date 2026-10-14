@@ -1,0 +1,109 @@
+{
+  "id": "sjt-096",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-096",
+  "format": "multiple_choice",
+  "title": "\"How long have I got?\"",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating uncertainty",
+    "Honesty",
+    "Responding to emotion"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology ward. This morning the consultant told Mrs Walsh, 63, that her bowel cancer has spread to her liver and lungs, and that treatment will now aim to control it rather than cure it.\n\nIn the afternoon, while you are reviewing her drug chart, she asks you quietly, \"How long have I got?\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask her gently what she understood from this morning's conversation, and what's on her mind.",
+      "brief": "Understanding her question helps you answer what she really wants to know.",
+      "detailed": "Patients ask this question for different reasons: to plan, to prepare family, or out of fear. Finding out what she understood and what prompted the question helps you respond to her needs, and avoids giving information she isn't ready for."
+    },
+    {
+      "id": "B",
+      "text": "Tell her that the consultant will have covered everything in this morning's conversation.",
+      "brief": "Dismisses her question, which shows she still has unanswered concerns.",
+      "detailed": "Patients often take in very little after bad news, and her question shows she still wants to know more. Referring her back to a conversation she may not have absorbed leaves her without support."
+    },
+    {
+      "id": "C",
+      "text": "Tell her the average survival for her stage of cancer, from published figures.",
+      "brief": "Statistics may not apply to her, and may not be what she is asking.",
+      "detailed": "She may want facts, which makes this tempting. But average survival figures can be misleading for an individual, and giving them without knowing her case or what she wants risks distressing her."
+    },
+    {
+      "id": "D",
+      "text": "Stay with her for a few minutes and acknowledge how hard today's news must be.",
+      "brief": "Acknowledging her feelings matters as much as answering the question.",
+      "detailed": "She has received devastating news today. Taking a few minutes to sit with her, and to acknowledge how difficult it is, shows compassion and may help her talk about what's worrying her."
+    },
+    {
+      "id": "E",
+      "text": "Tell her you can't answer that, and that she must ask her consultant.",
+      "brief": "Shuts down a difficult question rather than engaging with it.",
+      "detailed": "Her consultant should give the detailed answer, but closing the conversation without acknowledging her question or her feelings may leave her feeling dismissed."
+    },
+    {
+      "id": "F",
+      "text": "Encourage her to stay positive, as people often do better than expected.",
+      "brief": "Well meant, but avoids her question.",
+      "detailed": "Hope matters, but this deflects what she has asked and may make it harder for her to talk honestly about her fears."
+    },
+    {
+      "id": "G",
+      "text": "Suggest she asks her family to find out from the consultant for her.",
+      "brief": "Places the burden on her family and doesn't respect her own question.",
+      "detailed": "Families are often involved in these conversations, but she has asked you, and the information is hers. Passing it through her family doesn't respect her wishes."
+    },
+    {
+      "id": "H",
+      "text": "Be honest that it's hard to predict, and offer a talk with her consultant.",
+      "brief": "Honest about uncertainty, and makes sure she gets a full answer.",
+      "detailed": "Prognosis is uncertain, and as an F2 you may not know enough about her case to give a reliable estimate. Saying so honestly, and arranging for her consultant to discuss it with her, with family present if she wishes, respects her question without misleading her."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient's question about prognosis when the answer is uncertain and you are not the best person to give a detailed answer.",
+    "keyDetails": "She heard bad news this morning. She has asked you directly. Prognosis is uncertain and is best discussed by her consultant.",
+    "reasoning": "[A] explores her question, [D] acknowledges her feelings, and [H] is honest about uncertainty while making sure she can discuss it with her consultant. The distractors give misleading figures ([B]), shut the question down or avoid it ([C], [E], [G]), or pass it to her family ([F]).",
+    "competing": "[C] is the most tempting distractor, as the consultant is the right person to give a detailed answer. The difference is that the keyed answer acknowledges her question and arranges that conversation, rather than closing it down."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Sharing information about prognosis, and responding to patients' questions."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Giving patients the information they want, at a pace they can manage."
+    }
+  ],
+  "tags": [
+    "prognosis",
+    "breaking bad news",
+    "uncertainty",
+    "oncology"
+  ]
+}

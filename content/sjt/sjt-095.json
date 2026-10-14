@@ -1,0 +1,78 @@
+{
+  "id": "sjt-095",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-095",
+  "format": "ranking",
+  "title": "Running late",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Triage",
+    "Time management"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Your morning surgery is running 40 minutes late, and the waiting room is full.\n\nReception messages you that the mother of a two-year-old has phoned asking for a call back today. The message just says \"worried about son\", and the receptionist didn't ask any more. The practice's duty doctor handles urgent same-day requests, but has a long list today.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell reception you'll call her at the end of surgery.",
+      "brief": "Could leave an unwell child waiting for over an hour.",
+      "detailed": "Calling after surgery is fine for routine queries, but you don't yet know whether this is routine, and a young child can deteriorate quickly."
+    },
+    {
+      "id": "B",
+      "text": "Ask the duty doctor to call her back.",
+      "brief": "Appropriate for urgent requests, though it adds to a busy colleague's list without knowing the urgency.",
+      "detailed": "The duty doctor exists for urgent same-day requests, so this is reasonable. It ranks second because the duty doctor is also busy, and a brief call from you would establish whether it's urgent at all."
+    },
+    {
+      "id": "C",
+      "text": "Ask reception to call her back and find out more about her son's symptoms.",
+      "brief": "Reception can gather details, but judging urgency needs a clinician.",
+      "detailed": "Receptionists can collect useful information, and some practices use trained care navigators. But deciding how urgent a young child's symptoms are is a clinical judgement, so relying on this may delay the right response."
+    },
+    {
+      "id": "D",
+      "text": "Call the mother back briefly before your next patient.",
+      "brief": "A short call tells you how urgent it is, and young children can deteriorate quickly.",
+      "detailed": "\"Worried about son\" could be anything from a rash to a very unwell child, and only a clinician can judge which. A brief call lets you assess urgency directly and then deal with it, bring the child in, or arrange a later call. It makes you a little later, but it is the safest option."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you prioritise an unclear request about a young child when you're already behind.",
+    "keyDetails": "The message is vague, and reception didn't ask more. The child is two. You are 40 minutes behind, and the duty doctor is busy.",
+    "reasoning": "[D] assesses urgency quickly and directly, [B] uses the practice's urgent system, and [C] gathers information but without clinical judgement. [A] could delay care for an unwell child.",
+    "competing": "Some would ask the duty doctor first, as that is their role. The key prefers a brief call yourself because it takes a few minutes and avoids adding to a busy colleague's list before you know whether it's urgent."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising patients according to clinical need."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "general practice",
+    "children",
+    "time pressure"
+  ]
+}

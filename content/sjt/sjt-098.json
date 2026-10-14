@@ -1,0 +1,102 @@
+{
+  "id": "sjt-098",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-098",
+  "format": "multiple_choice",
+  "title": "The transfusion you didn't mention",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Handover",
+    "Owning mistakes",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Mrs Cole, 79, had a hip hemiarthroplasty yesterday. This afternoon her haemoglobin was 71 g/L and your registrar asked you to prescribe two units of blood, which you did.\n\nOn your drive home after handing over to the evening doctor, you realise you didn't mention the transfusion, and you can't remember whether you told the nurse the blood had been prescribed.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Wait until the morning, as the prescription is on her drug chart.",
+      "brief": "Relies on others noticing a prescription you haven't handed over.",
+      "detailed": "The prescription is there, but if the nurses don't know about it, the blood may not be collected or given tonight. A quick call now prevents that."
+    },
+    {
+      "id": "B",
+      "text": "Drive back to the hospital to make sure the transfusion is given.",
+      "brief": "Unnecessary when a phone call would do.",
+      "detailed": "Your conscientiousness is admirable, but you are off duty and the team on shift can take this on. A phone call is quicker and safer."
+    },
+    {
+      "id": "C",
+      "text": "Once you've stopped safely, phone the evening doctor and hand over the transfusion.",
+      "brief": "Closes the gap in the handover quickly.",
+      "detailed": "The evening doctor needs to know so they can check the transfusion and review her if needed. Phoning once you've stopped the car safely puts it right promptly."
+    },
+    {
+      "id": "D",
+      "text": "Phone the ward to make sure the nurse looking after her knows the blood is prescribed.",
+      "brief": "The nurse needs to know to arrange for the blood to be given.",
+      "detailed": "Nurses arrange collection and administration of blood. Making sure the nurse knows means the transfusion can go ahead tonight."
+    },
+    {
+      "id": "E",
+      "text": "Reflect on what happened, and use a written handover checklist in future.",
+      "brief": "Learning from the near miss makes it less likely to happen again.",
+      "detailed": "Once Mrs Cole's transfusion is in hand, thinking about why it was missed, and using a structured written handover, helps prevent the same gap in future. It also makes a useful reflection for your portfolio."
+    },
+    {
+      "id": "F",
+      "text": "Send the evening doctor a message with Mrs Cole's details on a personal messaging app.",
+      "brief": "Quick, but risks confidentiality and may not be seen in time.",
+      "detailed": "Messaging apps are convenient, but sending patient details on a personal app may breach trust policy, and a message may not be read promptly. A phone call is better."
+    },
+    {
+      "id": "G",
+      "text": "Email the evening doctor the details to read when they have time.",
+      "brief": "May not be read until it's too late.",
+      "detailed": "An email is a record, but a busy on-call doctor may not check email for hours. This needs a direct conversation."
+    },
+    {
+      "id": "H",
+      "text": "Report yourself through the incident reporting system before doing anything else.",
+      "brief": "May be useful later, but the priority is the patient's care tonight.",
+      "detailed": "Reporting can help learning, but before doing anything else you need to make sure the transfusion happens."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you put right a gap in your handover promptly and safely.",
+    "keyDetails": "Her haemoglobin is low. The prescription is written, but neither the evening doctor nor the nurse may know. You are driving home.",
+    "reasoning": "[C] closes the handover gap with the doctor, [D] makes sure the nurse knows, and [E] learns from the near miss. The distractors are passive ([A]), unnecessary ([B]), unreliable ([F], [G]), or put reporting ahead of the patient ([H]).",
+    "competing": "[B] shows commitment, but you don't need to return when a phone call achieves the same thing safely."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, handing over care safely and making sure information is passed on."
+    }
+  ],
+  "tags": [
+    "handover",
+    "transfusion",
+    "errors",
+    "orthopaedics"
+  ]
+}

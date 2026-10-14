@@ -1,0 +1,109 @@
+{
+  "id": "sjt-094",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-094",
+  "format": "multiple_choice",
+  "title": "The placenta that wasn't sent",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Owning mistakes",
+    "Honesty",
+    "Putting things right"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in obstetrics. Yesterday you were asked to send the placenta from a preterm delivery for histology, to help find the cause of the early birth. You forgot to complete the request.\n\nToday the midwife asks you whether it was sent. You realise it wasn't. The unit usually keeps placentas refrigerated for a few days after delivery.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the midwife it was sent and may have been lost in the lab.",
+      "brief": "A lie that could delay putting things right.",
+      "detailed": "This avoids embarrassment, but it is dishonest and could waste time searching for something that was never sent."
+    },
+    {
+      "id": "B",
+      "text": "Tell the midwife honestly that you forgot to send it.",
+      "brief": "Being honest straight away lets the team put it right.",
+      "detailed": "Admitting the mistake now means the team can act, and is the honest response to a direct question. It is uncomfortable, but much easier than an error discovered later."
+    },
+    {
+      "id": "C",
+      "text": "Check whether the placenta is still stored and can be sent now.",
+      "brief": "It may not be too late.",
+      "detailed": "Placentas are usually kept for a period after delivery. Finding out whether it can still be sent may mean the investigation isn't lost at all."
+    },
+    {
+      "id": "D",
+      "text": "Send it now, and date the request form for yesterday.",
+      "brief": "Falsifies the record.",
+      "detailed": "Sending it now is right, but backdating the form misrepresents what happened and is dishonest."
+    },
+    {
+      "id": "E",
+      "text": "Tell the midwife that sending samples is usually the midwives' responsibility.",
+      "brief": "Deflects blame for a task you were asked to do.",
+      "detailed": "Responsibilities for samples vary between units, but you were asked to do this, and blaming someone else is unprofessional."
+    },
+    {
+      "id": "F",
+      "text": "Report the error through the incident reporting system, and leave the follow-up to the governance team.",
+      "brief": "Reporting is appropriate, but leaving the follow-up to others doesn't put things right for this family.",
+      "detailed": "Reporting the error supports learning, and you should do it. But handing the follow-up to others means the placenta may not be sent in time, and your seniors may not hear about it in time to decide what to tell the parents."
+    },
+    {
+      "id": "G",
+      "text": "Tell your seniors, so they can decide what to tell the parents.",
+      "brief": "Seniors need to know, and the parents may need to be informed.",
+      "detailed": "The histology was meant to help explain the early birth, which matters to the parents. Your seniors can decide, with you, what to tell them, and how to make sure the results still reach them."
+    },
+    {
+      "id": "H",
+      "text": "Wait for the results deadline, as the placenta may be sent by someone else.",
+      "brief": "Leaves the error unaddressed.",
+      "detailed": "Hoping someone else has done it, when you know it hasn't been done, isn't a responsible way of handling your own mistake."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you own a mistake promptly and honestly, and act to put it right.",
+    "keyDetails": "You were asked to send the placenta. It may still be possible to send it. The results matter to the parents.",
+    "reasoning": "[B] is honest, [C] tries to put it right, and [G] involves your seniors in deciding what the parents need to know. The distractors are dishonest ([A], [D]), deflect blame ([E]), or are less urgent or passive ([F], [H]).",
+    "competing": "[F] is the hard distractor: reporting the error is appropriate and you should do it, but the three keyed options make the bigger difference to the family now."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open and honest when things go wrong, including with colleagues and patients."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty, and keeping accurate records."
+    }
+  ],
+  "tags": [
+    "errors",
+    "candour",
+    "histology",
+    "obstetrics"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "sjt-086",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-086",
+  "format": "multiple_choice",
+  "title": "After the death",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Candour",
+    "Wellbeing"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. Last week a patient died after Dr Novak, another F2, gave a tenfold overdose of an intravenous drug. The error contributed to the patient's death and is being investigated.\n\nDr Novak has come back to work. Today you find her alone in the staff room, and she tells you she hasn't slept properly since, keeps replaying it, and wonders whether she should give up medicine.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Sit with her and let her talk about how she is feeling.",
+      "brief": "Being listened to is often what someone needs first.",
+      "detailed": "Doctors involved in serious errors often feel isolated and ashamed. Giving her time to talk, without rushing to reassure or advise, shows support and helps you understand how she is coping."
+    },
+    {
+      "id": "B",
+      "text": "Reassure her that the death wasn't her fault.",
+      "brief": "Well meant, but you don't know the findings, and it may not feel credible to her.",
+      "detailed": "Wanting to relieve her guilt is natural, and systems often contribute to errors. But the investigation hasn't concluded, and blanket reassurance may sound hollow. Listening and acknowledging how hard this is will usually help more."
+    },
+    {
+      "id": "C",
+      "text": "Encourage her to talk to her educational supervisor about how she is coping.",
+      "brief": "Her supervisor can support her through the investigation and her return to work.",
+      "detailed": "Her educational supervisor can make sure she has the right support, adjust her work if needed, and help her through the investigation. Encouraging her to speak to them makes sure she isn't facing this alone."
+    },
+    {
+      "id": "D",
+      "text": "Advise her to say as little as possible to the investigation until she has legal advice.",
+      "brief": "Doctors must be open and honest with investigations.",
+      "detailed": "She may well want advice from her medical defence organisation, which is sensible. But advising her to hold back from the investigation conflicts with her duty to be open and honest, and could harm her."
+    },
+    {
+      "id": "E",
+      "text": "Suggest she takes sick leave until the investigation has finished.",
+      "brief": "Time off may help, but it's a decision for her with occupational health, not a blanket solution.",
+      "detailed": "She may need time off, and this shouldn't be ruled out. But suggesting she stays away until the investigation ends could leave her isolated for weeks. Occupational health and her supervisor are better placed to advise."
+    },
+    {
+      "id": "F",
+      "text": "Make sure she knows about confidential support services for doctors.",
+      "brief": "Specialist support can help with the emotional effects of a serious error.",
+      "detailed": "Persistent poor sleep and thoughts of leaving medicine suggest she may benefit from more support than colleagues can give. Services such as occupational health or NHS Practitioner Health offer confidential help."
+    },
+    {
+      "id": "G",
+      "text": "Tell the rest of the team that she is struggling, so they can go easy on her.",
+      "brief": "Shares her private distress without her agreement.",
+      "detailed": "The intention is kind, but her feelings are hers to share. Telling the team without her agreement may embarrass her and damage her trust in you."
+    },
+    {
+      "id": "H",
+      "text": "Tell her that everyone makes mistakes and she should try to put it behind her.",
+      "brief": "Minimises a very serious event and her distress.",
+      "detailed": "Errors are common in medicine, which is why this is tempting. But this one contributed to a death, and she needs to process it, not set it aside."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague affected by a serious error, while respecting the investigation and her privacy.",
+    "keyDetails": "The error contributed to a death and is being investigated. She is sleeping poorly and thinking of leaving medicine. She has confided in you privately.",
+    "reasoning": "[A] listens, [C] connects her with her supervisor, and [F] points her to specialist support. The distractors reassure without basis or minimise the event ([B], [H]), undermine her duty of openness ([D]), isolate her ([E]), or share her distress without consent ([G]).",
+    "competing": "[B] is the most tempting option. It may turn out that system failures contributed, but reassurance before the investigation concludes may not help her."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open and honest with investigations when things go wrong."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors' mental health."
+    }
+  ],
+  "tags": [
+    "second victim",
+    "colleague wellbeing",
+    "medication error",
+    "intensive care"
+  ]
+}
