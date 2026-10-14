@@ -26,7 +26,7 @@ The scoring is Ossify's provisional practice model, **not** the official MSRA ma
 | `submit_sjt_mock(id, answers, flags, reason)` | Finalises the attempt. Idempotent. Returns the review payload. |
 | `get_sjt_mock_review(id)` | The review payload for one of the user's completed attempts. |
 
-Access currently mirrors Timed Exam: anyone signed in can sit a mock. To restrict mocks to paying subscribers, add `if not public._has_duel_access(v_uid) then raise exception 'subscription_required'; end if;` to `start_sjt_mock`, and handle that message in `startMock()`.
+**Access: paid subscribers only** (`20261015_sjt_mock_paid_access.sql`). `start_sjt_mock` raises `subscription_required` unless `_has_paid_access(uid)` (active and unexpired subscription, the same rule as Head-to-Head). Resuming, saving and submitting an attempt already in progress, and reviewing completed attempts, are never blocked, so a lapsed subscription costs nobody their work. `get_sjt_mock_overview()` returns `access`, and the page shows a pricing prompt instead of Start buttons.
 
 ## Loading or updating a mock
 The questions are written and reviewed exactly like practice batches, using `content/sjt-src/M*.js` with `const pool = "mock-N"`, then compiled to `content/sjt/`. To load them:
