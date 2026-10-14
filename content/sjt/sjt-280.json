@@ -1,0 +1,110 @@
+{
+  "id": "sjt-280",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-280",
+  "format": "multiple_choice",
+  "title": "\"Mrs\" again",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Respect",
+    "Equality",
+    "Addressing poor practice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a gynaecology clinic. Mr Evans, 34, is a trans man attending about pelvic pain. His GP letter states his name and title clearly.\n\nIn the waiting room, a receptionist calls him \"Mrs Evans\", and a nurse uses the same title as she brings him into your room. He tells you quietly that this happens every time he comes, and that he nearly didn't come today.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Apologise to Mr Evans and use his correct name and title.",
+      "brief": "Acknowledges what happened and shows respect.",
+      "detailed": "A sincere apology recognises how distressing repeated misgendering can be, and using his correct name and title shows respect. It may help him feel able to keep attending."
+    },
+    {
+      "id": "B",
+      "text": "Explain that the gynaecology system defaults to female titles.",
+      "brief": "Explains the error, but treats it as acceptable.",
+      "detailed": "Even if the system is a factor, the explanation sounds like an excuse and doesn't fix the problem."
+    },
+    {
+      "id": "C",
+      "text": "Check his clinic record shows his correct name and title.",
+      "brief": "An incorrect record may be causing the repeated errors.",
+      "detailed": "Staff often read titles from the record. If it is wrong, correcting it, or asking the right team to, stops the problem at its source."
+    },
+    {
+      "id": "D",
+      "text": "Tell him that the staff didn't mean to cause offence.",
+      "brief": "Minimises his experience.",
+      "detailed": "It may be true that no one intended offence, but saying so dismisses the impact, which is what matters to him."
+    },
+    {
+      "id": "E",
+      "text": "Suggest he asks reception to update his details himself.",
+      "brief": "Puts the burden on him after a distressing experience.",
+      "detailed": "He has already been let down. It's the service's job to make sure records and practice are right."
+    },
+    {
+      "id": "F",
+      "text": "Ask the clinic manager to make sure staff use his title.",
+      "brief": "Prevents the same thing happening next time.",
+      "detailed": "This has happened at every visit, so it needs addressing beyond today. Raising it constructively with the clinic manager helps make sure staff understand and change their practice."
+    },
+    {
+      "id": "G",
+      "text": "Correct the nurse in front of Mr Evans as soon as she says it.",
+      "brief": "Well meant, but may embarrass everyone, including him.",
+      "detailed": "Public correction can draw more attention to him at a sensitive moment. A private word is usually more effective."
+    },
+    {
+      "id": "H",
+      "text": "Refer him to a different clinic where staff may be more aware.",
+      "brief": "Moves him away from the right clinic instead of fixing the problem.",
+      "detailed": "He needs this clinic for his symptoms. Changing where he is seen avoids the problem rather than solving it."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond respectfully to a patient who has been repeatedly misgendered, and address the cause.",
+    "keyDetails": "It happens every visit. His details are clear in the letter. He nearly didn't attend, which puts his care at risk.",
+    "reasoning": "[A] apologises and shows respect, [C] fixes the record, and [F] addresses staff practice. The distractors excuse ([B], [D]), shift the burden ([E]), embarrass ([G]), or avoid the problem ([H]).",
+    "competing": "[G] feels decisive, but correcting a colleague in front of the patient can make the moment harder for him. A private word with the clinic manager is more effective."
+  },
+  "references": [
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Gender reassignment as a protected characteristic in the provision of services."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity and without discrimination."
+    }
+  ],
+  "tags": [
+    "equality",
+    "trans patients",
+    "dignity",
+    "gynaecology"
+  ]
+}

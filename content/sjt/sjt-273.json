@@ -1,0 +1,86 @@
+{
+  "id": "sjt-273",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-273",
+  "format": "ranking",
+  "title": "Fire alarm",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Emergency procedures",
+    "Teamwork",
+    "Prioritisation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a paediatric ward. You are reviewing Zara, 4, who has asthma and is having a salbutamol nebuliser driven by wall oxygen. Her mother is with her.\n\nThe ward fire alarm starts sounding continuously, which on this ward means the fire may be nearby. The nurse in charge is at the nurses' station coordinating staff.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave the ward by the nearest exit, as fire procedures are for the nursing team.",
+      "brief": "Abandons patients during an emergency.",
+      "detailed": "All staff have a role in a fire, and leaving would reduce the help available to evacuate children. This is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Continue your review until you are told the alarm is real.",
+      "brief": "Assumes it's a false alarm, which could waste vital time.",
+      "detailed": "Most alarms are false, but you should respond to every one as real. Continuing as normal delays the response, though you are at least still with a patient, so it ranks above leaving."
+    },
+    {
+      "id": "C",
+      "text": "Go to the nurse in charge for instructions on the ward's fire plan.",
+      "brief": "Coordinated action, led by the person in charge, keeps everyone safe.",
+      "detailed": "In a fire, the ward's plan depends on staff following the person coordinating it. Reporting to the nurse in charge means you are used where you are most needed. It ranks second only because you can make Zara ready to move first, in seconds, from where you are standing."
+    },
+    {
+      "id": "D",
+      "text": "Reassure Zara's mother and the other families in the bay.",
+      "brief": "Calm reassurance reduces panic, but it's less urgent than safety actions.",
+      "detailed": "Families will be frightened, and a calm word helps. But it doesn't move anyone towards safety, so it ranks below preparing Zara and joining the ward's response."
+    },
+    {
+      "id": "E",
+      "text": "Switch Zara's nebuliser to a portable oxygen cylinder so she can be moved.",
+      "brief": "You are with the child most dependent on equipment, and this takes seconds.",
+      "detailed": "A child on a wall-driven nebuliser can't be moved quickly, and wall oxygen may be isolated if the fire is close. You are already at her bedside, so switching to a portable cylinder takes moments and means she is ready if the ward has to move patients. It ranks first because it protects the most vulnerable child without delaying anything else."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "D",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an unexpected emergency on the ward: preparing vulnerable patients, following the ward's plan and staying calm.",
+    "keyDetails": "The alarm suggests a fire nearby. Zara depends on wall oxygen, and you are at her bedside. The nurse in charge is coordinating.",
+    "reasoning": "[E] makes the most dependent child ready to move, [C] joins the coordinated response, and [D] supports families. [B] delays the response, and [A] abandons patients.",
+    "competing": "Some would go to the nurse in charge first. It is a close call: the key puts Zara's oxygen first because you are already beside her and it takes seconds, then you join the ward's plan."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working with colleagues to keep patients safe."
+    }
+  ],
+  "tags": [
+    "fire",
+    "emergency",
+    "paediatrics",
+    "teamwork"
+  ]
+}

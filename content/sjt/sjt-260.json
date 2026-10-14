@@ -1,0 +1,109 @@
+{
+  "id": "sjt-260",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-260",
+  "format": "multiple_choice",
+  "title": "Out-of-date adrenaline",
+  "setting": "Out-of-hours / community",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Incident reporting",
+    "Following procedures"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working an evening shift for the GP out-of-hours service, doing home visits with a driver. Before setting off, you check the emergency drug bag in the car and find that the adrenaline for anaphylaxis expired two months ago.\n\nThe bag has a signed checklist saying it was checked last week. Your first visit is waiting.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Set off now and collect new adrenaline when you return to base.",
+      "brief": "You would be without working adrenaline during your visits.",
+      "detailed": "Your first patient is waiting, but an emergency could arise on any visit. A few minutes now is better than being unable to treat anaphylaxis."
+    },
+    {
+      "id": "B",
+      "text": "Note the expiry on the checklist so the next shift sees it.",
+      "brief": "A note may help later, but it doesn't make tonight's bag safe or explain the failure.",
+      "detailed": "Recording what you found has some value, but it leaves you without working adrenaline tonight and doesn't trigger any review of why the check missed it."
+    },
+    {
+      "id": "C",
+      "text": "Tell your driver so he can mention it to whoever restocks the cars.",
+      "brief": "An informal message may never reach the right person.",
+      "detailed": "Passing it on informally doesn't make sure it is fixed or reviewed, and it relies on someone else remembering."
+    },
+    {
+      "id": "D",
+      "text": "Find out who signed the checklist and confront them about it.",
+      "brief": "Confrontation isn't the way to deal with a system failure.",
+      "detailed": "The person who signed may have made an honest mistake, or the system may be at fault. The incident process is the right route for finding out what happened."
+    },
+    {
+      "id": "E",
+      "text": "Get in-date adrenaline from the base before setting off.",
+      "brief": "You may need it on any visit, so it must be replaced now.",
+      "detailed": "Anaphylaxis can occur at any time, and expired adrenaline may not work. Replacing it before you leave takes a few minutes and means you are equipped for an emergency."
+    },
+    {
+      "id": "F",
+      "text": "Check the expiry dates of the rest of the drugs in the bag.",
+      "brief": "If one item was missed, others may have been too.",
+      "detailed": "The checklist was signed, yet expired adrenaline was missed. Other drugs in the bag may also be out of date, so a quick check protects patients on tonight's visits."
+    },
+    {
+      "id": "G",
+      "text": "Email the service's pharmacist next week about stock checks.",
+      "brief": "Too slow, and it doesn't deal with tonight's risk.",
+      "detailed": "Contacting pharmacy may be useful, but waiting a week leaves the problem in place, and it doesn't address tonight's shift."
+    },
+    {
+      "id": "H",
+      "text": "Report the expired drug and the signed check as an incident.",
+      "brief": "A signed check that missed an expired drug is a system problem to review.",
+      "detailed": "The checking process failed, which may affect other cars too. Reporting it lets the service review how bags are checked. The aim is learning, not blame."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you deal with an immediate equipment risk and also report a failed safety check.",
+    "keyDetails": "The adrenaline has expired. The bag was signed as checked. You are about to start visits. Replacing it takes minutes.",
+    "reasoning": "[E] fixes the immediate risk, [F] checks for other gaps, and [H] reports the failure so it can be reviewed. The distractors leave you without a working drug ([A], [B]), rely on informal messages ([C], [G]), or confront rather than report ([D]).",
+    "competing": "[A] is tempting because a patient is waiting, but the delay to replace the adrenaline is short and the risk of not having it is serious."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting on risks to patient safety."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting incidents so systems can be improved."
+    }
+  ],
+  "tags": [
+    "equipment",
+    "anaphylaxis",
+    "out-of-hours",
+    "incident reporting"
+  ]
+}

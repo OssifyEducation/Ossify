@@ -1,0 +1,102 @@
+{
+  "id": "sjt-274",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-274",
+  "format": "multiple_choice",
+  "title": "After the resuscitation",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Teamwork",
+    "Wellbeing"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the Emergency Department. Half an hour ago, the team tried for 40 minutes to resuscitate a three-year-old, but the child died.\n\nYou find Maya, a nurse who was part of the team, crying in the sluice. She says she's fine and needs to get back to her patients. The department is busy.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Stay with Maya for a few minutes and ask how she is.",
+      "brief": "A moment of genuine attention helps, even if she says she's fine.",
+      "detailed": "After a child's death, many staff say they are fine when they aren't. Staying briefly and asking gently shows care and gives her a chance to talk if she wants to."
+    },
+    {
+      "id": "B",
+      "text": "Tell her it gets easier with time.",
+      "brief": "Well meant, but it can minimise what she is feeling now.",
+      "detailed": "Some staff find this reassuring, but it may suggest her reaction is a sign of inexperience. Listening is more helpful than advice."
+    },
+    {
+      "id": "C",
+      "text": "Leave her to compose herself, as she has said she's fine.",
+      "brief": "Respects her words but may leave her unsupported.",
+      "detailed": "Respecting her wishes matters, but a brief check costs little and may help. Leaving immediately could feel like nobody noticed."
+    },
+    {
+      "id": "D",
+      "text": "Suggest she goes home for the rest of the shift.",
+      "brief": "May not be what she wants, and it isn't your decision.",
+      "detailed": "Some staff need to go home, but she wants to continue, and staffing decisions sit with the nurse in charge. Sending her home could feel like a judgement on her ability."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse in charge if Maya can have a short break.",
+      "brief": "Practical support from the person who manages the workload.",
+      "detailed": "The nurse in charge can cover her patients for a short while. A break may help her recover enough to work safely, and it avoids her feeling she has to ask."
+    },
+    {
+      "id": "F",
+      "text": "Organise a formal debrief for the whole team yourself this afternoon.",
+      "brief": "Debriefs are valuable, but they are usually led by senior staff.",
+      "detailed": "A debrief may help, but organising it yourself, at short notice and without the senior team, may not be appropriate or effective."
+    },
+    {
+      "id": "G",
+      "text": "Refer her to occupational health.",
+      "brief": "Premature and not your role at this stage.",
+      "detailed": "Occupational health may help if distress continues, but a referral now, without her agreement, would be disproportionate."
+    },
+    {
+      "id": "H",
+      "text": "Tell her about the team debrief and staff support services.",
+      "brief": "She may want support later, even if not now.",
+      "detailed": "Many departments hold debriefs after a child's death and offer staff support. Knowing what's available means she can use it when she's ready."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague after a traumatic event, balancing her wishes with care and practical help.",
+    "keyDetails": "She has just been through a child's death. She says she's fine. The department is busy. She wants to keep working.",
+    "reasoning": "[A] offers personal support, [E] arranges practical support, and [H] points to longer-term help. The distractors minimise ([B]), withdraw ([C]), override her ([D]), overstep ([F]), or escalate prematurely ([G]).",
+    "competing": "[C] is tempting because she said she's fine, but a brief, gentle check is unlikely to be unwelcome and may matter a great deal."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and contributing to a supportive culture."
+    }
+  ],
+  "tags": [
+    "colleague support",
+    "paediatric death",
+    "emergency department",
+    "wellbeing"
+  ]
+}

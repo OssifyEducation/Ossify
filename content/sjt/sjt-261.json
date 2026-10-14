@@ -1,0 +1,93 @@
+{
+  "id": "sjt-261",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-261",
+  "format": "ranking",
+  "title": "Asleep at the wheel",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Self-care",
+    "Recognising fatigue",
+    "Raising concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. After agreeing to cover extra shifts for absent colleagues, you have worked seven days in a row, most of them long days. Driving home tonight, you briefly fell asleep at a junction and woke when the car behind sounded its horn.\n\nYou are off tomorrow but rostered for a long day on Saturday, and the rota coordinator has asked if you could do an extra shift on Sunday.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Have a strong coffee before you drive home tomorrow.",
+      "brief": "Caffeine may help briefly, but it doesn't make a very tired driver safe.",
+      "detailed": "Caffeine can help briefly, but it isn't a reliable defence against falling asleep when you are this tired. It is better than doing nothing, which is why it ranks fourth."
+    },
+    {
+      "id": "B",
+      "text": "Plan a safe way home after Saturday's shift, such as a taxi.",
+      "brief": "Falling asleep while driving is an immediate danger to you and others.",
+      "detailed": "You have already fallen asleep at the wheel once, and Saturday's long day will leave you tired again. Planning a safe way home, such as a taxi or a lift, deals with the most immediate danger to you and other road users, so it ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Carry on as normal, as you didn't have an accident.",
+      "brief": "Ignores a clear warning sign that you and others are at risk.",
+      "detailed": "Falling asleep while driving is a serious warning. Carrying on unchanged leaves the risk in place for you, other road users, and potentially your patients. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Tell your educational supervisor about the extra shifts and the near miss.",
+      "brief": "Someone senior should know, and can help you work safely.",
+      "detailed": "Your supervisor can help you review your workload, and can involve the guardian of safe working, whose role includes monitoring whether doctors' hours and rest are safe. It ranks second because it deals with the cause rather than Saturday's journey."
+    },
+    {
+      "id": "E",
+      "text": "Tell the rota coordinator you can't take on any more extra shifts.",
+      "brief": "This protects you from adding to your fatigue.",
+      "detailed": "Saying no is reasonable and necessary when you are this tired. It ranks below telling your supervisor because it doesn't, by itself, make anyone review the pattern that led here."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "E",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise dangerous fatigue in yourself and act on it, both immediately and by addressing its cause.",
+    "keyDetails": "You fell asleep while driving. You have another long day soon. The cause is an excess of shifts, and you are being asked to do more.",
+    "reasoning": "[B] deals with the next danger, [D] gets senior support with the cause, and [E] stops the problem getting worse. [A] is a weak measure, and [C] ignores the risk.",
+    "competing": "Some would put telling your supervisor first because it addresses the cause. The key puts the next journey home first because that is the risk most likely to cause harm."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, looking after your own health so it doesn't put others at risk."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors' health, including burnout."
+    }
+  ],
+  "tags": [
+    "fatigue",
+    "driving",
+    "rota",
+    "wellbeing"
+  ]
+}

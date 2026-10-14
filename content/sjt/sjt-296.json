@@ -1,0 +1,103 @@
+{
+  "id": "sjt-296",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-296",
+  "format": "multiple_choice",
+  "title": "The chemotherapy is late",
+  "setting": "Oncology & palliative care",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Communication",
+    "Managing delays",
+    "Teamwork"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology day unit. A problem at the pharmacy production unit means that this morning's chemotherapy hasn't arrived. Six patients have had cannulas inserted and are waiting, and some have travelled a long way.\n\nThe nurse in charge asks you to help manage the situation.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Find out from pharmacy how long the delay is likely to be.",
+      "brief": "Accurate information is the basis for every decision.",
+      "detailed": "Without knowing how long the delay is, you can't advise patients or plan. A quick call to pharmacy lets you give honest information."
+    },
+    {
+      "id": "B",
+      "text": "Tell the patients that pharmacy is at fault.",
+      "brief": "Blaming another department doesn't help and damages trust.",
+      "detailed": "Patients need to know there is a delay, not who is to blame. Criticising colleagues in front of patients undermines confidence in the service."
+    },
+    {
+      "id": "C",
+      "text": "Tell the patients about the delay, and when you'll update them.",
+      "brief": "Patients cope better with delays when they are kept informed.",
+      "detailed": "Waiting without information is stressful, especially for patients having chemotherapy. An honest explanation and a time for the next update help them plan."
+    },
+    {
+      "id": "D",
+      "text": "Send all the patients home and rebook them.",
+      "brief": "May be unnecessary if the delay is short.",
+      "detailed": "Rebooking everyone without knowing the length of the delay may cause more disruption than waiting."
+    },
+    {
+      "id": "E",
+      "text": "Ask the patients to wait without explanation until the drugs arrive.",
+      "brief": "Leaves patients anxious and unable to plan.",
+      "detailed": "Not telling patients about the delay is discourteous and can cause distress."
+    },
+    {
+      "id": "F",
+      "text": "Plan with the nurse in charge for patients who can't wait.",
+      "brief": "Some patients may need rebooking or other arrangements.",
+      "detailed": "Some patients may have transport or other commitments. Agreeing with the nurse in charge how to handle this, such as rebooking or removing cannulas, keeps care organised."
+    },
+    {
+      "id": "G",
+      "text": "Give the pre-medication now so they're ready when the drugs arrive.",
+      "brief": "Pre-medication timing matters, and the delay is unknown.",
+      "detailed": "Pre-medication is timed in relation to chemotherapy. Giving it now, without knowing when the drugs will arrive, could reduce its effect."
+    },
+    {
+      "id": "H",
+      "text": "Phone the pharmacy manager to complain about the service.",
+      "brief": "Complaining doesn't help the patients now.",
+      "detailed": "The failure may need reviewing later, but a complaint now doesn't solve the problem."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you manage an unexpected service failure: getting information, keeping patients informed and planning with the team.",
+    "keyDetails": "The delay length is unknown. Patients are waiting with cannulas in. Some have travelled far. The nurse in charge has asked for help.",
+    "reasoning": "[A] gets the facts, [C] keeps patients informed, and [F] plans for those who can't wait. The distractors blame ([B], [H]), act without information ([D], [G]), or leave patients uninformed ([E]).",
+    "competing": "[D] might be right if the delay turns out to be long, but it should follow finding out, not replace it."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, keeping patients informed about their care."
+    }
+  ],
+  "tags": [
+    "delays",
+    "chemotherapy",
+    "communication",
+    "oncology"
+  ]
+}

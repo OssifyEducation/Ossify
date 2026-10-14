@@ -1,0 +1,102 @@
+{
+  "id": "sjt-270",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-270",
+  "format": "multiple_choice",
+  "title": "Not ready yet",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Receiving feedback",
+    "Reflection",
+    "Learning"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in obstetrics and gynaecology. You have assisted with several instrumental deliveries and feel ready to do one yourself under supervision.\n\nWhen you ask the registrar, Dr Lewis, she says you aren't ready yet, because your examination findings in labour have been inaccurate twice this week. You think the findings were difficult and that she is being overcautious.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask another registrar, who doesn't know about your findings, to supervise a delivery.",
+      "brief": "Goes around feedback that relates to patient safety.",
+      "detailed": "This avoids the concern rather than addressing it. The feedback is about a skill that matters for safety in an instrumental delivery."
+    },
+    {
+      "id": "B",
+      "text": "Tell Dr Lewis that the examinations were difficult and anyone could have misjudged them.",
+      "brief": "Defensive, and it closes down the discussion.",
+      "detailed": "The findings may well have been difficult, but responding defensively makes it harder to learn from feedback and to rebuild her confidence in you."
+    },
+    {
+      "id": "C",
+      "text": "Ask Dr Lewis which findings were inaccurate and what she would need to see.",
+      "brief": "Specific feedback tells you exactly what to work on.",
+      "detailed": "Accurate assessment in labour is essential before instrumental delivery. Asking for specifics, without being defensive, turns disagreement into a plan and shows you take the feedback seriously."
+    },
+    {
+      "id": "D",
+      "text": "Complain to the consultant that Dr Lewis is holding back your training.",
+      "brief": "Treats legitimate safety feedback as a grievance.",
+      "detailed": "If you felt you were being treated unfairly, discussing it would be reasonable, but this feedback is specific and relevant to safety. A complaint isn't justified."
+    },
+    {
+      "id": "E",
+      "text": "Stop asking to do procedures until a registrar offers.",
+      "brief": "Withdrawing doesn't help you learn.",
+      "detailed": "Pulling back limits your learning. A better response is to work on the specific skill and ask again."
+    },
+    {
+      "id": "F",
+      "text": "Ask to do more supervised examinations so your findings can be checked.",
+      "brief": "Directly addresses the skill she is concerned about.",
+      "detailed": "Having your findings checked by a senior builds the skill and gives Dr Lewis evidence of your progress. It is a practical, safe way forward."
+    },
+    {
+      "id": "G",
+      "text": "Discuss the feedback with your educational supervisor and reflect on it.",
+      "brief": "Reflection and support help you learn from feedback you disagree with.",
+      "detailed": "Your supervisor can help you look at the feedback objectively and plan your development. Reflecting on it, rather than dismissing it, is part of professional learning."
+    },
+    {
+      "id": "H",
+      "text": "Accept her decision without comment and carry on as before.",
+      "brief": "Avoids conflict, but misses the chance to improve.",
+      "detailed": "Accepting the decision is fine, but without understanding the feedback or changing anything, you won't progress."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to feedback you disagree with, particularly when it relates to patient safety.",
+    "keyDetails": "The feedback is specific and relevant to safe instrumental delivery. You feel ready but have made errors this week.",
+    "reasoning": "[C] gets specific feedback, [F] works on the skill, and [G] reflects with support. The distractors go around the feedback ([A]), are defensive ([B]), escalate inappropriately ([D]), withdraw ([E]), or change nothing ([H]).",
+    "competing": "[H] is the most tempting: it is polite and avoids conflict. But it doesn't help you learn what she needs to see."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on feedback and keeping your skills up to date."
+    }
+  ],
+  "tags": [
+    "feedback",
+    "training",
+    "obstetrics",
+    "procedures"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-288",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-288",
+  "format": "multiple_choice",
+  "title": "Thirteen hours in",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Safety and quality",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Recognising fatigue",
+    "Safe prescribing",
+    "Self-care"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a respiratory ward, 13 hours into a busy shift, and you haven't had a break. Checking a drug chart, you realise that an hour ago you prescribed a treatment dose of enoxaparin for Mr Ward based on the wrong weight, so the dose is too high.\n\nThe first dose isn't due for two hours. You have an hour left on shift and several jobs still to do.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Fill in an incident report before correcting the prescription.",
+      "brief": "Reporting a near miss is good practice, but correcting it comes first.",
+      "detailed": "A near-miss report can help the ward learn, and you could complete one later. It shouldn't come before making the prescription safe."
+    },
+    {
+      "id": "B",
+      "text": "Correct the prescription now.",
+      "brief": "The error must be fixed before the dose is due.",
+      "detailed": "An anticoagulant overdose can cause serious bleeding. Correcting the prescription, using his correct weight, removes the risk before any harm is done."
+    },
+    {
+      "id": "C",
+      "text": "Keep working, as there's only an hour left.",
+      "brief": "Ignores the warning sign that you are too tired to work safely.",
+      "detailed": "The error shows fatigue is affecting your work. Pushing on for the last hour increases the risk of another mistake."
+    },
+    {
+      "id": "D",
+      "text": "Take a short break before carrying on.",
+      "brief": "Fatigue caused this error and could cause another.",
+      "detailed": "Thirteen hours without a break impairs concentration. A short break, even 15 minutes, reduces the chance of further mistakes in your last hour."
+    },
+    {
+      "id": "E",
+      "text": "Ask the pharmacist to check every prescription you write until the end of the shift.",
+      "brief": "Passes your responsibility to a colleague.",
+      "detailed": "Pharmacists check prescriptions, but asking them to double-check all your work shifts the burden rather than addressing your fatigue."
+    },
+    {
+      "id": "F",
+      "text": "Recheck the other prescriptions you wrote in the last few hours.",
+      "brief": "If tiredness caused one error, there may be others.",
+      "detailed": "Errors caused by fatigue rarely occur alone. Checking your recent prescriptions is a quick way to catch any others before they reach patients."
+    },
+    {
+      "id": "G",
+      "text": "Go home early and leave your remaining jobs for the night team.",
+      "brief": "Leaves unfinished work without a handover.",
+      "detailed": "Going home may sometimes be right if you are unsafe, but leaving jobs without a proper handover creates a different risk."
+    },
+    {
+      "id": "H",
+      "text": "Have a strong coffee and carry on.",
+      "brief": "Doesn't address the cause of the error.",
+      "detailed": "Caffeine may help briefly, but it doesn't replace rest and doesn't check for other errors."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you correct an error promptly and recognise that fatigue is making you unsafe.",
+    "keyDetails": "The error was caught before the dose. You haven't had a break in 13 hours. You have an hour left.",
+    "reasoning": "[B] removes the immediate risk, [D] addresses the cause, and [F] checks for other errors. The distractors put the order wrong ([A]), ignore fatigue ([C], [H]), pass on responsibility ([E]), or leave without handover ([G]).",
+    "competing": "[A] is tempting, because near misses should be reported. It belongs later, once the prescription is safe."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, recognising when your health or fatigue may affect patient safety."
+    },
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Responsibility for the prescriptions you write."
+    }
+  ],
+  "tags": [
+    "fatigue",
+    "prescribing error",
+    "near miss",
+    "respiratory"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": "sjt-263",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-263",
+  "format": "ranking",
+  "title": "A signature for someone else",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Honest record-keeping",
+    "Probity",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics. Ava, 9 months, has been on the ward for several weeks. Yesterday a nurse gave her routine immunisations, which had been prescribed, but didn't sign the administration record. That nurse is now on two weeks' leave.\n\nToday another nurse asks you to sign the record as the person who gave the vaccines, \"so the chart is complete before the audit\". You weren't on the ward yesterday.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Phone the nurse who gave the vaccines to confirm that they were given.",
+      "brief": "Confirmation helps, but contacting someone on leave should be a last resort.",
+      "detailed": "Knowing for certain that the dose was given matters, because a missed or duplicated vaccine affects Ava. But there are usually other ways to confirm it, such as the stock record, and contacting a colleague on leave is intrusive. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Leave the record as it is for the nurse to sign when she returns.",
+      "brief": "Leaves an unclear record for two weeks, which risks a repeat or missed dose.",
+      "detailed": "An unsigned entry may be read as a dose not given, so Ava could be given the vaccines again, or a later team could be unsure of her status. Doing nothing isn't dishonest, but it leaves a risk in place."
+    },
+    {
+      "id": "C",
+      "text": "Decline, and suggest she adds a dated note explaining the missing signature.",
+      "brief": "You can't sign for something you didn't do, but the gap can be recorded honestly.",
+      "detailed": "Signing would create a false record that you gave the vaccines. A dated, signed note explaining that the signature is missing, and how the dose was confirmed (for example from the vaccine stock and batch record), keeps the record accurate and honest. Her personal child health record (the 'red book') should match. It ranks first because it refuses the false entry and offers a proper solution."
+    },
+    {
+      "id": "D",
+      "text": "Sign the record, as the vaccines were almost certainly given.",
+      "brief": "This falsifies a clinical record.",
+      "detailed": "Signing to say you gave a drug you didn't give is a false entry, however likely it is that the dose was given. Records must be honest and accurate. This is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse in charge how the ward corrects a missing administration signature.",
+      "brief": "Most wards have a process for this, and following it keeps the record reliable.",
+      "detailed": "Missing signatures are a common problem with an established fix. The nurse in charge will know the local process and can make sure it is followed. It ranks second because it is helpful but doesn't, on its own, deal with the request to sign."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep clinical records honest under pressure, while helping to fix the problem properly.",
+    "keyDetails": "You didn't give the vaccines or see them given. The nurse who did is away. The record matters for Ava's future care.",
+    "reasoning": "[C] refuses the false entry and offers an honest fix. [E] uses the ward's process, and [A] confirms the facts but intrudes on a colleague's leave. [B] leaves a risky gap, and [D] falsifies the record.",
+    "competing": "Some would rank [A] higher, because confirmation is essential. The key prefers other ways of confirming the dose first, which respects the colleague's leave."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, keeping records honest and accurate."
+    },
+    {
+      "title": "The Code: professional standards of practice and behaviour for nurses, midwives and nursing associates",
+      "publisher": "Nursing and Midwifery Council",
+      "year": 2018,
+      "url": "https://www.nmc.org.uk/standards/code/",
+      "note": "Keeping clear and accurate records of the care given."
+    }
+  ],
+  "tags": [
+    "records",
+    "probity",
+    "immunisation",
+    "paediatrics"
+  ]
+}

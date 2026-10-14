@@ -1,0 +1,103 @@
+{
+  "id": "sjt-276",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-276",
+  "format": "multiple_choice",
+  "title": "The silent bleep",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Teamwork",
+    "Patient safety",
+    "Addressing problems with colleagues"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a cardiology and respiratory ward, sharing the ward cover with another F2, Tom. For the past three days Tom hasn't answered his bleep for long periods, and the nurses have started bleeping you about his patients instead.\n\nToday you have been called five times about his patients, including once about a patient with chest pain, and your own jobs are falling behind.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the nurses to keep bleeping Tom until he answers.",
+      "brief": "Leaves patients waiting while the problem continues.",
+      "detailed": "This puts the responsibility back on Tom, but patients may wait for help. It doesn't address why he isn't answering."
+    },
+    {
+      "id": "B",
+      "text": "See any of Tom's patients who need a doctor urgently.",
+      "brief": "Patients mustn't wait because of a communication problem.",
+      "detailed": "A patient with chest pain needs to be seen promptly, whoever is responsible. Seeing urgent cases keeps patients safe while the underlying problem is sorted out."
+    },
+    {
+      "id": "C",
+      "text": "Speak to Tom privately to find out what's going on.",
+      "brief": "There may be a reason, such as a faulty bleep or a problem he is struggling with.",
+      "detailed": "His bleep may be broken, he may be overwhelmed, or he may be unwell. A private, non-judgemental conversation is the fairest first step and may solve the problem quickly."
+    },
+    {
+      "id": "D",
+      "text": "Post in the junior doctors' group chat asking whether anyone knows what's wrong with Tom.",
+      "brief": "Discussing a colleague's possible problems in a group is inappropriate.",
+      "detailed": "This may embarrass Tom and spread speculation. It doesn't solve the problem for patients."
+    },
+    {
+      "id": "E",
+      "text": "Report Tom's unanswered bleeps through the incident reporting system.",
+      "brief": "May be right later, but not before speaking to him or a senior.",
+      "detailed": "If patients came to harm, an incident report would be appropriate. Going straight to it, without speaking to Tom or your registrar, skips the more direct ways of fixing the problem."
+    },
+    {
+      "id": "F",
+      "text": "Tell your registrar that Tom's calls are coming to you.",
+      "brief": "A senior needs to know about a gap in ward cover.",
+      "detailed": "If calls are going unanswered, there is a risk to patients that a senior should know about. The registrar can check on Tom and redistribute work if needed."
+    },
+    {
+      "id": "G",
+      "text": "Tell the nurses you will only see your own patients.",
+      "brief": "Leaves patients without a doctor.",
+      "detailed": "Your workload matters, but refusing to see urgent patients puts them at risk."
+    },
+    {
+      "id": "H",
+      "text": "Swap bleeps with Tom so you can see who is calling him.",
+      "brief": "Impractical, and it doesn't deal with the problem.",
+      "detailed": "This would cause confusion about who is covering whom, and it doesn't address why Tom isn't answering."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you keep patients safe when a colleague isn't responding, and how you address the problem fairly.",
+    "keyDetails": "Tom hasn't answered for three days. Nurses are calling you instead. A patient with chest pain was affected. Your own work is suffering.",
+    "reasoning": "[B] keeps urgent patients safe, [C] gives Tom a fair chance to explain, and [F] involves a senior who can fix the gap. The distractors leave patients waiting ([A], [G]), gossip ([D]), escalate too early ([E]), or add confusion ([H]).",
+    "competing": "[E] is tempting because the problem is affecting patients. Speaking to Tom and your registrar should come first, as they can fix it today."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working with colleagues and responding to risks to patients."
+    }
+  ],
+  "tags": [
+    "teamwork",
+    "bleep",
+    "colleague",
+    "cardiology"
+  ]
+}

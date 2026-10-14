@@ -1,0 +1,109 @@
+{
+  "id": "sjt-262",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-262",
+  "format": "multiple_choice",
+  "title": "Fasting and insulin",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting beliefs",
+    "Shared decision-making",
+    "Patient safety"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in a GP practice. Mr Hussain, 56, has type 2 diabetes and takes a long-acting insulin each evening, plus metformin. Ramadan begins in three weeks, and he tells you he intends to fast from dawn until sunset, as he has done every year.\n\nLast year he had two episodes of feeling shaky and sweaty in the late afternoon. He asks how he should adjust his medicines.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask how he managed last year and what the shaky episodes were like.",
+      "brief": "His experience shows the risks you need to plan around.",
+      "detailed": "The episodes sound like hypoglycaemia. Understanding when they happened and what he did helps you tailor his plan, and shows you take his experience seriously."
+    },
+    {
+      "id": "B",
+      "text": "Agree an insulin plan for the fast with him, with the practice diabetes nurse.",
+      "brief": "Shared planning lets him fast as safely as possible.",
+      "detailed": "Insulin doses and timing usually need adjusting around the pre-dawn and sunset meals to reduce the risk of hypoglycaemia. Agreeing a plan with him, with the advice of the practice diabetes nurse, respects his decision and protects his safety."
+    },
+    {
+      "id": "C",
+      "text": "Explain how to check his glucose while fasting, and when to break the fast.",
+      "brief": "Monitoring and a clear threshold for breaking the fast prevent serious hypos.",
+      "detailed": "Many people worry that checking blood glucose breaks the fast. Explaining that monitoring is safe, and agreeing when he should break the fast to treat a low reading, gives him a clear safety net."
+    },
+    {
+      "id": "D",
+      "text": "Advise him not to fast because of his diabetes.",
+      "brief": "Ignores his wishes and isn't necessarily required.",
+      "detailed": "Some people with diabetes are advised not to fast, but many can fast safely with planning. Telling him not to, without discussion, disregards his beliefs and his autonomy."
+    },
+    {
+      "id": "E",
+      "text": "Tell him to take his usual insulin dose at his usual time.",
+      "brief": "Unchanged doses during a long fast risk hypoglycaemia.",
+      "detailed": "His previous symptoms suggest hypoglycaemia. Keeping his doses unchanged while fasting for long hours puts him at risk."
+    },
+    {
+      "id": "F",
+      "text": "Tell him to stop his insulin for the whole of Ramadan.",
+      "brief": "Stopping insulin altogether risks very high blood glucose.",
+      "detailed": "This avoids hypos but risks severe hyperglycaemia. Adjusting the dose is safer than stopping it."
+    },
+    {
+      "id": "G",
+      "text": "Suggest he asks his imam whether he should fast this year.",
+      "brief": "He asked for medical advice, which is your role to give.",
+      "detailed": "He may wish to discuss religious questions with his imam, but he has asked you for medical advice, and you should give it."
+    },
+    {
+      "id": "H",
+      "text": "Give him a leaflet on fasting with diabetes and ask him to book a review after Ramadan.",
+      "brief": "A leaflet helps, but he needs a plan before he starts.",
+      "detailed": "Written information is useful as a supplement. A review after Ramadan is too late to prevent the problems he had last year."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you support a patient's religious practice while making it as safe as possible.",
+    "keyDetails": "He plans to fast. He takes insulin. He had probable hypoglycaemia last year. He has asked for advice in good time.",
+    "reasoning": "[A] learns from last year, [B] adjusts his treatment with him, and [C] gives him a safety net. The distractors ignore his wishes ([D]), give unsafe advice ([E], [F]), deflect ([G]), or leave planning too late ([H]).",
+    "competing": "[H] is tempting as a quick option, but he needs a plan before the fast begins, not afterwards."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs when they affect their care."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, shared decision-making."
+    }
+  ],
+  "tags": [
+    "diabetes",
+    "Ramadan",
+    "religion",
+    "general practice"
+  ]
+}

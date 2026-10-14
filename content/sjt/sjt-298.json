@@ -1,0 +1,110 @@
+{
+  "id": "sjt-298",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-298",
+  "format": "multiple_choice",
+  "title": "She won't give it",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Teamwork",
+    "Safe prescribing",
+    "Responding to challenge"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. You prescribed intravenous gentamicin for Mr Grant, 74, who has suspected urosepsis. A nurse, Kate, tells you she won't give it because she thinks the dose is too high for the patient's kidney function.\n\nYou are busy and feel confident you used the trust's gentamicin calculator.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Kate to give the dose, as you are the prescriber.",
+      "brief": "Overrides a legitimate safety challenge.",
+      "detailed": "Being the prescriber doesn't make the dose right. Insisting without checking undermines a safety barrier and could harm the patient."
+    },
+    {
+      "id": "B",
+      "text": "Listen to Kate's concern.",
+      "brief": "She may have noticed something you missed.",
+      "detailed": "Nurses checking prescriptions is an important safety barrier. Her concern about kidney function is specific and deserves attention, even if you are busy."
+    },
+    {
+      "id": "C",
+      "text": "Give the gentamicin yourself.",
+      "brief": "Bypasses the safety concern without resolving it.",
+      "detailed": "This avoids the disagreement but leaves the possible error unaddressed."
+    },
+    {
+      "id": "D",
+      "text": "Ask another nurse to give the dose instead.",
+      "brief": "Goes around the challenge rather than checking it.",
+      "detailed": "This avoids Kate's concern rather than resolving it, and may put another nurse in a difficult position."
+    },
+    {
+      "id": "E",
+      "text": "Recheck the dose with her, using his latest results.",
+      "brief": "A joint check resolves the disagreement safely.",
+      "detailed": "Rechecking together shows whether you used the right weight and creatinine. If you were right, she will be reassured; if not, the error is caught."
+    },
+    {
+      "id": "F",
+      "text": "Report Kate to the nurse in charge for refusing to give a drug.",
+      "brief": "She was right to raise her concern.",
+      "detailed": "A nurse who questions a dose is doing her job. Reporting her would discourage the challenge that keeps patients safe."
+    },
+    {
+      "id": "G",
+      "text": "Change to a different antibiotic to avoid the disagreement.",
+      "brief": "Changes treatment for the wrong reason.",
+      "detailed": "The choice of antibiotic should depend on the patient's needs, not on avoiding a conversation."
+    },
+    {
+      "id": "H",
+      "text": "Ask the ED pharmacist to check the dose.",
+      "brief": "An independent expert can settle a dosing question.",
+      "detailed": "A pharmacist can give an independent, expert view on gentamicin dosing, which settles any remaining doubt so the patient gets the right dose promptly."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a colleague challenges your prescription, keeping the focus on patient safety.",
+    "keyDetails": "The concern is specific and relevant. Gentamicin dosing depends on kidney function. You are busy, but the patient needs treatment promptly.",
+    "reasoning": "[B] listens, [E] checks the dose together, and [H] brings in an independent expert if needed. The distractors override ([A]), bypass the concern ([C], [D]), penalise the challenge ([F]), or change treatment for the wrong reason ([G]).",
+    "competing": "[C] might seem efficient when you are busy, but it skips the check that would show whether the dose is safe."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Responding to queries about prescriptions."
+    },
+    {
+      "title": "The Code: professional standards of practice and behaviour for nurses, midwives and nursing associates",
+      "publisher": "Nursing and Midwifery Council",
+      "year": 2018,
+      "url": "https://www.nmc.org.uk/standards/code/",
+      "note": "Nurses' responsibility to question prescriptions they believe are unsafe."
+    }
+  ],
+  "tags": [
+    "prescribing",
+    "teamwork",
+    "emergency department",
+    "gentamicin"
+  ]
+}

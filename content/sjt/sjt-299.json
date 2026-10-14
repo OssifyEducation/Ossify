@@ -1,0 +1,79 @@
+{
+  "id": "sjt-299",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-299",
+  "format": "ranking",
+  "title": "Laughter in the staff room",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respect for patients",
+    "Challenging colleagues",
+    "Professionalism"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a lunch break in the hospital staff room. A registrar and a consultant from your team are laughing about the appearance of a patient with severe facial burns whom you all saw on the ward round.\n\nA few other staff are in the room, and the door to the corridor is open.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Laugh along, so as not to stand out in front of seniors.",
+      "brief": "Joining in endorses disrespectful behaviour.",
+      "detailed": "Laughing along adds to the disrespect and makes it harder to challenge later. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Speak to them privately later about the comments.",
+      "brief": "Less confrontational, but delays addressing it.",
+      "detailed": "A private conversation with the registrar and consultant may feel easier and can still be effective. It ranks second because it doesn't stop the comments now, when they could be overheard."
+    },
+    {
+      "id": "C",
+      "text": "Raise it with your educational supervisor.",
+      "brief": "Gets support, though it doesn't address the moment directly.",
+      "detailed": "Your supervisor can help you decide what to do about seniors' behaviour. It ranks third because it doesn't challenge the comments or address them with the people involved."
+    },
+    {
+      "id": "D",
+      "text": "Say calmly that the comments don't seem fair to him.",
+      "brief": "A brief, calm challenge in the moment shows respect for the patient.",
+      "detailed": "Comments like these are disrespectful, and could be overheard through the open door. A calm, brief remark addresses it at once without being confrontational. It ranks first, although it is hard to do with seniors."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you challenge disrespectful comments about a patient, even when they come from seniors.",
+    "keyDetails": "The comments are about a patient's appearance. The speakers are senior to you. Others could overhear.",
+    "reasoning": "[D] challenges calmly in the moment, [B] addresses it privately, and [C] seeks support. [A] endorses the behaviour.",
+    "competing": "Some would prefer a private word afterwards, as it is easier with seniors. The key favours a calm comment now because the remarks could be overheard by others."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity, including when they aren't present."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "professionalism",
+    "seniors",
+    "staff behaviour"
+  ]
+}

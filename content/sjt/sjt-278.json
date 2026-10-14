@@ -1,0 +1,110 @@
+{
+  "id": "sjt-278",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-278",
+  "format": "multiple_choice",
+  "title": "In front of the family",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Responding to undermining",
+    "Professionalism",
+    "Seeking support"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. At 03:00 you phoned the on-call consultant, Dr Hale, about a patient whose blood pressure was falling, as the unit's escalation policy requires. He came in and adjusted the treatment.\n\nOn the morning ward round, in front of the patient's wife and daughter, he says loudly, \"Thanks for dragging me in for nothing last night. Try thinking next time.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Dr Hale at the bedside that you followed the escalation policy.",
+      "brief": "Accurate, but defending yourself in front of the family may escalate things.",
+      "detailed": "You were right to call, but arguing the point at the bedside could unsettle the family and turn the round into a confrontation."
+    },
+    {
+      "id": "B",
+      "text": "Apologise to the family for Dr Hale's comment after the round.",
+      "brief": "Undermines a colleague in front of patients' relatives.",
+      "detailed": "The family may have been unsettled, but apologising for a colleague's behaviour can damage their trust in the team caring for their relative."
+    },
+    {
+      "id": "C",
+      "text": "Avoid calling Dr Hale at night in future unless it's an emergency.",
+      "brief": "Unsafe: deterioration should be escalated as the policy requires.",
+      "detailed": "Being criticised shouldn't stop you escalating appropriately. Delaying calls to avoid conflict puts patients at risk."
+    },
+    {
+      "id": "D",
+      "text": "Stay calm, and suggest you discuss it after the ward round.",
+      "brief": "Keeps the ward round professional for the family's sake.",
+      "detailed": "Responding calmly avoids a scene in front of a worried family and shows you are willing to discuss it. It also stops the conversation turning into an argument at the bedside."
+    },
+    {
+      "id": "E",
+      "text": "Speak to Dr Hale privately later about how the comment came across.",
+      "brief": "A private conversation gives him a chance to reflect and clarify expectations.",
+      "detailed": "Explaining that you followed the escalation policy, and how the comment felt in front of the family, is fair and constructive. It may also clarify when he wants to be called."
+    },
+    {
+      "id": "F",
+      "text": "Report Dr Hale to the General Medical Council for unprofessional behaviour.",
+      "brief": "Disproportionate for a single comment.",
+      "detailed": "The comment was inappropriate, but a single incident like this should be addressed locally first."
+    },
+    {
+      "id": "G",
+      "text": "Discuss what happened with your clinical or educational supervisor.",
+      "brief": "They can support you and advise on next steps if it continues.",
+      "detailed": "Being criticised publicly for following policy can be undermining. Your supervisor can support you and help you decide whether it needs raising further."
+    },
+    {
+      "id": "H",
+      "text": "Write a formal complaint to the medical director the same day.",
+      "brief": "Premature without first speaking to him or your supervisor.",
+      "detailed": "Formal routes are available if the behaviour continues. Going straight to the medical director skips simpler, more effective steps."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to being undermined by a senior in front of a family, while protecting patient care and your own professionalism.",
+    "keyDetails": "You followed the escalation policy. The criticism was public, in front of relatives. It is a single incident so far.",
+    "reasoning": "[D] keeps the round professional, [E] addresses it directly in private, and [G] gets support. The distractors confront at the bedside ([A]), undermine the team ([B]), compromise safety ([C]), or escalate disproportionately ([F], [H]).",
+    "competing": "[A] is the most tempting, because you were right. The issue is where and when you say it."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, treating colleagues fairly and with respect."
+    },
+    {
+      "title": "Leadership and management for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/leadership-and-management-for-all-doctors",
+      "note": "Contributing to a culture where staff feel able to speak up."
+    }
+  ],
+  "tags": [
+    "undermining",
+    "escalation",
+    "intensive care",
+    "hierarchy"
+  ]
+}

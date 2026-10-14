@@ -1,0 +1,85 @@
+{
+  "id": "sjt-277",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-277",
+  "format": "ranking",
+  "title": "The leaking bag",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Dignity",
+    "Compassion",
+    "Teamwork"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a general surgical ward round. Mr Patel, 68, had a colostomy formed last week. As you reach his bay at visiting time, his stoma bag leaks onto his gown and bedsheets in front of his visitors.\n\nHe is visibly embarrassed. The nurses are busy with another patient, and the healthcare assistant says she will \"get to him in a bit\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Draw the curtains and help him until a nurse is free.",
+      "brief": "His dignity matters now, and you are there.",
+      "detailed": "Drawing the curtains gives him immediate privacy, and helping him clean up shows care. It doesn't need to wait for a nurse, and it ranks first because it deals with his distress straight away."
+    },
+    {
+      "id": "B",
+      "text": "Ask the stoma nurse to review how his bag fits.",
+      "brief": "Prevents further leaks, which matters for his confidence.",
+      "detailed": "Leaks often mean the appliance doesn't fit well. A stoma nurse review can stop this happening again, which matters a great deal for his confidence. It ranks second because it doesn't help him in this moment."
+    },
+    {
+      "id": "C",
+      "text": "Continue the ward round, as stoma care is a nursing task.",
+      "brief": "Leaves him in distress when you could help.",
+      "detailed": "Stoma care is often led by nurses, but anyone can help in a moment like this. Walking away leaves him exposed and distressed. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Ask his visitors to wait outside while the staff deal with it.",
+      "brief": "Gives some privacy, but leaves him waiting in a soiled bed.",
+      "detailed": "This partly protects his dignity, but he remains uncomfortable and embarrassed until someone is free. It is less helpful than drawing the curtains and helping him."
+    },
+    {
+      "id": "E",
+      "text": "Raise the slow response with the nurse in charge later.",
+      "brief": "May help with the ward's response next time.",
+      "detailed": "The delay may reflect staffing pressures rather than indifference, and a constructive conversation could help. It ranks third because it is less urgent than his care."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "B",
+      "E",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to a patient's loss of dignity with practical compassion, rather than seeing it as someone else's job.",
+    "keyDetails": "He is embarrassed, in front of visitors. Help won't arrive for a while. You are there.",
+    "reasoning": "[A] protects his dignity now, [B] helps prevent a repeat, and [E] addresses the ward's response. [D] helps only partly, and [C] leaves him exposed.",
+    "competing": "Some might put the stoma nurse referral below the conversation with the nurse in charge. The key ranks it higher because it directly affects his future care."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with kindness and respecting their dignity."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "stoma",
+    "surgery",
+    "compassion"
+  ]
+}

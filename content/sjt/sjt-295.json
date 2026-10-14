@@ -1,0 +1,93 @@
+{
+  "id": "sjt-295",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-295",
+  "format": "ranking",
+  "title": "A friend on the ward",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Boundaries",
+    "Confidentiality",
+    "Objectivity"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Hannah, a close friend from university, has been admitted under your consultant with abdominal pain. You haven't been involved in her care.\n\nShe messages you: \"I had a CT scan this morning and no one has told me the results. Could you have a look and let me know?\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask one of her own doctors to see her and give her the results.",
+      "brief": "Keeps her care with the team responsible, while helping her get an answer.",
+      "detailed": "She is entitled to her results, but they should come from the doctors looking after her, who can explain them and plan next steps. Asking them to see her helps her get an answer soon. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Look at the results and explain them to her yourself.",
+      "brief": "Blurs the line between friend and doctor.",
+      "detailed": "You may have access as part of the team, but you aren't involved in her care, and explaining results outside a clinical consultation, perhaps with serious news, isn't appropriate."
+    },
+    {
+      "id": "C",
+      "text": "Look at the results, and tell her only if they are normal.",
+      "brief": "Selective disclosure is misleading.",
+      "detailed": "If you said nothing about abnormal results, your silence would itself tell her something. It is also an inappropriate use of access to a friend's records. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Tell your consultant that you know Hannah well.",
+      "brief": "Lets the team decide how to manage your involvement.",
+      "detailed": "Being close to a patient can affect objectivity and confidentiality. Telling your consultant allows the team to plan sensibly, for example by keeping you away from her care. It ranks second."
+    },
+    {
+      "id": "E",
+      "text": "Visit her as a friend after work, without discussing her medical care.",
+      "brief": "Supportive, while keeping professional and personal roles separate.",
+      "detailed": "There is nothing wrong with visiting a friend in hospital, provided you are clear that you're there as a friend. It ranks third because it doesn't help her get her results."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "E",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you keep professional boundaries when a friend is a patient in your team.",
+    "keyDetails": "She is a close friend. You aren't involved in her care. She is anxious for her results.",
+    "reasoning": "[A] helps her through the proper route, [D] tells your consultant about the relationship, and [E] supports her as a friend. [B] blurs boundaries, and [C] is also misleading.",
+    "competing": "[A] and [D] work together. The key puts helping her get her results first, as she is waiting now; telling your consultant can follow."
+  },
+  "references": [
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Personal relationships and treating those close to you."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Accessing records only when involved in a patient's care."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "friends",
+    "confidentiality",
+    "general medicine"
+  ]
+}

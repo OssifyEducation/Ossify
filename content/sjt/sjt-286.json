@@ -1,0 +1,109 @@
+{
+  "id": "sjt-286",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-286",
+  "format": "multiple_choice",
+  "title": "Would surgery help?",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Honest communication",
+    "Shared decision-making",
+    "End-of-life care"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Mr Bell, 71, has advanced bowel cancer that has spread to his liver, and he has been admitted with a bowel obstruction. The consultant hasn't seen him yet; the registrar has said surgery may not be appropriate.\n\nMr Bell asks you, \"Would an operation help? I want to know what my options are.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him that surgery isn't an option because of his cancer.",
+      "brief": "Premature: the decision hasn't been made.",
+      "detailed": "The registrar's view is provisional, and the consultant hasn't seen him. Telling him surgery is off the table may be wrong."
+    },
+    {
+      "id": "B",
+      "text": "Reassure him that an operation should sort the problem out.",
+      "brief": "False hope in an uncertain situation.",
+      "detailed": "Surgery may not be possible or helpful. Reassuring him could make later conversations much harder."
+    },
+    {
+      "id": "C",
+      "text": "Ask what he understands about his illness and what matters most to him.",
+      "brief": "His understanding and priorities will shape any decision.",
+      "detailed": "Knowing what he already knows, and what he values most, such as time at home or symptom control, helps you have an honest conversation and helps the team plan with him."
+    },
+    {
+      "id": "D",
+      "text": "Say the consultant will answer his questions tomorrow.",
+      "brief": "Defers a question you can partly answer now.",
+      "detailed": "The consultant should lead, but avoiding his question entirely may leave him anxious overnight. You can give him an honest outline now."
+    },
+    {
+      "id": "E",
+      "text": "Explain that surgery may or may not be suitable, and is being considered.",
+      "brief": "Honest, without pre-empting the consultant.",
+      "detailed": "You don't yet know whether surgery is appropriate. Saying that honestly, and explaining that the team will discuss options with him, respects his question without giving false hope or premature bad news."
+    },
+    {
+      "id": "F",
+      "text": "Refer him to the palliative care team instead of discussing surgery with him.",
+      "brief": "Palliative care may help, but it isn't a substitute for answering his question.",
+      "detailed": "Palliative care involvement may well be valuable, but referring him in place of the conversation he asked for sidesteps his question."
+    },
+    {
+      "id": "G",
+      "text": "Arrange for the consultant to discuss his options with him today.",
+      "brief": "He needs a senior to discuss options and make a plan with him.",
+      "detailed": "Decisions about surgery in advanced cancer are complex and should be made with him by the consultant. Arranging this promptly respects his wish to know his options."
+    },
+    {
+      "id": "H",
+      "text": "Ask his family what he should be told about his options.",
+      "brief": "He has capacity and has asked for information himself.",
+      "detailed": "Families can be involved with his agreement, but he has asked directly and is entitled to information about his own care."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you answer a patient's question about treatment honestly when the decision hasn't been made yet.",
+    "keyDetails": "The cancer is advanced. Surgery may not be appropriate, but no decision has been made. He wants to know his options.",
+    "reasoning": "[C] learns his priorities, [E] gives an honest answer without pre-empting the decision, and [G] arranges the senior discussion he needs. The distractors pre-empt the decision ([A], [B]), defer ([D]), sidestep ([F]), or bypass him ([H]).",
+    "competing": "[F] is tempting because palliative care is likely to be helpful. The problem is using it instead of answering his question, not involving the team."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Discussing treatment options and patients' wishes towards the end of life."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Sharing information about options, including uncertainty."
+    }
+  ],
+  "tags": [
+    "end of life",
+    "surgery",
+    "cancer",
+    "communication"
+  ]
+}

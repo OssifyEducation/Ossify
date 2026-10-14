@@ -1,0 +1,93 @@
+{
+  "id": "sjt-293",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-293",
+  "format": "ranking",
+  "title": "Not in my notes",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Record-keeping",
+    "Exploring concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Mr Novak, 38, was recently diagnosed with HIV at a sexual health clinic, which has written to the practice. The letter hasn't yet been added to his record. He has started antiretroviral treatment.\n\nAt an appointment about something else, he asks you not to record his HIV diagnosis in his GP notes, because he is worried that \"anyone could see it\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Record the diagnosis without discussing his concerns.",
+      "brief": "Safe for his care, but dismissive of his worry.",
+      "detailed": "Recording it protects his safety, but ignoring his concern may damage his trust and make him less likely to share information in future."
+    },
+    {
+      "id": "B",
+      "text": "Ask what worries him about the diagnosis being in his notes.",
+      "brief": "Understanding his concern lets you address it.",
+      "detailed": "He may be worried about particular people, such as a relative working at the practice, or about stigma in general. Exploring his worry first helps you give the right reassurance. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Explain how access to his record is controlled, and any options for limiting it.",
+      "brief": "Addresses his worry while keeping his record complete.",
+      "detailed": "Records are confidential, staff access is monitored, and there may be ways to restrict how sensitive information is shared. This addresses his concern directly. It ranks third because it is most useful once he understands why the information should be recorded."
+    },
+    {
+      "id": "D",
+      "text": "Explain why it needs recording, including avoiding dangerous drug interactions.",
+      "brief": "Other clinicians need to know to treat him safely.",
+      "detailed": "Antiretroviral drugs interact with many common medicines. A doctor unaware of his treatment could prescribe something harmful. Explaining this honestly helps him understand why the record matters."
+    },
+    {
+      "id": "E",
+      "text": "Agree not to record the diagnosis.",
+      "brief": "Leaves his record incomplete and puts him at risk.",
+      "detailed": "Without the diagnosis and treatment in his record, he could be prescribed medicines that interact dangerously. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "C",
+      "A",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a patient's request to keep important information out of his record, balancing his concerns with his safety.",
+    "keyDetails": "He is on antiretroviral treatment. He is worried about who might see his record. The information matters for safe prescribing.",
+    "reasoning": "[B] explores his worry, [D] explains why recording matters, and [C] addresses access. [A] is safe but dismissive, and [E] puts him at risk.",
+    "competing": "[D] and [C] could reasonably be swapped. The key explains the reason first, because his choice to share is better informed once he understands it."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Protecting patient information and explaining how it is used."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, keeping clear and accurate records."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "HIV",
+    "records",
+    "general practice"
+  ]
+}

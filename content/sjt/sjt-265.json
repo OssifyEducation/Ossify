@@ -1,0 +1,93 @@
+{
+  "id": "sjt-265",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-265",
+  "format": "ranking",
+  "title": "A new friend",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Adult safeguarding",
+    "Capacity",
+    "Patient-centred care"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Byrne, 79, has lung cancer and mild dementia and was admitted for symptom control. A man she met a few months ago visits daily and says he is her \"best friend\".\n\nHer niece tells you, in private, that he has been using Mrs Byrne's bank cards and recently persuaded her to add his name to her savings account. Mrs Byrne's capacity to manage her finances hasn't been assessed.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Advise the niece to contact her aunt's bank herself.",
+      "brief": "Banks can help, but this bypasses the proper safeguarding route.",
+      "detailed": "Banks do have processes for suspected financial abuse, so this isn't unreasonable. But it leaves the response to a relative, without involving Mrs Byrne or the professionals responsible for safeguarding."
+    },
+    {
+      "id": "B",
+      "text": "Leave it, as Mrs Byrne is free to choose her own friends.",
+      "brief": "Ignores a possible abuse of a vulnerable adult.",
+      "detailed": "She is free to choose her friends, but there is evidence of possible financial exploitation and her capacity is uncertain. Doing nothing leaves her at risk, so this is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Record the niece's concerns and your own observations in the notes.",
+      "brief": "Accurate records support any later enquiry.",
+      "detailed": "Clear, factual documentation helps the safeguarding team and anyone else who becomes involved. It is important but less active than speaking to Mrs Byrne or seeking advice, so it ranks third."
+    },
+    {
+      "id": "D",
+      "text": "Discuss your concerns with the hospital's adult safeguarding team.",
+      "brief": "Possible financial abuse of a vulnerable adult needs specialist advice.",
+      "detailed": "Financial abuse is a recognised form of abuse. The safeguarding team can advise on a referral to the local authority and on assessing her capacity. It ranks second because it works best informed by what Mrs Byrne says."
+    },
+    {
+      "id": "E",
+      "text": "Talk with Mrs Byrne alone about the friend and what she wants.",
+      "brief": "Her views and understanding come first and shape what happens next.",
+      "detailed": "Safeguarding should be led by the person's wishes as far as possible. Speaking to her alone lets her talk freely and helps you judge whether she understands what is happening with her money. It ranks first because her voice should come before any process."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "C",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to possible financial abuse of a vulnerable adult, putting her wishes first while making sure she is protected.",
+    "keyDetails": "She has dementia and her financial capacity is unknown. There are specific concerns about her bank cards and savings. The concern comes from a relative.",
+    "reasoning": "[E] hears from Mrs Byrne, [D] seeks safeguarding advice, and [C] documents the concerns. [A] is partial and bypasses the process, and [B] leaves her at risk.",
+    "competing": "Some would put the safeguarding team first. The key puts talking to Mrs Byrne first because safeguarding should start from the person's own views, and she is on the ward to ask."
+  },
+  "references": [
+    {
+      "title": "Care Act 2014, section 42 (enquiry by local authority)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2014,
+      "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/42",
+      "note": "Safeguarding enquiries for adults at risk, including financial abuse."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Assuming capacity unless it is shown to be lacking for the decision."
+    }
+  ],
+  "tags": [
+    "safeguarding",
+    "financial abuse",
+    "dementia",
+    "oncology"
+  ]
+}

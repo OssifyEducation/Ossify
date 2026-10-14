@@ -1,0 +1,93 @@
+{
+  "id": "sjt-255",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-255",
+  "format": "ranking",
+  "title": "Missing from handover",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Handover",
+    "Safeguarding",
+    "Attention to detail"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics, finishing a day shift. Lily, 3, was admitted today with bronchiolitis. Earlier you spoke to her social worker, who told you Lily is on a child protection plan and that her mother's partner must not have unsupervised contact with her.\n\nYou notice the registrar's written handover sheet for the night team doesn't mention the child protection plan. Handover starts in five minutes.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Add the information to the sheet and point it out to the night doctor.",
+      "brief": "The night team must know about the contact restriction, in writing and in person.",
+      "detailed": "The restriction protects Lily overnight, when her mother's partner could visit. Adding it to the written sheet and highlighting it in person makes sure the night team knows. It ranks first because it closes the gap before you go home."
+    },
+    {
+      "id": "B",
+      "text": "Tell the nurse in charge about the contact restriction before you leave.",
+      "brief": "Nurses manage visiting, so they need to know directly.",
+      "detailed": "Ward nurses are the people most likely to notice who is visiting, so they need to know about the restriction. It ranks second only because the night medical team also needs the information, which the first option covers."
+    },
+    {
+      "id": "C",
+      "text": "Ask Lily's mother not to bring her partner to the ward tonight.",
+      "brief": "Well intentioned, but it isn't the way the restriction should be managed.",
+      "detailed": "The plan sets out how contact is managed, and an ad hoc conversation with her mother may be unhelpful or inconsistent with what social care has agreed. It also relies on the mother rather than the ward team being aware. It ranks fourth."
+    },
+    {
+      "id": "D",
+      "text": "Leave the sheet as it is, as the plan will be in the medical notes.",
+      "brief": "Leaves the night team unaware of a risk to Lily.",
+      "detailed": "Busy night teams rely on handover and may not read every note. Assuming they will find it leaves Lily unprotected, so this is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Mention to the registrar that safeguarding details should go on the sheet.",
+      "brief": "This helps prevent the same gap with future patients.",
+      "detailed": "A brief, constructive word helps make sure safeguarding information is included in future. It doesn't help Lily tonight, so it ranks below the actions that protect her now."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "B",
+      "E",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you close a safety gap in handover before going home, particularly when it involves safeguarding.",
+    "keyDetails": "Lily has a child protection plan with a contact restriction. The night team doesn't know. You have five minutes before handover.",
+    "reasoning": "[A] informs the night doctors and [B] informs the nurses who manage visiting. [E] helps prevent future gaps. [C] bypasses the agreed plan, and [D] leaves Lily unprotected.",
+    "competing": "[A] and [B] are close. The key puts the handover first because it is the formal record the night team works from, and you can tell the nurse in charge straight afterwards."
+  },
+  "references": [
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Sharing information to protect children."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Child protection plans and multi-agency working."
+    }
+  ],
+  "tags": [
+    "handover",
+    "safeguarding",
+    "paediatrics",
+    "child protection"
+  ]
+}

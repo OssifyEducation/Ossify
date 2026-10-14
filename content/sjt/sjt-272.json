@@ -1,0 +1,109 @@
+{
+  "id": "sjt-272",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-272",
+  "format": "multiple_choice",
+  "title": "A watch after his death",
+  "setting": "Oncology & palliative care",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Gifts",
+    "Boundaries",
+    "Compassion"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an oncology ward. Mr Clarke, whom you looked after for several weeks, died peacefully on the ward last week.\n\nHis wife and daughter return to thank the team. They give you a small box and say it contains his expensive watch, which \"he would have wanted you to have\".",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Thank them warmly for thinking of you.",
+      "brief": "Their gesture comes from gratitude and grief, and deserves a kind response.",
+      "detailed": "Acknowledging their kindness matters, especially soon after a death. A warm response shows that the care you gave was personal and that their thanks is received."
+    },
+    {
+      "id": "B",
+      "text": "Explain gently that you can't accept something so valuable.",
+      "brief": "Valuable gifts can affect, or appear to affect, trust in doctors.",
+      "detailed": "Most trusts don't allow staff to accept valuable gifts, and accepting one could appear to compromise your professional relationship. Explaining kindly why you can't accept it avoids causing hurt."
+    },
+    {
+      "id": "C",
+      "text": "Accept the watch and record it in the trust's gifts register.",
+      "brief": "Declaring is good practice, but a watch of this value shouldn't be accepted.",
+      "detailed": "Declaring gifts is the right approach for small items. For something this valuable, declaring it doesn't remove the concern, and most policies would not allow you to accept it."
+    },
+    {
+      "id": "D",
+      "text": "Accept it so as not to hurt them.",
+      "brief": "Kind in intent, but inappropriate for a valuable gift.",
+      "detailed": "Not wanting to hurt a grieving family is understandable, but accepting a gift of this value is a professional concern, and there are kind ways to decline."
+    },
+    {
+      "id": "E",
+      "text": "Mention the ward's charity fund, if they'd like to give something.",
+      "brief": "Gives them another way to express their thanks.",
+      "detailed": "Many families want to give something back. Suggesting the ward charity offers an alternative that benefits other patients, without any pressure."
+    },
+    {
+      "id": "F",
+      "text": "Ask the family to give it to the ward manager to sell for the team.",
+      "brief": "Redirects a personal gift in a way the family didn't intend.",
+      "detailed": "This may seem fair to the team, but the family intended a personal gift of a man's watch, and it puts them in an awkward position."
+    },
+    {
+      "id": "G",
+      "text": "Tell them you'll ask your consultant whether you can keep it.",
+      "brief": "Delays a clear answer and suggests you might accept it.",
+      "detailed": "Checking local policy is reasonable for small or unclear gifts, but here the answer is clear. Delaying it may raise their expectations."
+    },
+    {
+      "id": "H",
+      "text": "Decline briefly and move on to your next task.",
+      "brief": "Correct outcome, but abrupt with a grieving family.",
+      "detailed": "Declining is right, but doing it abruptly may hurt a family who came back to thank you."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a valuable gift from a bereaved family with kindness, while maintaining professional standards.",
+    "keyDetails": "The gift is valuable. The family is grieving and grateful. The patient has died.",
+    "reasoning": "[A] receives their thanks warmly, [B] declines kindly, and [E] offers another way to give. The distractors accept the gift ([C], [D]), redirect it awkwardly ([F]), delay a clear answer ([G]), or decline unkindly ([H]).",
+    "competing": "[C] is the closest call, as declaring gifts is good practice. The value of the gift is what makes accepting it inappropriate."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Gifts and their potential to affect, or appear to affect, professional judgement."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, acting with honesty and integrity."
+    }
+  ],
+  "tags": [
+    "gifts",
+    "boundaries",
+    "bereavement",
+    "oncology"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-292",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-292",
+  "format": "multiple_choice",
+  "title": "Trying to leave",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Capacity assessment",
+    "Delirium",
+    "Least restrictive care"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an elderly care ward. Mr Cole, 84, was admitted yesterday with a urinary tract infection. This evening he keeps walking towards the ward exit, saying he needs to \"get home to feed the dog\".\n\nHe seems muddled, and the nurses are struggling to keep him on the ward. His capacity to decide whether to stay in hospital hasn't been assessed. His daughter visits every afternoon.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Assess his capacity to decide whether to stay in hospital.",
+      "brief": "This decides how the team can lawfully act.",
+      "detailed": "If he has capacity, he can choose to leave, even unwisely. If he lacks it, the team can act in his best interests in the least restrictive way. The assessment comes first."
+    },
+    {
+      "id": "B",
+      "text": "Talk with him calmly about his worries, including the dog.",
+      "brief": "Addressing his concern may settle him without restriction.",
+      "detailed": "His worry about the dog may be real. Finding out, and reassuring him that it is being dealt with, may settle him more effectively than any restriction."
+    },
+    {
+      "id": "C",
+      "text": "Let him leave, as he isn't detained.",
+      "brief": "Unsafe without first assessing his capacity.",
+      "detailed": "If he lacks capacity, letting him walk out at night with an infection could put him at serious risk."
+    },
+    {
+      "id": "D",
+      "text": "Ask security to stand at the ward exit.",
+      "brief": "A restrictive measure without assessment.",
+      "detailed": "Restricting his movement without assessing capacity, and without considering less restrictive options, may be unlawful and can increase distress."
+    },
+    {
+      "id": "E",
+      "text": "Prescribe a sedative so he settles for the night.",
+      "brief": "Sedation can worsen delirium and isn't first-line.",
+      "detailed": "Sedating him without assessment may make him more confused and increase his risk of falls."
+    },
+    {
+      "id": "F",
+      "text": "Ask his daughter to stay with him overnight.",
+      "brief": "Family can help, but it isn't a substitute for assessment.",
+      "detailed": "A familiar face can be very calming and is worth discussing. But it doesn't replace assessing his capacity and the cause of his confusion."
+    },
+    {
+      "id": "G",
+      "text": "Use section 5(2) of the Mental Health Act to keep him on the ward.",
+      "brief": "The Mental Capacity Act is the appropriate framework here.",
+      "detailed": "His confusion is likely due to a physical illness. The Mental Capacity Act, rather than the Mental Health Act, is usually the right framework."
+    },
+    {
+      "id": "H",
+      "text": "Look for causes of his confusion, such as pain or retention.",
+      "brief": "Delirium has treatable causes that may be making him worse.",
+      "detailed": "His confusion may be worsening because of infection, pain, constipation or urinary retention. Treating these may improve both his confusion and his wish to leave."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a confused patient trying to leave, starting with capacity and the least restrictive approach.",
+    "keyDetails": "He is muddled and has an infection. His capacity hasn't been assessed. He has a specific worry.",
+    "reasoning": "[A] establishes the legal basis for action, [B] addresses his concern, and [H] treats the cause. The distractors ignore the risk ([C]), restrict him without assessment ([D], [G]), sedate ([E]), or rely on family instead of assessment ([F]).",
+    "competing": "[F] is the closest call, as family can help greatly. It is a useful addition, but not a substitute for the keyed actions."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Assessing capacity and using the least restrictive option."
+    },
+    {
+      "title": "Delirium: prevention, diagnosis and management in hospital and long-term care (CG103)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2023,
+      "url": "https://www.nice.org.uk/guidance/cg103",
+      "note": "Identifying and treating causes of delirium."
+    }
+  ],
+  "tags": [
+    "capacity",
+    "delirium",
+    "elderly care",
+    "least restrictive"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-291",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-291",
+  "format": "ranking",
+  "title": "Teaching cancelled again",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Advocating for training",
+    "Using formal processes",
+    "Balancing service"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in obstetrics and gynaecology. Your protected teaching session has been cancelled for the third time this month, because the labour ward is short of doctors. Your trust asks doctors to submit an exception report when they miss protected teaching.\n\nYou are worried you are falling behind on your learning, and you know other trainees on the rota feel the same.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the rota coordinator whether teaching can be protected on the rota.",
+      "brief": "A practical step towards fixing the cause.",
+      "detailed": "Rota changes may make protected teaching possible. It ranks second because a single request is less likely to change things than a formal report that shows the pattern."
+    },
+    {
+      "id": "B",
+      "text": "Use quieter moments on shift for self-directed learning.",
+      "brief": "Helpful for you, but doesn't address the problem.",
+      "detailed": "Making the most of quiet moments is sensible, but it doesn't replace protected teaching or help other trainees. It ranks third."
+    },
+    {
+      "id": "C",
+      "text": "Accept it, as service needs come first.",
+      "brief": "Leaves a recurring problem unaddressed.",
+      "detailed": "Occasional cancellations are inevitable, but a repeated pattern affects training and should be raised. Accepting it means nothing changes."
+    },
+    {
+      "id": "D",
+      "text": "Leave your labour ward shift early next week to attend a regional teaching day.",
+      "brief": "Leaves the ward short, which puts patients at risk.",
+      "detailed": "Your learning matters, but leaving a rostered shift early on a short-staffed labour ward puts patients at risk. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Submit an exception report for the missed teaching.",
+      "brief": "This is the formal way to record missed educational opportunities.",
+      "detailed": "Your trust uses exception reports for missed education as well as extra hours. They go to your educational supervisor and help the trust see the pattern. It ranks first because it is the route designed for this problem."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you use proper routes to protect your training, without putting patients at risk.",
+    "keyDetails": "Teaching has been cancelled three times this month. Others are affected. The labour ward is short.",
+    "reasoning": "[E] uses the formal route, [A] tackles the rota, and [B] makes the best of the situation. [C] lets the problem continue, and [D] risks patient safety.",
+    "competing": "Some would talk to their educational supervisor first. An exception report reaches the supervisor anyway, and it also records the pattern formally."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, keeping your knowledge and skills up to date."
+    }
+  ],
+  "tags": [
+    "training",
+    "exception reporting",
+    "rota",
+    "obstetrics"
+  ]
+}
