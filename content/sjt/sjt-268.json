@@ -1,0 +1,109 @@
+{
+  "id": "sjt-268",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-268",
+  "format": "multiple_choice",
+  "title": "Kept alive by a machine",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Consent",
+    "Exploring concerns",
+    "Respecting autonomy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. Mr Fraser, 83, has been admitted after two blackouts and has complete heart block. The team recommends a permanent pacemaker.\n\nHe tells you he doesn't want one because he doesn't want to be \"kept alive by a machine\" when his time comes. He is alert, follows the conversation well, and lives independently with his wife.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange the pacemaker anyway, as it is clearly in his best interests to have one.",
+      "brief": "Best-interests decisions apply only to patients who lack capacity.",
+      "detailed": "He appears to have capacity, so treating him against his wishes would be unlawful, however beneficial the treatment."
+    },
+    {
+      "id": "B",
+      "text": "Ask his wife to persuade him to agree to the pacemaker.",
+      "brief": "Involving family can help, but recruiting her to persuade him isn't fair.",
+      "detailed": "He may want to discuss it with his wife, and that is reasonable. Asking her to persuade him puts pressure on him rather than supporting his decision."
+    },
+    {
+      "id": "C",
+      "text": "Tell him he could die without one and should reconsider.",
+      "brief": "The risk should be explained, but not as pressure to agree.",
+      "detailed": "He needs to know the risks of declining, and they belong in your explanation. Presenting them as a reason he should change his mind, without exploring his fear, may feel like coercion and doesn't address his concern."
+    },
+    {
+      "id": "D",
+      "text": "Ask him what he means by being kept alive by a machine.",
+      "brief": "Understanding his fear lets you respond to it accurately.",
+      "detailed": "His concern may be based on a misunderstanding, or on experiences with relatives. Exploring it first means the information you give will address what actually worries him."
+    },
+    {
+      "id": "E",
+      "text": "Refer him to the psychiatry team to assess his decision.",
+      "brief": "Unusual decisions don't, in themselves, suggest a lack of capacity.",
+      "detailed": "There is nothing to suggest he lacks capacity. A decision others disagree with isn't a reason for a psychiatric referral."
+    },
+    {
+      "id": "F",
+      "text": "Ask your consultant to talk him round on tomorrow's ward round.",
+      "brief": "Senior involvement is fine, but the aim shouldn't be to talk him round.",
+      "detailed": "Your consultant should be involved in a significant decision, but framing the aim as persuasion rather than informed choice is the problem."
+    },
+    {
+      "id": "G",
+      "text": "Explain what a pacemaker does, including that it doesn't stop a natural death.",
+      "brief": "Accurate information may change his view, and he needs it to decide.",
+      "detailed": "A pacemaker treats a slow heart rhythm. It doesn't keep someone alive when they are dying of another illness. He needs this information to make an informed decision, whichever way he decides."
+    },
+    {
+      "id": "H",
+      "text": "Accept his decision if he still declines, and agree a plan for his care.",
+      "brief": "A capacitous patient can refuse treatment, and he still needs a plan.",
+      "detailed": "He appears to have capacity. If he still refuses after an accurate explanation, that is his right. Agreeing a plan, including what to do if he blacks out again and offering to revisit the decision, respects his autonomy and keeps him safe."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you explore the reasons behind a refusal and give accurate information, while respecting a capable patient's right to decide.",
+    "keyDetails": "He appears to have capacity. His fear may rest on a misunderstanding of what a pacemaker does. The condition is serious if untreated.",
+    "reasoning": "[D] explores his concern, [G] corrects a possible misunderstanding, and [H] respects his decision while keeping him safe. The distractors override him ([A]), pressure him ([B], [C], [F]), or question his capacity without reason ([E]).",
+    "competing": "[F] is close, because a senior should be involved. The problem is the aim of persuading him, rather than helping him decide."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Exploring patients' concerns and respecting their decisions."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "An unwise decision does not, by itself, mean a lack of capacity."
+    }
+  ],
+  "tags": [
+    "capacity",
+    "refusal",
+    "pacemaker",
+    "cardiology"
+  ]
+}

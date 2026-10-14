@@ -1,0 +1,93 @@
+{
+  "id": "sjt-257",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-257",
+  "format": "ranking",
+  "title": "Coughing on the unit",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Safety and quality",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Supporting colleagues",
+    "Raising concerns"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in intensive care. Dr Barnes, the consultant on duty, has been coughing and sweating all morning and says he \"probably has a chest infection\". He is examining ventilated patients, some of whom are immunosuppressed.\n\nHe tells the team he can't go home because there is no one to cover him.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the unit's clinical lead that Dr Barnes is unwell and needs cover.",
+      "brief": "The clinical lead can arrange cover, which is the real barrier.",
+      "detailed": "Dr Barnes feels he can't leave because there is no cover. The clinical lead can solve that. It ranks second because speaking to him first is more respectful and may resolve things, but it is the right escalation if he won't step back."
+    },
+    {
+      "id": "B",
+      "text": "Ask the nurse in charge to give him a mask to wear.",
+      "brief": "Reduces the risk a little, but doesn't address him working while unwell.",
+      "detailed": "A mask may reduce transmission and is better than nothing. But a consultant who is feverish and coughing may not be fit to work, so this only partly deals with the problem."
+    },
+    {
+      "id": "C",
+      "text": "Post in the unit's group chat that the consultant is unwell and refusing to go home.",
+      "brief": "Unprofessional and undermining, and it solves nothing.",
+      "detailed": "Discussing a colleague's health in a group chat is disrespectful and could breach his privacy. It doesn't arrange cover or reduce the risk, so it is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Avoid working closely with him and leave it to the nursing team.",
+      "brief": "Protects you, but not the patients.",
+      "detailed": "This leaves the risk to patients unchanged and passes responsibility to others. Every member of the team has a duty to act on a risk to patients."
+    },
+    {
+      "id": "E",
+      "text": "Speak to Dr Barnes privately about your concern for him and the patients.",
+      "brief": "A direct, kind conversation is the right first step.",
+      "detailed": "Raising it with him privately respects him and may be all that is needed. You can point out the risk to immunosuppressed patients and that he looks unwell, and ask whether cover can be found, so it ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "B",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act when a senior colleague's illness may put patients at risk, starting with a respectful conversation.",
+    "keyDetails": "He is visibly unwell. The patients are vulnerable. His reason for staying is a lack of cover, which others can solve.",
+    "reasoning": "[E] speaks to him directly, and [A] escalates to someone who can arrange cover. [B] only partly reduces the risk, [D] passes the problem on, and [C] is unprofessional.",
+    "competing": "Some would go to the clinical lead first because of the risk to vulnerable patients. A quick private word is the natural first step, and the clinical lead can follow within minutes."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, protecting patients from risks posed by a colleague's health."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about patient safety."
+    }
+  ],
+  "tags": [
+    "unwell colleague",
+    "infection control",
+    "intensive care",
+    "patient safety"
+  ]
+}

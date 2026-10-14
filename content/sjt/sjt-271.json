@@ -1,0 +1,86 @@
+{
+  "id": "sjt-271",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-271",
+  "format": "ranking",
+  "title": "\"Back again\"",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Non-judgemental care",
+    "Self-harm",
+    "Challenging behaviour in colleagues"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Ms Quinn, 26, has attended for the fifth time this month with cuts to her forearm. She is waiting to be seen.\n\nAt the nurses' station, two staff members say she is \"back again for attention\" and that she \"should be made to wait\". You are about to see her.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell your colleagues, privately, that the comments aren't appropriate.",
+      "brief": "Challenging stigma calmly helps change attitudes that affect care.",
+      "detailed": "Comments like these can influence how patients are treated. A calm, private word shows professionalism and may change behaviour. It ranks second because her own care comes first."
+    },
+    {
+      "id": "B",
+      "text": "Ask Ms Quinn why she keeps coming back to the department.",
+      "brief": "May sound judgemental and could discourage her from seeking help.",
+      "detailed": "Understanding her reasons for self-harm matters, but asking why she 'keeps coming back' can sound like a criticism of her attendances. It may make her less likely to seek help next time."
+    },
+    {
+      "id": "C",
+      "text": "Make sure she has a full assessment, including by liaison psychiatry.",
+      "brief": "She should get the same standard of care as anyone, including a psychosocial assessment.",
+      "detailed": "Repeated self-harm is associated with higher risk, not lower. National guidance recommends a psychosocial assessment at each presentation, without judgement. Making sure she gets it ranks first because it protects her directly."
+    },
+    {
+      "id": "D",
+      "text": "Treat her wound and discharge her, as the team knows her well.",
+      "brief": "Skips assessment of a high-risk patient.",
+      "detailed": "Familiarity can lead to under-assessment. Discharging her without a mental health assessment could miss a rise in her risk. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Suggest staff attitudes to self-harm as a topic for department teaching.",
+      "brief": "Useful for the department, but it doesn't help her today.",
+      "detailed": "Teaching can address attitudes across the whole team, which is valuable. It ranks third because it does nothing for this patient or this conversation."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "E",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you give non-judgemental care to a patient who self-harms, and respond to stigmatising comments from colleagues.",
+    "keyDetails": "She has repeated presentations. Staff comments are dismissive. You are about to see her. Repeated self-harm doesn't mean lower risk.",
+    "reasoning": "[C] makes sure she is properly assessed, [A] challenges the comments, and [E] addresses attitudes more widely. [B] risks sounding judgemental, and [D] skips her assessment.",
+    "competing": "Some would challenge the comments first. The key puts her assessment first, because that directly affects her safety, and you can speak to colleagues straight afterwards."
+  },
+  "references": [
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Psychosocial assessment and non-judgemental care at each presentation."
+    }
+  ],
+  "tags": [
+    "self-harm",
+    "stigma",
+    "emergency department",
+    "mental health"
+  ]
+}

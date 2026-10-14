@@ -1,0 +1,92 @@
+{
+  "id": "sjt-253",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-253",
+  "format": "ranking",
+  "title": "Results, alone",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Breaking bad news",
+    "Respecting autonomy",
+    "Confidentiality"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Mrs Ellis, 74, lives alone and was referred to the memory clinic after her son noticed she was forgetting things. She was unwell and missed her feedback appointment, so the clinic has written to the practice: the assessment is consistent with early Alzheimer's disease.\n\nShe has come to the surgery on her own. She tells you her son is \"far too busy\" to come with her and that she would like to know what the tests showed.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain the diagnosis plainly and book a follow-up appointment within a fortnight.",
+      "brief": "She has asked to know. Honest information plus a follow-up gives her support.",
+      "detailed": "She is entitled to her results and has asked for them. Clear language and an early follow-up give her time to absorb the news and come back with questions, perhaps with someone she trusts. It ranks second because it works best after you have found out where she is starting from."
+    },
+    {
+      "id": "B",
+      "text": "Phone her son after the appointment to explain the diagnosis.",
+      "brief": "Sharing her diagnosis without her consent breaches confidentiality.",
+      "detailed": "She has capacity and hasn't agreed to her son being told. However well meant, telling him breaches her confidentiality and takes a decision that is hers to make. You could offer to help her tell him if she would like that."
+    },
+    {
+      "id": "C",
+      "text": "Suggest she rebooks with her son before you discuss the results.",
+      "brief": "Well meant, but it delays information she has asked for.",
+      "detailed": "Support from family can help, and you could offer it as a choice. Insisting on waiting, though, when she has clearly said she wants to know, is paternalistic and leaves her anxious about what you are holding back. It ranks third because it is still kinder and more honest than the two options below."
+    },
+    {
+      "id": "D",
+      "text": "Ask what she has been thinking the tests might show.",
+      "brief": "Finding out what she expects lets you pitch the news at the right level.",
+      "detailed": "Starting with her understanding and concerns helps you judge how much she already suspects and how she wants to hear it. It also gives her some control at the start of a difficult conversation, so it ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Describe the results as 'some memory changes' and avoid the word dementia.",
+      "brief": "Vague wording can leave her without the information she needs to plan.",
+      "detailed": "Gentle language is fine, but avoiding the diagnosis altogether leaves her unable to plan, for example for driving, finances or a lasting power of attorney. It falls short of honest communication."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "C",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you share a significant diagnosis with a patient who has asked to know and has come alone, while respecting her choices.",
+    "keyDetails": "She has asked for the results. She has capacity. She has come alone by choice. The diagnosis affects future planning.",
+    "reasoning": "[D] finds out her starting point, and [A] gives honest information with follow-up. [C] delays what she has asked for, and [E] is evasive. [B] breaches her confidentiality.",
+    "competing": "Some would offer the choice of returning with her son first. Offering that choice is fine; insisting on it is what ranks [C] below [A]."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, giving patients the information they want in a way they can understand."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with relatives only with the patient's consent."
+    }
+  ],
+  "tags": [
+    "bad news",
+    "dementia",
+    "general practice",
+    "confidentiality"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-267",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-267",
+  "format": "ranking",
+  "title": "An anniversary night",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Work–life balance",
+    "Assertiveness",
+    "Teamwork"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a general medical rotation. On Thursday afternoon the rota coordinator messages you: a colleague has called in sick for Saturday night, and she asks whether you can cover.\n\nSaturday is your wedding anniversary, and you have booked a dinner away for the night. You aren't rostered for that weekend.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Reply that you have plans for Saturday, and politely decline.",
+      "brief": "You aren't rostered, and it's reasonable to protect important personal time.",
+      "detailed": "You have no obligation to cover an unrostered shift, and time away from work matters for your wellbeing. A prompt, polite answer lets the coordinator look elsewhere straight away, so it ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Agree to cover, and cancel your plans.",
+      "brief": "Generous, but at a real personal cost you aren't obliged to bear.",
+      "detailed": "Covering would help the rota, and some doctors would choose to. But regularly sacrificing important personal time isn't sustainable, and you aren't obliged to. It ranks third: it is a choice, not a failing."
+    },
+    {
+      "id": "C",
+      "text": "Leave the message unanswered until next week.",
+      "brief": "Leaves the coordinator waiting for an answer she needs today.",
+      "detailed": "Not replying wastes time the coordinator could spend finding cover. It's discourteous, but it doesn't directly put patients at risk, so it ranks above the last option."
+    },
+    {
+      "id": "D",
+      "text": "Mention a colleague who said she'd like extra shifts.",
+      "brief": "Helpful, without sacrificing your plans.",
+      "detailed": "Pointing to someone who wants extra work shows goodwill and may help her find cover quickly. It ranks second because a clear, prompt answer is what the coordinator needs most."
+    },
+    {
+      "id": "E",
+      "text": "Agree to cover, but plan to leave the shift halfway through for your dinner.",
+      "brief": "Creates an uncovered gap in a night shift.",
+      "detailed": "Leaving part-way through a night shift would leave patients without a doctor. This is the only option that directly creates a risk to patient safety, so it is the least appropriate."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "B",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you can say no to extra work in a professional way, without creating risk for patients.",
+    "keyDetails": "You aren't rostered. It's an important personal occasion. The coordinator needs an answer soon to find cover.",
+    "reasoning": "[A] gives a clear, timely answer, and [D] adds a helpful suggestion. [B] is generous but not required, [C] wastes the coordinator's time, and [E] leaves patients without cover.",
+    "competing": "Some would see [B] as the most professional response. The key respects your right to decline unrostered work, which is sustainable practice."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, looking after your own health and wellbeing."
+    }
+  ],
+  "tags": [
+    "rota",
+    "wellbeing",
+    "work–life balance",
+    "general medicine"
+  ]
+}

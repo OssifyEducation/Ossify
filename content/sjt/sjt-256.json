@@ -1,0 +1,109 @@
+{
+  "id": "sjt-256",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-256",
+  "format": "multiple_choice",
+  "title": "\"Do everything\"",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating with families",
+    "End-of-life care",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward at the weekend. Mr Kaur, 92, has advanced heart failure and is now drowsy and lacks capacity. On Friday his consultant decided that cardiopulmonary resuscitation (CPR) would not work for him, recorded a DNACPR decision, and planned to focus on comfort.\n\nHis two sons arrive and tell you they want \"everything done\", including resuscitation and intensive care. They say no one discussed the decision with them.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the sons, in a quiet room, what they understand about his condition.",
+      "brief": "Listening first helps you understand their concerns and what they know.",
+      "detailed": "Their request may come from shock, guilt or not having been told how ill he is. Starting with their understanding, in private, lets you respond to what is actually driving them and shows that you take them seriously."
+    },
+    {
+      "id": "B",
+      "text": "Tell them the decision is medical and isn't theirs to make.",
+      "brief": "Technically accurate, but dismissive and likely to escalate their distress.",
+      "detailed": "Doctors aren't obliged to provide treatment that wouldn't work, but saying so bluntly ignores the family's distress and the fact that they should have been consulted."
+    },
+    {
+      "id": "C",
+      "text": "Arrange for the intensive care team to assess him, to reassure the family.",
+      "brief": "Refers to a team when there is no clinical reason to.",
+      "detailed": "An intensive care review is appropriate when admission could be beneficial. Requesting one only to placate the family uses scarce resources and may raise false hope."
+    },
+    {
+      "id": "D",
+      "text": "Cancel the DNACPR form until the family can meet the consultant on Monday.",
+      "brief": "Overrides a valid clinical decision and could lead to futile CPR.",
+      "detailed": "If he arrests over the weekend, he might receive CPR that would not work and could cause him distress and injury at the end of his life. Disagreement should be resolved by discussion, not by removing the decision."
+    },
+    {
+      "id": "E",
+      "text": "Offer them a second medical opinion straight away.",
+      "brief": "Second opinions have a place, but not before the decision has been explained.",
+      "detailed": "A second opinion can help if disagreement continues after a full explanation. Offering one before anyone has explained the decision skips the conversation they were denied."
+    },
+    {
+      "id": "F",
+      "text": "Explain that you weren't involved in the decision and suggest they come back on Monday.",
+      "brief": "Leaves a distressed family without support over the weekend.",
+      "detailed": "It may be true that you weren't involved, but it isn't a reason to send them away. Their father is dying, and they need a conversation now."
+    },
+    {
+      "id": "G",
+      "text": "Explain honestly why CPR wouldn't help him, and the care he will continue to receive.",
+      "brief": "Honest, compassionate explanation, focused on what will be done rather than what won't.",
+      "detailed": "Families should be told about DNACPR decisions and the reasons for them. Explaining that CPR would not work, while stressing that he will be kept comfortable and cared for, is honest and reassuring. A DNACPR decision is not a decision to stop caring."
+    },
+    {
+      "id": "H",
+      "text": "Ask the on-call consultant to speak with the family today.",
+      "brief": "A senior can review the decision and answer their questions with authority.",
+      "detailed": "The family say they weren't consulted. When a patient lacks capacity, those close to him should usually be involved before a DNACPR decision is made, so the consultant should know this has been raised. The on-call consultant can review the decision, acknowledge what went wrong and speak with them with the authority of the responsible team, and this shouldn't wait until Monday."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a family's distress about a DNACPR decision with honesty, compassion and appropriate senior involvement.",
+    "keyDetails": "The decision is clinical: CPR wouldn't work. The family weren't consulted. He is dying, and it is the weekend.",
+    "reasoning": "[A] listens, [G] explains honestly while focusing on care, and [H] brings in the on-call consultant. The distractors are dismissive ([B], [F]), use a referral to placate ([C]), override the decision ([D]), or jump to a second opinion before explaining ([E]).",
+    "competing": "[E] is reasonable later if disagreement continues. The key prefers a full explanation from the team first, including an honest acknowledgement that the family should have been involved."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Discussing CPR decisions with those close to the patient."
+    },
+    {
+      "title": "ReSPECT: Recommended Summary Plan for Emergency Care and Treatment",
+      "publisher": "Resuscitation Council UK",
+      "year": null,
+      "url": "https://www.resus.org.uk/respect",
+      "note": "Recording and discussing emergency care recommendations."
+    }
+  ],
+  "tags": [
+    "DNACPR",
+    "end of life",
+    "families",
+    "elderly care"
+  ]
+}

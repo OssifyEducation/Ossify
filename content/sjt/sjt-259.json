@@ -1,0 +1,86 @@
+{
+  "id": "sjt-259",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-259",
+  "format": "ranking",
+  "title": "Always in the room",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Privacy",
+    "Safeguarding",
+    "Communication with families"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on the antenatal ward. Mrs Malik, 23, is 32 weeks pregnant and has been admitted with abdominal pain. She speaks fluent English, but her mother-in-law has stayed beside her throughout, answers most questions for her, and has said she will stay for every examination.\n\nYou need to examine Mrs Malik and take a full history, which on this unit includes asking every pregnant woman, in private, about her safety at home.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her mother-in-law that you need to see Mrs Malik alone because you are worried about her home situation.",
+      "brief": "Could put Mrs Malik at risk if there is a problem at home.",
+      "detailed": "If Mrs Malik is being controlled or abused, telling a family member that you suspect it could increase her risk. It also accuses the family without evidence. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Explain that part of every assessment is done alone, and invite her mother-in-law out.",
+      "brief": "Presenting private time as routine protects Mrs Malik without accusing anyone.",
+      "detailed": "Seeing every pregnant woman alone for part of the assessment is standard practice, which is why routine enquiry about domestic abuse is done in private. Framing it as routine is truthful, doesn't single the family out, and gives Mrs Malik a safe chance to speak."
+    },
+    {
+      "id": "C",
+      "text": "Complete the examination with her mother-in-law present and ask the midwife to find time alone later.",
+      "brief": "Gets the clinical assessment done, but postpones a safety question.",
+      "detailed": "Examining her promptly matters, and a midwife may find a private moment later. But it puts off the routine safety question, which may not happen if her mother-in-law never leaves her side."
+    },
+    {
+      "id": "D",
+      "text": "Ask Mrs Malik, in front of her mother-in-law, whether she would like her to stay.",
+      "brief": "Respects her choice in principle, but she may not feel free to answer.",
+      "detailed": "Asking the patient is respectful, but in front of a relative who has been answering for her, she may not feel able to say no. It ranks below the first option because it can't give her a genuinely private choice."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you make space for a private conversation with a patient whose relative is always present, without causing offence or putting her at risk.",
+    "keyDetails": "Her mother-in-law answers for her and plans to stay. Routine safety questions must be asked in private. Mrs Malik needs examining.",
+    "reasoning": "[B] creates privacy as a matter of routine. [D] offers a choice she may not be free to make. [C] delays the safety question, and [A] could put her in danger.",
+    "competing": "[D] and [C] are close. Asking her directly at least offers a choice now, whereas [C] defers the question and relies on someone else finding a moment later."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, respecting patients' privacy and dignity."
+    },
+    {
+      "title": "Intimate examinations and chaperones",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/intimate-examinations-and-chaperones",
+      "note": "Who may be present during an intimate examination."
+    }
+  ],
+  "tags": [
+    "privacy",
+    "domestic abuse",
+    "obstetrics",
+    "relatives"
+  ]
+}

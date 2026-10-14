@@ -1,0 +1,110 @@
+{
+  "id": "sjt-264",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-264",
+  "format": "multiple_choice",
+  "title": "Sedation or a cause?",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Challenging seniors",
+    "Delirium",
+    "Patient safety"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Grant, 86, was admitted with a fall two days ago. Since last night she has been agitated and muddled, which the nurses say is new. She hasn't opened her bowels for five days and hasn't had her pain reassessed since admission.\n\nOn the ward round, your consultant says, \"She's sundowning. Start regular lorazepam at night,\" and moves on to the next patient.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Prescribe the lorazepam as instructed, as it is the consultant's decision.",
+      "brief": "Following an instruction you think is harmful, without raising it, isn't safe.",
+      "detailed": "The consultant makes the final decision, but you have relevant concerns they may not have considered. Prescribing without raising them could harm Mrs Grant."
+    },
+    {
+      "id": "B",
+      "text": "Refuse to prescribe the lorazepam and tell the nurses not to give it.",
+      "brief": "Refusing outright, without discussion, undermines the team.",
+      "detailed": "You shouldn't prescribe something you believe is harmful, but the first step is to discuss it. Countermanding a consultant's plan with the nurses, without speaking to the consultant, creates confusion."
+    },
+    {
+      "id": "C",
+      "text": "Tell the consultant you suspect delirium and suggest looking for a cause.",
+      "brief": "Sharing your concern lets the consultant reconsider with the full picture.",
+      "detailed": "New agitation and confusion in an older inpatient suggest delirium, which usually has a treatable cause. Benzodiazepines can make delirium worse and increase the risk of falls. Raising this respectfully, with the facts, gives the consultant a chance to change the plan."
+    },
+    {
+      "id": "D",
+      "text": "Check her for constipation, urinary retention, pain and infection.",
+      "brief": "Treating the cause is the main treatment for delirium.",
+      "detailed": "She is constipated and her pain hasn't been reviewed, and infection and urinary retention are also common causes. Finding and treating the cause is far more effective than sedation, and it gives the consultant the information needed to revise the plan."
+    },
+    {
+      "id": "E",
+      "text": "Ask the ward pharmacist to challenge the consultant on your behalf.",
+      "brief": "The pharmacist can help, but you should raise it yourself first.",
+      "detailed": "A pharmacist's view on benzodiazepines in delirium could be valuable, but asking them to raise your concern for you avoids a conversation you should have directly."
+    },
+    {
+      "id": "F",
+      "text": "Ask the nurses to use non-drug measures, such as reorientation.",
+      "brief": "These are first-line measures for agitation in delirium.",
+      "detailed": "Reorientation, a calm environment, glasses and hearing aids, and involving family can reduce agitation without drugs. They help Mrs Grant tonight while the cause is being treated."
+    },
+    {
+      "id": "G",
+      "text": "Prescribe a smaller dose than the consultant asked for.",
+      "brief": "Quietly changing the plan isn't honest or safe.",
+      "detailed": "This doesn't address the concern that sedation may be the wrong treatment, and changing a senior's plan without telling them undermines trust."
+    },
+    {
+      "id": "H",
+      "text": "Write in the notes that you disagree with the plan.",
+      "brief": "Documenting disagreement without discussing it doesn't help the patient.",
+      "detailed": "Records should reflect clinical discussions, but writing your disagreement without raising it with the consultant protects you rather than Mrs Grant."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a well-founded concern with a senior, while also acting in the patient's interest.",
+    "keyDetails": "The confusion is new. There are obvious possible causes. Benzodiazepines can worsen delirium. The consultant made the decision quickly on a busy ward round.",
+    "reasoning": "[C] raises the concern directly, [D] looks for treatable causes, and [F] helps her tonight without drugs. The distractors comply without question ([A]), refuse without discussion ([B]), delegate the challenge ([E]), alter the plan covertly ([G]), or document instead of discussing ([H]).",
+    "competing": "[E] is the closest call. Involving the pharmacist is sensible as well, but not instead of speaking to the consultant yourself."
+  },
+  "references": [
+    {
+      "title": "Delirium: prevention, diagnosis and management in hospital and long-term care (CG103)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2023,
+      "url": "https://www.nice.org.uk/guidance/cg103",
+      "note": "Identifying and treating the causes of delirium, with non-drug measures before medication."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, raising concerns about care with colleagues."
+    }
+  ],
+  "tags": [
+    "delirium",
+    "challenging seniors",
+    "elderly care",
+    "prescribing"
+  ]
+}

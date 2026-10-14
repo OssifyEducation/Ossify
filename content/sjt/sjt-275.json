@@ -1,0 +1,85 @@
+{
+  "id": "sjt-275",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-275",
+  "format": "ranking",
+  "title": "Mum's tablets",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Prescribing for family",
+    "Professional boundaries",
+    "Probity"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. On Saturday morning your mother phones. She has run out of her blood pressure tablets (amlodipine, once a day), and her GP surgery is closed until Monday. She feels well.\n\nShe asks if you could \"just write a prescription\" for her, since you are a doctor.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Write her a month's supply on a hospital prescription.",
+      "brief": "Prescribes for family and misuses hospital resources.",
+      "detailed": "Hospital prescriptions are for hospital patients. Using one for your mother is inappropriate prescribing and a misuse of resources. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Suggest she calls NHS 111 for an out-of-hours prescription.",
+      "brief": "An appropriate route, though usually slower.",
+      "detailed": "NHS 111 can arrange for a prescriber to issue a prescription when the surgery is closed. It is appropriate, but often slower than a pharmacy, so it ranks second."
+    },
+    {
+      "id": "C",
+      "text": "Advise her to wait until Monday and phone her GP surgery.",
+      "brief": "Probably safe for a short gap, but avoidable.",
+      "detailed": "Missing a day or two of a blood pressure tablet is unlikely to cause harm in someone who feels well, but it isn't necessary when other routes exist. It ranks third."
+    },
+    {
+      "id": "D",
+      "text": "Suggest she asks a community pharmacist for an emergency supply.",
+      "brief": "The quickest appropriate route for a regular medicine.",
+      "detailed": "Pharmacists can often supply a regular medicine in an emergency without a new prescription. It is quick, uses her own records, and avoids you prescribing for a family member, so it ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Write her a private prescription for a week's supply of the tablets.",
+      "brief": "Prescribing for a close family member should be avoided except in an emergency.",
+      "detailed": "This isn't an emergency, and you don't have her records. Prescribing for those close to you risks a lack of objectivity and poor continuity of care. It ranks fourth because it is at least limited and openly a private prescription."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "E",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you avoid prescribing for a family member when appropriate alternatives exist.",
+    "keyDetails": "It's a regular medicine. She feels well. Pharmacies and NHS 111 are available. It isn't an emergency.",
+    "reasoning": "[D] uses the quickest appropriate route, [B] is appropriate but slower, and [C] is probably safe but unnecessary. [E] prescribes for family without an emergency, and [A] also misuses hospital resources.",
+    "competing": "[C] might reasonably rank higher for a drug where a short gap is harmless, but the key prefers getting her tablets today when there's an easy way to do so."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Prescribing for yourself or those close to you."
+    }
+  ],
+  "tags": [
+    "prescribing",
+    "family",
+    "probity",
+    "boundaries"
+  ]
+}

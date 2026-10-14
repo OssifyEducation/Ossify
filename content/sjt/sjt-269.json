@@ -1,0 +1,79 @@
+{
+  "id": "sjt-269",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-269",
+  "format": "ranking",
+  "title": "The employer calls",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Communication",
+    "Patient advocacy"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a general medical ward. You answer the ward phone. The caller says she is the line manager of Ms Ahmed, 42, who was admitted two days ago with pneumonia.\n\nThe manager says Ms Ahmed is \"key to a big project\" and asks whether she will be fit to return to work next week, so that she can plan staffing.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the manager when Ms Ahmed is likely to be fit for work, as it helps them plan.",
+      "brief": "A clear breach of confidentiality.",
+      "detailed": "Her employer's planning needs don't override her right to confidentiality. Sharing her expected recovery without consent is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Tell the manager that Ms Ahmed is improving, but you can't say more.",
+      "brief": "Well meant, but confirms her admission and her progress without consent.",
+      "detailed": "This seems discreet, but it confirms that she is in hospital and gives information about her health to her employer. She hasn't agreed to either."
+    },
+    {
+      "id": "C",
+      "text": "Ask Ms Ahmed whether she would like to update her employer herself.",
+      "brief": "Lets her decide what, if anything, her employer is told.",
+      "detailed": "She may want her employer to know, or may prefer to say nothing yet. Asking her puts the decision where it belongs. It ranks second because it doesn't deal with the caller, who still needs a response now."
+    },
+    {
+      "id": "D",
+      "text": "Say you can't share information about patients, without confirming she is here.",
+      "brief": "Protects her confidentiality, including the fact that she is in hospital.",
+      "detailed": "Even confirming that someone is an inpatient is a disclosure. A polite explanation that you can't share information about patients protects Ms Ahmed and is the standard response to callers without her consent."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a request for information from a third party with no right to it, including whether you confirm that the patient is there at all.",
+    "keyDetails": "The caller is her employer. Ms Ahmed hasn't given consent. Even confirming her admission is a disclosure.",
+    "reasoning": "[D] protects her confidentiality completely, and [C] lets her decide what to share. [B] discloses some information, and [A] discloses more.",
+    "competing": "[D] and [C] work together. The key puts [D] first because the caller is on the line now and needs a response that discloses nothing."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information only with consent or a legal or public-interest justification."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "employers",
+    "telephone",
+    "general medicine"
+  ]
+}

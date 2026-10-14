@@ -1,0 +1,117 @@
+{
+  "id": "sjt-254",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-254",
+  "format": "multiple_choice",
+  "title": "No sign out",
+  "setting": "Theatres / day surgery",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Speaking up",
+    "Patient safety",
+    "Working with seniors"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor assisting on a busy general surgery day list. For the first two patients, the team skipped the 'sign out' stage of the surgical safety checklist to save time. The swab and instrument counts were not confirmed aloud.\n\nThe third operation, a laparoscopic cholecystectomy, is now finishing. The consultant is closing and says, \"Let's get the next one in.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the scrub nurse quietly whether the count was correct.",
+      "brief": "Better than nothing, but it doesn't confirm the count for the team.",
+      "detailed": "The scrub nurse may well have counted, and asking shows the right concern. But a quiet check doesn't replace sign out, which confirms the count with the whole team before the patient leaves."
+    },
+    {
+      "id": "B",
+      "text": "Wait until the end of the list and raise all three patients at once.",
+      "brief": "This patient may have left theatre by then.",
+      "detailed": "By the end of the list, this patient will be in recovery or on the ward. If something has been retained, finding it before the patient leaves theatre is far better."
+    },
+    {
+      "id": "C",
+      "text": "Tell the third patient after the operation that the count wasn't confirmed.",
+      "brief": "Premature, as nothing is known to have gone wrong.",
+      "detailed": "If a count were found to be wrong, the patient would need to be told. At this stage, the right step is to confirm the count, not to alarm the patient."
+    },
+    {
+      "id": "D",
+      "text": "Ask the team to do sign out, with the counts, before this patient leaves.",
+      "brief": "Sign out is how the team confirms nothing has been left inside the patient.",
+      "detailed": "The count is the main protection against a retained swab or instrument. Asking politely but clearly for sign out before the patient leaves theatre protects this patient directly. The checklist is designed so that any team member can call for it."
+    },
+    {
+      "id": "E",
+      "text": "Discuss the skipped checks with the consultant after the list.",
+      "brief": "A private conversation gives the consultant a chance to respond and to change practice.",
+      "detailed": "Raising the pattern with the consultant directly, once the list is over, is respectful and may be enough to change practice. It also deals with the first two patients, whose counts were never confirmed aloud."
+    },
+    {
+      "id": "F",
+      "text": "Report the skipped checks through the incident reporting system.",
+      "brief": "Repeated omission of a safety check is a system risk that should be reviewed.",
+      "detailed": "Skipping sign out for several patients is a safety concern beyond one person. Reporting it lets the theatre team check that the counts for the earlier patients were in fact correct, and supports learning. Incident reporting is about improving safety, not blaming individuals."
+    },
+    {
+      "id": "G",
+      "text": "Leave it, as the consultant is responsible for theatre safety.",
+      "brief": "Every team member is responsible for speaking up about safety.",
+      "detailed": "The checklist depends on everyone, including juniors, being willing to speak up. Staying silent because a senior is present is exactly what it is designed to prevent."
+    },
+    {
+      "id": "H",
+      "text": "Email the medical director about the consultant's practice.",
+      "brief": "Escalating outside the theatre team at this stage is premature.",
+      "detailed": "Concerns can go to senior managers if they aren't addressed locally. Going straight to the medical director, without speaking to the consultant or reporting through normal routes, is disproportionate at this stage."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you speak up about a skipped safety check in the moment, despite hierarchy and time pressure, and then deal with the wider pattern appropriately.",
+    "keyDetails": "Sign out has been missed for several patients. The counts weren't confirmed aloud. The current patient hasn't left theatre yet. The consultant is pressing to move on.",
+    "reasoning": "[D] protects the patient in front of you. [E] and [F] address the pattern: directly with the consultant, and through incident reporting so earlier patients can be checked. The distractors check incompletely ([A]), act too late ([B]), alarm the patient ([C]), stay silent ([G]), or escalate disproportionately ([H]).",
+    "competing": "[A] is the most tempting. It feels less confrontational, but it doesn't achieve what sign out achieves: a confirmed count, agreed by the team, before the patient leaves."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, contributing to safety systems and speaking up."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about patient safety, including with seniors."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting safety incidents to support learning."
+    }
+  ],
+  "tags": [
+    "surgical safety",
+    "speaking up",
+    "theatres",
+    "checklist"
+  ]
+}

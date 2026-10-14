@@ -1,0 +1,110 @@
+{
+  "id": "sjt-258",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-258",
+  "format": "multiple_choice",
+  "title": "He wants to leave",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Recognising limits",
+    "Risk assessment",
+    "Mental Health Act"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on call overnight for an inpatient psychiatric unit and are the only doctor on site. Mr Adeyemi, 29, is an informal patient admitted three days ago with severe depression and suicidal thoughts.\n\nAt 01:00 he tells the nurses he is leaving. The nurse in charge asks you whether you will detain him. You have never used a holding power before. The on-call psychiatry registrar is at home and can be reached by phone.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Let him leave, as he is an informal patient.",
+      "brief": "He has the right to leave, but his risk needs assessing first.",
+      "detailed": "Informal patients can leave, but he was admitted with suicidal thoughts three days ago. Letting him go without assessing his risk could be very dangerous."
+    },
+    {
+      "id": "B",
+      "text": "Talk with Mr Adeyemi about why he wants to leave, and assess his risk.",
+      "brief": "You need to understand his mental state and risk before any decision.",
+      "detailed": "His reasons may be practical, such as a family problem, or a sign of worsening risk. A calm conversation and risk assessment is the basis for any decision, and it may also persuade him to stay voluntarily."
+    },
+    {
+      "id": "C",
+      "text": "Detain him yourself under section 5(2) and tell the registrar in the morning.",
+      "brief": "A decision this serious, made for the first time, should be discussed with a senior.",
+      "detailed": "Detention may turn out to be appropriate, but making the decision alone, without experience or advice, risks an unlawful or unnecessary detention. Advice is readily available."
+    },
+    {
+      "id": "D",
+      "text": "Phone the on-call registrar for advice on whether to detain him.",
+      "brief": "Detention is a serious decision you haven't made before, so senior advice is needed.",
+      "detailed": "Using a holding power under the Mental Health Act removes someone's liberty. You haven't done this before, and the registrar is available by phone. Seeking advice is the right response to a decision beyond your experience."
+    },
+    {
+      "id": "E",
+      "text": "Ask security to stand at the ward exit until the morning team arrives.",
+      "brief": "Restricting his movement without a legal basis is unlawful.",
+      "detailed": "Physically preventing an informal patient from leaving without using the Mental Health Act would be an unlawful deprivation of liberty, and it doesn't address his risk."
+    },
+    {
+      "id": "F",
+      "text": "Prescribe a sedative to help him sleep until morning.",
+      "brief": "Sedation doesn't address the risk and shouldn't be used to manage leaving.",
+      "detailed": "He may well need help with sleep, but sedating him to stop him leaving is inappropriate and doesn't assess his risk."
+    },
+    {
+      "id": "G",
+      "text": "Ask the nurse in charge to stay with him while you phone for advice.",
+      "brief": "Keeps him safe in the meantime and allows the nurse to act if needed.",
+      "detailed": "A nurse staying with him helps keep him safe while you get advice. A qualified mental health nurse also has her own short holding power, if he tries to leave before a doctor can decide."
+    },
+    {
+      "id": "H",
+      "text": "Phone the police to bring him back if he leaves.",
+      "brief": "Premature, and it doesn't address what is happening now.",
+      "detailed": "Police involvement may be needed if a high-risk patient goes missing, but he is still on the ward, and the priority is assessing him now."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise a decision that is beyond your experience and get senior help, while keeping the patient safe.",
+    "keyDetails": "He is informal but high risk. You have never used a holding power. The registrar can be phoned. He is still on the ward.",
+    "reasoning": "[B] assesses him, [D] gets senior advice on the legal decision, and [G] keeps him safe in the meantime. The distractors ignore the risk ([A]), act alone ([C]), restrict him unlawfully ([E]), sedate inappropriately ([F]), or jump ahead ([H]).",
+    "competing": "[C] might be what the registrar advises, but making that decision alone, for the first time and without advice, isn't safe practice."
+  },
+  "references": [
+    {
+      "title": "Mental Health Act 1983, section 5 (application in respect of patient already in hospital)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 1983,
+      "url": "https://www.legislation.gov.uk/ukpga/1983/20/section/5",
+      "note": "Holding powers for patients already in hospital."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, recognising and working within the limits of your competence."
+    }
+  ],
+  "tags": [
+    "mental health act",
+    "competence",
+    "psychiatry",
+    "risk assessment"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-252",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-252",
+  "format": "multiple_choice",
+  "title": "Consent or confusion",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Recognising deterioration",
+    "Communication with seniors"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in orthopaedics. Your consultant consented the four patients on this afternoon's hip and knee list in clinic, and has asked you to go to the day unit and confirm their consent before theatre. The list starts in 40 minutes.\n\nAs you leave the ward, a nurse tells you that Mr Hughes, 78, who had a hip fracture fixed two days ago, has become newly confused in the last hour and is pulling at his cannula. His observations were normal this morning.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Confirm consent for the list, then see Mr Hughes once theatre starts.",
+      "brief": "This puts routine paperwork ahead of a possibly unwell patient.",
+      "detailed": "Consent matters, but the elective patients are stable and others can help. Mr Hughes may be developing a serious illness, and leaving him for an hour or more could delay treatment."
+    },
+    {
+      "id": "B",
+      "text": "See Mr Hughes before you go to the day unit.",
+      "brief": "New confusion after surgery may be a sign of a serious problem, so he needs assessing now.",
+      "detailed": "Acute confusion in an older patient after a hip fracture can be caused by sepsis, hypoxia, hypoglycaemia, urinary retention, pain or drugs. Some of these are dangerous and treatable, and he is also at risk of pulling out his cannula or falling. A short, focused assessment now comes before routine consent for elective patients."
+    },
+    {
+      "id": "C",
+      "text": "Phone your consultant to say consent will be delayed and why.",
+      "brief": "Lets the consultant replan, for example by asking someone else to consent.",
+      "detailed": "The consultant needs to know the list may start late. They may ask the registrar to consent the patients or reorder the list. A brief call keeps the team informed and avoids patients being sent for theatre without consent."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse to call you back if he becomes more agitated.",
+      "brief": "Waits for things to get worse, rather than finding the cause.",
+      "detailed": "New confusion is already a change from normal. Waiting for more agitation delays finding the cause."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse to repeat his observations and check his glucose.",
+      "brief": "This gives you useful information quickly and spots an urgent cause.",
+      "detailed": "Repeat observations and a capillary glucose can be done in minutes and may reveal a cause such as sepsis or hypoglycaemia. Asking for them as you head to see him makes good use of the team's time."
+    },
+    {
+      "id": "F",
+      "text": "Prescribe a low dose of haloperidol so the nurses can settle him.",
+      "brief": "Sedating without assessment can mask the cause and cause harm.",
+      "detailed": "Antipsychotics are not first-line for delirium. Giving one without assessing him could hide a serious cause, such as hypoxia, and increases the risk of falls."
+    },
+    {
+      "id": "G",
+      "text": "Phone his daughter to ask whether he is ever confused at home.",
+      "brief": "Useful background later, but not the first priority.",
+      "detailed": "Knowing his usual cognition helps, and it may be worth asking later. It doesn't replace examining him, and it takes time you need for the assessment."
+    },
+    {
+      "id": "H",
+      "text": "Confirm consent quickly by going over only the main risks.",
+      "brief": "Rushed consent isn't valid consent.",
+      "detailed": "Confirming consent means checking that patients still understand the risks, benefits and alternatives and still want to go ahead. Cutting corners to save time doesn't solve the problem and isn't fair to them."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you put a possibly deteriorating patient ahead of routine work, while keeping your team informed.",
+    "keyDetails": "The confusion is new and he has had surgery recently. The consent is for elective patients, and others could do it. The list starts in 40 minutes.",
+    "reasoning": "[B] assesses the patient who may be unwell, [E] gets quick information, and [C] lets the consultant replan the list. The distractors delay assessment ([A], [D]), treat the symptom rather than the cause ([F]), prioritise background information ([G]), or compromise consent ([H]).",
+    "competing": "[G] is a reasonable thing to do later in the day, but it shouldn't come before examining him."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising care and recognising deterioration."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "What patients need to know to give valid consent."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "delirium",
+    "consent",
+    "orthopaedics"
+  ]
+}

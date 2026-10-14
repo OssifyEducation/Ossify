@@ -1,0 +1,100 @@
+{
+  "id": "sjt-251",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-251",
+  "format": "ranking",
+  "title": "The unsigned chart",
+  "setting": "Out-of-hours / community",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Candour",
+    "Patient safety",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. This afternoon you visited Mrs Doyle, 81, who is dying at home, and prescribed anticipatory medicines, including morphine for pain. You filled in the community medicines authorisation chart that the district nurses work from.\n\nAt 18:15, as you are about to leave the surgery, a district nurse phones from Mrs Doyle's house. She is in pain, but you didn't sign the chart, so the nurse can't give the morphine. The house is ten minutes' drive away.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the nurse to give the dose now, and that you'll sign the chart tomorrow.",
+      "brief": "Asks the nurse to give a controlled drug without a valid authorisation.",
+      "detailed": "This would relieve the pain quickly, which is why it is tempting. But it asks the nurse to give a controlled drug without a valid authorisation, which she shouldn't do under her own professional code, and it puts her registration at risk to cover your mistake. A safe, quick alternative exists, so this is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Tell your GP supervisor what has happened before you go.",
+      "brief": "Your supervisor should know about an error affecting a patient. They can support you and help make sure nothing else on the chart is wrong.",
+      "detailed": "An error that has delayed symptom relief for a dying patient should be shared with your supervisor, who can check the rest of your paperwork and support you. It ranks below returning to the house because telling your supervisor doesn't, by itself, relieve Mrs Doyle's pain."
+    },
+    {
+      "id": "C",
+      "text": "Go back to the house now and sign the chart.",
+      "brief": "This fixes your error fastest, so Mrs Doyle gets pain relief within minutes.",
+      "detailed": "The delay is your mistake, and you are the quickest route to putting it right. Returning to sign the chart lets the nurse give morphine within minutes and gives you the chance to apologise to Mrs Doyle and her family in person. It ranks first because her pain is happening now and every other option leaves her waiting longer."
+    },
+    {
+      "id": "D",
+      "text": "Ask the district nurse to arrange for the out-of-hours GP to authorise the dose.",
+      "brief": "This is a safe route, but it passes your error to others and is likely to take longer.",
+      "detailed": "An out-of-hours GP could authorise the morphine, so this does lead to pain relief by a legitimate route. However, the out-of-hours service may take an hour or more to visit, Mrs Doyle stays in pain meanwhile, and you would be asking the nurse to sort out a problem you can fix in ten minutes."
+    },
+    {
+      "id": "E",
+      "text": "Record it as a significant event so the practice can review the process.",
+      "brief": "Useful for learning, but less urgent than her pain.",
+      "detailed": "A significant event review could prompt a simple check, such as a second person looking at authorisation charts before a visit ends. It is the right thing to do, but it can wait until tomorrow, so it ranks third."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "E",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you take personal responsibility for an error that is causing a patient harm now, and choose the quickest safe way to fix it.",
+    "keyDetails": "Mrs Doyle is in pain now. The problem is your missing signature. You can be there in ten minutes. The nurse can't lawfully give the morphine without a valid authorisation.",
+    "reasoning": "[C] relieves her pain fastest and lets you apologise in person. [B] and [E] deal with support and learning, which matter but are less urgent. [D] is safe but slower and passes your mistake on, and [A] asks a colleague to act outside her professional code.",
+    "competing": "[D] is a legitimate pathway and would be the right choice if you couldn't get there quickly, for example if the house were an hour away. Here, you are the faster route."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with patients and families when something goes wrong."
+    },
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Responsibilities when prescribing controlled drugs for others to give."
+    },
+    {
+      "title": "The Code: professional standards of practice and behaviour for nurses, midwives and nursing associates",
+      "publisher": "Nursing and Midwifery Council",
+      "year": 2018,
+      "url": "https://www.nmc.org.uk/standards/code/",
+      "note": "Nurses giving medicines only in line with a valid prescription or authorisation."
+    }
+  ],
+  "tags": [
+    "candour",
+    "palliative care",
+    "controlled drugs",
+    "community"
+  ]
+}

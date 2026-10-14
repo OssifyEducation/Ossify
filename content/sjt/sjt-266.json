@@ -1,0 +1,102 @@
+{
+  "id": "sjt-266",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-266",
+  "format": "multiple_choice",
+  "title": "Borrowed slides",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Academic integrity",
+    "Teaching"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor about to give a 20-minute teaching session to medical students. While setting up, you realise that six of your slides are copied from a presentation your colleague Dr Osei gave last year. You meant to credit him but forgot.\n\nThe session starts in five minutes, and the slides will be uploaded to the students' online learning platform afterwards.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the students at the start that some slides are Dr Osei's work.",
+      "brief": "A spoken credit puts things right for this audience.",
+      "detailed": "There is no time to edit every slide, but a clear verbal acknowledgement at the start credits Dr Osei honestly in front of the people seeing his work."
+    },
+    {
+      "id": "B",
+      "text": "Delete the six slides and teach that section without them.",
+      "brief": "This avoids the problem but may weaken the teaching.",
+      "detailed": "This avoids presenting his work without credit, but it may leave the students with a poorer session. Crediting him is simpler and more honest."
+    },
+    {
+      "id": "C",
+      "text": "Postpone the session until you have redone the slides.",
+      "brief": "Disproportionate when a credit fixes the problem.",
+      "detailed": "Cancelling at five minutes' notice wastes the students' time when a spoken acknowledgement resolves the immediate issue."
+    },
+    {
+      "id": "D",
+      "text": "Present as planned and credit him next time you give the talk.",
+      "brief": "Presents his work as your own today.",
+      "detailed": "Leaving the credit for another occasion means this audience, and anyone using the uploaded slides, will assume the work is yours."
+    },
+    {
+      "id": "E",
+      "text": "Add a credit to the slides before they are uploaded.",
+      "brief": "The uploaded version will be used later, so it needs to be accurate.",
+      "detailed": "The slides will circulate after the session. Adding an acknowledgement to the slides before uploading makes the record accurate for anyone who reads them later."
+    },
+    {
+      "id": "F",
+      "text": "Text Dr Osei to ask permission, and present only if he replies in time.",
+      "brief": "A reasonable instinct, but it doesn't solve the credit problem.",
+      "detailed": "Asking permission is good practice, but even with permission his work needs crediting. If he doesn't reply in five minutes, the students lose their session."
+    },
+    {
+      "id": "G",
+      "text": "Credit the slides to 'colleagues' rather than naming him.",
+      "brief": "A vague credit doesn't properly acknowledge his work.",
+      "detailed": "Acknowledgement should be specific. A generic credit still leaves the impression that the content is largely yours."
+    },
+    {
+      "id": "H",
+      "text": "Tell Dr Osei afterwards, apologise and ask if he's happy with this.",
+      "brief": "He should know, and it gives him the chance to agree or object.",
+      "detailed": "Using a colleague's work without asking isn't ideal even with credit. Telling him and apologising is honest, and asking his permission respects his ownership of the material."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty about other people's work, even when the omission was accidental and time is short.",
+    "keyDetails": "You used his slides without credit by mistake. The talk starts in five minutes. The slides will be shared afterwards.",
+    "reasoning": "[A] credits him for today's audience, [E] corrects the shared version, and [H] is open with Dr Osei. The distractors avoid the issue ([B], [C]), delay the credit ([D]), make it conditional ([F]), or credit vaguely ([G]).",
+    "competing": "[F] is tempting, as asking permission is good practice. But it doesn't credit him and may cost the students their session, whereas the keyed options do both."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in all professional work, including teaching."
+    }
+  ],
+  "tags": [
+    "teaching",
+    "plagiarism",
+    "honesty",
+    "probity"
+  ]
+}

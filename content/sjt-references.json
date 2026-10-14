@@ -245,5 +245,11 @@
     "publisher": "Ministry of Housing, Communities and Local Government (GOV.UK)",
     "year": null,
     "url": "https://www.gov.uk/government/publications/homelessness-duty-to-refer/a-guide-to-the-duty-to-refer"
+  },
+  "delirium": {
+    "title": "Delirium: prevention, diagnosis and management in hospital and long-term care (CG103)",
+    "publisher": "National Institute for Health and Care Excellence",
+    "year": 2023,
+    "url": "https://www.nice.org.uk/guidance/cg103"
   }
 }
