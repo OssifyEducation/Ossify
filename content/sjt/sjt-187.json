@@ -1,0 +1,92 @@
+{
+  "id": "sjt-187",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-187",
+  "format": "ranking",
+  "title": "Prayer and physiotherapy",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting beliefs",
+    "Flexible care",
+    "Communication"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in orthopaedics. Mr Rahman, 66, is recovering from a knee replacement. He prays at set times each day.\n\nThe physiotherapist tells you he has twice declined physiotherapy because it was booked during his prayer times, and she is worried his recovery will be delayed.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask whether sessions can be planned around his prayers.",
+      "brief": "A small change may solve the problem.",
+      "detailed": "Most physiotherapy sessions can be moved by an hour or so. Knowing his prayer times allows the team to plan sessions he can attend."
+    },
+    {
+      "id": "B",
+      "text": "Explain to him why physiotherapy is important for his recovery.",
+      "brief": "Useful, though it doesn't solve the clash.",
+      "detailed": "He may not realise how important early physiotherapy is, and knowing this may help him work with the team. It ranks second because the clash itself still needs resolving."
+    },
+    {
+      "id": "C",
+      "text": "Tell him the physiotherapy schedule can't be changed.",
+      "brief": "Inflexible, and may delay his recovery.",
+      "detailed": "This is likely to mean he misses more sessions."
+    },
+    {
+      "id": "D",
+      "text": "Suggest he pauses his prayers until he is discharged.",
+      "brief": "Disrespects his beliefs.",
+      "detailed": "This dismisses something important to him and is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Ask the ward team to record his prayer times in his care plan.",
+      "brief": "Helps all staff plan around his prayers.",
+      "detailed": "Recording his prayer times means other staff, not just physiotherapy, can plan around them. It ranks third because rescheduling and explaining the importance of physiotherapy matter more to his recovery now."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "B",
+      "E",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you accommodate a patient's religious practice while supporting his recovery.",
+    "keyDetails": "He prays at set times. Physiotherapy clashed twice. His recovery may be delayed.",
+    "reasoning": "[A] solves the clash, [B] helps him understand why physiotherapy matters, and [E] helps all staff plan around his prayers. [C] is inflexible, and [D] disrespects his beliefs.",
+    "competing": "Some would explain the importance of physiotherapy first. The key prioritises rescheduling because it addresses the cause."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs and practices."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment regardless of religion or belief."
+    }
+  ],
+  "tags": [
+    "religion",
+    "physiotherapy",
+    "orthopaedics",
+    "flexibility"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-190",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-190",
+  "format": "multiple_choice",
+  "title": "Going home tomorrow, regardless",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting autonomy",
+    "Risk communication",
+    "Safe discharge"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Mr Webb, 45, had an ankle fracture fixed yesterday. The team advise him to stay another day for physiotherapy and pain control.\n\nHe says he is going home today, as his dog is alone and his neighbour can't look after it any longer. He seems to understand the risks.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask about his situation, and whether anything could make it easier to stay.",
+      "brief": "His reason may have a practical solution.",
+      "detailed": "His worry about his dog is understandable. There may be a solution, such as a friend or a pet care service. Exploring this respects him and may allow him to stay."
+    },
+    {
+      "id": "B",
+      "text": "Tell him he can't leave until the team agrees.",
+      "brief": "A patient with capacity can choose to leave.",
+      "detailed": "He has capacity, so he can leave. Telling him otherwise is wrong."
+    },
+    {
+      "id": "C",
+      "text": "Ask security to stop him leaving.",
+      "brief": "Unlawful for a patient with capacity.",
+      "detailed": "Preventing a capacitous patient from leaving would be unlawful."
+    },
+    {
+      "id": "D",
+      "text": "Ask him to sign a form saying he is leaving against medical advice.",
+      "brief": "A form doesn't replace a safe discharge plan.",
+      "detailed": "Documenting his decision is good practice, but he still needs medication, advice and follow-up."
+    },
+    {
+      "id": "E",
+      "text": "Phone his family to persuade him to stay.",
+      "brief": "Involves others without his consent.",
+      "detailed": "Family may be able to help, but contacting them to change his mind, without his consent, isn't appropriate."
+    },
+    {
+      "id": "F",
+      "text": "Make sure he understands the risks of leaving now.",
+      "brief": "An informed decision needs clear information.",
+      "detailed": "He should know about the risks, such as falls, poor pain control and wound problems, so his decision is informed."
+    },
+    {
+      "id": "G",
+      "text": "Arrange a safe discharge, with medication and follow-up.",
+      "brief": "Respecting his decision includes making it as safe as possible.",
+      "detailed": "If he goes, he needs crutches, painkillers, wound care advice, follow-up and clear advice on when to seek help. This reduces the risks of leaving early."
+    },
+    {
+      "id": "H",
+      "text": "Tell him the consultant will be unhappy if he leaves.",
+      "brief": "Pressure rather than information.",
+      "detailed": "This puts pressure on him without helping him make an informed decision."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a capacitous patient's decision to leave, while making it as safe as possible.",
+    "keyDetails": "He has capacity and understands the risks. His reason is practical. Leaving early has risks.",
+    "reasoning": "[A] explores his reason, [F] makes sure he's informed, and [G] makes his discharge safe. The distractors override his choice ([B], [C]), neglect his safety ([D]), or pressure him ([E], [H]).",
+    "competing": "[D] is the tempting option because documenting is good practice, but he still needs a safe plan."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting the decisions of patients with capacity."
+    }
+  ],
+  "tags": [
+    "autonomy",
+    "discharge",
+    "against advice",
+    "orthopaedics"
+  ]
+}

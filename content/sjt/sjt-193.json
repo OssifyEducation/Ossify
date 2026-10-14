@@ -1,0 +1,92 @@
+{
+  "id": "sjt-193",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-193",
+  "format": "ranking",
+  "title": "No one asked her",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Dignity",
+    "Respect",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Ms Lane, 34, is a trans woman admitted with pneumonia. She has been placed in a male bay, and her notes use her previous name.\n\nShe tells you she is upset that nobody asked her about any of this.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Check the trust's current policy on accommodating trans patients.",
+      "brief": "Policies in this area set out what the ward should do.",
+      "detailed": "Guidance on single-sex accommodation for trans patients has been under review, and trusts have policies. Checking the current policy helps the team respond appropriately. It ranks third because her immediate concerns come first."
+    },
+    {
+      "id": "B",
+      "text": "Ask the other patients in the bay whether they mind her being there.",
+      "brief": "Breaches her privacy and dignity.",
+      "detailed": "This discloses her personal information and treats her as a problem. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Explain that bay allocation is based on hospital records and can't be changed.",
+      "brief": "Dismisses her concerns without exploring the options.",
+      "detailed": "There may be constraints, but this closes the conversation without exploring what can be done."
+    },
+    {
+      "id": "D",
+      "text": "Apologise, use her chosen name, and ask her what would help.",
+      "brief": "Respect starts with asking her.",
+      "detailed": "She should have been asked. Apologising, using her chosen name and pronouns, and asking what would help her feel safe and respected is the right first step. Her records can also be updated to show the name she uses."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse in charge whether a side room is available.",
+      "brief": "A side room may protect her privacy and dignity.",
+      "detailed": "A side room may be the simplest way to protect her privacy, whatever the bay arrangements. It ranks second because she first needs to be asked what would help."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "E",
+      "A",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond with respect to a patient whose dignity hasn't been considered, involving her in decisions.",
+    "keyDetails": "She wasn't asked about her accommodation. Her notes use her previous name. She is upset.",
+    "reasoning": "[D] apologises and asks her, [E] looks for a practical option, and [A] checks the policy. [C] dismisses her, and [B] breaches her privacy.",
+    "competing": "Some would check the policy first. The key starts with her, because whatever the policy says, she should be asked and treated with respect."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity and respect."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Protecting patients' personal information."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "trans patients",
+    "privacy",
+    "acute medicine"
+  ]
+}

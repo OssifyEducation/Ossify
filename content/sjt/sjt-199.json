@@ -1,0 +1,93 @@
+{
+  "id": "sjt-199",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-199",
+  "format": "ranking",
+  "title": "\"Increase it, or I'll complain\"",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Safe prescribing",
+    "De-escalation",
+    "Respecting the right to complain"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. Mr Rees, 50, is being treated for anxiety, and the team plans to reduce his diazepam gradually.\n\nHe demands that you increase his dose today, and says that if you don't, he will make a formal complaint about you.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him a complaint won't change anything, and end the conversation.",
+      "brief": "Dismissive and likely to escalate.",
+      "detailed": "This dismisses his concerns and his right to complain."
+    },
+    {
+      "id": "B",
+      "text": "Ask him what is making him feel he needs more.",
+      "brief": "There may be a specific reason, such as withdrawal or a new worry.",
+      "detailed": "He may be experiencing withdrawal symptoms or increased anxiety that need addressing. Exploring this shows you take him seriously."
+    },
+    {
+      "id": "C",
+      "text": "Explain calmly why the dose won't be increased today.",
+      "brief": "Honest, and respects his right to complain.",
+      "detailed": "The plan is in his interests, and changing it under pressure wouldn't be right. Acknowledging his right to complain shows respect, and may reduce the tension."
+    },
+    {
+      "id": "D",
+      "text": "Increase the dose slightly as a compromise.",
+      "brief": "Changes treatment under pressure, against the plan.",
+      "detailed": "This would avoid conflict, but changing a benzodiazepine plan under pressure, without review, isn't safe or appropriate. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Discuss his concerns with the consultant.",
+      "brief": "The consultant may need to review the plan.",
+      "detailed": "His symptoms may justify reviewing the plan. It ranks third because exploring and explaining come first."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "C",
+      "E",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep to a safe prescribing plan under pressure, while respecting the patient's concerns and right to complain.",
+    "keyDetails": "The plan is a gradual reduction. He is threatening a complaint. He may have symptoms needing review.",
+    "reasoning": "[B] explores his concerns, [C] explains honestly, and [E] involves the consultant. [A] is dismissive, and [D] prescribes under pressure.",
+    "competing": "This is hard because [A] and [D] are both poor. [D] ranks last because unsafe prescribing could harm him, while [A] is unprofessional but doesn't change his treatment."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Prescribing safely, including controlled drugs."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to patients' concerns and complaints."
+    }
+  ],
+  "tags": [
+    "benzodiazepines",
+    "complaints",
+    "prescribing",
+    "psychiatry"
+  ]
+}

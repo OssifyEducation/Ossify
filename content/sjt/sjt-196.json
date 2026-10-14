@@ -1,0 +1,109 @@
+{
+  "id": "sjt-196",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-196",
+  "format": "multiple_choice",
+  "title": "A colleague's secret",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Responding to disclosure",
+    "Encouraging help-seeking"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in psychiatry. Dr Mills, another F2 and a friend, tells you that she has been self-harming for the past few months because of stress. She asks you to keep it between the two of you.\n\nShe says she is managing at work, and there have been no concerns about her clinical work.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Promise you won't tell anyone.",
+      "brief": "A promise you may not be able to keep.",
+      "detailed": "Respecting her confidence matters, but if you became worried about her immediate safety, you might need to involve others."
+    },
+    {
+      "id": "B",
+      "text": "Listen without judgement, and thank her for telling you.",
+      "brief": "She has trusted you with something difficult.",
+      "detailed": "Telling someone takes courage. A calm, non-judgemental response helps her feel safe to talk."
+    },
+    {
+      "id": "C",
+      "text": "Ask gently whether she has had thoughts of ending her life.",
+      "brief": "Her safety needs understanding.",
+      "detailed": "People who self-harm may also have suicidal thoughts. Asking directly and calmly doesn't increase risk, and helps you understand how urgent support is."
+    },
+    {
+      "id": "D",
+      "text": "Tell her educational supervisor straight away, so that she gets support.",
+      "brief": "May not be necessary, and could damage her trust.",
+      "detailed": "Her supervisor may need to know in some circumstances, but going to them immediately, against her wishes, could stop her seeking help."
+    },
+    {
+      "id": "E",
+      "text": "Tell her she should stop working until she is better.",
+      "brief": "Not your decision.",
+      "detailed": "Whether she is fit to work is for her, with her GP and occupational health, to consider."
+    },
+    {
+      "id": "F",
+      "text": "Suggest she speaks to occupational health.",
+      "brief": "May help, but her own GP or a confidential service may feel safer first.",
+      "detailed": "Occupational health can be supportive, but she may prefer to start with her GP or a confidential service."
+    },
+    {
+      "id": "G",
+      "text": "Encourage her to see her GP or a doctors' health service.",
+      "brief": "Specialist help can support her recovery.",
+      "detailed": "Her GP or NHS Practitioner Health can offer confidential support. Encouraging her, and offering to help her make contact, supports her to get help."
+    },
+    {
+      "id": "H",
+      "text": "Avoid raising the subject again unless she does.",
+      "brief": "Leaves her unsupported.",
+      "detailed": "Respecting her privacy matters, but checking in with her shows you care."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague who discloses self-harm, encouraging her to get help while being honest about confidentiality.",
+    "keyDetails": "She is a friend and colleague. She has asked you to keep it secret. She says she is managing.",
+    "reasoning": "[B] listens, [C] understands her safety, and [G] encourages help. The distractors make a promise you can't keep ([A]), escalate prematurely ([D]), overstep your role ([E]), or leave her unsupported ([H]).",
+    "competing": "[F] is the tempting option, as occupational health can help, but a confidential service may feel safer for her first."
+  },
+  "references": [
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential mental health support for doctors."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues."
+    }
+  ],
+  "tags": [
+    "colleague wellbeing",
+    "mental health",
+    "self-harm",
+    "support"
+  ]
+}

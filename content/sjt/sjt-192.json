@@ -1,0 +1,102 @@
+{
+  "id": "sjt-192",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-192",
+  "format": "multiple_choice",
+  "title": "Shaken at reception",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Incident reporting",
+    "Workplace safety"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in a GP practice. A patient has just shouted at Kerry, a receptionist, threatening to \"wait for her after work\" because he couldn't get an appointment today. He has now left.\n\nKerry is shaking and in tears.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Encourage Kerry to get back to work, as the waiting room is busy.",
+      "brief": "She needs a moment first.",
+      "detailed": "The practice is busy, but she has been threatened and needs support."
+    },
+    {
+      "id": "B",
+      "text": "Check that Kerry is all right, and give her somewhere quiet to sit.",
+      "brief": "She needs support now.",
+      "detailed": "She has been threatened and is clearly shaken. Making sure she is all right, and giving her a moment away from the desk, is the first priority."
+    },
+    {
+      "id": "C",
+      "text": "Phone the patient yourself to tell him his behaviour was unacceptable.",
+      "brief": "Not your role, and may escalate.",
+      "detailed": "The practice manager should decide how to respond."
+    },
+    {
+      "id": "D",
+      "text": "Make sure the practice manager knows about the incident.",
+      "brief": "The practice manager needs to act on threats to staff.",
+      "detailed": "The practice manager can decide on next steps, such as warning the patient or contacting the police, and make sure Kerry gets home safely."
+    },
+    {
+      "id": "E",
+      "text": "Remove the patient from the practice list.",
+      "brief": "Not your decision, and there is a process.",
+      "detailed": "Practices can remove patients after threats or violence, but this follows a specific process, and the decision rests with the practice, not with you."
+    },
+    {
+      "id": "F",
+      "text": "Tell Kerry that patients often say things they don't mean.",
+      "brief": "Minimises a threat.",
+      "detailed": "This may be meant kindly, but it minimises a frightening experience."
+    },
+    {
+      "id": "G",
+      "text": "Phone the police yourself to report the threat.",
+      "brief": "May be needed, but the practice should coordinate.",
+      "detailed": "Threats can be reported to the police, but the practice manager and Kerry should be involved."
+    },
+    {
+      "id": "H",
+      "text": "Make sure the incident is recorded.",
+      "brief": "A record supports any action the practice takes.",
+      "detailed": "Recording the incident, factually, supports decisions about the patient and protects staff."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague after a threat, and make sure the practice responds.",
+    "keyDetails": "The threat was specific. Kerry is shaken. The patient has left.",
+    "reasoning": "[B] supports Kerry, [D] involves the practice manager, and [H] records it. The distractors rush her ([A]), act beyond your role ([C], [E], [G]), or minimise it ([F]).",
+    "competing": "[G] is the tempting option, as police may need to be involved, but the practice should coordinate this with Kerry."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and a safe working environment."
+    }
+  ],
+  "tags": [
+    "aggression",
+    "colleague wellbeing",
+    "reception staff",
+    "general practice"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-186",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-186",
+  "format": "multiple_choice",
+  "title": "\"I can't take him home\"",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Supporting carers",
+    "Discharge planning",
+    "Multidisciplinary working"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Mr Barnes, 84, is medically fit for discharge four days after a hip replacement. He has mild dementia, and his wife, 81, is his only carer.\n\nWhen you tell her he can go home tomorrow, she starts crying. She says she is exhausted, hasn't slept properly in months, and doesn't think she can cope with him at home.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that he's medically fit, so he needs to go home tomorrow.",
+      "brief": "Medical fitness isn't the only factor in a safe discharge.",
+      "detailed": "Pressure on beds is real, but sending him home to a carer who says she can't cope isn't a safe discharge."
+    },
+    {
+      "id": "B",
+      "text": "Sit with her, and listen to what has been happening at home.",
+      "brief": "She needs to be heard, and her account matters for planning.",
+      "detailed": "She may have been struggling for a long time. Listening without rushing shows care, and tells the team what support Mr Barnes and she will need."
+    },
+    {
+      "id": "C",
+      "text": "Ask the discharge team to arrange a care and carer's assessment.",
+      "brief": "Both of them may need support at home.",
+      "detailed": "Mr Barnes may need care at home, and his wife is entitled to an assessment of her own needs as a carer. The discharge team and social services can arrange both."
+    },
+    {
+      "id": "D",
+      "text": "Suggest that other family members take turns to help.",
+      "brief": "May help, but doesn't address her immediate distress or proper support.",
+      "detailed": "Family may be able to help, but this puts the onus on her to organise care, without a proper assessment."
+    },
+    {
+      "id": "E",
+      "text": "Arrange a care home placement for Mr Barnes yourself.",
+      "brief": "Not your decision, and may not be what either of them wants.",
+      "detailed": "A care home may eventually be considered, but this needs assessment and discussion with both of them."
+    },
+    {
+      "id": "F",
+      "text": "Promise her that a care package will be in place before he goes home.",
+      "brief": "A promise you can't guarantee.",
+      "detailed": "Care packages depend on assessments and availability. Promising one may set up disappointment."
+    },
+    {
+      "id": "G",
+      "text": "Let the team know that the discharge plan needs reviewing.",
+      "brief": "A discharge that relies on an exhausted carer isn't safe.",
+      "detailed": "Discharging him tomorrow without support may lead to a crisis at home and readmission. The team needs to know so the plan can be adjusted."
+    },
+    {
+      "id": "H",
+      "text": "Give her information about local carers' support groups.",
+      "brief": "Helpful information, but the discharge plan still needs reviewing.",
+      "detailed": "Support groups can help in the longer term, but on their own they don't make tomorrow's discharge safe."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to a carer's distress and make sure a discharge is safe for both the patient and his carer.",
+    "keyDetails": "He is medically fit. She is his only carer and says she can't cope. He has dementia.",
+    "reasoning": "[B] listens, [C] gets them both assessed, and [G] makes sure the plan is reviewed. The distractors push the discharge ([A], [H]), shift the burden ([D]), act beyond your role ([E]), or make a promise you can't keep ([F]).",
+    "competing": "[H] is the tempting option because the information is useful, but it doesn't make tomorrow's discharge safe."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, supporting patients and those close to them."
+    }
+  ],
+  "tags": [
+    "carers",
+    "discharge",
+    "dementia",
+    "orthopaedics"
+  ]
+}
