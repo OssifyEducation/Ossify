@@ -1,0 +1,101 @@
+{
+  "id": "sjt-150",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-150",
+  "format": "multiple_choice",
+  "title": "Caught in the middle",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Managing conflict",
+    "Professional neutrality",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. The practice nurse and one of the GP partners have fallen out over how the diabetes clinic is run, and they no longer speak to each other.\n\nEach of them has separately complained to you about the other and asked you to back them up at the next practice meeting.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell each of them politely that you won't take sides.",
+      "brief": "Staying neutral protects your working relationships.",
+      "detailed": "As a temporary member of the team, taking sides would damage your relationships and wouldn't resolve their disagreement. Saying so politely is honest."
+    },
+    {
+      "id": "B",
+      "text": "Back the partner, as he is more senior.",
+      "brief": "Seniority doesn't make him right.",
+      "detailed": "Taking sides on the basis of seniority isn't fair and may damage your relationship with the nurse."
+    },
+    {
+      "id": "C",
+      "text": "Back the nurse, as she runs the clinic day to day.",
+      "brief": "Taking sides doesn't help resolve it.",
+      "detailed": "She may have valid points, but taking her side would damage your relationship with the partner."
+    },
+    {
+      "id": "D",
+      "text": "Arrange a meeting between the two of them yourself, to help them sort it out.",
+      "brief": "Well meant, but not your role.",
+      "detailed": "Mediating between senior colleagues isn't your role and could make things worse."
+    },
+    {
+      "id": "E",
+      "text": "Suggest they raise the disagreement with the practice manager.",
+      "brief": "The practice manager can help them resolve it.",
+      "detailed": "The practice manager is responsible for how the practice runs and can help them find a way forward."
+    },
+    {
+      "id": "F",
+      "text": "Raise any effect on patient care with your GP supervisor.",
+      "brief": "Patient care must come first.",
+      "detailed": "If the conflict affects patients, for example missed communication about diabetes care, your supervisor needs to know."
+    },
+    {
+      "id": "G",
+      "text": "Avoid both of them until the dispute is over.",
+      "brief": "Unworkable, and may affect your work.",
+      "detailed": "This avoids the conflict but isn't practical, and may affect patient care."
+    },
+    {
+      "id": "H",
+      "text": "Tell other staff what each of them has said.",
+      "brief": "Spreads the conflict.",
+      "detailed": "This would make things worse and damage trust."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you stay professional when colleagues in conflict try to involve you.",
+    "keyDetails": "Both have asked you to take sides. You are a temporary member of the team. The dispute is about a clinic that affects patients.",
+    "reasoning": "[A] stays neutral, [E] points them to the person who can help, and [F] protects patients. The distractors take sides ([B], [C]), overstep your role ([D]), avoid the problem ([G]), or spread it ([H]).",
+    "competing": "[D] is the tempting option because it seems proactive, but mediation is for the practice manager."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working constructively with colleagues."
+    }
+  ],
+  "tags": [
+    "team conflict",
+    "general practice",
+    "neutrality"
+  ]
+}

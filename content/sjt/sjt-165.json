@@ -1,0 +1,85 @@
+{
+  "id": "sjt-165",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-165",
+  "format": "ranking",
+  "title": "No interpreter for a Deaf patient",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Disability awareness",
+    "Communication",
+    "Reasonable adjustments"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Mr Clarke, 45, is Deaf and uses British Sign Language. He has abdominal pain and has been waiting two hours. No interpreter has been booked.\n\nHe has come with a friend. He becomes frustrated when the triage nurse tries to talk to him, and gestures that he can't understand.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask how he prefers to communicate, using writing in the meantime.",
+      "brief": "Writing allows basic communication while an interpreter is arranged.",
+      "detailed": "Many Deaf people can communicate in writing, though BSL may be their first language. Asking his preference, and writing in the meantime, respects him and gets things started."
+    },
+    {
+      "id": "B",
+      "text": "Ask the friend who came with him to interpret.",
+      "brief": "May help briefly, but friends aren't reliable interpreters for clinical information.",
+      "detailed": "His friend may help with basic communication, especially if Mr Clarke wants this, but clinical information should go through a professional interpreter."
+    },
+    {
+      "id": "C",
+      "text": "Speak loudly and slowly, so he can lip-read.",
+      "brief": "Lip-reading is unreliable, and shouting distorts lip patterns.",
+      "detailed": "Many Deaf people don't lip-read well, and speaking loudly makes it harder. This is likely to increase his frustration."
+    },
+    {
+      "id": "D",
+      "text": "Arrange a BSL interpreter, in person or by video link.",
+      "brief": "A professional interpreter allows a full assessment.",
+      "detailed": "A BSL interpreter makes sure he can describe his symptoms and understand his care. Video interpreting may be available quickly. It ranks second because you can begin communicating now while it's arranged."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make reasonable adjustments for a Deaf patient so he can communicate and receive safe care.",
+    "keyDetails": "He uses BSL. No interpreter has been booked. He has been waiting two hours and is frustrated.",
+    "reasoning": "[A] starts communicating now, and [D] arranges proper interpreting. [B] uses an unreliable interpreter, and [C] is ineffective.",
+    "competing": "Some would arrange the interpreter first. The key starts with writing because it begins communication immediately, while the interpreter is arranged."
+  },
+  "references": [
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Reasonable adjustments for disabled people, including Deaf patients."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Making sure patients have information in a form they can understand."
+    }
+  ],
+  "tags": [
+    "Deaf patients",
+    "BSL",
+    "reasonable adjustments",
+    "emergency department"
+  ]
+}

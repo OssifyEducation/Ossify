@@ -1,0 +1,109 @@
+{
+  "id": "sjt-158",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-158",
+  "format": "multiple_choice",
+  "title": "The biopsy result",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Breaking bad news",
+    "Preparation",
+    "Seeking support"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Mrs Lee, 58, has been waiting for the results of a liver biopsy, which shows metastatic cancer. Her consultant planned to tell her today, but is off sick.\n\nMrs Lee knows the result is back and keeps asking the nurses when someone will tell her. Your registrar asks you to speak to her.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her at the bedside, as she is anxious and has been waiting.",
+      "brief": "Speed matters, but not at the cost of privacy.",
+      "detailed": "She is anxious, which makes it tempting to tell her straight away. But a crowded bay isn't the place to hear she has cancer."
+    },
+    {
+      "id": "B",
+      "text": "Wait until her consultant is back next week.",
+      "brief": "Leaves her anxious, knowing the result is back.",
+      "detailed": "Her consultant may know her best, but she knows the result is ready, and a week's wait would be very distressing."
+    },
+    {
+      "id": "C",
+      "text": "Ask your registrar whether they could be there with you.",
+      "brief": "Senior support helps with a difficult conversation.",
+      "detailed": "Breaking news like this is difficult, and she may have questions about treatment you can't answer. Asking for your registrar's support is reasonable."
+    },
+    {
+      "id": "D",
+      "text": "Prepare by reading her notes, the result and the likely next steps.",
+      "brief": "Preparation helps you answer her questions accurately.",
+      "detailed": "Knowing the details, and what will happen next, helps you give her honest information and avoid uncertainty about the basics."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse to tell her that the doctors will speak to her soon.",
+      "brief": "Delays without a plan.",
+      "detailed": "This may buy time, but she is already anxious, and it doesn't give her the information she's waiting for."
+    },
+    {
+      "id": "F",
+      "text": "Give her the biopsy report to read first.",
+      "brief": "Reading a report alone is a poor way to receive bad news.",
+      "detailed": "Reports are full of technical language, and reading it without support could be distressing and confusing."
+    },
+    {
+      "id": "G",
+      "text": "Arrange a private room, and ask whether she would like someone with her.",
+      "brief": "Privacy and support help her receive the news.",
+      "detailed": "A quiet room, time, and the chance to have a relative or a specialist nurse present all help someone hearing bad news."
+    },
+    {
+      "id": "H",
+      "text": "Reassure her that the cancer is likely to be treatable.",
+      "brief": "You may not know, and false hope can cause harm.",
+      "detailed": "Offering hope is natural, but you don't know the treatment options yet, and false reassurance can damage trust."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you prepare to break bad news when the planned person isn't available.",
+    "keyDetails": "The result shows metastatic cancer. Mrs Lee is anxious and knows it's back. Her consultant is off sick.",
+    "reasoning": "[C] gets senior support, [D] prepares you, and [G] creates the right setting. The distractors sacrifice privacy ([A]), delay unnecessarily ([B], [E]), give information badly ([F]), or offer false hope ([H]).",
+    "competing": "[B] may seem respectful of her consultant's role, but a week's wait would leave her in distress."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Sharing difficult news with patients and supporting them."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating with patients sensitively."
+    }
+  ],
+  "tags": [
+    "breaking bad news",
+    "cancer",
+    "preparation",
+    "support"
+  ]
+}

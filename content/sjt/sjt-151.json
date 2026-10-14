@@ -1,0 +1,92 @@
+{
+  "id": "sjt-151",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-151",
+  "format": "ranking",
+  "title": "Who's in the room?",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Disability awareness",
+    "Communication",
+    "Advocacy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Mr Patel, 70, who is registered blind, is recovering from a hip replacement. On the ward round, the consultant and five other staff gather around his bed and discuss his care.\n\nNo one introduces themselves. Afterwards, Mr Patel tells you he had no idea who was there or who was speaking.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Suggest to the consultant that the team introduce themselves to him on ward rounds.",
+      "brief": "Prevents the same thing happening again.",
+      "detailed": "The consultant may not have realised. Raising it helps the whole team adapt. It ranks second because Mr Patel needs a response first."
+    },
+    {
+      "id": "B",
+      "text": "Apologise, and explain who was there and what was discussed.",
+      "brief": "Puts right what he missed straight away.",
+      "detailed": "He has a right to know who is caring for him and what was said. Explaining now addresses his immediate concern."
+    },
+    {
+      "id": "C",
+      "text": "Reassure him that everyone on the ward round is part of his care team.",
+      "brief": "Doesn't address his concern.",
+      "detailed": "This may be true, but doesn't tell him who was there, and suggests his concern doesn't matter."
+    },
+    {
+      "id": "D",
+      "text": "Ask Mr Patel what would help him on ward rounds, and record it in his notes.",
+      "brief": "Useful for future care, though less immediate.",
+      "detailed": "He may have preferences, such as a light touch on the arm before someone speaks. Recording them helps all staff. It ranks third because the team's practice also needs to change."
+    },
+    {
+      "id": "E",
+      "text": "Ask a nurse to tell him later who was on the ward round.",
+      "brief": "Passes on a problem you can address yourself.",
+      "detailed": "This may give him the information, but you're there now, and he raised it with you."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "D",
+      "E",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to a patient's disability with respect, putting things right and helping the team adapt.",
+    "keyDetails": "He is registered blind. No one introduced themselves. He has told you directly.",
+    "reasoning": "[B] puts things right for him, [A] changes team practice, and [D] records his needs. [E] passes it on, and [C] dismisses his concern.",
+    "competing": "Some would raise it with the consultant first. The key responds to Mr Patel first because he has just raised it with you."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity and making reasonable adjustments."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Reasonable adjustments for disabled people."
+    }
+  ],
+  "tags": [
+    "disability",
+    "visual impairment",
+    "dignity",
+    "ward rounds"
+  ]
+}

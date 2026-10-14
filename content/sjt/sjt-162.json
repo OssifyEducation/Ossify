@@ -1,0 +1,102 @@
+{
+  "id": "sjt-162",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-162",
+  "format": "multiple_choice",
+  "title": "No BNFC tonight",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Safe prescribing",
+    "Seeking advice",
+    "Recognising limits"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor covering paediatrics overnight. A nurse asks you to prescribe IV phenytoin for a child who has had a prolonged seizure, as the registrar has asked. You have never prescribed it for a child.\n\nThe hospital IT system is down, so you can't access the online children's formulary.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Calculate the dose from the adult dose, adjusted for weight.",
+      "brief": "Adult doses don't scale reliably for children.",
+      "detailed": "Children's doses often differ from simple weight-adjusted adult doses, and phenytoin has a narrow therapeutic range."
+    },
+    {
+      "id": "B",
+      "text": "Ask the paediatric registrar to confirm the dose.",
+      "brief": "The registrar asked for it and can confirm the dose.",
+      "detailed": "The registrar decided on the drug and can confirm the dose and how to give it. Asking is quick and safe."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurse what dose is usually given.",
+      "brief": "Useful as a check, but not a reliable source on its own.",
+      "detailed": "Experienced nurses often know usual doses, which makes this tempting, but the prescriber is responsible, and the dose needs a reliable source."
+    },
+    {
+      "id": "D",
+      "text": "Wait until the IT system is back before prescribing.",
+      "brief": "The child needs treatment now.",
+      "detailed": "The seizure needs treatment, and other reliable sources are available."
+    },
+    {
+      "id": "E",
+      "text": "Search for the dose using a general internet search on your phone.",
+      "brief": "Online sources may not be reliable.",
+      "detailed": "Some websites are reliable, but an unverified search isn't a safe basis for a paediatric dose of phenytoin."
+    },
+    {
+      "id": "F",
+      "text": "Check a printed copy of the children's formulary on the ward.",
+      "brief": "Wards usually keep printed copies for this situation.",
+      "detailed": "Many wards keep printed copies of the BNF for Children or local guidelines. Checking it gives you a reliable source."
+    },
+    {
+      "id": "G",
+      "text": "Ask the on-call pharmacist for advice.",
+      "brief": "Pharmacists can advise on paediatric dosing.",
+      "detailed": "The on-call pharmacist can confirm the dose and preparation, especially for a drug with specific administration requirements."
+    },
+    {
+      "id": "H",
+      "text": "Prescribe the dose you remember from your medical school notes.",
+      "brief": "Memory isn't reliable for an unfamiliar paediatric dose.",
+      "detailed": "Relying on memory for an unfamiliar drug in a child risks a serious error."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you prescribe an unfamiliar drug safely when your usual source isn't available.",
+    "keyDetails": "The child needs treatment now. Phenytoin has a narrow therapeutic range. You haven't prescribed it for a child before.",
+    "reasoning": "[B], [F] and [G] all use reliable sources of advice. The distractors use unreliable methods ([A], [C], [E], [H]), or delay treatment ([D]).",
+    "competing": "[C] is tempting because nurses often know usual doses, but as prescriber you need a reliable source."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Prescribing only when you have enough knowledge of the medicine and the patient."
+    }
+  ],
+  "tags": [
+    "prescribing",
+    "paediatrics",
+    "phenytoin",
+    "IT failure"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-147",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-147",
+  "format": "ranking",
+  "title": "Missing after the fire drill",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Responding to the unexpected",
+    "Patient safety",
+    "Teamwork"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. During an unannounced fire drill, everyone is evacuated to the assembly point.\n\nWhen the staff count patients, Mr Nash, 30, is missing. He is detained under the Mental Health Act and has recently spoken about wanting to harm himself.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Phone his family to ask whether he has gone home.",
+      "brief": "Delays the formal response and may cause alarm.",
+      "detailed": "His family may be contacted as part of the missing patient procedure, but doing it yourself, before the nurse in charge knows, delays the formal response. It ranks above waiting because it is at least an active step."
+    },
+    {
+      "id": "B",
+      "text": "Help to search the assembly point and nearby areas.",
+      "brief": "He may be close by.",
+      "detailed": "He may simply have gone to the wrong place. Searching nearby helps, once the nurse in charge knows."
+    },
+    {
+      "id": "C",
+      "text": "Let the on-call psychiatrist know.",
+      "brief": "A senior needs to know about a missing detained patient.",
+      "detailed": "The on-call psychiatrist will need to know about his risk and may need to speak to the police. It ranks third because the nurse in charge starts the procedure."
+    },
+    {
+      "id": "D",
+      "text": "Tell the nurse in charge immediately.",
+      "brief": "The procedure, including informing the police, depends on acting fast.",
+      "detailed": "He is detained and at risk of self-harm, so this is urgent. The nurse in charge will start the missing patient procedure, which may include searching the building and informing the police."
+    },
+    {
+      "id": "E",
+      "text": "Wait until the drill is over, and count again.",
+      "brief": "Delays the response for a high-risk patient.",
+      "detailed": "He may turn up, but for a detained patient at risk of self-harm, waiting loses valuable time if he has left. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "A",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond quickly and through the right procedure when a detained patient at risk goes missing.",
+    "keyDetails": "He is detained, and at risk of self-harm. He went missing during an evacuation.",
+    "reasoning": "[D] starts the formal response, [B] helps find him, and [C] informs a senior. [A] acts outside the procedure, and [E] delays the response altogether.",
+    "competing": "Some would search first. The key starts with the nurse in charge because the procedure, including police involvement, depends on acting fast."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting promptly when patients are at risk."
+    }
+  ],
+  "tags": [
+    "missing patient",
+    "Mental Health Act",
+    "fire drill",
+    "psychiatry"
+  ]
+}

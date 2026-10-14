@@ -1,0 +1,92 @@
+{
+  "id": "sjt-161",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-161",
+  "format": "ranking",
+  "title": "Surgery she might not want",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Best interests",
+    "Communication with families",
+    "Mental Capacity Act"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Mrs Fry, 92, has advanced dementia and lives in a care home. She has a hip fracture and is listed for surgery tomorrow. She lacks capacity to decide about the operation.\n\nHer daughter tells you that her mother \"always said she didn't want to end up in hospital having operations\", and asks whether the surgery is really in her interests.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the consultant or orthogeriatrician to meet the daughter to discuss her mother's best interests.",
+      "brief": "A senior discussion is needed for this decision.",
+      "detailed": "Surgery for a hip fracture often relieves pain even in frail patients, but the decision should weigh her wishes. A senior can discuss the benefits and alternatives with her daughter."
+    },
+    {
+      "id": "B",
+      "text": "Check whether Mrs Fry has a lasting power of attorney for health or an advance decision.",
+      "brief": "Either could change who decides, or what can be done.",
+      "detailed": "A health attorney could make this decision on her behalf, and a valid advance decision refusing surgery would have to be followed. Checking quickly is important."
+    },
+    {
+      "id": "C",
+      "text": "Listen to her concerns and what she knows of her mother's wishes.",
+      "brief": "Her mother's past wishes are central to a best-interests decision.",
+      "detailed": "Under the Mental Capacity Act, decisions for someone who lacks capacity must take account of their past wishes and the views of those close to them. Listening carefully is essential."
+    },
+    {
+      "id": "D",
+      "text": "Tell her that decisions about surgery are for the surgeons.",
+      "brief": "Dismisses the duty to consult her about her mother's best interests.",
+      "detailed": "Surgeons decide what to offer, but the Mental Capacity Act requires those close to the patient to be consulted. This is dismissive and inaccurate."
+    },
+    {
+      "id": "E",
+      "text": "Postpone the surgery until the daughter agrees.",
+      "brief": "Not your decision, and delay can cause harm.",
+      "detailed": "Her daughter's views matter, but unless she is a health attorney, she can't decide, and delaying surgery may prolong pain."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "A",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you involve a family in a best-interests decision for someone who lacks capacity, respecting her past wishes.",
+    "keyDetails": "Mrs Fry lacks capacity. Her daughter reports her past wishes. Surgery is planned for tomorrow.",
+    "reasoning": "[C] listens to her wishes, [B] checks who has authority, and [A] brings in a senior. [E] acts beyond your role, and [D] dismisses the duty to consult.",
+    "competing": "Some would arrange the senior meeting before checking for an attorney. The key checks first because it's quick and could change who makes the decision."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Best interests: past wishes and consulting those close to the person."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Decisions for adults who lack capacity."
+    }
+  ],
+  "tags": [
+    "best interests",
+    "dementia",
+    "hip fracture",
+    "families"
+  ]
+}

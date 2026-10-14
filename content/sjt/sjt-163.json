@@ -1,0 +1,92 @@
+{
+  "id": "sjt-163",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-163",
+  "format": "ranking",
+  "title": "A young carer's questions",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Supporting young carers",
+    "Confidentiality",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. Mr Davies, 52, has severe heart failure and has capacity. His son, Rhys, 16, has been his main carer since his mother died.\n\nWhile his father is asleep, Rhys asks you quietly whether his dad is going to die.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Rhys about his father's prognosis, as he is the main carer.",
+      "brief": "Shares information without his father's agreement.",
+      "detailed": "Rhys's role as carer doesn't entitle him to his father's information. His father should decide what he is told."
+    },
+    {
+      "id": "B",
+      "text": "Listen to Rhys, and ask how he is coping.",
+      "brief": "He is young, frightened, and carrying a lot.",
+      "detailed": "Rhys is a young carer facing the possible loss of his only parent. Listening, and asking how he is, shows care and may reveal that he needs support."
+    },
+    {
+      "id": "C",
+      "text": "Let Rhys know about support for young carers.",
+      "brief": "Specialist support can help him now and in the future.",
+      "detailed": "Young carers' services can offer practical and emotional support. It ranks third because he first needs to feel heard, and his father needs to be involved."
+    },
+    {
+      "id": "D",
+      "text": "Tell Rhys to ask his father.",
+      "brief": "May be appropriate, but leaves him unsupported.",
+      "detailed": "His father is the right person, but simply redirecting him doesn't acknowledge his distress."
+    },
+    {
+      "id": "E",
+      "text": "Ask Mr Davies, when he wakes, what he would like Rhys to be told.",
+      "brief": "His father decides what information is shared.",
+      "detailed": "Mr Davies has capacity, so he decides what is shared about his health. Many parents want help talking to their children about difficult news."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a young carer while respecting his father's confidentiality.",
+    "keyDetails": "Mr Davies has capacity. Rhys is 16 and the main carer. He has asked a frightening question.",
+    "reasoning": "[B] supports Rhys, [E] involves his father, and [C] points to support. [D] redirects without support, and [A] shares information without consent.",
+    "competing": "Some would ask Mr Davies first. The key starts by listening to Rhys because he is in front of you and distressed, and listening doesn't share any information."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with relatives only with the patient's agreement."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, supporting those close to patients."
+    }
+  ],
+  "tags": [
+    "young carers",
+    "confidentiality",
+    "heart failure",
+    "families"
+  ]
+}

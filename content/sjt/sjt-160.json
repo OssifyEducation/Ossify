@@ -1,0 +1,110 @@
+{
+  "id": "sjt-160",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-160",
+  "format": "multiple_choice",
+  "title": "A result nobody acted on",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Handover",
+    "Candour",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. At the start of your shift, you see that a potassium result you requested at 16:00 yesterday came back at 20:00 at 6.7 mmol/L. You had left at 17:00 without handing it over, and no one has acted on it.\n\nThe patient, Mr Gold, 79, is on spironolactone and ramipril. The nurse says he seems well.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Repeat the potassium, and only treat if it's still high.",
+      "brief": "Delays treatment of a potentially dangerous result.",
+      "detailed": "Repeating the test is reasonable, but an ECG and assessment are needed now, and treatment may be needed before the repeat result is back."
+    },
+    {
+      "id": "B",
+      "text": "Assess Mr Gold now, including an ECG and a repeat potassium.",
+      "brief": "A high potassium can cause dangerous heart rhythms.",
+      "detailed": "Even if he seems well, a potassium of 6.7 needs urgent assessment and treatment. An ECG and repeat potassium guide what needs doing."
+    },
+    {
+      "id": "C",
+      "text": "Stop his spironolactone and ramipril, and review tomorrow.",
+      "brief": "Part of management, but doesn't address the immediate risk.",
+      "detailed": "Stopping these drugs is likely to be part of his treatment, but on its own it doesn't address a dangerously high potassium now."
+    },
+    {
+      "id": "D",
+      "text": "Report the missed result through the incident system before doing anything else.",
+      "brief": "Reporting matters, but his treatment and being open come first.",
+      "detailed": "This should be reported, and you should do it today, but not before assessing and treating him."
+    },
+    {
+      "id": "E",
+      "text": "Tell your registrar what happened.",
+      "brief": "Your senior needs to know about a missed result and a sick patient.",
+      "detailed": "Your registrar should know so they can support his treatment and any follow-up, and help you reflect on how it happened."
+    },
+    {
+      "id": "F",
+      "text": "Explain to Mr Gold what happened, and apologise.",
+      "brief": "Being open with him is part of putting it right.",
+      "detailed": "He has a right to know when something has gone wrong in his care. An honest explanation and apology, once he is safe, is part of your professional duty of candour."
+    },
+    {
+      "id": "G",
+      "text": "Ask the night doctor why they didn't act on the result.",
+      "brief": "They weren't told about it.",
+      "detailed": "The result wasn't handed over, so the night doctor can't be blamed for missing it."
+    },
+    {
+      "id": "H",
+      "text": "Assume the result was haemolysed, as he seems well.",
+      "brief": "Dangerous assumption.",
+      "detailed": "Haemolysis can falsely raise potassium, but you can't assume it, especially in a patient on drugs that raise potassium."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a gap in your handover has left an abnormal result unacted on: treating the patient, telling your senior, and being open with him.",
+    "keyDetails": "The potassium is dangerously high. He is on drugs that raise potassium. You didn't hand it over. He seems well.",
+    "reasoning": "[B] deals with the immediate risk, [E] tells your senior, and [F] is open with Mr Gold. The distractors delay treatment ([A], [C], [H]), deprioritise the immediate actions ([D]), or wrongly blame a colleague ([G]).",
+    "competing": "[D] is the hard distractor: reporting is important and should be done today, but the three keyed actions come first."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with patients when something has gone wrong."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, handing over care safely."
+    }
+  ],
+  "tags": [
+    "handover",
+    "hyperkalaemia",
+    "candour",
+    "results"
+  ]
+}

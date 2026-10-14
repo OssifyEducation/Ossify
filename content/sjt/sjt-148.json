@@ -1,0 +1,109 @@
+{
+  "id": "sjt-148",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-148",
+  "format": "multiple_choice",
+  "title": "After the home visit",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Wellbeing",
+    "Fitness to work"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working an out-of-hours GP shift. Dr Price, another F2 on the same shift, phones you from her car. She has just been to a home visit where a baby had died unexpectedly, and stayed until the paramedics and police arrived.\n\nShe is crying and says she doesn't know how she can do her next visit.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her that difficult cases are part of the job.",
+      "brief": "Dismisses her distress.",
+      "detailed": "Difficult cases are part of the job, but saying so now minimises what she has been through."
+    },
+    {
+      "id": "B",
+      "text": "Encourage her to carry on with her visits, as patients are waiting.",
+      "brief": "She may not be safe to work right now.",
+      "detailed": "Patients are waiting, which makes this tempting, but her distress may affect her judgement. The clinical lead can make sure they're seen."
+    },
+    {
+      "id": "C",
+      "text": "Listen, and let her talk about what happened.",
+      "brief": "She needs someone to listen first.",
+      "detailed": "This was a deeply distressing experience. Letting her talk, without rushing her, is the most important thing you can do right now."
+    },
+    {
+      "id": "D",
+      "text": "Suggest she tells the clinical lead, so her remaining visits can be covered.",
+      "brief": "She may not be fit to continue, and the lead can reallocate visits.",
+      "detailed": "After an experience like this, she may not be able to work safely for the rest of the shift. The clinical lead can arrange cover."
+    },
+    {
+      "id": "E",
+      "text": "Offer to take her remaining visits yourself.",
+      "brief": "Kind, but may not be possible with your own workload; the lead should decide.",
+      "detailed": "This is a generous offer, but you have your own calls, and the clinical lead is better placed to reallocate work safely."
+    },
+    {
+      "id": "F",
+      "text": "Make sure she knows about support available after traumatic events.",
+      "brief": "Support beyond tonight may help her recover.",
+      "detailed": "Debriefs, staff support services and services such as NHS Practitioner Health can help doctors after traumatic events. Making sure she knows about them is important."
+    },
+    {
+      "id": "G",
+      "text": "Ask her for the details of the case.",
+      "brief": "She may want to talk, but questioning her about details isn't the right focus.",
+      "detailed": "Letting her talk is helpful, but asking for details may come across as curiosity, and the case is subject to investigation."
+    },
+    {
+      "id": "H",
+      "text": "Suggest she writes a reflection on it when she gets home.",
+      "brief": "Reflection may help later, but not as her immediate support.",
+      "detailed": "Reflection can be valuable, but suggesting it now doesn't address her distress or whether she can continue."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague after a traumatic event, including whether she is fit to continue working.",
+    "keyDetails": "She has just seen a baby who died. She is crying and doubts she can continue. Visits are waiting.",
+    "reasoning": "[C] listens, [D] makes sure her work is covered safely, and [F] points her to support. The distractors dismiss her ([A], [H]), keep her working ([B]), take on work the lead should allocate ([E]), or focus on details ([G]).",
+    "competing": "[E] is the tempting option because it's generous, but the clinical lead is best placed to reallocate visits safely."
+  },
+  "references": [
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors after traumatic events."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues."
+    }
+  ],
+  "tags": [
+    "trauma",
+    "colleague wellbeing",
+    "child death",
+    "out-of-hours"
+  ]
+}
