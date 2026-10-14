@@ -1,0 +1,86 @@
+{
+  "id": "sjt-235",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-235",
+  "format": "ranking",
+  "title": "\"So that it ends quicker\"",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "End-of-life care",
+    "Exploring distress",
+    "Symptom control"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Mr Brooks, 75, has terminal lung cancer and is receiving palliative care. He is in pain and breathless.\n\nHe asks you to increase his morphine \"so that it ends quicker\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that you can't give treatment intended to end his life, but can make him more comfortable.",
+      "brief": "Honest about what is allowed, while focusing on comfort.",
+      "detailed": "Intentionally ending life is illegal, but medicines to relieve suffering can be given even if they may shorten life slightly. Explaining this honestly helps him."
+    },
+    {
+      "id": "B",
+      "text": "Ask him gently what he means, and about how he is feeling.",
+      "brief": "His request may reflect suffering that can be addressed.",
+      "detailed": "He may be in uncontrolled pain, frightened, or feel he is a burden. Exploring this helps you understand and respond."
+    },
+    {
+      "id": "C",
+      "text": "Tell him that isn't something doctors can discuss.",
+      "brief": "Closes down the conversation.",
+      "detailed": "This may leave him feeling unheard and doesn't address his suffering."
+    },
+    {
+      "id": "D",
+      "text": "Make sure his symptoms are reviewed, involving the palliative care team.",
+      "brief": "Better symptom control may relieve his suffering.",
+      "detailed": "His pain and breathlessness may be better controlled. The palliative care team can help."
+    },
+    {
+      "id": "E",
+      "text": "Increase his morphine, as he asked, to end his life sooner.",
+      "brief": "Increasing it with the intention of ending his life is illegal.",
+      "detailed": "Increasing doses to relieve symptoms is appropriate, but not with the intention of ending his life. This is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "A",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a dying patient's request to hasten death: exploring his suffering and focusing on comfort.",
+    "keyDetails": "He has terminal cancer and is in pain. He wants his life to end sooner. Assisted dying is illegal.",
+    "reasoning": "[B] explores his distress, [D] improves his symptoms, and [A] explains honestly. [C] closes the conversation, and [E] is illegal.",
+    "competing": "Some would explain the law first. The key starts with exploring, because his request may reflect suffering that can be relieved."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Caring for patients at the end of life, including requests to hasten death."
+    }
+  ],
+  "tags": [
+    "end of life",
+    "palliative care",
+    "requests to hasten death",
+    "morphine"
+  ]
+}

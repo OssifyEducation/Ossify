@@ -1,0 +1,85 @@
+{
+  "id": "sjt-223",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-223",
+  "format": "ranking",
+  "title": "Lost samples",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Responding to system failures",
+    "Prioritisation",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a surgical ward. The laboratory phones to say that a batch of the ward's morning blood samples has been lost, including a group and save for Mr Owen, who is first on this afternoon's theatre list for a bowel resection.\n\nYou have twelve patients whose bloods were taken this morning.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Let the surgical team and theatre know about the delay.",
+      "brief": "They may need to adjust the list.",
+      "detailed": "If the group and save may not be ready, the team may need to reorder the list."
+    },
+    {
+      "id": "B",
+      "text": "Send Mr Owen to theatre without a group and save.",
+      "brief": "Unsafe if he needs a transfusion.",
+      "detailed": "Operating without a group and save could put him at risk."
+    },
+    {
+      "id": "C",
+      "text": "Identify the urgent repeats, starting with Mr Owen's group and save.",
+      "brief": "Prioritising makes sure the most important tests are repeated first.",
+      "detailed": "Mr Owen's operation depends on his group and save. Repeating it first, then other urgent bloods, keeps the day on track."
+    },
+    {
+      "id": "D",
+      "text": "Repeat all twelve patients' bloods in the order they were originally taken.",
+      "brief": "Safe, but doesn't prioritise.",
+      "detailed": "All may need repeating, but prioritising urgent tests matters."
+    },
+    {
+      "id": "E",
+      "text": "Report the loss through the incident reporting system.",
+      "brief": "The lab needs to understand what happened.",
+      "detailed": "Reporting helps the trust find out what went wrong. It ranks third because patients come first."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "E",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you prioritise and communicate when a system failure affects patients' care.",
+    "keyDetails": "The group and save for the first theatre patient is lost. Twelve patients are affected.",
+    "reasoning": "[C] prioritises, [A] informs the team, and [E] reports it. [D] doesn't prioritise, and [B] is unsafe.",
+    "competing": "Some would inform theatre first. Both are urgent; the key starts with repeating the group and save because it's the step that keeps him on the list."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, responding to safety risks."
+    }
+  ],
+  "tags": [
+    "system failure",
+    "blood tests",
+    "surgery",
+    "prioritisation"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "sjt-229",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-229",
+  "format": "ranking",
+  "title": "A second signature",
+  "setting": "Out-of-hours / community",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Records",
+    "Integrity under pressure"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in an out-of-hours GP service. Dr Patel, a GP colleague, verified the expected death of a care home resident on his own earlier tonight.\n\nThe care home's paperwork asks for a second person's signature as a witness. Dr Patel asks you to sign it, saying, \"It's just a formality.\" You weren't there.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Decline, as you can't witness something you didn't see.",
+      "brief": "Signing would be a false statement.",
+      "detailed": "A witness signature says you were present. Signing it would be dishonest, however minor it seems."
+    },
+    {
+      "id": "B",
+      "text": "Suggest he records clearly that he verified the death alone, and why.",
+      "brief": "An honest record is better than a false one.",
+      "detailed": "The care home's form may not reflect legal requirements, and an honest note explaining what happened is better than a false signature."
+    },
+    {
+      "id": "C",
+      "text": "Sign it, as it's only a formality.",
+      "brief": "Signing would be dishonest.",
+      "detailed": "Even a formality is a declaration that you were present. This is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Ask the clinical lead how the service handles this.",
+      "brief": "The lead can clarify the process.",
+      "detailed": "The service may have a policy for situations like this. It ranks third because declining comes first."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "B",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you refuse to sign a document that would be false, even when a colleague calls it a formality.",
+    "keyDetails": "You weren't present. The form asks for a witness. Your colleague is senior.",
+    "reasoning": "[A] declines honestly, [B] suggests an honest alternative, and [D] seeks advice. [C] is dishonest.",
+    "competing": "This is hard because the request seems minor. The key reflects that signing as a witness is a factual declaration."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in documents."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "signatures",
+    "verification of death",
+    "out-of-hours"
+  ]
+}

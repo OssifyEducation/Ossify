@@ -1,0 +1,85 @@
+{
+  "id": "sjt-233",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-233",
+  "format": "ranking",
+  "title": "Can I look after my baby?",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating uncertainty",
+    "Empathy",
+    "Planning support"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Ms Ross, 30, has had a stroke and has weakness in her left arm. Her baby is four months old.\n\nShe asks you, tearfully, whether she will be able to look after her baby.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange for the occupational therapist to discuss practical support for caring for her baby.",
+      "brief": "Practical support is available.",
+      "detailed": "Occupational therapists can help with practical adaptations. It ranks third because she needs a response from you first."
+    },
+    {
+      "id": "B",
+      "text": "Tell her she probably won't be able to care for her baby on her own.",
+      "brief": "Premature and distressing.",
+      "detailed": "She may need help, but saying this now, without understanding her situation, could be devastating."
+    },
+    {
+      "id": "C",
+      "text": "Ask her what worries her most, and what support she has at home.",
+      "brief": "Understanding her worries helps you respond.",
+      "detailed": "She may be worried about feeding, carrying the baby, or being alone. Knowing what matters most helps you respond honestly and practically."
+    },
+    {
+      "id": "D",
+      "text": "Reassure her that she'll definitely be able to care for her baby.",
+      "brief": "False reassurance.",
+      "detailed": "This may be what she wants to hear, but you can't know."
+    },
+    {
+      "id": "E",
+      "text": "Be honest that recovery is uncertain this early, and that the team will help her plan.",
+      "brief": "Honest without false hope.",
+      "detailed": "Recovery after stroke varies, especially in the early days. Being honest, and explaining that therapists will help her plan, gives her realistic hope."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "A",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient's fears after a serious diagnosis, honestly and practically.",
+    "keyDetails": "She is young and has a baby. Her recovery is uncertain. She is distressed.",
+    "reasoning": "[C] explores her worries, [E] is honest, and [A] arranges practical help. [D] gives false hope, and [B] is premature.",
+    "competing": "The order of [D] and [B] is close. The key ranks [B] last because it is premature and could cause unnecessary distress about something central to her life."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating honestly and supporting patients."
+    }
+  ],
+  "tags": [
+    "stroke",
+    "uncertainty",
+    "young adults",
+    "parenting"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-242",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-242",
+  "format": "multiple_choice",
+  "title": "What her friend said",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Documentation",
+    "Mental health"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in intensive care. Lily, 15, has been admitted after an overdose and is sedated.\n\nHer friend, who came in with her family, tells you quietly that Lily had been sent threatening messages by an older man she met online, who was demanding photos.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell your consultant and the safeguarding team.",
+      "brief": "Possible online exploitation is a serious safeguarding concern.",
+      "detailed": "This information suggests Lily may have been exploited. The safeguarding team can involve children's social care and the police."
+    },
+    {
+      "id": "B",
+      "text": "Look at Lily's phone to find the messages.",
+      "brief": "Not your role, and could affect a police investigation.",
+      "detailed": "The police and safeguarding team will decide how to handle evidence."
+    },
+    {
+      "id": "C",
+      "text": "Ask her friend for Lily's social media login.",
+      "brief": "Inappropriate and could compromise evidence.",
+      "detailed": "This isn't your role."
+    },
+    {
+      "id": "D",
+      "text": "Wait until Lily wakes up to ask her about it.",
+      "brief": "Delays action on a serious concern.",
+      "detailed": "She may not be able to talk for some time, and others may be at risk."
+    },
+    {
+      "id": "E",
+      "text": "Tell her parents what her friend said, before telling anyone else.",
+      "brief": "The safeguarding team should guide this.",
+      "detailed": "Her parents may need to know, but the safeguarding team should advise how."
+    },
+    {
+      "id": "F",
+      "text": "Record what her friend told you accurately.",
+      "brief": "An accurate record supports the safeguarding response.",
+      "detailed": "Writing down exactly what was said, and by whom, helps those who need to act."
+    },
+    {
+      "id": "G",
+      "text": "Contact the man yourself through social media.",
+      "brief": "Dangerous and could compromise an investigation.",
+      "detailed": "This is not your role."
+    },
+    {
+      "id": "H",
+      "text": "Make sure her mental health is assessed when she recovers.",
+      "brief": "She'll need specialist support.",
+      "detailed": "She will need a mental health assessment, and support to stay safe."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to information suggesting a young person may have been exploited.",
+    "keyDetails": "Lily is 15. The information is second-hand. She is sedated.",
+    "reasoning": "[A] involves safeguarding, [F] records it, and [H] plans her support. The distractors interfere with evidence ([B], [C], [G]), delay ([D]), or act before advice ([E]).",
+    "competing": "[E] may seem natural, but the safeguarding team should guide how parents are told."
+  },
+  "references": [
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Responding to concerns about child exploitation."
+    },
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Protecting children and young people."
+    }
+  ],
+  "tags": [
+    "child safeguarding",
+    "online exploitation",
+    "overdose",
+    "adolescents"
+  ]
+}

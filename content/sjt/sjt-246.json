@@ -1,0 +1,103 @@
+{
+  "id": "sjt-246",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-246",
+  "format": "multiple_choice",
+  "title": "\"Can I see a proper doctor?\"",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to criticism",
+    "Composure",
+    "Reflection"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics. You have just examined Noah, 3, who has a fever and a rash. You hesitated while explaining your findings to his mother.\n\nShe says, \"You don't seem sure. Can I see a proper doctor?\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that you are a fully qualified doctor.",
+      "brief": "May come across as defensive.",
+      "detailed": "This may be true, but it doesn't address her concern."
+    },
+    {
+      "id": "B",
+      "text": "Tell her the registrar is too busy.",
+      "brief": "Dismisses a reasonable request.",
+      "detailed": "This leaves her worried and doesn't help Noah."
+    },
+    {
+      "id": "C",
+      "text": "Acknowledge her concern calmly, without becoming defensive.",
+      "brief": "Her worry is about Noah, not you.",
+      "detailed": "She is worried about her son. A calm response helps keep her trust."
+    },
+    {
+      "id": "D",
+      "text": "Offer to ask your registrar to review Noah.",
+      "brief": "Senior input may reassure her and check your assessment.",
+      "detailed": "A fever and rash in a young child can be serious, and a senior review is reasonable. It also respects her request."
+    },
+    {
+      "id": "E",
+      "text": "Ask her to be more respectful.",
+      "brief": "Likely to escalate.",
+      "detailed": "Her comment may hurt, but she's anxious about her child."
+    },
+    {
+      "id": "F",
+      "text": "Insist on completing your assessment before anyone else sees him.",
+      "brief": "Prioritises your role over her concern.",
+      "detailed": "Completing your assessment is fine, but refusing senior input isn't."
+    },
+    {
+      "id": "G",
+      "text": "Leave, and ask the nurse to find another doctor.",
+      "brief": "Walks away from the situation.",
+      "detailed": "This leaves the family without a clear plan."
+    },
+    {
+      "id": "H",
+      "text": "Reflect afterwards on how you explained your findings.",
+      "brief": "A chance to improve.",
+      "detailed": "Thinking about why you hesitated may help you communicate more clearly in future."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond professionally when a parent questions your competence.",
+    "keyDetails": "Noah has a fever and rash. You hesitated. His mother is worried.",
+    "reasoning": "[C] stays calm, [D] offers senior input, and [H] reflects. The distractors are defensive ([A], [E], [F]), dismissive ([B]), or avoidant ([G]).",
+    "competing": "[A] is the tempting option, but it doesn't address her worry."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on your practice; Domain 2, responding to patients' concerns."
+    }
+  ],
+  "tags": [
+    "criticism",
+    "parents",
+    "paediatrics",
+    "senior review"
+  ]
+}

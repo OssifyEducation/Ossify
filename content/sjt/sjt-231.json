@@ -1,0 +1,86 @@
+{
+  "id": "sjt-231",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-231",
+  "format": "ranking",
+  "title": "Anticoagulation forgotten",
+  "setting": "Orthopaedics",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Candour",
+    "Patient safety",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Mr Day, 70, who takes apixaban for atrial fibrillation, had a hip replacement two days ago. The plan was to restart his apixaban the day after surgery.\n\nYou were responsible for restarting it, but forgot. A pharmacist notices 36 hours late.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Check Mr Day for clots or stroke, and restart his apixaban.",
+      "brief": "His safety comes first.",
+      "detailed": "Missing anticoagulation raises his risk of stroke and clots. Checking him and restarting it promptly reduces the risk."
+    },
+    {
+      "id": "B",
+      "text": "Restart it, and record that it was paused intentionally.",
+      "brief": "Falsifies the record.",
+      "detailed": "This hides your error and is dishonest. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Report the missed doses through the trust's incident reporting system.",
+      "brief": "Supports learning.",
+      "detailed": "Reporting helps the team prevent similar errors. It ranks fourth because it's less urgent."
+    },
+    {
+      "id": "D",
+      "text": "Explain to Mr Day what happened, and apologise.",
+      "brief": "He has a right to know.",
+      "detailed": "Being open with him about the missed doses and apologising is part of your professional duty of candour. It ranks third because his safety and your senior come first."
+    },
+    {
+      "id": "E",
+      "text": "Tell your registrar what happened.",
+      "brief": "Your senior needs to know.",
+      "detailed": "Your registrar should know, so they can make sure his care is right and support you."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "E",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you put a patient's safety first after your own error, and are open about it.",
+    "keyDetails": "Apixaban was missed for 36 hours. He has atrial fibrillation and has had surgery. It was your responsibility.",
+    "reasoning": "[A] protects him, [E] informs your senior, [D] is open with him, and [C] supports learning. [B] falsifies the record.",
+    "competing": "Some would tell Mr Day before the registrar. Either is reasonable; the key puts the registrar first because they may need to review him."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with patients when something goes wrong."
+    }
+  ],
+  "tags": [
+    "candour",
+    "anticoagulation",
+    "errors",
+    "orthopaedics"
+  ]
+}

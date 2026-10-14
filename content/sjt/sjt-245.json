@@ -1,0 +1,86 @@
+{
+  "id": "sjt-245",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-245",
+  "format": "ranking",
+  "title": "\"Keep this between us\"",
+  "setting": "Psychiatry",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Risk assessment",
+    "Public protection"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. Mr Burns, 35, an informal patient, tells you he plans to hurt his ex-partner when he is discharged next week, and describes how.\n\nHe then asks you to keep it confidential.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask him more about his plan and intentions.",
+      "brief": "Understanding the risk helps decide what to do.",
+      "detailed": "Knowing how serious and settled his intention is helps the team assess the risk. It ranks second because he has already described his plan, and he should know straight away that you can't keep it confidential."
+    },
+    {
+      "id": "B",
+      "text": "Agree to keep it confidential.",
+      "brief": "Could leave someone at serious risk.",
+      "detailed": "This is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Phone his ex-partner yourself to warn her.",
+      "brief": "May be needed, but should be decided by the team.",
+      "detailed": "She may need to be warned, but the team should decide how, with police involvement if needed."
+    },
+    {
+      "id": "D",
+      "text": "Inform the consultant immediately.",
+      "brief": "The team needs to assess and manage the risk.",
+      "detailed": "The consultant will decide on next steps, which may include informing the police or the ex-partner. It ranks third because understanding the risk and being honest come first."
+    },
+    {
+      "id": "E",
+      "text": "Explain that you can't keep this confidential.",
+      "brief": "Honest about the limits of confidentiality.",
+      "detailed": "Confidentiality can be breached to protect others from serious harm. Being honest about this straight away is better than a false promise, and he has already described his plan."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a disclosure of intent to harm someone, balancing confidentiality and public protection.",
+    "keyDetails": "His plan is specific. He is due to be discharged. He has asked for confidentiality.",
+    "reasoning": "[E] is honest about confidentiality, [A] helps assess the risk, and [D] involves the consultant. [C] acts beyond your role, and [B] leaves someone at risk.",
+    "competing": "Some would inform the consultant first, and you should do so promptly. The key starts with honesty about confidentiality because he has asked you directly and has already described a specific plan."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information to protect others from serious harm."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "risk to others",
+    "psychiatry",
+    "public protection"
+  ]
+}

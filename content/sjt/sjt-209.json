@@ -1,0 +1,85 @@
+{
+  "id": "sjt-209",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-209",
+  "format": "ranking",
+  "title": "Her medicines, her decision",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting autonomy",
+    "Supporting carers",
+    "Communication"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Bell, 67, has advanced breast cancer and is going home with several medicines, including oral morphine. She has capacity and wants to manage her own medicines.\n\nHer husband insists he should take charge of them, saying she gets muddled. Mrs Bell says she doesn't, and is upset.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree that her husband should manage her medicines, as he is her carer.",
+      "brief": "Overrides her capacitous decision.",
+      "detailed": "Being her carer doesn't give him the right to make decisions for her."
+    },
+    {
+      "id": "B",
+      "text": "Listen to her husband's concerns about her getting muddled.",
+      "brief": "His concerns may be worth exploring.",
+      "detailed": "He may have noticed something important, or may be anxious about caring for her. Listening helps you understand."
+    },
+    {
+      "id": "C",
+      "text": "Ask the pharmacist to review her medicines and suggest ways to make them easier to manage.",
+      "brief": "Practical aids may address both their concerns.",
+      "detailed": "A pharmacist can simplify regimens and suggest aids. It ranks third because her wishes and his concerns need addressing first."
+    },
+    {
+      "id": "D",
+      "text": "Ask Mrs Bell how she'd like to manage her medicines.",
+      "brief": "It's her decision, and she may accept some help.",
+      "detailed": "She has capacity, so it's her decision. Exploring what support, if any, she would accept, such as a dosette box, respects her autonomy."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a capacitous patient's wishes when a relative disagrees, while taking his concerns seriously.",
+    "keyDetails": "She has capacity. He says she gets muddled. She is upset.",
+    "reasoning": "[D] respects her wishes, [B] listens to his concerns, and [C] offers practical help. [A] overrides her decision.",
+    "competing": "This is hard because [B] may reveal a real problem. If he describes episodes suggesting she can't manage safely, her capacity for this decision may need assessing. The key puts her wishes first because she is presumed to have capacity."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Presumption of capacity."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting patients' decisions."
+    }
+  ],
+  "tags": [
+    "autonomy",
+    "carers",
+    "medicines",
+    "oncology"
+  ]
+}

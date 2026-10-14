@@ -1,0 +1,103 @@
+{
+  "id": "sjt-228",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-228",
+  "format": "multiple_choice",
+  "title": "Hit during personal care",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Managing aggression",
+    "Delirium",
+    "Supporting colleagues"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Grey, 88, has advanced dementia and was admitted with a urinary tract infection. During personal care, she hits a healthcare assistant, Jo, in the face.\n\nJo is shaken but not seriously hurt. Mrs Grey is agitated and calling out.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Check that Jo is all right.",
+      "brief": "She has been hurt and may be upset.",
+      "detailed": "Even if not seriously injured, she may be shaken. Checking on her shows support."
+    },
+    {
+      "id": "B",
+      "text": "Assess Mrs Grey for pain or delirium.",
+      "brief": "Her behaviour may be a sign of an unmet need.",
+      "detailed": "People with dementia often become agitated because of pain, delirium, or fear. Her infection may be making her more confused. Finding the cause helps."
+    },
+    {
+      "id": "C",
+      "text": "Prescribe a sedative to calm her down.",
+      "brief": "Sedation should be a last resort.",
+      "detailed": "Sedatives can worsen delirium and cause falls. Looking for the cause comes first."
+    },
+    {
+      "id": "D",
+      "text": "Tell Jo that aggression is part of the job.",
+      "brief": "Dismisses her experience.",
+      "detailed": "Staff do face aggression, but this minimises what happened."
+    },
+    {
+      "id": "E",
+      "text": "Record the incident, and review how her care is given.",
+      "brief": "A plan can make care safer for her and staff.",
+      "detailed": "Recording the incident, and reviewing her care, for example with a calm approach or two staff, protects both her and staff."
+    },
+    {
+      "id": "F",
+      "text": "Call the police.",
+      "brief": "Not appropriate for a patient with dementia and delirium.",
+      "detailed": "Her behaviour is likely caused by her illness, not intent."
+    },
+    {
+      "id": "G",
+      "text": "Ask Mrs Grey's family to do her personal care instead.",
+      "brief": "Passes responsibility to her family.",
+      "detailed": "Family may help calm her, but personal care is the ward's responsibility."
+    },
+    {
+      "id": "H",
+      "text": "Ask staff to avoid personal care until she calms down.",
+      "brief": "Leaves her without care.",
+      "detailed": "A short pause may help, but care can't be avoided indefinitely."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to aggression from a patient with dementia: supporting staff and looking for the cause.",
+    "keyDetails": "She has dementia and a UTI. She is agitated. A colleague was hit.",
+    "reasoning": "[A] supports Jo, [B] looks for a cause, and [E] makes care safer. The distractors sedate first ([C]), dismiss Jo ([D]), overreact ([F]), or avoid the problem ([G], [H]).",
+    "competing": "[C] is the tempting option, but sedation can worsen delirium and should be a last resort."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, caring for patients with dementia; Domain 3, supporting colleagues."
+    }
+  ],
+  "tags": [
+    "aggression",
+    "dementia",
+    "delirium",
+    "elderly care"
+  ]
+}

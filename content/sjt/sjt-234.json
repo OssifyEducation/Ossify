@@ -1,0 +1,103 @@
+{
+  "id": "sjt-234",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-234",
+  "format": "multiple_choice",
+  "title": "A result after she's gone",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Acting on results",
+    "Patient safety",
+    "Communication"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an evening shift in the Emergency Department. You see a CT head report for Mrs Lane, 79, who takes apixaban. It shows a small subdural haematoma.\n\nDr Kay, who requested the scan, discharged her two hours ago before the report came back and has gone home.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Mrs Lane to come back to the department now.",
+      "brief": "A bleed in someone on an anticoagulant needs urgent review.",
+      "detailed": "A subdural haematoma in a patient taking apixaban may need urgent management, including reversing the anticoagulant. She needs to come back."
+    },
+    {
+      "id": "B",
+      "text": "Email Dr Kay so she can deal with it tomorrow.",
+      "brief": "Too slow.",
+      "detailed": "Mrs Lane needs action now."
+    },
+    {
+      "id": "C",
+      "text": "Inform the ED consultant.",
+      "brief": "A senior should oversee her care.",
+      "detailed": "The consultant needs to know, and may involve neurosurgery or arrange transport."
+    },
+    {
+      "id": "D",
+      "text": "Phone Mrs Lane and advise her to stop her apixaban.",
+      "brief": "She needs assessment, not just advice.",
+      "detailed": "Stopping apixaban may be needed, but she also needs urgent assessment."
+    },
+    {
+      "id": "E",
+      "text": "Ask her GP to see her tomorrow.",
+      "brief": "Too slow for a brain bleed.",
+      "detailed": "She needs assessment in hospital tonight."
+    },
+    {
+      "id": "F",
+      "text": "Leave a note for the morning team.",
+      "brief": "Delays urgent action.",
+      "detailed": "The morning team will be too late."
+    },
+    {
+      "id": "G",
+      "text": "Document what happened, and let Dr Kay know.",
+      "brief": "Keeps the record clear and helps Dr Kay learn.",
+      "detailed": "Dr Kay should know the outcome. A clear record helps the department review the process."
+    },
+    {
+      "id": "H",
+      "text": "Report Dr Kay for discharging her before the result.",
+      "brief": "Focuses on blame rather than the patient.",
+      "detailed": "The process may need reviewing, but the patient comes first."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a result for a patient who has been discharged, when the requesting doctor isn't available.",
+    "keyDetails": "The CT shows a bleed. She takes apixaban. She has gone home.",
+    "reasoning": "[A] gets her back, [C] informs the consultant, and [G] closes the loop. The distractors delay ([B], [E], [F]), give advice without assessment ([D]), or focus on blame ([H]).",
+    "competing": "[D] is the hard distractor: stopping apixaban may be part of the plan, but she needs to be assessed."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting on results and making sure care continues."
+    }
+  ],
+  "tags": [
+    "results",
+    "subdural haematoma",
+    "anticoagulation",
+    "emergency department"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-237",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-237",
+  "format": "ranking",
+  "title": "Who was driving?",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Honesty",
+    "Supporting families",
+    "Timing of information"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in the Emergency Department. Mr Fenton, 50, has a broken leg after a car crash. His son, 19, who has minor injuries and is in the next cubicle, was driving. The son has asked to tell his father himself when he feels able to.\n\nMr Fenton's wife asks you not to tell her husband that their son was driving, as he is in pain and she wants to tell him herself later.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Mr Fenton straight away, as he has a right to know.",
+      "brief": "Overrides a reasonable request about timing.",
+      "detailed": "He has a right to know, but this isn't urgent for his care, and his wife wants to tell him."
+    },
+    {
+      "id": "B",
+      "text": "Avoid raising it yourself, as it isn't relevant to his treatment.",
+      "brief": "Reasonable, but doesn't address what you'd say if asked.",
+      "detailed": "It isn't your role to raise it, but you need to be clear about what you'd do if asked."
+    },
+    {
+      "id": "C",
+      "text": "Suggest she tells him when he's settled, with support if she wants it.",
+      "brief": "Supports her to share the news at a better time.",
+      "detailed": "Offering support, such as being there when she tells him, helps her."
+    },
+    {
+      "id": "D",
+      "text": "Listen to her reasons, and explain that you won't lie if he asks you directly.",
+      "brief": "Respects her wishes about timing without being dishonest.",
+      "detailed": "Her request is about timing, which you can respect. But if Mr Fenton asks you directly, you can't lie to him."
+    },
+    {
+      "id": "E",
+      "text": "Tell Mr Fenton, if he asks, that his son wasn't driving.",
+      "brief": "A lie.",
+      "detailed": "This is dishonest and is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "B",
+      "A",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respect a relative's wishes about timing without being dishonest with your patient.",
+    "keyDetails": "The information isn't relevant to his treatment. His wife wants to tell him herself. He may ask.",
+    "reasoning": "[D] respects her wishes honestly, [C] supports her, and [B] avoids the issue. [A] overrides her request, and [E] is a lie.",
+    "competing": "Some would see [A] as more honest. The key reflects that respecting timing isn't dishonest, as long as you don't lie."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty with patients."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "relatives",
+    "timing",
+    "emergency department"
+  ]
+}

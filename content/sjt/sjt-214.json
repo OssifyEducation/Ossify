@@ -1,0 +1,110 @@
+{
+  "id": "sjt-214",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-214",
+  "format": "multiple_choice",
+  "title": "The senior says leave him at home",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Escalation",
+    "Clinical judgement",
+    "Communication with seniors"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an out-of-hours home visit. Mr Lowe, 82, lives alone and has a chest infection. He is newly confused, his respiratory rate is 26, and his oxygen saturation is 91% on air.\n\nYou phone the senior GP at base, who advises starting oral antibiotics and leaving him at home. You think he needs admission.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave him at home with oral antibiotics, as the senior GP has advised you to.",
+      "brief": "Doesn't act on your concerns about a sick patient.",
+      "detailed": "The senior's advice deserves respect, but you have seen him and are concerned. Accepting advice you think is unsafe, without discussing it further, isn't appropriate."
+    },
+    {
+      "id": "B",
+      "text": "Ask a neighbour to check on him overnight.",
+      "brief": "Not a substitute for appropriate medical care.",
+      "detailed": "A neighbour may help, but he may need oxygen and hospital treatment."
+    },
+    {
+      "id": "C",
+      "text": "Call 999 for an emergency ambulance yourself.",
+      "brief": "May be needed in an emergency, but bypasses the senior.",
+      "detailed": "If he deteriorated rapidly, an emergency ambulance would be right. But he is stable enough for a discussion, and the senior should know."
+    },
+    {
+      "id": "D",
+      "text": "Repeat your specific findings to the senior GP.",
+      "brief": "The senior may not have taken in how unwell he is.",
+      "detailed": "New confusion, a raised respiratory rate and low oxygen saturation are concerning, especially in an older person living alone. Repeating them clearly may change the advice."
+    },
+    {
+      "id": "E",
+      "text": "Tell the senior GP you'd like to refer him to the medical team.",
+      "brief": "Open escalation is appropriate when you remain concerned.",
+      "detailed": "If you still believe he needs admission, saying so openly and proposing a referral is professional and keeps the senior informed."
+    },
+    {
+      "id": "F",
+      "text": "Tell Mr Lowe the senior GP is wrong.",
+      "brief": "Undermines a colleague and doesn't help him.",
+      "detailed": "He needs a plan, not to be drawn into a disagreement between doctors."
+    },
+    {
+      "id": "G",
+      "text": "Document your findings and the advice you were given.",
+      "brief": "A clear record supports any decision.",
+      "detailed": "Recording your findings, the advice, and the decision reached protects Mr Lowe and you."
+    },
+    {
+      "id": "H",
+      "text": "Start antibiotics and arrange a visit for tomorrow morning.",
+      "brief": "May be too late if he deteriorates overnight.",
+      "detailed": "This is a reasonable plan for a less unwell patient, but his observations suggest he may deteriorate before then."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you escalate a concern when a senior's advice, given by phone, differs from your own assessment.",
+    "keyDetails": "His observations are abnormal. He is confused and lives alone. The senior hasn't seen him.",
+    "reasoning": "[D] gives the senior the full picture, [E] escalates openly, and [G] records it. The distractors accept advice you think is unsafe ([A], [H]), rely on others ([B]), bypass the senior ([C]), or undermine them ([F]).",
+    "competing": "[H] is the hard distractor: it's reasonable for a less unwell patient, but his observations suggest he needs more."
+  },
+  "references": [
+    {
+      "title": "National Early Warning Score (NEWS) 2",
+      "publisher": "Royal College of Physicians",
+      "year": 2017,
+      "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/",
+      "note": "Responding to abnormal observations."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, escalating concerns about patient safety."
+    }
+  ],
+  "tags": [
+    "escalation",
+    "home visits",
+    "pneumonia",
+    "seniors"
+  ]
+}

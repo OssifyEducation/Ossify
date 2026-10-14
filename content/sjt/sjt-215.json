@@ -1,0 +1,93 @@
+{
+  "id": "sjt-215",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-215",
+  "format": "ranking",
+  "title": "Her boyfriend is 21",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Confidentiality",
+    "Communication with young people"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a paediatric ward. Mia, 14, has been admitted with abdominal pain. While taking her history alone, she tells you she is in a sexual relationship with her boyfriend, who is 21.\n\nShe asks you not to tell her parents.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Discuss it with the consultant and the safeguarding team the same day.",
+      "brief": "This needs specialist safeguarding input urgently.",
+      "detailed": "The safeguarding team will decide on next steps, including whether to involve children's social care and the police."
+    },
+    {
+      "id": "B",
+      "text": "Listen calmly, and ask her more about the relationship.",
+      "brief": "Understanding the relationship helps you assess the risk to her.",
+      "detailed": "A relationship between a 14-year-old and an adult raises serious concerns about exploitation. Listening without judgement helps her feel able to talk, and helps you understand the risk."
+    },
+    {
+      "id": "C",
+      "text": "Agree to keep it confidential, as long as she is using contraception.",
+      "brief": "Fails to protect her from possible exploitation.",
+      "detailed": "Contraception doesn't address the risk of exploitation by an adult. Keeping this secret would leave her unprotected, and is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Explain that you'll need to share this with the safeguarding team, and why.",
+      "brief": "Being honest about the limits of confidentiality keeps her trust.",
+      "detailed": "Because of her age and his, this must be shared to protect her. Explaining this honestly, and what will happen, respects her even though you can't keep it secret."
+    },
+    {
+      "id": "E",
+      "text": "Tell her parents straight away, without discussing it with her.",
+      "brief": "Bypasses safeguarding processes and her trust.",
+      "detailed": "Her parents may need to know, but the safeguarding team should guide this, and telling them without explaining to her first could damage her trust."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "A",
+      "E",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a young person's disclosure that suggests she may be at risk of exploitation, protecting her while keeping her trust.",
+    "keyDetails": "She is 14 and he is 21. She has asked you not to tell her parents. The age gap raises serious safeguarding concerns.",
+    "reasoning": "[B] listens, [D] is honest about sharing, and [A] involves safeguarding. [E] bypasses processes, and [C] leaves her unprotected.",
+    "competing": "Some would put informing the safeguarding team first. The key starts with listening, because what she tells you shapes the referral, and then explains honestly before sharing."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Sharing information to protect young people from abuse or exploitation."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Responding to concerns about child sexual exploitation."
+    }
+  ],
+  "tags": [
+    "child safeguarding",
+    "exploitation",
+    "confidentiality",
+    "adolescents"
+  ]
+}

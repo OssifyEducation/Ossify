@@ -1,0 +1,109 @@
+{
+  "id": "sjt-212",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-212",
+  "format": "multiple_choice",
+  "title": "A female doctor, please",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting beliefs",
+    "Flexibility",
+    "Patient safety"
+  ],
+  "difficulty": "easy",
+  "stem": "You are a male F2 doctor in paediatrics. Aisha, 12, has abdominal pain and needs an abdominal examination. She is stable.\n\nHer parents politely ask that a female doctor examines her, for religious reasons.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask whether a female colleague is available.",
+      "brief": "A reasonable request that can often be met.",
+      "detailed": "Respecting the family's beliefs, where possible without delaying care, is good practice. A female doctor may be available."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you are the doctor on duty, so you need to examine her.",
+      "brief": "Unnecessarily inflexible when she is stable.",
+      "detailed": "If she were unwell and no one else were available, this might be needed, but she is stable."
+    },
+    {
+      "id": "C",
+      "text": "Examine her with a female nurse present instead.",
+      "brief": "May not meet the family's request.",
+      "detailed": "A chaperone is good practice, but it doesn't meet their request for a female doctor, which may be possible."
+    },
+    {
+      "id": "D",
+      "text": "Wait until a female doctor comes on shift tomorrow.",
+      "brief": "Unsafe delay for abdominal pain.",
+      "detailed": "Delaying her assessment until tomorrow could miss something serious."
+    },
+    {
+      "id": "E",
+      "text": "Ask Aisha whether she has a preference too.",
+      "brief": "Her own views matter.",
+      "detailed": "At 12, Aisha's views should be sought. She may share her parents' preference, or have her own."
+    },
+    {
+      "id": "F",
+      "text": "Tell them that requests like this can't be accommodated in the NHS.",
+      "brief": "Incorrect and dismissive.",
+      "detailed": "Many requests like this can be met."
+    },
+    {
+      "id": "G",
+      "text": "Ask the parents to examine her abdomen for you.",
+      "brief": "Not appropriate.",
+      "detailed": "A medical examination needs to be done by a clinician."
+    },
+    {
+      "id": "H",
+      "text": "Explain any delay, and keep Aisha comfortable meanwhile.",
+      "brief": "Keeps them informed and Aisha cared for.",
+      "detailed": "If there is a delay, explaining it and making sure Aisha has pain relief and is observed keeps her safe."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a family's religious preference while making sure the child receives timely care.",
+    "keyDetails": "Aisha is stable. The request is reasonable. Delay must be avoided.",
+    "reasoning": "[A] tries to meet the request, [E] involves Aisha, and [H] keeps her safe. The distractors are inflexible ([B], [F]), only partly meet the request ([C]), delay care ([D]), or are inappropriate ([G]).",
+    "competing": "[C] is the tempting option, but a female doctor may be available, and that's what the family asked for."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs."
+    },
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Involving children in decisions about their care."
+    }
+  ],
+  "tags": [
+    "religion",
+    "paediatrics",
+    "examination",
+    "preferences"
+  ]
+}

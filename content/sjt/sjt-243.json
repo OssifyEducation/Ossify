@@ -1,0 +1,85 @@
+{
+  "id": "sjt-243",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-243",
+  "format": "ranking",
+  "title": "Results that were never collected",
+  "setting": "Non-clinical (audit)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Research integrity",
+    "Raising concerns",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. Your name is on a quality-improvement poster being presented at a regional meeting next week. The project lead, a registrar, added \"second-cycle\" results to the poster.\n\nYou know the second cycle was never carried out, because you were meant to collect the data and the project stalled.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Raise it privately with the registrar before the meeting.",
+      "brief": "They may correct it, or explain.",
+      "detailed": "There may be an explanation, but if the data wasn't collected, presenting it would be dishonest. A private conversation gives them the chance to correct it."
+    },
+    {
+      "id": "B",
+      "text": "Leave it, as it's only a poster.",
+      "brief": "Fabricated results are serious, wherever they appear.",
+      "detailed": "A poster still presents results as real, and your name is on it."
+    },
+    {
+      "id": "C",
+      "text": "Email the meeting organisers anonymously.",
+      "brief": "Bypasses local routes.",
+      "detailed": "This may stop the poster, but bypasses the chance to resolve it properly."
+    },
+    {
+      "id": "D",
+      "text": "Seek advice from your educational supervisor.",
+      "brief": "Support if the registrar doesn't correct it.",
+      "detailed": "Your supervisor can advise and help. It ranks second because a direct conversation comes first."
+    },
+    {
+      "id": "E",
+      "text": "Ask for your name to be removed if the poster isn't corrected.",
+      "brief": "Protects your integrity, though doesn't stop the poster.",
+      "detailed": "You shouldn't be associated with false results. But this doesn't prevent the misleading poster being presented."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "E",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to fabricated results in a project you're named on.",
+    "keyDetails": "The data were never collected. Your name is on the poster. The meeting is next week.",
+    "reasoning": "[A] raises it directly, [D] seeks support, and [E] protects your integrity. [B] ignores fabrication, and [C] bypasses local routes.",
+    "competing": "The order of [B] and [C] is close. The key ranks ignoring it as worse, as the misleading poster would be presented with your name on it."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in research and audit."
+    }
+  ],
+  "tags": [
+    "research integrity",
+    "fabrication",
+    "quality improvement",
+    "posters"
+  ]
+}

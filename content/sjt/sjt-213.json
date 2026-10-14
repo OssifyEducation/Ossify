@@ -1,0 +1,86 @@
+{
+  "id": "sjt-213",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-213",
+  "format": "ranking",
+  "title": "A box already ticked",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Honest records",
+    "Patient safety",
+    "Improving systems"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the postnatal ward. Writing the discharge summary for Mrs Lee, who had a caesarean section two days ago, you notice that the template has automatically filled in \"VTE risk assessment completed\".\n\nYou haven't done a VTE assessment for her, and you can't find one in her notes.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Correct the summary so it reflects what was actually done.",
+      "brief": "The record must be accurate.",
+      "detailed": "Whatever the template says, the summary should only state what was done. Correcting it keeps the record honest."
+    },
+    {
+      "id": "B",
+      "text": "Leave the entry, as the midwives usually assess VTE risk.",
+      "brief": "You've checked and can't find an assessment.",
+      "detailed": "Midwives may assess VTE risk in some units, but you've looked and found no record. Leaving the entry keeps a probably false statement and leaves her unassessed. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Complete her VTE risk assessment before she goes home.",
+      "brief": "She may need thromboprophylaxis after a caesarean.",
+      "detailed": "Women are at increased risk of blood clots after a caesarean section, and some need preventive treatment after discharge. Doing the assessment now protects her."
+    },
+    {
+      "id": "D",
+      "text": "Report the template problem so it can be fixed.",
+      "brief": "Other summaries may contain the same false statement.",
+      "detailed": "If the template auto-fills this line, other women's summaries may say an assessment was done when it wasn't. Reporting it protects them."
+    },
+    {
+      "id": "E",
+      "text": "Delete the line without doing the assessment.",
+      "brief": "Removes the false statement but leaves her unassessed.",
+      "detailed": "This makes the record honest, but leaves her without an assessment she needs after a caesarean."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "D",
+      "E",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make sure a patient receives care that a record wrongly says was done, and fix the record and the system.",
+    "keyDetails": "The template auto-filled the entry. No assessment was done. She is at increased risk after a caesarean.",
+    "reasoning": "[C] protects her, [A] corrects the record, and [D] fixes the system. [E] corrects the record but leaves her at risk, and [B] leaves both a false record and an unassessed patient.",
+    "competing": "The order of [E] and [B] is close, as neither gets her assessed. [B] ranks last because it also leaves a probably false statement in her record."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in records; Domain 3, reporting system problems."
+    }
+  ],
+  "tags": [
+    "records",
+    "VTE",
+    "templates",
+    "obstetrics"
+  ]
+}

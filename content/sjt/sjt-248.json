@@ -1,0 +1,103 @@
+{
+  "id": "sjt-248",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-248",
+  "format": "multiple_choice",
+  "title": "No cath lab tonight",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Emergency care",
+    "Escalation",
+    "Following protocols"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a cardiology ward at night. Mr Wright, 62, an inpatient, develops central chest pain, and his ECG shows ST elevation.\n\nThe cardiac catheter lab is out of action because of an equipment failure.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Call the cardiology registrar immediately.",
+      "brief": "A STEMI needs senior input urgently.",
+      "detailed": "The registrar can decide on the best treatment, such as transfer to another centre or thrombolysis."
+    },
+    {
+      "id": "B",
+      "text": "Follow the local protocol for when the cath lab is unavailable.",
+      "brief": "Protocols set out the alternatives.",
+      "detailed": "Hospitals have protocols for this, usually transfer to another centre or thrombolysis."
+    },
+    {
+      "id": "C",
+      "text": "Wait for the cath lab to be repaired.",
+      "brief": "Delays essential treatment.",
+      "detailed": "Delays in treating a STEMI cause more heart muscle damage."
+    },
+    {
+      "id": "D",
+      "text": "Arrange transfer to another hospital without discussing it with a senior.",
+      "brief": "Transfer may be right, but needs senior decision.",
+      "detailed": "Transfer may be the plan, but should be decided by a senior."
+    },
+    {
+      "id": "E",
+      "text": "Give thrombolysis yourself, without discussing it.",
+      "brief": "Needs a senior decision.",
+      "detailed": "Thrombolysis carries risks and needs senior input."
+    },
+    {
+      "id": "F",
+      "text": "Repeat the ECG in an hour to see if it changes.",
+      "brief": "Delays treatment.",
+      "detailed": "A STEMI needs treatment now."
+    },
+    {
+      "id": "G",
+      "text": "Start initial treatment for acute coronary syndrome.",
+      "brief": "Initial treatment should begin without delay.",
+      "detailed": "Initial management, such as aspirin and pain relief, can start while the plan is made."
+    },
+    {
+      "id": "H",
+      "text": "Ask the nurse to give GTN and call you back.",
+      "brief": "Delays your own assessment.",
+      "detailed": "He needs a doctor now."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an emergency when the usual system isn't available.",
+    "keyDetails": "He has a STEMI. The cath lab is unavailable. There are protocols.",
+    "reasoning": "[A] gets senior help, [B] follows the protocol, and [G] starts treatment. The distractors delay ([C], [F], [H]), or act without a senior ([D], [E]).",
+    "competing": "[D] is the tempting option, but the decision to transfer should be made by a senior."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, providing emergency care; Domain 3, asking for help."
+    }
+  ],
+  "tags": [
+    "STEMI",
+    "system failure",
+    "cardiology",
+    "emergencies"
+  ]
+}

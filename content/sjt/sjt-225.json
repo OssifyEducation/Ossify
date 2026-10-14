@@ -1,0 +1,85 @@
+{
+  "id": "sjt-225",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-225",
+  "format": "ranking",
+  "title": "Two instructions",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Clarifying instructions",
+    "Teamwork",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Dr Ali, a registrar, asks you to start Mr Foster's treatment-dose heparin today for a suspected pulmonary embolism.\n\nAn hour later, Dr Brown, another registrar, tells you to withhold it, as Mr Foster is due a kidney biopsy tomorrow. Neither knows about the other's instruction.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Do nothing until one of them asks.",
+      "brief": "Leaves the patient's treatment uncertain.",
+      "detailed": "This may delay important treatment and is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Tell both registrars about the conflict, and ask them to agree.",
+      "brief": "They need to discuss it directly.",
+      "detailed": "Each registrar has a valid reason. They need to discuss it so a safe plan is agreed."
+    },
+    {
+      "id": "C",
+      "text": "Follow Dr Ali's instruction, as he spoke to you first.",
+      "brief": "Seniority doesn't resolve the clinical conflict.",
+      "detailed": "This may seem logical, but Dr Brown has information about the biopsy that Dr Ali may not know, which could change the decision."
+    },
+    {
+      "id": "D",
+      "text": "Ask the consultant to decide.",
+      "brief": "If the registrars can't agree, the consultant decides.",
+      "detailed": "The consultant has overall responsibility. It ranks second because the registrars may agree between themselves."
+    },
+    {
+      "id": "E",
+      "text": "Follow Dr Brown's instruction, as it was the most recent one you received.",
+      "brief": "Leaves Dr Ali unaware that the plan changed.",
+      "detailed": "Dr Ali may not know about the biopsy, and needs to know the plan has changed."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "C",
+      "E",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you resolve conflicting instructions from seniors, making sure a safe, shared plan is agreed.",
+    "keyDetails": "Both instructions have valid reasons. Neither registrar knows the other's view. A PE needs treatment.",
+    "reasoning": "[B] gets them to agree, [D] escalates if needed, and [C] follows one instruction without resolving the conflict. [E] leaves one uninformed, and [A] leaves the patient's treatment uncertain.",
+    "competing": "Some would go to the consultant first. The key prefers the registrars agreeing first, as it's quicker and they each have information the other needs."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, communicating with colleagues to keep patients safe."
+    }
+  ],
+  "tags": [
+    "conflicting instructions",
+    "anticoagulation",
+    "teamwork",
+    "registrars"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "sjt-238",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-238",
+  "format": "multiple_choice",
+  "title": "Dismissed, and still happening",
+  "setting": "Oncology & palliative care",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Raising concerns",
+    "Escalation",
+    "Persistence"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in oncology. A month ago you raised a concern with the day-unit manager that chemotherapy prescriptions were often reaching the pharmacy too late, delaying patients' treatment by hours.\n\nShe said it was \"just how it works\". The delays are continuing, and last week a patient's treatment was postponed to the next day.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept the manager's view and stop raising it.",
+      "brief": "Patients are still being affected.",
+      "detailed": "The manager's response doesn't change the risk to patients."
+    },
+    {
+      "id": "B",
+      "text": "Contact the Care Quality Commission as your next step.",
+      "brief": "Internal routes haven't been exhausted.",
+      "detailed": "The CQC is an option if internal routes fail, but there are still senior and independent routes in the trust."
+    },
+    {
+      "id": "C",
+      "text": "Tell patients about the delays so they can complain.",
+      "brief": "Puts the burden on patients.",
+      "detailed": "Patients can complain, but raising concerns is your responsibility."
+    },
+    {
+      "id": "D",
+      "text": "Write the prescriptions earlier yourself, without raising it further.",
+      "brief": "Helps your patients, but not the system.",
+      "detailed": "This is helpful for the patients you see, but the problem affects others."
+    },
+    {
+      "id": "E",
+      "text": "Post about the delays on social media.",
+      "brief": "Bypasses routes that can fix the problem.",
+      "detailed": "This could identify patients and won't fix the process."
+    },
+    {
+      "id": "F",
+      "text": "Raise it with your consultant or the clinical lead for the unit.",
+      "brief": "A senior clinician can escalate it further.",
+      "detailed": "If a concern isn't addressed at one level, raising it at the next is the right approach. Your consultant or the clinical lead can take it further."
+    },
+    {
+      "id": "G",
+      "text": "Report the delays through the incident reporting system.",
+      "brief": "Formal reports show the scale of the problem.",
+      "detailed": "Each delay, especially the postponed treatment, should be reported. A pattern of reports is hard to ignore."
+    },
+    {
+      "id": "H",
+      "text": "Consider contacting the trust's Freedom to Speak Up guardian.",
+      "brief": "An independent route when a concern has been dismissed.",
+      "detailed": "The guardian can help when concerns aren't being addressed through the usual routes."
+    }
+  ],
+  "key": {
+    "correct": [
+      "F",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you persist in raising a patient safety concern when it has been dismissed, using the right escalation routes.",
+    "keyDetails": "The concern was dismissed. Delays continue. A patient's treatment was postponed.",
+    "reasoning": "[F] escalates to a senior, [G] records the pattern, and [H] uses an independent route. The distractors give up ([A]), escalate externally too soon ([B], [E]), shift the burden ([C]), or solve only part of it ([D]).",
+    "competing": "[D] is the tempting option because it helps your patients, but the system problem remains."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Escalating concerns when they aren't addressed."
+    },
+    {
+      "title": "Freedom to Speak Up",
+      "publisher": "NHS England",
+      "year": null,
+      "url": "https://www.england.nhs.uk/ourwork/freedom-to-speak-up/",
+      "note": "Freedom to Speak Up guardians."
+    }
+  ],
+  "tags": [
+    "raising concerns",
+    "escalation",
+    "oncology",
+    "delays"
+  ]
+}

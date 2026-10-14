@@ -1,0 +1,102 @@
+{
+  "id": "sjt-224",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-224",
+  "format": "multiple_choice",
+  "title": "Your partner's clinic",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Conflicts of interest",
+    "Impartial advice",
+    "Honesty"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a GP practice. Mrs Ward, 52, has had knee pain for months and would benefit from physiotherapy. She says the NHS wait is too long and asks if you can recommend a good private physiotherapist.\n\nYour partner runs a private physiotherapy clinic in the same town.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain the NHS physiotherapy options and how to self-refer.",
+      "brief": "She should know all her options.",
+      "detailed": "Many areas allow self-referral, and waits may be shorter than she thinks."
+    },
+    {
+      "id": "B",
+      "text": "Give her neutral information on finding a private physiotherapist.",
+      "brief": "Impartial information lets her choose freely.",
+      "detailed": "Pointing her to the professional register lets her choose without your influence."
+    },
+    {
+      "id": "C",
+      "text": "Recommend your partner's clinic, as it is good.",
+      "brief": "A conflict of interest.",
+      "detailed": "Even if it is good, recommending it without declaring your interest isn't appropriate."
+    },
+    {
+      "id": "D",
+      "text": "Recommend your partner's clinic, explaining that it's your partner's.",
+      "brief": "Declaring the interest helps, but you'd still be steering her.",
+      "detailed": "Being open is better, but recommending it still steers her towards a business you benefit from."
+    },
+    {
+      "id": "E",
+      "text": "Arrange a discount for her at your partner's clinic.",
+      "brief": "Creates a further conflict.",
+      "detailed": "This could seem kind, but it deepens the conflict of interest."
+    },
+    {
+      "id": "F",
+      "text": "Tell her you can't discuss private physiotherapy.",
+      "brief": "Unhelpful; neutral information is fine.",
+      "detailed": "You can give impartial information."
+    },
+    {
+      "id": "G",
+      "text": "Avoid recommending your partner's clinic.",
+      "brief": "Recommending it would be a conflict of interest.",
+      "detailed": "Recommending a business in which you have a personal interest could affect, or appear to affect, your advice."
+    },
+    {
+      "id": "H",
+      "text": "Tell her the NHS wait is too long, so private treatment is best.",
+      "brief": "May not be accurate, and steers her to private care.",
+      "detailed": "You may not know the current wait, and this pushes her towards private care."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you give impartial advice when you have a personal financial interest.",
+    "keyDetails": "Your partner runs a clinic nearby. She asked for a recommendation. NHS options may be available.",
+    "reasoning": "[A] explains NHS options, [B] gives impartial information, and [G] avoids the conflict. The distractors steer her to your partner's clinic ([C], [D], [E]), are unhelpful ([F]), or steer her to private care ([H]).",
+    "competing": "[D] is the hard distractor: declaring the interest is better, but recommending the clinic still steers her."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Recognising and managing conflicts of interest, including those of family members."
+    }
+  ],
+  "tags": [
+    "conflicts of interest",
+    "private practice",
+    "general practice",
+    "impartiality"
+  ]
+}
