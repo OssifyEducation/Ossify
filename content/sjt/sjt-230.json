@@ -1,0 +1,110 @@
+{
+  "id": "sjt-230",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-230",
+  "format": "multiple_choice",
+  "title": "\"Do you know who I am?\"",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Fair treatment",
+    "Communication",
+    "Escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Mr Hardy, 60, a local councillor, is waiting for a planned hernia repair and is fourth on today's list.\n\nHe asks you to move him to the top, saying he has important meetings and that the hospital should look after people who \"make decisions about its funding\".",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Move him up the list, as he is influential.",
+      "brief": "Unfair to other patients.",
+      "detailed": "Prioritising him because of his status would be unfair."
+    },
+    {
+      "id": "B",
+      "text": "Ask the consultant whether he can be moved up the list.",
+      "brief": "Treats his status as a reason for priority.",
+      "detailed": "Asking on his behalf suggests his status is a valid reason, which it isn't."
+    },
+    {
+      "id": "C",
+      "text": "Explain that the list order is decided on clinical grounds.",
+      "brief": "Treatment should be fair and based on need.",
+      "detailed": "Explaining politely how the list is decided helps him understand why his status doesn't change it."
+    },
+    {
+      "id": "D",
+      "text": "Tell him how he can raise concerns if he's unhappy.",
+      "brief": "Gives him a proper route.",
+      "detailed": "He can raise concerns through PALS or the complaints process."
+    },
+    {
+      "id": "E",
+      "text": "Let the consultant know about his request.",
+      "brief": "Keeps the team informed.",
+      "detailed": "The consultant may want to speak to him, and should know about the request."
+    },
+    {
+      "id": "F",
+      "text": "Tell him you'll see what you can do.",
+      "brief": "Suggests special treatment might be possible.",
+      "detailed": "This avoids conflict but implies his status could matter."
+    },
+    {
+      "id": "G",
+      "text": "Tell the other patients that he asked to jump the queue.",
+      "brief": "Breaches his privacy and is unprofessional.",
+      "detailed": "This may stir up conflict and breaches his confidentiality."
+    },
+    {
+      "id": "H",
+      "text": "Ignore his request.",
+      "brief": "He deserves an explanation.",
+      "detailed": "A brief explanation is more respectful than ignoring him."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you treat patients fairly when one seeks priority because of his status.",
+    "keyDetails": "He is fourth on the list. His request is based on status. The list is clinically ordered.",
+    "reasoning": "[C] explains fairly, [D] gives him a route, and [E] informs the consultant. The distractors give him priority or imply it ([A], [B], [F]), breach his privacy ([G]), or ignore him ([H]).",
+    "competing": "[B] is the hard distractor: involving the consultant is right, but asking on his behalf treats his status as relevant."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Fair treatment of all patients."
+    }
+  ],
+  "tags": [
+    "fairness",
+    "VIP patients",
+    "surgery",
+    "theatre lists"
+  ]
+}

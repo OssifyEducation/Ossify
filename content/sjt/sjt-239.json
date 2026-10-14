@@ -1,0 +1,85 @@
+{
+  "id": "sjt-239",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-239",
+  "format": "ranking",
+  "title": "A drink every night",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Self-awareness",
+    "Seeking help",
+    "Fitness to work"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an elderly care ward. Over the past two months, you've started drinking most evenings to unwind after difficult shifts, and you now need more to feel the effect.\n\nIt hasn't affected your work so far, but you're worried about it.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Cut down, and look for other ways to unwind after shifts.",
+      "brief": "Positive, but may be hard without support.",
+      "detailed": "Trying to change your habits is good, but it may not be enough if your drinking is escalating."
+    },
+    {
+      "id": "B",
+      "text": "See your GP or NHS Practitioner Health in confidence.",
+      "brief": "Confidential help, early, is the best route.",
+      "detailed": "Recognising a problem early and seeking confidential support gives you the best chance of addressing it."
+    },
+    {
+      "id": "C",
+      "text": "Carry on, as it hasn't affected your work.",
+      "brief": "Escalating use is a warning sign.",
+      "detailed": "It may not have affected your work yet, but needing more to feel the effect is a concern."
+    },
+    {
+      "id": "D",
+      "text": "Tell your educational supervisor.",
+      "brief": "They can support you, though confidential help may feel easier first.",
+      "detailed": "Your supervisor can offer support and adjustments. It ranks third because confidential services may be easier to approach first, and your work isn't yet affected."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise a developing problem with your own health and seek help early.",
+    "keyDetails": "Your drinking is increasing. It hasn't yet affected your work. You're worried.",
+    "reasoning": "[B] gets confidential help, [A] tries to change, and [D] involves your supervisor. [C] ignores a warning sign.",
+    "competing": "This is hard because [D] is also appropriate. If your drinking started to affect your work, telling your supervisor would become essential."
+  },
+  "references": [
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors, including with alcohol."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, seeking help when your health may affect your work."
+    }
+  ],
+  "tags": [
+    "alcohol",
+    "doctors' health",
+    "wellbeing",
+    "self-awareness"
+  ]
+}

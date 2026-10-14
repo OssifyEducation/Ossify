@@ -1,0 +1,109 @@
+{
+  "id": "sjt-244",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-244",
+  "format": "multiple_choice",
+  "title": "\"He never wanted a ventilator\"",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Advance decisions",
+    "Best interests",
+    "Family communication"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in intensive care. Mr Hughes, 70, has severe pneumonia and is deteriorating. He is too drowsy to take part in decisions. His GP letter says that last year he told his GP he \"wouldn't want to be on a breathing machine\".\n\nHis wife and son say he'd want \"everything done\" and ask for him to be ventilated.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ventilate him, as his family want.",
+      "brief": "His family can't decide for him.",
+      "detailed": "Their views matter, but the decision is made in his best interests, taking his wishes into account."
+    },
+    {
+      "id": "B",
+      "text": "Check whether he made a written advance decision.",
+      "brief": "A valid, applicable advance decision is legally binding.",
+      "detailed": "An advance decision to refuse life-sustaining treatment must be written, signed, witnessed and state that it applies even if his life is at risk. If one exists, it must be followed."
+    },
+    {
+      "id": "C",
+      "text": "Don't ventilate him, as the GP letter records that he wouldn't want it.",
+      "brief": "A verbal comment isn't necessarily a valid advance decision.",
+      "detailed": "His comment is important, but without a valid written advance decision, it's part of a best-interests decision, not binding."
+    },
+    {
+      "id": "D",
+      "text": "Apply to the Court of Protection immediately.",
+      "brief": "Not needed at this stage.",
+      "detailed": "Courts may be needed for serious disputes, but there's time for a best-interests discussion first."
+    },
+    {
+      "id": "E",
+      "text": "Ask his family and GP about what he said, and why.",
+      "brief": "His past wishes are central to his best interests.",
+      "detailed": "If there's no valid advance decision, his previously expressed wishes are still an important part of a best-interests decision."
+    },
+    {
+      "id": "F",
+      "text": "Ask the family to decide, as they know him best.",
+      "brief": "They can't consent on his behalf unless they hold a health power of attorney.",
+      "detailed": "Unless they have a lasting power of attorney for health, they can't make the decision."
+    },
+    {
+      "id": "G",
+      "text": "Inform the consultant urgently.",
+      "brief": "A decision about ventilation is needed soon.",
+      "detailed": "He is deteriorating. The consultant needs to make a decision, informed by his wishes and his family's views."
+    },
+    {
+      "id": "H",
+      "text": "Wait for him to become alert enough to decide.",
+      "brief": "He may deteriorate before then.",
+      "detailed": "Waiting may not be possible."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your understanding of advance decisions and best interests when a patient's past wishes and his family's views conflict.",
+    "keyDetails": "He can't decide now. His GP recorded a verbal wish. His family disagree.",
+    "reasoning": "[B] checks for a legally binding decision, [E] gathers his wishes, and [G] involves the consultant urgently. The distractors defer to the family ([A], [F]), treat a verbal comment as binding ([C]), escalate prematurely ([D]), or delay ([H]).",
+    "competing": "[C] is the hard distractor: his wishes are very important, but a verbal comment isn't a valid advance decision to refuse life-sustaining treatment."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Best interests: past wishes and the views of those close to the patient."
+    },
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Advance decisions and life-sustaining treatment."
+    }
+  ],
+  "tags": [
+    "advance decisions",
+    "best interests",
+    "ventilation",
+    "families"
+  ]
+}

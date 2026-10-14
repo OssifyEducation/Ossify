@@ -1,0 +1,92 @@
+{
+  "id": "sjt-211",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-211",
+  "format": "ranking",
+  "title": "A week later",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Self-care",
+    "Seeking support",
+    "Fitness to work"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. A week ago you were part of the team that tried to resuscitate a three-year-old who later died.\n\nYou keep replaying it, are sleeping badly, and feel anxious when a child is brought in. You haven't told anyone.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Talk to your educational supervisor about how you are feeling.",
+      "brief": "Your supervisor can support you and adjust your work if needed.",
+      "detailed": "Your reaction is understandable. Your supervisor can offer support, help you access more, and consider whether any adjustments would help."
+    },
+    {
+      "id": "B",
+      "text": "Avoid seeing children in the department for a while.",
+      "brief": "Avoidance may maintain the anxiety.",
+      "detailed": "This may feel protective, but avoidance can make anxiety worse, and isn't sustainable in ED."
+    },
+    {
+      "id": "C",
+      "text": "Contact your GP or the trust's staff support service.",
+      "brief": "Professional support can help with persistent distress.",
+      "detailed": "Persistent symptoms a week later may benefit from professional support. It ranks second because your supervisor can also support you at work."
+    },
+    {
+      "id": "D",
+      "text": "Ask whether a team debrief has been arranged.",
+      "brief": "Debriefs help staff process difficult events together.",
+      "detailed": "Others in the team may feel similarly. A debrief can help everyone. It ranks third because you need individual support too."
+    },
+    {
+      "id": "E",
+      "text": "Keep going, as these feelings usually fade.",
+      "brief": "They may, but persistent symptoms deserve support.",
+      "detailed": "Many people recover with time, but you are a week on and still struggling. Ignoring it risks your health and work."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "D",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise the effects of a traumatic event on you and seek support.",
+    "keyDetails": "It's a week later and you're still affected. You haven't told anyone. It's affecting your work.",
+    "reasoning": "[A] gets support at work, [C] gets professional support, and [D] gets team support. [B] avoids the problem, and [E] ignores it.",
+    "competing": "The order of [B] and [E] is close. The key ranks ignoring it last because avoidance is at least an acknowledgement, while ignoring it leaves you unsupported."
+  },
+  "references": [
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, looking after your own health."
+    }
+  ],
+  "tags": [
+    "wellbeing",
+    "paediatric death",
+    "trauma",
+    "emergency department"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "sjt-201",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-201",
+  "format": "ranking",
+  "title": "The wrong result",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Candour",
+    "Patient safety",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Yesterday you phoned Ms Carter, 34, and told her that her cervical screening result was normal.\n\nToday you realise you read the result of another patient with the same surname. Ms Carter's actual result shows abnormal cells, and she needs a referral for colposcopy.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Send Ms Carter a letter with her correct result.",
+      "brief": "She needs to hear this directly, not by letter.",
+      "detailed": "A letter is a record, but finding out by post that her 'normal' result was wrong would be distressing and leaves no chance to ask questions."
+    },
+    {
+      "id": "B",
+      "text": "Phone Ms Carter, apologise, and explain her actual result.",
+      "brief": "She needs the correct information promptly, with an apology.",
+      "detailed": "Ms Carter has been falsely reassured. Contacting her quickly, apologising, and explaining her real result and the colposcopy referral is honest and puts her care right."
+    },
+    {
+      "id": "C",
+      "text": "Record it as a significant event so the practice can learn from it.",
+      "brief": "Helps the practice prevent similar errors.",
+      "detailed": "Patients with the same surname are a known risk. Recording it as a significant event helps the practice put checks in place. It ranks third because Ms Carter's care comes first."
+    },
+    {
+      "id": "D",
+      "text": "Make the colposcopy referral, and let the clinic contact her.",
+      "brief": "Leaves her believing her result was normal.",
+      "detailed": "The referral is needed, but she would receive an appointment without explanation, after being told her result was normal. This is dishonest by omission and the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Tell your GP supervisor what happened.",
+      "brief": "Your supervisor needs to know, and can support you.",
+      "detailed": "Your supervisor should know about an error affecting a patient's care. They can help you plan the conversation and make sure the referral is made."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you correct your own error promptly and openly when it has affected what a patient believes about her health.",
+    "keyDetails": "You gave her the wrong result. She needs further investigation. She currently believes everything is normal.",
+    "reasoning": "[B] puts things right with her, [E] involves your supervisor, and [C] helps prevent a repeat. [A] is impersonal, and [D] leaves her misinformed.",
+    "competing": "Some would speak to the supervisor first. That's reasonable, but the key puts Ms Carter first because she is currently misinformed about her health."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Telling patients when something has gone wrong, apologising and putting it right."
+    }
+  ],
+  "tags": [
+    "candour",
+    "screening",
+    "errors",
+    "general practice"
+  ]
+}

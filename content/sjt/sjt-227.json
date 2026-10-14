@@ -1,0 +1,93 @@
+{
+  "id": "sjt-227",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-227",
+  "format": "ranking",
+  "title": "Because of her headscarf",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Colleagues, culture and safety",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Challenging discrimination",
+    "Supporting colleagues",
+    "Patient care"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an elderly care ward. Mr Bates, 80, who is stable, refuses to let Dr Malik, a Muslim F1 who wears a headscarf, examine him, saying he wants \"a proper British doctor\".\n\nDr Malik walks away looking upset.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Check on Dr Malik privately, and offer support.",
+      "brief": "She has experienced discrimination and may need support.",
+      "detailed": "Being rejected because of her religion is hurtful. Checking on her and offering support shows solidarity. It ranks second because addressing the remark comes first."
+    },
+    {
+      "id": "B",
+      "text": "Tell Mr Bates that, as he's being racist, the team won't treat him.",
+      "brief": "Patients must still receive care.",
+      "detailed": "His behaviour is unacceptable, but refusing care isn't appropriate, and this is likely to escalate things."
+    },
+    {
+      "id": "C",
+      "text": "Report the incident in line with the trust's policy on discriminatory behaviour.",
+      "brief": "Trusts have policies on abuse of staff.",
+      "detailed": "Recording it supports Dr Malik and the trust's response, and should be done with her involvement. It ranks third because the immediate response matters more."
+    },
+    {
+      "id": "D",
+      "text": "Swap patients with Dr Malik so the examination can go ahead.",
+      "brief": "Practical, but accommodates discrimination without addressing it.",
+      "detailed": "This gets him examined, but sends the message that discriminatory requests are accepted, and leaves Dr Malik unsupported."
+    },
+    {
+      "id": "E",
+      "text": "Tell Mr Bates calmly that Dr Malik is a qualified doctor on his team.",
+      "brief": "Challenges the remark calmly and keeps the focus on his care.",
+      "detailed": "A calm response makes clear that his comment is unacceptable, while trying to understand any underlying concern. He is entitled to care but not to discriminate against staff."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "C",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient's discriminatory remark about a colleague: challenging it, supporting her, and keeping him safe.",
+    "keyDetails": "He is stable. The remark targets her religion. She is upset.",
+    "reasoning": "[E] challenges the remark calmly, [A] supports Dr Malik, and [C] records it. [D] accommodates discrimination, and [B] withdraws care.",
+    "competing": "Some would check on Dr Malik first. That's reasonable; the key addresses the remark first because it happened in front of you and needs a response."
+  },
+  "references": [
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Harassment related to religion."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, challenging discrimination and supporting colleagues."
+    }
+  ],
+  "tags": [
+    "discrimination",
+    "religion",
+    "colleagues",
+    "patients"
+  ]
+}

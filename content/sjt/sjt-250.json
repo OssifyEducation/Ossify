@@ -1,0 +1,109 @@
+{
+  "id": "sjt-250",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-250",
+  "format": "multiple_choice",
+  "title": "Students in the room",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Dignity",
+    "Consent for teaching",
+    "Communication with young people"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics. You need to examine Jacob, 14, who has had a dull ache and a soft swelling in his scrotum for three weeks. He is otherwise well. Three medical students are with you, and his mother is present.\n\nJacob looks very embarrassed.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him the students need to learn.",
+      "brief": "Puts pressure on him.",
+      "detailed": "Students do need to learn, but not at the cost of his dignity."
+    },
+    {
+      "id": "B",
+      "text": "Ask his mother whether she minds the medical students staying for the examination.",
+      "brief": "Jacob should be asked himself.",
+      "detailed": "At 14, he can decide about this."
+    },
+    {
+      "id": "C",
+      "text": "Ask Jacob privately whether the students can stay.",
+      "brief": "He should decide who is present.",
+      "detailed": "Patients should be asked before students are present, especially for intimate examinations. Asking him privately makes it easier to say no."
+    },
+    {
+      "id": "D",
+      "text": "Ask the students to wait outside if he prefers.",
+      "brief": "Respects his choice.",
+      "detailed": "The students can learn another time."
+    },
+    {
+      "id": "E",
+      "text": "Examine him quickly to minimise embarrassment.",
+      "brief": "Doesn't address his consent.",
+      "detailed": "Speed doesn't replace asking him."
+    },
+    {
+      "id": "F",
+      "text": "Keep him covered, and explain what you'll do.",
+      "brief": "Protects his dignity.",
+      "detailed": "Explaining and minimising exposure reduces embarrassment."
+    },
+    {
+      "id": "G",
+      "text": "Ask one student to stay as a chaperone.",
+      "brief": "A student isn't a suitable chaperone.",
+      "detailed": "A chaperone should be a trained staff member."
+    },
+    {
+      "id": "H",
+      "text": "Ask his mother to leave.",
+      "brief": "He may want her there.",
+      "detailed": "He should decide who is present."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you protect a young person's dignity and ask for his consent before an intimate examination with students present.",
+    "keyDetails": "He is 14 and embarrassed. Students are present. The examination is intimate.",
+    "reasoning": "[C] asks him, [D] respects his choice, and [F] protects his dignity. The distractors pressure him ([A]), bypass him ([B], [H]), or fail to address consent ([E], [G]).",
+    "competing": "[B] may seem respectful, but he should be asked himself."
+  },
+  "references": [
+    {
+      "title": "Intimate examinations and chaperones",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/intimate-examinations-and-chaperones",
+      "note": "Intimate examinations and chaperones."
+    },
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Involving young people in decisions."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "students",
+    "intimate examination",
+    "adolescents"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "sjt-207",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-207",
+  "format": "ranking",
+  "title": "\"I can't do this anymore\"",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Concern for wellbeing",
+    "Escalation"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an elderly care ward. At 23:30 you see that Dr Ross, an F1 on your team, has posted on social media after a very difficult shift: \"I can't do this anymore.\"\n\nShe is due on the ward at 08:00 tomorrow.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Let her educational supervisor know that you're concerned.",
+      "brief": "Someone responsible for her needs to know if you're worried.",
+      "detailed": "Her supervisor, or the on-call consultant if you can't reach her and are worried tonight, can help make sure she is safe and supported. It ranks second because a direct check-in comes first."
+    },
+    {
+      "id": "B",
+      "text": "Talk to her when she comes in tomorrow.",
+      "brief": "Kind, but may be too late if she's at risk tonight.",
+      "detailed": "A conversation tomorrow is helpful, but you can't be sure she's safe tonight."
+    },
+    {
+      "id": "C",
+      "text": "Comment publicly on her post to offer support.",
+      "brief": "Supportive, but public.",
+      "detailed": "Public comments may embarrass her and draw attention."
+    },
+    {
+      "id": "D",
+      "text": "Leave it, as people often post things they don't mean.",
+      "brief": "Risks missing a colleague in distress.",
+      "detailed": "She may not mean it literally, but you can't know without checking."
+    },
+    {
+      "id": "E",
+      "text": "Message or phone her tonight to ask how she is.",
+      "brief": "A direct check-in shows you care, and helps you judge whether she's safe.",
+      "detailed": "Her post could mean frustration or something more serious. Contacting her directly, tonight, lets you find out how she is and offer support."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on signs that a colleague may be in distress, promptly and privately.",
+    "keyDetails": "The post is late at night after a difficult shift. You don't know what she means. She's due in tomorrow.",
+    "reasoning": "[E] checks on her directly, [A] escalates if needed, and [B] follows up later. [C] is public, and [D] ignores it.",
+    "competing": "Some would escalate first. The key starts with contacting her because it's the quickest way to find out how she is."
+  },
+  "references": [
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Support for doctors in distress."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues."
+    }
+  ],
+  "tags": [
+    "colleague wellbeing",
+    "social media",
+    "burnout"
+  ]
+}

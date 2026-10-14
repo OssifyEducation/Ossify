@@ -1,0 +1,102 @@
+{
+  "id": "sjt-218",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-218",
+  "format": "multiple_choice",
+  "title": "No transfusion",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting autonomy",
+    "Shared decision-making",
+    "Safe discharge"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Mrs Grant, 70, has iron-deficiency anaemia with a haemoglobin of 68 g/L. She is breathless on exertion but otherwise stable. The team recommends a blood transfusion.\n\nShe refuses, saying she \"doesn't want someone else's blood\", and wants to go home. She has capacity.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Transfuse her in her best interests.",
+      "brief": "Unlawful for a patient with capacity.",
+      "detailed": "Best interests apply only to people who lack capacity."
+    },
+    {
+      "id": "B",
+      "text": "Ask her about her reasons and concerns.",
+      "brief": "Understanding her concerns may help.",
+      "detailed": "She may have worries about infection or other concerns that can be addressed. Exploring this respects her and supports an informed decision."
+    },
+    {
+      "id": "C",
+      "text": "Insist she stays in hospital until her haemoglobin improves.",
+      "brief": "She can choose to leave.",
+      "detailed": "She has capacity and can decide to go home."
+    },
+    {
+      "id": "D",
+      "text": "Explain the risks of declining, and alternatives such as IV iron.",
+      "brief": "An informed decision needs the full picture.",
+      "detailed": "There are alternatives, such as intravenous iron, which may be acceptable to her. Explaining the risks and options helps her decide."
+    },
+    {
+      "id": "E",
+      "text": "Ask her family to persuade her to have the transfusion.",
+      "brief": "Pressures her and involves them without consent.",
+      "detailed": "This doesn't respect her decision."
+    },
+    {
+      "id": "F",
+      "text": "Discharge her without follow-up, as she declined treatment.",
+      "brief": "Respecting a refusal doesn't mean withdrawing care.",
+      "detailed": "She still needs treatment for her anaemia and follow-up."
+    },
+    {
+      "id": "G",
+      "text": "Refer her to psychiatry, as refusing blood is unusual.",
+      "brief": "An unusual decision isn't evidence of lacking capacity.",
+      "detailed": "She has capacity, and refusing blood isn't a psychiatric issue."
+    },
+    {
+      "id": "H",
+      "text": "Respect her decision, and arrange a safe discharge plan.",
+      "brief": "A capacitous refusal must be respected, with a safe plan.",
+      "detailed": "She has capacity, so her decision must be respected. A clear plan for treatment, follow-up and safety-netting reduces the risk."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a capacitous patient's refusal while making sure she is informed and safe.",
+    "keyDetails": "She has capacity. She is stable. Alternatives exist.",
+    "reasoning": "[B] explores her concerns, [D] informs her decision, and [H] respects it safely. The distractors override her ([A], [C]), pressure her ([E]), abandon her ([F]), or question her capacity without reason ([G]).",
+    "competing": "[F] is the tempting option because it seems to respect her decision, but she still needs care."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting the decisions of patients with capacity."
+    }
+  ],
+  "tags": [
+    "refusal",
+    "transfusion",
+    "anaemia",
+    "autonomy"
+  ]
+}

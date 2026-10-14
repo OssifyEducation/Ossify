@@ -1,0 +1,78 @@
+{
+  "id": "sjt-249",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-249",
+  "format": "ranking",
+  "title": "Tension in theatre",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Teamwork",
+    "Speaking up",
+    "Patient safety"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor assisting in orthopaedic theatre. Before the second case, the anaesthetist and the surgeon had a heated argument about the list running late.\n\nDuring the case, they aren't speaking to each other, and the theatre team is tense.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Take the surgeon's side, as you work for him.",
+      "brief": "Taking sides makes things worse.",
+      "detailed": "This adds to the conflict."
+    },
+    {
+      "id": "B",
+      "text": "Talk to your colleagues afterwards about how they're feeling.",
+      "brief": "Supportive, but doesn't address the cause.",
+      "detailed": "This supports the team, but doesn't resolve the conflict."
+    },
+    {
+      "id": "C",
+      "text": "Stay focused, and speak up if anything affects patient safety.",
+      "brief": "Patient safety comes first.",
+      "detailed": "Tension can lead to poor communication. Staying focused and being ready to speak up protects the patient."
+    },
+    {
+      "id": "D",
+      "text": "Mention to the theatre lead afterwards that the tension affected the team.",
+      "brief": "Helps prevent it happening again.",
+      "detailed": "The theatre lead can address it. It ranks second because the patient comes first."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you keep patients safe when there is conflict in the team.",
+    "keyDetails": "The argument was before the case. They aren't communicating. The team is tense.",
+    "reasoning": "[C] keeps the patient safe, [D] addresses the conflict afterwards, and [B] supports colleagues. [A] takes sides.",
+    "competing": "This is hard because [D] and [B] are close. The key ranks [D] higher because it addresses the cause."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working effectively in teams and speaking up about safety."
+    }
+  ],
+  "tags": [
+    "teamwork",
+    "conflict",
+    "theatre",
+    "patient safety"
+  ]
+}

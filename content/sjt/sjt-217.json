@@ -1,0 +1,85 @@
+{
+  "id": "sjt-217",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-217",
+  "format": "ranking",
+  "title": "One more swap",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Looking after yourself",
+    "Supporting colleagues",
+    "Saying no"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in orthopaedics. You've covered three extra night shifts this month and feel tired. Dr Lewis, another F2, asks you to swap so he can attend a job interview next week. The swap would give you another night shift.\n\nHe says no one else can do it.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree, provided the swap keeps you within your rest requirements.",
+      "brief": "Helpful, but you're already tired.",
+      "detailed": "Checking the rules is sensible, but you are already tired, and another night may not be wise even if it's allowed."
+    },
+    {
+      "id": "B",
+      "text": "Tell him his interview isn't your problem.",
+      "brief": "Unkind and unhelpful.",
+      "detailed": "You aren't obliged to swap, but this is dismissive of a colleague. It ranks above working while tired because it doesn't put patients at risk."
+    },
+    {
+      "id": "C",
+      "text": "Suggest he asks the rota coordinator for help.",
+      "brief": "The coordinator may find cover.",
+      "detailed": "The rota coordinator may know who is available. It ranks second because it's less personal than offering to help."
+    },
+    {
+      "id": "D",
+      "text": "Say you can't do another night, and offer to help find cover.",
+      "brief": "Honest about your limits while still trying to help.",
+      "detailed": "You're tired after extra nights. Saying so honestly, and helping him find cover, supports him without risking your own fitness to work."
+    },
+    {
+      "id": "E",
+      "text": "Agree to the swap, despite how tired you are.",
+      "brief": "Risks your health and patient safety.",
+      "detailed": "Wanting to help is good, but taking on another night when you're already tired puts patients at risk. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you look after your own wellbeing while still supporting a colleague.",
+    "keyDetails": "You've covered three extra nights. He needs the swap for an interview. He says no one else can do it.",
+    "reasoning": "[D] is honest and helpful, [C] points him to the coordinator, and [A] helps cautiously. [B] is unkind, and [E] risks patient safety.",
+    "competing": "Some would see [A] as best. It ranks third because you're already tired, even if the swap is within the rules."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, making sure fatigue doesn't put patients at risk."
+    }
+  ],
+  "tags": [
+    "rotas",
+    "fatigue",
+    "colleagues",
+    "shift swaps"
+  ]
+}

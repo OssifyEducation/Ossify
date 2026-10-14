@@ -1,0 +1,102 @@
+{
+  "id": "sjt-202",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-202",
+  "format": "multiple_choice",
+  "title": "Mid-procedure",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Delegation",
+    "Patient safety"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in the Emergency Department. You are halfway through a lumbar puncture, with the needle in place and fluid collecting slowly.\n\nA nurse tells you that a patient in resus has dropped his blood pressure to 78/40 and is becoming drowsy.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Remove the needle immediately and go to resus.",
+      "brief": "Abandoning the procedure isn't necessary when others can attend.",
+      "detailed": "This puts the deteriorating patient first, which is the right instinct, but others can attend immediately, and abandoning the procedure exposes this patient to a repeat."
+    },
+    {
+      "id": "B",
+      "text": "Ask the nurse to give a fluid bolus and call you back in ten minutes.",
+      "brief": "A drowsy, hypotensive patient needs a doctor now.",
+      "detailed": "Fluids may be needed, but a drowsy patient with low blood pressure needs immediate medical assessment, not a delayed call back."
+    },
+    {
+      "id": "C",
+      "text": "Ask the patient having the lumbar puncture whether you can leave for a few minutes.",
+      "brief": "Not a fair question to put to a patient mid-procedure.",
+      "detailed": "This puts the patient in an impossible position and doesn't solve the problem of who sees the patient in resus."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse to monitor the patient in resus until you've finished.",
+      "brief": "Monitoring isn't enough for a deteriorating patient.",
+      "detailed": "The patient needs a doctor's assessment now, not just monitoring."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse to call the ED registrar to resus straight away.",
+      "brief": "A deteriorating patient needs senior help now.",
+      "detailed": "You can't leave a patient mid-procedure safely, but the deteriorating patient needs a doctor now. The registrar can attend immediately."
+    },
+    {
+      "id": "F",
+      "text": "Complete the lumbar puncture as quickly as safely possible.",
+      "brief": "Leaving a needle in place, or removing it hastily, risks harm.",
+      "detailed": "Abandoning the procedure would mean starting again later and could harm the patient. Completing it safely, without rushing unduly, lets you help in resus soon."
+    },
+    {
+      "id": "G",
+      "text": "Go to resus as soon as you have finished.",
+      "brief": "Your help may still be needed.",
+      "detailed": "Once the procedure is complete, joining the team in resus means you can help with the sick patient."
+    },
+    {
+      "id": "H",
+      "text": "Continue the lumbar puncture at your normal pace, as you are committed to it.",
+      "brief": "Ignores the urgency of the other patient.",
+      "detailed": "Completing the procedure is right, but the other patient needs help to be arranged now."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an emergency when you can't safely leave the patient in front of you.",
+    "keyDetails": "You are mid-procedure. The other patient is hypotensive and drowsy. Senior help is available.",
+    "reasoning": "[E] gets a senior to the sick patient, [F] finishes safely, and [G] brings you to help afterwards. The distractors abandon the procedure ([A]), delay assessment ([B], [D]), burden the patient ([C]), or ignore the urgency ([H]).",
+    "competing": "[A] is the tempting option, but others can attend immediately, so abandoning the procedure isn't necessary."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising patients and asking for help."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "procedures",
+    "emergency department",
+    "delegation"
+  ]
+}

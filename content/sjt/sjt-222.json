@@ -1,0 +1,101 @@
+{
+  "id": "sjt-222",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-222",
+  "format": "multiple_choice",
+  "title": "At the gym",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Boundaries",
+    "Confidentiality",
+    "Courtesy"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in general surgery. At your local gym, Mr Webb, a patient you consented for a hernia repair last week, recognises you.\n\nHe starts asking about his post-operative pain and shows you his wound in the changing room.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Examine his wound in the changing room.",
+      "brief": "Inappropriate setting, without privacy.",
+      "detailed": "This is not a clinical setting, and there's no privacy."
+    },
+    {
+      "id": "B",
+      "text": "Advise him on painkillers there and then.",
+      "brief": "Advice without proper assessment.",
+      "detailed": "You don't know his history or current medications."
+    },
+    {
+      "id": "C",
+      "text": "Pretend not to recognise him.",
+      "brief": "Unkind and awkward.",
+      "detailed": "This avoids the situation, but may upset him."
+    },
+    {
+      "id": "D",
+      "text": "Explain politely that you can't advise him properly here.",
+      "brief": "A gym isn't a place for clinical advice.",
+      "detailed": "You don't have his notes, can't examine him properly, and others may overhear. Explaining this kindly respects him."
+    },
+    {
+      "id": "E",
+      "text": "Give him your phone number so he can contact you with questions.",
+      "brief": "Blurs professional boundaries.",
+      "detailed": "This creates an informal relationship outside proper channels."
+    },
+    {
+      "id": "F",
+      "text": "Suggest he contacts the ward, his GP or NHS 111 about his pain.",
+      "brief": "Directs him to appropriate help.",
+      "detailed": "These services can assess him properly."
+    },
+    {
+      "id": "G",
+      "text": "Discuss his operation with him in front of others in the changing room.",
+      "brief": "Breaches his privacy.",
+      "detailed": "Others could overhear."
+    },
+    {
+      "id": "H",
+      "text": "Be friendly, and wish him well with his recovery.",
+      "brief": "Courtesy maintains a good relationship.",
+      "detailed": "Being friendly, while keeping boundaries, is appropriate."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a patient seeking advice outside the clinical setting, keeping boundaries while being kind.",
+    "keyDetails": "You're at the gym. He's in pain and wants advice. Others are present.",
+    "reasoning": "[D] explains the limits, [F] directs him to help, and [H] stays friendly. The distractors give care inappropriately ([A], [B], [G]), avoid him ([C]), or blur boundaries ([E]).",
+    "competing": "[B] may seem helpful, but you can't safely advise without proper assessment."
+  },
+  "references": [
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Maintaining professional boundaries outside work."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "outside work",
+    "confidentiality"
+  ]
+}

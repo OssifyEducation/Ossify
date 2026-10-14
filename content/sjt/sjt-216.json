@@ -1,0 +1,109 @@
+{
+  "id": "sjt-216",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-216",
+  "format": "multiple_choice",
+  "title": "The 'outlier' weeks",
+  "setting": "Non-clinical (audit)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty in audit",
+    "Data integrity",
+    "Learning from results"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor completing a re-audit of sepsis antibiotic times in the Emergency Department. The results are worse than the first audit, mainly because of three very busy weeks.\n\nYour registrar suggests leaving those weeks out as \"outliers\" so the results look like an improvement before you present them.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Remove the weeks as the registrar suggests.",
+      "brief": "Misrepresents the results.",
+      "detailed": "This would make the results look better than they are, which is dishonest and could mislead the department."
+    },
+    {
+      "id": "B",
+      "text": "Remove the weeks, but mention in small print that some data was excluded.",
+      "brief": "Still presents a misleading headline.",
+      "detailed": "This seems more honest, but the main results would still give a false impression."
+    },
+    {
+      "id": "C",
+      "text": "Explain that you'd prefer to present all the data.",
+      "brief": "Excluding unfavourable data without a valid reason misrepresents the results.",
+      "detailed": "Data can only be excluded for reasons decided in advance, not because the results are unfavourable. Presenting all the data is honest."
+    },
+    {
+      "id": "D",
+      "text": "Delay presenting until you can collect better data.",
+      "brief": "Avoids presenting unfavourable but valid results.",
+      "detailed": "More data may help, but delaying to avoid unwelcome results isn't honest."
+    },
+    {
+      "id": "E",
+      "text": "Report the registrar to the GMC.",
+      "brief": "Disproportionate for a suggestion you can decline.",
+      "detailed": "The suggestion is wrong, but declining and discussing it locally is the right response."
+    },
+    {
+      "id": "F",
+      "text": "Analyse why those weeks were worse, and present that too.",
+      "brief": "The busy weeks may reveal something important.",
+      "detailed": "The worse results during busy weeks may show where the system struggles, which is valuable for improvement."
+    },
+    {
+      "id": "G",
+      "text": "Discuss the request with the audit lead or your supervisor.",
+      "brief": "They can support you in presenting honestly.",
+      "detailed": "The audit lead can advise on handling the data properly, and support you if the registrar disagrees."
+    },
+    {
+      "id": "H",
+      "text": "Present only the first audit's results.",
+      "brief": "Hides the re-audit findings.",
+      "detailed": "This avoids the problem but conceals important information."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty in audit when a senior suggests excluding unfavourable data.",
+    "keyDetails": "The re-audit shows worse results. The registrar wants to remove weeks without a valid reason. The results will be presented.",
+    "reasoning": "[C] keeps the data honest, [F] turns the result into learning, and [G] seeks support. The distractors misrepresent or hide the data ([A], [B], [D], [H]), or overreact ([E]).",
+    "competing": "[B] is the tempting option, but a misleading headline is still misleading."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in audit and research."
+    },
+    {
+      "title": "Suspected sepsis: recognition, diagnosis and early management (NG51)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2024,
+      "url": "https://www.nice.org.uk/guidance/ng51",
+      "note": "Timely antibiotics in suspected sepsis."
+    }
+  ],
+  "tags": [
+    "audit",
+    "data integrity",
+    "probity",
+    "sepsis"
+  ]
+}

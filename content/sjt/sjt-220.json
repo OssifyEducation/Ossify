@@ -1,0 +1,102 @@
+{
+  "id": "sjt-220",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-220",
+  "format": "multiple_choice",
+  "title": "Late discharge summaries",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to feedback",
+    "Time management",
+    "Communication with community teams"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Your consultant tells you that several of your discharge summaries have been sent days late, and a GP has complained that a patient's medication change wasn't communicated in time.\n\nYou've been busy and have been leaving summaries until the end of the week.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask which cases were affected, and what happened.",
+      "brief": "Understanding what happened helps you change.",
+      "detailed": "Knowing which summaries were late, and the consequences, helps you see why it matters."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you've been too busy to write them sooner.",
+      "brief": "True, but doesn't address the problem.",
+      "detailed": "Workload is real, but late summaries affect patients' care."
+    },
+    {
+      "id": "C",
+      "text": "Write summaries on the day of discharge from now on.",
+      "brief": "Prevents delays in future.",
+      "detailed": "Writing summaries on the day of discharge, even briefly, means GPs get the information when they need it."
+    },
+    {
+      "id": "D",
+      "text": "Write shorter summaries, leaving out medication changes.",
+      "brief": "Medication changes are essential information.",
+      "detailed": "This saves time but leaves out the most important information."
+    },
+    {
+      "id": "E",
+      "text": "Ask your supervisor for advice on managing your time.",
+      "brief": "Support with workload and time management.",
+      "detailed": "Your supervisor can suggest strategies and help if your workload is genuinely too high."
+    },
+    {
+      "id": "F",
+      "text": "Ask the F1 to write your summaries.",
+      "brief": "Shifts the problem to a colleague.",
+      "detailed": "This doesn't solve the problem and adds to the F1's workload."
+    },
+    {
+      "id": "G",
+      "text": "Stay late every night until all summaries are done.",
+      "brief": "Unsustainable, and doesn't fix the routine.",
+      "detailed": "This may help for a while but isn't sustainable."
+    },
+    {
+      "id": "H",
+      "text": "Apologise to the consultant, and carry on as before.",
+      "brief": "An apology without change doesn't help.",
+      "detailed": "Acknowledging the problem is good, but nothing changes."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to feedback about your own work, by understanding the impact and changing your practice.",
+    "keyDetails": "Summaries were late. A medication change wasn't communicated. You've been leaving them until the end of the week.",
+    "reasoning": "[A] understands the impact, [C] changes your routine, and [E] gets support. The distractors excuse it ([B]), compromise safety ([D]), shift it ([F]), are unsustainable ([G]), or don't change anything ([H]).",
+    "competing": "[G] is the tempting option, but it doesn't change the routine that caused the problem."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on feedback; Domain 3, communicating with colleagues who share care."
+    }
+  ],
+  "tags": [
+    "feedback",
+    "discharge summaries",
+    "time management",
+    "acute medicine"
+  ]
+}

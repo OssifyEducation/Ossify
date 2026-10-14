@@ -1,0 +1,108 @@
+{
+  "id": "sjt-236",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-236",
+  "format": "multiple_choice",
+  "title": "A partner who seems confused",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Supporting colleagues",
+    "Raising concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. The practice manager tells you that Dr Morgan, one of the GP partners, has seemed confused in recent clinics, has missed appointments, and once couldn't remember a patient he'd seen earlier that day.\n\nDr Shah is the senior partner. The practice manager asks you what she should do.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Speak to Dr Morgan yourself about his memory.",
+      "brief": "Better coming from a senior colleague.",
+      "detailed": "A conversation is needed, but a junior raising this with a senior partner may not be appropriate."
+    },
+    {
+      "id": "B",
+      "text": "Suggest she tells Dr Shah, the senior partner.",
+      "brief": "Those responsible for the practice need to know.",
+      "detailed": "A senior partner can speak to Dr Morgan and decide what to do, including protecting patients."
+    },
+    {
+      "id": "C",
+      "text": "Report Dr Morgan to the GMC.",
+      "brief": "Premature.",
+      "detailed": "This may be a health issue that can be addressed locally."
+    },
+    {
+      "id": "D",
+      "text": "Tell her it isn't your place to get involved.",
+      "brief": "Patient safety is everyone's concern.",
+      "detailed": "You can advise her on who to speak to."
+    },
+    {
+      "id": "E",
+      "text": "Discuss it with your GP supervisor.",
+      "brief": "Your supervisor can advise and may act.",
+      "detailed": "This is a serious concern, and your supervisor can help."
+    },
+    {
+      "id": "F",
+      "text": "Encourage her to note what she has observed.",
+      "brief": "Clear facts help those who need to act.",
+      "detailed": "Dates, missed appointments and specific incidents, recorded factually and without speculation, help the senior partner understand the concern and act fairly."
+    },
+    {
+      "id": "G",
+      "text": "Suggest she checks Dr Morgan's notes for errors.",
+      "brief": "Not her role.",
+      "detailed": "Reviewing clinical notes isn't her role, and should be done by a clinician."
+    },
+    {
+      "id": "H",
+      "text": "Suggest she waits to see if it gets worse.",
+      "brief": "Patients may be at risk now.",
+      "detailed": "Waiting could put patients at risk."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to concerns about a senior colleague's health that may affect patients.",
+    "keyDetails": "The concerns are specific. Dr Morgan is a senior partner. Patients may be at risk.",
+    "reasoning": "[B] directs her to the right person, [E] involves your supervisor, and [F] helps make sure the concern is clear and fair. The distractors are inappropriate for your role ([A], [G]), premature ([C]), or dismissive ([D], [H]).",
+    "competing": "[A] is the tempting option, but this conversation is better coming from a senior colleague."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when a colleague's health may put patients at risk."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about colleagues."
+    }
+  ],
+  "tags": [
+    "impaired colleague",
+    "general practice",
+    "patient safety"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "sjt-219",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-219",
+  "format": "ranking",
+  "title": "Still driving",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Public safety",
+    "Persuasion"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a GP practice. Mr Harris, 38, has epilepsy and had a seizure two weeks ago. He tells you he is still driving to work because he'd lose his job otherwise.\n\nHe says he won't tell the DVLA.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Respect his confidentiality and take no further action.",
+      "brief": "Puts him and others at serious risk.",
+      "detailed": "Confidentiality is important, but not when someone is driving with uncontrolled epilepsy and putting others at risk."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you'd have to inform the DVLA yourself if he keeps driving, telling him first.",
+      "brief": "Honest about what you'd need to do.",
+      "detailed": "GMC guidance says that if a patient continues to drive against advice, you should inform the DVLA, telling the patient before you do. Being honest about this now is fair."
+    },
+    {
+      "id": "C",
+      "text": "Discuss the situation with your GP supervisor.",
+      "brief": "Advice helps with a difficult confidentiality decision.",
+      "detailed": "Your supervisor can advise and support you. It ranks third because explaining to Mr Harris comes first."
+    },
+    {
+      "id": "D",
+      "text": "Explain that he must stop driving and tell the DVLA, and why.",
+      "brief": "He may not understand the legal and safety implications.",
+      "detailed": "After a seizure, he must stop driving and inform the DVLA. Explaining the risks to himself and others, and the law, may persuade him."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you balance confidentiality against public safety when a patient continues to drive against medical advice.",
+    "keyDetails": "He has had a recent seizure. He is still driving. He refuses to tell the DVLA.",
+    "reasoning": "[D] explains his duty, [B] is honest about yours, and [C] gets advice. [A] puts others at risk.",
+    "competing": "This is hard because the order of [D] and [B] may feel close. The key starts with persuasion, as the GMC expects you to try to persuade him first."
+  },
+  "references": [
+    {
+      "title": "Assessing fitness to drive: a guide for medical professionals",
+      "publisher": "Driver and Vehicle Licensing Agency (GOV.UK)",
+      "year": null,
+      "url": "https://www.gov.uk/government/publications/assessing-fitness-to-drive-a-guide-for-medical-professionals",
+      "note": "Driving rules for epilepsy."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information to the DVLA when a patient continues to drive."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "DVLA",
+    "epilepsy",
+    "public safety"
+  ]
+}

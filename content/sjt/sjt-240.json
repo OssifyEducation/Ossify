@@ -1,0 +1,109 @@
+{
+  "id": "sjt-240",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-240",
+  "format": "multiple_choice",
+  "title": "Pork-derived",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting beliefs",
+    "Shared decision-making",
+    "Working with pharmacists"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a respiratory ward. Mr Khan, 65, has been prescribed daily enoxaparin injections to prevent blood clots.\n\nWhen he learns that enoxaparin is derived from pork, he refuses it, saying it is against his religion.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Thank him for telling you, and ask the pharmacist about alternatives.",
+      "brief": "Non-animal alternatives may exist.",
+      "detailed": "Synthetic alternatives, such as fondaparinux, or mechanical methods may be suitable. The pharmacist can advise."
+    },
+    {
+      "id": "B",
+      "text": "Give the injection, as the amount of pork-derived material is very small.",
+      "brief": "Overrides his informed refusal.",
+      "detailed": "He has refused, and giving it anyway would be wrong, however small the amount."
+    },
+    {
+      "id": "C",
+      "text": "Explain the risks of having no clot prevention.",
+      "brief": "He should understand the risk.",
+      "detailed": "He should know why the injections were prescribed, so he can weigh his options."
+    },
+    {
+      "id": "D",
+      "text": "Record his preference in his notes.",
+      "brief": "Prevents other staff offering it again.",
+      "detailed": "A note means others will know to use alternatives."
+    },
+    {
+      "id": "E",
+      "text": "Tell him he should accept it, as religious leaders generally allow it.",
+      "brief": "Not your place, and there may be alternatives.",
+      "detailed": "Some faith guidance permits this, but it's for him to decide, and alternatives may exist."
+    },
+    {
+      "id": "F",
+      "text": "Stop his clot prevention altogether.",
+      "brief": "Leaves him at risk when alternatives may exist.",
+      "detailed": "Stopping without considering alternatives may put him at risk of a clot."
+    },
+    {
+      "id": "G",
+      "text": "Ask his family to persuade him to accept it.",
+      "brief": "Pressures him.",
+      "detailed": "This doesn't respect his decision."
+    },
+    {
+      "id": "H",
+      "text": "Tell him he can't stay in hospital without it.",
+      "brief": "Coercive and incorrect.",
+      "detailed": "His admission doesn't depend on accepting this medicine."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a patient's religious objection to a medicine, while making sure he has safe alternatives.",
+    "keyDetails": "He has refused enoxaparin on religious grounds. Alternatives may exist. He is at risk of clots.",
+    "reasoning": "[A] looks for alternatives, [C] informs his choice, and [D] records his preference. The distractors override him ([B]), give religious advice ([E]), leave him at risk ([F]), or pressure him ([G], [H]).",
+    "competing": "[E] may be well meant, but religious interpretation is his to make."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs about treatment."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Respecting informed decisions."
+    }
+  ],
+  "tags": [
+    "religion",
+    "medicines",
+    "VTE prophylaxis",
+    "pharmacists"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-232",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-232",
+  "format": "multiple_choice",
+  "title": "Fever on chemotherapy",
+  "setting": "Oncology & palliative care",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Neutropenic sepsis",
+    "Delegation"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an oncology ward. You are writing up chemotherapy prescriptions for tomorrow's day-unit patients, which the pharmacy needs by 17:00.\n\nA nurse tells you that Mr Shaw, 58, who had chemotherapy eight days ago, has just been admitted with a temperature of 38.6°C and shivering.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Finish the chemotherapy prescriptions first.",
+      "brief": "Delays an emergency.",
+      "detailed": "The prescriptions are important but not urgent compared with possible sepsis."
+    },
+    {
+      "id": "B",
+      "text": "See Mr Shaw straight away.",
+      "brief": "Possible neutropenic sepsis is an emergency.",
+      "detailed": "Fever after chemotherapy may be neutropenic sepsis, which can be fatal without prompt treatment."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurse to take bloods, and give antibiotics once the neutrophil count is back.",
+      "brief": "Waiting for results delays antibiotics.",
+      "detailed": "Blood tests are needed, but antibiotics shouldn't wait for the results."
+    },
+    {
+      "id": "D",
+      "text": "Make sure he gets antibiotics within an hour.",
+      "brief": "Prompt antibiotics save lives.",
+      "detailed": "Guidance recommends antibiotics within one hour for suspected neutropenic sepsis, without waiting for blood results."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse to give paracetamol and recheck his temperature in an hour.",
+      "brief": "May mask fever and delay treatment.",
+      "detailed": "This delays assessment of a potential emergency."
+    },
+    {
+      "id": "F",
+      "text": "Hand the prescriptions to another doctor who doesn't know the patients.",
+      "brief": "Unsafe handover of complex prescriptions.",
+      "detailed": "Chemotherapy prescribing needs care and information."
+    },
+    {
+      "id": "G",
+      "text": "Ask the day unit to postpone tomorrow's patients.",
+      "brief": "Unnecessary; the prescriptions can still be done today.",
+      "detailed": "There's no need to postpone treatment; the prescriptions can be done after the emergency."
+    },
+    {
+      "id": "H",
+      "text": "Let the pharmacy know the prescriptions may be a little late.",
+      "brief": "Keeps the pharmacy informed.",
+      "detailed": "The chemotherapy prescriptions matter, but they can wait. Letting the pharmacy know prevents a problem tomorrow."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you prioritise a possible emergency over important routine work.",
+    "keyDetails": "Fever eight days after chemotherapy suggests possible neutropenic sepsis. The prescriptions are due at 17:00.",
+    "reasoning": "[B] sees him, [D] gets prompt antibiotics, and [H] informs the pharmacy. The distractors delay treatment ([A], [C], [E]), or act unsafely or unnecessarily ([F], [G]).",
+    "competing": "[C] is the tempting option, but antibiotics shouldn't wait for blood results."
+  },
+  "references": [
+    {
+      "title": "Suspected sepsis: recognition, diagnosis and early management (NG51)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2024,
+      "url": "https://www.nice.org.uk/guidance/ng51",
+      "note": "Prompt recognition and treatment of sepsis."
+    }
+  ],
+  "tags": [
+    "neutropenic sepsis",
+    "prioritisation",
+    "oncology",
+    "chemotherapy"
+  ]
+}

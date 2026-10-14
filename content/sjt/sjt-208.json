@@ -1,0 +1,102 @@
+{
+  "id": "sjt-208",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-208",
+  "format": "multiple_choice",
+  "title": "A repair you've only watched",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Recognising limits",
+    "Asking for help",
+    "Learning"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the labour ward. A midwife asks you to repair a second-degree perineal tear after a normal delivery, as the registrar is in theatre.\n\nYou have watched one repair but never done one.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Do the repair, following the steps you observed.",
+      "brief": "Observing once isn't training.",
+      "detailed": "You may remember the steps, but you haven't been trained, and the consequences of a poor repair can be lasting."
+    },
+    {
+      "id": "B",
+      "text": "Explain to the midwife that you haven't been trained to do this.",
+      "brief": "Honesty about your limits protects the woman.",
+      "detailed": "A poorly repaired tear can cause long-term problems. Being honest that you haven't been trained is essential."
+    },
+    {
+      "id": "C",
+      "text": "Look up a video of the technique, then do the repair.",
+      "brief": "A video doesn't replace supervised training.",
+      "detailed": "Videos can help with learning, but not as a substitute for supervised practice."
+    },
+    {
+      "id": "D",
+      "text": "Ask whether a midwife trained in perineal repair is available.",
+      "brief": "Many midwives are trained to repair second-degree tears.",
+      "detailed": "Experienced midwives often repair second-degree tears. One may be available sooner than the registrar."
+    },
+    {
+      "id": "E",
+      "text": "Ask the woman whether she minds you doing it for the first time.",
+      "brief": "Her consent doesn't make it safe.",
+      "detailed": "Being open is good, but her agreement doesn't make it appropriate for you to do it untrained and unsupervised."
+    },
+    {
+      "id": "F",
+      "text": "Ask the registrar to supervise you doing one when they're free.",
+      "brief": "Supervised practice is how you develop the skill.",
+      "detailed": "A supervised repair, when the registrar is available, lets you learn safely. In the meantime, the woman can be made comfortable."
+    },
+    {
+      "id": "G",
+      "text": "Tell the midwife it isn't your job.",
+      "brief": "Unhelpful, and doesn't solve the problem.",
+      "detailed": "You aren't the right person, but you should help find someone who is."
+    },
+    {
+      "id": "H",
+      "text": "Ask the midwife to leave the tear until the morning.",
+      "brief": "Delay may increase the risk of complications.",
+      "detailed": "Repairs are usually done promptly, and waiting until morning may not be in the woman's interests."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise the limits of your competence and find a safe way for the woman to receive care.",
+    "keyDetails": "You have only observed one repair. The registrar is busy. Trained midwives may be available.",
+    "reasoning": "[B] is honest about your limits, [D] finds a trained person, and [F] plans supervised learning. The distractors act beyond competence ([A], [C], [E]), are unhelpful ([G]), or delay care ([H]).",
+    "competing": "[E] may seem respectful, but her consent doesn't make an untrained repair safe."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, working within your competence."
+    }
+  ],
+  "tags": [
+    "competence",
+    "perineal repair",
+    "labour ward",
+    "supervision"
+  ]
+}

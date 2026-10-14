@@ -1,0 +1,85 @@
+{
+  "id": "sjt-241",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-241",
+  "format": "ranking",
+  "title": "Move him now",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Escalation",
+    "Professional communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Hall, 60, was admitted with breathlessness and pleuritic chest pain. His CT pulmonary angiogram, requested to look for a pulmonary embolism, has just been reported, but no one has looked at it yet.\n\nThe bed manager is pressing for beds, and the medical registrar asks you to transfer him to a general ward now.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Review the CT report yourself straight away.",
+      "brief": "Quick, and may settle the question.",
+      "detailed": "Reading the report takes a minute and may show whether anything needs doing before transfer. It ranks second because the registrar should know too."
+    },
+    {
+      "id": "B",
+      "text": "Make sure the receiving ward knows the CT result and any plan.",
+      "brief": "Safe handover if he does move.",
+      "detailed": "Whatever happens, the ward team must know the result. It ranks third because reviewing it comes first."
+    },
+    {
+      "id": "C",
+      "text": "Transfer him as asked, as the registrar has made the decision.",
+      "brief": "He may move without a significant result being acted on.",
+      "detailed": "The registrar may not know the report is back. Transferring him without anyone looking at it could delay treatment, and is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Refuse to transfer him anywhere until the consultant has been in to see him.",
+      "brief": "Disproportionate when the report can be reviewed in minutes.",
+      "detailed": "Your concern is right, but a quick review solves it, and refusing outright may cause conflict."
+    },
+    {
+      "id": "E",
+      "text": "Tell the registrar the CT report is back, and ask to review it first.",
+      "brief": "The result may change his management.",
+      "detailed": "If the scan shows a pulmonary embolism, he may need treatment before moving. Reviewing it first takes moments."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "B",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a concern with a senior before an action that might be unsafe, without being obstructive.",
+    "keyDetails": "The CT report is back but unread. The registrar may not know. There is pressure on beds.",
+    "reasoning": "[E] informs the registrar, [A] reviews the result, and [B] makes sure the ward knows. [D] is obstructive, and [C] risks a missed result.",
+    "competing": "Some would read the report first. That's reasonable; the key puts telling the registrar first because the decision is theirs, and they may simply not know."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, raising concerns with seniors about patient safety."
+    }
+  ],
+  "tags": [
+    "results",
+    "transfers",
+    "pulmonary embolism",
+    "acute medicine"
+  ]
+}

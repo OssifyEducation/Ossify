@@ -1,0 +1,85 @@
+{
+  "id": "sjt-203",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-203",
+  "format": "ranking",
+  "title": "Will he wake up?",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating uncertainty",
+    "Supporting families",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. Daniel, 24, was admitted two days ago after a cardiac arrest at home. He is sedated and ventilated, and it isn't yet known whether he has suffered brain injury.\n\nHis parents ask you, \"Is he going to wake up?\" The consultant has told them it is too early to know.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain honestly that it's too early to know, and what the team will be looking for.",
+      "brief": "Honest about uncertainty, with some information about the process.",
+      "detailed": "Explaining that the team will assess him over the coming days, and what they'll look for, gives them some sense of what to expect without false hope or premature bad news."
+    },
+    {
+      "id": "B",
+      "text": "Reassure them that young people often recover well.",
+      "brief": "Well meant, but may give false hope.",
+      "detailed": "Some young patients recover well, but you don't know about Daniel, and false reassurance could make bad news harder later."
+    },
+    {
+      "id": "C",
+      "text": "Acknowledge how hard the waiting is, and ask what they understand so far.",
+      "brief": "Responding to their distress and understanding comes first.",
+      "detailed": "They are living with terrible uncertainty. Acknowledging this, and finding out what they already know, helps you respond to what they need."
+    },
+    {
+      "id": "D",
+      "text": "Offer to arrange for the consultant to update them again soon.",
+      "brief": "The consultant can give the fullest answer.",
+      "detailed": "Regular updates from the consultant help families through uncertainty. It ranks third because they need a response from you now."
+    },
+    {
+      "id": "E",
+      "text": "Tell them that brain injury is likely after a cardiac arrest at home.",
+      "brief": "Premature, and goes beyond what is known.",
+      "detailed": "This may be statistically true, but it isn't known for Daniel, and saying it now could take away hope unnecessarily."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "D",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you communicate uncertainty to a family in crisis, without false hope or premature pessimism.",
+    "keyDetails": "The prognosis is genuinely uncertain. The consultant has said it's too early. The family are desperate for an answer.",
+    "reasoning": "[C] responds to their distress, [A] is honest about uncertainty, and [D] arranges a fuller update. [B] gives false hope, and [E] is premature.",
+    "competing": "The order of [B] and [E] is debatable. The key ranks premature pessimism last because it goes beyond what is known and could cause unnecessary despair."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating honestly and sensitively with families."
+    }
+  ],
+  "tags": [
+    "uncertainty",
+    "intensive care",
+    "families",
+    "cardiac arrest"
+  ]
+}

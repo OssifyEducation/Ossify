@@ -1,0 +1,85 @@
+{
+  "id": "sjt-205",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-205",
+  "format": "ranking",
+  "title": "Handover without the system",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Handover",
+    "Adapting to system failure",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the labour ward. Ten minutes before the night team arrives, the electronic handover system crashes. IT says it may be down for several hours.\n\nYou have twelve patients to hand over, including two women with pre-eclampsia awaiting blood results.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Write a brief list, highest-risk first, and go through it with the night team.",
+      "brief": "A written list plus a verbal handover keeps the handover safe.",
+      "detailed": "Writing down the key points, starting with the women with pre-eclampsia, and talking each one through with the night team means nothing is lost and they can ask questions."
+    },
+    {
+      "id": "B",
+      "text": "Phone the lab to chase the pre-eclampsia blood results before you leave.",
+      "brief": "Results that may be delayed by the IT failure need following up.",
+      "detailed": "The IT failure may also affect how results are seen. Chasing the outstanding bloods, and passing the results on, means abnormal results aren't missed overnight. It ranks second because the handover itself comes first."
+    },
+    {
+      "id": "C",
+      "text": "Ask the night team to look at the system when it's working again.",
+      "brief": "Leaves them without information for hours.",
+      "detailed": "The system may be down for hours, during which the night team won't know about your patients, including the women awaiting results. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Stay late until the system is back up, so that you can complete the electronic handover.",
+      "brief": "Conscientious, but delays the handover unnecessarily.",
+      "detailed": "This is well meant, and you'd be on site for questions, but the night team needs the information now, and you'd be working unnecessarily long hours."
+    },
+    {
+      "id": "E",
+      "text": "Let the labour ward coordinator know the system is down.",
+      "brief": "The coordinator may need to arrange a backup process.",
+      "detailed": "The coordinator may need to tell other staff and arrange backup. It ranks third because your own patients' handover comes first."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "B",
+      "E",
+      "D",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you keep a handover safe when the usual system fails.",
+    "keyDetails": "The system is down for hours. Two women with pre-eclampsia have pending results. The night team arrives in ten minutes.",
+    "reasoning": "[A] hands over safely, in writing and in person, [B] makes sure pending results aren't lost, and [E] informs the coordinator. [D] delays the handover, and [C] leaves the night team uninformed.",
+    "competing": "Some would chase the results first. The key puts the handover first because the night team arrives in minutes, and they can also chase results once they know about them."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, handing over care safely."
+    }
+  ],
+  "tags": [
+    "handover",
+    "system failure",
+    "pre-eclampsia",
+    "labour ward"
+  ]
+}

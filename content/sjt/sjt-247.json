@@ -1,0 +1,85 @@
+{
+  "id": "sjt-247",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-247",
+  "format": "ranking",
+  "title": "A friend in crisis",
+  "setting": "Non-clinical (social)",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Responding to distress",
+    "Suicide awareness",
+    "Boundaries"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor. Over coffee, your close friend Sam, who isn't a doctor, tells you she has been thinking about ending her life. She has been struggling since losing her job.\n\nShe asks you not to tell anyone.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Encourage her to speak to her GP or a crisis service today, and offer to help her contact them.",
+      "brief": "Professional help is important.",
+      "detailed": "She needs professional support. Offering to help her make contact makes it more likely to happen."
+    },
+    {
+      "id": "B",
+      "text": "Tell her she has so much to live for.",
+      "brief": "Well meant, but may make her feel unheard.",
+      "detailed": "This can feel dismissive to someone who is struggling."
+    },
+    {
+      "id": "C",
+      "text": "Explain that you can't promise secrecy if you're worried she's in danger.",
+      "brief": "Honest about the limits.",
+      "detailed": "If she were at immediate risk, you would need to get help. Being honest is better than a false promise."
+    },
+    {
+      "id": "D",
+      "text": "Listen, and ask her directly whether she has made any plans and whether she is safe now.",
+      "brief": "Asking directly helps you understand the risk.",
+      "detailed": "Asking about suicide doesn't increase risk. Understanding whether she has plans helps you decide what support she needs."
+    },
+    {
+      "id": "E",
+      "text": "Promise not to tell anyone.",
+      "brief": "Could leave her without help.",
+      "detailed": "This may feel supportive, but could prevent her getting help she needs."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "C",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a friend's disclosure of suicidal thoughts: supporting her, assessing risk, and helping her get help.",
+    "keyDetails": "She is a friend, not a patient. She is struggling. She has asked for secrecy.",
+    "reasoning": "[D] assesses her safety, [A] gets her help, and [C] is honest. [B] is dismissive, and [E] could leave her without help.",
+    "competing": "The order of [B] and [E] is close. The key ranks the promise last because it could prevent her getting help."
+  },
+  "references": [
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Responding to people at risk of suicide."
+    }
+  ],
+  "tags": [
+    "suicide risk",
+    "friends",
+    "mental health",
+    "support"
+  ]
+}

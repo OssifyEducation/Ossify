@@ -1,0 +1,102 @@
+{
+  "id": "sjt-210",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-210",
+  "format": "multiple_choice",
+  "title": "Ligature points still there",
+  "setting": "Psychiatry",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Raising concerns",
+    "Patient safety",
+    "Escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. You notice that several ligature points identified in the ward's annual environmental risk assessment six months ago still haven't been removed.\n\nThe ward manager says the work has been \"on the list\" with the estates team for months.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave it, as the ward manager knows about it.",
+      "brief": "Knowledge isn't action, and patients are at risk.",
+      "detailed": "The ward manager is aware, but the risk remains six months later."
+    },
+    {
+      "id": "B",
+      "text": "Ask the ward manager how the risk is managed meanwhile.",
+      "brief": "Interim measures protect patients now.",
+      "detailed": "Until the ligature points are removed, extra observation or restricting access may be needed. Asking about this focuses on patient safety now."
+    },
+    {
+      "id": "C",
+      "text": "Report the delay through the incident reporting system.",
+      "brief": "Formal reporting highlights an unresolved safety risk.",
+      "detailed": "A six-month delay on a serious risk should be recorded, so senior managers can see and act on it."
+    },
+    {
+      "id": "D",
+      "text": "Contact the CQC as your first step.",
+      "brief": "Internal routes should be used first.",
+      "detailed": "The CQC can be informed if internal routes fail, but the trust should have the chance to act first."
+    },
+    {
+      "id": "E",
+      "text": "Remove the ligature points yourself.",
+      "brief": "Not your role, and may be unsafe.",
+      "detailed": "Estates work needs to be done properly."
+    },
+    {
+      "id": "F",
+      "text": "Raise it with your consultant.",
+      "brief": "A senior clinician can escalate it.",
+      "detailed": "Your consultant can raise it with the clinical director or estates management."
+    },
+    {
+      "id": "G",
+      "text": "Tell patients about the ligature points so they can avoid them.",
+      "brief": "Could increase risk.",
+      "detailed": "Drawing patients' attention to ligature points could increase the risk."
+    },
+    {
+      "id": "H",
+      "text": "Email the estates team yourself to complain.",
+      "brief": "Bypasses the ward's escalation route.",
+      "detailed": "Contacting estates directly may help, but formal reporting and senior escalation are more effective."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a long-standing safety risk through proper routes, and focus on protecting patients in the meantime.",
+    "keyDetails": "The risk is serious and has been known for six months. The ward manager is aware. Patients are at risk now.",
+    "reasoning": "[B] focuses on interim safety, [C] records the delay, and [F] escalates through a senior. The distractors ignore it ([A]), bypass internal routes ([D], [H]), act beyond your role ([E]), or increase risk ([G]).",
+    "competing": "[H] may seem proactive, but formal reporting and senior escalation are more likely to lead to action."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about patient safety, and escalating when they aren't resolved."
+    }
+  ],
+  "tags": [
+    "ligature risks",
+    "raising concerns",
+    "psychiatry",
+    "estates"
+  ]
+}

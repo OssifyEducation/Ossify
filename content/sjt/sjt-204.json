@@ -1,0 +1,110 @@
+{
+  "id": "sjt-204",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-204",
+  "format": "multiple_choice",
+  "title": "A risk assessment that didn't happen",
+  "setting": "Psychiatry",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Honesty in records",
+    "Patient safety",
+    "Raising concerns"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an adult psychiatric ward. Yesterday evening Dr Cole, another F2, documented a full suicide risk assessment for Ms Price, 30, before she went on overnight leave.\n\nThis morning the nurses tell you Dr Cole didn't see Ms Price at all; he was called away before reaching her. Ms Price is due back at noon.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Correct Dr Cole's entry yourself.",
+      "brief": "You can't alter a colleague's record.",
+      "detailed": "The record may be wrong, but changing someone else's entry isn't appropriate. Dr Cole should add a correction, or the consultant can decide how to handle it."
+    },
+    {
+      "id": "B",
+      "text": "Phone Ms Price to ask whether she was assessed before leaving.",
+      "brief": "Puts her in the middle of a professional issue.",
+      "detailed": "This may confirm what happened, but involving her in a concern about a colleague isn't appropriate, and her leave should continue as planned unless there's a safety concern."
+    },
+    {
+      "id": "C",
+      "text": "Report Dr Cole to the GMC.",
+      "brief": "Premature without speaking to him or the consultant.",
+      "detailed": "If he did falsify the record, it may need reporting, but local steps come first."
+    },
+    {
+      "id": "D",
+      "text": "Make sure Ms Price's risk is assessed when she returns.",
+      "brief": "Her actual risk is unknown, which matters most.",
+      "detailed": "If the assessment didn't happen, her risk wasn't assessed before leave. Making sure it's done properly when she returns protects her."
+    },
+    {
+      "id": "E",
+      "text": "Speak to Dr Cole about what happened.",
+      "brief": "He may have an explanation, and needs the chance to give it.",
+      "detailed": "He may have written the note in advance and been called away, or there may be another explanation. Asking him directly is fair, and he may correct the record himself."
+    },
+    {
+      "id": "F",
+      "text": "Leave it, as Ms Price went on leave safely.",
+      "brief": "Her safety on leave wasn't assessed, and the record is wrong.",
+      "detailed": "She may be well, but the record suggests she was assessed when she wasn't, which could affect decisions about her care."
+    },
+    {
+      "id": "G",
+      "text": "Ask the nurses to document their account of what happened.",
+      "brief": "Their account may be needed later, but this isn't the first step.",
+      "detailed": "A factual record from the nurses may be helpful if there's a review, but speaking to Dr Cole and the consultant comes first."
+    },
+    {
+      "id": "H",
+      "text": "Inform the consultant about the concern.",
+      "brief": "A possible false entry about risk is serious.",
+      "detailed": "A risk assessment recorded but not done affects patient safety and raises a probity concern. The consultant needs to know, whatever the explanation."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a colleague's possibly false record of a risk assessment, protecting the patient and treating the colleague fairly.",
+    "keyDetails": "The risk assessment may not have happened. Ms Price is returning from leave. Dr Cole may have an explanation.",
+    "reasoning": "[D] protects Ms Price, [E] gives Dr Cole the chance to explain, and [H] informs the consultant. The distractors alter records ([A]), involve the patient inappropriately ([B]), escalate prematurely ([C]), ignore the concern ([F]), or put documentation first ([G]).",
+    "competing": "[G] is the hard distractor: the nurses' account may matter later, but the patient and a direct conversation come first."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in records; Domain 3, acting on concerns about colleagues."
+    },
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Assessing risk for people who may self-harm."
+    }
+  ],
+  "tags": [
+    "records",
+    "risk assessment",
+    "colleagues",
+    "psychiatry"
+  ]
+}

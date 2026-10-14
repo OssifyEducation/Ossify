@@ -1,0 +1,85 @@
+{
+  "id": "sjt-221",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-221",
+  "format": "ranking",
+  "title": "Nightmares after intensive care",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Recognising psychological distress",
+    "Reassurance",
+    "Follow-up"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. Mrs Ahmed, 55, is recovering after two weeks on a ventilator with pneumonia and is due to move to a ward.\n\nShe tells you she has vivid nightmares about being trapped, and has panic attacks when nurses approach her bed at night. She is embarrassed and worried she's \"going mad\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Prescribe a sleeping tablet to help her sleep.",
+      "brief": "Doesn't address the cause and may worsen delirium.",
+      "detailed": "Sedatives can worsen confusion and don't address what she is experiencing."
+    },
+    {
+      "id": "B",
+      "text": "Review her for any ongoing delirium or medication effects.",
+      "brief": "Physical causes should be considered.",
+      "detailed": "Delirium or medication side effects can contribute. It ranks third because her distress needs addressing first."
+    },
+    {
+      "id": "C",
+      "text": "Tell her they're only dreams and will soon pass.",
+      "brief": "Dismissive of her distress.",
+      "detailed": "They may pass, but this dismisses how frightening they are."
+    },
+    {
+      "id": "D",
+      "text": "Make sure she is referred to the ICU follow-up service or psychological support.",
+      "brief": "Specialist support can help her recover.",
+      "detailed": "Many units offer follow-up after discharge, including psychological support. This helps her recover."
+    },
+    {
+      "id": "E",
+      "text": "Listen, and reassure her this is common after intensive care.",
+      "brief": "Normalising her experience reduces fear.",
+      "detailed": "Nightmares and anxiety are common after intensive care, often linked to delirium and frightening memories. Knowing this can be a great relief."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "B",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise and respond to psychological distress after critical illness.",
+    "keyDetails": "She has nightmares and panic attacks. She fears she's going mad. She's moving to a ward.",
+    "reasoning": "[E] reassures her, [D] arranges support, and [B] considers physical causes. [A] risks harm, and [C] dismisses her.",
+    "competing": "Some would review for delirium first. The key starts with reassurance because she is frightened now, and physical causes can be reviewed alongside."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to patients' psychological needs."
+    }
+  ],
+  "tags": [
+    "post-ICU",
+    "psychological distress",
+    "delirium",
+    "intensive care"
+  ]
+}

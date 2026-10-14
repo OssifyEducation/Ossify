@@ -1,0 +1,109 @@
+{
+  "id": "sjt-206",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-206",
+  "format": "multiple_choice",
+  "title": "Turning off the defibrillator",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "End-of-life care",
+    "Respecting autonomy",
+    "Multidisciplinary working"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. Mr Hughes, 78, has end-stage heart failure and an implantable cardioverter-defibrillator (ICD). He has been told he is likely to die in the coming weeks.\n\nHe asks you to have the ICD's shocks turned off, saying he doesn't want to be shocked when he dies. He has capacity.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask him about his wishes and what worries him.",
+      "brief": "Understanding his reasons supports his decision.",
+      "detailed": "He may have seen or heard about shocks at the end of life. Exploring his wishes helps make sure his decision is informed and his concerns addressed."
+    },
+    {
+      "id": "B",
+      "text": "Tell him that deactivating the ICD would be assisted dying.",
+      "brief": "Incorrect: deactivation is withdrawing a treatment, which patients can refuse.",
+      "detailed": "Patients with capacity can refuse continuing treatment, including ICD shocks. This isn't assisted dying."
+    },
+    {
+      "id": "C",
+      "text": "Let the cardiology team know, so deactivation can be arranged.",
+      "brief": "The cardiology and device team arrange deactivation.",
+      "detailed": "Deactivating shocks is a recognised part of end-of-life care. The cardiology team and device technicians can discuss it with him and arrange it."
+    },
+    {
+      "id": "D",
+      "text": "Explain that the ICD must stay on, as it protects him from sudden death.",
+      "brief": "Overrides his informed wishes.",
+      "detailed": "The ICD can prevent sudden death, but he has capacity and has made an informed choice at the end of his life."
+    },
+    {
+      "id": "E",
+      "text": "Ask his family whether they agree before taking it further.",
+      "brief": "It's his decision, not theirs.",
+      "detailed": "Families can be involved if he wishes, but their agreement isn't required."
+    },
+    {
+      "id": "F",
+      "text": "Arrange for the device to be switched off today yourself.",
+      "brief": "Deactivation needs the right team and a proper discussion.",
+      "detailed": "This needs the cardiology team and device technicians, with a documented discussion."
+    },
+    {
+      "id": "G",
+      "text": "Ask whether he'd like his family involved in the discussion.",
+      "brief": "He may want their support.",
+      "detailed": "His family may want to understand his decision, and he may want their support. Asking him respects his choice."
+    },
+    {
+      "id": "H",
+      "text": "Suggest he waits until he is closer to dying before deciding.",
+      "brief": "Delaying may mean he receives shocks he wanted to avoid.",
+      "detailed": "Waiting risks him receiving distressing shocks, and his decision is already informed."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respect a capacitous patient's wish to withdraw a treatment at the end of life, and involve the right team.",
+    "keyDetails": "He has capacity. He is approaching the end of his life. Deactivating shocks is a recognised option.",
+    "reasoning": "[A] explores his wishes, [C] involves the team who can arrange it, and [G] offers to involve his family. The distractors misstate the law ([B]), override him ([D]), require family agreement ([E]), act beyond your role ([F]), or delay ([H]).",
+    "competing": "[H] may seem cautious, but it risks the very shocks he wants to avoid."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Withdrawing treatment at the end of life, in line with the patient's wishes."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Patients with capacity can refuse treatment, including continuing treatment."
+    }
+  ],
+  "tags": [
+    "end of life",
+    "ICD",
+    "heart failure",
+    "autonomy"
+  ]
+}

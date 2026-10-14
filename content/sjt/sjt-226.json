@@ -1,0 +1,109 @@
+{
+  "id": "sjt-226",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-1",
+  "blueprint": "sjt-226",
+  "format": "multiple_choice",
+  "title": "Talked over",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communication with people with learning disabilities",
+    "Dignity",
+    "Involving patients"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an out-of-hours home visit. Mr Price, 32, has a learning disability and lives in supported accommodation. He has had diarrhoea and vomiting for two days.\n\nTwo support workers and his mother are in the room. Everyone answers your questions for him, and he looks down at the floor.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Take the history from the support workers, as it's quicker.",
+      "brief": "Their input is useful, but he should be asked first.",
+      "detailed": "His carers know him well and can add important information, which is why this is tempting. But leaving him out of his own consultation isn't appropriate."
+    },
+    {
+      "id": "B",
+      "text": "Assume he lacks capacity, given his learning disability.",
+      "brief": "A learning disability doesn't mean someone lacks capacity.",
+      "detailed": "Capacity is decision-specific and must be presumed unless shown otherwise."
+    },
+    {
+      "id": "C",
+      "text": "Ask his mother to answer on his behalf.",
+      "brief": "He should be asked first.",
+      "detailed": "His mother's views matter, but he should be able to speak for himself where he can."
+    },
+    {
+      "id": "D",
+      "text": "Speak more loudly and slowly to him.",
+      "brief": "Volume doesn't help understanding.",
+      "detailed": "This may feel patronising and doesn't address how he best communicates."
+    },
+    {
+      "id": "E",
+      "text": "Give him a written leaflet about gastroenteritis to read later.",
+      "brief": "May not be accessible to him.",
+      "detailed": "Written information can help, but only if it's in a format he can use, such as easy-read."
+    },
+    {
+      "id": "F",
+      "text": "Speak to Mr Price directly, using simple language.",
+      "brief": "He should be at the centre of his own consultation.",
+      "detailed": "People with learning disabilities are often spoken over. Speaking to him directly, in plain language, shows respect and may give you important information only he can provide."
+    },
+    {
+      "id": "G",
+      "text": "Ask him and those who know him what helps him communicate.",
+      "brief": "He may have preferred ways of communicating.",
+      "detailed": "He may communicate best with more time, pictures, or a particular person's support. Asking helps you adapt."
+    },
+    {
+      "id": "H",
+      "text": "Check what he understands, and involve him in decisions.",
+      "brief": "He has the right to be involved in his own care.",
+      "detailed": "Adults are presumed to have capacity. Checking what he understands, and involving him, respects his rights."
+    }
+  ],
+  "key": {
+    "correct": [
+      "F",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you involve a patient with a learning disability in his own consultation and adapt your communication.",
+    "keyDetails": "Everyone is speaking for him. He looks withdrawn. He is presumed to have capacity.",
+    "reasoning": "[F] speaks to him, [G] adapts your communication, and [H] involves him in decisions. The distractors exclude him ([A], [C]), make assumptions ([B]), patronise him ([D]), or give inaccessible information ([E]).",
+    "competing": "[A] is the tempting option because carers can add a lot, but he should be asked first."
+  },
+  "references": [
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Reasonable adjustments for disabled people."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Presumption of capacity."
+    }
+  ],
+  "tags": [
+    "learning disability",
+    "communication",
+    "dignity",
+    "home visits"
+  ]
+}
