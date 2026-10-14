@@ -4,3 +4,6 @@ content/
 docs/
 scripts/
 tests/
+# Database schema and internal docs are not part of the website.
+supabase/
+*.md
