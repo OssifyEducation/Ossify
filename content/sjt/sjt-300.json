@@ -1,0 +1,110 @@
+{
+  "id": "sjt-300",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-300",
+  "format": "multiple_choice",
+  "title": "Would it have made a difference?",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Candour",
+    "Communicating uncertainty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Mr Dixon, 66, waited seven weeks for a CT scan that was meant to happen within two weeks. The scan has now shown lung cancer that has spread to his adrenal gland.\n\nHe asks you, \"Would it have been caught earlier if I'd had the scan on time? Would that have made a difference?\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him honestly that you don't know, and it's a fair question.",
+      "brief": "Honest about uncertainty, without dismissing his concern.",
+      "detailed": "It isn't known whether the delay changed his outcome. Saying so honestly, and acknowledging that his question is reasonable, respects him and his right to answers."
+    },
+    {
+      "id": "B",
+      "text": "Apologise that his scan was delayed.",
+      "brief": "An apology for the delay is right, whatever its effect.",
+      "detailed": "The delay was a failure of the service. Apologising doesn't admit legal liability, and it acknowledges that he was let down."
+    },
+    {
+      "id": "C",
+      "text": "Reassure him that the delay is unlikely to have made a difference.",
+      "brief": "You don't know that, so this may be false reassurance.",
+      "detailed": "This might be true, but you can't know it. Saying it may later prove misleading."
+    },
+    {
+      "id": "D",
+      "text": "Tell him the radiology department is responsible for the delay.",
+      "brief": "Blaming a department isn't helpful.",
+      "detailed": "He deserves an explanation, but attributing blame without the facts doesn't help him and undermines the team."
+    },
+    {
+      "id": "E",
+      "text": "Say you can't comment on the delay.",
+      "brief": "Evasive, and leaves him without an answer.",
+      "detailed": "You may not know the full picture, but refusing to discuss it can feel like a cover-up."
+    },
+    {
+      "id": "F",
+      "text": "Suggest he contacts a solicitor.",
+      "brief": "Unhelpful and premature at this stage.",
+      "detailed": "He is entitled to seek legal advice, but suggesting it now, before the delay has been reviewed, doesn't help him with his question."
+    },
+    {
+      "id": "G",
+      "text": "Explain the delay will be reviewed, and how to raise concerns.",
+      "brief": "He should know his question will be taken seriously.",
+      "detailed": "A delay like this should be reviewed through the trust's processes. Telling him it will be looked into, and how to raise concerns, shows openness."
+    },
+    {
+      "id": "H",
+      "text": "Ask the consultant to answer his questions at the next ward round.",
+      "brief": "Senior involvement helps, but he has asked you now.",
+      "detailed": "The consultant should discuss his diagnosis and the delay, but deferring entirely leaves him without any answer today."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond honestly and openly when a patient asks if a delay in his care affected his outcome.",
+    "keyDetails": "The delay was clear and significant. Its effect is unknown. He has asked you directly.",
+    "reasoning": "[A] is honest about the uncertainty, [B] apologises for the delay, and [G] explains how it will be reviewed. The distractors give false reassurance ([C]), blame ([D]), evade ([E], [H]), or jump to litigation ([F]).",
+    "competing": "[H] is reasonable to add, as the consultant should discuss it. But it doesn't replace an honest answer now."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Apologising and being open when something has gone wrong."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, being honest with patients."
+    }
+  ],
+  "tags": [
+    "candour",
+    "delays",
+    "cancer",
+    "honesty"
+  ]
+}

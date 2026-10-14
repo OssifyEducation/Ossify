@@ -1,0 +1,110 @@
+{
+  "id": "sjt-294",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-294",
+  "format": "multiple_choice",
+  "title": "\"What's the point?\"",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Suicide risk assessment",
+    "Compassion",
+    "Escalation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a heart failure clinic. Mr Stone, 67, has worsening heart failure. During a routine review of his medicines, he says, \"Sometimes I think it would be easier if I just didn't wake up. I've thought about taking all my tablets at once.\"\n\nHe says his wife died last year and he lives alone. He has a large supply of medicines at home.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Reassure him that it's normal to feel low with heart failure.",
+      "brief": "Low mood is common, but this minimises what he has disclosed.",
+      "detailed": "Depression is common in heart failure, but describing suicidal thoughts as normal could leave a serious risk unassessed."
+    },
+    {
+      "id": "B",
+      "text": "Write to his GP to suggest a mental health assessment.",
+      "brief": "Too slow for someone with a stated method and access to it.",
+      "detailed": "A letter to his GP might be appropriate for low-risk low mood. With a stated method and a supply of medicines, he needs an assessment today."
+    },
+    {
+      "id": "C",
+      "text": "Ask him directly about his thoughts of suicide and any plans.",
+      "brief": "Asking directly is how you assess his risk, and it doesn't increase it.",
+      "detailed": "He has mentioned a method and has access to it. Asking clearly about intent, plans and what stops him is essential to judge how urgent the situation is."
+    },
+    {
+      "id": "D",
+      "text": "Ask how his illness and his wife's death are affecting him.",
+      "brief": "Shows you are listening and helps you understand his distress.",
+      "detailed": "Giving him space to talk about his grief and his illness shows compassion and helps you understand his situation. Many people feel relieved to be asked."
+    },
+    {
+      "id": "E",
+      "text": "Start an antidepressant today.",
+      "brief": "Premature without a full assessment.",
+      "detailed": "He may well benefit from treatment, but starting an antidepressant doesn't address immediate risk and needs proper assessment first."
+    },
+    {
+      "id": "F",
+      "text": "Agree an urgent mental health plan with a senior colleague.",
+      "brief": "His risk needs a same-day plan, agreed with someone senior.",
+      "detailed": "He is older, lives alone, is bereaved and has a chronic illness, a method and access to it. A senior should help you decide the urgency, which may mean a same-day referral to the crisis or liaison team."
+    },
+    {
+      "id": "G",
+      "text": "Phone his daughter to tell her what he said.",
+      "brief": "Family may help, but only with his agreement, unless the risk is immediate.",
+      "detailed": "Involving family can be protective, and it may be justified without consent if the risk is very high. As a first step, without discussing it with him, it breaches his confidentiality."
+    },
+    {
+      "id": "H",
+      "text": "Adjust his heart failure medicines and see him in the next clinic.",
+      "brief": "Continues the routine plan and ignores what he said.",
+      "detailed": "His medicines may need adjusting, but carrying on with the routine review ignores a disclosure of suicidal thoughts."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise and respond to suicide risk disclosed unexpectedly during a routine review.",
+    "keyDetails": "He has thoughts of suicide and a method. He has access to a large supply of medicines. He is bereaved, older and lives alone.",
+    "reasoning": "[C] assesses his risk directly, [D] responds with compassion, and [F] gets senior input and urgent support. The distractors minimise ([A]), act too slowly ([B]), treat prematurely ([E]), breach confidentiality as a first step ([G]), or ignore the disclosure ([H]).",
+    "competing": "[B] would be reasonable for low mood without suicidal plans. What makes it wrong here is the stated method and his easy access to it."
+  },
+  "references": [
+    {
+      "title": "Self-harm: assessment, management and preventing recurrence (NG225)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "note": "Assessing people who have thoughts of self-harm or suicide."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information when someone is at risk of serious harm."
+    }
+  ],
+  "tags": [
+    "suicide",
+    "risk assessment",
+    "heart failure",
+    "bereavement"
+  ]
+}

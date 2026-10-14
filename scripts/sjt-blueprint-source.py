@@ -387,7 +387,7 @@ FAMILIES = [
    (SURG, "A patient asks for a consent form translated into his own language before signing."),
    (CARD, "A patient refuses a medicine once he learns it contains a pork-derived ingredient."),
    (ORTHO, "A patient wants to pray at set times, which conflicts with the physiotherapy schedule."),
-   (OOH, "A family at a home visit refuses a male GP for an elderly woman with chest pain."),
+   (OOH, "A family at a home visit refuses a male doctor for an elderly woman with abdominal pain."),
    (AMU, "A Gypsy and Traveller patient is treated with suspicion by staff and wants to leave."),
  ]),
  ("E5", E, "Safeguarding children and vulnerable adults", [

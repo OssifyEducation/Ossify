@@ -1,0 +1,103 @@
+{
+  "id": "sjt-282",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-282",
+  "format": "multiple_choice",
+  "title": "Two calls at once",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Physical health in mental illness",
+    "Teamwork"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on call for an inpatient psychiatric unit. You are reviewing Ms Webb, 31, who takes clozapine and has developed a temperature of 38.6°C and a sore throat. You have taken blood, including an urgent white cell count, and are about to examine her.\n\nA nurse tells you that Mr Lee, 45, who is detained under the Mental Health Act, is standing at the ward door demanding to leave. The ward has a procedure for managing detained patients who try to leave.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave Ms Webb and go to talk Mr Lee out of leaving.",
+      "brief": "Leaves a possibly very unwell patient part-way through assessment.",
+      "detailed": "Mr Lee's situation can be managed by the nursing team for now. Ms Webb may be developing a life-threatening complication."
+    },
+    {
+      "id": "B",
+      "text": "Finish your assessment of Ms Webb.",
+      "brief": "Fever on clozapine can mean a dangerously low white cell count.",
+      "detailed": "Clozapine can cause agranulocytosis, and fever with a sore throat is a warning sign. Ms Webb needs a full assessment and a plan now, so you shouldn't leave her part-way."
+    },
+    {
+      "id": "C",
+      "text": "Tell the nurse to let Mr Lee leave if he insists.",
+      "brief": "He is detained, so letting him go could put him at risk and would be unlawful.",
+      "detailed": "A detained patient can't simply be allowed to leave. The ward procedure exists for exactly this situation."
+    },
+    {
+      "id": "D",
+      "text": "Prescribe rapid tranquillisation for Mr Lee over the phone.",
+      "brief": "Medicating without seeing him isn't appropriate.",
+      "detailed": "Rapid tranquillisation is for patients at serious risk of harm, after other measures have failed, and requires assessment. Prescribing it remotely to stop him leaving is inappropriate."
+    },
+    {
+      "id": "E",
+      "text": "Phone the police to come to the ward.",
+      "brief": "Premature, as the staff can manage the situation.",
+      "detailed": "Police may be needed if a detained patient goes missing or there is serious violence. At this stage the ward team can manage it."
+    },
+    {
+      "id": "F",
+      "text": "Ask the nurse to call the medical registrar to take over Ms Webb.",
+      "brief": "Unnecessary handover of an assessment you are part-way through.",
+      "detailed": "You may need advice about her results, but handing over mid-assessment, in order to see a patient the nurses can manage, isn't a good use of the team."
+    },
+    {
+      "id": "G",
+      "text": "Ask the nurse in charge to use the ward procedure for Mr Lee.",
+      "brief": "Nurses are trained to manage this, and he is detained, so he can't simply leave.",
+      "detailed": "The ward staff can manage this situation under the ward's procedure while you finish your urgent review. As he is detained, he can't lawfully leave, and the team can keep him safe."
+    },
+    {
+      "id": "H",
+      "text": "See Mr Lee as soon as you have finished with Ms Webb.",
+      "brief": "He still needs a doctor's assessment once the urgent review is done.",
+      "detailed": "His distress and wish to leave may need a medical review, and possibly a medication review. Seeing him promptly afterwards makes sure he isn't overlooked."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you prioritise between a possible medical emergency and a mental health situation that the nursing team can manage.",
+    "keyDetails": "Fever on clozapine is a red flag. Mr Lee is detained, and the ward has a procedure. Nurses are with him.",
+    "reasoning": "[B] completes the urgent medical review, [G] uses the team and its procedure for Mr Lee, and [H] makes sure he is seen soon after. The distractors abandon Ms Webb ([A]), act unlawfully ([C]), medicate inappropriately ([D]), escalate prematurely ([E]), or hand over unnecessarily ([F]).",
+    "competing": "[F] might seem efficient, but you are already part-way through and best placed to complete the assessment."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising care according to clinical need."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "clozapine",
+    "psychiatry",
+    "detained patients"
+  ]
+}

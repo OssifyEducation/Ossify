@@ -1,0 +1,117 @@
+{
+  "id": "sjt-290",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-290",
+  "format": "multiple_choice",
+  "title": "His younger brother",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Safety and quality",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Confidentiality",
+    "Listening"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Price, 19, is being treated for asthma. While you are taking his history, he tells you that his brother, 14, is being made to carry drugs to other towns by older men, who threatened their family when his brother tried to stop.\n\nHe asks you not to tell anyone, because he is scared of what the men might do.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Promise to keep it between the two of you.",
+      "brief": "You can't keep this promise when a child is at risk.",
+      "detailed": "A promise of confidentiality would have to be broken, which would damage his trust further."
+    },
+    {
+      "id": "B",
+      "text": "Phone the police yourself straight away.",
+      "brief": "Police may need to be involved, but the safeguarding team should coordinate it.",
+      "detailed": "If someone were in immediate danger, calling the police would be right. Here, the safeguarding team can coordinate a safer response that considers the threats to the family."
+    },
+    {
+      "id": "C",
+      "text": "Ask Mr Price to persuade his parents to go to the police.",
+      "brief": "Puts the responsibility on him and doesn't protect his brother.",
+      "detailed": "Encouraging the family may help, but it leaves a professional duty to a frightened young man."
+    },
+    {
+      "id": "D",
+      "text": "Thank him, and explain you must share it to protect his brother.",
+      "brief": "Honest about the limits of confidentiality, while acknowledging his courage.",
+      "detailed": "A child at risk of exploitation must be protected, so you can't keep this confidential. Explaining why, and thanking him, keeps his trust as far as possible and lets him know what will happen."
+    },
+    {
+      "id": "E",
+      "text": "Discuss it with the hospital's safeguarding children team today.",
+      "brief": "Child exploitation needs urgent specialist safeguarding action.",
+      "detailed": "The safeguarding team can make a referral to children's social care and advise on involving the police, taking into account the threats to the family."
+    },
+    {
+      "id": "F",
+      "text": "Contact his brother's school and ask them to keep a close eye on him.",
+      "brief": "An informal approach outside the safeguarding process.",
+      "detailed": "Schools are part of safeguarding, but contacting one directly, without the safeguarding team, risks an uncoordinated response."
+    },
+    {
+      "id": "G",
+      "text": "Record what he told you, in his words, in the notes.",
+      "brief": "Accurate records support the safeguarding process.",
+      "detailed": "A clear record of what was said, and when, helps the safeguarding team and any later enquiry."
+    },
+    {
+      "id": "H",
+      "text": "Leave it, as his brother isn't your patient.",
+      "brief": "Safeguarding duties apply to any child you learn may be at risk.",
+      "detailed": "Every doctor has a duty to act on concerns about a child, whether or not the child is their patient."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a disclosure of child exploitation, while being honest about confidentiality and sensitive to the risks to the family.",
+    "keyDetails": "A 14-year-old is being exploited. There have been threats. The disclosure came from his brother, who is frightened.",
+    "reasoning": "[D] is honest with Mr Price, [E] brings in the safeguarding team, and [G] records the disclosure. The distractors make a promise you can't keep ([A]), act alone ([B], [F]), pass on responsibility ([C]), or do nothing ([H]).",
+    "competing": "[B] is tempting because a crime is involved. The safeguarding team can involve the police in a way that takes account of the threats, and they should coordinate it."
+  },
+  "references": [
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Acting on concerns about any child, including one who isn't your patient."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Child exploitation and multi-agency safeguarding."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosing information to protect others from serious harm."
+    }
+  ],
+  "tags": [
+    "safeguarding",
+    "child exploitation",
+    "county lines",
+    "confidentiality"
+  ]
+}

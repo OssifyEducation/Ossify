@@ -1,0 +1,110 @@
+{
+  "id": "sjt-284",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-284",
+  "format": "multiple_choice",
+  "title": "Waiting for the consultant",
+  "setting": "Orthopaedics",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Raising concerns",
+    "Patient safety",
+    "Working with seniors"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in orthopaedics. The daily trauma meeting is meant to start at 08:00, but Mr Nolan, one of the consultants, has arrived 30 to 45 minutes late on most of his days this month. Decisions about which patients go to theatre are made only once he arrives.\n\nThis week, two older patients with hip fractures were fasted all day and then had their operations postponed because the theatre list started too late.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Mr Nolan, respectfully, about the patients whose operations were postponed.",
+      "brief": "He may not know the impact on patients, and should have the chance to respond.",
+      "detailed": "He may not realise his lateness is affecting patients. Telling him calmly about the specific cases is fair and may be enough to change things. It is hard for a junior, but it focuses on patients, not on him."
+    },
+    {
+      "id": "B",
+      "text": "Accept it, as it's a consultant's decision when to arrive.",
+      "brief": "Ignores a pattern that is harming patients.",
+      "detailed": "The impact on patients makes this more than a matter of a consultant's routine."
+    },
+    {
+      "id": "C",
+      "text": "Email the medical director about Mr Nolan's lateness.",
+      "brief": "Premature when local routes haven't been tried.",
+      "detailed": "Concerns can be escalated if local routes fail. Going straight to the medical director skips the consultant and your supervisor."
+    },
+    {
+      "id": "D",
+      "text": "Raise it with your clinical supervisor.",
+      "brief": "A senior can address a pattern that is affecting patient care.",
+      "detailed": "This is a recurring problem with consequences for patients. Your clinical supervisor can advise you and raise it at the right level."
+    },
+    {
+      "id": "E",
+      "text": "Start the meeting yourself and decide which patients go first.",
+      "brief": "Beyond your role and competence.",
+      "detailed": "Theatre decisions for trauma patients need senior judgement. Making them yourself could cause harm."
+    },
+    {
+      "id": "F",
+      "text": "Tell the patients that their operations were delayed because the consultant was late.",
+      "brief": "Honest explanations matter, but blaming a colleague isn't helpful.",
+      "detailed": "Patients deserve to know why their operations were postponed, but attributing it to one person, without the full picture, damages trust in the team."
+    },
+    {
+      "id": "G",
+      "text": "Ask the nurses to stop fasting patients until decisions are made.",
+      "brief": "Well meant, but it could delay surgery further.",
+      "detailed": "Fasting practice may well need reviewing, but changing it informally could mean patients aren't ready when a theatre slot appears."
+    },
+    {
+      "id": "H",
+      "text": "Report the postponed operations through the incident reporting system.",
+      "brief": "Delays to hip fracture surgery are a recognised harm worth reviewing.",
+      "detailed": "Prolonged fasting and delays to hip fracture surgery are associated with worse outcomes. Reporting them allows the department to look at the cause, including how the meeting runs."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a senior's behaviour when it is harming patients, using proportionate routes.",
+    "keyDetails": "The lateness is a pattern. Patients have been harmed by prolonged fasting and postponed operations. Local routes haven't been tried.",
+    "reasoning": "[A] raises it directly and respectfully, [D] involves your supervisor, and [H] records the harm so the system can be reviewed. The distractors ignore it ([B]), escalate prematurely ([C]), overstep your role ([E]), blame a colleague to patients ([F]), or change practice informally ([G]).",
+    "competing": "[A] is the hardest for a junior and some would skip it. The key includes it because a respectful, patient-focused conversation is often the quickest way to change things."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about patient safety, including about senior colleagues."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting incidents so that systems can be reviewed."
+    }
+  ],
+  "tags": [
+    "raising concerns",
+    "hip fracture",
+    "orthopaedics",
+    "seniors"
+  ]
+}

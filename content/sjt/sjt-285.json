@@ -1,0 +1,86 @@
+{
+  "id": "sjt-285",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-285",
+  "format": "ranking",
+  "title": "Leaving tomorrow",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Handover",
+    "Continuity of care",
+    "Organisation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Tomorrow you start a new rotation in a different hospital. Several of your patients are still waiting for results, including a CT scan for a possible malignancy and a set of blood cultures.\n\nThe F2 who will take over your patients starts tomorrow and doesn't know them.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the ward clerk to email you the results next week.",
+      "brief": "Results should go to the doctor responsible, not to someone who has left.",
+      "detailed": "You won't be responsible for these patients, and you won't be able to act on the results from another hospital. This creates confusion about who owns them."
+    },
+    {
+      "id": "B",
+      "text": "Write a handover of each pending result and what to do.",
+      "brief": "A written handover makes sure nothing is lost when you leave.",
+      "detailed": "Results that arrive after you have gone need a clear owner and a plan. A written list, with what each result means for the patient, gives the incoming F2 everything they need. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Leave the results for the team to find on the computer system.",
+      "brief": "Risks a significant result being missed.",
+      "detailed": "A new doctor who doesn't know the patients may not know to look. A possible malignancy could be missed. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Tell your patients who will be looking after them from tomorrow.",
+      "brief": "Helps continuity and reassures patients.",
+      "detailed": "Patients may worry when a familiar doctor leaves. Letting them know who will take over helps them feel looked after. It ranks second because it doesn't, by itself, make sure results are acted on."
+    },
+    {
+      "id": "E",
+      "text": "Chase the results that are due today before you leave.",
+      "brief": "Useful, but it won't capture results that come later.",
+      "detailed": "Acting on results that arrive today reduces the load on your successor, but the CT and cultures may come later. It ranks third."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "E",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make sure pending results have a clear owner before you leave a job.",
+    "keyDetails": "Significant results are pending. Your successor doesn't know the patients. You are moving to another hospital.",
+    "reasoning": "[B] gives a clear, written handover, [D] supports the patients, and [E] deals with today's results. [A] sends results to the wrong person, and [C] risks a missed diagnosis.",
+    "competing": "Some would put chasing today's results second. The key ranks telling patients second because it supports their care regardless of when results arrive."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, handing over care safely when you change roles."
+    }
+  ],
+  "tags": [
+    "handover",
+    "results",
+    "acute medicine",
+    "continuity"
+  ]
+}

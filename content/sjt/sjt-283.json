@@ -1,0 +1,85 @@
+{
+  "id": "sjt-283",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-283",
+  "format": "ranking",
+  "title": "Like this forever?",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating uncertainty",
+    "Hope",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an inpatient psychiatric unit. Mr Ito, 22, was admitted three weeks ago with his first episode of psychosis. He is responding to treatment, and his voices are much quieter.\n\nDuring a review, he asks you, \"Am I going to be like this forever? Will I ever be able to go back to university?\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell him it is likely to be a lifelong condition, so he should adjust his plans.",
+      "brief": "Premature and discouraging.",
+      "detailed": "This isn't known after a first episode and may take away hope and motivation for recovery. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Reassure him that he will definitely recover completely.",
+      "brief": "Well meant, but no one can promise this.",
+      "detailed": "Certainty you can't justify may leave him feeling let down if he has setbacks. Honest hope is better than false certainty."
+    },
+    {
+      "id": "C",
+      "text": "Ask what worries him most about the future.",
+      "brief": "Understanding his worries helps you answer what matters to him.",
+      "detailed": "His question may be about university, relationships, stigma or relapse. Exploring it first lets you respond to his real concern and shows you are listening. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Offer to arrange a meeting with his care coordinator to talk about university.",
+      "brief": "Practical support with his goals.",
+      "detailed": "A care coordinator, often from an early intervention team, can help plan a return to study. It is helpful but ranks third because he needs a response from you now."
+    },
+    {
+      "id": "E",
+      "text": "Explain honestly that many people recover well after a first episode, though no one can be certain for him.",
+      "brief": "Honest hope, without false certainty.",
+      "detailed": "Many people recover well from a first episode, especially with early treatment and support, although it can't be predicted for any individual. This is accurate and hopeful. It ranks second because it works best after understanding his concerns."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "D",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you answer a frightening question about the future honestly, while supporting hope.",
+    "keyDetails": "It is a first episode. He is responding to treatment. The outcome is uncertain. He has specific goals.",
+    "reasoning": "[C] explores his concern, [E] gives honest hope, and [D] supports his plans. [B] promises too much, and [A] takes away hope prematurely.",
+    "competing": "The order of [B] and [A] is debatable. The key ranks premature pessimism last because it could harm his recovery."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, honest and sensitive communication about prognosis."
+    }
+  ],
+  "tags": [
+    "psychosis",
+    "prognosis",
+    "hope",
+    "psychiatry"
+  ]
+}

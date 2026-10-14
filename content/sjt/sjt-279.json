@@ -1,0 +1,86 @@
+{
+  "id": "sjt-279",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-279",
+  "format": "ranking",
+  "title": "Who is operating?",
+  "setting": "Orthopaedics",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Consent",
+    "Communication"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in orthopaedics. Mr Dunn, 58, is having a knee replacement this afternoon. The theatre plan shows that the registrar will do the operation under the consultant's supervision, and a medical student will close the skin with the registrar.\n\nAs you check his paperwork, Mr Dunn says, \"Mr Ross is doing my operation himself, isn't he? He promised.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Mr Ross to speak to him about who will operate before he goes to theatre.",
+      "brief": "The consultant made the promise and should address it.",
+      "detailed": "If Mr Ross promised to operate himself, he should explain any change and agree a plan with Mr Dunn. It ranks second because Mr Dunn asked you directly, and you know the answer now."
+    },
+    {
+      "id": "B",
+      "text": "Explain honestly who is likely to do each part, and that he can object.",
+      "brief": "He is entitled to accurate information about who will operate.",
+      "detailed": "Who performs an operation can matter to patients and can be part of what they consent to. Explaining honestly what is planned, and that he can raise concerns or decline student involvement, respects his autonomy. It ranks first because he has asked you a direct question."
+    },
+    {
+      "id": "C",
+      "text": "Tell him that Mr Ross leads the team and is responsible for his operation.",
+      "brief": "True, but evasive about the question he actually asked.",
+      "detailed": "This is accurate, but it avoids his question and may leave him believing the consultant will operate. It is less honest than the options above."
+    },
+    {
+      "id": "D",
+      "text": "Reassure him that Mr Ross will be doing the operation.",
+      "brief": "Untrue and undermines his consent.",
+      "detailed": "This is a false statement about who will operate, which could invalidate his consent. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you answer a patient's direct question honestly when the truth may be awkward for the team.",
+    "keyDetails": "He believes the consultant will operate. The plan is different. A student will be involved. He asked you directly.",
+    "reasoning": "[B] answers honestly and respects his choice, and [A] involves the consultant who made the promise. [C] is evasive, and [D] is untrue.",
+    "competing": "Some would put asking Mr Ross first, as the change is his to explain. The key ranks your honest answer first because Mr Dunn asked you directly and is entitled to the truth now. Mr Ross should still speak to him."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Information patients need, including who will carry out a procedure."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, being honest with patients."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "consent",
+    "surgery",
+    "students"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-289",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-289",
+  "format": "ranking",
+  "title": "Not a male doctor",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting beliefs",
+    "Patient safety",
+    "Negotiation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are a male F2 doctor working for the GP out-of-hours service. You visit Mrs Begum, 79, at home. She has had abdominal pain and vomiting since the afternoon. She speaks English and is alert.\n\nHer son and daughter-in-law tell you that the family won't accept a male doctor examining her abdomen. The out-of-hours service has a female GP on duty tonight, but she is on visits across the county.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave without examining her, and advise the family to call back if she gets worse.",
+      "brief": "Leaves a possibly unwell patient unassessed.",
+      "detailed": "Abdominal pain and vomiting in an older patient can have serious causes. Leaving without assessment puts her at risk. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Phone the out-of-hours base to ask how soon the female GP could visit.",
+      "brief": "Respects the request, but may delay her assessment.",
+      "detailed": "If Mrs Begum would prefer a female doctor, finding out how soon one can come is reasonable. It ranks second because it may mean a long wait for a patient who could be seriously unwell."
+    },
+    {
+      "id": "C",
+      "text": "Tell the family you will examine her now, as she needs assessing.",
+      "brief": "Overrides their concerns without asking the patient.",
+      "detailed": "She does need assessing, but examining her without asking her, against the family's stated wishes, ignores both her autonomy and their beliefs."
+    },
+    {
+      "id": "D",
+      "text": "Ask Mrs Begum whether she'd accept you examining her, with a relative present.",
+      "brief": "She has capacity, and it's her decision.",
+      "detailed": "The family's view matters, but Mrs Begum is alert and can decide for herself. Asking her directly, and offering a female relative as a chaperone, respects her beliefs and her autonomy. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you balance a family's beliefs about gender with a patient's need for assessment, while keeping the patient at the centre.",
+    "keyDetails": "She is alert and has capacity. The family object to a male doctor. A female GP is on duty but far away. Her symptoms could be serious.",
+    "reasoning": "[D] asks the patient herself, with a chaperone. [B] respects the request but risks delay. [C] overrides everyone, and [A] leaves her unassessed.",
+    "competing": "Some would phone the base first, to respect the family's wishes. The key asks Mrs Begum first, because the decision is hers and she may well agree."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs about who examines them."
+    },
+    {
+      "title": "Intimate examinations and chaperones",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/intimate-examinations-and-chaperones",
+      "note": "Offering a chaperone and respecting patients' preferences in intimate examinations."
+    }
+  ],
+  "tags": [
+    "culture",
+    "chaperones",
+    "out-of-hours",
+    "gender"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": "sjt-281",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-281",
+  "format": "ranking",
+  "title": "The arterial line",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Candour",
+    "Incident reporting",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. While helping to reposition Mrs Shah, 64, who is awake after major surgery, you accidentally pulled apart the connection on her arterial line. There was a brief bleed onto the sheets before you and the nurse reconnected it.\n\nThe bleeding stopped quickly, the line is working, and her observations are unchanged. Mrs Shah saw the blood and asks what happened.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the ICU registrar what happened.",
+      "brief": "A senior should know, so they can decide whether anything else is needed.",
+      "detailed": "The registrar can decide whether she needs a blood test or any other review, and it is part of being open with the team. It ranks second because Mrs Shah's question comes first."
+    },
+    {
+      "id": "B",
+      "text": "Write in the notes that the line was reconnected, without describing how.",
+      "brief": "Incomplete and potentially misleading.",
+      "detailed": "The record should be accurate. Leaving out how the disconnection happened gives a misleading picture to anyone reading the notes later."
+    },
+    {
+      "id": "C",
+      "text": "Report it through the incident reporting system.",
+      "brief": "Supports learning about how lines are protected during repositioning.",
+      "detailed": "Accidental disconnections are a known risk, and reporting helps the unit look at how lines are secured. It is important but less immediate than speaking to Mrs Shah and the registrar."
+    },
+    {
+      "id": "D",
+      "text": "Tell Mrs Shah the line came loose by itself.",
+      "brief": "Untrue, and undermines her trust.",
+      "detailed": "This is a lie to cover a mistake. Even when no harm results, being dishonest with a patient is a serious breach of professional duty. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Explain to Mrs Shah what happened, and apologise.",
+      "brief": "She saw it happen and is entitled to an honest explanation.",
+      "detailed": "She has asked directly, and being open when something goes wrong is a professional duty even when no lasting harm is done. A simple explanation and apology also reassures her. It ranks first because she is worried now."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "A",
+      "C",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you are open about a minor error you made, even when it caused no lasting harm.",
+    "keyDetails": "It was your mistake. She saw it and is asking. There was no lasting harm. The line is working.",
+    "reasoning": "[E] is honest with her, [A] informs a senior, and [C] supports learning. [B] leaves an incomplete record, and [D] is dishonest.",
+    "competing": "[A] and [C] are close. The key puts telling the registrar first because a senior may want to check her, while reporting can follow later in the shift."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with patients about mistakes, including those that cause no lasting harm."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting incidents to support learning."
+    }
+  ],
+  "tags": [
+    "candour",
+    "errors",
+    "intensive care",
+    "lines"
+  ]
+}

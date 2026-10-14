@@ -1,0 +1,86 @@
+{
+  "id": "sjt-287",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-287",
+  "format": "ranking",
+  "title": "An unfamiliar regimen",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Safe prescribing",
+    "Recognising limits",
+    "Seeking advice"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on the acute medical unit. Mrs Owusu, 52, has type 1 diabetes and has been admitted with a foot infection. A senior nurse asks you to prescribe a variable-rate insulin regimen alongside her usual basal insulin, which you haven't prescribed before.\n\nThe nurse tells you the exact doses, saying, \"It's what the diabetes team always do. Just write it up.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the diabetes team for advice before prescribing.",
+      "brief": "The specialist team can confirm the regimen is right for her.",
+      "detailed": "You are responsible for anything you prescribe. Asking the diabetes team makes sure the regimen is right for this patient and helps you learn. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Check the trust's insulin guideline before prescribing.",
+      "brief": "A guideline gives a reliable basis for the prescription.",
+      "detailed": "Most trusts have guidance on variable-rate insulin. Checking it is a good way to make sure the prescription is safe, though it may not cover her particular situation as well as the specialist team can."
+    },
+    {
+      "id": "C",
+      "text": "Ask your registrar to check the prescription with you.",
+      "brief": "A senior check adds safety, though they may not be expert in insulin.",
+      "detailed": "Your registrar can check your reasoning and doses. It ranks third because the diabetes team or the guideline are more reliable sources for an insulin regimen."
+    },
+    {
+      "id": "D",
+      "text": "Prescribe it as the nurse suggests, since she knows the regimen well.",
+      "brief": "Prescribing something you don't understand, on someone else's word, is unsafe.",
+      "detailed": "The nurse may be right, but insulin errors can be fatal, and you are responsible for the prescription. Prescribing it without checking is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Prescribe it, and ask the ward pharmacist to check it later today.",
+      "brief": "A later check adds some safety, but insulin may be given first.",
+      "detailed": "A pharmacist's check is a real safeguard and may catch an error. But insulin could be given before the check happens, and you would still be prescribing something you don't understand. It ranks fourth."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "B",
+      "C",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you prescribe only what you understand, seeking advice rather than relying on someone else's assurance.",
+    "keyDetails": "It's an unfamiliar, high-risk drug regimen. The nurse is experienced but not the prescriber. Specialist advice is available.",
+    "reasoning": "[A] gets specialist advice, [B] uses the trust's guidance, and [C] adds a senior check. [E] relies on a check that may come too late, and [D] prescribes without any check.",
+    "competing": "[B] and [C] are close. The key prefers the trust's guideline to a registrar's check because the guideline is written for exactly this regimen."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Prescribing only when you have adequate knowledge of the patient and the medicine."
+    }
+  ],
+  "tags": [
+    "insulin",
+    "prescribing",
+    "competence",
+    "acute medicine"
+  ]
+}

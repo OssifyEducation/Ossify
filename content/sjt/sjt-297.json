@@ -1,0 +1,85 @@
+{
+  "id": "sjt-297",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-2",
+  "blueprint": "sjt-297",
+  "format": "ranking",
+  "title": "Still at work",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Compassion",
+    "Respecting privacy"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in paediatrics. Your colleague Dr Lin, another F2, tells you quietly that her baby has just been diagnosed with a serious heart condition and will need surgery.\n\nShe is still working her shift, and you notice she seems distracted and tearful.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Avoid mentioning it, so as not to upset her.",
+      "brief": "Well meant, but may leave her feeling unsupported.",
+      "detailed": "Some people prefer not to talk, but saying nothing after she confided in you could feel like indifference."
+    },
+    {
+      "id": "B",
+      "text": "Offer to take on some of her tasks today.",
+      "brief": "Practical help with the workload.",
+      "detailed": "Reducing her workload may help her get through the shift, or give her time for calls about her baby. It ranks second because it works best once you know what she wants."
+    },
+    {
+      "id": "C",
+      "text": "Ask her privately how she is and what would help.",
+      "brief": "A personal, private check-in comes first.",
+      "detailed": "She has confided in you. Asking gently how she is coping, and what would help, shows support and lets her say what she needs. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Tell the rota coordinator that she needs time off.",
+      "brief": "Shares her private news and makes a decision that is hers.",
+      "detailed": "This discloses her personal information without permission and takes a decision that belongs to her. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Suggest she speaks to her supervisor about support or leave.",
+      "brief": "Points her to formal support she may need.",
+      "detailed": "Her supervisor can arrange leave or adjustments. Suggesting it helps her access formal support, although it is less immediate than personal and practical help."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "E",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague in distress, while respecting her privacy and choices.",
+    "keyDetails": "She confided in you. She is still working. She seems distracted. Her news is private.",
+    "reasoning": "[C] offers personal support, [B] offers practical help, and [E] points to formal support. [A] risks seeming indifferent, and [D] breaches her privacy.",
+    "competing": "Some would suggest speaking to her supervisor sooner. The key puts personal support first because she has confided in you."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues who have problems."
+    }
+  ],
+  "tags": [
+    "colleague support",
+    "privacy",
+    "paediatrics",
+    "wellbeing"
+  ]
+}
