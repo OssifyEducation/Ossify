@@ -19,14 +19,14 @@
     "Seeking advice"
   ],
   "difficulty": "easy",
-  "stem": "You are an F2 doctor on the acute medical unit. Mrs Owusu, 52, has type 1 diabetes and has been admitted with a foot infection. A senior nurse asks you to prescribe a variable-rate insulin regimen alongside her usual basal insulin, which you haven't prescribed before.\n\nThe nurse tells you the exact doses, saying, \"It's what the diabetes team always do. Just write it up.\"",
+  "stem": "You are an F2 doctor on the acute medical unit. Mrs Owusu, 52, has type 1 diabetes and has been admitted with a foot infection. She is nil by mouth for surgery this afternoon, and a senior nurse asks you to prescribe a variable-rate insulin infusion alongside her usual basal insulin, which you haven't prescribed before. The diabetes specialist nurse is on the unit today.\n\nThe nurse tells you the exact doses, saying, \"It's what the diabetes team always do. Just write it up.\"",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
       "id": "A",
       "text": "Ask the diabetes team for advice before prescribing.",
       "brief": "The specialist team can confirm the regimen is right for her.",
-      "detailed": "You are responsible for anything you prescribe. Asking the diabetes team makes sure the regimen is right for this patient and helps you learn. It ranks first."
+      "detailed": "You are responsible for anything you prescribe. The diabetes specialist nurse is on the unit, so asking now makes sure the regimen is right for this patient, including her basal insulin while she is nil by mouth, and helps you learn. It ranks first."
     },
     {
       "id": "B",
@@ -66,7 +66,7 @@
     "issue": "This tests whether you prescribe only what you understand, seeking advice rather than relying on someone else's assurance.",
     "keyDetails": "It's an unfamiliar, high-risk drug regimen. The nurse is experienced but not the prescriber. Specialist advice is available.",
     "reasoning": "[A] gets specialist advice, [B] uses the trust's guidance, and [C] adds a senior check. [E] relies on a check that may come too late, and [D] prescribes without any check.",
-    "competing": "[B] and [C] are close. The key prefers the trust's guideline to a registrar's check because the guideline is written for exactly this regimen."
+    "competing": "[A] and [B] are close, and checking the guideline is good practice. The key puts the diabetes specialist nurse first because she is on the unit and can advise on this patient, not just the regimen. [B] and [C] are also close: the guideline is written for exactly this situation, which is why it ranks above a registrar's check."
   },
   "references": [
     {

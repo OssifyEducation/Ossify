@@ -55,9 +55,9 @@
     },
     {
       "id": "F",
-      "text": "Ask the nurse to call the medical registrar to take over Ms Webb.",
-      "brief": "Unnecessary handover of an assessment you are part-way through.",
-      "detailed": "You may need advice about her results, but handing over mid-assessment, in order to see a patient the nurses can manage, isn't a good use of the team."
+      "text": "Ask the nurse to call 999 to transfer Ms Webb to the Emergency Department.",
+      "brief": "Premature before you have finished assessing her.",
+      "detailed": "She may need transfer if her white cell count is low or she becomes unwell, but arranging it before you have finished assessing her, in order to free yourself, isn't a good use of emergency services."
     },
     {
       "id": "G",
@@ -82,8 +82,8 @@
   "explanation": {
     "issue": "This tests how you prioritise between a possible medical emergency and a mental health situation that the nursing team can manage.",
     "keyDetails": "Fever on clozapine is a red flag. Mr Lee is detained, and the ward has a procedure. Nurses are with him.",
-    "reasoning": "[B] completes the urgent medical review, [G] uses the team and its procedure for Mr Lee, and [H] makes sure he is seen soon after. The distractors abandon Ms Webb ([A]), act unlawfully ([C]), medicate inappropriately ([D]), escalate prematurely ([E]), or hand over unnecessarily ([F]).",
-    "competing": "[F] might seem efficient, but you are already part-way through and best placed to complete the assessment."
+    "reasoning": "[B] completes the urgent medical review, [G] uses the team and its procedure for Mr Lee, and [H] makes sure he is seen soon after. The distractors abandon Ms Webb ([A]), act unlawfully ([C]), medicate inappropriately ([D]), or escalate prematurely ([E], [F]).",
+    "competing": "[F] might become necessary, but it should follow your assessment and her results, not replace them."
   },
   "references": [
     {

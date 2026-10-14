@@ -18,7 +18,7 @@
     "Balancing service"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in obstetrics and gynaecology. Your protected teaching session has been cancelled for the third time this month, because the labour ward is short of doctors.\n\nYou are worried you are falling behind on your learning, and you know other trainees on the rota feel the same.",
+  "stem": "You are an F2 doctor in obstetrics and gynaecology. Your protected teaching session has been cancelled for the third time this month, because the labour ward is short of doctors. Your trust asks doctors to submit an exception report when they miss protected teaching.\n\nYou are worried you are falling behind on your learning, and you know other trainees on the rota feel the same.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
@@ -41,15 +41,15 @@
     },
     {
       "id": "D",
-      "text": "Leave the labour ward to attend teaching at another hospital next week.",
+      "text": "Leave your labour ward shift early next week to attend a regional teaching day.",
       "brief": "Leaves the ward short, which puts patients at risk.",
-      "detailed": "Your learning matters, but leaving a short-staffed labour ward to attend teaching elsewhere puts patients at risk. It is the least appropriate option."
+      "detailed": "Your learning matters, but leaving a rostered shift early on a short-staffed labour ward puts patients at risk. It is the least appropriate option."
     },
     {
       "id": "E",
       "text": "Submit an exception report for the missed teaching.",
       "brief": "This is the formal way to record missed educational opportunities.",
-      "detailed": "Exception reports can be made for missed education as well as extra hours. They go to your educational supervisor and help the trust see the pattern. It ranks first because it is the route designed for this problem."
+      "detailed": "Your trust uses exception reports for missed education as well as extra hours. They go to your educational supervisor and help the trust see the pattern. It ranks first because it is the route designed for this problem."
     }
   ],
   "key": {

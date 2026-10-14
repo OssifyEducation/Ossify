@@ -19,7 +19,7 @@
     "Responding to challenge"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in the Emergency Department. You prescribed intravenous gentamicin for a patient with suspected urosepsis. A nurse, Kate, tells you she won't give it because she thinks the dose is too high for the patient's kidney function.\n\nYou are busy and feel confident you used the trust's gentamicin calculator.",
+  "stem": "You are an F2 doctor in the Emergency Department. You prescribed intravenous gentamicin for Mr Grant, 74, who has suspected urosepsis. A nurse, Kate, tells you she won't give it because she thinks the dose is too high for the patient's kidney function.\n\nYou are busy and feel confident you used the trust's gentamicin calculator.",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [

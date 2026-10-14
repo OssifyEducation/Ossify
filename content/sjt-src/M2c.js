@@ -173,7 +173,7 @@ module.exports = [
     issue: "This tests whether you answer a patient's direct question honestly when the truth may be awkward for the team.",
     keyDetails: "He believes the consultant will operate. The plan is different. A student will be involved. He asked you directly.",
     reasoning: "{1} answers honestly and respects his choice, and {2} involves the consultant who made the promise. {3} is evasive, and {4} is untrue.",
-    competing: "Some would put asking Mr Ross first, as the change is his to explain. The key ranks your honest answer first because Mr Dunn asked you directly and is entitled to the truth now. Mr Ross should still speak to him."
+    competing: "Some would put asking Mr Ross first, as the promise was his and the change is his to explain. That is a reasonable order, and the two belong together. The key ranks your honest answer first because Mr Dunn has asked you a direct question that you can answer, and leaving him with a false belief, even briefly, isn't honest. Mr Ross should still speak to him before theatre."
   },
   refs: [
     { ref: "consent", note: "Information patients need, including who will carry out a procedure." },
@@ -307,15 +307,15 @@ module.exports = [
     { text: "Phone the police to come to the ward.",
       brief: "Premature, as the staff can manage the situation.",
       detailed: "Police may be needed if a detained patient goes missing or there is serious violence. At this stage the ward team can manage it." },
-    { text: "Ask the nurse to call the medical registrar to take over Ms Webb.",
-      brief: "Unnecessary handover of an assessment you are part-way through.",
-      detailed: "You may need advice about her results, but handing over mid-assessment, in order to see a patient the nurses can manage, isn't a good use of the team." }
+    { text: "Ask the nurse to call 999 to transfer Ms Webb to the Emergency Department.",
+      brief: "Premature before you have finished assessing her.",
+      detailed: "She may need transfer if her white cell count is low or she becomes unwell, but arranging it before you have finished assessing her, in order to free yourself, isn't a good use of emergency services." }
   ],
   explanation: {
     issue: "This tests how you prioritise between a possible medical emergency and a mental health situation that the nursing team can manage.",
     keyDetails: "Fever on clozapine is a red flag. Mr Lee is detained, and the ward has a procedure. Nurses are with him.",
-    reasoning: "{k1} completes the urgent medical review, {k2} uses the team and its procedure for Mr Lee, and {k3} makes sure he is seen soon after. The distractors abandon Ms Webb ({d1}), act unlawfully ({d2}), medicate inappropriately ({d3}), escalate prematurely ({d4}), or hand over unnecessarily ({d5}).",
-    competing: "{d5} might seem efficient, but you are already part-way through and best placed to complete the assessment."
+    reasoning: "{k1} completes the urgent medical review, {k2} uses the team and its procedure for Mr Lee, and {k3} makes sure he is seen soon after. The distractors abandon Ms Webb ({d1}), act unlawfully ({d2}), medicate inappropriately ({d3}), or escalate prematurely ({d4}, {d5}).",
+    competing: "{d5} might become necessary, but it should follow your assessment and her results, not replace them."
   },
   refs: [
     { ref: "gmp", note: "Domain 1, prioritising care according to clinical need." }
@@ -511,12 +511,12 @@ module.exports = [
   gmcDomains: ["Knowledge, skills and development", "Safety and quality"],
   competencies: ["Safe prescribing", "Recognising limits", "Seeking advice"],
   stem:
-    "You are an F2 doctor on the acute medical unit. Mrs Owusu, 52, has type 1 diabetes and has been admitted with a foot infection. A senior nurse asks you to prescribe a variable-rate insulin regimen alongside her usual basal insulin, which you haven't prescribed before.\n\n" +
+    "You are an F2 doctor on the acute medical unit. Mrs Owusu, 52, has type 1 diabetes and has been admitted with a foot infection. She is nil by mouth for surgery this afternoon, and a senior nurse asks you to prescribe a variable-rate insulin infusion alongside her usual basal insulin, which you haven't prescribed before. The diabetes specialist nurse is on the unit today.\n\n" +
     "The nurse tells you the exact doses, saying, \"It's what the diabetes team always do. Just write it up.\"",
   options: [
     { text: "Ask the diabetes team for advice before prescribing.",
       brief: "The specialist team can confirm the regimen is right for her.",
-      detailed: "You are responsible for anything you prescribe. Asking the diabetes team makes sure the regimen is right for this patient and helps you learn. It ranks first." },
+      detailed: "You are responsible for anything you prescribe. The diabetes specialist nurse is on the unit, so asking now makes sure the regimen is right for this patient, including her basal insulin while she is nil by mouth, and helps you learn. It ranks first." },
     { text: "Check the trust's insulin guideline before prescribing.",
       brief: "A guideline gives a reliable basis for the prescription.",
       detailed: "Most trusts have guidance on variable-rate insulin. Checking it is a good way to make sure the prescription is safe, though it may not cover her particular situation as well as the specialist team can." },
@@ -534,7 +534,7 @@ module.exports = [
     issue: "This tests whether you prescribe only what you understand, seeking advice rather than relying on someone else's assurance.",
     keyDetails: "It's an unfamiliar, high-risk drug regimen. The nurse is experienced but not the prescriber. Specialist advice is available.",
     reasoning: "{1} gets specialist advice, {2} uses the trust's guidance, and {3} adds a senior check. {4} relies on a check that may come too late, and {5} prescribes without any check.",
-    competing: "{2} and {3} are close. The key prefers the trust's guideline to a registrar's check because the guideline is written for exactly this regimen."
+    competing: "{1} and {2} are close, and checking the guideline is good practice. The key puts the diabetes specialist nurse first because she is on the unit and can advise on this patient, not just the regimen. {2} and {3} are also close: the guideline is written for exactly this situation, which is why it ranks above a registrar's check."
   },
   refs: [
     { ref: "prescribing", note: "Prescribing only when you have adequate knowledge of the patient and the medicine." }

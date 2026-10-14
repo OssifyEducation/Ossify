@@ -135,7 +135,7 @@ module.exports = [
     issue: "This tests whether you act on a disclosure of child exploitation, while being honest about confidentiality and sensitive to the risks to the family.",
     keyDetails: "A 14-year-old is being exploited. There have been threats. The disclosure came from his brother, who is frightened.",
     reasoning: "{k1} is honest with Mr Price, {k2} brings in the safeguarding team, and {k3} records the disclosure. The distractors make a promise you can't keep ({d1}), act alone ({d2}, {d4}), pass on responsibility ({d3}), or do nothing ({d5}).",
-    competing: "{d2} is tempting because a crime is involved. The safeguarding team can involve the police in a way that takes account of the threats, and they should coordinate it."
+    competing: "{d2} is tempting because a crime is involved and there have been threats. If anyone were in immediate danger, you would call the police yourself. Otherwise the safeguarding team can involve the police straight away, in a way that takes account of the threats to the family."
   },
   refs: [
     { ref: "children", note: "Acting on concerns about any child, including one who isn't your patient." },
@@ -153,12 +153,12 @@ module.exports = [
   gmcDomains: ["Knowledge, skills and development"],
   competencies: ["Advocating for training", "Using formal processes", "Balancing service"],
   stem:
-    "You are an F2 doctor in obstetrics and gynaecology. Your protected teaching session has been cancelled for the third time this month, because the labour ward is short of doctors.\n\n" +
+    "You are an F2 doctor in obstetrics and gynaecology. Your protected teaching session has been cancelled for the third time this month, because the labour ward is short of doctors. Your trust asks doctors to submit an exception report when they miss protected teaching.\n\n" +
     "You are worried you are falling behind on your learning, and you know other trainees on the rota feel the same.",
   options: [
     { text: "Submit an exception report for the missed teaching.",
       brief: "This is the formal way to record missed educational opportunities.",
-      detailed: "Exception reports can be made for missed education as well as extra hours. They go to your educational supervisor and help the trust see the pattern. It ranks first because it is the route designed for this problem." },
+      detailed: "Your trust uses exception reports for missed education as well as extra hours. They go to your educational supervisor and help the trust see the pattern. It ranks first because it is the route designed for this problem." },
     { text: "Ask the rota coordinator whether teaching can be protected on the rota.",
       brief: "A practical step towards fixing the cause.",
       detailed: "Rota changes may make protected teaching possible. It ranks second because a single request is less likely to change things than a formal report that shows the pattern." },
@@ -168,9 +168,9 @@ module.exports = [
     { text: "Accept it, as service needs come first.",
       brief: "Leaves a recurring problem unaddressed.",
       detailed: "Occasional cancellations are inevitable, but a repeated pattern affects training and should be raised. Accepting it means nothing changes." },
-    { text: "Leave the labour ward to attend teaching at another hospital next week.",
+    { text: "Leave your labour ward shift early next week to attend a regional teaching day.",
       brief: "Leaves the ward short, which puts patients at risk.",
-      detailed: "Your learning matters, but leaving a short-staffed labour ward to attend teaching elsewhere puts patients at risk. It is the least appropriate option." }
+      detailed: "Your learning matters, but leaving a rostered shift early on a short-staffed labour ward puts patients at risk. It is the least appropriate option." }
   ],
   explanation: {
     issue: "This tests whether you use proper routes to protect your training, without putting patients at risk.",
@@ -193,7 +193,7 @@ module.exports = [
   competencies: ["Capacity assessment", "Delirium", "Least restrictive care"],
   stem:
     "You are an F2 doctor on an elderly care ward. Mr Cole, 84, was admitted yesterday with a urinary tract infection. This evening he keeps walking towards the ward exit, saying he needs to \"get home to feed the dog\".\n\n" +
-    "He seems muddled, and the nurses are struggling to keep him on the ward. His capacity to decide whether to stay in hospital hasn't been assessed.",
+    "He seems muddled, and the nurses are struggling to keep him on the ward. His capacity to decide whether to stay in hospital hasn't been assessed. His daughter visits every afternoon.",
   options: [
     // keyed
     { text: "Assess his capacity to decide whether to stay in hospital.",
@@ -243,7 +243,7 @@ module.exports = [
   gmcDomains: ["Patients, partnership and communication", "Safety and quality"],
   competencies: ["Confidentiality", "Record-keeping", "Exploring concerns"],
   stem:
-    "You are an F2 doctor in a GP practice. Mr Novak, 38, was recently diagnosed with HIV at a sexual health clinic, which has written to the practice. He has started antiretroviral treatment.\n\n" +
+    "You are an F2 doctor in a GP practice. Mr Novak, 38, was recently diagnosed with HIV at a sexual health clinic, which has written to the practice. The letter hasn't yet been added to his record. He has started antiretroviral treatment.\n\n" +
     "At an appointment about something else, he asks you not to record his HIV diagnosis in his GP notes, because he is worried that \"anyone could see it\".",
   options: [
     { text: "Ask what worries him about the diagnosis being in his notes.",
@@ -284,7 +284,7 @@ module.exports = [
   competencies: ["Suicide risk assessment", "Compassion", "Escalation"],
   stem:
     "You are an F2 doctor in a heart failure clinic. Mr Stone, 67, has worsening heart failure. During a routine review of his medicines, he says, \"Sometimes I think it would be easier if I just didn't wake up. I've thought about taking all my tablets at once.\"\n\n" +
-    "He says his wife died last year and he lives alone. He has a large supply of medicines at home.",
+    "He says his wife died last year and he lives alone, though his daughter lives nearby. He has a large supply of medicines at home.",
   options: [
     // keyed
     { text: "Ask him directly about his thoughts of suicide and any plans.",
@@ -295,7 +295,7 @@ module.exports = [
       detailed: "Giving him space to talk about his grief and his illness shows compassion and helps you understand his situation. Many people feel relieved to be asked." },
     { text: "Agree an urgent mental health plan with a senior colleague.",
       brief: "His risk needs a same-day plan, agreed with someone senior.",
-      detailed: "He is older, lives alone, is bereaved and has a chronic illness, a method and access to it. A senior should help you decide the urgency, which may mean a same-day referral to the crisis or liaison team." },
+      detailed: "He is older, lives alone, is bereaved and has a chronic illness, a method and access to it. A senior should help you decide the urgency, which may mean a same-day referral to the crisis or liaison team, and a plan to reduce his access to his stockpile of medicines." },
     // distractors
     { text: "Reassure him that it's normal to feel low with heart failure.",
       brief: "Low mood is common, but this minimises what he has disclosed.",
@@ -463,7 +463,7 @@ module.exports = [
   gmcDomains: ["Collaboration, teamwork and leadership", "Safety and quality"],
   competencies: ["Teamwork", "Safe prescribing", "Responding to challenge"],
   stem:
-    "You are an F2 doctor in the Emergency Department. You prescribed intravenous gentamicin for a patient with suspected urosepsis. A nurse, Kate, tells you she won't give it because she thinks the dose is too high for the patient's kidney function.\n\n" +
+    "You are an F2 doctor in the Emergency Department. You prescribed intravenous gentamicin for Mr Grant, 74, who has suspected urosepsis. A nurse, Kate, tells you she won't give it because she thinks the dose is too high for the patient's kidney function.\n\n" +
     "You are busy and feel confident you used the trust's gentamicin calculator.",
   options: [
     // keyed
@@ -520,9 +520,9 @@ module.exports = [
     { text: "Say calmly that the comments don't seem fair to him.",
       brief: "A brief, calm challenge in the moment shows respect for the patient.",
       detailed: "Comments like these are disrespectful, and could be overheard through the open door. A calm, brief remark addresses it at once without being confrontational. It ranks first, although it is hard to do with seniors." },
-    { text: "Speak to the registrar privately later about the comments.",
+    { text: "Speak to them privately later about the comments.",
       brief: "Less confrontational, but delays addressing it.",
-      detailed: "A private conversation may feel easier and can still be effective. It ranks second because it doesn't stop the comments now, when they could be overheard." },
+      detailed: "A private conversation with the registrar and consultant may feel easier and can still be effective. It ranks second because it doesn't stop the comments now, when they could be overheard." },
     { text: "Raise it with your educational supervisor.",
       brief: "Gets support, though it doesn't address the moment directly.",
       detailed: "Your supervisor can help you decide what to do about seniors' behaviour. It ranks third because it doesn't challenge the comments or address them with the people involved." },
@@ -534,7 +534,7 @@ module.exports = [
     issue: "This tests whether you challenge disrespectful comments about a patient, even when they come from seniors.",
     keyDetails: "The comments are about a patient's appearance. The speakers are senior to you. Others could overhear.",
     reasoning: "{1} challenges calmly in the moment, {2} addresses it privately, and {3} seeks support. {4} endorses the behaviour.",
-    competing: "Some would prefer a private word with the registrar, as it is easier with seniors. The key favours a calm comment now because the remarks could be overheard by others."
+    competing: "Some would prefer a private word afterwards, as it is easier with seniors. The key favours a calm comment now because the remarks could be overheard by others."
   },
   refs: [
     { ref: "gmp", note: "Domain 2, treating patients with dignity, including when they aren't present." }

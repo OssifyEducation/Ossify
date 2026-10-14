@@ -19,7 +19,7 @@
     "Exploring concerns"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in a GP practice. Mr Novak, 38, was recently diagnosed with HIV at a sexual health clinic, which has written to the practice. He has started antiretroviral treatment.\n\nAt an appointment about something else, he asks you not to record his HIV diagnosis in his GP notes, because he is worried that \"anyone could see it\".",
+  "stem": "You are an F2 doctor in a GP practice. Mr Novak, 38, was recently diagnosed with HIV at a sexual health clinic, which has written to the practice. The letter hasn't yet been added to his record. He has started antiretroviral treatment.\n\nAt an appointment about something else, he asks you not to record his HIV diagnosis in his GP notes, because he is worried that \"anyone could see it\".",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

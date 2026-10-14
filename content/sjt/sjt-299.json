@@ -30,9 +30,9 @@
     },
     {
       "id": "B",
-      "text": "Speak to the registrar privately later about the comments.",
+      "text": "Speak to them privately later about the comments.",
       "brief": "Less confrontational, but delays addressing it.",
-      "detailed": "A private conversation may feel easier and can still be effective. It ranks second because it doesn't stop the comments now, when they could be overheard."
+      "detailed": "A private conversation with the registrar and consultant may feel easier and can still be effective. It ranks second because it doesn't stop the comments now, when they could be overheard."
     },
     {
       "id": "C",
@@ -59,7 +59,7 @@
     "issue": "This tests whether you challenge disrespectful comments about a patient, even when they come from seniors.",
     "keyDetails": "The comments are about a patient's appearance. The speakers are senior to you. Others could overhear.",
     "reasoning": "[D] challenges calmly in the moment, [B] addresses it privately, and [C] seeks support. [A] endorses the behaviour.",
-    "competing": "Some would prefer a private word with the registrar, as it is easier with seniors. The key favours a calm comment now because the remarks could be overheard by others."
+    "competing": "Some would prefer a private word afterwards, as it is easier with seniors. The key favours a calm comment now because the remarks could be overheard by others."
   },
   "references": [
     {

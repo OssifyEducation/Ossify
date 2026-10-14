@@ -19,7 +19,7 @@
     "Escalation"
   ],
   "difficulty": "hard",
-  "stem": "You are an F2 doctor in a heart failure clinic. Mr Stone, 67, has worsening heart failure. During a routine review of his medicines, he says, \"Sometimes I think it would be easier if I just didn't wake up. I've thought about taking all my tablets at once.\"\n\nHe says his wife died last year and he lives alone. He has a large supply of medicines at home.",
+  "stem": "You are an F2 doctor in a heart failure clinic. Mr Stone, 67, has worsening heart failure. During a routine review of his medicines, he says, \"Sometimes I think it would be easier if I just didn't wake up. I've thought about taking all my tablets at once.\"\n\nHe says his wife died last year and he lives alone, though his daughter lives nearby. He has a large supply of medicines at home.",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [
@@ -57,7 +57,7 @@
       "id": "F",
       "text": "Agree an urgent mental health plan with a senior colleague.",
       "brief": "His risk needs a same-day plan, agreed with someone senior.",
-      "detailed": "He is older, lives alone, is bereaved and has a chronic illness, a method and access to it. A senior should help you decide the urgency, which may mean a same-day referral to the crisis or liaison team."
+      "detailed": "He is older, lives alone, is bereaved and has a chronic illness, a method and access to it. A senior should help you decide the urgency, which may mean a same-day referral to the crisis or liaison team, and a plan to reduce his access to his stockpile of medicines."
     },
     {
       "id": "G",

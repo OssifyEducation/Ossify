@@ -59,7 +59,7 @@
     "issue": "This tests whether you answer a patient's direct question honestly when the truth may be awkward for the team.",
     "keyDetails": "He believes the consultant will operate. The plan is different. A student will be involved. He asked you directly.",
     "reasoning": "[B] answers honestly and respects his choice, and [A] involves the consultant who made the promise. [C] is evasive, and [D] is untrue.",
-    "competing": "Some would put asking Mr Ross first, as the change is his to explain. The key ranks your honest answer first because Mr Dunn asked you directly and is entitled to the truth now. Mr Ross should still speak to him."
+    "competing": "Some would put asking Mr Ross first, as the promise was his and the change is his to explain. That is a reasonable order, and the two belong together. The key ranks your honest answer first because Mr Dunn has asked you a direct question that you can answer, and leaving him with a false belief, even briefly, isn't honest. Mr Ross should still speak to him before theatre."
   },
   "references": [
     {

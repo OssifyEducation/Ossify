@@ -19,7 +19,7 @@
     "Least restrictive care"
   ],
   "difficulty": "easy",
-  "stem": "You are an F2 doctor on an elderly care ward. Mr Cole, 84, was admitted yesterday with a urinary tract infection. This evening he keeps walking towards the ward exit, saying he needs to \"get home to feed the dog\".\n\nHe seems muddled, and the nurses are struggling to keep him on the ward. His capacity to decide whether to stay in hospital hasn't been assessed.",
+  "stem": "You are an F2 doctor on an elderly care ward. Mr Cole, 84, was admitted yesterday with a urinary tract infection. This evening he keeps walking towards the ward exit, saying he needs to \"get home to feed the dog\".\n\nHe seems muddled, and the nurses are struggling to keep him on the ward. His capacity to decide whether to stay in hospital hasn't been assessed. His daughter visits every afternoon.",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [
