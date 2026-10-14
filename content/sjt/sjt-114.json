@@ -1,0 +1,103 @@
+{
+  "id": "sjt-114",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-114",
+  "format": "multiple_choice",
+  "title": "\"It's all in his head\"",
+  "setting": "Orthopaedics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Taking pain seriously",
+    "Challenging stigma",
+    "Clinical assessment"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in orthopaedics. At evening handover, the day F2 says that Mr Kerr, 47, three days after a lumbar spine operation, \"keeps complaining of pain, but it's all in his head — he's got anxiety and he's been on painkillers for years\".\n\nLater the nurse asks you to see him because his pain is worse and he says his left leg feels weak.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the nurse to increase his opioid dose, as he is used to high doses.",
+      "brief": "Treats the symptom without assessment, missing a possible complication.",
+      "detailed": "Effective analgesia matters, and opioid tolerance may mean he needs more. But new leg weakness after spinal surgery needs assessing first."
+    },
+    {
+      "id": "B",
+      "text": "Assess him yourself, including a full neurological examination of his legs.",
+      "brief": "New weakness after spinal surgery needs urgent assessment.",
+      "detailed": "New leg weakness after a spinal operation can be a sign of a serious complication, such as a haematoma compressing the nerves, which needs urgent treatment. His anxiety doesn't change that."
+    },
+    {
+      "id": "C",
+      "text": "Escalate your findings to the orthopaedic registrar promptly.",
+      "brief": "A possible post-operative complication needs senior review.",
+      "detailed": "Whatever you find, new neurology after spinal surgery should be reviewed by the registrar, who can arrange urgent imaging if needed."
+    },
+    {
+      "id": "D",
+      "text": "Reassure Mr Kerr that his pain is probably due to anxiety.",
+      "brief": "Dismisses symptoms that may indicate a serious problem.",
+      "detailed": "Anxiety can make pain worse, but attributing new symptoms to it without assessment is unsafe and dismissive."
+    },
+    {
+      "id": "E",
+      "text": "Refer him to the liaison psychiatry team for his anxiety.",
+      "brief": "May help later, but doesn't address the new symptoms.",
+      "detailed": "Liaison psychiatry can help people with anxiety and chronic pain, and might be appropriate later. But it doesn't address new leg weakness tonight."
+    },
+    {
+      "id": "F",
+      "text": "Tell the day F2, privately, that the handover comment was unhelpful.",
+      "brief": "Labels like this can lead to missed diagnoses.",
+      "detailed": "The comment may reflect frustration rather than intent, but labelling a patient's pain as \"all in his head\" can lead others to dismiss real problems. A private, constructive word helps prevent it happening again."
+    },
+    {
+      "id": "G",
+      "text": "Request an urgent MRI scan of his spine before examining him.",
+      "brief": "Imaging may well be needed, but he needs examining and a senior decision first.",
+      "detailed": "Urgent imaging is likely if he has new neurological signs, which makes this tempting. But requesting it without examining him, or discussing with the registrar, skips the assessment that guides what's needed and how urgently."
+    },
+    {
+      "id": "H",
+      "text": "Wait to see whether his weakness improves overnight.",
+      "brief": "Delays assessment of a potential emergency.",
+      "detailed": "Some symptoms settle, but new weakness after spinal surgery can progress, and delays can lead to permanent harm."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you assess a patient's symptoms on their merits when a colleague's label suggests they aren't real, and address the label constructively.",
+    "keyDetails": "He has new leg weakness after spinal surgery. His pain is worse. He has been labelled as anxious and opioid-dependent.",
+    "reasoning": "[B] assesses him properly, [C] escalates promptly, and [F] addresses the stigmatising label. The distractors treat or investigate without assessment ([A], [G]), dismiss his symptoms ([D]), respond to the label rather than the symptoms ([E]), or delay ([H]).",
+    "competing": "[E] is the hard distractor: it may help later, but it treats the label rather than the new symptoms."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly and without prejudice; Domain 1, assessing patients' conditions."
+    }
+  ],
+  "tags": [
+    "stigma",
+    "pain",
+    "spinal surgery",
+    "handover"
+  ]
+}

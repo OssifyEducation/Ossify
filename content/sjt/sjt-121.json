@@ -1,0 +1,92 @@
+{
+  "id": "sjt-121",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-121",
+  "format": "ranking",
+  "title": "Always the evening jobs",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Colleagues, culture and safety"
+  ],
+  "competencies": [
+    "Challenging unfair treatment",
+    "Professional communication",
+    "Seeking advice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward, and you are Black. For the past month your registrar has given you nearly all the late jobs at the end of the day, while your white F2 colleague usually leaves on time.\n\nYou are working late most days, and you have started to wonder whether race is a factor.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Keep a factual record of how jobs are allocated.",
+      "brief": "A record helps you see whether the pattern is real and supports any later concern.",
+      "detailed": "Notes of dates and tasks help you and others judge whether the allocation is unfair. It ranks second because it doesn't change anything on its own."
+    },
+    {
+      "id": "B",
+      "text": "Seek advice from your educational supervisor.",
+      "brief": "Your supervisor can advise and support you.",
+      "detailed": "Your supervisor can help you think it through and, if needed, raise it. It ranks third because a direct conversation is the proportionate first step."
+    },
+    {
+      "id": "C",
+      "text": "Ask your F2 colleague to take on some of your evening jobs informally.",
+      "brief": "Shares the work, but leaves the allocation problem unaddressed.",
+      "detailed": "This may ease your workload, but it puts the burden on your colleague and doesn't deal with the cause."
+    },
+    {
+      "id": "D",
+      "text": "Raise the uneven allocation with the registrar, calmly and factually.",
+      "brief": "A factual conversation may resolve it, or show whether it's deliberate.",
+      "detailed": "The registrar may not have noticed the pattern. Raising it calmly, with examples, gives them the chance to explain or change it, without making an accusation you can't yet support."
+    },
+    {
+      "id": "E",
+      "text": "Accuse the registrar of racism in front of the team.",
+      "brief": "A public accusation, before the facts are clear, is likely to escalate things.",
+      "detailed": "Racial discrimination is serious and must be addressed, but a public accusation without evidence is unlikely to resolve it and could harm you."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "B",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to possibly discriminatory treatment: constructively, factually, and through proper routes.",
+    "keyDetails": "The pattern has lasted a month. You don't know the reason. You are working late most days.",
+    "reasoning": "[D] addresses it directly, [A] builds a factual picture, and [B] seeks support. [C] avoids the problem, and [E] escalates it inappropriately.",
+    "competing": "Some would seek advice before speaking to the registrar, especially if they feel unsafe raising it. That's reasonable; the key starts with a calm conversation as the proportionate first step."
+  },
+  "references": [
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Protection from discrimination, including race, at work."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, challenging discrimination and supporting a fair working environment."
+    }
+  ],
+  "tags": [
+    "discrimination",
+    "race",
+    "workload",
+    "registrars"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-120",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-120",
+  "format": "multiple_choice",
+  "title": "Photos for teaching",
+  "setting": "Intensive care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Consent for recordings",
+    "Confidentiality",
+    "Supporting students"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. You notice a final-year medical student taking photographs on her personal phone of an unusual skin rash on Mr Tait, 52, who is sedated and ventilated.\n\nWhen you ask, she says they are \"just for teaching\" and that she won't show his face.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask her to stop, and to delete the photos while you watch.",
+      "brief": "Photos taken without consent, on a personal device, shouldn't be kept.",
+      "detailed": "Mr Tait can't consent, and personal phones aren't secure. Stopping her and making sure the photos are deleted, including from any cloud backup, protects his privacy."
+    },
+    {
+      "id": "B",
+      "text": "Let her keep the photos, as his face isn't shown.",
+      "brief": "Images can still be identifiable, and consent is still needed.",
+      "detailed": "Leaving out the face reduces the risk of identification, but doesn't remove it, and consent is still needed."
+    },
+    {
+      "id": "C",
+      "text": "Ask her to send the photos to you, so you can store them securely.",
+      "brief": "Moves the problem to your phone.",
+      "detailed": "This doesn't address the lack of consent, and your personal phone is no more appropriate."
+    },
+    {
+      "id": "D",
+      "text": "Report her to the medical school straight away.",
+      "brief": "Disproportionate before speaking to her and her supervisor.",
+      "detailed": "The medical school may need to be involved, but a conversation and involving her supervisor come first."
+    },
+    {
+      "id": "E",
+      "text": "Tell Mr Tait's family what happened.",
+      "brief": "May be needed later, but not before the team has decided how to handle it.",
+      "detailed": "Being open with families matters, but decisions about telling them should be made by the consultant."
+    },
+    {
+      "id": "F",
+      "text": "Leave it, as she is a student and is learning.",
+      "brief": "Leaves a patient's privacy unprotected.",
+      "detailed": "She is learning, which is why she should be told, not ignored."
+    },
+    {
+      "id": "G",
+      "text": "Explain why consent and secure devices are needed for clinical photos.",
+      "brief": "Helps her understand, so she doesn't repeat it.",
+      "detailed": "She may not know the rules. Explaining that recordings need consent, or another proper basis, and must be made on approved devices, is a learning opportunity."
+    },
+    {
+      "id": "H",
+      "text": "Let the consultant know, so they can discuss it with her supervisor.",
+      "brief": "The student's supervisors should know, and the trust may need to act.",
+      "detailed": "A breach involving a patient's images should be known to the consultant, who can involve her clinical supervisor and decide whether it needs reporting."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you protect a patient who can't consent from inappropriate recording, while supporting a student's learning.",
+    "keyDetails": "The patient is sedated and can't consent. The photos are on a personal phone. The student's intentions seem good.",
+    "reasoning": "[A] protects his privacy now, [G] helps her learn, and [H] involves the consultant. The distractors leave the photos in place ([B], [C], [F]), or act disproportionately or outside your role ([D], [E]).",
+    "competing": "[B] is the tempting option, but images without a face can still identify a patient, and consent is still required."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Protecting patients' information, including images."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Consent for recordings, and patients who lack capacity."
+    }
+  ],
+  "tags": [
+    "photographs",
+    "consent",
+    "students",
+    "intensive care"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sjt-110",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "practice",
+  "blueprint": "sjt-110",
+  "format": "multiple_choice",
+  "title": "Teaching time again",
+  "setting": "General practice",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Protecting training time",
+    "Communicating with supervisors",
+    "Using proper channels"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. For the third week running, the practice manager has booked routine patients into your Wednesday afternoon, when you should be at the foundation teaching programme.\n\nThe practice is short of GPs, and she says the patients have nowhere else to go.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "See the patients this week and miss teaching again.",
+      "brief": "Accepts a pattern that undermines your training.",
+      "detailed": "Missing a session for a real emergency can be appropriate, but routinely seeing routine patients means you miss required training."
+    },
+    {
+      "id": "B",
+      "text": "Complete the teaching as e-learning in the evening instead.",
+      "brief": "Online learning doesn't replace the programme, and accepts the pattern.",
+      "detailed": "Some teaching is available online, which makes this tempting. But it doesn't replace attending, and doesn't address the problem."
+    },
+    {
+      "id": "C",
+      "text": "Refuse to see any extra patients until the practice recruits more GPs.",
+      "brief": "An unhelpful, absolute response.",
+      "detailed": "Being clear about protected time is right, but refusing to help at all doesn't reflect the practice's genuine pressures."
+    },
+    {
+      "id": "D",
+      "text": "Explain to the practice manager that this is protected teaching time.",
+      "brief": "A clear, polite explanation may resolve it.",
+      "detailed": "The practice manager may not realise that teaching is protected time. Explaining this, politely, gives her the chance to rebook future patients."
+    },
+    {
+      "id": "E",
+      "text": "Ask another F2 to cover your teaching session and pass on the notes.",
+      "brief": "Doesn't protect your training or address the booking problem.",
+      "detailed": "Notes from a colleague don't replace attendance, and the bookings will continue."
+    },
+    {
+      "id": "F",
+      "text": "Report the practice to the GMC.",
+      "brief": "Disproportionate; local and programme routes come first.",
+      "detailed": "Persistent problems with training can be raised through the national training survey and the deanery, but a direct conversation and your supervisor come first."
+    },
+    {
+      "id": "G",
+      "text": "Discuss the pattern with your GP supervisor.",
+      "brief": "Your supervisor can address it with the practice and protect your training.",
+      "detailed": "Your GP supervisor is responsible for your training in the practice and can make sure teaching time is respected, while understanding the practice's pressures."
+    },
+    {
+      "id": "H",
+      "text": "Ask your foundation programme tutor for advice.",
+      "brief": "The programme can support you if the practice doesn't change.",
+      "detailed": "Foundation programmes expect teaching time to be protected. The tutor can advise you and, if needed, raise it with the practice."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you protect your training time constructively, using the right routes, when service pressures intrude.",
+    "keyDetails": "This is the third week. The patients are routine. The practice is short-staffed.",
+    "reasoning": "[D] raises it directly, [G] involves your supervisor, and [H] seeks programme advice. The distractors accept the pattern ([A], [B], [E]), respond unhelpfully ([C]), or escalate disproportionately ([F]).",
+    "competing": "[A] is the tempting option: helping the practice is good, but doing so every week undermines your training."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, keeping your knowledge and skills up to date."
+    }
+  ],
+  "tags": [
+    "teaching",
+    "training",
+    "general practice",
+    "service pressure"
+  ]
+}
