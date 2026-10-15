@@ -18,7 +18,7 @@
     "Non-directive support"
   ],
   "difficulty": "hard",
-  "stem": "You are an F2 doctor on the antenatal ward. At 22 weeks, the fetal medicine team diagnosed a severe heart condition in Mr and Mrs Lowe's baby, which they explained is very likely to be life-limiting after birth. The couple have decided to continue the pregnancy.\n\nToday, during a routine check, Mrs Lowe asks you, \"What will happen to our baby when she's born? Will she be in pain?\"",
+  "stem": "You are an F2 doctor on the antenatal ward. At 22 weeks, the fetal medicine team diagnosed a severe heart condition in Mr and Mrs Bennett's baby, which they explained is very likely to be life-limiting after birth. The couple have decided to continue the pregnancy.\n\nToday, during a routine check, Mrs Bennett asks you, \"What will happen to our baby when she's born? Will she be in pain?\"",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [

@@ -18,15 +18,15 @@
     "Teamwork"
   ],
   "difficulty": "easy",
-  "stem": "You are an F2 doctor in general surgery. Mr Shah, 63, had a laparotomy yesterday for suspected bowel cancer. The surgeons found that the cancer had spread widely and couldn't be removed.\n\nThe consultant plans to talk to him this afternoon. When you see him this morning, he asks you, \"Did they get it all?\"",
+  "stem": "You are an F2 doctor in general surgery. Mr Shah, 63, had a laparotomy yesterday for suspected bowel cancer. The surgeons found that the cancer had spread widely and couldn't be removed.\n\nThe consultant is operating all day and plans to talk to him tomorrow morning. When you see him today, he asks you, \"Did they get it all?\"",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [
     {
       "id": "A",
-      "text": "Tell him the consultant will explain everything this afternoon.",
+      "text": "Tell him the consultant will explain everything tomorrow.",
       "brief": "Avoids his direct question.",
-      "detailed": "The consultant should lead, but deflecting a direct question may leave him anxious for hours."
+      "detailed": "The consultant should lead the fuller discussion, but deflecting a direct question would leave him anxious until tomorrow."
     },
     {
       "id": "B",
@@ -50,7 +50,7 @@
       "id": "E",
       "text": "Tell him gently and honestly that it couldn't be removed.",
       "brief": "He has asked directly, and is entitled to an honest answer.",
-      "detailed": "If he wants to know, an honest, gentle answer respects him. You can explain that the consultant will discuss what it means and the options this afternoon."
+      "detailed": "If he wants to know, an honest, gentle answer respects him. You can explain that the consultant will discuss what it means and the options with him, and offer to have someone with him."
     },
     {
       "id": "F",
@@ -80,9 +80,9 @@
   },
   "explanation": {
     "issue": "This tests how you answer a direct question about bad news when a senior plans a fuller discussion later.",
-    "keyDetails": "He has asked directly. The cancer couldn't be removed. The consultant will see him this afternoon.",
+    "keyDetails": "He has asked directly. The cancer couldn't be removed. The consultant won't see him until tomorrow.",
     "reasoning": "[D] finds out what he knows, [E] answers honestly, and [H] makes sure the consultant follows up. The distractors deflect ([A], [G]), mislead ([B]), breach confidentiality ([C]), or are impersonal ([F]).",
-    "competing": "[A] is tempting because the consultant should lead. But he has asked directly, and you can be honest while leaving the detail to the consultant."
+    "competing": "[A] is tempting because the consultant should lead. But he has asked directly, the consultant can't see him until tomorrow, and you can be honest while leaving the detail to the consultant."
   },
   "references": [
     {

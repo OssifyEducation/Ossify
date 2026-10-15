@@ -19,13 +19,13 @@
     "Communication"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in intensive care. You have just handed over Mr Price, 60, whose kidney function is worsening, to the night nurse, Joy.\n\nAs you are leaving, Joy says your handover was confusing and she isn't sure what she should be watching for overnight.",
+  "stem": "You are an F2 doctor in intensive care. You have just handed over Mr Patterson, 60, whose kidney function is worsening, to the night nurse, Joy.\n\nAs you are leaving, Joy says your handover was confusing and she isn't sure what she should be watching for overnight.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
       "id": "A",
       "text": "Explain that it was busy, so she should have asked during handover.",
-      "brief": "Defensive, and doesn't help Mr Price.",
+      "brief": "Defensive, and doesn't help Mr Patterson.",
       "detailed": "This may be partly true, but it shifts responsibility and doesn't fix the plan for tonight."
     },
     {
@@ -36,9 +36,9 @@
     },
     {
       "id": "C",
-      "text": "Go over Mr Price's plan with her again before you leave.",
+      "text": "Go over Mr Patterson's plan with her again before you leave.",
       "brief": "She needs a clear plan for tonight.",
-      "detailed": "If she isn't sure what to watch for, Mr Price is at risk. Clarifying the plan now, including when to call for help, matters most. It ranks first."
+      "detailed": "If she isn't sure what to watch for, Mr Patterson is at risk. Clarifying the plan now, including when to call for help, matters most. It ranks first."
     },
     {
       "id": "D",
@@ -50,7 +50,7 @@
       "id": "E",
       "text": "Tell her the plan is in the notes and leave.",
       "brief": "Leaves an unclear plan for a deteriorating patient.",
-      "detailed": "She has told you she isn't sure. Leaving without clarifying puts Mr Price at risk. It is the least appropriate option."
+      "detailed": "She has told you she isn't sure. Leaving without clarifying puts Mr Patterson at risk. It is the least appropriate option."
     }
   ],
   "key": {
@@ -64,9 +64,9 @@
   },
   "explanation": {
     "issue": "This tests how you respond to feedback that your handover was unclear, putting patient safety first.",
-    "keyDetails": "Mr Price's kidney function is worsening. Joy isn't clear what to watch for. You are about to leave.",
+    "keyDetails": "Mr Patterson's kidney function is worsening. Joy isn't clear what to watch for. You are about to leave.",
     "reasoning": "[C] fixes tonight's plan, [B] learns from the feedback, and [D] improves future handovers. [A] is defensive, and [E] leaves the problem unresolved.",
-    "competing": "Some would ask what was unclear first. The key puts the plan first, because that is what keeps Mr Price safe tonight."
+    "competing": "Some would ask what was unclear first. The key puts the plan first, because that is what keeps Mr Patterson safe tonight."
   },
   "references": [
     {

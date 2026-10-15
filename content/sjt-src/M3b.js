@@ -551,19 +551,19 @@ module.exports = [
   gmcDomains: ["Collaboration, teamwork and leadership"],
   competencies: ["Teamwork", "Resolving conflict", "Inclusion"],
   stem:
-    "You are an F2 doctor on the acute medical unit. Priya, a newly qualified physician assistant, joined the team two weeks ago. Nobody has explained to the junior doctors what she can and can't do.\n\n" +
-    "The two F1s have started refusing to give her jobs, saying they \"don't know what she's allowed to do\". Priya tells you she feels unwelcome.",
+    "You are an F2 doctor on the acute medical unit. Nadia, a newly qualified physician assistant, joined the team two weeks ago. Nobody has explained to the junior doctors what she can and can't do.\n\n" +
+    "The two F1s have started refusing to give her jobs, saying they \"don't know what she's allowed to do\". Nadia tells you she feels unwelcome.",
   options: [
-    { text: "Ask the consultant to clarify Priya's role for the whole team.",
+    { text: "Ask the consultant to clarify Nadia's role for the whole team.",
       brief: "The lack of clarity is the root of the problem.",
       detailed: "The F1s' concern about her scope is understandable, and the consultant can explain her role and supervision arrangements to everyone. It ranks first because it addresses the cause." },
     { text: "Talk with the F1s about their concerns.",
       brief: "Understanding their worries helps resolve the tension.",
       detailed: "Their reluctance may come from uncertainty rather than hostility. Talking with them can ease things while the role is clarified. It ranks second." },
-    { text: "Invite Priya to join you when you take histories and review patients.",
+    { text: "Invite Nadia to join you when you take histories and review patients.",
       brief: "Helps her feel welcome in the meantime.",
       detailed: "Inviting her to tasks that clearly fit her training, such as taking histories, shows support. It ranks third because it doesn't solve the underlying problem." },
-    { text: "Tell the F1s they must give Priya work.",
+    { text: "Tell the F1s they must give Nadia work.",
       brief: "Overrides their concerns without addressing them.",
       detailed: "This may cause resentment, and it doesn't address their reasonable uncertainty about her role." },
     { text: "Leave it, as the F1s aren't your responsibility.",
@@ -572,8 +572,8 @@ module.exports = [
   ],
   explanation: {
     issue: "This tests how you help resolve tension in a team caused by an unclear new role.",
-    keyDetails: "Priya's role hasn't been explained. The F1s are uncertain. Priya feels unwelcome. The consultant can clarify.",
-    reasoning: "{1} fixes the cause, {2} addresses the F1s' worries, and {3} supports Priya. {4} overrides without understanding, and {5} ignores the problem.",
+    keyDetails: "Nadia's role hasn't been explained. The F1s are uncertain. Nadia feels unwelcome. The consultant can clarify.",
+    reasoning: "{1} fixes the cause, {2} addresses the F1s' worries, and {3} supports Nadia. {4} overrides without understanding, and {5} ignores the problem.",
     competing: "{2} and {3} are close. The key puts talking to the F1s first because it eases the tension for the whole team."
   },
   refs: [

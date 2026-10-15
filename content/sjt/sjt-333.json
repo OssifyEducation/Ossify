@@ -19,7 +19,7 @@
     "Raising concerns"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in intensive care. At 08:00 you notice that Mr Gill, 70, who has septic shock, didn't receive his 06:00 dose of intravenous meropenem.\n\nHis nurse, Rob, says he was busy with another patient and will \"catch it up\" with the 10:00 drugs.",
+  "stem": "You are an F2 doctor in intensive care. At 08:00 you notice that Mr Gill, 70, who has septic shock, didn't receive his 06:00 dose of intravenous meropenem.\n\nHis nurse, Rob, says he was busy with another patient and will \"catch it up\" when things settle, at about 10:00. His next dose is due at 14:00.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

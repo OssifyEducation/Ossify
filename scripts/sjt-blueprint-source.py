@@ -144,7 +144,7 @@ FAMILIES = [
    (OG, "A midwife tells you a registrar regularly ignores her concerns and calls her 'just a midwife'."),
    (PSY, "A colleague refuses to see a patient because of his previous conviction for a sexual offence."),
    (COE, "A patient refuses to be examined by your colleague because of her headscarf."),
-   (ORTHO, "A physician associate is excluded from the team's teaching sessions by the registrar."),
+   (ORTHO, "A physician assistant is excluded from the team's teaching sessions by the registrar."),
  ]),
  ("P11", P, "Honesty with patients and colleagues", [
    (MED, "A patient asks whether the long wait for his scan made a difference to his outcome."),
@@ -306,7 +306,7 @@ FAMILIES = [
    (PSY, "A nurse and a healthcare assistant are openly hostile to each other on the ward."),
    (CARD, "Your fellow F2 never answers his bleep, so the nurses keep calling you instead."),
    (OOH, "The district nurses complain that your colleague's prescriptions are always incomplete."),
-   (AMU, "A new physician associate's role is unclear and the F1s refuse to work with her."),
+   (AMU, "A new physician assistant's role is unclear and the F1s refuse to work with her."),
  ]),
  ("C10", C, "Complaints, aggression and difficult encounters", [
    (MED, "A patient's daughter threatens to post on social media unless her father gets a side room."),
@@ -454,7 +454,7 @@ FAMILIES = [
    (CARD, "A registrar is snapping at everyone and you learn his partner has left him."),
    (OOH, "A colleague calls you after a home visit where she found a child had died."),
    (ORTHO, "An international medical graduate is struggling to adapt and is being criticised."),
-   (AMU, "A physician associate confides that she is being sexually harassed by a senior colleague."),
+   (AMU, "A physician assistant confides that she is being sexually harassed by a senior colleague."),
    (NONC, "A friend on your training programme hasn't been seen for a week and isn't answering messages."),
  ]),
  ("E9", E, "Dignity, privacy, disability and chaperones", [

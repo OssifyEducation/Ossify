@@ -19,7 +19,7 @@
     "Advocacy"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor on an inpatient psychiatric ward. Ms Reid, 24, is on close observation, with a member of staff within arm's length at all times, after self-harming on the ward last week.\n\nShe tells you, distressed, that a male healthcare assistant has been observing her in the bathroom and while she showers. She says she feels humiliated and has stopped washing.",
+  "stem": "You are an F2 doctor on an inpatient psychiatric ward. Ms Lyons, 24, is on close observation, with a member of staff within arm's length at all times, after self-harming on the ward last week.\n\nShe tells you, distressed, that a male healthcare assistant has been observing her in the bathroom and while she showers. She says she feels humiliated and has stopped washing.",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [

@@ -18,7 +18,7 @@
     "Resolving conflict"
   ],
   "difficulty": "easy",
-  "stem": "You are an F2 doctor in paediatrics. On the consultant ward rounds, your fellow F2, Dr Price, often presents patients you have clerked and managed as if he had done the work himself.\n\nYour consultant has praised him several times for work you did. It has happened on most ward rounds for two weeks.",
+  "stem": "You are an F2 doctor in paediatrics. On the consultant ward rounds, your fellow F2, Dr Mason, often presents patients you have clerked and managed as if he had done the work himself.\n\nYour consultant has praised him several times for work you did. It has happened on most ward rounds for two weeks.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
@@ -35,7 +35,7 @@
     },
     {
       "id": "C",
-      "text": "Talk to Dr Price privately about what's been happening.",
+      "text": "Talk to Dr Mason privately about what's been happening.",
       "brief": "A direct, private conversation is the fairest first step.",
       "detailed": "He may not realise how it comes across. Raising it privately gives him the chance to change. It ranks first."
     },

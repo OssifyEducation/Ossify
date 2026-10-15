@@ -241,12 +241,12 @@ module.exports = [
   gmcDomains: ["Safety and quality", "Knowledge, skills and development"],
   competencies: ["Handover", "Receiving feedback", "Communication"],
   stem:
-    "You are an F2 doctor in intensive care. You have just handed over Mr Price, 60, whose kidney function is worsening, to the night nurse, Joy.\n\n" +
+    "You are an F2 doctor in intensive care. You have just handed over Mr Patterson, 60, whose kidney function is worsening, to the night nurse, Joy.\n\n" +
     "As you are leaving, Joy says your handover was confusing and she isn't sure what she should be watching for overnight.",
   options: [
-    { text: "Go over Mr Price's plan with her again before you leave.",
+    { text: "Go over Mr Patterson's plan with her again before you leave.",
       brief: "She needs a clear plan for tonight.",
-      detailed: "If she isn't sure what to watch for, Mr Price is at risk. Clarifying the plan now, including when to call for help, matters most. It ranks first." },
+      detailed: "If she isn't sure what to watch for, Mr Patterson is at risk. Clarifying the plan now, including when to call for help, matters most. It ranks first." },
     { text: "Ask her what was unclear, so you can improve.",
       brief: "Specific feedback helps your handovers.",
       detailed: "Understanding what confused her helps you hand over better in future. It ranks second because the plan for tonight comes first." },
@@ -254,17 +254,17 @@ module.exports = [
       brief: "Structure makes handovers clearer.",
       detailed: "Structured tools help make sure key information isn't missed. It ranks third because it is about the future." },
     { text: "Explain that it was busy, so she should have asked during handover.",
-      brief: "Defensive, and doesn't help Mr Price.",
+      brief: "Defensive, and doesn't help Mr Patterson.",
       detailed: "This may be partly true, but it shifts responsibility and doesn't fix the plan for tonight." },
     { text: "Tell her the plan is in the notes and leave.",
       brief: "Leaves an unclear plan for a deteriorating patient.",
-      detailed: "She has told you she isn't sure. Leaving without clarifying puts Mr Price at risk. It is the least appropriate option." }
+      detailed: "She has told you she isn't sure. Leaving without clarifying puts Mr Patterson at risk. It is the least appropriate option." }
   ],
   explanation: {
     issue: "This tests how you respond to feedback that your handover was unclear, putting patient safety first.",
-    keyDetails: "Mr Price's kidney function is worsening. Joy isn't clear what to watch for. You are about to leave.",
+    keyDetails: "Mr Patterson's kidney function is worsening. Joy isn't clear what to watch for. You are about to leave.",
     reasoning: "{1} fixes tonight's plan, {2} learns from the feedback, and {3} improves future handovers. {4} is defensive, and {5} leaves the problem unresolved.",
-    competing: "Some would ask what was unclear first. The key puts the plan first, because that is what keeps Mr Price safe tonight."
+    competing: "Some would ask what was unclear first. The key puts the plan first, because that is what keeps Mr Patterson safe tonight."
   },
   refs: [
     { ref: "gmp", note: "Domain 3, handing over care clearly." }
@@ -330,30 +330,30 @@ module.exports = [
   gmcDomains: ["Trust and professionalism"],
   competencies: ["Gifts", "Probity", "Kindness"],
   stem:
-    "You are an F2 doctor on an elderly care ward. Mrs Gill, 84, who you looked after for three weeks, was discharged home yesterday. Today a nurse hands you a card she left for you.\n\n" +
+    "You are an F2 doctor on an elderly care ward. Mrs Abbott, 84, who you looked after for three weeks, was discharged home yesterday. Today a nurse hands you a card she left for you.\n\n" +
     "Inside is £500 in cash and a note: \"For you personally. Thank you for being so kind.\"",
   options: [
-    { text: "Contact Mrs Gill to thank her and explain you can't accept the money.",
-      brief: "Kind, and makes sure the money is returned.",
-      detailed: "A large cash gift can't be accepted, but she deserves a warm thank-you. Explaining kindly and arranging for the money to be returned respects her. It ranks first." },
-    { text: "Tell the ward manager and follow the trust's gifts policy.",
-      brief: "Makes sure the gift is handled transparently.",
-      detailed: "The trust's policy will set out how to handle and record the gift, and the ward manager can help. It ranks second because Mrs Gill should hear from you." },
-    { text: "Suggest to Mrs Gill that the money goes to the ward charity, if she wishes.",
+    { text: "Hand the card to the ward manager and follow the trust's gifts policy.",
+      brief: "Cash should be handled openly, through the trust's process.",
+      detailed: "A large cash gift needs to be recorded and kept safely, and the trust will have a process for returning it. Involving the ward manager straight away means the money is handled transparently, not by you alone. It ranks first." },
+    { text: "Contact Mrs Abbott to thank her and explain you can't accept the money.",
+      brief: "Kind, and makes sure she understands why it is coming back.",
+      detailed: "She deserves a warm thank-you, and an explanation so that the money's return doesn't feel like a rejection. It ranks second because the cash should be in the trust's process first, and the ward manager may want to coordinate the contact." },
+    { text: "Suggest to Mrs Abbott that the money goes to the ward charity, if she wishes.",
       brief: "An alternative, if she wants to give something.",
-      detailed: "She may prefer this to having it returned. It ranks third because it should be offered as a choice after you've explained you can't keep it." },
+      detailed: "She may prefer this to having it returned. It ranks third because it should be offered as a choice, without pressure, after she has been told you can't keep it." },
     { text: "Keep the money and declare it on the gifts register.",
       brief: "Declaring doesn't make a large cash gift acceptable.",
-      detailed: "Declaring is the right process for small gifts, but £500 in cash from a vulnerable older patient shouldn't be kept." },
+      detailed: "Declaring is the right process for small gifts, but £500 in cash from an older patient who may be vulnerable shouldn't be kept." },
     { text: "Keep the money, as it was a personal gift.",
       brief: "Inappropriate and undeclared.",
       detailed: "This could be seen as exploiting a vulnerable patient's gratitude. It is the least appropriate option." }
   ],
   explanation: {
-    issue: "This tests how you handle a large cash gift from a vulnerable patient, kindly and transparently.",
-    keyDetails: "The gift is £500 in cash. She is elderly. The gift is personal. She has already gone home.",
-    reasoning: "{1} returns it kindly, {2} follows the policy, and {3} offers an alternative. {4} keeps an inappropriate gift, and {5} keeps it undeclared.",
-    competing: "Some would tell the ward manager first. The key puts Mrs Gill first because a personal thank-you matters to her, and you can follow the policy alongside."
+    issue: "This tests how you handle a large cash gift from an older patient, transparently and kindly.",
+    keyDetails: "The gift is £500 in cash. She is 84 and may be vulnerable. The gift is personal. She has already gone home.",
+    reasoning: "{1} puts the money into the trust's process, {2} thanks her and explains, and {3} offers an alternative. {4} keeps an inappropriate gift, and {5} keeps it undeclared.",
+    competing: "Some would contact Mrs Abbott first, as a personal thank-you matters. The key hands the cash to the ward manager first, because money shouldn't be held informally, and the thank-you can follow the same day. If there were any sign she was being financially exploited, the ward manager could also raise it."
   },
   refs: [
     { ref: "coi", note: "Gifts from patients and the risk of appearing to influence care." }
@@ -420,10 +420,10 @@ module.exports = [
   gmcDomains: ["Collaboration, teamwork and leadership"],
   competencies: ["Assertiveness", "Teamwork", "Resolving conflict"],
   stem:
-    "You are an F2 doctor in paediatrics. On the consultant ward rounds, your fellow F2, Dr Price, often presents patients you have clerked and managed as if he had done the work himself.\n\n" +
+    "You are an F2 doctor in paediatrics. On the consultant ward rounds, your fellow F2, Dr Mason, often presents patients you have clerked and managed as if he had done the work himself.\n\n" +
     "Your consultant has praised him several times for work you did. It has happened on most ward rounds for two weeks.",
   options: [
-    { text: "Talk to Dr Price privately about what's been happening.",
+    { text: "Talk to Dr Mason privately about what's been happening.",
       brief: "A direct, private conversation is the fairest first step.",
       detailed: "He may not realise how it comes across. Raising it privately gives him the chance to change. It ranks first." },
     { text: "Present your own patients on the ward round.",
@@ -459,11 +459,11 @@ module.exports = [
   gmcDomains: ["Patients, partnership and communication"],
   competencies: ["Dignity", "Privacy", "Problem-solving"],
   stem:
-    "You are an F2 doctor on a general medical ward round. The consultant is examining Mrs Ross, 76, who has had to lift her gown for an abdominal examination.\n\n" +
+    "You are an F2 doctor on a general medical ward round. The consultant is examining Mrs Doherty, 76, who has had to lift her gown for an abdominal examination.\n\n" +
     "The curtain around her bed doesn't close properly, leaving a gap through which people in the bay and the corridor can see her. She looks uncomfortable.",
   options: [
     // keyed
-    { text: "Cover Mrs Ross with a sheet as much as possible.",
+    { text: "Cover Mrs Doherty with a sheet as much as possible.",
       brief: "Immediate protection of her dignity.",
       detailed: "A sheet can cover her while the examination continues. It is a quick, simple way to reduce her exposure." },
     { text: "Close the gap in the curtain during the examination.",
@@ -476,7 +476,7 @@ module.exports = [
     { text: "Carry on quickly to keep the exposure brief.",
       brief: "Rushing doesn't protect her privacy.",
       detailed: "Speed doesn't address the gap, and a rushed examination may be less thorough." },
-    { text: "Ask Mrs Ross to hold the curtain closed herself.",
+    { text: "Ask Mrs Doherty to hold the curtain closed herself.",
       brief: "Unfair, and impractical during an examination.",
       detailed: "She is lying down for an abdominal examination. It isn't her job to protect her own privacy." },
     { text: "Ask people in the bay to look away.",

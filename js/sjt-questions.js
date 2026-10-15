@@ -11454,7 +11454,7 @@
         "Speaking up"
       ],
       "difficulty": "easy",
-      "stem": "You are an F2 doctor on the acute medical unit. Priya, a physician associate, tells you in confidence that one of the consultants has repeatedly made sexual comments to her and touched her in a way that made her uncomfortable.\n\nShe is upset, says she's worried about her job, and isn't sure what to do.",
+      "stem": "You are an F2 doctor on the acute medical unit. Priya, a physician assistant, tells you in confidence that one of the consultants has repeatedly made sexual comments to her and touched her in a way that made her uncomfortable.\n\nShe is upset, says she's worried about her job, and isn't sure what to do.",
       "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
       "options": [
         {

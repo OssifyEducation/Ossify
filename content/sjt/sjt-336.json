@@ -18,7 +18,7 @@
     "Managing distress"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor working for the GP out-of-hours service. Ms Morris calls for the third time tonight about her mother, Mrs Morris, 91, who lives in a care home and has a chest infection.\n\nMrs Morris's GP agreed a plan with her last month, recorded on a ReSPECT form, to be treated in the care home rather than in hospital. Ms Morris is upset and says her mother \"should be in hospital\". The care home reports no change in her condition.",
+  "stem": "You are an F2 doctor working for the GP out-of-hours service. Ms Morris calls for the third time tonight about her mother, Mrs Morris, 91, who lives in a care home and has a chest infection.\n\nMrs Morris's GP agreed a plan with her last month, recorded on a ReSPECT form, to be treated in the care home rather than in hospital. Mrs Morris has capacity and is happy for her daughter to be told about her care. Ms Morris is upset and says her mother \"should be in hospital\". The care home reports no change in her condition.",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [
@@ -30,7 +30,7 @@
     },
     {
       "id": "B",
-      "text": "Tell her the plan can't be changed.",
+      "text": "Tell her the plan has been agreed and won't be revisited.",
       "brief": "Dismissive; plans can be reviewed.",
       "detailed": "Plans can be reviewed, and her mother may be able to discuss it. This shuts down the conversation."
     },

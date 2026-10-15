@@ -59,3 +59,6 @@ Upserting by id means a reviewed correction replaces the live item. A finished a
 
 ## Mock 2 (15 Oct 2026)
 Loaded with the same token route, after which the route was disabled again. Submitting every keyed answer scores 780/780 on the server. A fixed set of reversed and partly wrong answers scores 300 on the server, exactly what `js/sjt-engine.js` gives for the same answers. Review record: `docs/sjt-reviews/M2.md`.
+
+## Mock 3 (15 Oct 2026)
+Loaded with the token route, which was then disabled again. On the server, every keyed answer scores 780/780. The reversed and partly wrong answer set scores 300, which matches the engine. Review record: `docs/sjt-reviews/M3.md`.

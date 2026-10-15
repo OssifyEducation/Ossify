@@ -13,7 +13,7 @@ module.exports = [
   gmcDomains: ["Patients, partnership and communication", "Safety and quality"],
   competencies: ["Dignity", "Least restrictive care", "Advocacy"],
   stem:
-    "You are an F2 doctor on an inpatient psychiatric ward. Ms Reid, 24, is on close observation, with a member of staff within arm's length at all times, after self-harming on the ward last week.\n\n" +
+    "You are an F2 doctor on an inpatient psychiatric ward. Ms Lyons, 24, is on close observation, with a member of staff within arm's length at all times, after self-harming on the ward last week.\n\n" +
     "She tells you, distressed, that a male healthcare assistant has been observing her in the bathroom and while she showers. She says she feels humiliated and has stopped washing.",
   options: [
     // keyed
@@ -282,7 +282,7 @@ module.exports = [
   competencies: ["Breaking bad news", "Honesty", "Teamwork"],
   stem:
     "You are an F2 doctor in general surgery. Mr Shah, 63, had a laparotomy yesterday for suspected bowel cancer. The surgeons found that the cancer had spread widely and couldn't be removed.\n\n" +
-    "The consultant plans to talk to him this afternoon. When you see him this morning, he asks you, \"Did they get it all?\"",
+    "The consultant is operating all day and plans to talk to him tomorrow morning. When you see him today, he asks you, \"Did they get it all?\"",
   options: [
     // keyed
     { text: "Ask what he remembers being told so far.",
@@ -290,14 +290,14 @@ module.exports = [
       detailed: "He may have been told something in recovery, or nothing. Finding out what he knows helps you respond appropriately." },
     { text: "Tell him gently and honestly that it couldn't be removed.",
       brief: "He has asked directly, and is entitled to an honest answer.",
-      detailed: "If he wants to know, an honest, gentle answer respects him. You can explain that the consultant will discuss what it means and the options this afternoon." },
+      detailed: "If he wants to know, an honest, gentle answer respects him. You can explain that the consultant will discuss what it means and the options with him, and offer to have someone with him." },
     { text: "Make sure the consultant knows he has asked.",
       brief: "A fuller conversation should follow promptly.",
       detailed: "The consultant can explain the findings and what comes next. Letting them know he is asking helps them prioritise seeing him." },
     // distractors
-    { text: "Tell him the consultant will explain everything this afternoon.",
+    { text: "Tell him the consultant will explain everything tomorrow.",
       brief: "Avoids his direct question.",
-      detailed: "The consultant should lead, but deflecting a direct question may leave him anxious for hours." },
+      detailed: "The consultant should lead the fuller discussion, but deflecting a direct question would leave him anxious until tomorrow." },
     { text: "Reassure him that the operation went well.",
       brief: "Misleading.",
       detailed: "The operation may have been technically uneventful, but implying it was successful would be dishonest." },
@@ -313,9 +313,9 @@ module.exports = [
   ],
   explanation: {
     issue: "This tests how you answer a direct question about bad news when a senior plans a fuller discussion later.",
-    keyDetails: "He has asked directly. The cancer couldn't be removed. The consultant will see him this afternoon.",
+    keyDetails: "He has asked directly. The cancer couldn't be removed. The consultant won't see him until tomorrow.",
     reasoning: "{k1} finds out what he knows, {k2} answers honestly, and {k3} makes sure the consultant follows up. The distractors deflect ({d1}, {d5}), mislead ({d2}), breach confidentiality ({d3}), or are impersonal ({d4}).",
-    competing: "{d1} is tempting because the consultant should lead. But he has asked directly, and you can be honest while leaving the detail to the consultant."
+    competing: "{d1} is tempting because the consultant should lead. But he has asked directly, the consultant can't see him until tomorrow, and you can be honest while leaving the detail to the consultant."
   },
   refs: [
     { ref: "gmp", note: "Domain 2, giving patients information honestly and sensitively." }
@@ -332,7 +332,7 @@ module.exports = [
   competencies: ["Patient safety", "Medication timing", "Raising concerns"],
   stem:
     "You are an F2 doctor in intensive care. At 08:00 you notice that Mr Gill, 70, who has septic shock, didn't receive his 06:00 dose of intravenous meropenem.\n\n" +
-    "His nurse, Rob, says he was busy with another patient and will \"catch it up\" with the 10:00 drugs.",
+    "His nurse, Rob, says he was busy with another patient and will \"catch it up\" when things settle, at about 10:00. His next dose is due at 14:00.",
   options: [
     { text: "Ask Rob to give the missed dose straight away.",
       brief: "Antibiotic timing matters in septic shock.",
@@ -371,8 +371,8 @@ module.exports = [
   gmcDomains: ["Patients, partnership and communication"],
   competencies: ["Perinatal palliative care", "Compassion", "Non-directive support"],
   stem:
-    "You are an F2 doctor on the antenatal ward. At 22 weeks, the fetal medicine team diagnosed a severe heart condition in Mr and Mrs Lowe's baby, which they explained is very likely to be life-limiting after birth. The couple have decided to continue the pregnancy.\n\n" +
-    "Today, during a routine check, Mrs Lowe asks you, \"What will happen to our baby when she's born? Will she be in pain?\"",
+    "You are an F2 doctor on the antenatal ward. At 22 weeks, the fetal medicine team diagnosed a severe heart condition in Mr and Mrs Bennett's baby, which they explained is very likely to be life-limiting after birth. The couple have decided to continue the pregnancy.\n\n" +
+    "Today, during a routine check, Mrs Bennett asks you, \"What will happen to our baby when she's born? Will she be in pain?\"",
   options: [
     // keyed
     { text: "Ask them what they have been told and what matters most to them.",
@@ -461,7 +461,7 @@ module.exports = [
   competencies: ["Communicating with relatives", "Advance care planning", "Managing distress"],
   stem:
     "You are an F2 doctor working for the GP out-of-hours service. Ms Morris calls for the third time tonight about her mother, Mrs Morris, 91, who lives in a care home and has a chest infection.\n\n" +
-    "Mrs Morris's GP agreed a plan with her last month, recorded on a ReSPECT form, to be treated in the care home rather than in hospital. Ms Morris is upset and says her mother \"should be in hospital\". The care home reports no change in her condition.",
+    "Mrs Morris's GP agreed a plan with her last month, recorded on a ReSPECT form, to be treated in the care home rather than in hospital. Mrs Morris has capacity and is happy for her daughter to be told about her care. Ms Morris is upset and says her mother \"should be in hospital\". The care home reports no change in her condition.",
   options: [
     // keyed
     { text: "Listen to Ms Morris's concerns.",
@@ -477,7 +477,7 @@ module.exports = [
     { text: "Arrange admission to hospital to reassure her.",
       brief: "Overrides the patient's own agreed plan.",
       detailed: "Admitting her against her recorded wishes, when her condition hasn't changed, would not respect her choices." },
-    { text: "Tell her the plan can't be changed.",
+    { text: "Tell her the plan has been agreed and won't be revisited.",
       brief: "Dismissive; plans can be reviewed.",
       detailed: "Plans can be reviewed, and her mother may be able to discuss it. This shuts down the conversation." },
     { text: "Ask the care home to stop passing her calls to the service.",
