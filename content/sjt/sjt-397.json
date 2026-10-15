@@ -1,0 +1,85 @@
+{
+  "id": "sjt-397",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-397",
+  "format": "ranking",
+  "title": "A good deal",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Gifts",
+    "Conflicts of interest",
+    "Professional boundaries"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a cardiology ward. Mr Doyle, 58, who owns a car dealership, is being discharged after a heart attack.\n\nHe thanks you, and offers you £3,000 off any car at his garage.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept, as he has been discharged.",
+      "brief": "Discharge doesn't remove the conflict.",
+      "detailed": "He may need further care, and accepting a large benefit could still affect, or be seen to affect, your judgement."
+    },
+    {
+      "id": "B",
+      "text": "Accept, and ask him to keep it between you.",
+      "brief": "Secretive and inappropriate.",
+      "detailed": "Asking for secrecy shows you know it is wrong. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Thank him warmly, and politely decline the discount.",
+      "brief": "A large personal benefit isn't appropriate.",
+      "detailed": "A discount this size could be seen to affect your judgement. Declining politely is the right response. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Check the trust's gifts and hospitality policy.",
+      "brief": "The policy guides what can be accepted.",
+      "detailed": "Checking the policy confirms what is acceptable. It ranks second because the right response is already clear."
+    },
+    {
+      "id": "E",
+      "text": "Suggest he thanks the ward team with a card or a note instead.",
+      "brief": "A kind alternative.",
+      "detailed": "This lets him show his gratitude in an appropriate way. It ranks third."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "E",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise a gift that could affect, or be seen to affect, your judgement.",
+    "keyDetails": "The discount is large. He is a patient. He is being discharged.",
+    "reasoning": "[C] declines politely, [D] checks the policy, and [E] offers an alternative. [A] accepts a large benefit, and [B] adds secrecy.",
+    "competing": "[D] and [E] are close. The key puts the policy first because it guides any decision about gifts."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Gifts and conflicts of interest."
+    }
+  ],
+  "tags": [
+    "gifts",
+    "conflicts of interest",
+    "boundaries",
+    "cardiology"
+  ]
+}

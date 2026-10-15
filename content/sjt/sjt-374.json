@@ -1,0 +1,102 @@
+{
+  "id": "sjt-374",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-374",
+  "format": "multiple_choice",
+  "title": "A sponsored trip",
+  "setting": "Orthopaedics",
+  "attribute": "Professional integrity",
+  "topic": "Conflicts of interest and self-prescribing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Conflicts of interest",
+    "Probity",
+    "Professional development"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in orthopaedics, hoping to apply for surgical training. A representative from an implant company offers to pay for your travel and registration at an international conference.\n\nThe condition is that you attend a half-day workshop promoting the company's new hip implant.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Check the trust's policy on sponsorship.",
+      "brief": "Trusts have rules on accepting industry funding.",
+      "detailed": "Most trusts have policies on sponsorship and conflicts of interest. Checking it is the first step."
+    },
+    {
+      "id": "B",
+      "text": "Accept, as you don't choose implants as an F2.",
+      "brief": "Your future influence and perceived conflict still matter.",
+      "detailed": "You may influence choices later, and the arrangement could still be seen as an inducement."
+    },
+    {
+      "id": "C",
+      "text": "Accept, and declare it on the trust's register.",
+      "brief": "Declaring helps, but the conditional nature is the problem.",
+      "detailed": "Declaration is good practice for acceptable sponsorship, but a condition tied to product promotion is what makes this inappropriate."
+    },
+    {
+      "id": "D",
+      "text": "Accept, but skip the workshop once you're there.",
+      "brief": "Dishonest.",
+      "detailed": "This breaks the agreement and is dishonest."
+    },
+    {
+      "id": "E",
+      "text": "Decline funding that depends on attending their promotion.",
+      "brief": "Conditional funding creates a conflict of interest.",
+      "detailed": "Accepting funding on condition that you attend promotion could influence, or appear to influence, your judgement about their products."
+    },
+    {
+      "id": "F",
+      "text": "Ask your supervisor about study leave funding instead.",
+      "brief": "A legitimate way to fund the conference.",
+      "detailed": "Study budgets may cover some or all of the cost, without any conflict of interest."
+    },
+    {
+      "id": "G",
+      "text": "Report the representative to the company.",
+      "brief": "Disproportionate.",
+      "detailed": "The offer may be common practice. Declining is enough."
+    },
+    {
+      "id": "H",
+      "text": "Ask colleagues whether they have accepted similar offers before.",
+      "brief": "Others' choices don't make it appropriate.",
+      "detailed": "What others have done doesn't change your own obligations."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise and avoid a conflict of interest created by conditional industry funding.",
+    "keyDetails": "The funding is conditional on attending product promotion. You are early in your career. Legitimate funding may be available.",
+    "reasoning": "[A] checks the rules, [E] declines the conditional funding, and [F] looks for legitimate funding. The distractors accept it ([B], [C]), are dishonest ([D]), overreact ([G]), or follow others ([H]).",
+    "competing": "[C] is the closest call: declaring sponsorship is good practice. The condition tied to promotion is what makes this unacceptable."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Sponsorship and inducements from industry."
+    }
+  ],
+  "tags": [
+    "conflict of interest",
+    "sponsorship",
+    "industry",
+    "orthopaedics"
+  ]
+}

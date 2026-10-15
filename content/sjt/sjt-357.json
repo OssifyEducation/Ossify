@@ -1,0 +1,93 @@
+{
+  "id": "sjt-357",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-357",
+  "format": "ranking",
+  "title": "Pills for nights",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Self-prescribing",
+    "Supporting colleagues",
+    "Patient safety"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in obstetrics and gynaecology. Over coffee, your fellow F2, Dr Ahmed, tells you she has been writing private prescriptions for herself for zopiclone, to sleep during the day between night shifts.\n\nShe says it helps, and she seems well at work.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Talk to her privately about the risks of self-prescribing.",
+      "brief": "A direct, kind conversation is the first step.",
+      "detailed": "Doctors should avoid prescribing for themselves, especially drugs that can cause dependence and affect alertness. A private conversation lets her think about it. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Suggest she talks to her supervisor about her night shift pattern.",
+      "brief": "May help address the cause.",
+      "detailed": "Her rota may be making sleep difficult. Her supervisor may be able to help. It ranks third."
+    },
+    {
+      "id": "C",
+      "text": "Encourage her to see her GP about her sleep.",
+      "brief": "Her GP can help safely.",
+      "detailed": "Her GP can assess her sleep problems and prescribe, if needed, with proper oversight. It ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Leave it, as she seems well at work.",
+      "brief": "Ignores a risk to her and possibly her patients.",
+      "detailed": "Self-prescribing a drug that can affect alertness and cause dependence is a concern, even if she seems well. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Suggest she uses an over-the-counter sleep aid instead.",
+      "brief": "Avoids self-prescribing but doesn't get her proper help.",
+      "detailed": "This avoids prescribing for herself but still treats herself without advice."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a colleague's self-prescribing supportively, guiding her to appropriate care.",
+    "keyDetails": "She is self-prescribing a sedative. She seems well. The cause may be her shift pattern.",
+    "reasoning": "[A] raises it with her, [C] points her to her GP, and [B] addresses the cause. [E] still means self-treatment, and [D] ignores the risk.",
+    "competing": "[C] and [B] are close. The key puts her GP first because her own health comes before the rota."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Avoiding prescribing for yourself."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, looking after your own health."
+    }
+  ],
+  "tags": [
+    "self-prescribing",
+    "colleague health",
+    "night shifts",
+    "obstetrics"
+  ]
+}

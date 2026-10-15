@@ -1,0 +1,93 @@
+{
+  "id": "sjt-353",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-353",
+  "format": "ranking",
+  "title": "No driving",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Empathy",
+    "Driving rules",
+    "Practical support"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. Mr Kane, 46, had an implantable defibrillator fitted after a cardiac arrest. Earlier today the cardiologist explained that he must not drive for some months and must tell the DVLA.\n\nWhen you see him, he is distressed. He drives a small delivery van, on an ordinary car licence, for a living, and asks, \"How am I supposed to support my family?\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Suggest he talks to his employer about other duties he could do for now.",
+      "brief": "Practical help with his main worry.",
+      "detailed": "His employer may be able to offer other work, and occupational health or a welfare adviser may help. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Tell him the rules for van drivers are often ignored.",
+      "brief": "Undermines a safety requirement.",
+      "detailed": "This encourages him to break rules that protect him and the public. It ranks fourth only because it is less direct than the last option."
+    },
+    {
+      "id": "C",
+      "text": "Suggest he keeps driving until he finds other work.",
+      "brief": "Unsafe and unlawful.",
+      "detailed": "If he lost consciousness while driving, he could kill himself or others. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Check he understands that he mustn't drive and must tell the DVLA.",
+      "brief": "The safety message must be understood, however hard it is.",
+      "detailed": "He may not have taken in everything earlier. Making sure he understands the rules protects him and others. It ranks second because it comes better after acknowledging his distress."
+    },
+    {
+      "id": "E",
+      "text": "Acknowledge how hard this is, and ask how it affects his family.",
+      "brief": "He needs to feel heard before practical planning.",
+      "detailed": "He has had life-changing news. Acknowledging his distress and asking about the impact helps him feel heard and shows you what support he needs. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient's distress about life-changing news, while keeping a safety message clear.",
+    "keyDetails": "He must not drive. He drives for a living. He has already been told the rules. He is distressed about money.",
+    "reasoning": "[E] responds to his distress, [D] checks the safety message, and [A] helps practically. [B] undermines the rules, and [C] actively encourages unsafe driving.",
+    "competing": "Some would put the safety message first. He has already been told, so the key responds to his distress first and then checks his understanding."
+  },
+  "references": [
+    {
+      "title": "Assessing fitness to drive: a guide for medical professionals",
+      "publisher": "Driver and Vehicle Licensing Agency (GOV.UK)",
+      "year": null,
+      "url": "https://www.gov.uk/government/publications/assessing-fitness-to-drive-a-guide-for-medical-professionals",
+      "note": "Driving rules after an implantable cardioverter defibrillator."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating with compassion."
+    }
+  ],
+  "tags": [
+    "driving",
+    "DVLA",
+    "bad news",
+    "cardiology"
+  ]
+}

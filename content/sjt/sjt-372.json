@@ -1,0 +1,102 @@
+{
+  "id": "sjt-372",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-372",
+  "format": "multiple_choice",
+  "title": "\"Just in case\"",
+  "setting": "Psychiatry",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Boundaries",
+    "Safety planning",
+    "Kindness"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a psychiatric ward. Ms Bell, 28, is due to be discharged tomorrow. Over the past week she has started telling you about her personal life.\n\nShe asks for your mobile number, \"just in case I need someone to talk to\".",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Give her your number, as it may help her recovery at home.",
+      "brief": "Crosses a professional boundary.",
+      "detailed": "However well meant, this creates a personal relationship that isn't appropriate."
+    },
+    {
+      "id": "B",
+      "text": "Decline kindly, explaining that you can't share it.",
+      "brief": "Maintains appropriate boundaries.",
+      "detailed": "Giving your personal number would blur the professional relationship and create expectations you can't meet."
+    },
+    {
+      "id": "C",
+      "text": "Make sure she knows who to contact after discharge.",
+      "brief": "Gives her a safe route for support.",
+      "detailed": "Her community team, crisis line and GP can support her. Making sure she has these details meets her real need."
+    },
+    {
+      "id": "D",
+      "text": "Give her your work email instead.",
+      "brief": "Still an inappropriate personal channel.",
+      "detailed": "This doesn't provide safe crisis support and still blurs boundaries."
+    },
+    {
+      "id": "E",
+      "text": "Agree to message her on social media.",
+      "brief": "Inappropriate.",
+      "detailed": "This crosses boundaries and isn't a safe way to support her."
+    },
+    {
+      "id": "F",
+      "text": "Tell her the request is inappropriate.",
+      "brief": "Correct, but unkind.",
+      "detailed": "She may be anxious about leaving. A kind response is better."
+    },
+    {
+      "id": "G",
+      "text": "Avoid her for the rest of her admission.",
+      "brief": "Unkind and unprofessional.",
+      "detailed": "She needs care until she leaves. Avoiding her would be hurtful."
+    },
+    {
+      "id": "H",
+      "text": "Mention the request to her team.",
+      "brief": "Her need for support should be planned for.",
+      "detailed": "The request may show she is worried about coping. Her team can make sure her support plan reflects this."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you maintain professional boundaries kindly, while making sure a patient has proper support.",
+    "keyDetails": "She is anxious about discharge. She has been confiding in you. Professional support is available.",
+    "reasoning": "[B] declines kindly, [C] points her to proper support, and [H] involves her team. The distractors cross boundaries ([A], [D], [E]) or are unkind ([F], [G]).",
+    "competing": "[F] reaches the right conclusion but in a way that may hurt her."
+  },
+  "references": [
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Maintaining professional boundaries with patients."
+    }
+  ],
+  "tags": [
+    "boundaries",
+    "psychiatry",
+    "discharge",
+    "kindness"
+  ]
+}

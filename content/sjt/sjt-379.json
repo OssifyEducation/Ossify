@@ -1,0 +1,78 @@
+{
+  "id": "sjt-379",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-379",
+  "format": "ranking",
+  "title": "A drug she read about",
+  "setting": "Oncology & palliative care",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Honesty",
+    "Managing expectations",
+    "Seeking expertise"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Holt, 55, has advanced ovarian cancer. She shows you an online article about a new drug in early trials, and asks, \"Can I have this on the NHS?\"\n\nYou don't know whether it is available or whether she would be eligible for a trial.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her you'll request the drug for her.",
+      "brief": "False hope.",
+      "detailed": "You can't promise access to a drug you know nothing about. This could cause great disappointment. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Tell her the drug probably isn't suitable for someone in her situation.",
+      "brief": "A guess presented as an answer.",
+      "detailed": "You don't know whether it is suitable. This may be wrong and close off an option."
+    },
+    {
+      "id": "C",
+      "text": "Ask the oncology team to discuss it with her at her next clinic.",
+      "brief": "The right people, but she may wait weeks for an answer.",
+      "detailed": "Her oncologist will know about trials and availability, but she may wait some time, and she needs an honest response from you first. It ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Explain you don't know, and that you'll ask her oncologist.",
+      "brief": "Honest, and makes sure her question is answered properly.",
+      "detailed": "You don't know, so saying so is honest. Committing to ask her oncologist shows you take her question seriously. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty about the limits of your knowledge when a patient asks about a new treatment.",
+    "keyDetails": "The drug is in early trials. You don't know about availability or eligibility. She is hoping for options.",
+    "reasoning": "[D] is honest and follows up, and [C] involves the expert. [B] guesses, and [A] raises false hope.",
+    "competing": "Some would put [B] last, as it could close off a real option. The key ranks [A] last because a promise you can't keep is more harmful."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, being honest about the limits of your knowledge."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "clinical trials",
+    "oncology",
+    "expectations"
+  ]
+}

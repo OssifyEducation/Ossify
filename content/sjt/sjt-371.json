@@ -1,0 +1,85 @@
+{
+  "id": "sjt-371",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-371",
+  "format": "ranking",
+  "title": "The partner isn't coping",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Supporting carers",
+    "Listening",
+    "Signposting"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Ali, 58, has advanced breast cancer. Her husband has visited every day for three weeks and looks exhausted.\n\nIn the corridor he asks quietly, \"Can I talk to you? I'm not coping.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Mrs Ali that her husband isn't coping.",
+      "brief": "Shares his private disclosure and may distress her.",
+      "detailed": "He confided in you. Telling his wife without his agreement breaches his trust and could upset her. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you can only discuss his wife's care.",
+      "brief": "Turns away someone asking for help.",
+      "detailed": "His wellbeing affects hers, and you can support him without breaching anything."
+    },
+    {
+      "id": "C",
+      "text": "Suggest he sees his own GP if he is struggling with his health.",
+      "brief": "His GP can help with his own wellbeing.",
+      "detailed": "If he has low mood or isn't sleeping, his GP can help. It ranks third."
+    },
+    {
+      "id": "D",
+      "text": "Tell him about support for families, such as the palliative care team.",
+      "brief": "Practical support he may not know about.",
+      "detailed": "Palliative care teams, carers' services and charities can support relatives. It ranks second."
+    },
+    {
+      "id": "E",
+      "text": "Find a private space and listen to him now or shortly.",
+      "brief": "He has asked for help, and a short conversation can make a difference.",
+      "detailed": "He is reaching out. Making time, even briefly, shows care and helps you understand what he needs. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "C",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond with compassion to a relative's distress, and point him to support.",
+    "keyDetails": "He is exhausted. He has asked for help. His wife is very ill.",
+    "reasoning": "[E] listens, [D] offers family support, and [C] points to his GP. [B] turns him away, and [A] breaks his confidence.",
+    "competing": "[D] and [C] are close. The key puts family support first because it is tailored to his situation."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Supporting those close to patients at the end of life."
+    }
+  ],
+  "tags": [
+    "carers",
+    "distress",
+    "oncology",
+    "families"
+  ]
+}

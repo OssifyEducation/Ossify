@@ -1,0 +1,93 @@
+{
+  "id": "sjt-351",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-351",
+  "format": "ranking",
+  "title": "The wrong label",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Candour",
+    "Sample labelling",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. This morning you took blood from Mr Morgan, 70, but labelled the tubes with the details of the patient in the next bed. The laboratory noticed the mismatch and rejected the samples, so no wrong results were issued.\n\nMr Morgan needs the bloods repeated before his operation tomorrow. He disliked having blood taken this morning.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell Mr Morgan the laboratory lost his first samples.",
+      "brief": "A lie to cover your mistake.",
+      "detailed": "This is dishonest and shifts the blame to colleagues. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Change your practice so you always label tubes at the bedside.",
+      "brief": "Prevents a repeat.",
+      "detailed": "Labelling at the bedside, after checking identity, is the main protection against this error. Changing your practice is important but less immediate than the actions above. It ranks third."
+    },
+    {
+      "id": "C",
+      "text": "Ask the phlebotomist to repeat the bloods without explaining why.",
+      "brief": "Avoids telling him about your error.",
+      "detailed": "This gets the test done but leaves him unaware of why he needs another one. It ranks fourth."
+    },
+    {
+      "id": "D",
+      "text": "Explain the mistake to Mr Morgan, apologise and retake them.",
+      "brief": "He is entitled to know why he needs another blood test.",
+      "detailed": "He will have to go through another blood test because of your error. Explaining honestly and apologising respects him, and repeating the test promptly keeps his operation on track. It ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Report the labelling error through the incident reporting system.",
+      "brief": "Supports learning, even though no harm resulted.",
+      "detailed": "Labelling errors can cause serious harm, such as transfusion errors. Reporting near misses helps the ward reduce the risk. It ranks second."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "E",
+      "B",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you are open about a minor error that affects a patient, even when it caused no lasting harm.",
+    "keyDetails": "The error was yours. It was caught before harm. He needs another blood test. He disliked the first one.",
+    "reasoning": "[D] is honest and puts it right, [E] supports learning, and [B] prevents a repeat. [C] hides the error, and [A] lies about it.",
+    "competing": "[E] and [B] are close. The key ranks reporting higher because it helps the whole ward, not just you."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Being open with patients when something goes wrong, including near misses that affect them."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting incidents and near misses."
+    }
+  ],
+  "tags": [
+    "candour",
+    "labelling",
+    "near miss",
+    "surgery"
+  ]
+}

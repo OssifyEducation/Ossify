@@ -1,0 +1,103 @@
+{
+  "id": "sjt-376",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-376",
+  "format": "multiple_choice",
+  "title": "Talking over her",
+  "setting": "Elderly care ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Dignity",
+    "Dementia care",
+    "Role modelling"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward at lunchtime. Mrs Grant, 89, has advanced dementia and needs help to eat.\n\nTwo healthcare assistants are feeding her while chatting to each other about their weekend, without speaking to her or looking at her. She is turning her head away from the spoon.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Kindly suggest they talk to her while they help her eat.",
+      "brief": "A gentle prompt can change their approach.",
+      "detailed": "People with dementia still respond to being spoken to. A kind suggestion, rather than criticism, may improve her experience straight away."
+    },
+    {
+      "id": "B",
+      "text": "Leave it, as feeding is a nursing task.",
+      "brief": "Her dignity is everyone's responsibility.",
+      "detailed": "Ignoring it means her poor experience continues."
+    },
+    {
+      "id": "C",
+      "text": "Tell them off in front of the patient.",
+      "brief": "Public criticism may cause resentment.",
+      "detailed": "This may embarrass them and doesn't model the respect you want them to show."
+    },
+    {
+      "id": "D",
+      "text": "Report them to the Nursing and Midwifery Council.",
+      "brief": "Disproportionate.",
+      "detailed": "This is a practice issue to address locally, not a regulatory matter."
+    },
+    {
+      "id": "E",
+      "text": "Sit with Mrs Grant and help her yourself for a few minutes.",
+      "brief": "Shows by example, and helps her now.",
+      "detailed": "Modelling a patient-centred approach, by talking to her and going at her pace, can be more persuasive than words."
+    },
+    {
+      "id": "F",
+      "text": "Raise mealtime care with the ward manager.",
+      "brief": "May need wider attention, such as training.",
+      "detailed": "If this reflects a wider pattern, the ward manager can address it, for example through training on dementia care."
+    },
+    {
+      "id": "G",
+      "text": "Prescribe nutritional supplement drinks so she needs less help.",
+      "brief": "Avoids the problem instead of fixing it.",
+      "detailed": "Supplements may help her nutrition, but they don't address how she is being treated."
+    },
+    {
+      "id": "H",
+      "text": "Tell her family how she is being fed.",
+      "brief": "Doesn't fix the problem and may cause distress.",
+      "detailed": "This doesn't change practice and may alarm her family."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act when a patient's dignity is compromised during basic care, in a constructive way.",
+    "keyDetails": "She has dementia and needs help to eat. Staff are ignoring her. She is turning away from the spoon.",
+    "reasoning": "[A] prompts kindly, [E] models good care, and [F] addresses any wider issue. The distractors ignore it ([B]), criticise publicly ([C]), escalate disproportionately ([D]), avoid it ([G]), or alarm her family ([H]).",
+    "competing": "[C] addresses it directly, but publicly criticising colleagues in front of a patient isn't respectful either."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity and respect."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "dementia",
+    "mealtimes",
+    "elderly care"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "sjt-385",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-385",
+  "format": "ranking",
+  "title": "Updates for the family",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Communication with families",
+    "Patient choice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Mr Rowe, 70, is recovering from bowel surgery and has capacity. His three adult children phone the ward several times a day, each asking for detailed updates.\n\nMr Rowe hasn't said what he wants shared with them.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell callers he is comfortable, until you have spoken to him.",
+      "brief": "Gives minimal information while you check.",
+      "detailed": "Saying very little until you know his wishes is cautious. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Refuse to speak to the family at all.",
+      "brief": "Unhelpful and may cause distress.",
+      "detailed": "This may upset them unnecessarily before you know what he wants."
+    },
+    {
+      "id": "C",
+      "text": "Suggest, with his agreement, that the family chooses one contact for updates.",
+      "brief": "Reduces calls and confusion.",
+      "detailed": "A single point of contact makes updates clearer for everyone. It ranks second because it depends on his wishes."
+    },
+    {
+      "id": "D",
+      "text": "Give each of them full updates, as they are his children.",
+      "brief": "Shares information without his consent.",
+      "detailed": "Being his children doesn't entitle them to his information. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Ask Mr Rowe what he'd like shared, and with whom.",
+      "brief": "His information, his choice.",
+      "detailed": "He has capacity, and the decision about sharing his information is his. Asking him resolves the uncertainty. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make sure a capacitous patient decides what his family is told.",
+    "keyDetails": "He has capacity. He hasn't said what he wants shared. His family calls often.",
+    "reasoning": "[E] asks him, [C] simplifies communication with his agreement, and [A] is cautious in the meantime. [B] is unhelpful, and [D] breaches confidentiality.",
+    "competing": "[A] might be seen as a disclosure. Saying that someone is comfortable, without detail, is usually acceptable while you check."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with relatives with the patient's agreement."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "families",
+    "surgery",
+    "communication"
+  ]
+}

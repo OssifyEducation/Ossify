@@ -1,0 +1,110 @@
+{
+  "id": "sjt-352",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-352",
+  "format": "multiple_choice",
+  "title": "Two visits",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Safety and quality",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Recognising emergencies",
+    "Palliative care"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an out-of-hours GP shift. You have two home visits waiting. Mr Patel's wife reports that 40 minutes ago his face dropped on one side and his right arm became weak.\n\nMr Lloyd is dying at home with cancer and is in pain. His anticipatory medicines are in the house, and the district nurses are available tonight.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Visit Mr Patel first, then Mr Lloyd.",
+      "brief": "A GP visit delays stroke treatment.",
+      "detailed": "Seeing him yourself first would delay his transfer to hospital, where time-critical treatment is available."
+    },
+    {
+      "id": "B",
+      "text": "Ask Mr Lloyd's family to call 999 if his pain gets worse.",
+      "brief": "Risks an unwanted admission for a dying patient.",
+      "detailed": "His pain can be managed at home with his anticipatory medicines. Calling an ambulance may lead to an admission he doesn't want."
+    },
+    {
+      "id": "C",
+      "text": "Tell Mr Patel's wife to call 999 now.",
+      "brief": "A suspected stroke needs an ambulance and hospital, not a GP visit.",
+      "detailed": "Sudden facial droop and arm weakness suggest a stroke. Time-critical treatment is only available in hospital, so an ambulance is needed at once."
+    },
+    {
+      "id": "D",
+      "text": "Ask Mr Patel's wife to bring him to the GP surgery in the morning.",
+      "brief": "A dangerous delay for a possible stroke.",
+      "detailed": "Waiting until morning could mean he misses treatment that might prevent lasting disability."
+    },
+    {
+      "id": "E",
+      "text": "Ask the district nurses to give Mr Lloyd his pain relief.",
+      "brief": "Relieves his pain quickly, using the plan already in place.",
+      "detailed": "His anticipatory medicines are there for this situation. The district nurses can give a dose promptly while you travel."
+    },
+    {
+      "id": "F",
+      "text": "Visit Mr Lloyd to review his symptoms.",
+      "brief": "He needs a medical review of his pain.",
+      "detailed": "Even if a dose helps, his symptom plan may need adjusting. A visit lets you assess him and support his family."
+    },
+    {
+      "id": "G",
+      "text": "Advise Mr Lloyd's family to give him paracetamol until you arrive.",
+      "brief": "Unlikely to help, when stronger medicines are available.",
+      "detailed": "Paracetamol is unlikely to control severe cancer pain when his prescribed medicines are in the house."
+    },
+    {
+      "id": "H",
+      "text": "Ask the out-of-hours base to send another doctor to Mr Patel.",
+      "brief": "He needs an ambulance, not another GP.",
+      "detailed": "A second doctor would still delay his transfer to hospital."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise an emergency that needs hospital care, and use the resources already in place for a palliative patient.",
+    "keyDetails": "Mr Patel has symptoms of stroke that started 40 minutes ago. Mr Lloyd has anticipatory medicines and district nurse support.",
+    "reasoning": "[C] gets Mr Patel to hospital fastest, [E] relieves Mr Lloyd's pain quickly, and [F] reviews him. The distractors delay stroke care ([A], [D], [H]), risk an unwanted admission ([B]), or under-treat his pain ([G]).",
+    "competing": "[A] may feel like doing more for Mr Patel, but a GP visit only delays the ambulance."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Using anticipatory planning so dying patients are cared for where they wish."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, prioritising according to clinical need."
+    }
+  ],
+  "tags": [
+    "stroke",
+    "palliative care",
+    "out-of-hours",
+    "prioritisation"
+  ]
+}

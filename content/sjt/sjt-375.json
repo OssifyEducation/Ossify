@@ -1,0 +1,86 @@
+{
+  "id": "sjt-375",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-375",
+  "format": "ranking",
+  "title": "\"You're overreacting\"",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Escalation",
+    "Teamwork",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the postnatal ward. Mrs Jones, 31, gave birth two hours ago. Her heart rate has risen to 112, her blood pressure has fallen to 98/60, and her pad is much heavier than an hour ago.\n\nYou ask the midwife to call the obstetric registrar. She says, \"You're overreacting. Let's give it half an hour.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the labour ward coordinator to tell the midwife to call the registrar.",
+      "brief": "Indirect, and delays help.",
+      "detailed": "This may work, but it delays getting senior help when you could call yourself."
+    },
+    {
+      "id": "B",
+      "text": "Wait half an hour and reassess, as the midwife suggests.",
+      "brief": "A dangerous delay.",
+      "detailed": "If she is bleeding, half an hour could be life-threatening. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Explain calmly to the midwife why you're concerned.",
+      "brief": "Shares your reasoning and keeps the team working together.",
+      "detailed": "Explaining the observations may change her view, and you will need her help. It ranks second because calling for help comes first."
+    },
+    {
+      "id": "D",
+      "text": "Bleep the obstetric registrar yourself straight away.",
+      "brief": "She may be bleeding seriously, so a senior is needed now.",
+      "detailed": "A rising heart rate, falling blood pressure and increased bleeding after birth suggest a postpartum haemorrhage that may be getting worse. You don't need the midwife's agreement to call for help. It ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Discuss the disagreement with the midwife once Mrs Jones is stable.",
+      "brief": "Helps the team learn from it.",
+      "detailed": "A later conversation can help you both understand each other's views. It ranks third because it is not urgent."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "E",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you escalate a deteriorating patient despite a colleague's disagreement.",
+    "keyDetails": "She has signs of a postpartum haemorrhage. The midwife disagrees. You can call the registrar yourself.",
+    "reasoning": "[D] gets help now, [C] keeps the team together, and [E] addresses the disagreement later. [A] delays help, and [B] could be fatal.",
+    "competing": "Some would explain to the midwife first, to keep her on side. With these observations, calling for help can't wait, and you can explain while you wait for the registrar."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, recognising and responding to deterioration."
+    }
+  ],
+  "tags": [
+    "postpartum haemorrhage",
+    "escalation",
+    "teamwork",
+    "obstetrics"
+  ]
+}

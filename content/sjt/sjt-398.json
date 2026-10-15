@@ -1,0 +1,103 @@
+{
+  "id": "sjt-398",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-398",
+  "format": "multiple_choice",
+  "title": "Everyone can hear",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Privacy",
+    "Dignity",
+    "Speaking up"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a cardiology ward round. In a six-bed bay at visiting time, the consultant starts telling Mr Burke, 49, loudly that his heart scan suggests damage caused by alcohol, and asks how much he drinks.\n\nMr Burke looks embarrassed and glances at the visitors at the next bed.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave it, as the consultant is leading the ward round.",
+      "brief": "His privacy matters.",
+      "detailed": "Juniors can raise concerns politely."
+    },
+    {
+      "id": "B",
+      "text": "Tell the consultant off in front of the patient.",
+      "brief": "Unprofessional.",
+      "detailed": "Criticising a colleague in front of a patient undermines trust."
+    },
+    {
+      "id": "C",
+      "text": "Ask the visitors at the next bed to step out of the bay.",
+      "brief": "Draws attention, and others can still hear.",
+      "detailed": "Other patients in the bay can still hear, and asking visitors to leave draws attention to him."
+    },
+    {
+      "id": "D",
+      "text": "Suggest quietly that you continue somewhere private.",
+      "brief": "Protects his privacy now.",
+      "detailed": "A quiet suggestion gives the consultant a chance to move the conversation."
+    },
+    {
+      "id": "E",
+      "text": "Draw the curtains around his bed.",
+      "brief": "Curtains aren't soundproof.",
+      "detailed": "This gives a false sense of privacy."
+    },
+    {
+      "id": "F",
+      "text": "Report the consultant to the Caldicott guardian.",
+      "brief": "Disproportionate as a first step.",
+      "detailed": "This should be raised directly first."
+    },
+    {
+      "id": "G",
+      "text": "Check afterwards how Mr Burke felt.",
+      "brief": "Shows care and may reveal more he wants to discuss.",
+      "detailed": "He may have questions he didn't feel able to ask."
+    },
+    {
+      "id": "H",
+      "text": "Raise privacy on ward rounds with the team.",
+      "brief": "Improves practice for others.",
+      "detailed": "This may help the team find better ways to discuss sensitive news."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you protect a patient's privacy and dignity when a senior discusses sensitive information in public.",
+    "keyDetails": "The discussion is sensitive. Visitors are nearby. Mr Burke is embarrassed.",
+    "reasoning": "[D] protects his privacy now, [G] checks on him, and [H] improves practice. The distractors stay silent ([A]), criticise publicly ([B]), don't really protect his privacy ([C], [E]), or escalate disproportionately ([F]).",
+    "competing": "[E] is a common reflex, but curtains don't stop others hearing."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Protecting patients' information from improper disclosure."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "privacy",
+    "ward round",
+    "alcohol"
+  ]
+}

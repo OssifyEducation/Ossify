@@ -1,0 +1,110 @@
+{
+  "id": "sjt-364",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-364",
+  "format": "multiple_choice",
+  "title": "Stop the antibiotics?",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Challenging seniors",
+    "Sepsis",
+    "Escalation"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the Emergency Department. Mr Dixon, 72, has a temperature of 38.9°C, a heart rate of 118, a blood pressure of 94/58 and a lactate of 3.4. You started intravenous antibiotics for suspected sepsis.\n\nThe registrar reviews him briefly and says, \"It's flu. Stop the antibiotics.\" You remain concerned.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the registrar exactly why you are concerned.",
+      "brief": "The details may change their view.",
+      "detailed": "His low blood pressure and raised lactate suggest sepsis, whatever the cause. Pointing out these specific findings gives the registrar the chance to reconsider."
+    },
+    {
+      "id": "B",
+      "text": "Stop the antibiotics as instructed.",
+      "brief": "Follows an instruction you believe is unsafe without raising it.",
+      "detailed": "The registrar may be right, but your specific concerns should be raised before acting."
+    },
+    {
+      "id": "C",
+      "text": "Switch him to a different antibiotic as a compromise.",
+      "brief": "A covert workaround that resolves nothing.",
+      "detailed": "This neither follows the registrar's plan nor raises your concern openly. The disagreement needs discussing, not working around."
+    },
+    {
+      "id": "D",
+      "text": "Discuss Mr Dixon with the ED consultant.",
+      "brief": "A senior review may be needed if you still disagree.",
+      "detailed": "If you remain concerned that stopping antibiotics could harm him, the consultant can review him. Escalating is appropriate when patient safety is at stake."
+    },
+    {
+      "id": "E",
+      "text": "Document your findings and the discussion.",
+      "brief": "A clear record of what was found and decided.",
+      "detailed": "Recording the observations, lactate and the discussion supports continuity and accountability."
+    },
+    {
+      "id": "F",
+      "text": "Tell Mr Dixon that the registrar is wrong.",
+      "brief": "Undermines his trust in the team.",
+      "detailed": "Disagreements should be resolved within the team."
+    },
+    {
+      "id": "G",
+      "text": "Ask the nurse to keep giving the antibiotics as prescribed.",
+      "brief": "Puts the nurse in the middle of a disagreement.",
+      "detailed": "This passes the conflict to someone else and doesn't resolve it."
+    },
+    {
+      "id": "H",
+      "text": "Send a flu swab and wait for the result.",
+      "brief": "Doesn't address the immediate risk.",
+      "detailed": "A swab may be useful, but it doesn't settle whether he needs antibiotics now."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a well-founded concern with a senior, and escalate if needed, when a patient may be harmed.",
+    "keyDetails": "He has signs of sepsis, including low blood pressure and a raised lactate. The registrar's review was brief. You remain concerned.",
+    "reasoning": "[A] raises the specific findings, [D] escalates if needed, and [E] documents. The distractors comply without question ([B]), act covertly ([C], [G]), undermine the team ([F]), or delay ([H]).",
+    "competing": "[B] is reasonable if the registrar has considered your concerns. Here you haven't raised them yet, which is why speaking up comes first. While you escalate, it is reasonable to ask that the antibiotics aren't stopped until a senior has reviewed him."
+  },
+  "references": [
+    {
+      "title": "Suspected sepsis: recognition, diagnosis and early management (NG51)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2024,
+      "url": "https://www.nice.org.uk/guidance/ng51",
+      "note": "Recognising sepsis and starting antibiotics promptly."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, raising concerns about care with seniors."
+    }
+  ],
+  "tags": [
+    "sepsis",
+    "challenging seniors",
+    "emergency department",
+    "antibiotics"
+  ]
+}

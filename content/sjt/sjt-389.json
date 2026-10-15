@@ -1,0 +1,79 @@
+{
+  "id": "sjt-389",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-389",
+  "format": "ranking",
+  "title": "Which patient?",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Challenging seniors",
+    "Patient safety",
+    "Closed-loop communication"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a cardiology ward at night. The medical registrar, busy in the emergency department, phones and asks you to stop the heparin infusion for the patient in bed 4 \"before his operation tomorrow\", then hangs up.\n\nMr Hughes in bed 4 has an NSTEMI, isn't having an operation, and has had more chest pain this evening. The registrar can be phoned back.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Stop the infusion as asked, as the registrar is more senior.",
+      "brief": "Could cause serious harm.",
+      "detailed": "Stopping anticoagulation in a patient with ongoing chest pain from an NSTEMI could be dangerous, and the instruction seems to be a mix-up. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Ask the nurse in charge what she thinks you should do.",
+      "brief": "Delays clarifying with the person who gave the instruction.",
+      "detailed": "The nurse may agree it seems wrong, but she can't change the registrar's plan. It ranks third."
+    },
+    {
+      "id": "C",
+      "text": "Keep the infusion running and ask the consultant for advice.",
+      "brief": "Safe, but goes around the registrar.",
+      "detailed": "Not stopping the heparin protects Mr Hughes, but the registrar can be reached and is the right person to ask first. It ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Call the registrar back, describing Mr Hughes's symptoms.",
+      "brief": "Likely a mix-up, which a quick call can resolve.",
+      "detailed": "The instruction doesn't fit Mr Hughes, so it may be meant for another patient. Calling back with the key facts lets the registrar correct it. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you check an instruction that doesn't fit the patient, even when a busy senior gives it.",
+    "keyDetails": "The instruction mentions an operation Mr Hughes isn't having. He has ongoing chest pain. The registrar can be reached.",
+    "reasoning": "[D] checks with the person who gave the instruction, and [C] keeps him safe but bypasses the registrar. [B] delays, and [A] could harm him.",
+    "competing": "Some would rank [C] first because it protects him straight away. The key puts [D] first because the registrar is available and the infusion hasn't been stopped yet."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, acting when you believe an instruction may be unsafe."
+    }
+  ],
+  "tags": [
+    "seniors",
+    "anticoagulation",
+    "cardiology",
+    "patient safety"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "sjt-394",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-394",
+  "format": "multiple_choice",
+  "title": "Rude and dismissive",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Reflection",
+    "Responding to complaints",
+    "Openness"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in the emergency department. The complaints team tells you that a patient's daughter has written to say you were rude and dismissive when she asked questions during a busy night shift.\n\nYou remember the conversation, and that you were rushed.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Reflect honestly on how the conversation went.",
+      "brief": "Helps you learn from it.",
+      "detailed": "You were rushed, so it may well have come across badly. Reflecting honestly is the first step."
+    },
+    {
+      "id": "B",
+      "text": "Discuss the complaint with your clinical supervisor.",
+      "brief": "Support and guidance.",
+      "detailed": "Your supervisor can help you reflect and respond appropriately."
+    },
+    {
+      "id": "C",
+      "text": "Ignore it, as you were busy.",
+      "brief": "Being busy doesn't remove the need to respond.",
+      "detailed": "The complaint needs a response, and there may be something to learn."
+    },
+    {
+      "id": "D",
+      "text": "Phone the daughter yourself to explain that she misunderstood you.",
+      "brief": "Defensive, and bypasses the process.",
+      "detailed": "Contacting her directly to argue your case may make things worse."
+    },
+    {
+      "id": "E",
+      "text": "Give the complaints team an honest account, with an apology.",
+      "brief": "Responds openly through the proper process.",
+      "detailed": "An honest account, with an apology for how she felt, helps resolve the complaint."
+    },
+    {
+      "id": "F",
+      "text": "Ask colleagues to write statements supporting you.",
+      "brief": "Defensive.",
+      "detailed": "This focuses on defending yourself rather than learning."
+    },
+    {
+      "id": "G",
+      "text": "Put it down to her being a difficult relative.",
+      "brief": "Dismisses her experience.",
+      "detailed": "This avoids reflection and may repeat the problem."
+    },
+    {
+      "id": "H",
+      "text": "Avoid her mother's family if they return.",
+      "brief": "Avoidance doesn't help.",
+      "detailed": "This doesn't resolve the complaint and may affect care."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to a complaint about your behaviour openly, and use it to learn.",
+    "keyDetails": "The complaint is about your manner. You were rushed. It has come through the complaints team.",
+    "reasoning": "[A] reflects, [B] seeks support, and [E] responds openly. The distractors ignore it ([C]), are defensive ([D], [F]), dismiss her ([G]), or avoid her family ([H]).",
+    "competing": "[D] might seem a quick way to resolve it, but contacting her to argue your case is likely to escalate the complaint."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, responding to complaints."
+    }
+  ],
+  "tags": [
+    "complaints",
+    "reflection",
+    "communication",
+    "emergency department"
+  ]
+}

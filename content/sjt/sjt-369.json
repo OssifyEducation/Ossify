@@ -1,0 +1,78 @@
+{
+  "id": "sjt-369",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-369",
+  "format": "ranking",
+  "title": "The police want a result",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Legal requests",
+    "Seeking advice"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in the Emergency Department. Mr Rhodes, 35, is unconscious after a car crash in which another driver was seriously injured. As part of his care, his blood alcohol level was measured and is high.\n\nA police officer asks you for the result, saying it is needed for their investigation.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask your consultant for advice before sharing anything.",
+      "brief": "Disclosure to the police is a complex, senior decision.",
+      "detailed": "Confidential information can sometimes be disclosed to the police in the public interest, for example when a serious crime has caused serious harm, but that decision should be made at a senior level, often with the trust's Caldicott guardian. Telling the officer you need to take advice, and then seeking it, is the right first step. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Tell the officer the result is 'consistent with drinking' without giving the figure.",
+      "brief": "A disclosure made informally, without any decision that it is justified.",
+      "detailed": "This seems cautious, but it shares confidential information without anyone having decided that disclosure is justified."
+    },
+    {
+      "id": "C",
+      "text": "Tell the officer that the police have their own procedure for testing drivers.",
+      "brief": "Accurate, and points the police to the proper route.",
+      "detailed": "There is a legal procedure for the police to obtain a specimen from a driver who can't consent, which involves the doctor in charge of his care. Explaining that this route exists is helpful and doesn't disclose anything. It ranks second because the disclosure question itself still needs senior advice."
+    },
+    {
+      "id": "D",
+      "text": "Give the officer the result, as it relates to a crime.",
+      "brief": "A full disclosure without a proper decision.",
+      "detailed": "Disclosure may be justified in some circumstances, but it isn't a decision for you to make on the spot. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a police request for confidential information about a patient who can't consent.",
+    "keyDetails": "He is unconscious and can't consent. The result was taken for his care. Police have their own procedures. Someone was seriously injured, which may make a public-interest disclosure relevant.",
+    "reasoning": "[A] gets senior advice on a complex disclosure, and [C] points the police to their proper route. [B] discloses informally, and [D] fully, without a proper decision.",
+    "competing": "Some would put explaining the police procedure first. The key puts seeking advice first because whether to disclose may turn on the public interest, which needs a senior decision."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Disclosures to the police, and the public interest."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "police",
+    "emergency department",
+    "road traffic"
+  ]
+}

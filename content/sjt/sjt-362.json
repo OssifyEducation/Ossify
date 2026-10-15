@@ -1,0 +1,109 @@
+{
+  "id": "sjt-362",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-362",
+  "format": "multiple_choice",
+  "title": "Hearing God",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Cultural understanding",
+    "Diagnostic care",
+    "Respecting beliefs"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an inpatient psychiatric ward. Mr Mensah, 34, was admitted with severe depression. He tells you that during prayer he sometimes hears God speaking to him, which he says is normal in his church.\n\nIn the team meeting, a colleague describes this as \"religious delusions\" and suggests starting an antipsychotic.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree with your colleague and start the antipsychotic.",
+      "brief": "Premature without understanding the context.",
+      "detailed": "Starting treatment for psychosis without considering his faith could lead to misdiagnosis."
+    },
+    {
+      "id": "B",
+      "text": "Tell Mr Mensah that hearing voices is a symptom of illness.",
+      "brief": "Dismisses his beliefs.",
+      "detailed": "This may damage your relationship with him and may be wrong."
+    },
+    {
+      "id": "C",
+      "text": "Ask Mr Mensah more about his beliefs and experiences.",
+      "brief": "Understanding the experience helps decide whether it is part of his illness.",
+      "detailed": "Spiritual experiences can be part of a person's faith. Asking about them helps distinguish them from symptoms."
+    },
+    {
+      "id": "D",
+      "text": "Suggest the team considers his religious background.",
+      "brief": "Context is essential to diagnosis.",
+      "detailed": "Whether an experience is normal within his faith community affects whether it should be seen as a symptom."
+    },
+    {
+      "id": "E",
+      "text": "Record that he has religious delusions.",
+      "brief": "Documents a conclusion that hasn't been reached.",
+      "detailed": "A label in his record could affect his care for years."
+    },
+    {
+      "id": "F",
+      "text": "Ask, with his consent, to talk to someone from his church.",
+      "brief": "Helps the team understand what is usual in his community.",
+      "detailed": "A faith leader or family member may help the team understand his experiences in context."
+    },
+    {
+      "id": "G",
+      "text": "Avoid discussing religion with him.",
+      "brief": "Misses information that matters to his care.",
+      "detailed": "His faith may be important to him and to his recovery."
+    },
+    {
+      "id": "H",
+      "text": "Ask the chaplain to decide whether his experiences are genuine.",
+      "brief": "This isn't a decision for the chaplain.",
+      "detailed": "The chaplain may help, but clinical judgement remains with the team."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you consider a patient's cultural and religious context before labelling an experience as a symptom.",
+    "keyDetails": "He has depression. He describes spiritual experiences as normal in his church. A colleague has labelled them delusions.",
+    "reasoning": "[C] explores his experience, [D] raises context with the team, and [F] seeks information from his community. The distractors treat prematurely ([A]), dismiss his beliefs ([B], [G]), label him ([E]), or hand clinical judgement to the chaplain ([H]).",
+    "competing": "[H] could be part of understanding his faith, but the diagnosis remains a clinical decision."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Religion or belief as a protected characteristic."
+    }
+  ],
+  "tags": [
+    "culture",
+    "religion",
+    "psychiatry",
+    "diagnosis"
+  ]
+}

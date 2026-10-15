@@ -1,0 +1,85 @@
+{
+  "id": "sjt-373",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-373",
+  "format": "ranking",
+  "title": "List cancelled",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communication",
+    "Managing frustration",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. At 14:00 the afternoon theatre list is cancelled because an emergency case has taken the theatre. Four patients have been fasting since 07:00. One has diabetes, and the nurses have checked that his blood glucose is normal.\n\nThey are angry, and one says, \"Nobody ever tells us anything.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the team to rebook their operations as soon as possible.",
+      "brief": "Gives them a plan.",
+      "detailed": "Knowing when their operations will happen helps reduce anxiety. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Avoid the bay until the nurses have told them.",
+      "brief": "Leaves them uninformed and angry.",
+      "detailed": "This avoids a difficult conversation and may delay their eating and drinking. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Tell them it's the theatre team's fault.",
+      "brief": "Blames colleagues unfairly.",
+      "detailed": "The cancellation was due to an emergency. Blaming colleagues doesn't help."
+    },
+    {
+      "id": "D",
+      "text": "Make sure they can eat and drink, and restart any medicines that were withheld.",
+      "brief": "Prolonged fasting carries risks, especially in diabetes.",
+      "detailed": "Patients, particularly those with diabetes, need to eat and restart medicines safely. It ranks second because it can happen straight after explaining."
+    },
+    {
+      "id": "E",
+      "text": "Apologise, and explain why the list was cancelled and what's next.",
+      "brief": "Honesty and an apology help reduce their frustration.",
+      "detailed": "They deserve to know why their operations were cancelled and what will happen. An apology acknowledges their inconvenience. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "A",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to frustrated patients after a cancellation, combining honest communication with safety.",
+    "keyDetails": "The list was cancelled for an emergency. Patients have fasted for seven hours. One has diabetes.",
+    "reasoning": "[E] explains and apologises, [D] keeps them safe, and [A] plans ahead. [C] blames colleagues, and [B] avoids them.",
+    "competing": "Some would make sure they can eat first. The key explains first because it takes a minute and it is what they need to hear."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, keeping patients informed."
+    }
+  ],
+  "tags": [
+    "cancellation",
+    "communication",
+    "orthopaedics",
+    "fasting"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "sjt-382",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-382",
+  "format": "multiple_choice",
+  "title": "An out-of-date list",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Handover",
+    "Organisation",
+    "Patient safety"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor starting a weekend day shift in general surgery. The registrar hands over verbally, quickly, and leaves for theatre. His first case starts in 20 minutes, and he carries his bleep.\n\nYou then discover that the written jobs list is a week out of date, and some patients on it have been discharged while new ones are missing.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Work from the old list.",
+      "brief": "May miss new patients.",
+      "detailed": "The list doesn't reflect the current patients."
+    },
+    {
+      "id": "B",
+      "text": "Check today's jobs with the registrar before he operates.",
+      "brief": "Fills the gaps while he is available.",
+      "detailed": "A quick check now makes sure nothing urgent is missed."
+    },
+    {
+      "id": "C",
+      "text": "Update the list for the current patients.",
+      "brief": "Gives you, and others, an accurate list.",
+      "detailed": "An accurate list protects patients over the weekend."
+    },
+    {
+      "id": "D",
+      "text": "Suggest the team updates the list each day.",
+      "brief": "Prevents it happening again.",
+      "detailed": "A simple routine can keep the list accurate."
+    },
+    {
+      "id": "E",
+      "text": "Rely on your memory of the handover.",
+      "brief": "Verbal handovers are easily forgotten.",
+      "detailed": "Without a written record, jobs may be missed."
+    },
+    {
+      "id": "F",
+      "text": "Complain to the consultant about the registrar.",
+      "brief": "Doesn't solve the problem now.",
+      "detailed": "The priority is accurate information for today."
+    },
+    {
+      "id": "G",
+      "text": "Rely on the nurses to tell you which jobs need doing.",
+      "brief": "Useful input, but not a substitute for the team's plan.",
+      "detailed": "Nurses know a lot, but the medical plan should come from the team."
+    },
+    {
+      "id": "H",
+      "text": "Wait until the registrar is out of theatre this afternoon.",
+      "brief": "Delays clarifying urgent jobs.",
+      "detailed": "This could be hours away."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you close gaps in handover promptly to keep patients safe.",
+    "keyDetails": "The handover was verbal only. The written list is out of date. The registrar is about to go into theatre.",
+    "reasoning": "[B] clarifies now, [C] creates an accurate list, and [D] prevents a repeat. The distractors rely on unreliable information ([A], [E], [G]), blame ([F]), or delay ([H]).",
+    "competing": "[G] is useful too, but the medical plan needs to come from the team."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, safe handover of care."
+    }
+  ],
+  "tags": [
+    "handover",
+    "jobs list",
+    "surgery",
+    "weekend"
+  ]
+}

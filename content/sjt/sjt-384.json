@@ -1,0 +1,103 @@
+{
+  "id": "sjt-384",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-384",
+  "format": "multiple_choice",
+  "title": "Why the change?",
+  "setting": "Oncology & palliative care",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Honesty about limits",
+    "Seeking expertise",
+    "Communication"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Pike, 63, asks why her chemotherapy has been changed. Her oncologist has already told her the cancer has grown. The letter mentions \"progression on first-line treatment\", but you don't fully understand the decision or the new regimen.\n\nShe is anxious and wants an answer today.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her honestly that you aren't sure of the details.",
+      "brief": "Honest about the limits of your knowledge.",
+      "detailed": "Guessing about chemotherapy decisions could mislead her. Being honest is better."
+    },
+    {
+      "id": "B",
+      "text": "Explain it based on your understanding of first-line treatment.",
+      "brief": "May be inaccurate.",
+      "detailed": "Your partial understanding may not reflect her oncologist's reasoning."
+    },
+    {
+      "id": "C",
+      "text": "Tell her it's a routine change.",
+      "brief": "May be misleading.",
+      "detailed": "'Progression' suggests the cancer has grown, so calling the change routine could give a false impression."
+    },
+    {
+      "id": "D",
+      "text": "Ask the oncology team to explain it to her today.",
+      "brief": "The right people can answer her question.",
+      "detailed": "Her oncologist or a specialist nurse can explain the reasons properly, and she wants an answer today."
+    },
+    {
+      "id": "E",
+      "text": "Tell her to ask at her next clinic appointment.",
+      "brief": "Delays an answer she wants today.",
+      "detailed": "Her next clinic may be weeks away."
+    },
+    {
+      "id": "F",
+      "text": "Read the oncology letter with her, explaining what you can.",
+      "brief": "Shares what is documented, within your knowledge.",
+      "detailed": "She may have a copy already. Going through it, and explaining the terms you understand, helps her while she waits."
+    },
+    {
+      "id": "G",
+      "text": "Tell her not to worry, as the team knows what it's doing.",
+      "brief": "Dismissive.",
+      "detailed": "This doesn't answer her question or address her anxiety."
+    },
+    {
+      "id": "H",
+      "text": "Ask the pharmacist to explain the reasons for the change.",
+      "brief": "Can explain the drugs, but not the clinical decision.",
+      "detailed": "A pharmacist can explain the new regimen, but not the oncologist's reasons for changing it."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise the limits of your knowledge and find the right person to answer a patient's question.",
+    "keyDetails": "The change follows progression. You don't fully understand it. She wants an answer today.",
+    "reasoning": "[A] is honest, [D] gets the right people involved, and [F] shares what you can. The distractors guess ([B]), mislead ([C]), delay ([E]), dismiss ([G]), or ask the wrong person ([H]).",
+    "competing": "[C] might seem reassuring, but the word 'progression' means the change isn't routine."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, recognising the limits of your competence."
+    }
+  ],
+  "tags": [
+    "oncology",
+    "chemotherapy",
+    "competence",
+    "honesty"
+  ]
+}

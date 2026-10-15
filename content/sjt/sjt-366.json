@@ -1,0 +1,102 @@
+{
+  "id": "sjt-366",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-366",
+  "format": "multiple_choice",
+  "title": "Sign it off for me?",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Portfolio integrity",
+    "Friendship"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. Your friend Dr Ellis, another F2, has a deadline for her portfolio tonight. She asks you to sign off a supervised learning event for a procedure, saying, \"I did it last week, you just weren't there.\"\n\nYou didn't observe the procedure.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Sign it, as she is competent and you trust her.",
+      "brief": "Trust doesn't replace observation.",
+      "detailed": "Even if she is competent, signing without observing is dishonest."
+    },
+    {
+      "id": "B",
+      "text": "Decline to sign off something you didn't observe.",
+      "brief": "Signing would be dishonest.",
+      "detailed": "A supervised learning event confirms that you observed the procedure. Signing it without seeing it would be a false record."
+    },
+    {
+      "id": "C",
+      "text": "Sign it, but write a brief comment so it isn't too detailed.",
+      "brief": "Still a false record.",
+      "detailed": "Keeping the comment brief doesn't change the fact that you didn't observe it."
+    },
+    {
+      "id": "D",
+      "text": "Report her to her educational supervisor.",
+      "brief": "Disproportionate for a request you've declined.",
+      "detailed": "She asked, and you can decline. A report at this stage is excessive."
+    },
+    {
+      "id": "E",
+      "text": "Tell other colleagues what she asked you to do.",
+      "brief": "Gossip that harms her reputation.",
+      "detailed": "This doesn't help anyone and may damage her standing."
+    },
+    {
+      "id": "F",
+      "text": "Suggest she backdates a new assessment with another colleague.",
+      "brief": "Encourages another false record.",
+      "detailed": "Backdating would be dishonest too."
+    },
+    {
+      "id": "G",
+      "text": "Suggest she asks the person who did observe her.",
+      "brief": "The right person can sign it honestly.",
+      "detailed": "If someone supervised her, they can complete the assessment honestly."
+    },
+    {
+      "id": "H",
+      "text": "Offer to observe her doing the procedure soon.",
+      "brief": "A genuine way to help.",
+      "detailed": "Observing her yourself lets you sign it off honestly, even if it is after the deadline."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep training records honest when a friend asks you to help them out.",
+    "keyDetails": "You didn't observe the procedure. She is under deadline pressure. She is a friend.",
+    "reasoning": "[B] declines honestly, [G] points to the right person, and [H] offers genuine help. The distractors falsify ([A], [C], [F]), overreact ([D]), or gossip ([E]).",
+    "competing": "[D] feels principled, but she asked and you declined, so there is nothing to report at this stage."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in training records and assessments."
+    }
+  ],
+  "tags": [
+    "portfolio",
+    "probity",
+    "assessments",
+    "friends"
+  ]
+}

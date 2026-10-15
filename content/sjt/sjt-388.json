@@ -1,0 +1,103 @@
+{
+  "id": "sjt-388",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-388",
+  "format": "multiple_choice",
+  "title": "Sign for this one?",
+  "setting": "General surgery",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Honesty",
+    "Controlled drugs",
+    "Accurate records"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a surgical ward. In your trust, doctors can act as the second witness for controlled drugs. Leah, a staff nurse, asks you to countersign the controlled drug register for a dose of oral morphine she gave two hours ago.\n\nYou weren't there when it was given. She says, \"It was really busy and no one was free to check it.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Sign it, as you trust her and the stock count is correct.",
+      "brief": "Still a false record.",
+      "detailed": "A correct count doesn't mean you witnessed the dose. Your signature would be untrue."
+    },
+    {
+      "id": "B",
+      "text": "Explain that you can't sign for a dose you didn't see.",
+      "brief": "Signing would make the register inaccurate.",
+      "detailed": "Your signature confirms you witnessed the dose being checked and given. Signing now would create a false record."
+    },
+    {
+      "id": "C",
+      "text": "Suggest she tells the nurse in charge.",
+      "brief": "The person running the shift needs to know.",
+      "detailed": "The nurse in charge can decide what to do, including how to record it accurately and whether staffing needs escalating."
+    },
+    {
+      "id": "D",
+      "text": "Sign it with today's time, so the record looks complete.",
+      "brief": "Falsifies the record.",
+      "detailed": "This deliberately misrepresents what happened, which is dishonest."
+    },
+    {
+      "id": "E",
+      "text": "Report her to the Nursing and Midwifery Council.",
+      "brief": "Disproportionate.",
+      "detailed": "A single missed check on a busy shift should be handled locally, not by the regulator."
+    },
+    {
+      "id": "F",
+      "text": "Ask another doctor to sign it instead.",
+      "brief": "Moves the false record to someone else.",
+      "detailed": "No one witnessed the dose, so anyone who signs creates a false record."
+    },
+    {
+      "id": "G",
+      "text": "Ask pharmacy to recount every controlled drug on the ward.",
+      "brief": "Disproportionate.",
+      "detailed": "There is no suggestion of a discrepancy. A ward-wide recount doesn't address the missed check or the request to sign."
+    },
+    {
+      "id": "H",
+      "text": "Suggest the missed check is reported as an incident.",
+      "brief": "Lets the trust learn from it.",
+      "detailed": "A controlled drug given without the required check is a reportable incident. Reporting it supports learning about the staffing pressures behind it."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep records honest when a colleague asks you to sign for something you didn't witness.",
+    "keyDetails": "You didn't see the dose given. The ward was busy. She is asking you to countersign after the event.",
+    "reasoning": "[B] keeps the record honest, [C] involves the nurse in charge, and [H] supports learning. The distractors falsify the record ([A], [D], [F]), or overreact ([E], [G]).",
+    "competing": "[F] might seem to solve the problem, but no one witnessed the dose, so any signature would be false."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, making sure the records you sign are accurate."
+    }
+  ],
+  "tags": [
+    "controlled drugs",
+    "records",
+    "honesty",
+    "surgery"
+  ]
+}

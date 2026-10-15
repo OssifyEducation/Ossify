@@ -1,0 +1,92 @@
+{
+  "id": "sjt-393",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-393",
+  "format": "ranking",
+  "title": "I want to stop dialysis",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Autonomy",
+    "End-of-life communication",
+    "Family conflict"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a medical ward. Mrs Fraser, 81, has been on haemodialysis for six years. She has capacity, and tells you she wants to stop dialysis. She understands she will die.\n\nHer son, who is visiting, says, \"She doesn't mean it. She has to carry on.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Mrs Fraser about her reasons and what matters to her.",
+      "brief": "Understanding her wishes is the starting point.",
+      "detailed": "Her reasons may include things that can be changed, such as pain or fatigue, or may reflect a settled decision. Exploring them shows respect. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Offer to include her son in the discussion, if she agrees.",
+      "brief": "Supports her son, with her agreement.",
+      "detailed": "He is clearly distressed. Involving him, if she wishes, may help. It ranks third because her own wishes come first."
+    },
+    {
+      "id": "C",
+      "text": "Tell her renal consultant, so a full discussion can be arranged.",
+      "brief": "A senior-led discussion is needed.",
+      "detailed": "Stopping dialysis is a major decision. Her consultant should discuss it with her, and involve palliative care if she wishes. It ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Tell her she can't stop, as her son disagrees.",
+      "brief": "Overrides her decision.",
+      "detailed": "A patient with capacity can refuse treatment, even if her family disagrees. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Arrange a psychiatric review, and pause the discussion until it is done.",
+      "brief": "Mood matters, but pausing treats her wish as a symptom.",
+      "detailed": "Depression should be considered as part of the assessment, and her consultant can do this. Halting the conversation until psychiatry has seen her delays her decision and treats her wish as a symptom."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a patient with capacity wants to stop life-sustaining treatment and her family disagrees.",
+    "keyDetails": "She has capacity. She understands the outcome. Her son disagrees.",
+    "reasoning": "[A] explores her wishes, [C] brings in her consultant, and [B] supports her son. [E] dismisses her wish, and [D] overrides it.",
+    "competing": "Some would put [B] above [C]. The key puts the consultant first because a decision this serious needs senior involvement."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Patients' right to refuse treatment at the end of life."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "The presumption of capacity."
+    }
+  ],
+  "tags": [
+    "dialysis",
+    "end of life",
+    "capacity",
+    "families"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "sjt-392",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-392",
+  "format": "multiple_choice",
+  "title": "Nobody on nights",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Rota management",
+    "Responsibility",
+    "Teamwork"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics. Last month you and a colleague, Ravi, informally agreed to swap a night shift. Neither of you told the rota coordinator.\n\nAt 4pm today you realise that Ravi thinks the swap is next week. Tonight's paediatric night shift currently has no F2 doctor. You have been working since 8am.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the rota coordinator or on-call manager now.",
+      "brief": "They can arrange cover in time.",
+      "detailed": "There are four hours before the shift. Telling them now gives the best chance of finding cover."
+    },
+    {
+      "id": "B",
+      "text": "Assume the night team will manage without an F2.",
+      "brief": "An unfilled gap is unsafe.",
+      "detailed": "The wards may be unsafe without enough cover."
+    },
+    {
+      "id": "C",
+      "text": "Work the night shift yourself after today's shift.",
+      "brief": "A 24-hour stretch is unsafe.",
+      "detailed": "Working through the night after a full day would leave you exhausted and unsafe."
+    },
+    {
+      "id": "D",
+      "text": "Contact Ravi to clarify who is covering tonight.",
+      "brief": "He may still be able to work it.",
+      "detailed": "Clarifying quickly may resolve the gap."
+    },
+    {
+      "id": "E",
+      "text": "Agree future swaps through the rota team.",
+      "brief": "Prevents it happening again.",
+      "detailed": "Informal swaps without the rota team's knowledge risk gaps like this one."
+    },
+    {
+      "id": "F",
+      "text": "Tell the consultant that Ravi has let the team down.",
+      "brief": "Blames him for a shared mistake.",
+      "detailed": "The swap was informal on both sides. Blaming him doesn't fill the gap."
+    },
+    {
+      "id": "G",
+      "text": "Post in the F2 group chat asking anyone to cover it.",
+      "brief": "May find someone, but bypasses the rota team.",
+      "detailed": "The rota team needs to know who is covering, and any cover must be within safe working hours."
+    },
+    {
+      "id": "H",
+      "text": "Leave it for the night registrar to sort out.",
+      "brief": "Passes your responsibility to someone else.",
+      "detailed": "The registrar may not know about the gap until it is too late."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you take responsibility for a rota gap you helped create, and fix it safely.",
+    "keyDetails": "The swap was informal. Tonight has no F2. It is 4pm. You have been working since 8am.",
+    "reasoning": "[A] gets cover arranged, [D] clarifies with Ravi, and [E] prevents a repeat. The distractors ignore the gap ([B], [H]), are unsafe ([C]), blame ([F]), or bypass the rota team ([G]).",
+    "competing": "[G] may find cover, but the rota team still needs to know, and anyone covering must be safe to work."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, making sure there is safe cover."
+    }
+  ],
+  "tags": [
+    "rota",
+    "shift swap",
+    "staffing",
+    "teamwork"
+  ]
+}
