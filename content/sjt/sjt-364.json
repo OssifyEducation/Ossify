@@ -37,9 +37,9 @@
     },
     {
       "id": "C",
-      "text": "Carry on with the antibiotics anyway.",
-      "brief": "Covertly overriding a senior undermines the team.",
-      "detailed": "If you disagree, it needs discussing openly. Ignoring the instruction without saying so isn't honest."
+      "text": "Switch him to a different antibiotic as a compromise.",
+      "brief": "A covert workaround that resolves nothing.",
+      "detailed": "This neither follows the registrar's plan nor raises your concern openly. The disagreement needs discussing, not working around."
     },
     {
       "id": "D",
@@ -83,7 +83,7 @@
     "issue": "This tests whether you raise a well-founded concern with a senior, and escalate if needed, when a patient may be harmed.",
     "keyDetails": "He has signs of sepsis, including low blood pressure and a raised lactate. The registrar's review was brief. You remain concerned.",
     "reasoning": "[A] raises the specific findings, [D] escalates if needed, and [E] documents. The distractors comply without question ([B]), act covertly ([C], [G]), undermine the team ([F]), or delay ([H]).",
-    "competing": "[B] is reasonable if the registrar has considered your concerns. Here you haven't raised them yet, which is why speaking up comes first."
+    "competing": "[B] is reasonable if the registrar has considered your concerns. Here you haven't raised them yet, which is why speaking up comes first. While you escalate, it is reasonable to ask that the antibiotics aren't stopped until a senior has reviewed him."
   },
   "references": [
     {

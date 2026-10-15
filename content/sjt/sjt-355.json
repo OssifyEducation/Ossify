@@ -19,7 +19,7 @@
     "Teamwork"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in intensive care. An hour ago, you and the day consultant met Mr Ward's family and agreed to continue full treatment for 48 hours and then review.\n\nThe night consultant has just reviewed Mr Ward and says treatment should be withdrawn tonight. She hasn't seen the note of the family meeting.",
+  "stem": "You are an F2 doctor in intensive care. An hour ago, you and the day consultant met Mr Ward's family and agreed to continue full treatment for 48 hours and then review.\n\nThe night consultant has just reviewed Mr Ward and says treatment should be withdrawn tonight. The family meeting hasn't been written up yet, and she doesn't know about it.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

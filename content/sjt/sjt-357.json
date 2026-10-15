@@ -19,7 +19,7 @@
     "Patient safety"
   ],
   "difficulty": "easy",
-  "stem": "You are an F2 doctor in obstetrics and gynaecology. Over coffee, your fellow F2, Dr Ahmed, tells you she has been prescribing herself zopiclone to sleep during the day between night shifts.\n\nShe says it helps, and she seems well at work.",
+  "stem": "You are an F2 doctor in obstetrics and gynaecology. Over coffee, your fellow F2, Dr Ahmed, tells you she has been writing private prescriptions for herself for zopiclone, to sleep during the day between night shifts.\n\nShe says it helps, and she seems well at work.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

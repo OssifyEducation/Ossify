@@ -105,7 +105,7 @@ module.exports = [
   competencies: ["Empathy", "Driving rules", "Practical support"],
   stem:
     "You are an F2 doctor in cardiology. Mr Kane, 46, had an implantable defibrillator fitted after a cardiac arrest. Earlier today the cardiologist explained that he must not drive for some months and must tell the DVLA.\n\n" +
-    "When you see him, he is distressed. He works as a delivery van driver and asks, \"How am I supposed to support my family?\"",
+    "When you see him, he is distressed. He drives a small delivery van, on an ordinary car licence, for a living, and asks, \"How am I supposed to support my family?\"",
   options: [
     { text: "Acknowledge how hard this is, and ask how it affects his family.",
       brief: "He needs to feel heard before practical planning.",
@@ -196,7 +196,7 @@ module.exports = [
   competencies: ["Continuity", "Communication with families", "Teamwork"],
   stem:
     "You are an F2 doctor in intensive care. An hour ago, you and the day consultant met Mr Ward's family and agreed to continue full treatment for 48 hours and then review.\n\n" +
-    "The night consultant has just reviewed Mr Ward and says treatment should be withdrawn tonight. She hasn't seen the note of the family meeting.",
+    "The night consultant has just reviewed Mr Ward and says treatment should be withdrawn tonight. The family meeting hasn't been written up yet, and she doesn't know about it.",
   options: [
     { text: "Tell the night consultant what was agreed with the family.",
       brief: "She needs this information before making her decision.",
@@ -286,7 +286,7 @@ module.exports = [
   gmcDomains: ["Trust and professionalism", "Safety and quality"],
   competencies: ["Self-prescribing", "Supporting colleagues", "Patient safety"],
   stem:
-    "You are an F2 doctor in obstetrics and gynaecology. Over coffee, your fellow F2, Dr Ahmed, tells you she has been prescribing herself zopiclone to sleep during the day between night shifts.\n\n" +
+    "You are an F2 doctor in obstetrics and gynaecology. Over coffee, your fellow F2, Dr Ahmed, tells you she has been writing private prescriptions for herself for zopiclone, to sleep during the day between night shifts.\n\n" +
     "She says it helps, and she seems well at work.",
   options: [
     { text: "Talk to her privately about the risks of self-prescribing.",
@@ -467,12 +467,12 @@ module.exports = [
     "You are an F2 doctor on a night shift in intensive care. Helping to turn a patient, you feel a sharp pain in your lower back. You can walk, but it hurts to bend or lift.\n\n" +
     "There are four hours of the shift left, and you feel you shouldn't let the team down.",
   options: [
-    { text: "Tell the registrar about your injury and that you may need to stop.",
+    { text: "Tell the registrar you are injured and may need to stop.",
       brief: "The team needs to know so they can plan safely.",
       detailed: "If you can't bend or lift safely, the team needs to know. The registrar can decide whether cover is needed. It ranks first." },
-    { text: "Get your back assessed, for example in the Emergency Department today.",
+    { text: "Ask occupational health to assess your back before your next shift.",
       brief: "You need to know how serious it is.",
-      detailed: "A back injury may need assessment. It ranks second because the team should know first." },
+      detailed: "Occupational health, or your GP, can assess the injury and advise whether you are fit to work. It ranks second because the team should know first." },
     { text: "Report the injury through the staff incident reporting system.",
       brief: "Records a work-related injury.",
       detailed: "This helps the trust understand the risk and supports you if problems continue. It ranks third." },

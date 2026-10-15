@@ -24,7 +24,7 @@
   "options": [
     {
       "id": "A",
-      "text": "Tell the registrar about your injury and that you may need to stop.",
+      "text": "Tell the registrar you are injured and may need to stop.",
       "brief": "The team needs to know so they can plan safely.",
       "detailed": "If you can't bend or lift safely, the team needs to know. The registrar can decide whether cover is needed. It ranks first."
     },
@@ -42,9 +42,9 @@
     },
     {
       "id": "D",
-      "text": "Get your back assessed, for example in the Emergency Department today.",
+      "text": "Ask occupational health to assess your back before your next shift.",
       "brief": "You need to know how serious it is.",
-      "detailed": "A back injury may need assessment. It ranks second because the team should know first."
+      "detailed": "Occupational health, or your GP, can assess the injury and advise whether you are fit to work. It ranks second because the team should know first."
     },
     {
       "id": "E",

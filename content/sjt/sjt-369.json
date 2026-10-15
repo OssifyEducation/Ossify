@@ -23,27 +23,27 @@
   "options": [
     {
       "id": "A",
-      "text": "Explain that you can't share his results without consent or a legal requirement.",
-      "brief": "Protects confidentiality while the proper process is followed.",
-      "detailed": "Clinical results are confidential. Police have their own procedures for obtaining evidence. Explaining this politely protects Mr Rhodes while not obstructing the police. It ranks first."
+      "text": "Ask your consultant for advice before sharing anything.",
+      "brief": "Disclosure to the police is a complex, senior decision.",
+      "detailed": "Confidential information can sometimes be disclosed to the police in the public interest, for example when a serious crime has caused serious harm, but that decision should be made at a senior level, often with the trust's Caldicott guardian. Telling the officer you need to take advice, and then seeking it, is the right first step. It ranks first."
     },
     {
       "id": "B",
       "text": "Tell the officer the result is 'consistent with drinking' without giving the figure.",
-      "brief": "Still a disclosure without a legal basis.",
-      "detailed": "This seems cautious, but it shares confidential information without consent or a legal basis."
+      "brief": "A disclosure made informally, without any decision that it is justified.",
+      "detailed": "This seems cautious, but it shares confidential information without anyone having decided that disclosure is justified."
     },
     {
       "id": "C",
-      "text": "Ask your consultant for advice about the request.",
-      "brief": "A senior can help with a complex request.",
-      "detailed": "Requests from the police can be complex, and your consultant, or the trust's Caldicott guardian, can advise. It ranks second because you can give the first response yourself."
+      "text": "Tell the officer that the police have their own procedure for testing drivers.",
+      "brief": "Accurate, and points the police to the proper route.",
+      "detailed": "There is a legal procedure for the police to obtain a specimen from a driver who can't consent, which involves the doctor in charge of his care. Explaining that this route exists is helpful and doesn't disclose anything. It ranks second because the disclosure question itself still needs senior advice."
     },
     {
       "id": "D",
       "text": "Give the officer the result, as it relates to a crime.",
-      "brief": "A full disclosure without a legal basis.",
-      "detailed": "A crime may have been committed, but disclosure needs a legal basis or a clear public-interest justification, usually decided at a senior level. It is the least appropriate option."
+      "brief": "A full disclosure without a proper decision.",
+      "detailed": "Disclosure may be justified in some circumstances, but it isn't a decision for you to make on the spot. It is the least appropriate option."
     }
   ],
   "key": {
@@ -56,9 +56,9 @@
   },
   "explanation": {
     "issue": "This tests how you handle a police request for confidential information about a patient who can't consent.",
-    "keyDetails": "He is unconscious and can't consent. The result was taken for his care. Police have their own procedures. Someone was seriously injured.",
-    "reasoning": "[A] protects confidentiality appropriately, and [C] seeks advice. [B] discloses partially, and [D] fully, without a legal basis.",
-    "competing": "Some would seek advice first, given the complexity. The key puts the initial response first because you can explain the position yourself and then seek advice."
+    "keyDetails": "He is unconscious and can't consent. The result was taken for his care. Police have their own procedures. Someone was seriously injured, which may make a public-interest disclosure relevant.",
+    "reasoning": "[A] gets senior advice on a complex disclosure, and [C] points the police to their proper route. [B] discloses informally, and [D] fully, without a proper decision.",
+    "competing": "Some would put explaining the police procedure first. The key puts seeking advice first because whether to disclose may turn on the public interest, which needs a senior decision."
   },
   "references": [
     {

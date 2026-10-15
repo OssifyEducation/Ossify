@@ -19,7 +19,7 @@
     "Patient safety"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor on the postnatal ward. Mrs Jones, 31, gave birth two hours ago. Her blood pressure is now 86/50 and her heart rate 122, and her pad is soaked.\n\nYou ask the midwife to call the obstetric registrar. She says, \"You're overreacting. Let's give it half an hour.\"",
+  "stem": "You are an F2 doctor on the postnatal ward. Mrs Jones, 31, gave birth two hours ago. Her heart rate has risen to 112, her blood pressure has fallen to 98/60, and her pad is much heavier than an hour ago.\n\nYou ask the midwife to call the obstetric registrar. She says, \"You're overreacting. Let's give it half an hour.\"",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
@@ -44,7 +44,7 @@
       "id": "D",
       "text": "Bleep the obstetric registrar yourself straight away.",
       "brief": "She may be bleeding seriously, so a senior is needed now.",
-      "detailed": "Low blood pressure, a fast heart rate and heavy bleeding after birth suggest a postpartum haemorrhage. You don't need the midwife's agreement to call for help. It ranks first."
+      "detailed": "A rising heart rate, falling blood pressure and increased bleeding after birth suggest a postpartum haemorrhage that may be getting worse. You don't need the midwife's agreement to call for help. It ranks first."
     },
     {
       "id": "E",

@@ -18,7 +18,7 @@
     "Patient safety"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in orthopaedics. At 14:00 the afternoon theatre list is cancelled because an emergency case has taken the theatre. Four patients have been fasting since 07:00, and one has diabetes.\n\nThey are angry, and one says, \"Nobody ever tells us anything.\"",
+  "stem": "You are an F2 doctor in orthopaedics. At 14:00 the afternoon theatre list is cancelled because an emergency case has taken the theatre. Four patients have been fasting since 07:00. One has diabetes, and the nurses have checked that his blood glucose is normal.\n\nThey are angry, and one says, \"Nobody ever tells us anything.\"",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

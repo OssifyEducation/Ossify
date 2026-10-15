@@ -19,7 +19,7 @@
     "Practical support"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in cardiology. Mr Kane, 46, had an implantable defibrillator fitted after a cardiac arrest. Earlier today the cardiologist explained that he must not drive for some months and must tell the DVLA.\n\nWhen you see him, he is distressed. He works as a delivery van driver and asks, \"How am I supposed to support my family?\"",
+  "stem": "You are an F2 doctor in cardiology. Mr Kane, 46, had an implantable defibrillator fitted after a cardiac arrest. Earlier today the cardiologist explained that he must not drive for some months and must tell the DVLA.\n\nWhen you see him, he is distressed. He drives a small delivery van, on an ordinary car licence, for a living, and asks, \"How am I supposed to support my family?\"",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

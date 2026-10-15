@@ -69,9 +69,9 @@ module.exports = [
     { text: "Stop the antibiotics as instructed.",
       brief: "Follows an instruction you believe is unsafe without raising it.",
       detailed: "The registrar may be right, but your specific concerns should be raised before acting." },
-    { text: "Carry on with the antibiotics anyway.",
-      brief: "Covertly overriding a senior undermines the team.",
-      detailed: "If you disagree, it needs discussing openly. Ignoring the instruction without saying so isn't honest." },
+    { text: "Switch him to a different antibiotic as a compromise.",
+      brief: "A covert workaround that resolves nothing.",
+      detailed: "This neither follows the registrar's plan nor raises your concern openly. The disagreement needs discussing, not working around." },
     { text: "Tell Mr Dixon that the registrar is wrong.",
       brief: "Undermines his trust in the team.",
       detailed: "Disagreements should be resolved within the team." },
@@ -86,7 +86,7 @@ module.exports = [
     issue: "This tests whether you raise a well-founded concern with a senior, and escalate if needed, when a patient may be harmed.",
     keyDetails: "He has signs of sepsis, including low blood pressure and a raised lactate. The registrar's review was brief. You remain concerned.",
     reasoning: "{k1} raises the specific findings, {k2} escalates if needed, and {k3} documents. The distractors comply without question ({d1}), act covertly ({d2}, {d4}), undermine the team ({d3}), or delay ({d5}).",
-    competing: "{d1} is reasonable if the registrar has considered your concerns. Here you haven't raised them yet, which is why speaking up comes first."
+    competing: "{d1} is reasonable if the registrar has considered your concerns. Here you haven't raised them yet, which is why speaking up comes first. While you escalate, it is reasonable to ask that the antibiotics aren't stopped until a senior has reviewed him."
   },
   refs: [
     { ref: "sepsis", note: "Recognising sepsis and starting antibiotics promptly." },
@@ -193,29 +193,29 @@ module.exports = [
   gmcDomains: ["Trust and professionalism", "Safety and quality"],
   competencies: ["Safe working hours", "Self-care", "Honesty"],
   stem:
-    "You are an F2 doctor. A locum agency offers you several well-paid out-of-hours shifts next month. Taking them all would mean working more hours than your contract and safe working limits allow, with very little rest between shifts.\n\n" +
+    "You are an F2 doctor. A locum agency offers you several well-paid out-of-hours shifts next month. Together with your normal rota, they would leave you with very little rest between shifts.\n\n" +
     "You could do with the extra money.",
   options: [
-    { text: "Decline the shifts that would breach safe working limits.",
+    { text: "Decline the shifts that would leave you without proper rest.",
       brief: "Protects you and your patients from fatigue.",
-      detailed: "Working limits exist to keep doctors and patients safe. Taking only what fits within them protects both. It ranks first." },
-    { text: "Check your rota and rest requirements before accepting any shifts.",
-      brief: "Helps you take on only what is safe.",
-      detailed: "Knowing exactly what you can safely add lets you accept some work without risk. It ranks second." },
-    { text: "Tell your educational supervisor about any locum work you do take.",
+      detailed: "Limits on working hours and rest exist to keep doctors and patients safe, and they apply across all your work. Turning down the shifts that would breach them protects both. It ranks first." },
+    { text: "Ask the agency for fewer shifts, spread over a longer period.",
+      brief: "A way to earn more without becoming unsafe.",
+      detailed: "Some locum work may be compatible with safe rest. Spreading it out lets you earn more without excessive fatigue. It ranks second." },
+    { text: "Tell your educational supervisor about any locum work you take.",
       brief: "Keeps your employer informed.",
-      detailed: "Many employers require you to declare additional work, so it can be accounted for in your hours. It ranks third." },
+      detailed: "Many employers require you to declare additional work so it can be accounted for. It ranks third." },
     { text: "Accept them all, and plan to rest on your days off.",
-      brief: "Still breaches safe working limits.",
+      brief: "Still leaves you working too much with too little rest.",
       detailed: "Resting on days off doesn't make excessive hours safe." },
     { text: "Accept them, as agency work is separate from your NHS contract.",
-      brief: "Wrong: total hours affect your safety, wherever you work.",
-      detailed: "Fatigue doesn't depend on who employs you. This ignores the risk entirely. It is the least appropriate option." }
+      brief: "Wrong: limits on working time apply across all your work.",
+      detailed: "Fatigue doesn't depend on who employs you, and working time limits apply across all employment. This ignores the risk entirely. It is the least appropriate option." }
   ],
   explanation: {
     issue: "This tests whether you keep your total working hours safe when tempted by extra work.",
-    keyDetails: "The shifts would exceed safe limits. There would be little rest. You need the money.",
-    reasoning: "{1} declines unsafe work, {2} checks what is safe, and {3} keeps your employer informed. {4} still breaches the limits, and {5} ignores them.",
+    keyDetails: "Taking every shift would leave too little rest. Limits apply across all your work. You need the money.",
+    reasoning: "{1} declines unsafe work, {2} finds a safer way to take some, and {3} keeps your employer informed. {4} still leaves too little rest, and {5} ignores the limits.",
     competing: "{1} and {2} work together. The key puts declining first because the offer as it stands is unsafe."
   },
   refs: [
@@ -286,24 +286,24 @@ module.exports = [
     "You are an F2 doctor in the Emergency Department. Mr Rhodes, 35, is unconscious after a car crash in which another driver was seriously injured. As part of his care, his blood alcohol level was measured and is high.\n\n" +
     "A police officer asks you for the result, saying it is needed for their investigation.",
   options: [
-    { text: "Explain that you can't share his results without consent or a legal requirement.",
-      brief: "Protects confidentiality while the proper process is followed.",
-      detailed: "Clinical results are confidential. Police have their own procedures for obtaining evidence. Explaining this politely protects Mr Rhodes while not obstructing the police. It ranks first." },
-    { text: "Ask your consultant for advice about the request.",
-      brief: "A senior can help with a complex request.",
-      detailed: "Requests from the police can be complex, and your consultant, or the trust's Caldicott guardian, can advise. It ranks second because you can give the first response yourself." },
+    { text: "Ask your consultant for advice before sharing anything.",
+      brief: "Disclosure to the police is a complex, senior decision.",
+      detailed: "Confidential information can sometimes be disclosed to the police in the public interest, for example when a serious crime has caused serious harm, but that decision should be made at a senior level, often with the trust's Caldicott guardian. Telling the officer you need to take advice, and then seeking it, is the right first step. It ranks first." },
+    { text: "Tell the officer that the police have their own procedure for testing drivers.",
+      brief: "Accurate, and points the police to the proper route.",
+      detailed: "There is a legal procedure for the police to obtain a specimen from a driver who can't consent, which involves the doctor in charge of his care. Explaining that this route exists is helpful and doesn't disclose anything. It ranks second because the disclosure question itself still needs senior advice." },
     { text: "Tell the officer the result is 'consistent with drinking' without giving the figure.",
-      brief: "Still a disclosure without a legal basis.",
-      detailed: "This seems cautious, but it shares confidential information without consent or a legal basis." },
+      brief: "A disclosure made informally, without any decision that it is justified.",
+      detailed: "This seems cautious, but it shares confidential information without anyone having decided that disclosure is justified." },
     { text: "Give the officer the result, as it relates to a crime.",
-      brief: "A full disclosure without a legal basis.",
-      detailed: "A crime may have been committed, but disclosure needs a legal basis or a clear public-interest justification, usually decided at a senior level. It is the least appropriate option." }
+      brief: "A full disclosure without a proper decision.",
+      detailed: "Disclosure may be justified in some circumstances, but it isn't a decision for you to make on the spot. It is the least appropriate option." }
   ],
   explanation: {
     issue: "This tests how you handle a police request for confidential information about a patient who can't consent.",
-    keyDetails: "He is unconscious and can't consent. The result was taken for his care. Police have their own procedures. Someone was seriously injured.",
-    reasoning: "{1} protects confidentiality appropriately, and {2} seeks advice. {3} discloses partially, and {4} fully, without a legal basis.",
-    competing: "Some would seek advice first, given the complexity. The key puts the initial response first because you can explain the position yourself and then seek advice."
+    keyDetails: "He is unconscious and can't consent. The result was taken for his care. Police have their own procedures. Someone was seriously injured, which may make a public-interest disclosure relevant.",
+    reasoning: "{1} gets senior advice on a complex disclosure, and {2} points the police to their proper route. {3} discloses informally, and {4} fully, without a proper decision.",
+    competing: "Some would put explaining the police procedure first. The key puts seeking advice first because whether to disclose may turn on the public interest, which needs a senior decision."
   },
   refs: [
     { ref: "confidentiality", note: "Disclosures to the police, and the public interest." }
@@ -336,7 +336,7 @@ module.exports = [
     { text: "Phone the family to explain your side.",
       brief: "The complaint process should handle this.",
       detailed: "Contacting the family directly may make things worse and bypasses the process." },
-    { text: "Add more detail to your notes about the incident.",
+    { text: "Rewrite your notes of the incident to make your reasons clearer.",
       brief: "Altering records after a complaint is inappropriate.",
       detailed: "Notes shouldn't be changed after the event. Any later additions must be clearly dated and labelled." },
     { text: "Ignore it, as the registrar agreed the decision.",
@@ -458,7 +458,7 @@ module.exports = [
   gmcDomains: ["Patients, partnership and communication"],
   competencies: ["Communication", "Managing frustration", "Patient safety"],
   stem:
-    "You are an F2 doctor in orthopaedics. At 14:00 the afternoon theatre list is cancelled because an emergency case has taken the theatre. Four patients have been fasting since 07:00, and one has diabetes.\n\n" +
+    "You are an F2 doctor in orthopaedics. At 14:00 the afternoon theatre list is cancelled because an emergency case has taken the theatre. Four patients have been fasting since 07:00. One has diabetes, and the nurses have checked that his blood glucose is normal.\n\n" +
     "They are angry, and one says, \"Nobody ever tells us anything.\"",
   options: [
     { text: "Apologise, and explain why the list was cancelled and what's next.",
@@ -547,12 +547,12 @@ module.exports = [
   gmcDomains: ["Safety and quality", "Collaboration, teamwork and leadership"],
   competencies: ["Escalation", "Teamwork", "Patient safety"],
   stem:
-    "You are an F2 doctor on the postnatal ward. Mrs Jones, 31, gave birth two hours ago. Her blood pressure is now 86/50 and her heart rate 122, and her pad is soaked.\n\n" +
+    "You are an F2 doctor on the postnatal ward. Mrs Jones, 31, gave birth two hours ago. Her heart rate has risen to 112, her blood pressure has fallen to 98/60, and her pad is much heavier than an hour ago.\n\n" +
     "You ask the midwife to call the obstetric registrar. She says, \"You're overreacting. Let's give it half an hour.\"",
   options: [
     { text: "Bleep the obstetric registrar yourself straight away.",
       brief: "She may be bleeding seriously, so a senior is needed now.",
-      detailed: "Low blood pressure, a fast heart rate and heavy bleeding after birth suggest a postpartum haemorrhage. You don't need the midwife's agreement to call for help. It ranks first." },
+      detailed: "A rising heart rate, falling blood pressure and increased bleeding after birth suggest a postpartum haemorrhage that may be getting worse. You don't need the midwife's agreement to call for help. It ranks first." },
     { text: "Explain calmly to the midwife why you're concerned.",
       brief: "Shares your reasoning and keeps the team working together.",
       detailed: "Explaining the observations may change her view, and you will need her help. It ranks second because calling for help comes first." },

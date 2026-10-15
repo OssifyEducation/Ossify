@@ -19,38 +19,38 @@
     "Honesty"
   ],
   "difficulty": "easy",
-  "stem": "You are an F2 doctor. A locum agency offers you several well-paid out-of-hours shifts next month. Taking them all would mean working more hours than your contract and safe working limits allow, with very little rest between shifts.\n\nYou could do with the extra money.",
+  "stem": "You are an F2 doctor. A locum agency offers you several well-paid out-of-hours shifts next month. Together with your normal rota, they would leave you with very little rest between shifts.\n\nYou could do with the extra money.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
       "id": "A",
-      "text": "Check your rota and rest requirements before accepting any shifts.",
-      "brief": "Helps you take on only what is safe.",
-      "detailed": "Knowing exactly what you can safely add lets you accept some work without risk. It ranks second."
+      "text": "Ask the agency for fewer shifts, spread over a longer period.",
+      "brief": "A way to earn more without becoming unsafe.",
+      "detailed": "Some locum work may be compatible with safe rest. Spreading it out lets you earn more without excessive fatigue. It ranks second."
     },
     {
       "id": "B",
       "text": "Accept them all, and plan to rest on your days off.",
-      "brief": "Still breaches safe working limits.",
+      "brief": "Still leaves you working too much with too little rest.",
       "detailed": "Resting on days off doesn't make excessive hours safe."
     },
     {
       "id": "C",
-      "text": "Decline the shifts that would breach safe working limits.",
+      "text": "Decline the shifts that would leave you without proper rest.",
       "brief": "Protects you and your patients from fatigue.",
-      "detailed": "Working limits exist to keep doctors and patients safe. Taking only what fits within them protects both. It ranks first."
+      "detailed": "Limits on working hours and rest exist to keep doctors and patients safe, and they apply across all your work. Turning down the shifts that would breach them protects both. It ranks first."
     },
     {
       "id": "D",
       "text": "Accept them, as agency work is separate from your NHS contract.",
-      "brief": "Wrong: total hours affect your safety, wherever you work.",
-      "detailed": "Fatigue doesn't depend on who employs you. This ignores the risk entirely. It is the least appropriate option."
+      "brief": "Wrong: limits on working time apply across all your work.",
+      "detailed": "Fatigue doesn't depend on who employs you, and working time limits apply across all employment. This ignores the risk entirely. It is the least appropriate option."
     },
     {
       "id": "E",
-      "text": "Tell your educational supervisor about any locum work you do take.",
+      "text": "Tell your educational supervisor about any locum work you take.",
       "brief": "Keeps your employer informed.",
-      "detailed": "Many employers require you to declare additional work, so it can be accounted for in your hours. It ranks third."
+      "detailed": "Many employers require you to declare additional work so it can be accounted for. It ranks third."
     }
   ],
   "key": {
@@ -64,8 +64,8 @@
   },
   "explanation": {
     "issue": "This tests whether you keep your total working hours safe when tempted by extra work.",
-    "keyDetails": "The shifts would exceed safe limits. There would be little rest. You need the money.",
-    "reasoning": "[C] declines unsafe work, [A] checks what is safe, and [E] keeps your employer informed. [B] still breaches the limits, and [D] ignores them.",
+    "keyDetails": "Taking every shift would leave too little rest. Limits apply across all your work. You need the money.",
+    "reasoning": "[C] declines unsafe work, [A] finds a safer way to take some, and [E] keeps your employer informed. [B] still leaves too little rest, and [D] ignores the limits.",
     "competing": "[C] and [A] work together. The key puts declining first because the offer as it stands is unsafe."
   },
   "references": [
