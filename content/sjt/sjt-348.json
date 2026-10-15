@@ -1,0 +1,102 @@
+{
+  "id": "sjt-348",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-348",
+  "format": "multiple_choice",
+  "title": "The curtain won't close",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Dignity",
+    "Privacy",
+    "Problem-solving"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward round. The consultant is examining Mrs Ross, 76, who has had to lift her gown for an abdominal examination.\n\nThe curtain around her bed doesn't close properly, leaving a gap through which people in the bay and the corridor can see her. She looks uncomfortable.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Cover Mrs Ross with a sheet as much as possible.",
+      "brief": "Immediate protection of her dignity.",
+      "detailed": "A sheet can cover her while the examination continues. It is a quick, simple way to reduce her exposure."
+    },
+    {
+      "id": "B",
+      "text": "Carry on quickly to keep the exposure brief.",
+      "brief": "Rushing doesn't protect her privacy.",
+      "detailed": "Speed doesn't address the gap, and a rushed examination may be less thorough."
+    },
+    {
+      "id": "C",
+      "text": "Ask Mrs Ross to hold the curtain closed herself.",
+      "brief": "Unfair, and impractical during an examination.",
+      "detailed": "She is lying down for an abdominal examination. It isn't her job to protect her own privacy."
+    },
+    {
+      "id": "D",
+      "text": "Ask people in the bay to look away.",
+      "brief": "Doesn't reliably protect her.",
+      "detailed": "This draws attention to her and doesn't stop people seeing."
+    },
+    {
+      "id": "E",
+      "text": "Close the gap in the curtain during the examination.",
+      "brief": "Practical privacy now.",
+      "detailed": "Standing in the gap, or holding the curtain closed, gives her privacy at once."
+    },
+    {
+      "id": "F",
+      "text": "Complain to the estates department at the end of the week.",
+      "brief": "Too slow.",
+      "detailed": "Reporting it is right, but waiting a week leaves the problem for other patients."
+    },
+    {
+      "id": "G",
+      "text": "Report the broken curtain so it is fixed.",
+      "brief": "Prevents the same problem for other patients.",
+      "detailed": "A curtain that doesn't close affects every patient in that bed space. Reporting it gets it repaired."
+    },
+    {
+      "id": "H",
+      "text": "Postpone the examination until a side room is free.",
+      "brief": "Delays care unnecessarily.",
+      "detailed": "Simple measures can protect her privacy now, so there is no need to delay her examination."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you notice and fix a threat to a patient's dignity during a routine examination.",
+    "keyDetails": "The curtain doesn't close. She is exposed and uncomfortable. Simple measures are available.",
+    "reasoning": "[A] covers her, [E] closes the gap, and [G] gets the curtain fixed. The distractors rush ([B]), burden her ([C]), draw attention to her ([D]), delay the repair ([F]), or delay her care ([H]).",
+    "competing": "[H] protects her privacy but delays her examination when simple measures would work."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, respecting patients' privacy and dignity."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "privacy",
+    "ward round",
+    "examination"
+  ]
+}

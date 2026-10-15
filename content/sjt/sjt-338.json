@@ -1,0 +1,110 @@
+{
+  "id": "sjt-338",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-338",
+  "format": "multiple_choice",
+  "title": "Borrowing a login",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Information governance",
+    "Probity",
+    "Teamwork"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a respiratory ward. Your colleague Dr Okoro, another F2, has been locked out of the hospital computer system. He needs to request an urgent CT pulmonary angiogram for a patient he has just assessed.\n\nHe asks to use your login, saying, \"It'll only take a minute, and it's for the patient.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Decline to share your login.",
+      "brief": "Requests are recorded under the logged-in user.",
+      "detailed": "The system records the request as yours, so you would be accountable for a clinical decision you didn't make. Sharing logins also breaches information governance rules."
+    },
+    {
+      "id": "B",
+      "text": "Log in for him and let him make the request.",
+      "brief": "The request would still appear as yours.",
+      "detailed": "This is the same as sharing your login: the record would show you made a request you didn't make."
+    },
+    {
+      "id": "C",
+      "text": "Ask a nurse to request the scan.",
+      "brief": "Nurses usually can't request this kind of scan.",
+      "detailed": "Requests for a CT pulmonary angiogram generally need a doctor, and this passes the problem to someone else."
+    },
+    {
+      "id": "D",
+      "text": "Request the scan yourself, once you've discussed the patient.",
+      "brief": "Gets the urgent scan requested properly.",
+      "detailed": "If you understand the clinical reasoning and agree, you can make the request under your own name and take responsibility for it. This keeps the record accurate and avoids delay."
+    },
+    {
+      "id": "E",
+      "text": "Tell him to leave the request until his account has been unlocked.",
+      "brief": "Delays an urgent scan.",
+      "detailed": "A suspected pulmonary embolism needs prompt imaging. Waiting could harm the patient."
+    },
+    {
+      "id": "F",
+      "text": "Suggest he contacts the IT helpdesk to unlock his account.",
+      "brief": "Solves the underlying problem.",
+      "detailed": "He will need access for the rest of his shift. Getting his account unlocked quickly fixes the problem."
+    },
+    {
+      "id": "G",
+      "text": "Share your login this once, as it's urgent.",
+      "brief": "Urgency doesn't justify breaching security rules.",
+      "detailed": "There is a safe alternative: requesting it yourself. Sharing your login is unnecessary."
+    },
+    {
+      "id": "H",
+      "text": "Write a paper request with his name and your signature.",
+      "brief": "Mixes up who is responsible for the request.",
+      "detailed": "This creates confusion about who requested the scan and doesn't follow the usual process."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep to information governance rules under time pressure, while still getting the patient the care they need.",
+    "keyDetails": "The scan is urgent. His account is locked. Sharing logins breaches rules. You can request it yourself.",
+    "reasoning": "[A] protects the integrity of the record, [D] gets the scan requested properly, and [F] fixes his access. The distractors share access in effect ([B], [G]), pass on the problem ([C]), delay ([E]), or confuse responsibility ([H]).",
+    "competing": "[G] is tempting because it is urgent. But requesting it yourself is just as quick and doesn't breach the rules."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Protecting patient records and access to them."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty and integrity in records."
+    }
+  ],
+  "tags": [
+    "information governance",
+    "logins",
+    "probity",
+    "respiratory"
+  ]
+}

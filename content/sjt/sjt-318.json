@@ -18,7 +18,7 @@
     "Shared decision-making"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor working for the GP out-of-hours service, seeing patients at a homeless hostel. Mr Dean, 48, has a productive cough, a fever and a fast breathing rate. You think he has pneumonia and should be admitted.\n\nHe refuses to go to hospital, because the hostel gives away beds after one night's absence and he would be back on the street. He understands the risks you explain.",
+  "stem": "You are an F2 doctor working for the GP out-of-hours service, seeing patients at a homeless hostel. Mr Dean, 48, has a productive cough and a fever. His breathing rate is 32 a minute and his oxygen saturation is 90% on air. You think he has pneumonia and should be admitted.\n\nHe refuses to go to hospital, because the hostel gives away beds after one night's absence and he would be back on the street. He understands the risks you explain.",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [

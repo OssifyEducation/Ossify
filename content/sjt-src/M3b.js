@@ -167,9 +167,9 @@ module.exports = [
     { text: "Reply in the group chat condemning the post.",
       brief: "Publicly shaming him isn't the most effective approach.",
       detailed: "Your concern is valid, but a public rebuke may cause conflict without getting the document removed. A private word is better first." },
-    { text: "Report your colleague straight to the General Medical Council for this.",
-      brief: "Disproportionate as a first step.",
-      detailed: "Probity concerns can reach the regulator, but this should first be addressed directly and through educational routes." },
+    { text: "Report it to the royal college that runs the exam, naming your colleague.",
+      brief: "The exam body may need to know, but reporting him by name first skips simpler steps.",
+      detailed: "Breaches of exam rules can be reported to the body that runs the exam, and that may become appropriate. Doing it first, naming him, without speaking to him or taking advice, is heavy-handed when he may simply delete it." },
     { text: "Leave the group chat so you aren't involved.",
       brief: "Protects you, but does nothing about the problem.",
       detailed: "Leaving avoids the issue rather than dealing with it, and others may still use the material." }
@@ -233,7 +233,7 @@ module.exports = [
   gmcDomains: ["Patients, partnership and communication"],
   competencies: ["Capacity", "Health inequalities", "Shared decision-making"],
   stem:
-    "You are an F2 doctor working for the GP out-of-hours service, seeing patients at a homeless hostel. Mr Dean, 48, has a productive cough, a fever and a fast breathing rate. You think he has pneumonia and should be admitted.\n\n" +
+    "You are an F2 doctor working for the GP out-of-hours service, seeing patients at a homeless hostel. Mr Dean, 48, has a productive cough and a fever. His breathing rate is 32 a minute and his oxygen saturation is 90% on air. You think he has pneumonia and should be admitted.\n\n" +
     "He refuses to go to hospital, because the hostel gives away beds after one night's absence and he would be back on the street. He understands the risks you explain.",
   options: [
     // keyed
@@ -290,7 +290,7 @@ module.exports = [
     { text: "Offer to arrange a meeting with a senior to discuss his father's care and the fall.",
       brief: "Addresses his concerns properly, sharing what he needs to know.",
       detailed: "As someone close to Mr Kemp, the son can be told about his father's care where that is in Mr Kemp's best interests. A meeting with a senior addresses his concern about the fall properly. It ranks first." },
-    { text: "Explain how he can formally request access to the records.",
+    { text: "Explain that wider access to the records needs a formal request and authority.",
       brief: "Tells him the proper route for wider access.",
       detailed: "Access to a patient's full records by someone else needs proper authority and a formal request. Explaining this is honest and helpful, though it doesn't address his concern straight away. It ranks second." },
     { text: "Tell him you can't discuss his father with him, as he has no lasting power of attorney.",
@@ -380,7 +380,7 @@ module.exports = [
     { text: "Tell the consultant after the round that Mrs Price was very upset.",
       brief: "Helps the consultant understand the impact and follow up.",
       detailed: "The consultant may not have noticed how distressed she was. Telling them helps make sure her concerns are addressed. It ranks second." },
-    { text: "Ask her nurse to check on her during the round.",
+    { text: "Mention to her nurse that she was upset.",
       brief: "Helps in the short term, but she needs a proper conversation.",
       detailed: "A nurse checking on her shows care, but she needs someone to talk through her concerns about oxygen. It ranks third." },
     { text: "Ask the consultant to go back to her in front of the team.",
@@ -414,7 +414,7 @@ module.exports = [
     "She asks you to write her a prescription for antibiotics, saying, \"You're a doctor, so it'll be quicker.\"",
   options: [
     // keyed
-    { text: "Explain kindly that you can't prescribe for her.",
+    { text: "Explain kindly that you shouldn't prescribe for her.",
       brief: "Prescribing for friends should be avoided.",
       detailed: "You aren't her doctor, you haven't assessed her properly, and you don't have her records. Prescribing for friends risks poor care and blurs boundaries." },
     { text: "Suggest she sees a pharmacist about her sore throat.",
@@ -436,7 +436,7 @@ module.exports = [
     { text: "Ask a colleague at work to prescribe for her.",
       brief: "Still prescribing outside a proper consultation.",
       detailed: "Your colleague wouldn't be her doctor either, and this just passes the problem on." },
-    { text: "Tell her antibiotics never help sore throats.",
+    { text: "Tell her that antibiotics won't help a sore throat.",
       brief: "Inaccurate: sometimes they do.",
       detailed: "Most sore throats don't need antibiotics, but some do. Overstating it may stop her seeking help when she needs it." }
   ],
@@ -460,7 +460,7 @@ module.exports = [
   gmcDomains: ["Safety and quality", "Collaboration, teamwork and leadership"],
   competencies: ["Managing shortages", "Escalation", "Patient safety"],
   stem:
-    "You are an F2 doctor on a busy labour ward at night. A midwife tells you that the ward has run out of oxytocin for infusions, which is commonly used to strengthen contractions. Two women are currently on an oxytocin infusion, with about two hours of supply left in their current bags.\n\n" +
+    "You are an F2 doctor on a busy labour ward at night. A midwife tells you that the ward has run out of the ready-made oxytocin infusion bags that pharmacy supplies to strengthen contractions. Two women are on an oxytocin infusion, with about two hours left in their current bags. The only other oxytocin is a few ampoules in the postpartum haemorrhage emergency box.\n\n" +
     "Pharmacy is closed until the morning, but there is an on-call pharmacist.",
   options: [
     { text: "Tell the coordinator and the obstetric registrar straight away.",
@@ -551,7 +551,7 @@ module.exports = [
   gmcDomains: ["Collaboration, teamwork and leadership"],
   competencies: ["Teamwork", "Resolving conflict", "Inclusion"],
   stem:
-    "You are an F2 doctor on the acute medical unit. Priya, a newly qualified physician associate, joined the team two weeks ago. Nobody has explained to the junior doctors what she can and can't do.\n\n" +
+    "You are an F2 doctor on the acute medical unit. Priya, a newly qualified physician assistant, joined the team two weeks ago. Nobody has explained to the junior doctors what she can and can't do.\n\n" +
     "The two F1s have started refusing to give her jobs, saying they \"don't know what she's allowed to do\". Priya tells you she feels unwelcome.",
   options: [
     { text: "Ask the consultant to clarify Priya's role for the whole team.",
@@ -560,7 +560,7 @@ module.exports = [
     { text: "Talk with the F1s about their concerns.",
       brief: "Understanding their worries helps resolve the tension.",
       detailed: "Their reluctance may come from uncertainty rather than hostility. Talking with them can ease things while the role is clarified. It ranks second." },
-    { text: "Include Priya in the team's work in ways you know are within her role.",
+    { text: "Invite Priya to join you when you take histories and review patients.",
       brief: "Helps her feel welcome in the meantime.",
       detailed: "Inviting her to tasks that clearly fit her training, such as taking histories, shows support. It ranks third because it doesn't solve the underlying problem." },
     { text: "Tell the F1s they must give Priya work.",
@@ -579,6 +579,6 @@ module.exports = [
   refs: [
     { ref: "leadership", note: "Working with colleagues and making sure roles are understood." }
   ],
-  tags: ["teamwork", "physician associates", "conflict", "acute medicine"]
+  tags: ["teamwork", "physician assistants", "conflict", "acute medicine"]
 }
 ];

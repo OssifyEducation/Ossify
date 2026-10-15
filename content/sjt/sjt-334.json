@@ -1,0 +1,102 @@
+{
+  "id": "sjt-334",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-334",
+  "format": "multiple_choice",
+  "title": "Comfort for their baby",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Perinatal palliative care",
+    "Compassion",
+    "Non-directive support"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on the antenatal ward. At 22 weeks, the fetal medicine team diagnosed a severe heart condition in Mr and Mrs Lowe's baby, which they explained is very likely to be life-limiting after birth. The couple have decided to continue the pregnancy.\n\nToday, during a routine check, Mrs Lowe asks you, \"What will happen to our baby when she's born? Will she be in pain?\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Suggest they reconsider their decision to continue the pregnancy.",
+      "brief": "Undermines a decision they have made.",
+      "detailed": "They have made their decision with the fetal medicine team. Revisiting it now isn't supportive or appropriate."
+    },
+    {
+      "id": "B",
+      "text": "Ask them what they have been told and what matters most to them.",
+      "brief": "Their understanding and hopes shape any plan.",
+      "detailed": "They may already have information, or have specific worries. Knowing what matters to them, such as time together, helps the team plan care that reflects their wishes."
+    },
+    {
+      "id": "C",
+      "text": "Arrange for them to meet the neonatal palliative care team.",
+      "brief": "Specialist teams can plan comfort care with them.",
+      "detailed": "Perinatal palliative care teams can explain what may happen and plan for their baby's comfort, including pain relief. This is the right team to answer their questions in detail."
+    },
+    {
+      "id": "D",
+      "text": "Reassure them that their baby may well be fine after birth.",
+      "brief": "False hope.",
+      "detailed": "The prognosis has been explained as very likely life-limiting. False reassurance could make things harder."
+    },
+    {
+      "id": "E",
+      "text": "Tell them there is nothing that can be done for their baby.",
+      "brief": "Untrue: comfort and support can be planned.",
+      "detailed": "Even when cure isn't possible, much can be done to keep their baby comfortable and support the family."
+    },
+    {
+      "id": "F",
+      "text": "Say the fetal medicine team will answer their questions at the next appointment.",
+      "brief": "Defers their concern without any support now.",
+      "detailed": "The specialist team should give detail, but deferring entirely leaves them without any response today."
+    },
+    {
+      "id": "G",
+      "text": "Offer support from the bereavement midwife.",
+      "brief": "Specialist emotional support for this situation.",
+      "detailed": "Bereavement midwives support families through life-limiting diagnoses, including planning and memory-making. Offering this shows care for them as parents."
+    },
+    {
+      "id": "H",
+      "text": "Explain in detail what usually happens to babies with this condition.",
+      "brief": "Beyond your knowledge, and may not apply to their baby.",
+      "detailed": "Specialists should explain this. General information from you may be inaccurate or upsetting."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support parents facing a life-limiting diagnosis for their baby, compassionately and within your role.",
+    "keyDetails": "The diagnosis is very likely life-limiting. They have decided to continue the pregnancy. They are asking about comfort and pain.",
+    "reasoning": "[B] learns their understanding and wishes, [C] brings in the teams who can plan care, and [G] offers emotional support. The distractors are directive ([A]), falsely reassuring ([D]), inaccurate ([E]), deferring ([F]), or beyond your role ([H]).",
+    "competing": "[F] would be right if specialist help weren't available, but the planning teams can be involved now."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Care towards the end of life, including for babies, and supporting families."
+    }
+  ],
+  "tags": [
+    "perinatal palliative care",
+    "obstetrics",
+    "bereavement",
+    "compassion"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "sjt-343",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-343",
+  "format": "ranking",
+  "title": "\"That was confusing\"",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Safety and quality",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Handover",
+    "Receiving feedback",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. You have just handed over Mr Price, 60, whose kidney function is worsening, to the night nurse, Joy.\n\nAs you are leaving, Joy says your handover was confusing and she isn't sure what she should be watching for overnight.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that it was busy, so she should have asked during handover.",
+      "brief": "Defensive, and doesn't help Mr Price.",
+      "detailed": "This may be partly true, but it shifts responsibility and doesn't fix the plan for tonight."
+    },
+    {
+      "id": "B",
+      "text": "Ask her what was unclear, so you can improve.",
+      "brief": "Specific feedback helps your handovers.",
+      "detailed": "Understanding what confused her helps you hand over better in future. It ranks second because the plan for tonight comes first."
+    },
+    {
+      "id": "C",
+      "text": "Go over Mr Price's plan with her again before you leave.",
+      "brief": "She needs a clear plan for tonight.",
+      "detailed": "If she isn't sure what to watch for, Mr Price is at risk. Clarifying the plan now, including when to call for help, matters most. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Use a structured format, such as SBAR, for future handovers.",
+      "brief": "Structure makes handovers clearer.",
+      "detailed": "Structured tools help make sure key information isn't missed. It ranks third because it is about the future."
+    },
+    {
+      "id": "E",
+      "text": "Tell her the plan is in the notes and leave.",
+      "brief": "Leaves an unclear plan for a deteriorating patient.",
+      "detailed": "She has told you she isn't sure. Leaving without clarifying puts Mr Price at risk. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "D",
+      "A",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to feedback that your handover was unclear, putting patient safety first.",
+    "keyDetails": "Mr Price's kidney function is worsening. Joy isn't clear what to watch for. You are about to leave.",
+    "reasoning": "[C] fixes tonight's plan, [B] learns from the feedback, and [D] improves future handovers. [A] is defensive, and [E] leaves the problem unresolved.",
+    "competing": "Some would ask what was unclear first. The key puts the plan first, because that is what keeps Mr Price safe tonight."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, handing over care clearly."
+    }
+  ],
+  "tags": [
+    "handover",
+    "feedback",
+    "intensive care",
+    "communication"
+  ]
+}

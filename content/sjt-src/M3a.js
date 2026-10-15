@@ -104,7 +104,7 @@ module.exports = [
   gmcDomains: ["Patients, partnership and communication"],
   competencies: ["Breaking bad news", "Compassion", "Privacy"],
   stem:
-    "You are an F2 doctor in the early pregnancy unit. Ms Kowalski, 31, and her partner have come for her 12-week scan, bringing their two-year-old son. The sonographer has confirmed that there is no fetal heartbeat and that the pregnancy stopped developing at about nine weeks.\n\n" +
+    "You are an F2 doctor in obstetrics and gynaecology, covering the antenatal scan unit. Ms Kowalski, 31, and her partner have come for her 12-week scan, bringing their two-year-old son. The sonographer, with a second sonographer confirming, has found no fetal heartbeat; the pregnancy stopped developing at about nine weeks.\n\n" +
     "The couple can see from the sonographer's face that something is wrong. Their son is restless and starting to cry. You have been asked to talk to them.",
   options: [
     { text: "Offer a private room, with a nurse to look after their son.",
@@ -160,7 +160,7 @@ module.exports = [
     { text: "Wait until Dr Reid is back next week to ask why she filed it.",
       brief: "Dr Reid should hear about it, but a week's delay adds to the risk.",
       detailed: "There may be an explanation, and Dr Reid should hear about it. But Mr Ahmed's possible cancer shouldn't wait another week for her return." },
-    { text: "Refer Mr Ahmed to urology yourself, and leave it there.",
+    { text: "Refer Mr Ahmed to urology yourself this afternoon.",
       brief: "Helps the patient, but bypasses the practice's oversight.",
       detailed: "A referral may be right, but making it without senior advice, and without the practice learning about the missed result, means Mr Ahmed may not be told properly and the system problem isn't addressed." },
     { text: "Assume Dr Reid had a clinical reason and carry on with the consultation.",
@@ -285,11 +285,11 @@ module.exports = [
   competencies: ["Supporting colleagues", "Patient safety", "Escalation"],
   stem:
     "You are an F2 doctor in the Emergency Department. Your colleague Dr Sharma, another F2, has seemed tearful for several weeks. Today a pharmacist picked up that she prescribed ten times the intended dose of a drug, before any was given.\n\n" +
-    "When you check on her, she tells you she isn't sleeping and \"can't cope any more\". She has six hours of her shift left.",
+    "When you check on her in the staff room, she tells you she isn't sleeping and \"can't cope any more\". She has six hours of her shift left.",
   options: [
-    { text: "Talk with her privately and encourage her to get support, such as from her GP.",
-      brief: "She has confided in you and needs kindness and practical support.",
-      detailed: "Listening, without judgement, and encouraging her to see her GP or occupational health shows care. She may also be eligible for confidential support for doctors. It ranks first because it responds directly to what she has told you." },
+    { text: "Ask her gently about her safety, and encourage her to get support today.",
+      brief: "'Can't cope any more' needs a direct, kind question about her safety.",
+      detailed: "You are with her now, away from patients. Asking directly whether she has had thoughts of harming herself, and encouraging her to see her GP or occupational health, or use confidential support for doctors, responds to what she has told you. It ranks first because her own safety may be at risk, and the conversation is already happening." },
     { text: "Tell the consultant in charge that she's struggling and may not be safe to work today.",
       brief: "Patients may be at risk, and the consultant can arrange cover.",
       detailed: "A serious prescribing error and her own words suggest she may not be safe to work today. The consultant can support her and arrange cover. It ranks second because it is most appropriate after speaking to her, and she can be told you are doing it." },
@@ -307,7 +307,7 @@ module.exports = [
     issue: "This tests whether you support a colleague in distress while recognising when patient safety means a senior must be told.",
     keyDetails: "She has been struggling for weeks. She has made a serious error. She says she can't cope. She has six hours of her shift left.",
     reasoning: "{1} supports her, {2} protects patients by involving the consultant, and {3} deals with the error. {4} hides the problem, and {5} ignores it.",
-    competing: "Some would tell the consultant first because of the risk. The key puts a private conversation first because it takes minutes and lets her know what will happen next."
+    competing: "Some would tell the consultant first because patients may be at risk. She is in the staff room with you, away from patients, and may be at risk herself, so the key puts asking about her safety first. The consultant should be told straight afterwards, and she can know that you are doing so."
   },
   refs: [
     { ref: "gmp", note: "Domain 3, supporting colleagues and acting when a colleague's health may put patients at risk." },
@@ -325,7 +325,7 @@ module.exports = [
   competencies: ["Recognising limits", "Acute care", "Escalation"],
   stem:
     "You are an F2 doctor in intensive care. Mr Lowe, 57, is ventilated for pneumonia. His oxygen saturation has fallen from 94% to 85% over ten minutes. The ICU registrar is in theatre with a patient, and the consultant is at home, 20 minutes away.\n\n" +
-    "The nurse says, \"Can you just turn up his PEEP? That's what the registrar usually does.\" You haven't been trained to change ventilator settings.",
+    "The nurse says, \"Can you just turn up his PEEP? That's what the registrar usually does.\" You have been taught to increase the oxygen concentration, but not to change other ventilator settings.",
   options: [
     // keyed
     { text: "Assess him at the bedside now, including his tube and circuit.",
@@ -405,7 +405,7 @@ module.exports = [
 
 // ─────────────────────────────────────────────────────────────────────────────
 {
-  id: "sjt-310", pool, letters: "FGH", format: "multiple_choice", difficulty: "moderate",
+  id: "sjt-310", pool, letters: "BGH", format: "multiple_choice", difficulty: "moderate",
   title: "The unwatched inbox", setting: "General practice", attribute: P,
   topic: "Raising concerns about systems and safety",
   gmcDomains: ["Safety and quality"],
@@ -434,9 +434,9 @@ module.exports = [
     { text: "Work through all the results yourself this evening.",
       brief: "Well meant, but you need senior oversight for abnormal results.",
       detailed: "Helping is good, but acting alone on a large number of results, some abnormal, without supervision risks errors." },
-    { text: "Ask the receptionist to file the normal results so the list is shorter.",
-      brief: "Non-clinical staff shouldn't decide which results are normal.",
-      detailed: "Results need clinical review, even those marked normal, as they may still need action in context." },
+    { text: "Ask the receptionist to file all the results so the inbox is cleared.",
+      brief: "Filing unseen results, including abnormal ones, hides them.",
+      detailed: "Clearing the inbox without clinical review would hide abnormal results that need action. It makes the problem worse." },
     { text: "Raise it at the next monthly practice meeting.",
       brief: "Too late for the results waiting now.",
       detailed: "The system should be discussed, but waiting a month leaves the current results unchecked." }
@@ -463,7 +463,7 @@ module.exports = [
   competencies: ["Self-care", "Occupational health", "Honesty"],
   stem:
     "You are an F2 doctor in paediatrics, and you have just found out that you are eight weeks pregnant. You haven't told anyone at work.\n\n" +
-    "Next week you are rostered for a block of nights, and there is currently an outbreak of chickenpox on the ward. You don't know whether you have had chickenpox.",
+    "You are on annual leave this week. When you return next week you are rostered for a block of nights, and there is currently an outbreak of chickenpox on the ward. You don't know whether you have had chickenpox.",
   options: [
     { text: "Ask occupational health to check your chickenpox immunity.",
       brief: "Chickenpox in pregnancy can be serious, so you need to know your status now.",

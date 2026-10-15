@@ -60,9 +60,9 @@
     },
     {
       "id": "G",
-      "text": "Report your colleague straight to the General Medical Council for this.",
-      "brief": "Disproportionate as a first step.",
-      "detailed": "Probity concerns can reach the regulator, but this should first be addressed directly and through educational routes."
+      "text": "Report it to the royal college that runs the exam, naming your colleague.",
+      "brief": "The exam body may need to know, but reporting him by name first skips simpler steps.",
+      "detailed": "Breaches of exam rules can be reported to the body that runs the exam, and that may become appropriate. Doing it first, naming him, without speaking to him or taking advice, is heavy-handed when he may simply delete it."
     },
     {
       "id": "H",

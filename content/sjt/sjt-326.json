@@ -1,0 +1,110 @@
+{
+  "id": "sjt-326",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-326",
+  "format": "multiple_choice",
+  "title": "Observed in the bathroom",
+  "setting": "Psychiatry",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Dignity, privacy, disability and chaperones",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Dignity",
+    "Least restrictive care",
+    "Advocacy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an inpatient psychiatric ward. Ms Reid, 24, is on close observation, with a member of staff within arm's length at all times, after self-harming on the ward last week.\n\nShe tells you, distressed, that a male healthcare assistant has been observing her in the bathroom and while she showers. She says she feels humiliated and has stopped washing.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the staff to stop observing her in the bathroom.",
+      "brief": "Could leave her at risk at a time when she may self-harm.",
+      "detailed": "Bathrooms can be high-risk places for self-harm. Stopping observation there without a risk review could be dangerous."
+    },
+    {
+      "id": "B",
+      "text": "Explain that close observation is ward policy and must continue.",
+      "brief": "Ignores a legitimate concern about her dignity.",
+      "detailed": "Observation may need to continue, but how it is done matters. Dismissing her concern doesn't help."
+    },
+    {
+      "id": "C",
+      "text": "Ask the nurse in charge for female staff to observe her.",
+      "brief": "A same-sex observer respects her dignity while keeping her safe.",
+      "detailed": "Close observation can still respect privacy. Allocating female staff for her personal care, wherever possible, keeps her safe without the humiliation she describes."
+    },
+    {
+      "id": "D",
+      "text": "Talk with her about how the observation is affecting her.",
+      "brief": "Her experience matters and helps the team plan her care.",
+      "detailed": "She has stopped washing, which affects her health and dignity. Listening to her helps the team understand what would make observation more bearable."
+    },
+    {
+      "id": "E",
+      "text": "Suggest the assistant stands outside the bathroom with the door ajar.",
+      "brief": "A possible compromise, but not your decision to make alone.",
+      "detailed": "This may be reasonable if her risk allows, but changing how observation works should be agreed by the team, not arranged informally."
+    },
+    {
+      "id": "F",
+      "text": "Record her complaint in the notes and take no further action.",
+      "brief": "Documentation alone doesn't address her distress.",
+      "detailed": "Her concern should be recorded, but she needs something to change."
+    },
+    {
+      "id": "G",
+      "text": "Ask the team to review whether this level of observation is needed.",
+      "brief": "Observation should be the least restrictive level that keeps her safe.",
+      "detailed": "Observation levels should be reviewed regularly. If her risk has reduced, a less intrusive level may be appropriate. If not, the team can look at how it is carried out."
+    },
+    {
+      "id": "H",
+      "text": "Advise her to make a formal complaint to the ward manager.",
+      "brief": "She can complain, but the problem needs addressing now.",
+      "detailed": "She has the right to complain, but this puts the burden on her and doesn't solve the immediate problem."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you protect a patient's dignity while respecting the safety reasons for her observation.",
+    "keyDetails": "She is on close observation after self-harm. A male member of staff observes her personal care. She is distressed and has stopped washing.",
+    "reasoning": "[C] arranges female observers, [D] listens to her, and [G] reviews whether the level is still right. The distractors remove safety measures ([A]), dismiss her ([B], [F]), change practice informally ([E]), or shift the burden ([H]).",
+    "competing": "[E] may well be where the team ends up, but changes to observation should be agreed by the team after a risk review."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients with dignity."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Same-sex care and respecting patients' privacy."
+    }
+  ],
+  "tags": [
+    "dignity",
+    "observation",
+    "psychiatry",
+    "self-harm"
+  ]
+}

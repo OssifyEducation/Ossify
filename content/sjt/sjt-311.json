@@ -18,7 +18,7 @@
     "Honesty"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in paediatrics, and you have just found out that you are eight weeks pregnant. You haven't told anyone at work.\n\nNext week you are rostered for a block of nights, and there is currently an outbreak of chickenpox on the ward. You don't know whether you have had chickenpox.",
+  "stem": "You are an F2 doctor in paediatrics, and you have just found out that you are eight weeks pregnant. You haven't told anyone at work.\n\nYou are on annual leave this week. When you return next week you are rostered for a block of nights, and there is currently an outbreak of chickenpox on the ward. You don't know whether you have had chickenpox.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

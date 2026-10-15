@@ -19,7 +19,7 @@
     "Patient safety"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor on a busy labour ward at night. A midwife tells you that the ward has run out of oxytocin for infusions, which is commonly used to strengthen contractions. Two women are currently on an oxytocin infusion, with about two hours of supply left in their current bags.\n\nPharmacy is closed until the morning, but there is an on-call pharmacist.",
+  "stem": "You are an F2 doctor on a busy labour ward at night. A midwife tells you that the ward has run out of the ready-made oxytocin infusion bags that pharmacy supplies to strengthen contractions. Two women are on an oxytocin infusion, with about two hours left in their current bags. The only other oxytocin is a few ampoules in the postpartum haemorrhage emergency box.\n\nPharmacy is closed until the morning, but there is an on-call pharmacist.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

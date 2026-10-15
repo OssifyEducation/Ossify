@@ -19,7 +19,7 @@
     "Escalation"
   ],
   "difficulty": "easy",
-  "stem": "You are an F2 doctor in the Emergency Department. Your colleague Dr Sharma, another F2, has seemed tearful for several weeks. Today a pharmacist picked up that she prescribed ten times the intended dose of a drug, before any was given.\n\nWhen you check on her, she tells you she isn't sleeping and \"can't cope any more\". She has six hours of her shift left.",
+  "stem": "You are an F2 doctor in the Emergency Department. Your colleague Dr Sharma, another F2, has seemed tearful for several weeks. Today a pharmacist picked up that she prescribed ten times the intended dose of a drug, before any was given.\n\nWhen you check on her in the staff room, she tells you she isn't sleeping and \"can't cope any more\". She has six hours of her shift left.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
@@ -36,9 +36,9 @@
     },
     {
       "id": "C",
-      "text": "Talk with her privately and encourage her to get support, such as from her GP.",
-      "brief": "She has confided in you and needs kindness and practical support.",
-      "detailed": "Listening, without judgement, and encouraging her to see her GP or occupational health shows care. She may also be eligible for confidential support for doctors. It ranks first because it responds directly to what she has told you."
+      "text": "Ask her gently about her safety, and encourage her to get support today.",
+      "brief": "'Can't cope any more' needs a direct, kind question about her safety.",
+      "detailed": "You are with her now, away from patients. Asking directly whether she has had thoughts of harming herself, and encouraging her to see her GP or occupational health, or use confidential support for doctors, responds to what she has told you. It ranks first because her own safety may be at risk, and the conversation is already happening."
     },
     {
       "id": "D",
@@ -66,7 +66,7 @@
     "issue": "This tests whether you support a colleague in distress while recognising when patient safety means a senior must be told.",
     "keyDetails": "She has been struggling for weeks. She has made a serious error. She says she can't cope. She has six hours of her shift left.",
     "reasoning": "[C] supports her, [B] protects patients by involving the consultant, and [A] deals with the error. [E] hides the problem, and [D] ignores it.",
-    "competing": "Some would tell the consultant first because of the risk. The key puts a private conversation first because it takes minutes and lets her know what will happen next."
+    "competing": "Some would tell the consultant first because patients may be at risk. She is in the staff room with you, away from patients, and may be at risk herself, so the key puts asking about her safety first. The consultant should be told straight afterwards, and she can know that you are doing so."
   },
   "references": [
     {

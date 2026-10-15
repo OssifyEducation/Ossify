@@ -23,7 +23,7 @@
   "options": [
     {
       "id": "A",
-      "text": "Ask her nurse to check on her during the round.",
+      "text": "Mention to her nurse that she was upset.",
       "brief": "Helps in the short term, but she needs a proper conversation.",
       "detailed": "A nurse checking on her shows care, but she needs someone to talk through her concerns about oxygen. It ranks third."
     },

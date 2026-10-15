@@ -19,7 +19,7 @@
     "Escalation"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in intensive care. Mr Lowe, 57, is ventilated for pneumonia. His oxygen saturation has fallen from 94% to 85% over ten minutes. The ICU registrar is in theatre with a patient, and the consultant is at home, 20 minutes away.\n\nThe nurse says, \"Can you just turn up his PEEP? That's what the registrar usually does.\" You haven't been trained to change ventilator settings.",
+  "stem": "You are an F2 doctor in intensive care. Mr Lowe, 57, is ventilated for pneumonia. His oxygen saturation has fallen from 94% to 85% over ten minutes. The ICU registrar is in theatre with a patient, and the consultant is at home, 20 minutes away.\n\nThe nurse says, \"Can you just turn up his PEEP? That's what the registrar usually does.\" You have been taught to increase the oxygen concentration, but not to change other ventilator settings.",
   "instruction": "Choose the 3 most appropriate actions to take in this situation.",
   "selectCount": 3,
   "options": [

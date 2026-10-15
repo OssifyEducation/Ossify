@@ -1,0 +1,110 @@
+{
+  "id": "sjt-330",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-330",
+  "format": "multiple_choice",
+  "title": "\"Just anxiety\"",
+  "setting": "Psychiatry",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Safety and quality",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Diagnostic overshadowing",
+    "Physical health",
+    "Challenging assumptions"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on call for an inpatient psychiatric unit. Mr Booth, 55, who has generalised anxiety disorder and smokes heavily, complains of central chest pain.\n\nThe nurse who calls you says, \"He's always anxious. Can you just prescribe some lorazepam?\" His observations haven't been checked since this morning.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Go and assess his chest pain yourself.",
+      "brief": "Chest pain needs medical assessment, whatever his history.",
+      "detailed": "He has risk factors for heart disease. Anxiety may explain the pain, but it can't be assumed. A proper history and examination are needed."
+    },
+    {
+      "id": "B",
+      "text": "Prescribe lorazepam as the nurse suggests.",
+      "brief": "Treats anxiety without ruling out a serious cause.",
+      "detailed": "This could mask or delay treatment of a heart attack."
+    },
+    {
+      "id": "C",
+      "text": "Ask for his observations and an ECG now.",
+      "brief": "Quick tests that can identify a serious cause.",
+      "detailed": "Observations and an ECG can be done within minutes and may show signs of a cardiac cause that needs urgent treatment."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse to call you back if the pain continues.",
+      "brief": "Delays assessment of possibly serious chest pain.",
+      "detailed": "Chest pain in a man with his risk factors needs prompt assessment, not a wait-and-see approach."
+    },
+    {
+      "id": "E",
+      "text": "Arrange transfer to the Emergency Department without assessing him.",
+      "brief": "May be needed, but assess first.",
+      "detailed": "Transfer may become necessary, but assessing him first lets you decide how urgent it is and start treatment."
+    },
+    {
+      "id": "F",
+      "text": "Explain to the nurse why chest pain needs a full assessment.",
+      "brief": "Challenges an assumption that could put patients at risk.",
+      "detailed": "Attributing physical symptoms to a mental illness, known as diagnostic overshadowing, leads to missed diagnoses. A respectful explanation may change how future symptoms are handled."
+    },
+    {
+      "id": "G",
+      "text": "Ask about his anxiety symptoms to confirm it's a panic attack.",
+      "brief": "Starts from the assumption, rather than ruling out serious causes.",
+      "detailed": "Panic attacks are possible, but you need to rule out cardiac causes rather than look for evidence of anxiety."
+    },
+    {
+      "id": "H",
+      "text": "Record that the pain is likely to be anxiety-related.",
+      "brief": "Documents an assumption without assessment.",
+      "detailed": "Recording a conclusion you haven't reached through assessment could mislead others."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you avoid letting a mental health diagnosis overshadow a possibly serious physical symptom.",
+    "keyDetails": "He has chest pain and cardiac risk factors. The nurse attributes it to anxiety. His observations haven't been checked.",
+    "reasoning": "[A] assesses him, [C] gets quick tests, and [F] challenges the assumption. The distractors treat anxiety without assessment ([B]), delay ([D]), transfer without assessment ([E]), look for confirmation of the assumption ([G]), or record it ([H]).",
+    "competing": "[E] might be the right outcome, but a quick assessment and ECG first lets you judge urgency and start treatment."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly, and Domain 1, assessing symptoms adequately."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Disability, including mental illness, as a protected characteristic."
+    }
+  ],
+  "tags": [
+    "diagnostic overshadowing",
+    "chest pain",
+    "psychiatry",
+    "equality"
+  ]
+}

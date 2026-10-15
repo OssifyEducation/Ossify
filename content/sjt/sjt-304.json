@@ -31,7 +31,7 @@
     },
     {
       "id": "B",
-      "text": "Refer Mr Ahmed to urology yourself, and leave it there.",
+      "text": "Refer Mr Ahmed to urology yourself this afternoon.",
       "brief": "Helps the patient, but bypasses the practice's oversight.",
       "detailed": "A referral may be right, but making it without senior advice, and without the practice learning about the missed result, means Mr Ahmed may not be told properly and the system problem isn't addressed."
     },

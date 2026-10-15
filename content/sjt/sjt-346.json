@@ -1,0 +1,109 @@
+{
+  "id": "sjt-346",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-346",
+  "format": "multiple_choice",
+  "title": "Panic after a delivery",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Signposting",
+    "Confidentiality"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the labour ward. Grace, a midwife, tells you during a quiet moment that she has been having panic attacks since a traumatic delivery last month, in which a baby was born in poor condition.\n\nShe says she is coping at work but dreads her shifts. She asks you not to tell anyone.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her to take time off work.",
+      "brief": "Not your decision, and she says she is coping.",
+      "detailed": "Time off may help some people, but she hasn't asked for it, and it isn't your decision."
+    },
+    {
+      "id": "B",
+      "text": "Listen, and acknowledge how hard it has been.",
+      "brief": "Feeling heard is important after trauma.",
+      "detailed": "She has chosen to tell you. Listening without judgement helps her feel less alone."
+    },
+    {
+      "id": "C",
+      "text": "Tell her that panic attacks are normal after a bad delivery.",
+      "brief": "May minimise her experience.",
+      "detailed": "Reactions like this are common, but saying they are 'normal' may make her feel she shouldn't seek help."
+    },
+    {
+      "id": "D",
+      "text": "Tell the labour ward coordinator that she is struggling.",
+      "brief": "Breaks her confidence without a safety reason.",
+      "detailed": "She says she is coping and hasn't asked you to tell anyone. Sharing it without her agreement would damage trust."
+    },
+    {
+      "id": "E",
+      "text": "Suggest she sees her GP about medication.",
+      "brief": "Her GP may help, but medication isn't the first step.",
+      "detailed": "Seeing her GP is reasonable, but suggesting medication as the answer is premature."
+    },
+    {
+      "id": "F",
+      "text": "Encourage her to use the staff support service.",
+      "brief": "Specialist support can help with trauma reactions.",
+      "detailed": "Panic attacks after a traumatic event are common and treatable. Staff support services can help confidentially."
+    },
+    {
+      "id": "G",
+      "text": "Avoid mentioning it again, so as not to upset her.",
+      "brief": "May leave her feeling unsupported.",
+      "detailed": "She opened up to you. Checking in later shows care."
+    },
+    {
+      "id": "H",
+      "text": "Suggest she talks to a professional midwifery advocate.",
+      "brief": "A source of support within midwifery.",
+      "detailed": "Professional midwifery advocates offer restorative supervision and support after difficult events."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague after a traumatic event, respecting her confidence and pointing her to the right help.",
+    "keyDetails": "She has panic attacks after a traumatic delivery. She is coping at work. She has asked for confidentiality.",
+    "reasoning": "[B] listens, [F] points to staff support, and [H] suggests support within midwifery. The distractors overstep ([A], [D]), minimise ([C]), focus on medication ([E]), or withdraw ([G]).",
+    "competing": "[E] is reasonable, as her GP can help. The problem is framing medication as the answer before support has been tried."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues."
+    },
+    {
+      "title": "The Code: professional standards of practice and behaviour for nurses, midwives and nursing associates",
+      "publisher": "Nursing and Midwifery Council",
+      "year": 2018,
+      "url": "https://www.nmc.org.uk/standards/code/",
+      "note": "Midwives' own wellbeing and access to support."
+    }
+  ],
+  "tags": [
+    "colleague support",
+    "trauma",
+    "midwives",
+    "wellbeing"
+  ]
+}

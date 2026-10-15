@@ -18,7 +18,7 @@
     "Inclusion"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor on the acute medical unit. Priya, a newly qualified physician associate, joined the team two weeks ago. Nobody has explained to the junior doctors what she can and can't do.\n\nThe two F1s have started refusing to give her jobs, saying they \"don't know what she's allowed to do\". Priya tells you she feels unwelcome.",
+  "stem": "You are an F2 doctor on the acute medical unit. Priya, a newly qualified physician assistant, joined the team two weeks ago. Nobody has explained to the junior doctors what she can and can't do.\n\nThe two F1s have started refusing to give her jobs, saying they \"don't know what she's allowed to do\". Priya tells you she feels unwelcome.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {
@@ -35,7 +35,7 @@
     },
     {
       "id": "C",
-      "text": "Include Priya in the team's work in ways you know are within her role.",
+      "text": "Invite Priya to join you when you take histories and review patients.",
       "brief": "Helps her feel welcome in the meantime.",
       "detailed": "Inviting her to tasks that clearly fit her training, such as taking histories, shows support. It ranks third because it doesn't solve the underlying problem."
     },
@@ -78,7 +78,7 @@
   ],
   "tags": [
     "teamwork",
-    "physician associates",
+    "physician assistants",
     "conflict",
     "acute medicine"
   ]

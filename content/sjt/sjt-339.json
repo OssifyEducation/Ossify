@@ -1,0 +1,79 @@
+{
+  "id": "sjt-339",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-339",
+  "format": "ranking",
+  "title": "Weight-bearing advice",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Challenging seniors",
+    "Patient safety",
+    "Attention to detail"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in orthopaedics, writing a discharge letter for Mrs Hart, 67, who had an ankle fracture fixed. The operation note, written by the consultant, says she must not bear weight on that leg for six weeks.\n\nThe registrar, who didn't do the operation, tells you to write \"full weight-bearing as tolerated\". She is going home this afternoon.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Show the registrar the operation note and ask him to recheck.",
+      "brief": "He may not have seen it, and this resolves the discrepancy directly.",
+      "detailed": "The registrar may be thinking of a different patient or may not have read the note. Showing him gives him the chance to correct it. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Write the registrar's advice without mentioning the operation note.",
+      "brief": "Could lead to failure of the fixation.",
+      "detailed": "If the operation note is correct, bearing weight could damage the repair. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Ask the consultant who operated to clarify the instructions.",
+      "brief": "The operating surgeon knows what was intended.",
+      "detailed": "If the discrepancy isn't resolved, the operating surgeon should decide. It ranks second because the registrar should have the chance to reconsider first."
+    },
+    {
+      "id": "D",
+      "text": "Write the registrar's advice, but note the discrepancy in the letter.",
+      "brief": "Flags the problem, but still gives potentially unsafe advice.",
+      "detailed": "Recording the discrepancy is better than ignoring it, but she would go home with advice that may harm the repair. It ranks third."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "D",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you challenge a senior's instruction that conflicts with the operating surgeon's documented plan.",
+    "keyDetails": "The operation note says non-weight-bearing. The registrar says full weight-bearing. He didn't do the operation. She is going home today.",
+    "reasoning": "[A] raises it with the registrar directly, and [C] involves the operating surgeon. [D] flags it but gives unsafe advice, and [B] ignores it.",
+    "competing": "Some would go straight to the operating surgeon. The key gives the registrar the chance to correct it first, which is quicker and respectful."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, raising concerns about care, including with seniors."
+    }
+  ],
+  "tags": [
+    "discharge",
+    "orthopaedics",
+    "challenging seniors",
+    "safety"
+  ]
+}

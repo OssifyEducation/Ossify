@@ -1,0 +1,102 @@
+{
+  "id": "sjt-328",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-328",
+  "format": "multiple_choice",
+  "title": "Won't go home",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Discharge planning",
+    "Communication",
+    "Managing conflict"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Mr Rowe, 79, had a fractured wrist fixed four days ago and has been declared medically fit for discharge. The physiotherapists and occupational therapists say he is safe to go home, and a care package starts tomorrow.\n\nHe refuses to leave, saying he \"can't manage\" alone, and becomes angry when the nurse mentions his transport.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Call security to escort him to the transport.",
+      "brief": "Escalates a situation that needs listening.",
+      "detailed": "He is anxious, not dangerous. Involving security is disproportionate and distressing."
+    },
+    {
+      "id": "B",
+      "text": "Tell him he is preventing another patient from getting a bed.",
+      "brief": "Puts pressure on him rather than addressing his worries.",
+      "detailed": "Bed pressures are real, but this makes him feel guilty without helping him feel safe."
+    },
+    {
+      "id": "C",
+      "text": "Keep him in for another week to avoid conflict.",
+      "brief": "Unnecessary hospital stays carry their own risks.",
+      "detailed": "Staying longer than needed increases the risk of deconditioning and infection, and doesn't address his fears."
+    },
+    {
+      "id": "D",
+      "text": "Ask his daughter to come and take him home.",
+      "brief": "May help, but it bypasses his concerns.",
+      "detailed": "Family can be part of the solution, but asking her to collect him without understanding his worries may not help."
+    },
+    {
+      "id": "E",
+      "text": "Ask him what worries him about going home.",
+      "brief": "His specific fears may be addressable.",
+      "detailed": "He may be worried about meals, stairs, falling or loneliness. Understanding exactly what worries him is the first step to resolving it."
+    },
+    {
+      "id": "F",
+      "text": "Ask the therapists to review whether his support is enough.",
+      "brief": "A second look may address his concerns.",
+      "detailed": "If his concerns reveal something missed, such as no one to help in the evenings, the therapists can adjust the plan."
+    },
+    {
+      "id": "G",
+      "text": "Tell him the decision has been made and he has to go.",
+      "brief": "Dismissive, and likely to increase his distress.",
+      "detailed": "Discharge decisions are clinical, but delivering one this way ignores his anxiety and may escalate his anger."
+    },
+    {
+      "id": "H",
+      "text": "Explain calmly what support is in place for him at home.",
+      "brief": "Clear information may reassure him.",
+      "detailed": "He may not know the details of his care package or the follow-up arranged. Explaining them calmly may ease his anxiety."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "F",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient who refuses discharge because of anxiety, rather than seeing it simply as obstruction.",
+    "keyDetails": "He has been assessed as safe. A care package is arranged. He is anxious and angry.",
+    "reasoning": "[E] explores his fears, [F] checks the plan, and [H] explains it. The distractors escalate ([A]), pressure him ([B], [G]), avoid the issue ([C]), or bypass him ([D]).",
+    "competing": "[D] could be part of the solution, but only once you understand what he is worried about."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, listening to patients and responding to their concerns."
+    }
+  ],
+  "tags": [
+    "discharge",
+    "anxiety",
+    "orthopaedics",
+    "conflict"
+  ]
+}

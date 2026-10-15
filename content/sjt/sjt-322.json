@@ -24,7 +24,7 @@
   "options": [
     {
       "id": "A",
-      "text": "Explain kindly that you can't prescribe for her.",
+      "text": "Explain kindly that you shouldn't prescribe for her.",
       "brief": "Prescribing for friends should be avoided.",
       "detailed": "You aren't her doctor, you haven't assessed her properly, and you don't have her records. Prescribing for friends risks poor care and blurs boundaries."
     },
@@ -66,7 +66,7 @@
     },
     {
       "id": "H",
-      "text": "Tell her antibiotics never help sore throats.",
+      "text": "Tell her that antibiotics won't help a sore throat.",
       "brief": "Inaccurate: sometimes they do.",
       "detailed": "Most sore throats don't need antibiotics, but some do. Overstating it may stop her seeking help when she needs it."
     }

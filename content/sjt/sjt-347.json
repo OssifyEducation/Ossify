@@ -1,0 +1,85 @@
+{
+  "id": "sjt-347",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-347",
+  "format": "ranking",
+  "title": "Taking credit",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Assertiveness",
+    "Teamwork",
+    "Resolving conflict"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in paediatrics. On the consultant ward rounds, your fellow F2, Dr Price, often presents patients you have clerked and managed as if he had done the work himself.\n\nYour consultant has praised him several times for work you did. It has happened on most ward rounds for two weeks.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Do less for patients he might present.",
+      "brief": "Patients' care would suffer.",
+      "detailed": "This lets a conflict between colleagues affect patients. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Mention it to your educational supervisor.",
+      "brief": "Support if it continues.",
+      "detailed": "Your supervisor can advise you, and the issue may matter for your assessments. It ranks third because a direct conversation should come first."
+    },
+    {
+      "id": "C",
+      "text": "Talk to Dr Price privately about what's been happening.",
+      "brief": "A direct, private conversation is the fairest first step.",
+      "detailed": "He may not realise how it comes across. Raising it privately gives him the chance to change. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Correct him in front of the consultant on the next ward round.",
+      "brief": "Public confrontation may cause conflict.",
+      "detailed": "You may want the record straight, but doing it publicly may embarrass him and disrupt the round."
+    },
+    {
+      "id": "E",
+      "text": "Present your own patients on the ward round.",
+      "brief": "Makes your work visible.",
+      "detailed": "Agreeing who presents which patients makes your contribution clear. It ranks second because it avoids conflict but doesn't address his behaviour."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "B",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you address a colleague's unfair behaviour constructively, without letting it affect patients.",
+    "keyDetails": "He presents your work as his own. It has happened repeatedly. The consultant has praised him for it.",
+    "reasoning": "[C] addresses it directly, [E] makes your work visible, and [B] gets support. [D] creates public conflict, and [A] affects patients.",
+    "competing": "[E] and [B] are close. The key puts presenting your own patients second because it is a practical step that doesn't require anyone else."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working constructively with colleagues."
+    }
+  ],
+  "tags": [
+    "teamwork",
+    "conflict",
+    "credit",
+    "paediatrics"
+  ]
+}

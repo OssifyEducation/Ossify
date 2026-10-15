@@ -18,7 +18,7 @@
     "Privacy"
   ],
   "difficulty": "moderate",
-  "stem": "You are an F2 doctor in the early pregnancy unit. Ms Kowalski, 31, and her partner have come for her 12-week scan, bringing their two-year-old son. The sonographer has confirmed that there is no fetal heartbeat and that the pregnancy stopped developing at about nine weeks.\n\nThe couple can see from the sonographer's face that something is wrong. Their son is restless and starting to cry. You have been asked to talk to them.",
+  "stem": "You are an F2 doctor in obstetrics and gynaecology, covering the antenatal scan unit. Ms Kowalski, 31, and her partner have come for her 12-week scan, bringing their two-year-old son. The sonographer, with a second sonographer confirming, has found no fetal heartbeat; the pregnancy stopped developing at about nine weeks.\n\nThe couple can see from the sonographer's face that something is wrong. Their son is restless and starting to cry. You have been asked to talk to them.",
   "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
   "options": [
     {

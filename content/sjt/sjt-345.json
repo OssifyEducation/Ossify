@@ -1,0 +1,85 @@
+{
+  "id": "sjt-345",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-345",
+  "format": "ranking",
+  "title": "£500 in a card",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Gifts",
+    "Probity",
+    "Kindness"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Gill, 84, who you looked after for three weeks, was discharged home yesterday. Today a nurse hands you a card she left for you.\n\nInside is £500 in cash and a note: \"For you personally. Thank you for being so kind.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Keep the money and declare it on the gifts register.",
+      "brief": "Declaring doesn't make a large cash gift acceptable.",
+      "detailed": "Declaring is the right process for small gifts, but £500 in cash from a vulnerable older patient shouldn't be kept."
+    },
+    {
+      "id": "B",
+      "text": "Suggest to Mrs Gill that the money goes to the ward charity, if she wishes.",
+      "brief": "An alternative, if she wants to give something.",
+      "detailed": "She may prefer this to having it returned. It ranks third because it should be offered as a choice after you've explained you can't keep it."
+    },
+    {
+      "id": "C",
+      "text": "Tell the ward manager and follow the trust's gifts policy.",
+      "brief": "Makes sure the gift is handled transparently.",
+      "detailed": "The trust's policy will set out how to handle and record the gift, and the ward manager can help. It ranks second because Mrs Gill should hear from you."
+    },
+    {
+      "id": "D",
+      "text": "Keep the money, as it was a personal gift.",
+      "brief": "Inappropriate and undeclared.",
+      "detailed": "This could be seen as exploiting a vulnerable patient's gratitude. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Contact Mrs Gill to thank her and explain you can't accept the money.",
+      "brief": "Kind, and makes sure the money is returned.",
+      "detailed": "A large cash gift can't be accepted, but she deserves a warm thank-you. Explaining kindly and arranging for the money to be returned respects her. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "B",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a large cash gift from a vulnerable patient, kindly and transparently.",
+    "keyDetails": "The gift is £500 in cash. She is elderly. The gift is personal. She has already gone home.",
+    "reasoning": "[E] returns it kindly, [C] follows the policy, and [B] offers an alternative. [A] keeps an inappropriate gift, and [D] keeps it undeclared.",
+    "competing": "Some would tell the ward manager first. The key puts Mrs Gill first because a personal thank-you matters to her, and you can follow the policy alongside."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Gifts from patients and the risk of appearing to influence care."
+    }
+  ],
+  "tags": [
+    "gifts",
+    "boundaries",
+    "elderly care",
+    "probity"
+  ]
+}
