@@ -1,0 +1,102 @@
+{
+  "id": "sjt-344",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-344",
+  "format": "multiple_choice",
+  "title": "Won't look at it",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Body image",
+    "Psychological support",
+    "Patient-centred care"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in general surgery. Ms Fry, 41, had an emergency operation for a perforated bowel five days ago and now has a stoma. She refuses to look at it, cries when the nurses change the bag, and says she \"can't live like this\".\n\nShe is otherwise recovering well and is due for discharge in a few days.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her she must learn to manage the stoma before she can go home.",
+      "brief": "Puts pressure on her rather than support.",
+      "detailed": "Learning stoma care matters for discharge, but presenting it as a condition may increase her distress."
+    },
+    {
+      "id": "B",
+      "text": "Ask the nurses to show her the stoma anyway, to help her get used to it.",
+      "brief": "Forcing exposure may increase distress.",
+      "detailed": "Adjustment needs to happen at her pace, with support."
+    },
+    {
+      "id": "C",
+      "text": "Ask her about how she is feeling and what worries her.",
+      "brief": "Understanding her distress is the first step.",
+      "detailed": "Her reaction is understandable after an emergency operation. Listening, and asking gently what she means by 'can't live like this', also helps you judge whether she is at risk."
+    },
+    {
+      "id": "D",
+      "text": "Ask the stoma nurse specialist to see her.",
+      "brief": "Specialist support for adjusting to a stoma.",
+      "detailed": "Stoma nurses help patients come to terms with stomas and learn to manage them at their own pace."
+    },
+    {
+      "id": "E",
+      "text": "Tell her about psychological and peer support for people with stomas.",
+      "brief": "Talking to others in her situation can help.",
+      "detailed": "Psychological support and contact with people who have adjusted to a stoma can make a big difference to body image and confidence."
+    },
+    {
+      "id": "F",
+      "text": "Prescribe an antidepressant.",
+      "brief": "Premature without assessment.",
+      "detailed": "She may need treatment for low mood, but this needs proper assessment first."
+    },
+    {
+      "id": "G",
+      "text": "Reassure her that most people get used to their stoma.",
+      "brief": "May feel dismissive.",
+      "detailed": "Many people do adjust, but saying so now may make her feel her distress isn't being heard."
+    },
+    {
+      "id": "H",
+      "text": "Arrange for the district nurses to manage her stoma at home.",
+      "brief": "Avoids the issue rather than addressing it.",
+      "detailed": "District nurses may support her at home, but this doesn't address her distress."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a patient's distress about a change in body image after surgery.",
+    "keyDetails": "She had an emergency stoma. She is distressed and can't look at it. She has said she 'can't live like this'. Discharge is near.",
+    "reasoning": "[C] explores her feelings and any risk, [D] brings in specialist support, and [E] offers psychological and peer support. The distractors pressure her ([A], [B]), treat prematurely ([F]), dismiss her ([G]), or avoid the issue ([H]).",
+    "competing": "[G] is well meant and often true, but she needs to feel heard before she can accept reassurance."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to patients' emotional needs."
+    }
+  ],
+  "tags": [
+    "stoma",
+    "body image",
+    "distress",
+    "surgery"
+  ]
+}

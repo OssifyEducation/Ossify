@@ -1,0 +1,102 @@
+{
+  "id": "sjt-306",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-306",
+  "format": "multiple_choice",
+  "title": "Home to die",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "End-of-life planning",
+    "Supporting carers",
+    "Shared decision-making"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an oncology ward. Mr Turner, 74, has advanced lung cancer and probably has a few weeks to live. He tells you he wants to die at home.\n\nLater his wife, 72, takes you aside in tears. She says she loves him but can't cope with caring for him at home and is frightened of him dying there.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Talk with Mrs Turner about what frightens her about caring for him at home.",
+      "brief": "Her fears may be specific, and some may be answerable.",
+      "detailed": "She may be worried about night-time care, lifting, symptoms or being alone when he dies. Understanding her specific fears helps you see what support might make home possible, or whether it isn't."
+    },
+    {
+      "id": "B",
+      "text": "Tell Mrs Turner that it is his right to die at home.",
+      "brief": "Ignores her role and her ability to cope.",
+      "detailed": "His wishes are important, but caring at home depends heavily on her. Dismissing her concerns is unkind and may lead to a crisis."
+    },
+    {
+      "id": "C",
+      "text": "Tell Mr Turner that going home isn't possible because his wife can't cope.",
+      "brief": "Shares her private concerns and closes off options too early.",
+      "detailed": "She spoke to you privately, and with support, home may still be possible. Telling him this way could damage their relationship."
+    },
+    {
+      "id": "D",
+      "text": "Ask the palliative care team what support could be offered at home.",
+      "brief": "Specialist teams know what support is available.",
+      "detailed": "District nurses, carers, hospice at home services and equipment can make a big difference. The palliative care team can assess what is realistic for this family."
+    },
+    {
+      "id": "E",
+      "text": "Arrange a meeting with them both to discuss his wishes and her concerns.",
+      "brief": "A shared conversation can lead to a plan they can both accept.",
+      "detailed": "Both of their views matter. A facilitated conversation, with her agreement, may help them find a plan, such as home with more support or a hospice."
+    },
+    {
+      "id": "F",
+      "text": "Arrange a nursing home placement to avoid the conflict.",
+      "brief": "Neither of them has asked for this.",
+      "detailed": "A nursing home may be an option, but arranging it without discussion overrides both their wishes."
+    },
+    {
+      "id": "G",
+      "text": "Arrange discharge home as he wishes, and give her the district nurses' number.",
+      "brief": "Doesn't address her fears or arrange the support needed.",
+      "detailed": "This respects his wish in principle but leaves his main carer frightened and unsupported, which may lead to a crisis admission."
+    },
+    {
+      "id": "H",
+      "text": "Ask their son to persuade his mother to agree.",
+      "brief": "Puts pressure on her rather than supporting her.",
+      "detailed": "Family involvement can help, but recruiting a relative to persuade her doesn't address her fears."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you balance a dying patient's wishes with the needs of the carer on whom those wishes depend.",
+    "keyDetails": "He wants to die at home. His wife is frightened and doesn't feel able to cope. Support may make a difference. Time is short.",
+    "reasoning": "[A] understands her fears, [D] explores what support is possible, and [E] brings them together to plan. The distractors dismiss her ([B]), breach her confidence ([C]), override both ([F]), discharge without support ([G]), or pressure her ([H]).",
+    "competing": "[G] looks like respecting his wishes, but without support it may lead to a crisis admission, which neither of them wants."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Patients' wishes about place of death and the needs of carers."
+    }
+  ],
+  "tags": [
+    "end of life",
+    "carers",
+    "place of death",
+    "oncology"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-304",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-304",
+  "format": "multiple_choice",
+  "title": "A filed result",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Raising concerns",
+    "Results handling"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in a GP practice. While seeing Mr Ahmed, 68, about a cough, you notice a PSA result of 14 from two months ago. One of the partners, Dr Reid, filed it as \"no action\". There is no referral and no record that Mr Ahmed was told.\n\nMr Ahmed doesn't mention the test. Dr Reid is on leave until next week.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Wait until Dr Reid is back next week to ask why she filed it.",
+      "brief": "Dr Reid should hear about it, but a week's delay adds to the risk.",
+      "detailed": "There may be an explanation, and Dr Reid should hear about it. But Mr Ahmed's possible cancer shouldn't wait another week for her return."
+    },
+    {
+      "id": "B",
+      "text": "Refer Mr Ahmed to urology yourself this afternoon.",
+      "brief": "Helps the patient, but bypasses the practice's oversight.",
+      "detailed": "A referral may be right, but making it without senior advice, and without the practice learning about the missed result, means Mr Ahmed may not be told properly and the system problem isn't addressed."
+    },
+    {
+      "id": "C",
+      "text": "Discuss the result with your GP supervisor today.",
+      "brief": "A senior needs to review this promptly.",
+      "detailed": "A raised PSA that hasn't been acted on may need an urgent referral. Your supervisor can review it with you, decide what to tell Mr Ahmed and act on it today, rather than waiting for Dr Reid."
+    },
+    {
+      "id": "D",
+      "text": "Assume Dr Reid had a clinical reason and carry on with the consultation.",
+      "brief": "Ignores a possible serious omission.",
+      "detailed": "There may have been a reason, but nothing is documented. Assuming so, without checking, risks a delayed cancer diagnosis."
+    },
+    {
+      "id": "E",
+      "text": "Make sure Mr Ahmed is told and offered further assessment.",
+      "brief": "He is entitled to know, and may need investigation.",
+      "detailed": "He hasn't been told about a result that may need further investigation. With your supervisor's advice, making sure he is informed and offered assessment, possibly while he is with you, puts his care right."
+    },
+    {
+      "id": "F",
+      "text": "Record it as a significant event so results handling can be reviewed.",
+      "brief": "An abnormal result filed without action is a system risk.",
+      "detailed": "A result like this being filed without action suggests a risk in how results are handled. A significant event review looks at the process, not just the individual, and helps protect other patients."
+    },
+    {
+      "id": "G",
+      "text": "Tell Mr Ahmed that Dr Reid missed his result.",
+      "brief": "He needs to know about the result, not about who is to blame.",
+      "detailed": "Being honest with him is right, but blaming a named colleague before anyone knows what happened isn't fair or helpful."
+    },
+    {
+      "id": "H",
+      "text": "Report Dr Reid to the General Medical Council.",
+      "brief": "Disproportionate for a single filing error.",
+      "detailed": "One missed result is a matter for the practice's processes, not the regulator, unless there is evidence of a wider problem."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a colleague's possible error to protect a patient, using proportionate routes, even when the colleague is senior and away.",
+    "keyDetails": "The raised PSA wasn't acted on. Mr Ahmed hasn't been told. Dr Reid is away for a week. Mr Ahmed is in front of you now.",
+    "reasoning": "[C] involves a senior promptly, [E] puts Mr Ahmed's care right, and [F] addresses the system. The distractors delay ([A], [D]), act without oversight ([B]), blame ([G]), or escalate disproportionately ([H]).",
+    "competing": "[A] is fair to Dr Reid, but waiting a week puts the patient at risk. She can be told when she is back, as part of the significant event review."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Acting promptly when a patient may be at risk because of a colleague's omission."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, contributing to systems that keep patients safe."
+    }
+  ],
+  "tags": [
+    "results",
+    "colleague error",
+    "general practice",
+    "cancer"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-341",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-341",
+  "format": "ranking",
+  "title": "Leave cancelled",
+  "setting": "Emergency department",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Negotiation",
+    "Professionalism",
+    "Work–life balance"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Six months ago your annual leave was approved for next week, when you are travelling abroad for your sister's wedding. The flights are non-refundable.\n\nToday the rota coordinator tells you your leave is cancelled because of a gap in the rota.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Phone in sick next week.",
+      "brief": "Dishonest.",
+      "detailed": "Reporting sickness when you aren't ill is dishonest and a probity concern. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Discuss it with your educational supervisor.",
+      "brief": "Support if the coordinator can't help.",
+      "detailed": "Your supervisor can support you and may be able to help resolve it with the department. It ranks second."
+    },
+    {
+      "id": "C",
+      "text": "Cancel your plans to cover the gap.",
+      "brief": "A large personal cost when the leave was approved.",
+      "detailed": "This helps the rota but costs you a family event and money. You aren't obliged to accept it without discussion."
+    },
+    {
+      "id": "D",
+      "text": "Explain that the leave was approved, and why it matters.",
+      "brief": "A calm conversation may resolve it.",
+      "detailed": "The coordinator may not know the leave was approved months ago or what it is for. Explaining calmly may lead them to find another solution. It ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Offer to help find cover, such as swapping a shift later.",
+      "brief": "Constructive, though it isn't your responsibility.",
+      "detailed": "Offering to help shows goodwill and may solve the problem. It ranks third because filling rota gaps is the department's responsibility."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "B",
+      "E",
+      "C",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a late cancellation of approved leave, using honest, constructive routes.",
+    "keyDetails": "The leave was approved six months ago. It is for a family wedding. The cancellation is at short notice.",
+    "reasoning": "[D] raises it directly, [B] gets support, and [E] offers help. [C] gives up without discussion, and [A] is dishonest.",
+    "competing": "Some would offer to help find cover first. The key starts by explaining, because the leave was approved and the department should look for solutions first."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, acting with honesty in all professional dealings."
+    }
+  ],
+  "tags": [
+    "leave",
+    "rota",
+    "honesty",
+    "emergency department"
+  ]
+}

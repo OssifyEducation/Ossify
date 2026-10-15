@@ -1,0 +1,93 @@
+{
+  "id": "sjt-331",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-331",
+  "format": "ranking",
+  "title": "Three still waiting",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Handover",
+    "Prioritisation",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. At the 17:00 handover, three of your patients are still waiting for senior review. One of them has a rising early warning score.\n\nThe night team is one doctor short, and the night registrar looks worried about the workload.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave the patients on the list, as the night team will see them.",
+      "brief": "Doesn't highlight the deteriorating patient.",
+      "detailed": "Without a clear handover, the deteriorating patient may not be prioritised. It ranks fourth."
+    },
+    {
+      "id": "B",
+      "text": "Tell the patients they will now be seen in the morning.",
+      "brief": "May delay care that one patient needs tonight.",
+      "detailed": "This makes a decision that isn't yours and could mean a deteriorating patient waits. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Offer to stay for a short while to help with the sickest patient.",
+      "brief": "A generous, occasional option, but not a solution.",
+      "detailed": "Staying briefly may help on a difficult night, and some doctors would choose to. It ranks third because it isn't sustainable and isn't required."
+    },
+    {
+      "id": "D",
+      "text": "Document each patient's outstanding issue clearly in the notes.",
+      "brief": "Supports the night team when they see each patient.",
+      "detailed": "Clear notes help whoever reviews them, especially on a busy night. It ranks second because the verbal handover of the sickest patient matters more."
+    },
+    {
+      "id": "E",
+      "text": "Tell the registrar which patients need review, sickest first.",
+      "brief": "A clear, prioritised handover helps the night team focus.",
+      "detailed": "The registrar needs to know who is waiting, and that one patient is deteriorating. Prioritising for them makes the best use of a stretched team. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "C",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you hand over outstanding work safely when the next team is under pressure.",
+    "keyDetails": "Three patients await review. One is deteriorating. The night team is short.",
+    "reasoning": "[E] gives a prioritised handover, [D] supports it with documentation, and [C] offers help. [A] lacks prioritisation, and [B] could delay urgent care.",
+    "competing": "Some would put staying to help higher. The key prefers a clear handover and documentation, which help all night, whereas staying is a short-term measure."
+  },
+  "references": [
+    {
+      "title": "National Early Warning Score (NEWS) 2",
+      "publisher": "Royal College of Physicians",
+      "year": 2017,
+      "url": "https://www.rcp.ac.uk/improving-care/resources/national-early-warning-score-news-2/",
+      "note": "Escalating patients with a rising early warning score."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, handing over care safely."
+    }
+  ],
+  "tags": [
+    "handover",
+    "prioritisation",
+    "acute medicine",
+    "deterioration"
+  ]
+}

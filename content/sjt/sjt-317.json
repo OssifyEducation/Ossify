@@ -1,0 +1,86 @@
+{
+  "id": "sjt-317",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-317",
+  "format": "ranking",
+  "title": "Cover again?",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Assertiveness",
+    "Wellbeing",
+    "Rota management"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a cardiology and respiratory rotation. Over the past two months you have covered four on-call shifts for your colleague Dr Ross so that she can do paid sessions at a private clinic.\n\nYou are tired and your own work is suffering. She asks you to cover another weekend on-call next month.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree to this one shift, and tell her it will be the last.",
+      "brief": "A compromise, but it adds to your fatigue.",
+      "detailed": "This is kind, and setting a limit helps. But you are already tired, so taking on more work isn't ideal. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Tell her kindly that you can't keep covering her shifts.",
+      "brief": "Protects your wellbeing and is honest with her.",
+      "detailed": "You are tired and your work is suffering. Explaining this honestly lets her make other arrangements. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Suggest she talks to the rota coordinator about her commitments.",
+      "brief": "Points her to the proper route for planning her work.",
+      "detailed": "If she has regular outside commitments, the rota coordinator can help her plan around them properly. It ranks second because it is helpful but doesn't, on its own, answer her request."
+    },
+    {
+      "id": "D",
+      "text": "Agree to cover, then call in sick that weekend.",
+      "brief": "Dishonest, and leaves the rota with a gap at short notice.",
+      "detailed": "This avoids an awkward conversation but leaves the ward without a doctor at short notice. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Agree to cover again, to avoid any awkwardness.",
+      "brief": "Continues a pattern that is harming your work.",
+      "detailed": "Avoiding conflict this way keeps adding to your fatigue and may affect your patients."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "C",
+      "A",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you can set boundaries with a colleague to protect your wellbeing and your patients.",
+    "keyDetails": "You have covered repeatedly. You are tired and your work is suffering. The request is for her private work.",
+    "reasoning": "[B] sets a clear boundary, [C] points her to the proper route, and [A] is a reasonable compromise. [E] continues the pattern, and [D] is dishonest and leaves a gap.",
+    "competing": "[A] might be fine for someone who wasn't tired. Here, your fatigue is the reason to decline."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, looking after your own health so patients are not put at risk."
+    }
+  ],
+  "tags": [
+    "rota",
+    "boundaries",
+    "wellbeing",
+    "colleagues"
+  ]
+}

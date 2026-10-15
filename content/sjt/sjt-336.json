@@ -1,0 +1,109 @@
+{
+  "id": "sjt-336",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-336",
+  "format": "multiple_choice",
+  "title": "The third call",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Communicating with relatives",
+    "Advance care planning",
+    "Managing distress"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working for the GP out-of-hours service. Ms Morris calls for the third time tonight about her mother, Mrs Morris, 91, who lives in a care home and has a chest infection.\n\nMrs Morris's GP agreed a plan with her last month, recorded on a ReSPECT form, to be treated in the care home rather than in hospital. Mrs Morris has capacity and is happy for her daughter to be told about her care. Ms Morris is upset and says her mother \"should be in hospital\". The care home reports no change in her condition.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Arrange admission to hospital to reassure her.",
+      "brief": "Overrides the patient's own agreed plan.",
+      "detailed": "Admitting her against her recorded wishes, when her condition hasn't changed, would not respect her choices."
+    },
+    {
+      "id": "B",
+      "text": "Tell her the plan has been agreed and won't be revisited.",
+      "brief": "Dismissive; plans can be reviewed.",
+      "detailed": "Plans can be reviewed, and her mother may be able to discuss it. This shuts down the conversation."
+    },
+    {
+      "id": "C",
+      "text": "Ask the care home to stop passing her calls to the service.",
+      "brief": "Avoids her rather than helping.",
+      "detailed": "This dismisses a worried relative and may increase her distress."
+    },
+    {
+      "id": "D",
+      "text": "Tell her you can't discuss her mother's care.",
+      "brief": "Unhelpful when you could explain the plan.",
+      "detailed": "You need to respect confidentiality, but explaining the agreed plan to a close relative is often appropriate, particularly if her mother would want this."
+    },
+    {
+      "id": "E",
+      "text": "Listen to Ms Morris's concerns.",
+      "brief": "She is distressed, and understanding why helps.",
+      "detailed": "She may be frightened her mother is dying, or feel unheard. Listening is the first step to helping her."
+    },
+    {
+      "id": "F",
+      "text": "Visit Mrs Morris tonight so her daughter knows she's been seen.",
+      "brief": "A visit isn't clinically needed, as she hasn't changed.",
+      "detailed": "If her condition changed, a visit would be appropriate. Visiting only to reassure her daughter uses limited out-of-hours resources."
+    },
+    {
+      "id": "G",
+      "text": "Explain the plan her mother made, and why it was agreed.",
+      "brief": "She may not know her mother's wishes or the reasons.",
+      "detailed": "Explaining that her mother agreed to be cared for in the home, and what treatment she is receiving, may reassure her. Her mother's wishes should guide care."
+    },
+    {
+      "id": "H",
+      "text": "Suggest she speaks to her mother's GP tomorrow.",
+      "brief": "The GP made the plan and can discuss it fully.",
+      "detailed": "The GP knows her mother and can review the plan with her. This gives her a route for her concerns."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a distressed relative while respecting a patient's own care plan.",
+    "keyDetails": "Mrs Morris agreed a plan to be treated at home. Her condition is unchanged. Her daughter is distressed.",
+    "reasoning": "[E] listens, [G] explains her mother's wishes, and [H] gives her a route to discuss them. The distractors override the plan ([A]), dismiss her ([B], [C], [D]), or use resources unnecessarily ([F]).",
+    "competing": "[F] might seem kind, but it isn't clinically needed. A change in Mrs Morris's condition would justify a visit."
+  },
+  "references": [
+    {
+      "title": "ReSPECT: Recommended Summary Plan for Emergency Care and Treatment",
+      "publisher": "Resuscitation Council UK",
+      "year": null,
+      "url": "https://www.resus.org.uk/respect",
+      "note": "Recording and following patients' recommendations for emergency care."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with those close to a patient."
+    }
+  ],
+  "tags": [
+    "relatives",
+    "ReSPECT",
+    "out-of-hours",
+    "care homes"
+  ]
+}

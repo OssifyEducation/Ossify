@@ -1,0 +1,93 @@
+{
+  "id": "sjt-307",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-307",
+  "format": "ranking",
+  "title": "\"I can't cope\"",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "An impaired or unwell colleague",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Patient safety",
+    "Escalation"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in the Emergency Department. Your colleague Dr Sharma, another F2, has seemed tearful for several weeks. Today a pharmacist picked up that she prescribed ten times the intended dose of a drug, before any was given.\n\nWhen you check on her in the staff room, she tells you she isn't sleeping and \"can't cope any more\". She has six hours of her shift left.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Make sure the prescribing error is corrected and reported.",
+      "brief": "Important for safety and learning, but she and the shift come first.",
+      "detailed": "The error was caught, but it should be corrected and reported to support learning. It ranks third because it is less urgent than her wellbeing and patients' safety today."
+    },
+    {
+      "id": "B",
+      "text": "Tell the consultant in charge that she's struggling and may not be safe to work today.",
+      "brief": "Patients may be at risk, and the consultant can arrange cover.",
+      "detailed": "A serious prescribing error and her own words suggest she may not be safe to work today. The consultant can support her and arrange cover. It ranks second because it is most appropriate after speaking to her, and she can be told you are doing it."
+    },
+    {
+      "id": "C",
+      "text": "Ask her gently about her safety, and encourage her to get support today.",
+      "brief": "'Can't cope any more' needs a direct, kind question about her safety.",
+      "detailed": "You are with her now, away from patients. Asking directly whether she has had thoughts of harming herself, and encouraging her to see her GP or occupational health, or use confidential support for doctors, responds to what she has told you. It ranks first because her own safety may be at risk, and the conversation is already happening."
+    },
+    {
+      "id": "D",
+      "text": "Leave it, as her health is a private matter.",
+      "brief": "Ignores a colleague in distress and a risk to patients.",
+      "detailed": "Her health is private, but she has told you she can't cope and has made a serious error. Doing nothing leaves her unsupported and patients at risk. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Offer to check her prescriptions for the rest of the shift.",
+      "brief": "Well meant, but it hides the problem from those who need to know.",
+      "detailed": "Checking her work reduces some risk, but it keeps her working when she may be unwell and keeps the consultant unaware. It ranks fourth."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "A",
+      "E",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you support a colleague in distress while recognising when patient safety means a senior must be told.",
+    "keyDetails": "She has been struggling for weeks. She has made a serious error. She says she can't cope. She has six hours of her shift left.",
+    "reasoning": "[C] supports her, [B] protects patients by involving the consultant, and [A] deals with the error. [E] hides the problem, and [D] ignores it.",
+    "competing": "Some would tell the consultant first because patients may be at risk. She is in the staff room with you, away from patients, and may be at risk herself, so the key puts asking about her safety first. The consultant should be told straight afterwards, and she can know that you are doing so."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues and acting when a colleague's health may put patients at risk."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors with mental health concerns."
+    }
+  ],
+  "tags": [
+    "colleague health",
+    "burnout",
+    "emergency department",
+    "patient safety"
+  ]
+}

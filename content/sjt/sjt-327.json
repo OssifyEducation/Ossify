@@ -1,0 +1,93 @@
+{
+  "id": "sjt-327",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-327",
+  "format": "ranking",
+  "title": "Mocking an accent",
+  "setting": "Emergency department",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Challenging discrimination",
+    "Respect",
+    "Professionalism"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in the Emergency Department. At the nurses' station, two nurses are imitating the accent of Mrs Nowak, a Polish patient they have just seen, and laughing.\n\nSeveral patients in nearby cubicles, including Mrs Nowak, may be able to hear them.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Suggest respect for patients as a topic for the next team teaching.",
+      "brief": "Useful, but it does nothing about what's happening now.",
+      "detailed": "Teaching can help change culture over time, but it doesn't address this incident."
+    },
+    {
+      "id": "B",
+      "text": "Mention it to the nurse in charge after your shift.",
+      "brief": "Helps address the behaviour more widely.",
+      "detailed": "The nurse in charge can address it with the staff involved. It ranks third because it is less immediate."
+    },
+    {
+      "id": "C",
+      "text": "Check that Mrs Nowak is all right, and apologise if she heard.",
+      "brief": "She may have been hurt by what she heard.",
+      "detailed": "If she heard, an apology on behalf of the department helps restore her trust. It ranks second because stopping the behaviour comes first."
+    },
+    {
+      "id": "D",
+      "text": "Ask them calmly to stop, as patients can hear them.",
+      "brief": "Stops the behaviour straight away without a confrontation.",
+      "detailed": "A calm, brief request deals with it at once. Pointing out that patients can hear gives a clear, non-accusatory reason. It ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Leave it, as it's only a joke between colleagues.",
+      "brief": "Discriminatory behaviour that patients can hear isn't harmless.",
+      "detailed": "Mocking a patient's accent is disrespectful and could be discriminatory. Doing nothing allows it to continue. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "B",
+      "A",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you challenge discriminatory behaviour by colleagues, especially when patients may be affected.",
+    "keyDetails": "The nurses are mocking a patient's accent. Patients can hear. It is happening now.",
+    "reasoning": "[D] stops it, [C] supports the patient, and [B] addresses it further. [A] is too distant, and [E] allows it to continue.",
+    "competing": "[C] and [B] are close. The key puts Mrs Nowak first because she may have been directly hurt."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly and with respect."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Race and national origin as protected characteristics."
+    }
+  ],
+  "tags": [
+    "discrimination",
+    "respect",
+    "emergency department",
+    "colleagues"
+  ]
+}

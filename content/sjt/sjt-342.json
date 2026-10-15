@@ -1,0 +1,109 @@
+{
+  "id": "sjt-342",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-342",
+  "format": "multiple_choice",
+  "title": "She doesn't want it",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Young people's decisions",
+    "Listening",
+    "Teamwork"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a paediatric oncology ward. Leah, 15, has leukaemia and has been offered further chemotherapy after a relapse. Her parents want her to have it.\n\nLeah tells you she doesn't want any more treatment because \"it makes me feel awful and I'm tired of being in hospital\".",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask Leah more about her feelings and what matters to her.",
+      "brief": "Her reasons need to be understood and taken seriously.",
+      "detailed": "Her experience of treatment, and what she wants from life, are central. Listening helps the team understand her view."
+    },
+    {
+      "id": "B",
+      "text": "Check she has information she can understand.",
+      "brief": "Her decision should be informed.",
+      "detailed": "Age-appropriate information about the benefits, risks and alternatives helps her make an informed decision, and shows respect for her views."
+    },
+    {
+      "id": "C",
+      "text": "Tell Leah that her parents' consent is enough for treatment to continue.",
+      "brief": "Dismisses her views.",
+      "detailed": "The law about young people's refusals is complex, but dismissing her views is wrong. They must be heard and taken seriously."
+    },
+    {
+      "id": "D",
+      "text": "Tell her parents that Leah's decision is final.",
+      "brief": "Oversimplifies a complex situation.",
+      "detailed": "Her views carry great weight, but this isn't your decision, and it ignores the need for a team discussion."
+    },
+    {
+      "id": "E",
+      "text": "Arrange for the hospital to apply to the court.",
+      "brief": "Premature, and not your decision.",
+      "detailed": "Court involvement is sometimes needed, but only after full discussion, and the decision is for the senior team."
+    },
+    {
+      "id": "F",
+      "text": "Ask Leah's parents to persuade her.",
+      "brief": "Pressure doesn't help her make a decision.",
+      "detailed": "Family support matters, but asking them to persuade her may make her feel unheard."
+    },
+    {
+      "id": "G",
+      "text": "Agree with Leah that she should stop treatment.",
+      "brief": "Takes sides without the team or full information.",
+      "detailed": "Her feelings are valid, but agreeing to stop treatment isn't your decision and may not reflect a fully informed choice."
+    },
+    {
+      "id": "H",
+      "text": "Tell her consultant her views so the team can discuss them.",
+      "brief": "The consultant and wider team need to know.",
+      "detailed": "Decisions about young people refusing treatment are complex and need senior and team input, including psychological support for Leah."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a young person refuses treatment her parents want, respecting her voice and involving the team.",
+    "keyDetails": "Leah is 15. She has relapsed. She refuses treatment. Her parents want it. The situation is legally and emotionally complex.",
+    "reasoning": "[A] listens to her, [B] makes sure she is informed, and [H] involves the senior team. The distractors dismiss her ([C], [F]), oversimplify ([D], [G]), or escalate prematurely ([E]).",
+    "competing": "[D] and [G] both seem to respect her. But the decision is complex and isn't yours, so her views need to go to the team."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Young people's decisions about treatment, including refusal."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Making sure decisions are informed."
+    }
+  ],
+  "tags": [
+    "young people",
+    "refusal",
+    "oncology",
+    "paediatrics"
+  ]
+}

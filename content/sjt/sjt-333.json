@@ -1,0 +1,93 @@
+{
+  "id": "sjt-333",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-333",
+  "format": "ranking",
+  "title": "The missed dose",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Medication timing",
+    "Raising concerns"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. At 08:00 you notice that Mr Gill, 70, who has septic shock, didn't receive his 06:00 dose of intravenous meropenem.\n\nHis nurse, Rob, says he was busy with another patient and will \"catch it up\" when things settle, at about 10:00. His next dose is due at 14:00.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the pharmacist how to adjust the timing of later doses.",
+      "brief": "Helps get the dosing schedule right.",
+      "detailed": "Giving a dose late may affect when the next one is due. The pharmacist can advise. It ranks second."
+    },
+    {
+      "id": "B",
+      "text": "Ask Rob to give the missed dose straight away.",
+      "brief": "Antibiotic timing matters in septic shock.",
+      "detailed": "In septic shock, delays to antibiotics can affect outcome. Giving the dose now, rather than waiting two more hours, is safer. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Report Rob to the nurse in charge without speaking to him.",
+      "brief": "Doesn't fix the dose, and bypasses a direct conversation.",
+      "detailed": "The nurse in charge may need to know, but going straight to them without talking to Rob, and without dealing with the dose, is unhelpful."
+    },
+    {
+      "id": "D",
+      "text": "Accept Rob's plan to give it at 10:00.",
+      "brief": "Leaves a critically ill patient without antibiotics for longer.",
+      "detailed": "A further two-hour delay in septic shock could cause harm. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Report the missed dose through the incident reporting system.",
+      "brief": "Supports learning about workload and missed doses.",
+      "detailed": "Missed doses often reflect workload problems. Reporting helps the unit look at why it happened. It ranks third."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "E",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a colleague's omission that affects a critically ill patient, while staying constructive.",
+    "keyDetails": "The patient is in septic shock. The dose is two hours late. The plan would make it four hours.",
+    "reasoning": "[B] gets the dose given, [A] fixes the schedule, and [E] supports learning. [C] bypasses Rob and the patient's need, and [D] accepts a harmful delay.",
+    "competing": "Some would report it before involving the pharmacist. The key prioritises getting his treatment right first."
+  },
+  "references": [
+    {
+      "title": "Suspected sepsis: recognition, diagnosis and early management (NG51)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2024,
+      "url": "https://www.nice.org.uk/guidance/ng51",
+      "note": "Timely antibiotics in sepsis."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, acting when patient safety is at risk."
+    }
+  ],
+  "tags": [
+    "sepsis",
+    "medication error",
+    "intensive care",
+    "colleagues"
+  ]
+}

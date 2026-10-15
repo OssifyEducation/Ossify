@@ -1,0 +1,85 @@
+{
+  "id": "sjt-345",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-345",
+  "format": "ranking",
+  "title": "£500 in a card",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Gifts",
+    "Probity",
+    "Kindness"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mrs Abbott, 84, who you looked after for three weeks, was discharged home yesterday. Today a nurse hands you a card she left for you.\n\nInside is £500 in cash and a note: \"For you personally. Thank you for being so kind.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Keep the money and declare it on the gifts register.",
+      "brief": "Declaring doesn't make a large cash gift acceptable.",
+      "detailed": "Declaring is the right process for small gifts, but £500 in cash from an older patient who may be vulnerable shouldn't be kept."
+    },
+    {
+      "id": "B",
+      "text": "Suggest to Mrs Abbott that the money goes to the ward charity, if she wishes.",
+      "brief": "An alternative, if she wants to give something.",
+      "detailed": "She may prefer this to having it returned. It ranks third because it should be offered as a choice, without pressure, after she has been told you can't keep it."
+    },
+    {
+      "id": "C",
+      "text": "Contact Mrs Abbott to thank her and explain you can't accept the money.",
+      "brief": "Kind, and makes sure she understands why it is coming back.",
+      "detailed": "She deserves a warm thank-you, and an explanation so that the money's return doesn't feel like a rejection. It ranks second because the cash should be in the trust's process first, and the ward manager may want to coordinate the contact."
+    },
+    {
+      "id": "D",
+      "text": "Keep the money, as it was a personal gift.",
+      "brief": "Inappropriate and undeclared.",
+      "detailed": "This could be seen as exploiting a vulnerable patient's gratitude. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Hand the card to the ward manager and follow the trust's gifts policy.",
+      "brief": "Cash should be handled openly, through the trust's process.",
+      "detailed": "A large cash gift needs to be recorded and kept safely, and the trust will have a process for returning it. Involving the ward manager straight away means the money is handled transparently, not by you alone. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "B",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a large cash gift from an older patient, transparently and kindly.",
+    "keyDetails": "The gift is £500 in cash. She is 84 and may be vulnerable. The gift is personal. She has already gone home.",
+    "reasoning": "[E] puts the money into the trust's process, [C] thanks her and explains, and [B] offers an alternative. [A] keeps an inappropriate gift, and [D] keeps it undeclared.",
+    "competing": "Some would contact Mrs Abbott first, as a personal thank-you matters. The key hands the cash to the ward manager first, because money shouldn't be held informally, and the thank-you can follow the same day. If there were any sign she was being financially exploited, the ward manager could also raise it."
+  },
+  "references": [
+    {
+      "title": "Identifying and managing conflicts of interest",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/identifying-and-managing-conflicts-of-interest",
+      "note": "Gifts from patients and the risk of appearing to influence care."
+    }
+  ],
+  "tags": [
+    "gifts",
+    "boundaries",
+    "elderly care",
+    "probity"
+  ]
+}

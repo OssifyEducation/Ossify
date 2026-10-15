@@ -1,0 +1,109 @@
+{
+  "id": "sjt-318",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-318",
+  "format": "multiple_choice",
+  "title": "Losing his bed",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Capacity",
+    "Health inequalities",
+    "Shared decision-making"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working for the GP out-of-hours service, seeing patients at a homeless hostel. Mr Dean, 48, has a productive cough and a fever. His breathing rate is 32 a minute and his oxygen saturation is 90% on air. You think he has pneumonia and should be admitted.\n\nHe refuses to go to hospital, because the hostel gives away beds after one night's absence and he would be back on the street. He understands the risks you explain.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask, with his permission, whether the hostel can hold his bed.",
+      "brief": "Removing the barrier may change his decision.",
+      "detailed": "His refusal is about a practical problem, not the treatment. Hostel staff may be able to keep his bed if they know he is in hospital. Asking, with his consent, may solve it."
+    },
+    {
+      "id": "B",
+      "text": "Explore his concerns and explain the risks of staying.",
+      "brief": "He needs accurate information to make his decision.",
+      "detailed": "Understanding exactly what worries him, and making sure he knows how serious pneumonia can be, helps him make an informed choice."
+    },
+    {
+      "id": "C",
+      "text": "Arrange admission against his wishes, as he is clearly very unwell.",
+      "brief": "He has capacity, so he can refuse.",
+      "detailed": "Being unwell doesn't remove capacity. Admitting him against his will would be unlawful."
+    },
+    {
+      "id": "D",
+      "text": "Tell him he could die if he doesn't go to hospital tonight.",
+      "brief": "The risks should be explained, but not as a threat.",
+      "detailed": "He needs to understand the risks, but presenting them as a threat may feel coercive and damage trust."
+    },
+    {
+      "id": "E",
+      "text": "Leave a prescription for antibiotics and leave.",
+      "brief": "Treatment without exploring his concerns or arranging follow-up.",
+      "detailed": "Antibiotics may be part of the plan, but leaving without understanding his concerns, or arranging a review, isn't enough."
+    },
+    {
+      "id": "F",
+      "text": "Refer him to mental health services because of his refusal.",
+      "brief": "A refusal for a practical reason isn't a mental health problem.",
+      "detailed": "There is nothing to suggest he lacks capacity or has a mental health problem. His reason is practical and understandable."
+    },
+    {
+      "id": "G",
+      "text": "Agree treatment and a safety-net plan, should he still decline.",
+      "brief": "A capacitous refusal still deserves the best care possible.",
+      "detailed": "If he still declines admission, starting antibiotics, arranging a review and explaining when to seek urgent help gives him the safest alternative."
+    },
+    {
+      "id": "H",
+      "text": "Ask the hostel staff to persuade him to go.",
+      "brief": "Pressures him instead of solving the problem.",
+      "detailed": "Hostel staff may be able to help, but the aim should be to hold his bed, not to pressure him."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a patient with capacity refuses admission for a practical, social reason.",
+    "keyDetails": "He has capacity. His reason is the loss of his bed. He is seriously unwell. The barrier may be solvable.",
+    "reasoning": "[A] tries to remove the barrier, [B] makes sure his decision is informed, and [G] keeps him as safe as possible if he still declines. The distractors override him ([C]), threaten ([D]), treat without engaging ([E]), question his capacity without reason ([F]), or pressure him ([H]).",
+    "competing": "[H] could work if the hostel staff hold his bed, which is what [A] asks them to do."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Assuming capacity, and respecting decisions others may consider unwise."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Exploring the reasons for a refusal."
+    }
+  ],
+  "tags": [
+    "capacity",
+    "homelessness",
+    "pneumonia",
+    "out-of-hours"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-321",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-321",
+  "format": "ranking",
+  "title": "Tears on the ward round",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Compassion",
+    "Responding to distress",
+    "Teamwork"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a busy general medical ward round. Mrs Price, 58, admitted with a flare of her chronic lung disease, starts crying as the consultant explains that she will need home oxygen.\n\nThe consultant says, \"I'm sure you'll get used to it,\" and moves on to the next patient. Mrs Price is still crying.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Mention to her nurse that she was upset.",
+      "brief": "Helps in the short term, but she needs a proper conversation.",
+      "detailed": "A nurse checking on her shows care, but she needs someone to talk through her concerns about oxygen. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Ask the consultant to go back to her in front of the team.",
+      "brief": "Challenging the consultant publicly may make things more awkward for her.",
+      "detailed": "Your concern is right, but challenging the consultant on the ward round may embarrass everyone, including Mrs Price."
+    },
+    {
+      "id": "C",
+      "text": "Tell the consultant after the round that Mrs Price was very upset.",
+      "brief": "Helps the consultant understand the impact and follow up.",
+      "detailed": "The consultant may not have noticed how distressed she was. Telling them helps make sure her concerns are addressed. It ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Carry on with the ward round, as the consultant has seen her.",
+      "brief": "Leaves a distressed patient without support.",
+      "detailed": "The consultant's response didn't address her distress. Leaving it there means no one responds to her. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Go back to Mrs Price after the ward round to see how she is.",
+      "brief": "She needs someone to listen to her, and you can come back soon.",
+      "detailed": "The news has clearly upset her. Returning soon, with time to listen, lets her talk about what home oxygen means for her. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to a patient's distress when a senior has moved on, without undermining them.",
+    "keyDetails": "She is upset about the news. The consultant moved on quickly. The ward round is busy.",
+    "reasoning": "[E] gives her time, [C] lets the consultant know, and [A] offers short-term support. [B] risks an awkward scene, and [D] leaves her unsupported.",
+    "competing": "Some would put asking the nurse first, as it is immediate. The key puts your own return first because she needs a proper conversation, not just checking on."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, responding to patients' concerns with compassion."
+    }
+  ],
+  "tags": [
+    "distress",
+    "communication",
+    "ward round",
+    "compassion"
+  ]
+}

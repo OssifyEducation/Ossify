@@ -1,0 +1,86 @@
+{
+  "id": "sjt-349",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-349",
+  "format": "ranking",
+  "title": "Refusing to see him",
+  "setting": "Psychiatry",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Non-discrimination",
+    "Patient care",
+    "Challenging colleagues"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a psychiatric ward. Mr Hale, 45, who has a previous conviction for a sexual offence, has developed a high temperature and needs a physical health review.\n\nYour F2 colleague, who is on call for the ward, says, \"I'm not seeing him after what he's done,\" and asks you to do it instead.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Raise it with the consultant.",
+      "brief": "A senior should know, particularly if it continues.",
+      "detailed": "The consultant may need to address it, especially if it affects care. It ranks third because a direct conversation should come first."
+    },
+    {
+      "id": "B",
+      "text": "See Mr Hale yourself so his care isn't delayed.",
+      "brief": "His physical health needs attention now.",
+      "detailed": "He has a fever and needs assessment. Making sure he is seen promptly comes first, whatever the disagreement between colleagues. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Talk with your colleague privately about her refusal.",
+      "brief": "Her reasons may matter, and the principle needs discussing.",
+      "detailed": "Doctors mustn't refuse to treat patients because of their past. But she may have a personal reason that deserves sensitivity. A private conversation addresses both. It ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Agree that she doesn't have to see him.",
+      "brief": "Endorses discrimination against a patient.",
+      "detailed": "This accepts her refusal without challenge and may affect his future care. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "C",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you make sure a patient gets care, and challenge a colleague's refusal to treat him because of his past.",
+    "keyDetails": "He needs a physical review now. Your colleague refuses because of his conviction. She may have personal reasons.",
+    "reasoning": "[B] makes sure he is seen, [C] addresses it with your colleague, and [A] involves a senior. [D] accepts discrimination.",
+    "competing": "Some would talk to your colleague first. The key puts his care first because he is unwell, and the conversation can follow."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, not refusing or delaying treatment because of a patient's background or past."
+    },
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Personal beliefs must not lead to unfair treatment of patients."
+    }
+  ],
+  "tags": [
+    "discrimination",
+    "psychiatry",
+    "colleagues",
+    "patient care"
+  ]
+}

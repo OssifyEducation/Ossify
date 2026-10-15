@@ -1,0 +1,92 @@
+{
+  "id": "sjt-313",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-313",
+  "format": "ranking",
+  "title": "Who took consent?",
+  "setting": "Orthopaedics",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honest record-keeping",
+    "Consent",
+    "Working with seniors"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in orthopaedics. Yesterday, with your consultant's agreement, you took consent from Mr Byrne for a carpal tunnel release, a procedure you are trained to consent for.\n\nToday your consultant asks you to write in the notes that he took the consent himself, because \"the audit only counts consent by the operating surgeon\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that you can only record who actually took consent.",
+      "brief": "Records must be accurate, whatever the audit measures.",
+      "detailed": "Writing that he took consent would be a false entry. Explaining this politely, and that the notes already show what happened, keeps the record honest. You might also point out that the audit can reflect the true picture. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Record that the consultant took consent, as he has asked.",
+      "brief": "Falsifying a record.",
+      "detailed": "This is a false entry in a clinical record, which is a serious probity issue, whoever asked for it. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Write that consent was taken 'by the surgical team', to avoid conflict.",
+      "brief": "Vague wording that obscures who did what.",
+      "detailed": "This isn't strictly false, but it is deliberately unclear, and it seems designed to mislead the audit. It ranks fourth."
+    },
+    {
+      "id": "D",
+      "text": "Suggest your consultant confirms consent with Mr Byrne himself before surgery.",
+      "brief": "A genuine solution that also meets the audit's aim.",
+      "detailed": "If the operating surgeon confirms consent on the day, that can be documented truthfully, and it is good practice anyway. It ranks second because it is helpful but doesn't, on its own, answer the request to change the record."
+    },
+    {
+      "id": "E",
+      "text": "Ask your educational supervisor for advice about the request.",
+      "brief": "Support in handling a difficult request from a senior.",
+      "detailed": "Being asked to make a false entry by a senior is difficult. Your supervisor can advise you. It ranks third because you can and should decline the request yourself first."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "E",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep clinical records honest when a senior asks you to falsify them.",
+    "keyDetails": "You took consent appropriately. The consultant wants the record changed for an audit. The patient hasn't yet had surgery.",
+    "reasoning": "[A] declines and explains, [D] offers an honest solution, and [E] seeks support. [C] is evasive, and [B] is false.",
+    "competing": "[D] could be seen as the most constructive answer. The key puts declining first because the request itself needs a clear answer."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, making sure records are honest and accurate."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Delegating and recording consent."
+    }
+  ],
+  "tags": [
+    "records",
+    "consent",
+    "probity",
+    "seniors"
+  ]
+}

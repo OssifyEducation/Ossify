@@ -62,7 +62,7 @@ module.exports = [
   gmcDomains: ["Colleagues, culture and safety"],
   competencies: ["Supporting colleagues", "Responding to disclosure", "Speaking up"],
   stem:
-    "You are an F2 doctor on the acute medical unit. Priya, a physician associate, tells you in confidence that one of the consultants has repeatedly made sexual comments to her and touched her in a way that made her uncomfortable.\n\n" +
+    "You are an F2 doctor on the acute medical unit. Priya, a physician assistant, tells you in confidence that one of the consultants has repeatedly made sexual comments to her and touched her in a way that made her uncomfortable.\n\n" +
     "She is upset, says she's worried about her job, and isn't sure what to do.",
   options: [
     { text: "Listen, tell her you believe her, and ask what support she would like.",

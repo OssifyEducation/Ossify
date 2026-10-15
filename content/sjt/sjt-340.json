@@ -1,0 +1,109 @@
+{
+  "id": "sjt-340",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-340",
+  "format": "multiple_choice",
+  "title": "Bruises at a barbecue",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Confidentiality",
+    "Professional judgement"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor at a colleague's family barbecue. You notice that his four-year-old son has several bruises on his upper arms and the backs of his legs.\n\nWhen another guest asks about them, your colleague's partner says quickly that the boy \"fell off his bike\". The pattern doesn't look like a fall to you.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask your colleague about the bruises when you next see him.",
+      "brief": "Could alert the family and make things harder for the child.",
+      "detailed": "If the child is being harmed, discussing it with the family may increase the risk. The safeguarding team can advise how to approach this."
+    },
+    {
+      "id": "B",
+      "text": "Write down what you saw and what was said, soon afterwards.",
+      "brief": "An accurate record supports any later assessment.",
+      "detailed": "Details fade quickly. Noting the location and pattern of the bruises, and the explanation given, helps if a concern is raised."
+    },
+    {
+      "id": "C",
+      "text": "Leave it, as your colleague is a good doctor and a caring parent.",
+      "brief": "Professional standing doesn't rule out a risk to a child.",
+      "detailed": "Abuse occurs in all kinds of families. Your relationship with him shouldn't stop you acting on a concern."
+    },
+    {
+      "id": "D",
+      "text": "Ask the boy how he got the bruises.",
+      "brief": "Questioning a child can distress him and affect any later enquiry.",
+      "detailed": "If he tells you something, listen, but actively questioning him isn't your role."
+    },
+    {
+      "id": "E",
+      "text": "Mention it to other colleagues at the barbecue to see what they think.",
+      "brief": "Spreads a sensitive concern unnecessarily.",
+      "detailed": "This could damage the family's reputation and doesn't follow proper routes."
+    },
+    {
+      "id": "F",
+      "text": "Ask your trust's named safeguarding doctor for advice.",
+      "brief": "Expert advice helps you decide what to do.",
+      "detailed": "Concerns about a child apply outside work too. The safeguarding lead can advise whether a referral to children's social care is needed."
+    },
+    {
+      "id": "G",
+      "text": "Share the concern only with those who need to know.",
+      "brief": "Protects the family and the child while it is looked into.",
+      "detailed": "Gossip could harm the family if your concern is unfounded, or alert someone if it isn't. Sharing only with those who need to know is appropriate."
+    },
+    {
+      "id": "H",
+      "text": "Phone the police that evening.",
+      "brief": "Premature without immediate danger.",
+      "detailed": "Unless the child is in immediate danger, advice from the safeguarding team is the right first step."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a safeguarding concern outside work, even when it involves a colleague, using appropriate routes.",
+    "keyDetails": "The bruising pattern is concerning. The explanation doesn't fit. The family belongs to a colleague. There is no immediate danger.",
+    "reasoning": "[B] records what you saw, [F] gets expert advice, and [G] keeps the concern confidential. The distractors alert the family ([A]), ignore it ([C]), question the child ([D]), spread it ([E]), or escalate prematurely ([H]).",
+    "competing": "[A] may feel natural with a colleague, but it could increase the risk to the child."
+  },
+  "references": [
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Acting on concerns about children you come into contact with, including outside work."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Recognising and referring concerns about children."
+    }
+  ],
+  "tags": [
+    "safeguarding",
+    "children",
+    "colleagues",
+    "outside work"
+  ]
+}

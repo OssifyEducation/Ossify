@@ -1,0 +1,79 @@
+{
+  "id": "sjt-329",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-329",
+  "format": "ranking",
+  "title": "Fully qualified?",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Honesty with patients and colleagues",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Transparency",
+    "Patient choice"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on a four-month placement in a GP practice. Reception staff book patients with you as \"the GP trainee\".\n\nMrs Clarke, 52, has come about a breast lump. At the start of the consultation she asks, \"Are you a fully qualified GP?\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain that you're a qualified doctor in foundation training.",
+      "brief": "An accurate answer to a direct question.",
+      "detailed": "You are a fully registered doctor, but not a GP or a GP trainee. Explaining your role accurately lets her decide how she wants to proceed. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Tell her that you are the GP trainee and fully qualified.",
+      "brief": "Misleading about your training.",
+      "detailed": "You aren't a GP trainee, and saying so gives a false impression of your experience. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Ask reception afterwards to describe you accurately when booking.",
+      "brief": "Prevents the same confusion for other patients.",
+      "detailed": "Booking you as a 'GP trainee' gives patients the wrong impression. Asking reception to change this helps everyone. It ranks third because it doesn't answer Mrs Clarke."
+    },
+    {
+      "id": "D",
+      "text": "Offer her the choice of seeing a GP instead.",
+      "brief": "Respects her choice once she knows your role.",
+      "detailed": "Some patients prefer to see a GP for a worrying problem. Offering this, without pressure, respects her autonomy. It ranks second because she needs an honest answer first."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty about your own role and experience when a patient asks directly.",
+    "keyDetails": "You are an F2, not a GP trainee. The booking description is misleading. She has a worrying symptom and has asked directly.",
+    "reasoning": "[A] answers honestly, [D] respects her choice, and [C] fixes the system. [B] misleads her.",
+    "competing": "[A] and [D] belong together. The key puts the honest explanation first because she needs it to make her choice."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, being honest about your experience and role."
+    }
+  ],
+  "tags": [
+    "honesty",
+    "role",
+    "general practice",
+    "transparency"
+  ]
+}

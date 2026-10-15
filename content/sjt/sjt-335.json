@@ -1,0 +1,86 @@
+{
+  "id": "sjt-335",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-335",
+  "format": "ranking",
+  "title": "An unexpected death",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Verification of death",
+    "Coroner referral",
+    "Seeking advice"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working for the GP out-of-hours service. You are called to verify the death of Mr Sharpe, 58, whose wife found him dead in bed this morning. He hadn't been ill, and his GP hasn't seen him for over a year.\n\nYou have verified deaths before, but never one that seemed unexpected. His wife asks when the funeral director can take him.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell his wife she can call the funeral director.",
+      "brief": "Premature: the coroner needs to be involved first.",
+      "detailed": "His body shouldn't be moved until the police and coroner have decided what happens. This could cause problems for any investigation."
+    },
+    {
+      "id": "B",
+      "text": "Write that he died of a heart attack so the funeral can go ahead.",
+      "brief": "Certifying a cause you don't know, in a death that must be reported.",
+      "detailed": "You didn't attend him in life, the cause is unknown, and the death must be reported to the coroner. This is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Verify the death and call the police, as it seems unexpected.",
+      "brief": "Unexpected deaths are reported to the coroner, usually through the police.",
+      "detailed": "A sudden death in a previously well man must be reported to the coroner, and the police usually attend on the coroner's behalf. Verifying the death and calling the police follows the correct process. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Phone the senior GP on duty for advice.",
+      "brief": "Senior advice is helpful for an unfamiliar situation.",
+      "detailed": "You haven't handled an unexpected death before, and a senior can confirm the process. It ranks second because the steps are clear enough to start, and you can phone while waiting."
+    },
+    {
+      "id": "E",
+      "text": "Explain to his wife what will happen next.",
+      "brief": "She needs compassion and an explanation.",
+      "detailed": "She may be shocked by police involvement. Explaining gently that this is routine after a sudden death helps her. It ranks third because the correct process must be started first."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "E",
+      "A",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you follow the correct process for an unexpected death, seeking help where you need it, while supporting the bereaved.",
+    "keyDetails": "The death was sudden and unexpected. His GP hadn't seen him recently. His wife wants to move forward.",
+    "reasoning": "[C] follows the process, [D] seeks advice, and [E] supports his wife. [A] is premature, and [B] certifies a cause you don't know.",
+    "competing": "Some would phone the senior first because this is new to you. The key starts the process, because the steps are clear and the call can happen while you wait for the police."
+  },
+  "references": [
+    {
+      "title": "Changes to the death certification process",
+      "publisher": "Department of Health and Social Care (GOV.UK)",
+      "year": 2024,
+      "url": "https://www.gov.uk/government/publications/changes-to-the-death-certification-process",
+      "note": "Deaths that must be notified to the coroner."
+    }
+  ],
+  "tags": [
+    "death",
+    "coroner",
+    "out-of-hours",
+    "competence"
+  ]
+}

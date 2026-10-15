@@ -1,0 +1,93 @@
+{
+  "id": "sjt-323",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-323",
+  "format": "ranking",
+  "title": "The oxytocin has run out",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Managing shortages",
+    "Escalation",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a busy labour ward at night. A midwife tells you that the ward has run out of the ready-made oxytocin infusion bags that pharmacy supplies to strengthen contractions. Two women are on an oxytocin infusion, with about two hours left in their current bags. The only other oxytocin is a few ampoules in the postpartum haemorrhage emergency box.\n\nPharmacy is closed until the morning, but there is an on-call pharmacist.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Use the oxytocin kept in the postpartum haemorrhage emergency box.",
+      "brief": "Uses emergency stock and leaves the ward unprepared for haemorrhage.",
+      "detailed": "The emergency box exists for life-threatening bleeding. Using it for routine infusions could leave nothing for an emergency. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Ask the midwives to manage without oxytocin until the morning delivery.",
+      "brief": "May leave women without treatment they need.",
+      "detailed": "Some women may not need it, but making this decision without senior input, and without trying to get supply, risks harm."
+    },
+    {
+      "id": "C",
+      "text": "Report the shortage through the incident reporting system.",
+      "brief": "Helps prevent a repeat.",
+      "detailed": "A stock-out of a commonly used drug should be reviewed so ordering can be fixed. It ranks third because it is less urgent than solving the shortage tonight."
+    },
+    {
+      "id": "D",
+      "text": "Contact the on-call pharmacist to arrange an urgent supply.",
+      "brief": "May solve the shortage quickly.",
+      "detailed": "The on-call pharmacist may be able to get stock from elsewhere in the hospital or nearby. It ranks second because the senior team should know first, though both can happen within minutes."
+    },
+    {
+      "id": "E",
+      "text": "Tell the coordinator and the obstetric registrar straight away.",
+      "brief": "They need to plan care and decide about alternatives.",
+      "detailed": "The coordinator and registrar need to know at once so they can plan for the two women and anyone else who may need oxytocin. It ranks first because the clinical planning depends on them."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "C",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a drug shortage: escalating, seeking supply and protecting emergency stock.",
+    "keyDetails": "Two women are on infusions, with two hours left. Pharmacy is closed but there is an on-call pharmacist. The emergency box contains stock.",
+    "reasoning": "[E] involves the senior team, [D] seeks supply, and [C] supports learning. [B] risks harm without senior input, and [A] endangers women who might haemorrhage.",
+    "competing": "[E] and [D] are close and can both happen within minutes. The key puts the senior team first because they decide how to manage the women in the meantime."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, responding to risks in the systems you work in."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting safety incidents to support learning."
+    }
+  ],
+  "tags": [
+    "drug shortage",
+    "labour ward",
+    "escalation",
+    "obstetrics"
+  ]
+}

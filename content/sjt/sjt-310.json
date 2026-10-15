@@ -1,0 +1,109 @@
+{
+  "id": "sjt-310",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-310",
+  "format": "multiple_choice",
+  "title": "The unwatched inbox",
+  "setting": "General practice",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Results handling",
+    "Raising concerns",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. A receptionist mentions that Dr Kerr, who usually handles the practice's test results, has been on leave for four days, and that no one else has been looking at her results inbox.\n\nYou can see that more than 60 results are waiting, including some marked abnormal. You aren't usually responsible for results.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave it, as results aren't your responsibility.",
+      "brief": "Ignores a risk to patients that you now know about.",
+      "detailed": "They may not be your job, but once you know abnormal results are unseen, you have a duty to make sure someone acts on them."
+    },
+    {
+      "id": "B",
+      "text": "Tell your GP supervisor about the unchecked results straight away.",
+      "brief": "A senior needs to arrange for them to be reviewed today.",
+      "detailed": "Abnormal results that haven't been seen for four days may include urgent ones. Your supervisor can arrange for someone appropriate to review them today."
+    },
+    {
+      "id": "C",
+      "text": "Email Dr Kerr to let her know her inbox needs checking.",
+      "brief": "She is on leave and can't act on it.",
+      "detailed": "Contacting a colleague on leave doesn't solve the problem, and the results need reviewing now."
+    },
+    {
+      "id": "D",
+      "text": "Work through all the results yourself this evening.",
+      "brief": "Well meant, but you need senior oversight for abnormal results.",
+      "detailed": "Helping is good, but acting alone on a large number of results, some abnormal, without supervision risks errors."
+    },
+    {
+      "id": "E",
+      "text": "Ask the receptionist to file all the results so the inbox is cleared.",
+      "brief": "Filing unseen results, including abnormal ones, hides them.",
+      "detailed": "Clearing the inbox without clinical review would hide abnormal results that need action. It makes the problem worse."
+    },
+    {
+      "id": "F",
+      "text": "Raise it at the next monthly practice meeting.",
+      "brief": "Too late for the results waiting now.",
+      "detailed": "The system should be discussed, but waiting a month leaves the current results unchecked."
+    },
+    {
+      "id": "G",
+      "text": "Offer to help review the results under your supervisor's guidance.",
+      "brief": "Practical help, with appropriate oversight.",
+      "detailed": "Reviewing results is part of your training, and helping will clear the backlog faster. Doing it with your supervisor's guidance means anything urgent is acted on correctly."
+    },
+    {
+      "id": "H",
+      "text": "Suggest a significant event review so leave is covered in future.",
+      "brief": "The gap in cover is a system problem to fix.",
+      "detailed": "This happened because no one was assigned to cover the inbox. A significant event review can make sure cover is arranged whenever someone is on leave."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a system gap that puts patients at risk, even when it isn't your responsibility.",
+    "keyDetails": "Results have been unchecked for four days. Some are abnormal. You aren't normally responsible. A supervisor is available.",
+    "reasoning": "[B] escalates promptly, [G] offers supervised help, and [H] fixes the system. The distractors ignore it ([A]), contact someone who can't act ([C]), act without oversight ([D]), delegate inappropriately ([E]), or delay ([F]).",
+    "competing": "[D] is tempting because it shows initiative, but abnormal results need senior oversight, especially in this volume."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Acting when systems put patients at risk."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, contributing to safe systems."
+    }
+  ],
+  "tags": [
+    "results",
+    "systems",
+    "general practice",
+    "patient safety"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "sjt-314",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-314",
+  "format": "multiple_choice",
+  "title": "\"He hurts me\"",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Disagreeing with a senior's decision",
+  "gmcDomains": [
+    "Safety and quality",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Escalation",
+    "Challenging seniors"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in paediatrics. Amy, 6, has been admitted with a chest infection. Her mother tells you privately that Amy has become withdrawn since her new partner moved in, and that last week Amy said, \"He hurts me when Mummy's at work.\"\n\nYou tell the registrar, who says, \"It sounds like a custody dispute. It's not our business,\" and suggests you move on.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Accept the registrar's view, as he is more experienced.",
+      "brief": "Leaves a child's disclosure without action.",
+      "detailed": "Seniority doesn't remove your own duty to act when a child may be at risk."
+    },
+    {
+      "id": "B",
+      "text": "Tell the registrar Amy's exact words, and that it needs advice.",
+      "brief": "The details matter, and the registrar may not have heard them clearly.",
+      "detailed": "A direct disclosure by a child of being hurt is a safeguarding concern. Repeating the exact words, and saying clearly that you think advice is needed, gives the registrar the chance to reconsider."
+    },
+    {
+      "id": "C",
+      "text": "Discuss it with the consultant or the named safeguarding doctor.",
+      "brief": "A senior with safeguarding responsibility needs to know.",
+      "detailed": "If the registrar still disagrees, the concern shouldn't be dropped. The consultant or named doctor can advise on a referral to children's social care."
+    },
+    {
+      "id": "D",
+      "text": "Phone the police to report the partner.",
+      "brief": "May be needed later, but should be coordinated.",
+      "detailed": "If Amy were in immediate danger, police involvement would be right. Here she is safe on the ward, and the safeguarding route can involve the police appropriately."
+    },
+    {
+      "id": "E",
+      "text": "Ask Amy directly whether her mother's partner has been hurting her.",
+      "brief": "Leading questions can harm a child and any investigation.",
+      "detailed": "If a child talks to you, listen. But directly questioning her about a specific person can distress her and affect any later investigation."
+    },
+    {
+      "id": "F",
+      "text": "Speak to the partner when he next visits.",
+      "brief": "Could increase the risk to Amy and her mother.",
+      "detailed": "Confronting the alleged perpetrator could put Amy and her mother at greater risk and isn't your role."
+    },
+    {
+      "id": "G",
+      "text": "Record the mother's account in the notes, using her words.",
+      "brief": "An accurate record is essential for any safeguarding process.",
+      "detailed": "Writing down exactly what was said, and by whom, supports any later assessment and protects Amy."
+    },
+    {
+      "id": "H",
+      "text": "Wait to see whether Amy says anything about it to you herself.",
+      "brief": "Delays action on a disclosure already made.",
+      "detailed": "Amy has already made a disclosure to her mother. Waiting for her to repeat it leaves her unprotected."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you pursue a child-safeguarding concern when a senior dismisses it, using the right routes.",
+    "keyDetails": "Amy has disclosed being hurt. The registrar has dismissed it. Senior safeguarding advice is available. Amy is safe on the ward for now.",
+    "reasoning": "[B] gives the registrar the facts again, [C] escalates to the right person, and [G] records the disclosure. The distractors drop the concern ([A], [H]), act outside the safeguarding route ([D], [F]), or question the child inappropriately ([E]).",
+    "competing": "[D] is understandable given what Amy said. While she is safe on the ward, the safeguarding team can coordinate police involvement in a way that protects her."
+  },
+  "references": [
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Acting on concerns about children, including when colleagues disagree."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Responding to a child's disclosure and referring to children's social care."
+    }
+  ],
+  "tags": [
+    "safeguarding",
+    "disclosure",
+    "paediatrics",
+    "challenging seniors"
+  ]
+}

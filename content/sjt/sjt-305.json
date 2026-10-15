@@ -1,0 +1,93 @@
+{
+  "id": "sjt-305",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-305",
+  "format": "ranking",
+  "title": "No plan on the system",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Safety and quality",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Continuity of care",
+    "Palliative care",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor working an evening shift for the GP out-of-hours service. A nurse at a care home phones about Mr Fisher, 88, who is dying and has become agitated and distressed.\n\nShe says his GP made a palliative care plan last week and prescribed anticipatory medicines, which are in the home. However, the out-of-hours system has no record of the plan or the prescription.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Advise the home to call 999 if he becomes more distressed.",
+      "brief": "Risks an unwanted hospital admission at the end of life.",
+      "detailed": "His plan is likely to aim to keep him comfortable at home. Calling an ambulance could lead to an unnecessary, distressing admission when his symptoms could be managed where he is."
+    },
+    {
+      "id": "B",
+      "text": "Report the missing plan through the out-of-hours incident system.",
+      "brief": "Helps find out why the plan wasn't shared.",
+      "detailed": "This may reflect a wider problem in how plans are shared. Reporting it supports learning but is less urgent than his care, so it ranks third."
+    },
+    {
+      "id": "C",
+      "text": "Ask his GP practice tomorrow to share the plan with the out-of-hours service.",
+      "brief": "Prevents the same gap for future calls.",
+      "detailed": "The plan should be shared so that every out-of-hours clinician can see it. It ranks second because it helps future calls but not tonight's."
+    },
+    {
+      "id": "D",
+      "text": "Assess him tonight, using the plan and medicines at the home.",
+      "brief": "He needs his symptoms treated now, and the home has the information you need.",
+      "detailed": "He is dying and distressed, and the home holds the plan and the prescription. Assessing him tonight, by visiting or by clinical assessment over the phone as appropriate, lets you relieve his symptoms. It ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Tell the home you can't act without the plan on your system.",
+      "brief": "Leaves a dying patient in distress.",
+      "detailed": "The information is available at the home. Refusing to help because of a gap in the record leaves Mr Fisher suffering. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "C",
+      "B",
+      "A",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you put a dying patient's comfort first when a handover gap means information is missing, and then help close the gap.",
+    "keyDetails": "He is dying and distressed. The plan and medicines are at the home. The out-of-hours system has no record.",
+    "reasoning": "[D] treats his symptoms tonight, [C] closes the gap for future calls, and [B] supports learning. [A] risks an unwanted admission, and [E] leaves him in distress.",
+    "competing": "[C] and [B] are close. The key puts sharing the plan first because it directly protects Mr Fisher if the home calls again."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Planning ahead and sharing information so that patients' wishes are followed."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, sharing information with colleagues to keep patients safe."
+    }
+  ],
+  "tags": [
+    "palliative care",
+    "out-of-hours",
+    "handover",
+    "care homes"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sjt-337",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-337",
+  "format": "ranking",
+  "title": "Keeping it quiet",
+  "setting": "Orthopaedics",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Self-care",
+    "Seeking support",
+    "Occupational health"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor in orthopaedics. Two months ago you were diagnosed with Crohn's disease. You haven't told anyone at work.\n\nYou are struggling with fatigue and frequent toilet breaks, and you are falling behind with your work. Your consultant has commented that you seem \"distracted\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Take medicines from the ward stock to manage your symptoms.",
+      "brief": "Self-prescribing from ward stock is inappropriate.",
+      "detailed": "Taking medicines from ward stock, and treating yourself, is unsafe and a probity issue. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Ask your supervisor for an occupational health referral.",
+      "brief": "Gets you adjustments and support at work.",
+      "detailed": "Occupational health can recommend adjustments, such as access to toilets or changes to your rota, and your supervisor can help put them in place. You decide how much to share. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Confide in a colleague you trust.",
+      "brief": "Personal support, but not a solution.",
+      "detailed": "Talking to someone may help you feel less alone. It ranks third because it doesn't address the effect on your work."
+    },
+    {
+      "id": "D",
+      "text": "Work extra hours to catch up.",
+      "brief": "Likely to worsen your fatigue.",
+      "detailed": "This may make your symptoms and your work worse. It ranks fourth."
+    },
+    {
+      "id": "E",
+      "text": "Discuss managing work with your GP or specialist.",
+      "brief": "Optimising your treatment may help.",
+      "detailed": "Your treatment may need adjusting, and they can advise on managing symptoms at work. It ranks second because it doesn't, by itself, give you support at work."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you seek support for a health condition affecting your work, rather than hiding it.",
+    "keyDetails": "You have a chronic illness. It is affecting your work. No one knows. Support is available.",
+    "reasoning": "[B] gets you workplace support, [E] looks at treatment, and [C] gives personal support. [D] worsens fatigue, and [A] is unsafe.",
+    "competing": "Some would see their GP first. The key puts occupational health first because your work is already affected."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, looking after your own health and getting appropriate support."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors' health."
+    }
+  ],
+  "tags": [
+    "wellbeing",
+    "chronic illness",
+    "occupational health",
+    "orthopaedics"
+  ]
+}

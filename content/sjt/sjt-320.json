@@ -1,0 +1,102 @@
+{
+  "id": "sjt-320",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-320",
+  "format": "multiple_choice",
+  "title": "Hard feedback",
+  "setting": "General surgery",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Receiving feedback",
+    "Reflection",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general surgery. Your multi-source feedback has come back. Most of it is positive, but several nurses have commented that you are \"abrupt\" and that \"jobs aren't explained\".\n\nYou are surprised and upset, as you thought your relationships with the nursing team were good.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the ward manager which nurses wrote the comments.",
+      "brief": "Undermines the anonymity of the process.",
+      "detailed": "Feedback is anonymous so that people can be honest. Trying to identify individuals undermines that and may damage relationships."
+    },
+    {
+      "id": "B",
+      "text": "Put it down to a personality clash with a few nurses.",
+      "brief": "Dismisses feedback from several colleagues.",
+      "detailed": "Several people said similar things. Dismissing it means missing a chance to improve."
+    },
+    {
+      "id": "C",
+      "text": "Ask your supervisor to remove the nurses' comments from your portfolio.",
+      "brief": "Feedback is for learning, not something to remove.",
+      "detailed": "Your portfolio should reflect honest feedback. Asking for it to be removed avoids learning from it."
+    },
+    {
+      "id": "D",
+      "text": "Discuss the feedback with your educational supervisor.",
+      "brief": "Helps you understand it and plan improvements.",
+      "detailed": "Your supervisor can help you look at the feedback objectively and agree specific changes. This is the purpose of multi-source feedback."
+    },
+    {
+      "id": "E",
+      "text": "Ask a nurse you trust for examples of when you seemed abrupt.",
+      "brief": "Specific examples make the feedback usable.",
+      "detailed": "General comments are hard to act on. A trusted colleague may be able to describe particular situations, which makes it easier to change."
+    },
+    {
+      "id": "F",
+      "text": "Put in extra effort on the ward from now on.",
+      "brief": "Effort alone may not address the problem.",
+      "detailed": "The feedback is about communication, not effort. Without understanding it, working harder may not help."
+    },
+    {
+      "id": "G",
+      "text": "Raise a complaint that the feedback is unfair.",
+      "brief": "Treats legitimate feedback as a grievance.",
+      "detailed": "If feedback were malicious, raising concerns would be reasonable, but similar comments from several people suggest it is genuine."
+    },
+    {
+      "id": "H",
+      "text": "Plan specific changes, such as explaining the jobs you hand over.",
+      "brief": "Turns feedback into action.",
+      "detailed": "Concrete changes, like explaining why a task is needed, address the feedback directly and can make a quick difference."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you respond to difficult feedback constructively, rather than defensively.",
+    "keyDetails": "Several nurses made similar comments. The feedback is anonymous. Most of it is positive, but the theme is consistent.",
+    "reasoning": "[D] gets support, [E] gets specific examples, and [H] makes changes. The distractors break anonymity ([A]), dismiss it ([B], [G]), hide it ([C]), or miss the point ([F]).",
+    "competing": "[F] feels conscientious, but the feedback is about how you communicate, which effort alone won't change."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, reflecting on feedback to improve your practice."
+    }
+  ],
+  "tags": [
+    "feedback",
+    "communication",
+    "nursing",
+    "reflection"
+  ]
+}

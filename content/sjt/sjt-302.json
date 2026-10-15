@@ -1,0 +1,110 @@
+{
+  "id": "sjt-302",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-302",
+  "format": "multiple_choice",
+  "title": "Discharges and a daughter",
+  "setting": "Elderly care ward",
+  "attribute": "Coping with pressure",
+  "topic": "Prioritisation and competing demands",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Prioritisation",
+    "Time management",
+    "Communication with relatives"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an elderly care ward. Four patients are going home this morning, and their hospital transport arrives at 11:00. Their discharge letters and medicines still need completing. It is 09:30.\n\nA nurse tells you that Mrs Harris's daughter is waiting at the nurses' station. She wants to talk about the DNACPR decision the consultant made for her mother yesterday.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Talk to the daughter now and finish the discharges afterwards.",
+      "brief": "Risks patients missing their transport.",
+      "detailed": "Her concerns matter, but a full conversation now could take 30 minutes or more, and four patients may miss their transport home."
+    },
+    {
+      "id": "B",
+      "text": "Explain the DNACPR decision quickly at the nurses' station.",
+      "brief": "Too rushed and too public for a sensitive conversation.",
+      "detailed": "A brief explanation in a busy area isn't the right setting, and she is likely to have questions that need time."
+    },
+    {
+      "id": "C",
+      "text": "Ask the F1 to talk to the daughter about the decision.",
+      "brief": "Passes a sensitive conversation to someone less experienced.",
+      "detailed": "The F1 may not know the reasoning or feel confident discussing resuscitation. It isn't a fair delegation."
+    },
+    {
+      "id": "D",
+      "text": "Speak briefly to the daughter and agree a time to meet today.",
+      "brief": "She knows she'll be seen, and you can give her proper time.",
+      "detailed": "A brief introduction and a definite time shows her she is taken seriously. A DNACPR conversation needs time and privacy, which you can give her properly once the discharges are done."
+    },
+    {
+      "id": "E",
+      "text": "Ask the nurse to tell the daughter you're too busy today.",
+      "brief": "Dismissive, and delays a conversation she needs.",
+      "detailed": "She has come in specifically and is entitled to a discussion. Turning her away without a time to meet is dismissive."
+    },
+    {
+      "id": "F",
+      "text": "Ask the nurses to complete the discharge letters for you.",
+      "brief": "Discharge letters and prescriptions are a medical responsibility.",
+      "detailed": "Nurses may help with parts of the discharge process, but the letters and medicines need a doctor to complete them."
+    },
+    {
+      "id": "G",
+      "text": "Finish the discharge paperwork in order of transport times.",
+      "brief": "Patients will miss their transport if the paperwork isn't ready.",
+      "detailed": "If the letters and medicines aren't ready by 11:00, patients may lose their transport and stay in hospital longer. Working through them in order is an efficient use of the next 90 minutes."
+    },
+    {
+      "id": "H",
+      "text": "Ask the nurse in charge to book a quiet room for later.",
+      "brief": "A private space matters for a sensitive discussion.",
+      "detailed": "A conversation about resuscitation shouldn't happen at the nurses' station. Booking a room now makes sure one is available when you are ready."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you balance time-critical tasks with a sensitive conversation, making sure both are done properly.",
+    "keyDetails": "Transport is at 11:00. The DNACPR discussion is important but not time-critical within the next 90 minutes. A private space is needed.",
+    "reasoning": "[D] acknowledges the daughter and sets a time, [G] meets the transport deadline, and [H] prepares a suitable setting. The distractors risk the discharges ([A]), rush the conversation ([B]), delegate it unfairly ([C], [F]), or dismiss her ([E]).",
+    "competing": "[A] feels kind, but a full conversation can wait an hour and a half, whereas the transport can't."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Discussing CPR decisions with those close to the patient."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, managing your workload and prioritising."
+    }
+  ],
+  "tags": [
+    "prioritisation",
+    "discharge",
+    "DNACPR",
+    "relatives"
+  ]
+}

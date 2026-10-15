@@ -1,0 +1,85 @@
+{
+  "id": "sjt-325",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-325",
+  "format": "ranking",
+  "title": "A new role",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Difficult team dynamics and conflict between colleagues",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Teamwork",
+    "Resolving conflict",
+    "Inclusion"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Nadia, a newly qualified physician assistant, joined the team two weeks ago. Nobody has explained to the junior doctors what she can and can't do.\n\nThe two F1s have started refusing to give her jobs, saying they \"don't know what she's allowed to do\". Nadia tells you she feels unwelcome.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave it, as the F1s aren't your responsibility.",
+      "brief": "Allows the problem to continue.",
+      "detailed": "You are part of the team, and a colleague feels excluded. Doing nothing lets the problem grow. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Tell the F1s they must give Nadia work.",
+      "brief": "Overrides their concerns without addressing them.",
+      "detailed": "This may cause resentment, and it doesn't address their reasonable uncertainty about her role."
+    },
+    {
+      "id": "C",
+      "text": "Invite Nadia to join you when you take histories and review patients.",
+      "brief": "Helps her feel welcome in the meantime.",
+      "detailed": "Inviting her to tasks that clearly fit her training, such as taking histories, shows support. It ranks third because it doesn't solve the underlying problem."
+    },
+    {
+      "id": "D",
+      "text": "Ask the consultant to clarify Nadia's role for the whole team.",
+      "brief": "The lack of clarity is the root of the problem.",
+      "detailed": "The F1s' concern about her scope is understandable, and the consultant can explain her role and supervision arrangements to everyone. It ranks first because it addresses the cause."
+    },
+    {
+      "id": "E",
+      "text": "Talk with the F1s about their concerns.",
+      "brief": "Understanding their worries helps resolve the tension.",
+      "detailed": "Their reluctance may come from uncertainty rather than hostility. Talking with them can ease things while the role is clarified. It ranks second."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "E",
+      "C",
+      "B",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you help resolve tension in a team caused by an unclear new role.",
+    "keyDetails": "Nadia's role hasn't been explained. The F1s are uncertain. Nadia feels unwelcome. The consultant can clarify.",
+    "reasoning": "[D] fixes the cause, [E] addresses the F1s' worries, and [C] supports Nadia. [B] overrides without understanding, and [A] ignores the problem.",
+    "competing": "[E] and [C] are close. The key puts talking to the F1s first because it eases the tension for the whole team."
+  },
+  "references": [
+    {
+      "title": "Leadership and management for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/leadership-and-management-for-all-doctors",
+      "note": "Working with colleagues and making sure roles are understood."
+    }
+  ],
+  "tags": [
+    "teamwork",
+    "physician assistants",
+    "conflict",
+    "acute medicine"
+  ]
+}

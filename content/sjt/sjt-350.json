@@ -1,0 +1,103 @@
+{
+  "id": "sjt-350",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-350",
+  "format": "multiple_choice",
+  "title": "Does he deserve it?",
+  "setting": "Cardiology / respiratory",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Fair treatment",
+    "Clinical reasoning",
+    "Health promotion"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in cardiology. Mr Dale, 61, has angina and has been referred for coronary angiography and possible stenting. He still smokes 20 cigarettes a day.\n\nIn the team meeting, your consultant says, \"Why should he get a stent if he won't stop smoking? He doesn't deserve it.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask whether smoking changes the benefit of the procedure.",
+      "brief": "Refocuses the decision on clinical grounds.",
+      "detailed": "Smoking can affect the risks and benefits of treatment, which is a legitimate clinical consideration. Asking this respectfully moves the discussion from deserving to clinical judgement."
+    },
+    {
+      "id": "B",
+      "text": "Offer Mr Dale support to stop smoking.",
+      "brief": "Helps his health whatever is decided.",
+      "detailed": "Stopping smoking is one of the most effective things he can do for his heart. Offering support, without making it a condition, helps him."
+    },
+    {
+      "id": "C",
+      "text": "Agree with the consultant, as smoking caused his disease.",
+      "brief": "Judging patients by lifestyle isn't fair.",
+      "detailed": "Smoking contributed, but many conditions are linked to lifestyle. Withholding care on this basis would be discriminatory."
+    },
+    {
+      "id": "D",
+      "text": "Say respectfully that care shouldn't depend on 'deserving' it.",
+      "brief": "Challenges an unfair judgement.",
+      "detailed": "Treatment decisions should be based on clinical need and benefit, not judgements about lifestyle. Saying so politely is part of professional practice."
+    },
+    {
+      "id": "E",
+      "text": "Tell Mr Dale that the consultant doesn't think he deserves a stent.",
+      "brief": "Undermines the team and distresses him.",
+      "detailed": "This would cause him distress and damage his trust, before any decision has been made."
+    },
+    {
+      "id": "F",
+      "text": "Report the consultant to the GMC.",
+      "brief": "Disproportionate for a comment in a meeting.",
+      "detailed": "The comment was inappropriate, but it should be addressed in discussion first."
+    },
+    {
+      "id": "G",
+      "text": "Tell Mr Dale he must stop smoking before he can have the procedure.",
+      "brief": "Imposes a condition that hasn't been agreed.",
+      "detailed": "This makes his care conditional on behaviour change, which isn't a decision you can make."
+    },
+    {
+      "id": "H",
+      "text": "Leave it, as the final decision is the consultant's.",
+      "brief": "Leaves an unfair judgement unchallenged.",
+      "detailed": "The consultant decides, but you can still raise a concern about the basis of the decision."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you challenge judgements about a patient's lifestyle while recognising legitimate clinical considerations.",
+    "keyDetails": "He smokes. He needs a cardiac procedure. The consultant's comment is about deserving, not clinical benefit.",
+    "reasoning": "[A] refocuses on clinical benefit, [B] supports his health, and [D] challenges the judgement. The distractors agree ([C]), undermine the team ([E]), escalate disproportionately ([F]), impose conditions ([G]), or stay silent ([H]).",
+    "competing": "[G] might seem helpful for his health, but making treatment conditional isn't your decision."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly, without judgements about lifestyle."
+    }
+  ],
+  "tags": [
+    "fairness",
+    "smoking",
+    "cardiology",
+    "discrimination"
+  ]
+}
