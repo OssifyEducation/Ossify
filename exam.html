@@ -1117,6 +1117,7 @@ function goToReview(i, animate = true) {
   } catch (e) { stemHtml = escapeHtml(q.stem); }
   const scn = q.type === 'EMQ' ? scenarioPos(r.questions, i) : null;
   html += `<div class="q-stem">${scn ? `<div class="emq-q-num">Scenario ${scn.n} of ${scn.of}</div>` : ''}${stemHtml}</div>`;
+  html += stemLegendHtml(stemHtml);
   html += `<div class="options-list">${q.options.map((opt, idx) => renderAnsweredOption(q, opt, idx, sel, tc)).join('')}</div>`;
   if (tc) {
     try { html += renderTutorPanels(q, sel, tc, { unanswered: s === 'none', bottomNavHtml: '' }); }

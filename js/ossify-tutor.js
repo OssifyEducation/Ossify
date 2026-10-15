@@ -608,3 +608,17 @@ function toggleInlineDetail(id, btn) {
   btn.textContent = open ? 'Hide explanation' : 'Detailed explanation';
   if (brief) brief.style.display = open ? 'none' : '';
 }
+
+// ── Stem highlight key ───────────────────────────────────────────────────────
+// Shown under an annotated stem so the two highlight colours are explained.
+// Returns '' when nothing in the stem was highlighted.
+function stemLegendHtml(stemHtml) {
+  const hasClue = /class="stem-clue"/.test(stemHtml || '');
+  const hasDist = /class="stem-distractor"/.test(stemHtml || '');
+  if (!hasClue && !hasDist) return '';
+  return `<div class="stem-legend" role="note" aria-label="Highlight key">
+    <span><i class="stem-legend-clue" aria-hidden="true"></i><span><strong>Key clue:</strong> a detail that points towards the correct answer</span></span>
+    <span><i class="stem-legend-dist" aria-hidden="true"></i><span><strong>Distractor:</strong> a detail that could lead you to a wrong answer</span></span>
+    <span class="stem-legend-tip">Hover over or tap a highlight to see why.</span>
+  </div>`;
+}
