@@ -135,7 +135,23 @@
   function scoreClass(r) { if (!r) return ""; var p = r.marks / r.max; return p >= 0.8 ? "s-hi" : p >= 0.5 ? "s-mid" : "s-lo"; }
   function showMarks() { return S.fb === "each" || !!S.finishedAt; }
 
+  // The key matches what the dots show: purple "Done" while marks are hidden,
+  // green/amber/red by marks once feedback is shown.
+  function renderNavLegend() {
+    var el = $("navLegend"); if (!el) return;
+    var marks = showMarks();
+    el.classList.toggle("marks", marks);
+    el.innerHTML = marks
+      ? '<span class="lg-item"><span class="lg lg-todo"></span>To do</span>' +
+        '<span class="lg-item" title="80% or more of the marks"><span class="lg lg-hi"></span>80%+</span>' +
+        '<span class="lg-item" title="50% to 79% of the marks"><span class="lg lg-mid"></span>50–79%</span>' +
+        '<span class="lg-item" title="Under 50% of the marks"><span class="lg lg-lo"></span>Under 50%</span>'
+      : '<span class="lg-item"><span class="lg lg-todo"></span>To do</span>' +
+        '<span class="lg-item"><span class="lg lg-done"></span>Done</span>';
+  }
+
   function renderNav() {
+    renderNavLegend();
     $("qGrid").innerHTML = S.ids.map(function (id, i) {
       var r = S.results[id];
       var cls = "q-dot" + (r ? (showMarks() ? " " + scoreClass(r) : " done") : "") + (i === S.idx && !S.viewSummary ? " current" : "");
