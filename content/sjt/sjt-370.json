@@ -1,0 +1,103 @@
+{
+  "id": "sjt-370",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-370",
+  "format": "multiple_choice",
+  "title": "Named in a complaint",
+  "setting": "Psychiatry",
+  "attribute": "Coping with pressure",
+  "topic": "Responding to criticism, feedback and your own underperformance",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Responding to complaints",
+    "Reflection",
+    "Seeking support"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in psychiatry. Last week a patient became very agitated, and after other measures failed, you prescribed rapid tranquillisation, as agreed with the registrar.\n\nThe patient's family has now made a formal complaint, naming you and saying the medication was unnecessary. You are upset and worried.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Phone the family to explain your side.",
+      "brief": "The complaint process should handle this.",
+      "detailed": "Contacting the family directly may make things worse and bypasses the process."
+    },
+    {
+      "id": "B",
+      "text": "Add more detail to your notes about the incident.",
+      "brief": "Altering records after a complaint is inappropriate.",
+      "detailed": "Notes shouldn't be changed after the event. Any later additions must be clearly dated and labelled."
+    },
+    {
+      "id": "C",
+      "text": "Ignore it, as the registrar agreed the decision.",
+      "brief": "You are named, and the complaint should be responded to.",
+      "detailed": "The decision was shared, but you still need to engage with the process."
+    },
+    {
+      "id": "D",
+      "text": "Discuss the complaint with your clinical supervisor.",
+      "brief": "Support and advice from someone senior.",
+      "detailed": "Your supervisor can help you understand the process, reflect on what happened, and respond appropriately."
+    },
+    {
+      "id": "E",
+      "text": "Write a factual account of what happened, when asked.",
+      "brief": "Helps the complaint be investigated fairly.",
+      "detailed": "A clear, factual account, based on your notes, helps the trust respond to the family."
+    },
+    {
+      "id": "F",
+      "text": "Ask the registrar to take responsibility for the decision.",
+      "brief": "Shifts blame instead of engaging.",
+      "detailed": "The registrar's involvement is relevant, but asking them to take the blame isn't constructive."
+    },
+    {
+      "id": "G",
+      "text": "Contact your medical defence organisation for advice.",
+      "brief": "Independent advice can help.",
+      "detailed": "Defence organisations advise doctors on complaints and can support you through the process."
+    },
+    {
+      "id": "H",
+      "text": "Post about the complaint on social media to get support.",
+      "brief": "Breaches confidentiality.",
+      "detailed": "Discussing a complaint publicly could identify the patient and family."
+    }
+  ],
+  "key": {
+    "correct": [
+      "D",
+      "E",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond constructively to a complaint naming you.",
+    "keyDetails": "A decision was made with senior input. The family is unhappy. You are upset.",
+    "reasoning": "[D] gets support, [E] contributes to a fair investigation, and [G] gets independent advice. The distractors bypass the process ([A]), alter records ([B]), disengage ([C]), shift blame ([F]), or breach confidentiality ([H]).",
+    "competing": "[B] might feel like strengthening your record, but altering notes after a complaint is a serious problem."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, responding honestly and constructively to complaints."
+    }
+  ],
+  "tags": [
+    "complaints",
+    "psychiatry",
+    "rapid tranquillisation",
+    "support"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "sjt-360",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-360",
+  "format": "multiple_choice",
+  "title": "Losing the signal",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Equipment safety",
+    "Raising concerns",
+    "Escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the labour ward. The midwives tell you that one of the CTG monitors keeps losing the fetal heart signal. They reported it a week ago but were told to \"manage\".\n\nA woman in established labour, with risk factors that need continuous monitoring, is on that monitor now.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the midwives to manage as they were told.",
+      "brief": "Accepts an unsafe situation.",
+      "detailed": "A monitor that loses the signal can't be relied on for women who need continuous monitoring."
+    },
+    {
+      "id": "B",
+      "text": "Try to repair the monitor yourself.",
+      "brief": "Not your role, and it may not work.",
+      "detailed": "Equipment repairs should be done by the right technical staff."
+    },
+    {
+      "id": "C",
+      "text": "Tell the woman the monitor is unreliable.",
+      "brief": "May alarm her without solving the problem.",
+      "detailed": "She should know if her monitoring changes, but the priority is to fix it."
+    },
+    {
+      "id": "D",
+      "text": "Wait to see whether the signal drops again before acting.",
+      "brief": "Leaves her baby's monitoring unreliable.",
+      "detailed": "The problem is known and recurring."
+    },
+    {
+      "id": "E",
+      "text": "Ask the midwife to move the woman to a working monitor.",
+      "brief": "She needs reliable continuous monitoring now.",
+      "detailed": "Continuous monitoring is recommended for her. A faulty monitor puts her baby at risk."
+    },
+    {
+      "id": "F",
+      "text": "Post about the faulty monitor in the junior doctors' group chat.",
+      "brief": "Not an effective or appropriate way to raise a concern.",
+      "detailed": "This doesn't reach the people who can fix it."
+    },
+    {
+      "id": "G",
+      "text": "Report the faulty monitor as an incident.",
+      "brief": "Creates a formal record of the problem.",
+      "detailed": "Informal reports have been ignored. A formal report creates a record and triggers a review."
+    },
+    {
+      "id": "H",
+      "text": "Raise the problem with the labour ward consultant.",
+      "brief": "A senior can make sure it's fixed or replaced.",
+      "detailed": "The consultant can escalate it and make sure the faulty monitor is withdrawn until repaired."
+    }
+  ],
+  "key": {
+    "correct": [
+      "E",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on an equipment problem that is putting a patient at risk, and make sure it is formally addressed.",
+    "keyDetails": "The monitor keeps losing the signal. It has been reported informally. A woman who needs continuous monitoring is on it.",
+    "reasoning": "[E] protects the woman and her baby now, [G] creates a formal record, and [H] gets senior action. The distractors accept the risk ([A], [D]), act outside your role ([B]), alarm her ([C]), or use the wrong route ([F]).",
+    "competing": "[C] seems honest, and she should know about changes, but moving her to a working monitor matters more."
+  },
+  "references": [
+    {
+      "title": "Fetal monitoring in labour (NG229)",
+      "publisher": "National Institute for Health and Care Excellence",
+      "year": 2022,
+      "url": "https://www.nice.org.uk/guidance/ng229",
+      "note": "Continuous fetal monitoring for women with risk factors."
+    },
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about unsafe equipment."
+    }
+  ],
+  "tags": [
+    "CTG",
+    "equipment",
+    "labour ward",
+    "raising concerns"
+  ]
+}

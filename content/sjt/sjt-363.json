@@ -1,0 +1,85 @@
+{
+  "id": "sjt-363",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-363",
+  "format": "ranking",
+  "title": "A certificate for a stranger",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Probity in records, forms and certification",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Death certification",
+    "Probity",
+    "Communication with families"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor who started on an elderly care ward this week. Mrs Lane, 92, died overnight. You never saw her while she was alive.\n\nThe ward manager asks you to complete the medical certificate of cause of death, because her family want to register the death today and \"the other doctors are busy\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Complete the certificate after reading her notes carefully.",
+      "brief": "You didn't attend her, so you can't certify the cause of death.",
+      "detailed": "However carefully you read the notes, you aren't eligible to complete it. This would be an improper certificate. It ranks fourth."
+    },
+    {
+      "id": "B",
+      "text": "Ask the ward manager to explain the delay to Mrs Lane's family now.",
+      "brief": "The family should know what is happening.",
+      "detailed": "Keeping the family informed reduces their distress about the delay. It ranks third because it doesn't solve the problem itself."
+    },
+    {
+      "id": "C",
+      "text": "Complete the certificate using the consultant's name.",
+      "brief": "Falsification.",
+      "detailed": "Signing in someone else's name is dishonest and a serious probity issue. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Explain you can't, and ask a doctor who knew her to do it.",
+      "brief": "The certificate must be completed by a doctor who attended her in life.",
+      "detailed": "Only a doctor who attended Mrs Lane during her life can complete the certificate. A colleague who looked after her can do it, and it ranks first because it solves the problem properly."
+    },
+    {
+      "id": "E",
+      "text": "Contact the medical examiner's office for advice on next steps.",
+      "brief": "The medical examiner can advise and helps avoid delays.",
+      "detailed": "Medical examiners review deaths and can advise on the process. It ranks second because a colleague who knew her is the more direct solution."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "E",
+      "B",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep to the rules on death certification under pressure, while helping the family.",
+    "keyDetails": "You never saw her alive. The family want to register today. Others are busy.",
+    "reasoning": "[D] declines and finds the right doctor, [E] seeks advice, and [B] keeps the family informed. [A] is improper, and [C] is fraudulent.",
+    "competing": "[E] and [B] are close. The key puts the medical examiner first because they may speed up the process."
+  },
+  "references": [
+    {
+      "title": "Changes to the death certification process",
+      "publisher": "Department of Health and Social Care (GOV.UK)",
+      "year": 2024,
+      "url": "https://www.gov.uk/government/publications/changes-to-the-death-certification-process",
+      "note": "Who can complete the medical certificate of cause of death, and the medical examiner system."
+    }
+  ],
+  "tags": [
+    "death certification",
+    "probity",
+    "elderly care",
+    "families"
+  ]
+}

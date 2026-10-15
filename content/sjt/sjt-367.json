@@ -1,0 +1,86 @@
+{
+  "id": "sjt-367",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-367",
+  "format": "ranking",
+  "title": "Extra locum shifts",
+  "setting": "Out-of-hours / community",
+  "attribute": "Coping with pressure",
+  "topic": "Rotas, leave, and training versus service",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Safe working hours",
+    "Self-care",
+    "Honesty"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor. A locum agency offers you several well-paid out-of-hours shifts next month. Taking them all would mean working more hours than your contract and safe working limits allow, with very little rest between shifts.\n\nYou could do with the extra money.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Check your rota and rest requirements before accepting any shifts.",
+      "brief": "Helps you take on only what is safe.",
+      "detailed": "Knowing exactly what you can safely add lets you accept some work without risk. It ranks second."
+    },
+    {
+      "id": "B",
+      "text": "Accept them all, and plan to rest on your days off.",
+      "brief": "Still breaches safe working limits.",
+      "detailed": "Resting on days off doesn't make excessive hours safe."
+    },
+    {
+      "id": "C",
+      "text": "Decline the shifts that would breach safe working limits.",
+      "brief": "Protects you and your patients from fatigue.",
+      "detailed": "Working limits exist to keep doctors and patients safe. Taking only what fits within them protects both. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Accept them, as agency work is separate from your NHS contract.",
+      "brief": "Wrong: total hours affect your safety, wherever you work.",
+      "detailed": "Fatigue doesn't depend on who employs you. This ignores the risk entirely. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Tell your educational supervisor about any locum work you do take.",
+      "brief": "Keeps your employer informed.",
+      "detailed": "Many employers require you to declare additional work, so it can be accounted for in your hours. It ranks third."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "A",
+      "E",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep your total working hours safe when tempted by extra work.",
+    "keyDetails": "The shifts would exceed safe limits. There would be little rest. You need the money.",
+    "reasoning": "[C] declines unsafe work, [A] checks what is safe, and [E] keeps your employer informed. [B] still breaches the limits, and [D] ignores them.",
+    "competing": "[C] and [A] work together. The key puts declining first because the offer as it stands is unsafe."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, making sure your health doesn't put patients at risk."
+    }
+  ],
+  "tags": [
+    "locum",
+    "working hours",
+    "fatigue",
+    "out-of-hours"
+  ]
+}

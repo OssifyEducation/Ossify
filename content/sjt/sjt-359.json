@@ -1,0 +1,86 @@
+{
+  "id": "sjt-359",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-359",
+  "format": "ranking",
+  "title": "Grandmother first",
+  "setting": "Paediatrics",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Communication with families",
+    "Sensitivity"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in paediatrics. Ollie, 6, was brought in by his grandmother with thirst and weight loss, and tests show he has type 1 diabetes. His parents are driving to the hospital and will arrive in an hour.\n\nHis grandmother asks you to tell her the results first, so she can \"break it to them gently\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask her to wait outside until the parents arrive.",
+      "brief": "Dismissive of someone who has been caring for him.",
+      "detailed": "This is correct about the results but excludes her unkindly. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Offer to talk to her with his parents, if they agree.",
+      "brief": "Includes her, with the parents' consent.",
+      "detailed": "She may be an important source of support. Inviting her, with their agreement, respects everyone. It ranks second because it depends on the parents' wishes."
+    },
+    {
+      "id": "C",
+      "text": "Explain kindly that his parents should hear first.",
+      "brief": "His parents have the right to hear about their child's diagnosis first.",
+      "detailed": "His parents have parental responsibility, and the diagnosis is theirs to hear first. Explaining kindly respects the grandmother's good intentions. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Tell her the diagnosis now, as she brought him in.",
+      "brief": "Shares information without the parents' consent.",
+      "detailed": "Even with good intentions, she doesn't have parental responsibility. Telling her first takes away the parents' right to hear it themselves. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you handle a well-meaning relative's request for information that belongs first to a child's parents.",
+    "keyDetails": "His grandmother brought him in. His parents are an hour away. She wants to break the news herself.",
+    "reasoning": "[C] declines kindly, and [B] includes her with consent. [A] is correct but unkind, and [D] shares information without consent.",
+    "competing": "Some would see telling her as reasonable, as Ollie needs urgent care either way. His treatment can start now, but the diagnosis should be discussed with his parents first."
+  },
+  "references": [
+    {
+      "title": "0–18 years: guidance for all doctors",
+      "publisher": "General Medical Council",
+      "year": 2007,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/0-18-years",
+      "note": "Sharing information with those with parental responsibility."
+    },
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with family members."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "families",
+    "paediatrics",
+    "diabetes"
+  ]
+}

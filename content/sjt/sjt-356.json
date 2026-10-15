@@ -1,0 +1,110 @@
+{
+  "id": "sjt-356",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-356",
+  "format": "multiple_choice",
+  "title": "\"Can you help me die?\"",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "End-of-life conversations",
+    "Exploring concerns",
+    "Legal limits"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Mr Shaw, 60, has motor neurone disease, which is progressing. He can still speak but is losing the use of his arms.\n\nHe asks you, \"When it gets bad, can you help me end my life?\" He says he is frightened of choking and of being a burden to his wife.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask more about what he fears and why.",
+      "brief": "His fears may be specific, and many can be addressed.",
+      "detailed": "Fear of choking, loss of control and being a burden are common in motor neurone disease. Exploring them helps you understand his request and what support could help."
+    },
+    {
+      "id": "B",
+      "text": "Explain honestly that you can't help him end his life.",
+      "brief": "Honest about the limits of what a doctor can do.",
+      "detailed": "Assisting suicide is a criminal offence in England. Being clear and honest, while staying engaged with him, is better than avoiding the question."
+    },
+    {
+      "id": "C",
+      "text": "Change the subject, as it isn't something you can discuss.",
+      "brief": "Avoids a conversation he needs.",
+      "detailed": "You can't help him end his life, but you can and should discuss his fears."
+    },
+    {
+      "id": "D",
+      "text": "Give him information about clinics abroad.",
+      "brief": "Could amount to encouraging or assisting.",
+      "detailed": "Doctors must not encourage or assist suicide. Providing this kind of information goes beyond explaining the law."
+    },
+    {
+      "id": "E",
+      "text": "Tell him you disagree with assisted dying on moral grounds.",
+      "brief": "Your personal views shouldn't shape the conversation.",
+      "detailed": "You may have views, but sharing them in a way that judges him isn't appropriate."
+    },
+    {
+      "id": "F",
+      "text": "Discuss how his future care and symptoms can be planned.",
+      "brief": "Shows that his fears can be addressed.",
+      "detailed": "Symptom control, specialist palliative care and advance care planning, including decisions about treatments he would refuse, can address many of his fears."
+    },
+    {
+      "id": "G",
+      "text": "Refer him urgently to psychiatry for assessment.",
+      "brief": "His request doesn't, on its own, suggest mental illness.",
+      "detailed": "Depression should be considered, but wanting control over the end of life isn't itself a sign of mental illness."
+    },
+    {
+      "id": "H",
+      "text": "Tell his wife what he has asked.",
+      "brief": "Breaches his confidentiality.",
+      "detailed": "He hasn't agreed to his wife being told. Encouraging him to talk to her himself is better."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to a request for help to die: honestly, within the law, and with real engagement with the person's fears.",
+    "keyDetails": "He has a progressive illness. He fears choking and being a burden. You can't legally help him end his life.",
+    "reasoning": "[A] explores his fears, [B] is honest about the law, and [F] shows how his fears can be addressed. The distractors avoid the conversation ([C]), cross a legal line ([D]), judge him ([E]), pathologise his request ([G]), or breach confidentiality ([H]).",
+    "competing": "[G] might seem cautious, and depression should be considered, but a referral as the first response may feel like dismissal."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Responding to patients who ask about ending their lives."
+    },
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Not imposing your personal beliefs on patients."
+    }
+  ],
+  "tags": [
+    "end of life",
+    "motor neurone disease",
+    "assisted dying",
+    "general practice"
+  ]
+}

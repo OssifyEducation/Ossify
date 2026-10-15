@@ -1,0 +1,103 @@
+{
+  "id": "sjt-358",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-358",
+  "format": "multiple_choice",
+  "title": "\"The consultant is in clinic\"",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Recognising limits",
+    "Breaking bad news",
+    "Seeking support"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. A biopsy has shown that Mr Tran, 59, has pancreatic cancer. The registrar asks you to tell him today because \"the consultant is in clinic\".\n\nYou have never given a diagnosis like this before and don't know what treatment options he will have.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Do it alone, as the team is busy.",
+      "brief": "Risks a poorly handled conversation.",
+      "detailed": "Without the right knowledge, you may not answer his questions, which can increase his distress."
+    },
+    {
+      "id": "B",
+      "text": "Tell the registrar you aren't ready to do this alone.",
+      "brief": "Honest about your limits.",
+      "detailed": "Breaking news of a serious cancer, without knowing the treatment options, is beyond your experience. Saying so honestly allows a better plan."
+    },
+    {
+      "id": "C",
+      "text": "Tell Mr Tran his results aren't back yet.",
+      "brief": "Untrue.",
+      "detailed": "This is a lie and would damage his trust when he finds out."
+    },
+    {
+      "id": "D",
+      "text": "Wait until the consultant's ward round next week to tell him.",
+      "brief": "An unnecessary delay to important news.",
+      "detailed": "He is waiting for results. A week's delay would increase his anxiety and delay his care."
+    },
+    {
+      "id": "E",
+      "text": "Ask if a senior can lead the conversation, with you there.",
+      "brief": "Lets you learn, while Mr Tran gets the information he needs.",
+      "detailed": "Joining a senior lets you see how it is done and support Mr Tran, while making sure his questions are answered."
+    },
+    {
+      "id": "F",
+      "text": "Ask the F1 to do it, as she has done one before.",
+      "brief": "Passes the task to someone even less experienced.",
+      "detailed": "This doesn't solve the problem and isn't fair to the F1 or to Mr Tran."
+    },
+    {
+      "id": "G",
+      "text": "Give Mr Tran the biopsy report to read himself.",
+      "brief": "Impersonal and potentially very distressing.",
+      "detailed": "Reading a cancer diagnosis without support could be very distressing and leaves his questions unanswered."
+    },
+    {
+      "id": "H",
+      "text": "Ask the cancer nurse specialist to join you.",
+      "brief": "Specialist support for him and for you.",
+      "detailed": "Cancer nurse specialists are experienced in these conversations and can answer many questions and offer ongoing support."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "E",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise when a task is beyond your competence and find a way to get it done well.",
+    "keyDetails": "It is a serious new diagnosis. You haven't given one before. You don't know the treatment options. Support is available.",
+    "reasoning": "[B] is honest about your limits, [E] keeps you involved with senior support, and [H] brings specialist help. The distractors risk a poor conversation ([A]), lie ([C]), delay ([D]), pass it on ([F]), or are impersonal ([G]).",
+    "competing": "[A] may feel like being a team player, but Mr Tran deserves a conversation with someone who can answer his questions."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, working within your competence and asking for help."
+    }
+  ],
+  "tags": [
+    "competence",
+    "bad news",
+    "cancer",
+    "seeking help"
+  ]
+}

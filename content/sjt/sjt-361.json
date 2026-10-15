@@ -1,0 +1,86 @@
+{
+  "id": "sjt-361",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-361",
+  "format": "ranking",
+  "title": "A back injury on nights",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Self-care",
+    "Honesty",
+    "Safe working"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a night shift in intensive care. Helping to turn a patient, you feel a sharp pain in your lower back. You can walk, but it hurts to bend or lift.\n\nThere are four hours of the shift left, and you feel you shouldn't let the team down.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell the registrar about your injury and that you may need to stop.",
+      "brief": "The team needs to know so they can plan safely.",
+      "detailed": "If you can't bend or lift safely, the team needs to know. The registrar can decide whether cover is needed. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Take painkillers and finish the shift.",
+      "brief": "May hide an injury that needs attention.",
+      "detailed": "You may be able to work, but without telling anyone you may be unable to help in an emergency."
+    },
+    {
+      "id": "C",
+      "text": "Report the injury through the staff incident reporting system.",
+      "brief": "Records a work-related injury.",
+      "detailed": "This helps the trust understand the risk and supports you if problems continue. It ranks third."
+    },
+    {
+      "id": "D",
+      "text": "Get your back assessed, for example in the Emergency Department today.",
+      "brief": "You need to know how serious it is.",
+      "detailed": "A back injury may need assessment. It ranks second because the team should know first."
+    },
+    {
+      "id": "E",
+      "text": "Keep helping to turn patients to finish your tasks.",
+      "brief": "Risks further injury to you and the patient.",
+      "detailed": "Lifting with an injured back could make it worse and risk dropping a patient. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "C",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you put safety before the pressure not to let your team down.",
+    "keyDetails": "You are injured. You can't bend or lift. Four hours remain.",
+    "reasoning": "[A] tells the team, [D] gets you assessed, and [C] records the injury. [B] hides the problem, and [E] risks further harm.",
+    "competing": "Some would get assessed first. The key tells the registrar first so the team can plan."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, recognising when your health may affect your work."
+    }
+  ],
+  "tags": [
+    "injury",
+    "wellbeing",
+    "intensive care",
+    "night shift"
+  ]
+}

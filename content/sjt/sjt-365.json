@@ -1,0 +1,93 @@
+{
+  "id": "sjt-365",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-365",
+  "format": "ranking",
+  "title": "Bruises on a toddler",
+  "setting": "Emergency department",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Safety and quality",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Child safeguarding",
+    "Documentation",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the Emergency Department. Max, 2, has been brought in with a cut lip by his mother's partner, who says he fell against a table.\n\nWhile examining him, you notice fingertip-shaped bruises on both upper arms and bruising behind his ears. The partner says he \"bruises easily\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the partner detailed questions about how each bruise happened.",
+      "brief": "Interrogating carers isn't your role.",
+      "detailed": "A history is needed, but detailed questioning about each injury is best left to the safeguarding process."
+    },
+    {
+      "id": "B",
+      "text": "Discuss Max with the ED consultant and the paediatric team.",
+      "brief": "These injuries need senior and specialist assessment for safeguarding.",
+      "detailed": "Fingertip bruising and bruising behind the ears are concerning for non-accidental injury in a toddler. Senior and paediatric involvement is needed for a child protection assessment. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Explain to the partner that Max needs further assessment before going home.",
+      "brief": "Honest, without accusing anyone.",
+      "detailed": "Being open that more assessment is needed, without accusing anyone, is honest and keeps Max in a safe place. It ranks third."
+    },
+    {
+      "id": "D",
+      "text": "Glue the cut and discharge him, as he seems happy.",
+      "brief": "Sends a child home who may be at risk.",
+      "detailed": "A happy demeanour doesn't exclude abuse. Discharging him without assessment could leave him in danger. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Document the injuries and the explanation given, in detail.",
+      "brief": "Accurate records are essential evidence.",
+      "detailed": "Recording the exact location, size and pattern of bruising, and what was said, supports any later assessment. It ranks second."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "A",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise possible non-accidental injury and take the right steps to protect a child.",
+    "keyDetails": "The bruising pattern is concerning. The explanation doesn't fit. He is very young.",
+    "reasoning": "[B] brings in senior and specialist help, [E] documents, and [C] is honest with the carer. [A] oversteps, and [D] leaves him at risk.",
+    "competing": "[E] and [C] are close. The key puts documentation first because it should be done while details are fresh."
+  },
+  "references": [
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Recognising and acting on signs of abuse."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Child protection assessment and referral."
+    }
+  ],
+  "tags": [
+    "safeguarding",
+    "non-accidental injury",
+    "emergency department",
+    "children"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "sjt-368",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-368",
+  "format": "multiple_choice",
+  "title": "No carers, thank you",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Autonomy, capacity and refusal",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Autonomy",
+    "Risk discussion",
+    "Falls"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in a GP practice. Mrs Webb, 88, lives alone and has fallen three times in two months. Her daughter has asked you to persuade her to accept carers.\n\nMrs Webb is alert and clear. She tells you she doesn't want \"strangers in my house\" and wants to stay independent.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask her what independence means to her.",
+      "brief": "Understanding her priorities helps find acceptable support.",
+      "detailed": "Her objection may be to particular kinds of help. Knowing what matters to her helps you suggest options she might accept."
+    },
+    {
+      "id": "B",
+      "text": "Arrange carers anyway, as she is clearly at risk.",
+      "brief": "Overrides a capacitous decision.",
+      "detailed": "Risk alone doesn't justify imposing care on someone with capacity."
+    },
+    {
+      "id": "C",
+      "text": "Discuss options such as a falls assessment or an alarm.",
+      "brief": "Reduces risk in ways she may accept.",
+      "detailed": "A falls service, home adaptations or a personal alarm can reduce risk while respecting her wish to stay independent."
+    },
+    {
+      "id": "D",
+      "text": "Ask her daughter to insist on carers.",
+      "brief": "Puts pressure on her rather than supporting her.",
+      "detailed": "Family involvement can help, but pressure may damage relationships and doesn't respect her choice."
+    },
+    {
+      "id": "E",
+      "text": "Refer her for a care home placement.",
+      "brief": "A drastic step she hasn't asked for.",
+      "detailed": "She wants to stay at home. A care home isn't an option she has asked about."
+    },
+    {
+      "id": "F",
+      "text": "Respect her decision if she still declines carers.",
+      "brief": "She appears to have capacity to make this decision.",
+      "detailed": "A capacitous person can refuse care, even if others think it unwise. Her decision should be respected, and revisited if things change."
+    },
+    {
+      "id": "G",
+      "text": "Tell her she will end up in hospital if she refuses help at home.",
+      "brief": "Presents risk as a threat.",
+      "detailed": "She should understand the risks, but framing them as a threat may feel coercive."
+    },
+    {
+      "id": "H",
+      "text": "Make a safeguarding referral for self-neglect.",
+      "brief": "Not justified by the facts.",
+      "detailed": "She is making a choice about care, not neglecting herself. Safeguarding isn't the right route."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respect an older person's autonomy while looking for ways to reduce risk.",
+    "keyDetails": "She has capacity. She has fallen repeatedly. She values independence. Her daughter is worried.",
+    "reasoning": "[A] explores her priorities, [C] offers acceptable alternatives, and [F] respects her choice. The distractors override her ([B], [E]), pressure her ([D], [G]), or misuse safeguarding ([H]).",
+    "competing": "[G] is close, since she should understand the risks. Explaining them honestly is right; using them as a threat isn't."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 1 (the principles)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/1",
+      "note": "Respecting decisions people with capacity make, even if unwise."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Discussing options and respecting patients' choices."
+    }
+  ],
+  "tags": [
+    "autonomy",
+    "falls",
+    "older people",
+    "general practice"
+  ]
+}

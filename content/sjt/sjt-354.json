@@ -1,0 +1,110 @@
+{
+  "id": "sjt-354",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-354",
+  "format": "multiple_choice",
+  "title": "Ten times the dose",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "A colleague's error or poor performance",
+  "gmcDomains": [
+    "Safety and quality",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Patient safety",
+    "Incident reporting",
+    "Supporting colleagues"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in paediatrics. Checking the chart of Jack, 2, you notice that the F1, Dr Lee, has prescribed ten times the correct dose of gentamicin. The nurse hasn't yet drawn it up.\n\nDr Lee is mortified. She begs you not to report it, saying she had a minor prescribing concern raised last month and is worried about her training.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree to keep it between the two of you, as no harm was done.",
+      "brief": "Hides a serious near miss.",
+      "detailed": "No harm was done, but the ward can't learn from errors no one knows about. Concealing it isn't honest."
+    },
+    {
+      "id": "B",
+      "text": "Tell the consultant instead of filing an incident report.",
+      "brief": "Telling a senior helps, but doesn't replace reporting.",
+      "detailed": "The consultant may need to know, but reporting is the system that allows learning across the ward."
+    },
+    {
+      "id": "C",
+      "text": "Make sure the nurse knows not to give the dose.",
+      "brief": "Preventing harm comes first.",
+      "detailed": "A tenfold overdose of gentamicin could cause serious kidney damage and deafness. Stopping it from being given is the first priority."
+    },
+    {
+      "id": "D",
+      "text": "Correct the prescription with Dr Lee, and discuss the error.",
+      "brief": "Fixes the error and supports her learning.",
+      "detailed": "Working through it together corrects the dose and helps her understand what went wrong, such as a decimal error."
+    },
+    {
+      "id": "E",
+      "text": "Tell Dr Lee she isn't safe to prescribe for children.",
+      "brief": "Harsh and unfounded on one error.",
+      "detailed": "One error, however serious, doesn't mean she is unsafe. This undermines her without helping her improve."
+    },
+    {
+      "id": "F",
+      "text": "Report Dr Lee to her educational supervisor as a concern.",
+      "brief": "Treats a learning event as a disciplinary one.",
+      "detailed": "Her supervisor may learn of it through the incident system, but framing it as a concern about her is disproportionate."
+    },
+    {
+      "id": "G",
+      "text": "Report it as a near miss, explaining it's for learning.",
+      "brief": "A serious near miss should be reported.",
+      "detailed": "Reporting helps the ward learn, for example about checks for high-risk drugs. Explaining its purpose may ease her fear."
+    },
+    {
+      "id": "H",
+      "text": "Correct the prescription yourself and move on.",
+      "brief": "Fixes the dose but misses the learning.",
+      "detailed": "She needs to know about the error to avoid repeating it."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you prevent harm and report a serious near miss, while treating a colleague fairly and supportively.",
+    "keyDetails": "The dose was ten times too high. It hasn't been given. She is frightened about her training. She asks you not to report it.",
+    "reasoning": "[C] prevents harm, [D] corrects the error with her, and [G] reports it for learning. The distractors conceal it ([A], [H]), substitute an informal route ([B]), are harsh ([E]), or are disproportionate ([F]).",
+    "competing": "[B] feels like a reasonable compromise, but a serious near miss should go through the reporting system so the ward can learn."
+  },
+  "references": [
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting near misses to support learning, not blame."
+    },
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Openness about errors and near misses within teams."
+    }
+  ],
+  "tags": [
+    "near miss",
+    "prescribing error",
+    "paediatrics",
+    "colleagues"
+  ]
+}

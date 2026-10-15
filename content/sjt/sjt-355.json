@@ -1,0 +1,93 @@
+{
+  "id": "sjt-355",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-355",
+  "format": "ranking",
+  "title": "A changed plan",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Handover, continuity and loose ends",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Continuity",
+    "Communication with families",
+    "Teamwork"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. An hour ago, you and the day consultant met Mr Ward's family and agreed to continue full treatment for 48 hours and then review.\n\nThe night consultant has just reviewed Mr Ward and says treatment should be withdrawn tonight. She hasn't seen the note of the family meeting.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Start withdrawing treatment tonight, and let the day team update the family.",
+      "brief": "Breaks the agreement and their trust.",
+      "detailed": "Withdrawing treatment an hour after agreeing otherwise, and leaving the family to hear about it later, would be a serious breach of trust. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Tell the night consultant what was agreed with the family.",
+      "brief": "She needs this information before making her decision.",
+      "detailed": "She may not know what the family were told. Sharing it lets her make her decision with the full picture. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Make sure the family meeting is clearly documented.",
+      "brief": "Helps future clinicians understand what was agreed.",
+      "detailed": "Clear documentation prevents the same confusion again. It ranks third."
+    },
+    {
+      "id": "D",
+      "text": "Phone the family yourself to tell them the plan may change.",
+      "brief": "A contested change shouldn't be passed on by you.",
+      "detailed": "This would alarm them before any decision is made, and it isn't your role to explain a consultant's change of plan."
+    },
+    {
+      "id": "E",
+      "text": "Ask her to speak to the family before any change to the plan.",
+      "brief": "The family should hear about any change from a senior.",
+      "detailed": "If the plan changes, the family should be told by the consultant, with an explanation. It ranks second because she may change her view once she knows what was agreed."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you make sure information about agreements with families is passed on, so that changes are made openly and fairly.",
+    "keyDetails": "A plan was agreed with the family an hour ago. The night consultant hasn't seen the note. She wants to change the plan.",
+    "reasoning": "[B] shares the agreement, [E] makes sure the family is involved, and [C] documents it. [D] alarms the family prematurely, and [A] breaks their trust.",
+    "competing": "[B] and [E] work together. The key puts sharing the information first because it may change her view."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Involving families in decisions about treatment towards the end of life."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, sharing information with colleagues."
+    }
+  ],
+  "tags": [
+    "handover",
+    "intensive care",
+    "families",
+    "continuity"
+  ]
+}
