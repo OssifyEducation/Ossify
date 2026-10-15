@@ -1,0 +1,102 @@
+{
+  "id": "sjt-396",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-396",
+  "format": "multiple_choice",
+  "title": "The system is down",
+  "setting": "General medical ward",
+  "attribute": "Coping with pressure",
+  "topic": "Unexpected events and system failures",
+  "gmcDomains": [
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Downtime procedures",
+    "Prioritisation",
+    "Patient safety"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a medical ward in the evening. The electronic patient record and prescribing system has stopped working across the hospital. IT says it could be down for several hours.\n\nEvening medicines are due, including insulin and antibiotics.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Wait until the system returns to give any medicines.",
+      "brief": "Delays essential treatment.",
+      "detailed": "It could be hours, and some medicines can't wait."
+    },
+    {
+      "id": "B",
+      "text": "Rely on your memory of each patient's medicines.",
+      "brief": "Unreliable.",
+      "detailed": "Memory isn't safe for prescribing."
+    },
+    {
+      "id": "C",
+      "text": "Follow the trust's downtime procedure, using paper charts.",
+      "brief": "The trust plans for this.",
+      "detailed": "Downtime procedures set out how to prescribe and record safely when systems fail."
+    },
+    {
+      "id": "D",
+      "text": "Make sure time-critical medicines are given on time.",
+      "brief": "Insulin and antibiotics can't wait.",
+      "detailed": "Missing or delaying time-critical medicines can cause harm. They should be prioritised."
+    },
+    {
+      "id": "E",
+      "text": "Take photos of patients' records on your phone in case it happens again.",
+      "brief": "A confidentiality risk.",
+      "detailed": "Storing patient information on a personal phone is a data protection risk."
+    },
+    {
+      "id": "F",
+      "text": "Make sure paper records are entered once the system returns.",
+      "brief": "Keeps the record complete.",
+      "detailed": "Records made during downtime must be added to the electronic record later."
+    },
+    {
+      "id": "G",
+      "text": "Give each patient yesterday's doses without checking.",
+      "brief": "Unsafe.",
+      "detailed": "Doses may have changed since yesterday."
+    },
+    {
+      "id": "H",
+      "text": "Leave the problem to the nurses.",
+      "brief": "Prescribing is your responsibility.",
+      "detailed": "Doctors need to prescribe on paper charts during downtime."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you keep patients safe when a key system fails.",
+    "keyDetails": "The prescribing system is down for hours. Time-critical medicines are due.",
+    "reasoning": "[C] follows the plan, [D] prioritises time-critical medicines, and [F] keeps the record complete. The distractors delay ([A]), rely on memory ([B]), breach confidentiality ([E]), are unsafe ([G]), or pass on responsibility ([H]).",
+    "competing": "[G] might seem practical, but doses may have changed and need checking."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Safe prescribing, including during system failures."
+    }
+  ],
+  "tags": [
+    "IT failure",
+    "prescribing",
+    "medical ward",
+    "prioritisation"
+  ]
+}

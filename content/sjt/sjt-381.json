@@ -1,0 +1,86 @@
+{
+  "id": "sjt-381",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-381",
+  "format": "ranking",
+  "title": "Can you read this for me?",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Boundaries",
+    "Supporting friends",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor. Your close friend Sophie sends you a photo of her father's CT report, which mentions \"multiple liver lesions, likely metastatic\". Her family is meeting his consultant tomorrow. Her father doesn't know she has shared it with you.\n\nShe asks, \"What does this mean? Is it bad?\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her not to worry, it's probably nothing.",
+      "brief": "False reassurance.",
+      "detailed": "This is untrue, and could make tomorrow's meeting much harder. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Listen to her worries and support her as a friend.",
+      "brief": "She needs a friend right now.",
+      "detailed": "She is frightened. Being there for her, and listening, is the most helpful thing you can do. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Explain what a CT scan is, without interpreting his report.",
+      "brief": "General information, without overstepping.",
+      "detailed": "Explaining general terms may reduce her confusion without giving an interpretation you can't make. It ranks third."
+    },
+    {
+      "id": "D",
+      "text": "Interpret the report for her.",
+      "brief": "Without the full picture, you may be wrong.",
+      "detailed": "You don't know his history or the clinical context. Your interpretation may be wrong, and it could cause distress before the family hears it properly."
+    },
+    {
+      "id": "E",
+      "text": "Suggest she writes down questions for the meeting tomorrow.",
+      "brief": "Helps her get the most from the meeting.",
+      "detailed": "The consultant knows the full picture. Preparing questions helps her family understand what it means. It ranks second."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "C",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a friend facing bad news without stepping into the role of her father's doctor.",
+    "keyDetails": "The report is concerning. A consultant meeting is tomorrow. You don't know the full clinical picture.",
+    "reasoning": "[B] supports her, [E] prepares her for the meeting, and [C] gives general information. [D] oversteps, and [A] falsely reassures.",
+    "competing": "[E] and [C] are close. The key puts preparing questions first because it helps her get answers from the right person."
+  },
+  "references": [
+    {
+      "title": "Maintaining personal and professional boundaries",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/maintaining-personal-and-professional-boundaries",
+      "note": "Keeping professional and personal roles separate."
+    }
+  ],
+  "tags": [
+    "friends",
+    "bad news",
+    "boundaries",
+    "support"
+  ]
+}

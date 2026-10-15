@@ -1,0 +1,109 @@
+{
+  "id": "sjt-386",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-386",
+  "format": "multiple_choice",
+  "title": "Unchecked at night",
+  "setting": "Intensive care",
+  "attribute": "Professional integrity",
+  "topic": "Raising concerns about systems and safety",
+  "gmcDomains": [
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Controlled drugs",
+    "Raising concerns",
+    "Following policy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. On several night shifts you have noticed that controlled drugs are taken from the cupboard and given without the second person check the trust's policy requires.\n\nWhen you mention it, a nurse says, \"Everyone does it at night. There aren't enough of us.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave it, as the nurses are under pressure.",
+      "brief": "Ignores a recurring safety risk.",
+      "detailed": "Staffing pressure explains it but doesn't make it safe."
+    },
+    {
+      "id": "B",
+      "text": "Tell the nurses off in front of their colleagues.",
+      "brief": "Public criticism is unlikely to help.",
+      "detailed": "This may cause conflict without changing practice."
+    },
+    {
+      "id": "C",
+      "text": "Raise your concern with the nurse in charge.",
+      "brief": "The person responsible for the shift needs to know.",
+      "detailed": "The nurse in charge can address it and escalate the staffing issue behind it."
+    },
+    {
+      "id": "D",
+      "text": "Report the nurses to the police.",
+      "brief": "Disproportionate without evidence of misuse.",
+      "detailed": "This is a policy breach, not evidence of theft."
+    },
+    {
+      "id": "E",
+      "text": "Join in, as it saves time at night.",
+      "brief": "Unsafe.",
+      "detailed": "This adds to the risk."
+    },
+    {
+      "id": "F",
+      "text": "Mention it informally to the pharmacist when you next see her.",
+      "brief": "May not lead to action.",
+      "detailed": "An informal mention may not reach those who can change practice."
+    },
+    {
+      "id": "G",
+      "text": "Report it through the incident reporting system.",
+      "brief": "Creates a record and prompts review.",
+      "detailed": "A recurring breach of controlled drug checks is a safety risk that needs reviewing, including the staffing pressures."
+    },
+    {
+      "id": "H",
+      "text": "Follow the checking policy yourself.",
+      "brief": "Sets an example and keeps your own practice safe.",
+      "detailed": "Following the policy, even when others don't, protects patients and you."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you raise a recurring safety concern through proper routes, even when colleagues see it as normal.",
+    "keyDetails": "Controlled drug checks are regularly bypassed. Staffing is short at night. It is happening repeatedly.",
+    "reasoning": "[C] tells the person responsible, [G] creates a record, and [H] keeps your own practice safe. The distractors ignore it ([A], [E]), criticise publicly ([B]), escalate disproportionately ([D]), or are informal ([F]).",
+    "competing": "[F] could be part of the response, but it isn't a substitute for formal reporting."
+  },
+  "references": [
+    {
+      "title": "Raising and acting on concerns about patient safety",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/raising-and-acting-on-concerns",
+      "note": "Raising concerns about unsafe practice."
+    },
+    {
+      "title": "Patient Safety Incident Response Framework",
+      "publisher": "NHS England",
+      "year": 2022,
+      "url": "https://www.england.nhs.uk/patient-safety/patient-safety-insight/incident-response-framework/",
+      "note": "Reporting incidents so systems can be reviewed."
+    }
+  ],
+  "tags": [
+    "controlled drugs",
+    "raising concerns",
+    "intensive care",
+    "staffing"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "sjt-400",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-400",
+  "format": "multiple_choice",
+  "title": "Filming the arrest",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Supporting relatives",
+    "Dignity",
+    "Calm communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the cardiac arrest team, which the medical registrar is leading. Mr Price, 74, has arrested on the acute medical unit. His son is at the bedside.\n\nThe son is distressed and has started filming the resuscitation on his phone.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Take his phone from him.",
+      "brief": "Confrontational.",
+      "detailed": "This may escalate the situation."
+    },
+    {
+      "id": "B",
+      "text": "Call security straight away.",
+      "brief": "Disproportionate.",
+      "detailed": "He is distressed, not dangerous."
+    },
+    {
+      "id": "C",
+      "text": "Ask a staff member to support the son.",
+      "brief": "Relatives present need support.",
+      "detailed": "A staff member can explain what is happening and support him, whether he stays or not."
+    },
+    {
+      "id": "D",
+      "text": "Pause chest compressions so that you can talk to him.",
+      "brief": "Compromises the resuscitation.",
+      "detailed": "Compressions must not be interrupted for this."
+    },
+    {
+      "id": "E",
+      "text": "Order him to leave the room.",
+      "brief": "Harsh and may increase distress.",
+      "detailed": "He has a right to be supported, and may be calmer with help."
+    },
+    {
+      "id": "F",
+      "text": "Ignore the filming and carry on.",
+      "brief": "His father's dignity matters.",
+      "detailed": "Filming should be addressed, gently."
+    },
+    {
+      "id": "G",
+      "text": "Ask him gently to stop filming.",
+      "brief": "Protects his father's dignity.",
+      "detailed": "Filming may compromise his father's dignity and the staff's privacy. A gentle request is likely to work."
+    },
+    {
+      "id": "H",
+      "text": "Let him stay at the bedside if he wishes.",
+      "brief": "Relatives can be present with support.",
+      "detailed": "Many relatives find it helpful to be present, as long as they are supported and it doesn't affect the resuscitation."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a distressed relative while protecting a patient's dignity during resuscitation.",
+    "keyDetails": "His son is distressed. He is filming. The registrar is leading the arrest.",
+    "reasoning": "[C] supports him, [G] addresses the filming gently, and [H] respects his wish to be present. The distractors are confrontational ([A], [E]), escalate ([B]), compromise care ([D]), or ignore it ([F]).",
+    "competing": "[E] might seem to solve the problem, but relatives can usually stay with support."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Supporting families at the end of life."
+    }
+  ],
+  "tags": [
+    "resuscitation",
+    "relatives",
+    "filming",
+    "dignity"
+  ]
+}

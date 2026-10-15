@@ -62,3 +62,6 @@ Loaded with the same token route, after which the route was disabled again. Subm
 
 ## Mock 3 (15 Oct 2026)
 Loaded with the token route, which was then disabled again. On the server, every keyed answer scores 780/780. The reversed and partly wrong answer set scores 300, which matches the engine. Review record: `docs/sjt-reviews/M3.md`.
+
+## Mock 4 (15 Oct 2026)
+Loaded with the token route, which was then disabled again. All four mocks (200 items) are now on the server, each with 25 ranking items (5 of them four-option) and 25 choose-3 items. On the server, every keyed answer scores 780/780. A set of reversed and partly wrong answers scores 300, which matches the engine. Review record: `docs/sjt-reviews/M4.md`.

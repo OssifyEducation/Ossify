@@ -1,0 +1,78 @@
+{
+  "id": "sjt-399",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-399",
+  "format": "ranking",
+  "title": "Doctors only?",
+  "setting": "Orthopaedics",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Teamwork",
+    "Fairness",
+    "Seeking guidance"
+  ],
+  "difficulty": "hard",
+  "stem": "You organise the weekly teaching for F1 and F2 doctors in your hospital. Grace, a physician assistant on the orthopaedic wards, asks whether she can attend.\n\nAnother F2 says, \"It's doctors' teaching. She shouldn't come.\" You aren't sure what the policy is.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Let her attend this week, and check the policy afterwards.",
+      "brief": "Inclusive, but acts before checking.",
+      "detailed": "This is welcoming, but you don't know whether it fits the programme. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Tell Grace you'll check with the teaching lead.",
+      "brief": "Fair, and finds out the policy.",
+      "detailed": "You don't know the policy. Checking, and telling Grace you will, is honest and respectful. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Tell Grace the session is full.",
+      "brief": "Dishonest.",
+      "detailed": "This is untrue, and avoids the issue rather than resolving it. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Ask your colleague what his concerns are.",
+      "brief": "Understanding his view helps.",
+      "detailed": "He may have a reason worth considering, such as the session's focus. It ranks second."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "D",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond fairly and honestly when you are unsure of the rules and colleagues disagree.",
+    "keyDetails": "You don't know the policy. A colleague objects. Grace has asked politely.",
+    "reasoning": "[B] checks the policy, [D] listens to your colleague, and [A] is inclusive but premature. [C] is dishonest.",
+    "competing": "Some would rank [A] above [D], as it is welcoming. The key puts understanding your colleague's concern first, as it may affect what is appropriate."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, working collaboratively with colleagues."
+    }
+  ],
+  "tags": [
+    "physician assistants",
+    "teaching",
+    "teamwork",
+    "honesty"
+  ]
+}

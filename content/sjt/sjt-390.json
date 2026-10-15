@@ -1,0 +1,110 @@
+{
+  "id": "sjt-390",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-390",
+  "format": "multiple_choice",
+  "title": "Within reach",
+  "setting": "Out-of-hours / community",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Safety and quality",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Safeguarding",
+    "Documentation",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an out-of-hours home visit to Ms Reid, 31, who has a chest infection. Your supervising GP is available by phone.\n\nIn the living room, used needles and burnt foil are on a low table within reach of her two children, aged 2 and 4.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Leave it, as you are there to treat Ms Reid.",
+      "brief": "The children's safety is your responsibility too.",
+      "detailed": "All doctors have a duty to act on concerns about children's safety."
+    },
+    {
+      "id": "B",
+      "text": "Explain your concern about the children's safety to Ms Reid.",
+      "brief": "Being open with her is usually right.",
+      "detailed": "Unless it would put the children at greater risk, raising your concern with her directly is honest and may make the items safe straight away."
+    },
+    {
+      "id": "C",
+      "text": "Call the police to remove the children.",
+      "brief": "Disproportionate without immediate danger.",
+      "detailed": "The children aren't in immediate danger that needs police involvement right now."
+    },
+    {
+      "id": "D",
+      "text": "Tell her this will stay confidential.",
+      "brief": "A promise you can't keep.",
+      "detailed": "You may need to share information to protect the children."
+    },
+    {
+      "id": "E",
+      "text": "Ask the children about their mother's drug use.",
+      "brief": "Inappropriate.",
+      "detailed": "Questioning young children is not your role and could cause harm."
+    },
+    {
+      "id": "F",
+      "text": "Discuss it with the safeguarding lead or an on-call senior.",
+      "brief": "Safeguarding decisions shouldn't be made alone.",
+      "detailed": "They can help decide whether to make a referral to children's social care, and how quickly."
+    },
+    {
+      "id": "G",
+      "text": "Record what you saw and what you did in the notes.",
+      "brief": "A clear record supports any future action.",
+      "detailed": "Accurate notes, including what you saw and who you told, are essential in safeguarding."
+    },
+    {
+      "id": "H",
+      "text": "Ask her to put the items out of reach, and take no further action.",
+      "brief": "Right to make them safe, but not enough.",
+      "detailed": "Making the items safe now is sensible, but taking no further action leaves the wider safeguarding concern unaddressed."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you act on a safeguarding concern about children you notice while treating an adult.",
+    "keyDetails": "Used needles and foil are within reach of two young children. You are visiting their mother.",
+    "reasoning": "[B] raises it openly, [F] involves safeguarding expertise, and [G] documents it. The distractors ignore it ([A], [H]), overreact ([C]), promise secrecy ([D]), or question the children ([E]).",
+    "competing": "[H] may make the items safe for now, but it doesn't address the wider risk to the children."
+  },
+  "references": [
+    {
+      "title": "Protecting children and young people: the responsibilities of all doctors",
+      "publisher": "General Medical Council",
+      "year": 2012,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/protecting-children-and-young-people",
+      "note": "Acting on concerns about children's safety."
+    },
+    {
+      "title": "Working together to safeguard children",
+      "publisher": "Department for Education (GOV.UK)",
+      "year": 2023,
+      "url": "https://www.gov.uk/government/publications/working-together-to-safeguard-children--2",
+      "note": "Multi-agency safeguarding."
+    }
+  ],
+  "tags": [
+    "safeguarding",
+    "children",
+    "drug use",
+    "home visit"
+  ]
+}

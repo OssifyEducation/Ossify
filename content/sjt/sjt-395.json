@@ -1,0 +1,86 @@
+{
+  "id": "sjt-395",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-395",
+  "format": "ranking",
+  "title": "I feel nothing",
+  "setting": "General practice",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Mental health, distress and stigma",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Safety and quality"
+  ],
+  "competencies": [
+    "Perinatal mental health",
+    "Risk assessment",
+    "Empathy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in general practice. Ms Carter, 29, gave birth five weeks ago and has come about contraception.\n\nTowards the end, she says quietly, \"I feel nothing for the baby. I don't think I'm a good mother.\"",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Contact children's social care about the baby straight away.",
+      "brief": "Premature without an assessment.",
+      "detailed": "Her feelings alone aren't a safeguarding concern, and an immediate referral may damage her trust in seeking help."
+    },
+    {
+      "id": "B",
+      "text": "Tell her these feelings are common and help is available.",
+      "brief": "Reassuring, but needs to follow an assessment.",
+      "detailed": "This may help her feel less ashamed. It ranks third because her mood and safety need assessing first."
+    },
+    {
+      "id": "C",
+      "text": "Tell her it's the baby blues and will pass.",
+      "brief": "False reassurance.",
+      "detailed": "The baby blues usually settle within two weeks. At five weeks, this may be postnatal depression, which needs assessment. It is the least appropriate option."
+    },
+    {
+      "id": "D",
+      "text": "Discuss her with your GP supervisor before she leaves.",
+      "brief": "Makes sure she gets the right plan today.",
+      "detailed": "Your supervisor can help decide on treatment, follow-up or referral, such as to the perinatal mental health team. It ranks second."
+    },
+    {
+      "id": "E",
+      "text": "Ask gently about her mood, and any thoughts of harm.",
+      "brief": "Assesses how she is and any risk.",
+      "detailed": "This could be postnatal depression or another perinatal mental illness. Asking sensitively, including about risk, is essential. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "D",
+      "B",
+      "A",
+      "C"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you take a mother's disclosure about her feelings seriously and assess her mood and safety.",
+    "keyDetails": "She is five weeks postnatal. She feels detached from her baby. She mentions it at the end of the consultation.",
+    "reasoning": "[E] assesses her, [D] involves your supervisor, and [B] reassures her. [A] is premature, and [C] may miss a serious illness.",
+    "competing": "[D] and [B] are close. The key puts your supervisor first because she needs a plan before she leaves. [A] and [C] are also close; the key ranks [C] last because missing perinatal mental illness can have serious consequences."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, assessing patients' needs."
+    }
+  ],
+  "tags": [
+    "perinatal mental health",
+    "postnatal",
+    "general practice",
+    "risk"
+  ]
+}

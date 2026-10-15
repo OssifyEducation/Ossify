@@ -1,0 +1,92 @@
+{
+  "id": "sjt-383",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-383",
+  "format": "ranking",
+  "title": "Everything, because of his faith",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "End of life, DNACPR and ceilings of care",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting beliefs",
+    "End-of-life communication",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Okonjo, 79, has end-stage heart failure and is deteriorating. The consultant believes that CPR and intensive care would not help him.\n\nMr Okonjo, who has capacity, tells you that his faith means he must accept every treatment to preserve life.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask him more about his beliefs and what matters most to him.",
+      "brief": "Understanding his beliefs helps the team respond respectfully.",
+      "detailed": "His faith is central to how he sees this decision. Exploring it shows respect and may reveal what is most important to him. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Tell him his beliefs shouldn't influence medical decisions.",
+      "brief": "Dismissive.",
+      "detailed": "His beliefs are important and should be respected, even if they don't determine every treatment. It is the least appropriate option."
+    },
+    {
+      "id": "C",
+      "text": "Tell him all treatments will be given, to reassure him.",
+      "brief": "A promise the team may not keep.",
+      "detailed": "Promising treatments the team believes wouldn't help is dishonest."
+    },
+    {
+      "id": "D",
+      "text": "Offer him a visit from the chaplain or his own faith leader.",
+      "brief": "Spiritual support may help him.",
+      "detailed": "He may find it helpful to talk with someone who shares his faith. It ranks third."
+    },
+    {
+      "id": "E",
+      "text": "Ask the consultant to discuss his treatment options with him.",
+      "brief": "A senior should lead this conversation.",
+      "detailed": "Decisions about CPR and intensive care should be discussed by the consultant, who can explain the reasons. It ranks second."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "E",
+      "D",
+      "C",
+      "B"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respect a patient's beliefs while being honest about what treatment can offer.",
+    "keyDetails": "He has capacity. His faith shapes his wishes. The consultant thinks some treatments won't help.",
+    "reasoning": "[A] explores his beliefs, [E] brings in the consultant, and [D] offers spiritual support. [C] is dishonest, and [B] dismisses him.",
+    "competing": "[C] and [B] are close. The key ranks dismissal last because it disrespects him directly."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Discussing treatment that may not be of overall benefit."
+    },
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs."
+    }
+  ],
+  "tags": [
+    "faith",
+    "end of life",
+    "CPR",
+    "acute medicine"
+  ]
+}

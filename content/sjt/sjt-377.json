@@ -1,0 +1,86 @@
+{
+  "id": "sjt-377",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-377",
+  "format": "ranking",
+  "title": "Blamed in public",
+  "setting": "Paediatrics",
+  "attribute": "Professional integrity",
+  "topic": "Challenging undermining, bullying and discrimination",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Challenging blame",
+    "Supporting colleagues"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on a paediatric ward. A parent complained that her son's discharge was delayed by four hours. The delay was because you hadn't finished the discharge letter.\n\nAt the nurses' station, in front of other staff, the senior nurse tells Amira, a healthcare assistant, that the complaint is her fault for not \"chasing the doctors\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree with the senior nurse that Amira should have chased you.",
+      "brief": "Shifts blame unfairly onto a junior colleague.",
+      "detailed": "This adds to unfair blame and avoids your own responsibility. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Suggest to the ward manager that complaints are discussed in private.",
+      "brief": "Helps prevent public blame in future.",
+      "detailed": "Discussing complaints privately is fairer to everyone. It ranks third."
+    },
+    {
+      "id": "C",
+      "text": "Tell the senior nurse that the delay was caused by your letter.",
+      "brief": "Honest, and protects a colleague from unfair blame.",
+      "detailed": "The delay was yours. Saying so corrects the record and stops Amira being blamed unfairly. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Stay out of it, as it is a nursing matter.",
+      "brief": "Lets a colleague take the blame for your delay.",
+      "detailed": "The delay was your responsibility, so staying silent isn't honest."
+    },
+    {
+      "id": "E",
+      "text": "Check on Amira afterwards.",
+      "brief": "She has been criticised unfairly in public.",
+      "detailed": "Public blame can be upsetting. Checking on her shows support. It ranks second."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "E",
+      "B",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty about your own part in a problem, and fairness to a colleague who is being blamed.",
+    "keyDetails": "The delay was yours. Amira is being blamed publicly. The senior nurse is senior to her.",
+    "reasoning": "[C] owns the delay, [E] supports Amira, and [B] improves practice. [D] stays silent, and [A] adds to the unfair blame.",
+    "competing": "[E] and [B] are close. The key puts supporting Amira first because she has just been hurt."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, treating colleagues fairly; Domain 4, honesty."
+    }
+  ],
+  "tags": [
+    "blame",
+    "honesty",
+    "teamwork",
+    "paediatrics"
+  ]
+}

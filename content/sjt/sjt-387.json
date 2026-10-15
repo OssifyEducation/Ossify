@@ -1,0 +1,93 @@
+{
+  "id": "sjt-387",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-387",
+  "format": "ranking",
+  "title": "Treated with suspicion",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Fair treatment",
+    "Building trust",
+    "Challenging prejudice"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Hall, 52, a Gypsy man who lives in a caravan, was admitted with cellulitis needing intravenous antibiotics.\n\nHe tells you staff keep checking his belongings and asking whether he has \"taken anything\". He says he feels treated like a criminal and wants to leave.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain why his antibiotics matter and encourage him to stay.",
+      "brief": "He needs to understand the risks of leaving.",
+      "detailed": "Cellulitis needing intravenous antibiotics can become serious. Explaining this may help him decide to stay. It ranks second."
+    },
+    {
+      "id": "B",
+      "text": "Apologise, and listen to his experience.",
+      "brief": "His trust needs rebuilding.",
+      "detailed": "Being treated with suspicion is upsetting and may reflect prejudice. An apology and listening may help him feel respected. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Tell him staff are just being careful.",
+      "brief": "Dismisses his experience.",
+      "detailed": "This may confirm his sense of being treated unfairly."
+    },
+    {
+      "id": "D",
+      "text": "Raise the staff's behaviour with the nurse in charge.",
+      "brief": "Addresses the cause.",
+      "detailed": "If he is being treated differently because of his background, it needs addressing. It ranks third because his immediate care comes first."
+    },
+    {
+      "id": "E",
+      "text": "Tell him he is free to leave if he is unhappy.",
+      "brief": "Accepts him leaving without addressing his concerns or the risks.",
+      "detailed": "He has the right to leave, but this ignores the reason he wants to and the risks. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "A",
+      "D",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond when a patient from a minority community feels discriminated against.",
+    "keyDetails": "He feels treated like a criminal. He needs IV antibiotics. He wants to leave.",
+    "reasoning": "[B] apologises and listens, [A] explains the risks, and [D] addresses staff behaviour. [C] dismisses him, and [E] lets him leave without addressing the cause.",
+    "competing": "[A] and [D] are close. The key puts his treatment first because leaving could harm him."
+  },
+  "references": [
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Race, including Gypsy and Traveller communities, as a protected characteristic."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, treating patients fairly."
+    }
+  ],
+  "tags": [
+    "discrimination",
+    "Gypsy and Traveller",
+    "equality",
+    "acute medicine"
+  ]
+}

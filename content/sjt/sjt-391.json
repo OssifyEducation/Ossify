@@ -1,0 +1,93 @@
+{
+  "id": "sjt-391",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-391",
+  "format": "ranking",
+  "title": "Just consent him",
+  "setting": "General medical ward",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Knowledge, skills and development",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Research governance",
+    "Consent",
+    "Honesty about limits"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a medical ward. The research registrar asks you to take consent from Mr Quinn, 67, for a drug trial, as the research nurse is off sick.\n\nYou haven't done Good Clinical Practice (GCP) training, and you aren't on the trial's delegation log.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to do GCP training so you can help in future.",
+      "brief": "Constructive, though it doesn't solve today's problem.",
+      "detailed": "Training would let you support research in future. It ranks third because it doesn't help now."
+    },
+    {
+      "id": "B",
+      "text": "Take consent, using the patient information sheet carefully.",
+      "brief": "Outside your authorisation.",
+      "detailed": "However carefully you do it, the consent wouldn't be valid for the trial, and he may not be properly informed."
+    },
+    {
+      "id": "C",
+      "text": "Explain to the registrar that you aren't trained or on the delegation log.",
+      "brief": "Only delegated, trained staff can take trial consent.",
+      "detailed": "Trial consent must be taken by people trained and authorised to do it. Explaining this is honest and protects Mr Quinn. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Tell Mr Quinn that someone from the research team will discuss it with him.",
+      "brief": "Keeps him informed.",
+      "detailed": "He may be expecting a discussion. Letting him know who will come keeps him informed. It ranks second."
+    },
+    {
+      "id": "E",
+      "text": "Take consent, then ask the registrar to sign the form as the consenter.",
+      "brief": "Falsifies the trial record.",
+      "detailed": "This misrepresents who took consent, which is dishonest and a serious breach of research governance. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "D",
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise the rules on research consent and avoid working outside your authorisation.",
+    "keyDetails": "You aren't GCP-trained or on the delegation log. The research nurse is off sick. The registrar is asking you to help.",
+    "reasoning": "[C] explains why you can't, [D] keeps the patient informed, and [A] helps in future. [B] works outside your authorisation, and [E] falsifies the record.",
+    "competing": "[D] and [A] are close. The key puts the patient first, because he is waiting for a discussion now."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Valid consent, including for research."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, working within your competence."
+    }
+  ],
+  "tags": [
+    "research",
+    "consent",
+    "GCP",
+    "competence"
+  ]
+}

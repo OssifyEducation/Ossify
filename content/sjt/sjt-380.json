@@ -1,0 +1,110 @@
+{
+  "id": "sjt-380",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-380",
+  "format": "multiple_choice",
+  "title": "A decision without discussion",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Equality and fair treatment of patients",
+  "gmcDomains": [
+    "Patients, partnership and communication",
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Equality",
+    "DNACPR decisions",
+    "Advocacy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on an elderly care ward. Mr Dean, 61, has a learning disability and has been admitted with a chest infection. He is improving.\n\nOn the ward round, the registrar asks you to complete a DNACPR form \"because of his learning disability\". No one has discussed it with Mr Dean or his sister, who visits daily.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Complete the form as asked.",
+      "brief": "Discriminatory and undiscussed.",
+      "detailed": "Completing the form on this basis would be wrong and could harm him."
+    },
+    {
+      "id": "B",
+      "text": "Record your disagreement in the medical notes, then complete the form.",
+      "brief": "Still makes the discriminatory decision.",
+      "detailed": "Documenting your concern doesn't stop the harm."
+    },
+    {
+      "id": "C",
+      "text": "Tell his sister the registrar is discriminating against him.",
+      "brief": "Undermines the team before the issue is raised.",
+      "detailed": "His sister should be involved, but raising it with the registrar first is fairer and more effective."
+    },
+    {
+      "id": "D",
+      "text": "Report the registrar to the Care Quality Commission.",
+      "brief": "Disproportionate as a first step.",
+      "detailed": "This should be addressed directly and through local routes first."
+    },
+    {
+      "id": "E",
+      "text": "Leave the form for the night team to decide.",
+      "brief": "Avoids the issue.",
+      "detailed": "The problem would still need addressing."
+    },
+    {
+      "id": "F",
+      "text": "Point out that a learning disability isn't grounds for DNACPR.",
+      "brief": "DNACPR decisions must be based on clinical factors, not disability.",
+      "detailed": "Making a resuscitation decision because of someone's learning disability is discriminatory. Raising this politely gives the registrar a chance to reconsider."
+    },
+    {
+      "id": "G",
+      "text": "Involve Mr Dean and his sister in any discussion.",
+      "brief": "He, and those close to him, should be involved.",
+      "detailed": "Decisions about resuscitation should be discussed with the patient where possible, with reasonable adjustments, and with those close to him."
+    },
+    {
+      "id": "H",
+      "text": "Ask the learning disability liaison nurse for support.",
+      "brief": "Expertise in supporting his involvement.",
+      "detailed": "The liaison nurse can help adapt communication and make sure his needs are understood."
+    }
+  ],
+  "key": {
+    "correct": [
+      "F",
+      "G",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you challenge a discriminatory resuscitation decision and make sure the patient is involved.",
+    "keyDetails": "The reason given is his learning disability. He is improving. No discussion has taken place. His sister visits daily.",
+    "reasoning": "[F] challenges the reasoning, [G] involves him and his sister, and [H] brings in specialist support. The distractors comply ([A], [B]), undermine the team ([C]), escalate disproportionately ([D]), or avoid it ([E]).",
+    "competing": "[B] might seem a compromise, but the decision itself is the problem."
+  },
+  "references": [
+    {
+      "title": "Treatment and care towards the end of life: good practice in decision making",
+      "publisher": "General Medical Council",
+      "year": 2010,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life",
+      "note": "Decisions about CPR must not be based on disability."
+    },
+    {
+      "title": "Equality Act 2010",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2010,
+      "url": "https://www.legislation.gov.uk/ukpga/2010/15/contents",
+      "note": "Disability as a protected characteristic."
+    }
+  ],
+  "tags": [
+    "learning disability",
+    "DNACPR",
+    "equality",
+    "elderly care"
+  ]
+}

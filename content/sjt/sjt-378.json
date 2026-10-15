@@ -1,0 +1,102 @@
+{
+  "id": "sjt-378",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-4",
+  "blueprint": "sjt-378",
+  "format": "multiple_choice",
+  "title": "Too noisy to stay",
+  "setting": "Acute medical unit",
+  "attribute": "Coping with pressure",
+  "topic": "Complaints, aggression and difficult encounters",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "De-escalation",
+    "Problem-solving",
+    "Capacity"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Stone, 66, was admitted yesterday with pneumonia and is on intravenous antibiotics. He hasn't slept for two nights because of noise from a confused patient in the bay.\n\nHe tells you angrily that he is going to discharge himself tonight.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Listen to his frustration and acknowledge it.",
+      "brief": "Feeling heard may calm the situation.",
+      "detailed": "His complaint is reasonable. Acknowledging it is the first step to finding a solution."
+    },
+    {
+      "id": "B",
+      "text": "Ask whether he can move to a quieter bed.",
+      "brief": "Tries to solve the cause.",
+      "detailed": "A move, or earplugs and an eye mask, may let him sleep and stay."
+    },
+    {
+      "id": "C",
+      "text": "Tell him he isn't allowed to leave.",
+      "brief": "Unlawful if he has capacity.",
+      "detailed": "A patient with capacity can leave, even against advice."
+    },
+    {
+      "id": "D",
+      "text": "Let him go without discussion, as it's his choice.",
+      "brief": "It is his choice, but an informed one.",
+      "detailed": "He should be offered solutions and understand the risks first."
+    },
+    {
+      "id": "E",
+      "text": "Explain the risks of stopping his antibiotics now.",
+      "brief": "He needs to understand the risks to decide.",
+      "detailed": "Leaving early could mean his pneumonia isn't treated properly. He should understand this to make an informed choice."
+    },
+    {
+      "id": "F",
+      "text": "Tell him other patients put up with the noise.",
+      "brief": "Dismissive.",
+      "detailed": "This invalidates his concern and may make him more likely to leave."
+    },
+    {
+      "id": "G",
+      "text": "Prescribe a sleeping tablet so that he agrees to stay tonight.",
+      "brief": "Doesn't address the cause.",
+      "detailed": "A sleeping tablet may not help with the noise and carries risks."
+    },
+    {
+      "id": "H",
+      "text": "Call security to calm him down.",
+      "brief": "Disproportionate.",
+      "detailed": "He is frustrated, not dangerous."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you respond to an angry patient threatening to leave, by addressing the cause and making sure his decision is informed.",
+    "keyDetails": "His complaint about noise is reasonable. He needs IV antibiotics. He has capacity.",
+    "reasoning": "[A] acknowledges his frustration, [B] addresses the cause, and [E] informs his decision. The distractors detain him unlawfully ([C]), skip the conversation ([D]), dismiss him ([F]), medicate ([G]), or escalate ([H]).",
+    "competing": "[D] respects his autonomy, but he deserves the chance to have the problem fixed and to understand the risks first."
+  },
+  "references": [
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Patients' right to refuse treatment, and making sure decisions are informed."
+    }
+  ],
+  "tags": [
+    "self-discharge",
+    "noise",
+    "acute medicine",
+    "de-escalation"
+  ]
+}
