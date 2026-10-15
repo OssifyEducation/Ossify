@@ -1,0 +1,93 @@
+{
+  "id": "sjt-301",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-301",
+  "format": "ranking",
+  "title": "Not quite clear",
+  "setting": "Oncology & palliative care",
+  "attribute": "Professional integrity",
+  "topic": "Own errors and candour",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Candour",
+    "Checking results",
+    "Owning mistakes"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in an oncology clinic. Yesterday you phoned Mr Grey, 61, who had bowel cancer treated last year, and told him his follow-up CT scan was \"clear\". You had read only the conclusion, which said there was no evidence of recurrence.\n\nToday you read the full report. It also describes an 8 mm indeterminate liver lesion and recommends an MRI. Your consultant has already seen the report and requested the MRI.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Reflect on the error and change how you check reports before giving results.",
+      "brief": "Learning from it helps protect future patients.",
+      "detailed": "Reading only a report's conclusion is a recognised pitfall. Changing your practice, and perhaps recording it as a reflection, protects future patients. It ranks third because it does nothing for Mr Grey today."
+    },
+    {
+      "id": "B",
+      "text": "Phone Mr Grey today, apologise, and explain the full report.",
+      "brief": "He has been given incomplete information and should hear the correction from you promptly.",
+      "detailed": "Mr Grey believes his scan was entirely clear, and he will soon receive an MRI appointment he doesn't expect. Phoning him today, apologising and explaining what the lesion might mean and what happens next is honest and stops him finding out by letter. The plan is already in place, so you can tell him exactly what will happen. It ranks first."
+    },
+    {
+      "id": "C",
+      "text": "Wait for the MRI result before telling him, so he isn't worried unnecessarily.",
+      "brief": "Delays a correction he is entitled to, and he'll receive an unexpected appointment.",
+      "detailed": "The lesion may well be benign, but he has been told something incomplete and will be sent for an MRI without explanation. Waiting puts your comfort ahead of his right to accurate information."
+    },
+    {
+      "id": "D",
+      "text": "Leave it, as the lesion is probably benign and the MRI is booked.",
+      "brief": "Leaves him misinformed about his own health.",
+      "detailed": "Whatever the lesion turns out to be, he has been told his scan was clear when it wasn't. Leaving him with that belief is dishonest by omission. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Tell your consultant what you told Mr Grey yesterday.",
+      "brief": "Your consultant needs to know what the patient has been told.",
+      "detailed": "The consultant has seen the report, but doesn't know Mr Grey was told his scan was clear. That matters for how the team talks to him, and your consultant can support you. It ranks second because correcting what Mr Grey believes comes first."
+    }
+  ],
+  "key": {
+    "order": [
+      "B",
+      "E",
+      "A",
+      "C",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you correct incomplete information you gave a patient, promptly and openly, even when the finding may turn out to be harmless.",
+    "keyDetails": "You told him the scan was clear. The full report shows an indeterminate lesion. An MRI has been requested. He doesn't know.",
+    "reasoning": "[B] corrects what he believes, [E] tells the consultant what was said, and [A] prevents a repeat. [C] delays the correction, and [D] never makes it.",
+    "competing": "Some would speak to the consultant before phoning. That's reasonable, but the consultant has already made the plan, so you have everything you need to tell Mr Grey now."
+  },
+  "references": [
+    {
+      "title": "Openness and honesty when things go wrong: the professional duty of candour",
+      "publisher": "General Medical Council and Nursing and Midwifery Council",
+      "year": 2022,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/candour---openness-and-honesty-when-things-go-wrong",
+      "note": "Telling patients promptly when something has gone wrong, including incomplete information."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, being honest with patients."
+    }
+  ],
+  "tags": [
+    "candour",
+    "results",
+    "oncology",
+    "errors"
+  ]
+}

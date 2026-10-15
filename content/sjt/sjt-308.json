@@ -1,0 +1,103 @@
+{
+  "id": "sjt-308",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-308",
+  "format": "multiple_choice",
+  "title": "Falling saturations",
+  "setting": "Intensive care",
+  "attribute": "Coping with pressure",
+  "topic": "Working beyond competence and asking for help",
+  "gmcDomains": [
+    "Safety and quality",
+    "Knowledge, skills and development"
+  ],
+  "competencies": [
+    "Recognising limits",
+    "Acute care",
+    "Escalation"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in intensive care. Mr Lowe, 57, is ventilated for pneumonia. His oxygen saturation has fallen from 94% to 85% over ten minutes. The ICU registrar is in theatre with a patient, and the consultant is at home, 20 minutes away.\n\nThe nurse says, \"Can you just turn up his PEEP? That's what the registrar usually does.\" You haven't been trained to change ventilator settings.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Increase his PEEP as the nurse suggests.",
+      "brief": "Changing settings you aren't trained in could cause harm.",
+      "detailed": "Increasing PEEP can affect blood pressure and may be the wrong response if the cause is a pneumothorax. It needs someone with the right training."
+    },
+    {
+      "id": "B",
+      "text": "Assess him at the bedside now, including his tube and circuit.",
+      "brief": "A sudden fall may have a simple, fixable cause.",
+      "detailed": "A displaced or blocked tube, a disconnection or a pneumothorax can cause sudden desaturation. A focused assessment may find a cause you can deal with, and it gives the senior the information they need."
+    },
+    {
+      "id": "C",
+      "text": "Increase his inspired oxygen to 100% while help is sought.",
+      "brief": "A safe, immediate step within your competence.",
+      "detailed": "Increasing the oxygen is a simple, recognised first step that buys time without changing other ventilator settings you aren't trained to adjust."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse to adjust the ventilator herself.",
+      "brief": "Passes the decision to someone else without senior input.",
+      "detailed": "Experienced ICU nurses may adjust some settings under protocols, but asking her to do so without senior advice avoids, rather than solves, the problem."
+    },
+    {
+      "id": "E",
+      "text": "Wait for the registrar to come out of theatre.",
+      "brief": "The patient may deteriorate further while you wait.",
+      "detailed": "He is getting worse now. Waiting for the registrar, without escalating, risks harm."
+    },
+    {
+      "id": "F",
+      "text": "Phone the ICU consultant now for advice.",
+      "brief": "A senior must guide decisions beyond your training.",
+      "detailed": "The registrar is unavailable, so the consultant should be called. They can advise by phone and decide whether to come in or ask for help from theatre."
+    },
+    {
+      "id": "G",
+      "text": "Request a chest X-ray and review him when it's done.",
+      "brief": "May help, but it delays action on a deteriorating patient.",
+      "detailed": "An X-ray may well be needed, but requesting one and waiting delays the immediate assessment and escalation he needs."
+    },
+    {
+      "id": "H",
+      "text": "Give him a dose of sedation in case he is fighting the ventilator.",
+      "brief": "Treats a guessed cause before assessing him.",
+      "detailed": "Patient–ventilator dyssynchrony is possible, but sedating him without assessment could mask the real cause and lower his blood pressure."
+    }
+  ],
+  "key": {
+    "correct": [
+      "B",
+      "C",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you stay within your competence in an emergency, taking safe immediate steps while getting senior help.",
+    "keyDetails": "He is deteriorating. You aren't trained to change ventilator settings. The registrar is unavailable, but the consultant can be phoned.",
+    "reasoning": "[B] looks for a fixable cause, [C] is a safe immediate step, and [F] gets senior advice. The distractors act beyond your competence ([A], [H]), pass the decision on ([D]), wait ([E]), or delay action ([G]).",
+    "competing": "[A] is tempting because the nurse is experienced and it may be the right setting change. But you aren't trained to judge that, and it could be harmful in some causes of desaturation."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 1, working within the limits of your competence and seeking help."
+    }
+  ],
+  "tags": [
+    "competence",
+    "ventilation",
+    "intensive care",
+    "escalation"
+  ]
+}

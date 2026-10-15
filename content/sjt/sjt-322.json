@@ -1,0 +1,102 @@
+{
+  "id": "sjt-322",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-322",
+  "format": "multiple_choice",
+  "title": "A flatmate's sore throat",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Professional integrity",
+  "topic": "Professional boundaries",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Prescribing for others",
+    "Boundaries",
+    "Signposting"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor. Your flatmate has had a sore throat for three days. She says she can't get a GP appointment this week.\n\nShe asks you to write her a prescription for antibiotics, saying, \"You're a doctor, so it'll be quicker.\"",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Explain kindly that you can't prescribe for her.",
+      "brief": "Prescribing for friends should be avoided.",
+      "detailed": "You aren't her doctor, you haven't assessed her properly, and you don't have her records. Prescribing for friends risks poor care and blurs boundaries."
+    },
+    {
+      "id": "B",
+      "text": "Write the prescription, as sore throats are usually minor.",
+      "brief": "Prescribing for a friend without assessment isn't appropriate.",
+      "detailed": "Even for minor conditions, prescribing for friends risks poor care, and most sore throats don't need antibiotics."
+    },
+    {
+      "id": "C",
+      "text": "Give her some antibiotics left over from your own course.",
+      "brief": "Unsafe and inappropriate.",
+      "detailed": "Leftover antibiotics may be the wrong drug, dose or duration, and sharing prescribed medicines is unsafe."
+    },
+    {
+      "id": "D",
+      "text": "Examine her throat and prescribe if it looks infected.",
+      "brief": "You'd be taking on her care informally.",
+      "detailed": "This makes you her doctor without proper records, consent or follow-up, which is what the guidance warns against."
+    },
+    {
+      "id": "E",
+      "text": "Ask a colleague at work to prescribe for her.",
+      "brief": "Still prescribing outside a proper consultation.",
+      "detailed": "Your colleague wouldn't be her doctor either, and this just passes the problem on."
+    },
+    {
+      "id": "F",
+      "text": "Suggest she sees a pharmacist about her sore throat.",
+      "brief": "Pharmacists can assess sore throats and supply treatment if needed.",
+      "detailed": "Many pharmacies can assess sore throats and, in some cases, supply antibiotics. This is a quick, appropriate route."
+    },
+    {
+      "id": "G",
+      "text": "Tell her when she should seek urgent help.",
+      "brief": "Useful safety advice that doesn't make you her doctor.",
+      "detailed": "General advice on when to seek urgent help is a reasonable thing for a friend to share and keeps her safe."
+    },
+    {
+      "id": "H",
+      "text": "Tell her antibiotics never help sore throats.",
+      "brief": "Inaccurate: sometimes they do.",
+      "detailed": "Most sore throats don't need antibiotics, but some do. Overstating it may stop her seeking help when she needs it."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "F",
+      "G"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you keep appropriate boundaries when a friend asks you to prescribe, while still helping her get care.",
+    "keyDetails": "She is a friend, not your patient. It isn't an emergency. Other routes to care exist.",
+    "reasoning": "[A] declines kindly, [F] points her to an appropriate route, and [G] gives safety advice. The distractors prescribe inappropriately ([B], [C], [D], [E]) or give inaccurate information ([H]).",
+    "competing": "[D] feels like a careful compromise, but it still makes you her doctor informally."
+  },
+  "references": [
+    {
+      "title": "Good practice in proposing, prescribing, providing and managing medicines and devices",
+      "publisher": "General Medical Council",
+      "year": 2021,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-practice-in-prescribing-and-managing-medicines-and-devices",
+      "note": "Avoiding prescribing for yourself or those close to you."
+    }
+  ],
+  "tags": [
+    "prescribing",
+    "friends",
+    "boundaries",
+    "antibiotics"
+  ]
+}

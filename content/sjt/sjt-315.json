@@ -1,0 +1,93 @@
+{
+  "id": "sjt-315",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-315",
+  "format": "ranking",
+  "title": "Another fall?",
+  "setting": "General medical ward",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Safeguarding children and vulnerable adults",
+  "gmcDomains": [
+    "Safety and quality",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Adult safeguarding",
+    "Learning disability",
+    "Communication"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor on a general medical ward. Ms Walsh, 34, has a learning disability and lives in a supported living placement. This is her third admission in four months with injuries. This time she has a fractured wrist and bruising on her upper arms. Staff at the placement say she falls often.\n\nShe communicates in short phrases and seems anxious when staff from the placement visit. She is due to go back there tomorrow.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ask the learning disability liaison nurse to help you talk with her about her injuries.",
+      "brief": "Her own account matters, and she needs the right support to give it.",
+      "detailed": "She may be able to tell you what happened if communication is adapted to her needs. The liaison nurse can help. It ranks second because the safeguarding team needs to be involved regardless of what she is able to say."
+    },
+    {
+      "id": "B",
+      "text": "Phone the placement manager to ask how her injuries happened.",
+      "brief": "May alert people who could be responsible.",
+      "detailed": "Asking for information seems reasonable, but if staff are harming her, it could alert them and put her at greater risk. The safeguarding team should decide how to approach the placement."
+    },
+    {
+      "id": "C",
+      "text": "Document her injuries carefully, including a body map.",
+      "brief": "A clear record supports any enquiry.",
+      "detailed": "Careful documentation of the type, size and location of injuries is important evidence. It ranks third because it supports, rather than drives, the response."
+    },
+    {
+      "id": "D",
+      "text": "Raise a safeguarding concern with the hospital safeguarding team today.",
+      "brief": "Repeated injuries in a vulnerable adult need a safeguarding response before she goes back.",
+      "detailed": "Repeated injuries, a pattern of bruising that isn't typical of falls, and her anxiety around staff together raise concern about abuse. With discharge planned for tomorrow, the safeguarding team needs to be involved today. It ranks first."
+    },
+    {
+      "id": "E",
+      "text": "Discharge her back to the placement as planned, as staff say she falls.",
+      "brief": "Returns her to possible harm without assessment.",
+      "detailed": "Accepting the explanation without question could send her back into an abusive situation. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "D",
+      "A",
+      "C",
+      "B",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you recognise possible abuse of a vulnerable adult and respond through safeguarding, while helping her to be heard.",
+    "keyDetails": "She has had repeated injuries, with bruising that isn't typical of falls. She is anxious around placement staff. Discharge is tomorrow.",
+    "reasoning": "[D] starts the safeguarding response, [A] supports her to give her account, and [C] records the evidence. [B] could alert those responsible, and [E] returns her to possible harm.",
+    "competing": "Some would talk to Ms Walsh first. The key puts the safeguarding team first because discharge is tomorrow and the concern needs a response whatever she is able to say."
+  },
+  "references": [
+    {
+      "title": "Care Act 2014, section 42 (enquiry by local authority)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2014,
+      "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/42",
+      "note": "Safeguarding enquiries for adults at risk of abuse."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, protecting vulnerable people from harm."
+    }
+  ],
+  "tags": [
+    "safeguarding",
+    "learning disability",
+    "abuse",
+    "general medicine"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sjt-311",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-311",
+  "format": "ranking",
+  "title": "Expecting",
+  "setting": "Paediatrics",
+  "attribute": "Coping with pressure",
+  "topic": "Your own health, fatigue and wellbeing",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Self-care",
+    "Occupational health",
+    "Honesty"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in paediatrics, and you have just found out that you are eight weeks pregnant. You haven't told anyone at work.\n\nNext week you are rostered for a block of nights, and there is currently an outbreak of chickenpox on the ward. You don't know whether you have had chickenpox.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Swap your nights with a colleague until you've been assessed.",
+      "brief": "Practical, but a private arrangement doesn't address the risks.",
+      "detailed": "Swapping may help in the short term, but it doesn't assess or manage the risks of your work, and it relies on colleagues' goodwill. It ranks third."
+    },
+    {
+      "id": "B",
+      "text": "Work as normal on the ward until your 12-week scan.",
+      "brief": "Leaves you exposed to a serious risk.",
+      "detailed": "Waiting until 12 weeks to tell people is a common, personal choice. But working on a ward with chickenpox without knowing your immunity puts you and your pregnancy at risk."
+    },
+    {
+      "id": "C",
+      "text": "Tell your employer you are pregnant and ask for a risk assessment.",
+      "brief": "This lets your employer assess and adjust your work.",
+      "detailed": "Once your employer knows, they must assess the risks to you and your pregnancy and make adjustments where needed. You can tell them confidentially through your supervisor or occupational health. It ranks second because the immunity check is more urgent."
+    },
+    {
+      "id": "D",
+      "text": "Call in sick for the nights to avoid the ward.",
+      "brief": "Dishonest, and it leaves the rota short.",
+      "detailed": "Reporting sickness when you aren't ill is dishonest, leaves a gap in the rota, and doesn't deal with the risk. It is the least appropriate option."
+    },
+    {
+      "id": "E",
+      "text": "Ask occupational health to check your chickenpox immunity.",
+      "brief": "Chickenpox in pregnancy can be serious, so you need to know your status now.",
+      "detailed": "Chickenpox in pregnancy can cause serious illness and, rarely, harm the baby. With an outbreak on the ward, finding out whether you are immune is the most urgent step. It ranks first."
+    }
+  ],
+  "key": {
+    "order": [
+      "E",
+      "C",
+      "A",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you look after your own health and your pregnancy through proper routes, while staying honest with your employer.",
+    "keyDetails": "You are in early pregnancy. There is a chickenpox outbreak, and your immunity is unknown. You haven't told anyone yet.",
+    "reasoning": "[E] deals with the most urgent risk, [C] starts the formal risk assessment, and [A] is a temporary practical step. [B] leaves you at risk, and [D] is dishonest.",
+    "competing": "Some would put telling your employer first. Occupational health can usually check immunity confidentially, which deals with the most urgent risk while you decide how and when to tell others."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, looking after your own health."
+    }
+  ],
+  "tags": [
+    "pregnancy",
+    "occupational health",
+    "chickenpox",
+    "wellbeing"
+  ]
+}

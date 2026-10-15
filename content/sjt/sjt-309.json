@@ -1,0 +1,85 @@
+{
+  "id": "sjt-309",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-309",
+  "format": "ranking",
+  "title": "The returning daughter",
+  "setting": "Acute medical unit",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Relatives and carers",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Best interests",
+    "Relatives",
+    "Mental Capacity Act"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on the acute medical unit. Mr Ellis, 80, has had a major stroke. He lacks capacity to make decisions about his treatment and has no lasting power of attorney. His partner of ten years visits daily.\n\nHis daughter, who hasn't seen him for 15 years, arrives today. She tells you that, as his next of kin, she will decide whether he has a feeding tube, and that his partner \"has no say\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Agree that she will make the decision about the feeding tube, as next of kin.",
+      "brief": "Wrong in law and could lead to a decision that doesn't reflect his wishes.",
+      "detailed": "'Next of kin' has no legal authority to make treatment decisions. Giving her that role could sideline the person who knows him best now. It is the least appropriate option."
+    },
+    {
+      "id": "B",
+      "text": "Arrange a meeting with the consultant, his daughter and his partner.",
+      "brief": "Brings together the people whose views matter.",
+      "detailed": "A meeting led by the consultant allows everyone to share what they know about his wishes and values. It ranks second because the daughter needs an accurate explanation from you first."
+    },
+    {
+      "id": "C",
+      "text": "Explain that the team decides in his best interests, after hearing from her and others.",
+      "brief": "Accurate, and respectful of her place in his life.",
+      "detailed": "Without a lasting power of attorney, no relative can make treatment decisions for him. The team decides in his best interests after considering the views of people close to him, which includes both his daughter and his partner. Explaining this honestly respects her while correcting a misunderstanding. It ranks first."
+    },
+    {
+      "id": "D",
+      "text": "Tell the daughter that you can only discuss his care with his partner, who visits daily.",
+      "brief": "Excludes someone whose views should be considered.",
+      "detailed": "His partner's views matter, but so do his daughter's, even after a long separation. Excluding her is wrong, though it is less harmful than handing her the decision."
+    }
+  ],
+  "key": {
+    "order": [
+      "C",
+      "B",
+      "D",
+      "A"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests your understanding of best-interests decision-making and how you handle competing relatives sensitively.",
+    "keyDetails": "He lacks capacity. There is no lasting power of attorney. His daughter has been absent for years. His partner is closely involved.",
+    "reasoning": "[C] explains the legal position kindly, and [B] brings everyone together. [D] wrongly excludes the daughter, and [A] wrongly gives her the decision.",
+    "competing": "Some would rank [D] last because it excludes someone. The key ranks [A] last because handing the decision to someone with no legal authority could directly affect his treatment."
+  },
+  "references": [
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Best interests and consulting people close to the person."
+    },
+    {
+      "title": "Decision making and consent",
+      "publisher": "General Medical Council",
+      "year": 2020,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/decision-making-and-consent",
+      "note": "Decisions for adults who lack capacity."
+    }
+  ],
+  "tags": [
+    "best interests",
+    "relatives",
+    "capacity",
+    "stroke"
+  ]
+}

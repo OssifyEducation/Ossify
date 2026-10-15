@@ -1,0 +1,109 @@
+{
+  "id": "sjt-324",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-324",
+  "format": "multiple_choice",
+  "title": "Thinking of leaving",
+  "setting": "General surgery",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Supporting colleagues in distress",
+  "gmcDomains": [
+    "Collaboration, teamwork and leadership"
+  ],
+  "competencies": [
+    "Supporting colleagues",
+    "Listening",
+    "Signposting"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor in general surgery. Over coffee, Dr Hall, an F1 on your team, tells you she feels isolated. She doesn't know anyone in the area, rarely gets feedback, and is thinking of leaving medicine at the end of the year.\n\nShe asks you not to tell anyone. She seems low but says she isn't unwell.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her that everyone feels like this in their first year.",
+      "brief": "May feel dismissive of her experience.",
+      "detailed": "Many F1s do struggle, but saying so can minimise how she feels."
+    },
+    {
+      "id": "B",
+      "text": "Tell her that leaving would waste her training.",
+      "brief": "Pressures her rather than supporting her.",
+      "detailed": "Her decision should be her own. This adds guilt to an already difficult situation."
+    },
+    {
+      "id": "C",
+      "text": "Listen to her concerns without trying to change her mind.",
+      "brief": "Being heard matters, and it helps her think it through.",
+      "detailed": "She has confided something important. Listening without judging, or pushing her to stay, shows respect and may help her reflect."
+    },
+    {
+      "id": "D",
+      "text": "Encourage her to talk to her educational supervisor.",
+      "brief": "Her supervisor can offer support and feedback she is missing.",
+      "detailed": "Her supervisor can address the lack of feedback, explore support and discuss options, including whether leaving is right for her."
+    },
+    {
+      "id": "E",
+      "text": "Tell your consultant that she is thinking of leaving.",
+      "brief": "Breaks her confidence without a safety reason.",
+      "detailed": "She has asked you not to tell anyone, and there is no immediate risk. Sharing it without her agreement would damage her trust."
+    },
+    {
+      "id": "F",
+      "text": "Invite her to join you and your friends at the weekend.",
+      "brief": "A kind gesture, but on its own it doesn't address the wider problem.",
+      "detailed": "Social contact can help isolation, and you might well offer it. But it doesn't give her access to the feedback and support she needs at work."
+    },
+    {
+      "id": "G",
+      "text": "Suggest she takes sick leave to think things over.",
+      "brief": "She has said she isn't unwell.",
+      "detailed": "Sick leave is for illness. Suggesting it here may not be appropriate, and it doesn't address the cause."
+    },
+    {
+      "id": "H",
+      "text": "Tell her about wellbeing support available to doctors.",
+      "brief": "She may not know what's available.",
+      "detailed": "Trust wellbeing services, peer support schemes and confidential services for doctors can help with isolation and low mood. Knowing about them gives her options."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you support a colleague who is struggling, respecting her confidence while helping her find support.",
+    "keyDetails": "She feels isolated and lacks feedback. She is considering leaving. She has asked for confidentiality. There is no immediate risk.",
+    "reasoning": "[C] listens, [D] points her to her supervisor, and [H] tells her about wider support. The distractors minimise ([A]), pressure ([B]), break confidence ([E]), help only socially ([F]), or misuse sick leave ([G]).",
+    "competing": "[F] is a genuinely kind option and could sit alongside the keyed actions. On its own, it doesn't address the lack of support at work."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 3, supporting colleagues who have problems."
+    },
+    {
+      "title": "NHS Practitioner Health",
+      "publisher": "NHS Practitioner Health",
+      "year": null,
+      "url": "https://www.practitionerhealth.nhs.uk/",
+      "note": "Confidential support for doctors."
+    }
+  ],
+  "tags": [
+    "colleague support",
+    "isolation",
+    "career",
+    "wellbeing"
+  ]
+}

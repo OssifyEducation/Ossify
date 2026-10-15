@@ -1,0 +1,85 @@
+{
+  "id": "sjt-303",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-303",
+  "format": "ranking",
+  "title": "No heartbeat",
+  "setting": "Obstetrics & gynaecology",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Breaking bad news and uncertainty",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Breaking bad news",
+    "Compassion",
+    "Privacy"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor in the early pregnancy unit. Ms Kowalski, 31, and her partner have come for her 12-week scan, bringing their two-year-old son. The sonographer has confirmed that there is no fetal heartbeat and that the pregnancy stopped developing at about nine weeks.\n\nThe couple can see from the sonographer's face that something is wrong. Their son is restless and starting to cry. You have been asked to talk to them.",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 5 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer a private room, with a nurse to look after their son.",
+      "brief": "A private, uninterrupted setting lets them hear and absorb the news.",
+      "detailed": "Bad news is easier to take in without distractions. Offering practical help with their son, and a private room, lets both parents focus. It ranks first because it sets up everything that follows."
+    },
+    {
+      "id": "B",
+      "text": "Give them written information about the options for managing a miscarriage.",
+      "brief": "Useful, but secondary to the conversation itself.",
+      "detailed": "They will need information about expectant, medical and surgical management, and written material helps. It ranks third because it should follow, not replace, a compassionate explanation."
+    },
+    {
+      "id": "C",
+      "text": "Ask them to come back tomorrow without their son to discuss the scan.",
+      "brief": "Leaves them knowing something is wrong, without an explanation.",
+      "detailed": "They have already sensed that something is wrong. Sending them home without an explanation would leave them anxious overnight."
+    },
+    {
+      "id": "D",
+      "text": "Explain clearly and gently that the baby has died.",
+      "brief": "Clear, compassionate language avoids confusion.",
+      "detailed": "Euphemisms can leave people unsure what has happened. Gentle but clear words, followed by time and silence, help them understand. It ranks second only because it works best in the right setting."
+    },
+    {
+      "id": "E",
+      "text": "Explain the findings in the waiting area so their son stays settled.",
+      "brief": "Too public for devastating news.",
+      "detailed": "Delivering this news in a public waiting area denies them privacy at a very painful moment. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "D",
+      "B",
+      "C",
+      "E"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you prepare for and deliver devastating news with compassion, including attending to practical barriers.",
+    "keyDetails": "The pregnancy has ended. They suspect something is wrong. Their toddler is with them and upset.",
+    "reasoning": "[A] creates the right setting, [D] gives the news clearly, and [B] provides information to follow. [C] leaves them in limbo, and [E] denies them privacy.",
+    "competing": "Some would put the explanation first, because they already suspect bad news. The key puts the setting first because a few minutes to arrange it lets both parents take in what you say."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, communicating sensitively and giving patients time."
+    }
+  ],
+  "tags": [
+    "miscarriage",
+    "bad news",
+    "obstetrics",
+    "privacy"
+  ]
+}

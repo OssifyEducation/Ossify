@@ -1,0 +1,86 @@
+{
+  "id": "sjt-319",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-319",
+  "format": "ranking",
+  "title": "The son wants the notes",
+  "setting": "Elderly care ward",
+  "attribute": "Professional integrity",
+  "topic": "Confidentiality and information sharing",
+  "gmcDomains": [
+    "Trust and professionalism",
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Confidentiality",
+    "Best interests",
+    "Communicating with relatives"
+  ],
+  "difficulty": "hard",
+  "stem": "You are an F2 doctor on an elderly care ward. Mr Kemp, 86, has advanced dementia and lacks capacity to make decisions about his care. He has no lasting power of attorney.\n\nHis son, who visits often, is unhappy with how his father fell last week. He demands to read his father's full medical notes on the ward computer \"right now\".",
+  "instruction": "Rank in order the following actions in response to this situation (1 = Most appropriate; 4 = Least appropriate).",
+  "options": [
+    {
+      "id": "A",
+      "text": "Offer to arrange a meeting with a senior to discuss his father's care and the fall.",
+      "brief": "Addresses his concerns properly, sharing what he needs to know.",
+      "detailed": "As someone close to Mr Kemp, the son can be told about his father's care where that is in Mr Kemp's best interests. A meeting with a senior addresses his concern about the fall properly. It ranks first."
+    },
+    {
+      "id": "B",
+      "text": "Tell him you can't discuss his father with him, as he has no lasting power of attorney.",
+      "brief": "Wrongly shuts out a relative whose involvement matters.",
+      "detailed": "Not having a lasting power of attorney doesn't mean he can't be told anything. Relatives of someone who lacks capacity should usually be consulted and kept informed. It ranks third."
+    },
+    {
+      "id": "C",
+      "text": "Explain how he can formally request access to the records.",
+      "brief": "Tells him the proper route for wider access.",
+      "detailed": "Access to a patient's full records by someone else needs proper authority and a formal request. Explaining this is honest and helpful, though it doesn't address his concern straight away. It ranks second."
+    },
+    {
+      "id": "D",
+      "text": "Let him read the notes on the ward computer.",
+      "brief": "Discloses the full record without authority.",
+      "detailed": "This would give him the entire record, including information unrelated to his concern, without any legal basis. It is the least appropriate option."
+    }
+  ],
+  "key": {
+    "order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests how you balance confidentiality with a relative's legitimate involvement when a patient lacks capacity.",
+    "keyDetails": "Mr Kemp lacks capacity. His son has no lasting power of attorney but is closely involved. He has a specific concern.",
+    "reasoning": "[A] addresses his concern appropriately, and [C] explains the route to fuller access. [B] wrongly excludes him, and [D] discloses without authority.",
+    "competing": "Some would rank refusing to discuss anything as the worst. The key ranks unrestricted access last because it is a full disclosure without any legal basis."
+  },
+  "references": [
+    {
+      "title": "Confidentiality: good practice in handling patient information",
+      "publisher": "General Medical Council",
+      "year": 2017,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality",
+      "note": "Sharing information with those close to a patient who lacks capacity."
+    },
+    {
+      "title": "Mental Capacity Act 2005, section 4 (best interests)",
+      "publisher": "UK Parliament (legislation.gov.uk)",
+      "year": 2005,
+      "url": "https://www.legislation.gov.uk/ukpga/2005/9/section/4",
+      "note": "Consulting those close to the person about their best interests."
+    }
+  ],
+  "tags": [
+    "confidentiality",
+    "relatives",
+    "dementia",
+    "records"
+  ]
+}

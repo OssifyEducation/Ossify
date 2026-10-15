@@ -1,0 +1,102 @@
+{
+  "id": "sjt-316",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-316",
+  "format": "multiple_choice",
+  "title": "Leaked questions",
+  "setting": "Non-clinical (teaching, audit, social)",
+  "attribute": "Professional integrity",
+  "topic": "Probity in training, research, audit and applications",
+  "gmcDomains": [
+    "Trust and professionalism"
+  ],
+  "competencies": [
+    "Honesty",
+    "Exam integrity",
+    "Professionalism"
+  ],
+  "difficulty": "moderate",
+  "stem": "You are an F2 doctor revising for a postgraduate exam that you sit next month. In your year group's chat, a colleague posts a document that he says contains questions remembered by candidates from last week's sitting.\n\nCandidates for this exam agree not to share its content. Several colleagues reply with thanks.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Download it but only use it to check your general knowledge.",
+      "brief": "Still using content you shouldn't have.",
+      "detailed": "However you use it, you would be benefiting from material shared in breach of the exam's rules."
+    },
+    {
+      "id": "B",
+      "text": "Forward it to friends sitting the exam at another trust.",
+      "brief": "Spreads the breach further.",
+      "detailed": "This makes the problem worse and involves you directly in sharing it."
+    },
+    {
+      "id": "C",
+      "text": "Don't open or use the document.",
+      "brief": "Using leaked exam content would be dishonest.",
+      "detailed": "Candidates agree not to share exam content. Using it to prepare would give you an unfair advantage and break the conditions of the exam."
+    },
+    {
+      "id": "D",
+      "text": "Reply in the group chat condemning the post.",
+      "brief": "Publicly shaming him isn't the most effective approach.",
+      "detailed": "Your concern is valid, but a public rebuke may cause conflict without getting the document removed. A private word is better first."
+    },
+    {
+      "id": "E",
+      "text": "Message him privately, asking him to delete it.",
+      "brief": "A direct, private word gives him the chance to put it right.",
+      "detailed": "He may not have thought about the consequences. A private message explaining that sharing exam content breaches the exam's rules, and asking him to remove it, is fair and may stop it spreading."
+    },
+    {
+      "id": "F",
+      "text": "Ask your educational supervisor whether to report it.",
+      "brief": "Helps you decide whether it needs to go further.",
+      "detailed": "Sharing exam content may need reporting to the exam body. Your supervisor can help you judge this, particularly if the document isn't removed."
+    },
+    {
+      "id": "G",
+      "text": "Report your colleague straight to the General Medical Council for this.",
+      "brief": "Disproportionate as a first step.",
+      "detailed": "Probity concerns can reach the regulator, but this should first be addressed directly and through educational routes."
+    },
+    {
+      "id": "H",
+      "text": "Leave the group chat so you aren't involved.",
+      "brief": "Protects you, but does nothing about the problem.",
+      "detailed": "Leaving avoids the issue rather than dealing with it, and others may still use the material."
+    }
+  ],
+  "key": {
+    "correct": [
+      "C",
+      "E",
+      "F"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests honesty in assessment and how you respond when colleagues share material they shouldn't.",
+    "keyDetails": "The document contains questions remembered from the exam. Candidates agree not to share them. Others are already using it.",
+    "reasoning": "[C] keeps your own preparation honest, [E] addresses it with your colleague, and [F] gets advice on reporting it. The distractors use it ([A]), spread it ([B]), shame him publicly ([D]), escalate disproportionately ([G]), or avoid it ([H]).",
+    "competing": "[D] is tempting because it is quick and principled. A private message is more likely to get the document removed without conflict."
+  },
+  "references": [
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 4, honesty in examinations and assessments."
+    }
+  ],
+  "tags": [
+    "exams",
+    "probity",
+    "group chat",
+    "honesty"
+  ]
+}

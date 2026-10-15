@@ -1,0 +1,109 @@
+{
+  "id": "sjt-312",
+  "version": 1,
+  "status": "draft-for-review",
+  "pool": "mock-3",
+  "blueprint": "sjt-312",
+  "format": "multiple_choice",
+  "title": "Her faith leader",
+  "setting": "Oncology & palliative care",
+  "attribute": "Empathy and sensitivity",
+  "topic": "Cultural, religious and language needs",
+  "gmcDomains": [
+    "Patients, partnership and communication"
+  ],
+  "competencies": [
+    "Respecting beliefs",
+    "Patient-centred care",
+    "Problem-solving"
+  ],
+  "difficulty": "easy",
+  "stem": "You are an F2 doctor on an oncology ward. Mrs Adeyemi, 66, is waiting for scan results that will show whether her cancer has responded to treatment. Your consultant has asked you to arrange a meeting so the results can be discussed this afternoon.\n\nMrs Adeyemi says she would like her pastor to be with her for the conversation. The only quiet room on the ward is booked all afternoon.",
+  "instruction": "Choose the 3 most appropriate actions to take in this situation.",
+  "selectCount": 3,
+  "options": [
+    {
+      "id": "A",
+      "text": "Tell her that her pastor is welcome to join the conversation.",
+      "brief": "Respects her wish for support from someone she trusts.",
+      "detailed": "Patients can choose who supports them in difficult conversations. Her pastor may be a vital source of comfort, and welcoming him respects her beliefs and her choice."
+    },
+    {
+      "id": "B",
+      "text": "Explain that results are only discussed with patients and family.",
+      "brief": "There is no such rule; she can choose who is present.",
+      "detailed": "Patients can have anyone they choose with them. Refusing her pastor would ignore her wishes."
+    },
+    {
+      "id": "C",
+      "text": "Discuss the results at her bedside, with the curtains drawn.",
+      "brief": "Curtains don't give privacy for such a sensitive conversation.",
+      "detailed": "Others in the bay can hear through curtains. Significant results deserve a private setting."
+    },
+    {
+      "id": "D",
+      "text": "Ask the nurse in charge to find another private room.",
+      "brief": "A private setting is needed, and there may be alternatives.",
+      "detailed": "A side room, a relatives' room or an office on a nearby ward may be available. Finding a private space means the conversation doesn't have to happen at the bedside."
+    },
+    {
+      "id": "E",
+      "text": "Offer the hospital chaplain instead of her pastor.",
+      "brief": "Kind, but it isn't what she asked for.",
+      "detailed": "The chaplaincy team can be a great support, but she has asked for her own pastor, who knows her."
+    },
+    {
+      "id": "F",
+      "text": "Postpone the results until next week, when the room is free.",
+      "brief": "An unnecessary delay to important news.",
+      "detailed": "She is waiting anxiously. A room booking isn't a good enough reason to make her wait another week."
+    },
+    {
+      "id": "G",
+      "text": "Suggest her pastor joins by phone to keep things simple.",
+      "brief": "Limits her support when he could be there in person.",
+      "detailed": "A phone call may be a fallback if he can't come, but she has asked for him to be present."
+    },
+    {
+      "id": "H",
+      "text": "Agree a time that suits her, her pastor and your consultant.",
+      "brief": "Makes sure the people she wants can be there.",
+      "detailed": "Arranging the meeting around her pastor's availability, as well as the consultant's, shows that her wishes are being taken seriously."
+    }
+  ],
+  "key": {
+    "correct": [
+      "A",
+      "D",
+      "H"
+    ]
+  },
+  "explanation": {
+    "issue": "This tests whether you accommodate a patient's wish for spiritual support during a difficult conversation, and solve the practical obstacles.",
+    "keyDetails": "She wants her pastor present. A private room is needed. The results are important and she is anxious.",
+    "reasoning": "[A] welcomes her pastor, [D] finds a private space, and [H] arranges a time that works. The distractors refuse her request ([B]), compromise privacy ([C]), substitute a different person ([E]), delay ([F]), or limit her support ([G]).",
+    "competing": "[E] is kind and may be useful later, but it isn't what she asked for."
+  },
+  "references": [
+    {
+      "title": "Personal beliefs and medical practice",
+      "publisher": "General Medical Council",
+      "year": 2013,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/personal-beliefs-and-medical-practice",
+      "note": "Respecting patients' beliefs and their choice of support."
+    },
+    {
+      "title": "Good medical practice",
+      "publisher": "General Medical Council",
+      "year": 2024,
+      "url": "https://www.gmc-uk.org/professional-standards/the-professional-standards/good-medical-practice",
+      "note": "Domain 2, giving patients the support they need to understand their care."
+    }
+  ],
+  "tags": [
+    "faith",
+    "bad news",
+    "oncology",
+    "privacy"
+  ]
+}
