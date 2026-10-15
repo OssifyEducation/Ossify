@@ -34,6 +34,30 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
 .mode-toggle{display:flex;background:var(--pu-pale);border-radius:8px;padding:3px;border:0.5px solid var(--lav-border);}
 .mode-btn{padding:5px 13px;border:none;border-radius:6px;font-size:12px;font-weight:500;font-family:var(--font-sans);cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;}
 .mode-btn.active{background:#fff;color:var(--pu-dark);box-shadow:0 1px 3px rgba(0,0,0,.08);}
+/* Mode is fixed once a set has started: finish, save for later or cancel to change it */
+.mode-toggle{align-items:center;}
+.mode-lock{display:none;width:13px;height:13px;margin:0 4px 0 6px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.mode-toggle.locked .mode-lock{display:block;}
+.mode-toggle.locked .mode-btn{cursor:not-allowed;}
+.mode-toggle.locked .mode-btn:not(.active){display:none;}
+.btn-cancel-set{display:none;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:0.5px solid var(--lav-border);border-radius:8px;color:var(--muted);font-size:12.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;transition:all .15s;}
+.btn-cancel-set:hover{border-color:var(--red-b);color:var(--red);}
+.btn-cancel-set svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.config-body.locked .filter-label{opacity:.5;}
+.start-btn:disabled{opacity:.45;cursor:not-allowed;}
+.start-btn:disabled:hover{background:var(--pu-mid);}
+.set-lock-note{display:none;margin-top:10px;font-size:11.5px;line-height:1.5;color:var(--muted);}
+.config-body.locked .set-lock-note{display:block;}
+.cancel-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(30,16,60,.45);}
+.cancel-overlay.visible{display:flex;}
+.cancel-card{width:100%;max-width:400px;padding:22px 22px 18px;border-radius:14px;background:#fff;border:0.5px solid var(--lav-border);box-shadow:0 18px 50px rgba(30,16,60,.25);}
+.cancel-card h2{margin:0 0 8px;font-size:17px;color:var(--ink);}
+.cancel-card p{margin:0 0 16px;font-size:13px;line-height:1.6;color:var(--muted);}
+.cancel-acts{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;}
+.cancel-acts button{padding:9px 14px;border-radius:9px;font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;}
+.cancel-keep{background:transparent;border:0.5px solid var(--lav-border);color:var(--ink);}
+.cancel-go{background:var(--red);border:0.5px solid var(--red);color:#fff;}
+html[data-theme="dark"] .cancel-card{background:#1d1630;}
 .btn-save-exit{display:none;align-items:center;gap:6px;padding:6px 14px;background:var(--pk-pale);border:0.5px solid var(--pk-border);border-radius:8px;color:var(--red);font-size:12.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;transition:all .15s;}
 .btn-save-exit:hover{background:#f9c0d4;}
 .btn-save-exit svg{width:13px;height:13px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
@@ -215,8 +239,8 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
   .q-grid{grid-template-columns:repeat(10,1fr);}
   .tb-r{gap:6px;min-width:0;}
   .session-meta,.xp-total{display:none!important;}
-  .btn-save-later,.btn-save-exit{padding:6px 9px!important;font-size:0!important;gap:0!important;}
-  .btn-save-later svg,.btn-save-exit svg{width:15px;height:15px;}
+  .btn-save-later,.btn-save-exit,.btn-cancel-set{padding:6px 9px!important;font-size:0!important;gap:0!important;}
+  .btn-save-later svg,.btn-save-exit svg,.btn-cancel-set svg{width:15px;height:15px;}
   .mode-btn{padding:5px 9px!important;font-size:11.5px!important;}
   .splash{padding:32px 18px!important;}
   .action-row{flex-wrap:wrap;}
@@ -284,9 +308,10 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
       <span class="session-meta" id="sessionMeta"></span>
       <span class="xp-total" id="xpTotal" style="display:none" title="Your total XP"></span>
       <span class="xp-chip" id="xpChip" aria-live="polite"></span>
-      <div class="mode-toggle">
-        <button class="mode-btn" id="examModeBtn" onclick="setMode('exam')">Topic Mode</button>
-        <button class="mode-btn active" id="tutorModeBtn" onclick="setMode('tutor')">Tutor Mode</button>
+      <div class="mode-toggle" id="modeToggle" role="group" aria-label="Question mode">
+        <svg class="mode-lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <button class="mode-btn" id="examModeBtn" onclick="setMode('exam')" aria-pressed="false">Topic Mode</button>
+        <button class="mode-btn active" id="tutorModeBtn" onclick="setMode('tutor')" aria-pressed="true">Tutor Mode</button>
       </div>
       <button class="btn-save-later" id="saveLaterBtn" onclick="saveForLater()">
         <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
@@ -295,6 +320,10 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
       <button class="btn-save-exit" id="saveExitBtn" onclick="saveAndExit()">
         <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
         Save &amp; exit
+      </button>
+      <button class="btn-cancel-set" id="cancelSetBtn" onclick="openCancelSet()" title="Cancel this set">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        Cancel set
       </button>
     </div>
   </div>
@@ -349,7 +378,8 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
           <option value="40">40 questions</option>
           <option value="0">All matching</option>
         </select>
-        <button class="start-btn" onclick="startSession()">Start session</button>
+        <button class="start-btn" id="startBtn" onclick="startSession()">Start session</button>
+        <p class="set-lock-note" id="setLockNote">A set is in progress. Finish it, save it for later or cancel it to change these settings or the mode.</p>
       </div>
       <div id="qNavWrap" style="display:none">
         <div class="q-nav-hdr"><div class="q-nav-title" id="navTitle">Questions</div></div>
@@ -376,6 +406,17 @@ body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display
         <p style="font-size:12.5px;margin-top:14px;">Preparing for Paper 1? <a href="sjt.html" style="color:var(--pu-mid);font-weight:600;text-decoration:none">Practise Professional Dilemmas →</a></p>
       </div>
     </main>
+  </div>
+</div>
+
+<div class="cancel-overlay" id="cancelOverlay" role="dialog" aria-modal="true" aria-labelledby="cancelTitle">
+  <div class="cancel-card">
+    <h2 id="cancelTitle">Cancel this set?</h2>
+    <p>The rest of this set will be discarded and you won't be able to resume it. Answers you've already confirmed still count towards your progress.</p>
+    <div class="cancel-acts">
+      <button class="cancel-keep" id="cancelKeepBtn" onclick="closeCancelSet()">Keep going</button>
+      <button class="cancel-go" onclick="cancelSet()">Cancel set</button>
+    </div>
   </div>
 </div>
 
@@ -414,6 +455,8 @@ let questions = [];        // current session question objects
 let answers = {};          // qid -> selected index (or null)
 let currentIdx = 0;
 let sessionActive = false;
+let sessionFinished = false;   // results shown: the set is complete and the mode can change again
+let currentSetId = null;       // ties a saved copy in localStorage to the set on screen
 let reviewMode = false;
 let pendingSelection = -1; // set by option click, read by submitAnswer    // true after result overlay opened
 
@@ -467,12 +510,73 @@ async function fetchQuestions(filters) {
 }
 
 // ── Mode ──
+// The mode is chosen before a set starts and stays fixed until the set is
+// finished, saved for later or cancelled.
+function setLocked() { return sessionActive && !sessionFinished; }
 function setMode(m) {
+  if (setLocked()) {
+    if (m !== mode) showToast('Finish, save or cancel this set to change mode.');
+    return;
+  }
   mode = m;
-  document.getElementById('examModeBtn').classList.toggle('active', m === 'exam');
-  document.getElementById('tutorModeBtn').classList.toggle('active', m === 'tutor');
-  pendingSelection = -1;
-  if (sessionActive) renderQuestion(currentIdx);
+  syncModeButtons();
+}
+function syncModeButtons() {
+  const ex = document.getElementById('examModeBtn'), tu = document.getElementById('tutorModeBtn');
+  ex.classList.toggle('active', mode === 'exam'); ex.setAttribute('aria-pressed', mode === 'exam');
+  tu.classList.toggle('active', mode === 'tutor'); tu.setAttribute('aria-pressed', mode === 'tutor');
+}
+function updateSetLock() {
+  const locked = setLocked();
+  const tog = document.getElementById('modeToggle');
+  tog.classList.toggle('locked', locked);
+  tog.title = locked ? `${mode === 'tutor' ? 'Tutor' : 'Topic'} Mode is fixed for this set. Finish, save for later or cancel the set to change it.` : '';
+  document.querySelectorAll('#modeToggle .mode-btn').forEach(b => { b.disabled = locked; });
+  const body = document.querySelector('.config-body');
+  if (body) body.classList.toggle('locked', locked);
+  document.getElementById('startBtn').disabled = locked;
+  document.getElementById('sourceFilter').disabled = locked;
+  document.getElementById('countFilter').disabled = locked;
+  if (locked) ['topicFilter', 'typeFilter', 'domainFilter'].forEach(id => { document.getElementById(id).disabled = true; });
+  else onSourceChange();
+  document.getElementById('cancelSetBtn').style.display = locked ? 'inline-flex' : 'none';
+}
+
+// ── Cancel set ──
+function openCancelSet() {
+  if (!setLocked()) return;
+  document.getElementById('cancelOverlay').classList.add('visible');
+  document.getElementById('cancelKeepBtn').focus();
+}
+function closeCancelSet() {
+  document.getElementById('cancelOverlay').classList.remove('visible');
+  const b = document.getElementById('cancelSetBtn'); if (b) b.focus();
+}
+function savedMatchesCurrentSet() {
+  try {
+    const s = JSON.parse(localStorage.getItem('ossify_saved_session') || 'null');
+    return !!(s && currentSetId && savedSetId(s) === currentSetId);
+  } catch (_) { return false; }
+}
+function savedSetId(s) { return s.setId || ('saved-' + s.savedAt); }
+function clearSavedIfCurrent() {
+  if (savedMatchesCurrentSet()) { try { localStorage.removeItem('ossify_saved_session'); } catch (_) {} }
+}
+async function cancelSet() {
+  document.getElementById('cancelOverlay').classList.remove('visible');
+  clearSavedIfCurrent();
+  flushAnswers();   // confirmed answers are already recorded; send any still queued
+  sessionActive = false; sessionFinished = false; reviewMode = false;
+  questions = []; answers = {}; currentIdx = 0; pendingSelection = -1; currentSetId = null;
+  showSaveExit(false);
+  document.getElementById('saveLaterBtn').style.display = 'none';
+  document.getElementById('qNavWrap').style.display = 'none';
+  document.getElementById('progressBar').style.width = '0%';
+  document.getElementById('sessionMeta').textContent = '';
+  document.getElementById('mainArea').innerHTML = SPLASH_HTML;
+  checkSavedSession();
+  updateSetLock();
+  showToast('Set cancelled.');
 }
 
 // ── Session start ──
@@ -557,7 +661,10 @@ async function startSession() {
     answers = {};
     currentIdx = 0;
     sessionActive = true;
+    sessionFinished = false;
+    currentSetId = 'set-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
     reviewMode = false;
+    updateSetLock();
     showSaveExit(true);
     const sl = document.getElementById('saveLaterBtn'); if(sl) sl.style.display='inline-flex';
 
@@ -657,6 +764,7 @@ function renderQuestion(i) {
     stemHtml = escapeHtml(q.stem);
   }
   html += `<div class="q-stem">${qNum}${stemHtml}</div>`;
+  if (showAnswers) html += stemLegendHtml(stemHtml);
 
   // Options
   html += `<div class="options-list" id="optionsList">`;
@@ -822,6 +930,9 @@ function showResult() {
   }
   showSaveExit(false);
   const _sl = document.getElementById('saveLaterBtn'); if(_sl) _sl.style.display='none';
+  sessionFinished = true;      // the set is complete: drop any saved copy and unlock the mode
+  clearSavedIfCurrent();
+  updateSetLock();
   document.getElementById('resultOverlay').classList.add('visible');
   // Save progress to Supabase (fire-and-forget, won't block UI)
   saveSessionProgress();
@@ -943,6 +1054,7 @@ function saveCurrentSession() {
   const state = {
     savedAt: new Date().toISOString(),
     questions, answers, currentIdx, mode,
+    setId: currentSetId,
     topic, type, domain,
     answeredCount: Object.keys(answers).filter(k => answers[k] !== null).length,
     totalCount: questions.length,
@@ -962,16 +1074,18 @@ async function resumeSession() {
     answers     = s.answers    || {};
     currentIdx  = s.currentIdx || 0;
     mode        = s.mode       || 'tutor';
+    currentSetId = savedSetId(s);
     reviewMode = false;
     progressSaved = false;
     sessionActive = true;
+    sessionFinished = false;
     sessionStartTime = Date.now();
     // Restore filter UI
     if (s.topic)  document.getElementById('topicFilter').value  = s.topic;
     if (s.type)   document.getElementById('typeFilter').value   = s.type;
     if (s.domain) document.getElementById('domainFilter').value = s.domain;
-    document.getElementById('tutorModeBtn').classList.toggle('active', mode === 'tutor');
-    document.getElementById('examModeBtn').classList.toggle('active', mode === 'exam');
+    syncModeButtons();
+    updateSetLock();
     showSaveExit(true);
     document.getElementById('saveLaterBtn').style.display = 'inline-flex';
     renderNav();
@@ -1015,9 +1129,11 @@ function showToast(msg) {
 }
 
 // Check for saved session on page load
-(function checkSavedSession() {
-  const raw = localStorage.getItem('ossify_saved_session');
-  if (!raw) return;
+function checkSavedSession() {
+  const banner0 = document.getElementById('resumeBanner');
+  let raw = null;
+  try { raw = localStorage.getItem('ossify_saved_session'); } catch (_) {}
+  if (!raw) { if (banner0) banner0.style.display = 'none'; return; }
   try {
     const s = JSON.parse(raw);
     const banner = document.getElementById('resumeBanner');
@@ -1029,8 +1145,10 @@ function showToast(msg) {
     const when  = new Date(s.savedAt).toLocaleDateString('en-GB', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
     desc.textContent = `${topic} · ${ans}/${total} answered · saved ${when}`;
     banner.style.display = 'flex';
-  } catch(e) { localStorage.removeItem('ossify_saved_session'); }
-})();
+  } catch(e) { try { localStorage.removeItem('ossify_saved_session'); } catch (_) {} }
+}
+const SPLASH_HTML = document.getElementById('mainArea').innerHTML;
+checkSavedSession();
 
 
 // Stem annotation tooltips: js/ossify-tutor.js
@@ -1041,6 +1159,10 @@ function showToast(msg) {
 // ── Keyboard navigation ──
 document.addEventListener('keydown', e => {
   if (!sessionActive) return;
+  if (document.getElementById('cancelOverlay').classList.contains('visible')) {
+    if (e.key === 'Escape') closeCancelSet();
+    return;
+  }
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
   if (e.shiftKey || e.metaKey || e.ctrlKey || e.altKey) return;   // Shift+D toggles the theme
 
@@ -1050,7 +1172,6 @@ document.addEventListener('keydown', e => {
 
   if (e.key === 'ArrowRight' && answered) { nextQuestion(); return; }
   if (e.key === 'ArrowLeft')              { prevQuestion(); return; }
-  if (e.key.toLowerCase() === 't')        { setMode(mode === 'exam' ? 'tutor' : 'exam'); return; }
 
   if (!answered) {
     const map = {a:0,b:1,c:2,d:3,e:4,f:5,g:6,h:7,i:8,j:9};
@@ -1080,7 +1201,7 @@ document.addEventListener('keydown', e => {
 // Letters choose answers while a session is on screen, so global "g" jumps pause.
 window.OSSIFY_LETTER_KEYS = () => sessionActive;
 window.OSSIFY_PAGE_SHORTCUTS = [['A','Choose an answer (A–J)'], ['Enter','Confirm answer, then go to the next question'],
-  ['←','Previous question'], ['→','Next question (after answering)'], ['T','Switch Tutor Mode / Topic Mode']];
+  ['←','Previous question'], ['→','Next question (after answering)']];
 
 // ── Deep links: practice.html?source=weak|revision ──
 (function () {
