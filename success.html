@@ -48,7 +48,8 @@ p{font-size:15px;color:var(--moss);line-height:1.7;margin-bottom:10px;}
     <h1>You're in. Thank you!</h1>
     <p>Your payment went through and your Ossify access is active. A receipt has been emailed to you by Stripe.</p>
     <div class="until">Access until<strong id="untilDate"></strong></div>
-    <div><a class="btn" href="dashboard.html">Go to my dashboard</a></div>
+    <p id="redirectNote" style="font-size:13.5px;margin-bottom:14px;">Taking you to your dashboard in <span id="count">5</span>…</p>
+    <div><a class="btn" href="dashboard.html">Go to my dashboard now</a></div>
   </section>
 
   <!-- Took longer than expected -->
@@ -89,6 +90,13 @@ async function init(){
     if(ossifyHasAccess(profile)&&exp&&(prev===null||new Date(exp).getTime()!==new Date(prev||0).getTime())){
       document.getElementById('untilDate').textContent=ossifyFormatDate(profile.subscription_expires_at);
       show('done');
+      // Take them to their dashboard after a few seconds (the button above works straight away).
+      let left=5;
+      const timer=setInterval(function(){
+        left--;
+        if(left<=0){clearInterval(timer);window.location.href='dashboard.html';return;}
+        document.getElementById('count').textContent=left;
+      },1000);
       return;
     }
     await new Promise(r=>setTimeout(r,2000));
