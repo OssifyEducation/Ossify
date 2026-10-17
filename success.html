@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment received — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-pay.js"></script>
+<style>
+:root{
+  --pu-dark:#3d1f7a; --pu-mid:#7c5cbf; --pu-light:#a78bfa; --pu-pale:#ede9fe; --pu-ultra:#f5f0ff;
+  --lav:#f0eaff; --lav-border:rgba(180,150,220,0.2); --ink:#3d1f7a; --moss:#7b6fa0; --muted:#9b88c0;
+  --font-serif:'Fraunces',Georgia,serif; --font-sans:'Inter',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);-webkit-font-smoothing:antialiased;min-height:100vh;}
+nav{background:rgba(255,255,255,0.85);border-bottom:0.5px solid var(--lav-border);padding:0 24px;height:62px;display:flex;align-items:center;}
+main{max-width:520px;margin:0 auto;padding:64px 24px;text-align:center;}
+.tick{width:64px;height:64px;border-radius:50%;background:var(--pu-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;}
+.tick svg{width:30px;height:30px;fill:none;stroke:var(--pu-mid);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+h1{font-family:var(--font-serif);font-size:32px;font-weight:500;color:var(--pu-dark);margin-bottom:12px;line-height:1.2;}
+p{font-size:15px;color:var(--moss);line-height:1.7;margin-bottom:10px;}
+.until{display:inline-block;margin:6px 0 22px;background:#fff;border:1px solid var(--lav-border);border-radius:12px;padding:14px 22px;font-size:14px;color:var(--moss);}
+.until strong{display:block;font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--pu-dark);margin-top:2px;}
+.btn{display:inline-block;background:var(--pu-mid);color:#fff;border-radius:10px;padding:12px 26px;font-size:14px;font-weight:500;text-decoration:none;margin:4px;}
+.btn:hover{background:var(--pu-dark);}
+.btn.ghost{background:none;color:var(--moss);border:1px solid var(--lav-border);}
+.spinner{width:34px;height:34px;border:3px solid var(--pu-pale);border-top-color:var(--pu-mid);border-radius:50%;animation:spin 0.9s linear infinite;margin:0 auto 22px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media (prefers-reduced-motion:reduce){.spinner{animation:none;}}
+[hidden]{display:none !important;}
+</style>
+</head>
+<body>
+<nav><a href="index.html" style="font-family:var(--font-serif);font-size:20px;color:var(--pu-dark);text-decoration:none;">Ossify</a></nav>
+<main>
+  <!-- Waiting for the payment to be confirmed (usually a few seconds) -->
+  <section id="waiting">
+    <div class="spinner" role="status" aria-label="Confirming your payment"></div>
+    <h1>Confirming your payment…</h1>
+    <p>This usually takes a few seconds. Please don't close this page.</p>
+  </section>
+
+  <!-- Access is on -->
+  <section id="done" hidden>
+    <div class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h1>You're in. Thank you!</h1>
+    <p>Your payment went through and your Ossify access is active. A receipt has been emailed to you by Stripe.</p>
+    <div class="until">Access until<strong id="untilDate"></strong></div>
+    <div><a class="btn" href="dashboard.html">Go to my dashboard</a></div>
+  </section>
+
+  <!-- Took longer than expected -->
+  <section id="slow" hidden>
+    <div class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h1>Payment received</h1>
+    <p>Your access is taking a little longer than usual to switch on. Please check your dashboard in a minute or two.</p>
+    <p>If it still hasn't appeared, email <a href="mailto:info@ossify.co.uk" style="color:var(--pu-mid);">info@ossify.co.uk</a> with the email address you paid with and we'll sort it straight away.</p>
+    <div><a class="btn" href="dashboard.html">Go to my dashboard</a></div>
+  </section>
+
+  <!-- Not signed in on this device -->
+  <section id="signin" hidden>
+    <h1>Payment received</h1>
+    <p>Log in to Ossify to see your access. If you paid with a different email address from your Ossify account, email <a href="mailto:info@ossify.co.uk" style="color:var(--pu-mid);">info@ossify.co.uk</a> and we'll link it.</p>
+    <div><a class="btn" href="login.html">Log in</a></div>
+  </section>
+</main>
+<script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+function show(id){
+  ['waiting','done','slow','signin'].forEach(s=>{document.getElementById(s).hidden=(s!==id);});
+}
+
+// The webhook can arrive a few seconds after Stripe sends the user back, so check every 2s for up to 30s.
+async function init(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){show('signin');return;}
+  let prev=null;
+  try{prev=sessionStorage.getItem('ossify_prev_expiry');}catch(e){}
+  for(let i=0;i<15;i++){
+    const{data:profile}=await sb.from('profiles').select('subscription_status,subscription_plan,subscription_expires_at').eq('id',session.user.id).single();
+    // A payment always sets a new end date, so compare with the one saved before checkout.
+    const exp=profile&&profile.subscription_expires_at;
+    if(ossifyHasAccess(profile)&&exp&&(prev===null||new Date(exp).getTime()!==new Date(prev||0).getTime())){
+      document.getElementById('untilDate').textContent=ossifyFormatDate(profile.subscription_expires_at);
+      show('done');
+      return;
+    }
+    await new Promise(r=>setTimeout(r,2000));
+  }
+  show('slow');
+}
+init();
+</script>
+</body>
+</html>

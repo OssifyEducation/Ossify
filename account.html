@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
+<script src="js/ossify-pay.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 
@@ -244,7 +245,7 @@ async function init(){
   document.getElementById('fRole').value=profile?.role||'';
   document.getElementById('fHospital').value=profile?.hospital_trust||'';
   // Subscription
-  const isPaid=profile?.plan&&profile.plan!=='free';
+  const isPaid=ossifyHasAccess(profile);
   renderSubscription(isPaid, profile);
 }
 
@@ -283,14 +284,40 @@ async function updatePassword(){
   else{alertEl.textContent='Password updated successfully.';alertEl.className='acc-alert ok show';document.getElementById('fNewPw').value='';document.getElementById('fConfirmPw').value='';setTimeout(()=>alertEl.classList.remove('show'),3000);}
 }
 
+function planCardsHtml(){
+  return `<div class="pricing-cards">
+      <div class="mini-plan">
+        <div class="mini-plan-name">3 months</div>
+        <div class="mini-plan-price">£20</div>
+        <div class="mini-plan-period">one-time payment</div>
+        <a href="pricing.html" class="mini-plan-btn" onclick="ossifyBuy('3month',sb);return false;">Get access</a>
+      </div>
+      <div class="mini-plan featured">
+        <div class="mini-plan-name">6 months</div>
+        <div class="mini-plan-price">£25</div>
+        <div class="mini-plan-period">one-time payment</div>
+        <a href="pricing.html" class="mini-plan-btn" onclick="ossifyBuy('6month',sb);return false;">Get access</a>
+      </div>
+      <div class="mini-plan">
+        <div class="mini-plan-name">1 year</div>
+        <div class="mini-plan-price">£40</div>
+        <div class="mini-plan-period">one-time payment</div>
+        <a href="pricing.html" class="mini-plan-btn" onclick="ossifyBuy('12month',sb);return false;">Get access</a>
+      </div>
+    </div>`;
+}
+
 function renderSubscription(isPaid, profile){
   const container=document.getElementById('subContent');
+  const until=ossifyFormatDate(profile?.subscription_expires_at);
+  const lapsed=!isPaid&&profile?.subscription_status==='active'&&profile?.subscription_expires_at;
   if(isPaid){
+    const label=OSSIFY_PLAN_LABELS[profile.subscription_plan]||'';
     container.innerHTML=`
     <div class="plan-card paid">
-      <div class="plan-badge paid">Active plan</div>
-      <div class="plan-name paid">Ossify ${profile.plan||'Pro'}</div>
-      <div class="plan-desc paid">Full access to all questions, features, and revision modes.</div>
+      <div class="plan-badge paid">Active</div>
+      <div class="plan-name paid">Ossify access${label?' · '+label:''}</div>
+      <div class="plan-desc paid">${until?'Access until <strong>'+until+'</strong>. ':''}Nothing renews automatically.</div>
       <ul class="plan-features paid">
         <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1,200+ expert questions</li>
         <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>All revision modes</li>
@@ -298,14 +325,15 @@ function renderSubscription(isPaid, profile){
         <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Head-to-head duels</li>
         <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>AI tutor &amp; spaced repetition</li>
       </ul>
-      <div class="plan-actions"><button class="btn-upgrade-ghost">Manage plan</button></div>
-    </div>`;
+    </div>
+    <div class="acc-section-sub" style="margin-top:18px;">Need more time? Extra time is added to the end of your current access, so you never lose any.</div>
+    ${planCardsHtml()}`;
   } else {
     container.innerHTML=`
     <div class="plan-card free">
-      <div class="plan-badge free">Free account</div>
-      <div class="plan-name">No active subscription</div>
-      <div class="plan-desc">Upgrade to unlock all 1,200+ questions and features.</div>
+      <div class="plan-badge free">${lapsed?'Access ended':'Free account'}</div>
+      <div class="plan-name">${lapsed?'Your access ended on '+until:'No active subscription'}</div>
+      <div class="plan-desc">${lapsed?'Your progress is saved. Get more time to pick up where you left off.':'Upgrade to unlock all 1,200+ questions and features.'}</div>
       <ul class="plan-features" style="margin-top:12px;">
         <li class="locked"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>1,200+ expert questions</li>
         <li class="locked"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Weekly challenge &amp; leaderboard</li>
@@ -313,26 +341,7 @@ function renderSubscription(isPaid, profile){
         <li class="locked"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>AI tutor &amp; spaced repetition</li>
       </ul>
     </div>
-    <div class="pricing-cards">
-      <div class="mini-plan">
-        <div class="mini-plan-name">3 months</div>
-        <div class="mini-plan-price">£20</div>
-        <div class="mini-plan-period">one-time payment</div>
-        <a href="pricing.html?plan=3month" class="mini-plan-btn">Get access</a>
-      </div>
-      <div class="mini-plan featured">
-        <div class="mini-plan-name">6 months</div>
-        <div class="mini-plan-price">£35</div>
-        <div class="mini-plan-period">one-time payment</div>
-        <a href="pricing.html?plan=6month" class="mini-plan-btn">Get access</a>
-      </div>
-      <div class="mini-plan">
-        <div class="mini-plan-name">12 months</div>
-        <div class="mini-plan-price">£55</div>
-        <div class="mini-plan-period">one-time payment</div>
-        <a href="pricing.html?plan=1year" class="mini-plan-btn">Get access</a>
-      </div>
-    </div>`;
+    ${planCardsHtml()}`;
   }
 }
 

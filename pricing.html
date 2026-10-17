@@ -139,7 +139,7 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
       <div class="price-amount"><span class="price-currency">£</span><span class="price-number">20</span></div>
       <div class="price-period">3 months access</div>
       <ul class="price-features"><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Full question bank — 1,200+ questions</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓All 12 CPS clinical topic areas</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Professional Dilemmas paper</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓All 4 revision modes</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Performance dashboard</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Deep clinical explanations</li></ul>
-      <a href="login.html" class="price-btn price-btn-outline">Get started</a>
+      <a href="login.html" class="price-btn price-btn-outline" data-plan="3month">Get 3 months</a>
     </div>
     <div class="price-card featured">
       <div class="price-badge">Most popular</div>
@@ -148,7 +148,7 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
       <div class="price-amount"><span class="price-currency">£</span><span class="price-number">25</span></div>
       <div class="price-period">6 months access</div>
       <ul class="price-features"><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Everything in 3-month plan</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓More time to space your revision</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Ideal for interleaving strategy</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Revisit weak areas multiple times</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Run multiple timed mock exams</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Full spaced repetition cycle</li></ul>
-      <a href="login.html" class="price-btn price-btn-primary">Get started</a>
+      <a href="login.html" class="price-btn price-btn-primary" data-plan="6month">Get 6 months</a>
     </div>
     <div class="price-card">
       
@@ -157,7 +157,7 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
       <div class="price-amount"><span class="price-currency">£</span><span class="price-number">40</span></div>
       <div class="price-period">12 months access</div>
       <ul class="price-features"><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Everything in 6-month plan</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Full year of revision access</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Prepare across multiple sittings</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓Maximum spaced repetition benefit</li><li><span class="pf-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>✓New question content as added</li></ul>
-      <a href="login.html" class="price-btn price-btn-outline">Get started</a>
+      <a href="login.html" class="price-btn price-btn-outline" data-plan="12month">Get 1 year</a>
     </div>
   </div>
 </section>
@@ -180,5 +180,16 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
   </div>
   <div class="f-copy">© 2026 Ossify. All rights reserved.</div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-pay.js"></script>
+<script>
+const SUPABASE_URL='https://judtpdikbidvccclftvq.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1ZHRwZGlrYmlkdmNjY2xmdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1NTQ2NDMsImV4cCI6MjA5MTEzMDY0M30.GyS7rKKWnmXf5fbqrdSkuszrZ31xOqY5Will3C2J0WA';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+// Each plan button sends logged-in users to Stripe checkout (logged-out visitors sign up first).
+document.querySelectorAll('[data-plan]').forEach(function(a){
+  a.addEventListener('click',function(e){e.preventDefault();ossifyBuy(a.getAttribute('data-plan'),sb);});
+});
+</script>
 </body>
 </html>
