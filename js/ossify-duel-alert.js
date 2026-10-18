@@ -80,6 +80,9 @@
     ".dz-snd{position:absolute;top:12px;right:12px;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#e9e2ff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;}" +
     ".dz-snd:hover{background:rgba(255,255,255,.14);}.dz-snd svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}" +
     ".dz-snd:focus-visible{outline:3px solid #c4b5fd;outline-offset:2px;}" +
+    ".dz-snd.dz-need{width:auto;gap:6px;padding:0 12px 0 10px;border-radius:17px;font:600 12px var(--font-sans,'Inter',system-ui,sans-serif);color:#2a1200;" +
+      "background:linear-gradient(180deg,#fde68a,#f59e0b);border-color:transparent;animation:dzNeed 1.4s ease-in-out infinite;}" +
+    "@keyframes dzNeed{0%,100%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}50%{box-shadow:0 0 0 8px rgba(251,191,36,0)}}" +
     ".dz-accept:focus-visible,.dz-later:focus-visible{outline:3px solid #c4b5fd;outline-offset:2px;}" +
     "@keyframes dzFade{from{opacity:0}to{opacity:1}}" +
     "@keyframes dzFadeOut{to{opacity:0}}" +
@@ -212,7 +215,7 @@
     function fin(ok) { if (!done) { done = true; if (cb) cb(ok); } }
     if (!c || !soundOn()) return fin(false);
     if (c.state === "running") return fin(clash(fromHit));
-    c.resume().then(function () { fin(clash(fromHit)); }, function () { fin(false); });
+    c.resume().then(function () { if (!done) fin(clash(fromHit)); }, function () { fin(false); });   // late unlock must not replay a stale attempt
     setTimeout(function () { fin(false); }, 300);
   }
   ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
@@ -265,16 +268,22 @@
     played = false;
     unlock();
     loadClash();
+    function after(ok) { played = played || ok; if (!played && soundOn()) needTap(ov); }
     setTimeout(function () {
       if (played) return;
-      if (clashBuf) clashWhenReady(function (ok) { played = played || ok; }, false);
-      else setTimeout(function () { if (!played) clashWhenReady(function (ok) { played = played || ok; }, true); }, 500);
+      if (clashBuf) clashWhenReady(after, false);
+      else setTimeout(function () { if (!played) clashWhenReady(after, true); }, 500);
     }, 90);
 
     ov.addEventListener("click", function (e) {
       var act = e.target.closest && e.target.closest("[data-dz]");
       if (!act) return;
       var kind = act.getAttribute("data-dz");
+      if (kind === "sound" && act.classList.contains("dz-need")) {   // blocked earlier: this tap unlocks and plays it
+        act.classList.remove("dz-need"); act.innerHTML = SPK_ON; act.setAttribute("aria-label", "Mute sound");
+        clashWhenReady(function (ok) { played = played || ok; }, true);
+        return;
+      }
       if (kind === "sound") {
         var on = !soundOn(); setSound(on);
         act.innerHTML = on ? SPK_ON : SPK_OFF;
@@ -307,6 +316,15 @@
     setTimeout(function () { var a = ov.querySelector(".dz-accept"); if (a) a.focus({ preventScroll: true }); }, 50);
 
     if (document.hidden) flashTitle(rows.length);
+  }
+
+  // Browser blocked sound (no click on this page yet): turn the speaker into a pulsing "Tap for sound" button.
+  function needTap(ov) {
+    var b = ov.querySelector(".dz-snd");
+    if (!b || !ov.parentNode) return;
+    b.classList.add("dz-need");
+    b.innerHTML = SPK_ON + "<span>Tap for sound</span>";
+    b.setAttribute("aria-label", "Play sound");
   }
 
   function ack() {
