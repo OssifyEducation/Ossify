@@ -50,14 +50,14 @@
     ".dz-card::before{content:'';position:absolute;inset:-60%;" +
       "background:conic-gradient(from 0deg,transparent 0 20%,rgba(244,114,182,.18) 25%,transparent 30% 55%,rgba(167,139,250,.2) 60%,transparent 65%);" +
       "animation:dzSpin 9s linear infinite;pointer-events:none;}" +
-    ".dz-stage{position:relative;width:190px;height:190px;margin:4px auto -6px;}" +
+    ".dz-stage{position:relative;width:190px;height:190px;margin:4px auto -6px;perspective:520px;transform-style:preserve-3d;}" +
     ".dz-stage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}" +
     ".dz-glow{position:absolute;inset:30px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.55),rgba(244,114,182,.25) 45%,transparent 70%);" +
       "opacity:0;animation:dzGlow .9s ease .55s forwards,dzPulse 2.2s ease-in-out 1.5s infinite;}" +
     ".dz-ring{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:3px solid rgba(253,224,71,.9);" +
       "opacity:0;animation:dzRing .7s ease-out .58s forwards;}" +
-    ".dz-swA{animation:dzSwA .6s cubic-bezier(.3,1.5,.5,1) .1s both;}" +
-    ".dz-swB{animation:dzSwB .6s cubic-bezier(.3,1.5,.5,1) .1s both;}" +
+    ".dz-swA{animation:dzSwA .72s cubic-bezier(.25,.9,.35,1) .05s both;backface-visibility:visible;}" +
+    ".dz-swB{animation:dzSwB .72s cubic-bezier(.25,.9,.35,1) .05s both;backface-visibility:visible;}" +
     ".dz-sparks{opacity:0;animation:dzSpark .6s ease-out .6s forwards;transform-origin:50% 50%;}" +
     ".dz-glint{animation:dzGlint 2.8s ease-in-out 1.4s infinite;}" +
     ".dz-eyebrow{position:relative;display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;" +
@@ -77,14 +77,17 @@
     ".dz-accept:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(245,158,11,.55),inset 0 1px 0 rgba(255,255,255,.6);}" +
     ".dz-later{background:transparent;border:1px solid rgba(255,255,255,.22);color:#e9e2ff;border-radius:12px;padding:11px 18px;font:500 13.5px var(--font-sans,'Inter',system-ui,sans-serif);cursor:pointer;}" +
     ".dz-later:hover{background:rgba(255,255,255,.08);}" +
+    ".dz-snd{position:absolute;top:12px;right:12px;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#e9e2ff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;}" +
+    ".dz-snd:hover{background:rgba(255,255,255,.14);}.dz-snd svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}" +
+    ".dz-snd:focus-visible{outline:3px solid #c4b5fd;outline-offset:2px;}" +
     ".dz-accept:focus-visible,.dz-later:focus-visible{outline:3px solid #c4b5fd;outline-offset:2px;}" +
     "@keyframes dzFade{from{opacity:0}to{opacity:1}}" +
     "@keyframes dzFadeOut{to{opacity:0}}" +
     "@keyframes dzPop{from{opacity:0;transform:scale(.7) translateY(30px)}to{opacity:1;transform:none}}" +
     "@keyframes dzShake{0%,100%{transform:none}20%{transform:translateX(-7px) rotate(-1deg)}40%{transform:translateX(6px) rotate(1deg)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}" +
     "@keyframes dzSpin{to{transform:rotate(360deg)}}" +
-    "@keyframes dzSwA{from{opacity:0;transform:translate(-120px,30px) rotate(-60deg)}to{opacity:1;transform:none}}" +
-    "@keyframes dzSwB{from{opacity:0;transform:translate(120px,30px) rotate(60deg)}to{opacity:1;transform:none}}" +
+    "@keyframes dzSwA{0%{opacity:0;transform:translate3d(-110px,30px,-320px) rotateY(80deg) rotateZ(-55deg)}45%{opacity:1}75%{transform:translate3d(0,0,90px) rotateY(-10deg) rotateZ(4deg) scale(1.14)}100%{opacity:1;transform:none}}" +
+    "@keyframes dzSwB{0%{opacity:0;transform:translate3d(110px,30px,-320px) rotateY(-80deg) rotateZ(55deg)}45%{opacity:1}75%{transform:translate3d(0,0,90px) rotateY(10deg) rotateZ(-4deg) scale(1.14)}100%{opacity:1;transform:none}}" +
     "@keyframes dzSpark{0%{opacity:1;transform:scale(.3)}60%{opacity:1}100%{opacity:0;transform:scale(1.35)}}" +
     "@keyframes dzRing{0%{opacity:1;transform:scale(.4)}100%{opacity:0;transform:scale(4.5)}}" +
     "@keyframes dzGlow{to{opacity:1}}" +
@@ -138,6 +141,66 @@
       '<circle cx="0" cy="0" r="7" fill="#fff"/></svg>';
   }
 
+  // ── Sound: a metallic clash synthesised with Web Audio (no file to download) ──
+  // Browsers only allow sound after the person has clicked or tapped on the page,
+  // so the audio is unlocked on the first interaction. If the alert arrives before
+  // any interaction, the clash plays when they press "Start the duel" instead.
+  var actx = null, played = false, SOUND_KEY = "ossify_duel_sound";
+  function soundOn() { try { return localStorage.getItem(SOUND_KEY) !== "off"; } catch (e) { return true; } }
+  function setSound(on) { try { localStorage.setItem(SOUND_KEY, on ? "on" : "off"); } catch (e) {} }
+  function ctx() {
+    if (actx) return actx;
+    var C = window.AudioContext || window.webkitAudioContext;
+    if (!C) return null;
+    try { actx = new C(); } catch (e) { actx = null; }
+    return actx;
+  }
+  function unlock() { var c = ctx(); if (c && c.state === "suspended") c.resume().catch(function () {}); }
+  function clash() {
+    var c = ctx();
+    if (!c || c.state !== "running" || !soundOn()) return false;
+    var t = c.currentTime + 0.01;
+    var out = c.createGain(); out.gain.value = 0.32;
+    var comp = c.createDynamicsCompressor(); out.connect(comp); comp.connect(c.destination);
+    // Two blades = two slightly offset, slightly detuned sets of inharmonic partials
+    [[0, 1], [0.012, 1.018]].forEach(function (hit) {
+      [[1870, 0.9, 1.3], [2790, 0.65, 1.0], [3640, 0.5, 0.85], [4980, 0.35, 0.6], [6510, 0.25, 0.45], [8120, 0.15, 0.3]].forEach(function (pt) {
+        var o = c.createOscillator(), g = c.createGain();
+        o.type = "sine"; o.frequency.value = pt[0] * hit[1];
+        g.gain.setValueAtTime(0.0001, t + hit[0]);
+        g.gain.exponentialRampToValueAtTime(pt[1] * 0.28, t + hit[0] + 0.004);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + hit[0] + pt[2]);
+        o.connect(g); g.connect(out); o.start(t + hit[0]); o.stop(t + hit[0] + pt[2] + 0.05);
+      });
+    });
+    // Bright scrape of the impact
+    var len = Math.floor(c.sampleRate * 0.14), buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+    for (var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.5);
+    var n = c.createBufferSource(), hp = c.createBiquadFilter(), ng = c.createGain();
+    n.buffer = buf; hp.type = "highpass"; hp.frequency.value = 2600; ng.gain.value = 0.55;
+    n.connect(hp); hp.connect(ng); ng.connect(out); n.start(t);
+    // Low thud so it has weight
+    var th = c.createOscillator(), tg = c.createGain();
+    th.type = "triangle"; th.frequency.setValueAtTime(220, t); th.frequency.exponentialRampToValueAtTime(90, t + 0.09);
+    tg.gain.setValueAtTime(0.5, t); tg.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+    th.connect(tg); tg.connect(out); th.start(t); th.stop(t + 0.15);
+    return true;
+  }
+  // Play once the audio context is running; give up after 300 ms (e.g. still blocked).
+  function clashWhenReady(cb) {
+    var c = ctx(), done = false;
+    function fin(ok) { if (!done) { done = true; if (cb) cb(ok); } }
+    if (!c || !soundOn()) return fin(false);
+    if (c.state === "running") return fin(clash());
+    c.resume().then(function () { fin(clash()); }, function () { fin(false); });
+    setTimeout(function () { fin(false); }, 300);
+  }
+  ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+    document.addEventListener(ev, unlock, { capture: true, passive: true });
+  });
+  var SPK_ON = '<svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+  var SPK_OFF = '<svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>';
+
   // ── Render ────────────────────────────────────────────────────────────────
   function show(rows) {
     injectCss();
@@ -165,6 +228,7 @@
     ov.className = "dz-overlay";
     ov.innerHTML =
       '<div class="dz-card" role="alertdialog" aria-modal="true" aria-labelledby="dzTitle" aria-describedby="dzBody">' +
+        '<button class="dz-snd" type="button" data-dz="sound" aria-label="' + (soundOn() ? "Mute sound" : "Turn sound on") + '">' + (soundOn() ? SPK_ON : SPK_OFF) + "</button>" +
         '<div class="dz-stage" aria-hidden="true">' +
           '<div class="dz-glow"></div><div class="dz-ring"></div>' +
           sword("dzA", 42, "dz-swA") + sword("dzB", -42, "dz-swB") + sparks() +
@@ -178,14 +242,30 @@
         "</div>" +
       "</div>";
     document.body.appendChild(ov);
+    played = false;
+    unlock();
+    setTimeout(function () { if (!played) clashWhenReady(function (ok) { played = played || ok; }); }, 580);
 
     ov.addEventListener("click", function (e) {
       var act = e.target.closest && e.target.closest("[data-dz]");
       if (!act) return;
-      if (act.getAttribute("data-dz") === "accept") {
+      var kind = act.getAttribute("data-dz");
+      if (kind === "sound") {
+        var on = !soundOn(); setSound(on);
+        act.innerHTML = on ? SPK_ON : SPK_OFF;
+        act.setAttribute("aria-label", on ? "Mute sound" : "Turn sound on");
+        if (on) clashWhenReady();
+        return;
+      }
+      if (kind === "accept") {
         e.preventDefault();
         var go = act.getAttribute("href");
-        ack().then(function () { location.href = go; });
+        var acked = ack();
+        if (played) { acked.then(function () { location.href = go; }); return; }
+        clashWhenReady(function (ok) {   // sound was blocked earlier: play it now, on the click
+          played = ok;
+          acked.then(function () { setTimeout(function () { location.href = go; }, ok ? 380 : 0); });
+        });
       } else {
         close();
       }
