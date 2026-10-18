@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
+<script src="js/ossify-duel-alert.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 
@@ -227,6 +228,8 @@ async function init(){
   const{data:{session}}=await sb.auth.getSession();
   if(!session){window.location.href='login.html';return;}
   const user=session.user;
+  // Head-to-Head "Challenge requested" alert (live while here; otherwise on next visit)
+  if(window.OssifyDuelAlert)OssifyDuelAlert.start(sb,user.id);
   const meta=user.user_metadata||{};
   // Prefer stored surname; fall back to last word of full_name for legacy accounts
   const surname=meta.surname||(meta.full_name?.trim().split(' ').slice(-1)[0])||'';
