@@ -146,6 +146,18 @@
   // so the audio is unlocked on the first interaction. If the alert arrives before
   // any interaction, the clash plays when they press "Start the duel" instead.
   var actx = null, played = false, SOUND_KEY = "ossify_duel_sound";
+  // Recorded clash (CC0 sword recording by StarNinjas, opengameart.org/users/starninjas,
+  // layered with a low boom, blade ring, whoosh and hall echo). The hit is 0.5 s into the file.
+  var CLASH_URL = "assets/sfx/duel-clash.mp3", CLASH_HIT = 0.5, clashBuf = null, loading = null;
+  function loadClash() {
+    var c = ctx();
+    if (!c || clashBuf || loading || !window.fetch) return;
+    loading = fetch(CLASH_URL).then(function (res) { if (!res.ok) throw new Error(res.status); return res.arrayBuffer(); })
+      .then(function (ab) {
+        return new Promise(function (ok, bad) { var pr = c.decodeAudioData(ab, ok, bad); if (pr && pr.then) pr.then(ok, bad); });
+      })
+      .then(function (b) { clashBuf = b; }, function () { loading = null; });
+  }
   function soundOn() { try { return localStorage.getItem(SOUND_KEY) !== "off"; } catch (e) { return true; } }
   function setSound(on) { try { localStorage.setItem(SOUND_KEY, on ? "on" : "off"); } catch (e) {} }
   function ctx() {
@@ -156,9 +168,17 @@
     return actx;
   }
   function unlock() { var c = ctx(); if (c && c.state === "suspended") c.resume().catch(function () {}); }
-  function clash() {
+  function clash(fromHit) {
     var c = ctx();
     if (!c || c.state !== "running" || !soundOn()) return false;
+    if (clashBuf) {
+      var src = c.createBufferSource(), g = c.createGain();
+      src.buffer = clashBuf; g.gain.value = 0.9;
+      src.connect(g); g.connect(c.destination);
+      src.start(c.currentTime + 0.005, fromHit ? Math.max(0, CLASH_HIT - 0.02) : 0);
+      return true;
+    }
+    if (!fromHit) return false;   // synthesised fallback has no whoosh, so only use it at the moment of impact
     var t = c.currentTime + 0.01;
     var out = c.createGain(); out.gain.value = 0.32;
     var comp = c.createDynamicsCompressor(); out.connect(comp); comp.connect(c.destination);
@@ -187,12 +207,12 @@
     return true;
   }
   // Play once the audio context is running; give up after 300 ms (e.g. still blocked).
-  function clashWhenReady(cb) {
+  function clashWhenReady(cb, fromHit) {
     var c = ctx(), done = false;
     function fin(ok) { if (!done) { done = true; if (cb) cb(ok); } }
     if (!c || !soundOn()) return fin(false);
-    if (c.state === "running") return fin(clash());
-    c.resume().then(function () { fin(clash()); }, function () { fin(false); });
+    if (c.state === "running") return fin(clash(fromHit));
+    c.resume().then(function () { fin(clash(fromHit)); }, function () { fin(false); });
     setTimeout(function () { fin(false); }, 300);
   }
   ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
@@ -244,7 +264,12 @@
     document.body.appendChild(ov);
     played = false;
     unlock();
-    setTimeout(function () { if (!played) clashWhenReady(function (ok) { played = played || ok; }); }, 580);
+    loadClash();
+    setTimeout(function () {
+      if (played) return;
+      if (clashBuf) clashWhenReady(function (ok) { played = played || ok; }, false);
+      else setTimeout(function () { if (!played) clashWhenReady(function (ok) { played = played || ok; }, true); }, 500);
+    }, 90);
 
     ov.addEventListener("click", function (e) {
       var act = e.target.closest && e.target.closest("[data-dz]");
@@ -254,7 +279,7 @@
         var on = !soundOn(); setSound(on);
         act.innerHTML = on ? SPK_ON : SPK_OFF;
         act.setAttribute("aria-label", on ? "Mute sound" : "Turn sound on");
-        if (on) clashWhenReady();
+        if (on) clashWhenReady(null, true);
         return;
       }
       if (kind === "accept") {
@@ -262,10 +287,10 @@
         var go = act.getAttribute("href");
         var acked = ack();
         if (played) { acked.then(function () { location.href = go; }); return; }
-        clashWhenReady(function (ok) {   // sound was blocked earlier: play it now, on the click
+        clashWhenReady(function (ok) {   // sound was blocked earlier: play the impact now, on the click
           played = ok;
-          acked.then(function () { setTimeout(function () { location.href = go; }, ok ? 380 : 0); });
-        });
+          acked.then(function () { setTimeout(function () { location.href = go; }, ok ? 650 : 0); });
+        }, true);
       } else {
         close();
       }
@@ -331,6 +356,7 @@
   function start(client, userId) {
     if (!client || !userId || sb) return;
     sb = client; uid = userId;
+    loadClash();
     check();
     try {
       chan = sb.channel("duel-alert-" + uid)
