@@ -23,7 +23,7 @@
     });
   }
   function nameOf(r) {
-    if (r.challenger_name) return r.challenger_name;
+    if (r.challenger_name) return /^dr\.?\s/i.test(r.challenger_name) ? r.challenger_name : "Dr " + r.challenger_name;
     if (r.challenger_user) return "@" + r.challenger_user;
     return "A colleague";
   }
@@ -148,16 +148,16 @@
     var many = rows.length > 1;
     var body, time = "";
     if (many) {
-      body = '<p class="dz-body"><strong>' + rows.length + " colleagues</strong> have challenged you to a Head-to-Head duel.</p>" +
+      body = '<p class="dz-body"><strong>' + rows.length + " colleagues</strong> have challenged you to a head-to-head duel.</p>" +
         '<ul class="dz-list">' + rows.slice(0, 4).map(function (r) {
           var t = timeLeft(r.expires_at);
           return "<li><strong>" + esc(nameOf(r)) + "</strong>" + (t ? "<span>" + esc(t) + " left</span>" : "") + "</li>";
         }).join("") + (rows.length > 4 ? "<li>+ " + (rows.length - 4) + " more</li>" : "") + "</ul>";
-      time = '<p class="dz-time">They’ve each played their 10 questions. Your move.</p>';
+      time = '<p class="dz-time">They’ve each played their 10 questions, now it’s your move!</p>';
     } else {
       var t = timeLeft(rows[0].expires_at);
-      body = '<p class="dz-body"><strong>' + esc(nameOf(rows[0])) + "</strong> has challenged you to a Head-to-Head duel. " +
-        "They’ve played their 10 questions — now it’s your turn to beat them.</p>";
+      body = '<p class="dz-body"><strong>' + esc(nameOf(rows[0])) + "</strong> has challenged you to a head-to-head duel. " +
+        "They’ve already played their 10 questions. Do you accept the challenge?</p>";
       time = '<p class="dz-time">' + (t ? "You have " + esc(t) + " to reply." : "Reply soon before it expires.") + "</p>";
     }
 
@@ -169,11 +169,11 @@
           '<div class="dz-glow"></div><div class="dz-ring"></div>' +
           sword("dzA", 42, "dz-swA") + sword("dzB", -42, "dz-swB") + sparks() +
         "</div>" +
-        '<div class="dz-eyebrow">⚔ Head-to-Head</div>' +
+        '<div class="dz-eyebrow">Head-to-Head</div>' +
         '<h2 class="dz-title" id="dzTitle">Challenge requested!</h2>' +
         '<div id="dzBody">' + body + time + "</div>" +
         '<div class="dz-actions">' +
-          '<a class="dz-accept" href="duel.html" data-dz="accept">Accept the challenge →</a>' +
+          '<a class="dz-accept" href="' + (many ? "duel.html" : "duel.html?play=" + encodeURIComponent(rows[0].duel_id)) + '" data-dz="accept">Start the duel →</a>' +
           '<button class="dz-later" type="button" data-dz="later">Not now</button>' +
         "</div>" +
       "</div>";
@@ -184,7 +184,8 @@
       if (!act) return;
       if (act.getAttribute("data-dz") === "accept") {
         e.preventDefault();
-        ack().then(function () { location.href = "duel.html"; });
+        var go = act.getAttribute("href");
+        ack().then(function () { location.href = go; });
       } else {
         close();
       }

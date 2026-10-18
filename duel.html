@@ -263,6 +263,9 @@ async function init(){
   renderUsernameNudge();
   await loadDuels();
   subscribeRealtime();
+  // "Start the duel" from the dashboard alert opens straight into that duel
+  const playId=new URLSearchParams(location.search).get('play');
+  if(playId){history.replaceState(null,'','duel.html');startTurn(playId);}
 }
 
 function renderGate(){
