@@ -1,12 +1,12 @@
 // Ossify — keyboard shortcuts on every app page.
 //   ?        show / hide this help
 //   Shift+D  switch light / dark mode
-//   g then d / p / e / l / a   go to Dashboard / Practice / Timed Exam / Leaderboard / My profile
+//   g then d / p / e / l / a   go to Dashboard / Clinical Problem Solving / Timed Exam / Leaderboard / My profile
 // "g" jumps are off while a question is on screen (letters choose answers there):
 // pages set window.OSSIFY_LETTER_KEYS = () => true while that is the case.
 // Pages add their own entries via window.OSSIFY_PAGE_SHORTCUTS = [[keys, description], …].
 (function () {
-  var GO = { d: ['dashboard.html', 'Dashboard'], p: ['practice.html', 'Practice'], e: ['exam.html', 'Timed Exam'],
+  var GO = { d: ['dashboard.html', 'Dashboard'], p: ['practice.html', 'Clinical Problem Solving'], e: ['exam.html', 'Timed Exam'],
              l: ['leaderboard.html', 'Leaderboard'], a: ['account.html', 'My profile'] };
   var gPending = false, gTimer = null, lastFocus = null;
   function typing(t) { return t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)); }

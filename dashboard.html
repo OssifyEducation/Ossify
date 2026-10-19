@@ -109,6 +109,18 @@
 .st-key span{display:flex;align-items:center;gap:6px;}
 .st-key i{width:12px;height:12px;border-radius:3px;border:0.5px solid var(--lav-border);display:inline-block;}
 .st-key i.st-early{background:var(--lav-card);}
+.pd-tile{display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:center;padding:16px 18px;margin-bottom:18px;}
+.pd-head{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.pd-bars{display:flex;flex-direction:column;gap:12px;min-width:0;}
+.pd-row{display:flex;flex-direction:column;gap:2px;}
+.pd-lbl{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--muted);}
+.pd-lbl b{color:var(--pu-dark);font-weight:600;font-variant-numeric:tabular-nums;}
+.pd-row .st-cov{height:6px;margin-top:3px;}
+.pd-ratio{display:flex;height:6px;border-radius:6px;overflow:hidden;background:rgba(61,31,122,.08);margin:3px 0 2px;}
+.pd-ok{background:#22a06b;}
+.pd-bad{background:#e0679b;}
+html[data-theme="dark"] .pd-lbl b{color:#ede9fe;}
+@media (max-width:640px){.pd-tile{grid-template-columns:1fr;gap:12px;}}
 @media (prefers-reduced-motion:reduce){.ring-arc,.st-tile{transition:none;}}
 </style>
 <link rel="stylesheet" href="css/ossify-dark.css">
@@ -123,7 +135,7 @@
   </div>
   <div class="sb-sec">
     <div class="sb-lbl">Revision</div>
-    <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Practice</a>
+    <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Clinical Problem Solving</a>
     <a class="nv" href="sjt.html"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg>Professional Dilemmas</a>
     <a class="nv" href="exam.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
     <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
@@ -350,7 +362,9 @@ document.getElementById('mainContent').innerHTML=`
   </div>
   ${txCard}
   ${renderInsights(ins, {answered, correct, accuracy})}
+  <div id="pdProgress"></div>
 `
+  loadPdProgress();
   if(window.OssifyWeeklyAlert)OssifyWeeklyAlert.strip(sb,document.getElementById('wkStrip'));
 }
 
@@ -396,6 +410,34 @@ function trendSvg(daily){
   const yr=pts.length?[0,50,100].map(v=>`<text x="${W-P.r+6}" y="${(ya(v)+3).toFixed(1)}" class="ax ax-acc">${v}%</text>`).join(''):'';
   const xl=[0,Math.floor(n/2),n-1].map(i=>`<text x="${(P.l+i*bw+bw/2).toFixed(1)}" y="${H-6}" text-anchor="middle" class="ax">${escD(fmtDay(daily[i].day,true))}</text>`).join('');
   return `<svg viewBox="0 0 ${W} ${H}" class="trend-svg" preserveAspectRatio="none" aria-hidden="true"><line x1="${P.l}" x2="${W-P.r}" y1="${H-P.b}" y2="${H-P.b}" stroke="var(--lav-border)"/>${bars}${line}${dots}${ticks}${yr}${xl}</svg>`;
+}
+// ── Professional Dilemmas progress: one bar for the whole practice bank ──
+// "Correct" is the share of available marks scored (ranking questions give
+// partial credit for near misses), banded like the specialty tiles.
+async function loadPdProgress(){
+  const el=document.getElementById('pdProgress'); if(!el) return;
+  let p=null;
+  try{ const{data,error}=await sb.rpc('get_sjt_practice_progress'); if(!error) p=data; }catch(e){}
+  if(!p||!el.isConnected){ el.innerHTML=''; return; }
+  const total=Number(p.bank_total)||0, n=Number(p.answered)||0, m=Number(p.marks)||0, mx=Number(p.max_marks)||0;
+  const pct=mx?Math.round(m/mx*100):null;
+  const b=band({attempted:n, correct:pct===null?0:pct/100*n});
+  const cov=total?Math.min(100,Math.round(n/total*100)):0;
+  el.innerHTML=`<div class="sec-row"><div class="sec-h">Professional Dilemmas</div><a href="sjt.html" class="sec-a">Practise Professional Dilemmas →</a></div>
+    <a class="pd-tile st-tile st-${b.key}" href="sjt.html" aria-label="Professional Dilemmas: ${n} of ${total} practice questions answered${pct!==null?', '+pct+'% correct, '+(100-pct)+'% incorrect':''}">
+      <div class="pd-head">
+        <span class="st-name">Practice questions</span>
+        <span class="st-acc">${pct===null?'—':pct+'%'}${pct!==null&&n<MIN_FOR_ACC?'<small>*</small>':''}</span>
+        <span class="st-band">${b.label}</span>
+      </div>
+      <div class="pd-bars">
+        <div class="pd-row"><div class="pd-lbl"><span>Questions answered</span><b>${n} / ${total}</b></div>
+          <span class="st-cov" aria-hidden="true"><span style="width:${cov}%"></span></span></div>
+        <div class="pd-row"><div class="pd-lbl"><span>Correct vs incorrect</span><b>${pct===null?'Not started':pct+'% / '+(100-pct)+'%'}</b></div>
+          <span class="pd-ratio" aria-hidden="true">${pct===null?'':`<span class="pd-ok" style="width:${pct}%"></span><span class="pd-bad" style="width:${100-pct}%"></span>`}</span>
+          <span class="st-meta">${pct===null?'Answer a practice question to see your split.':'Share of the available marks you scored. Ranking questions give credit for near misses.'}</span></div>
+      </div>
+    </a>`;
 }
 function fmtDay(iso,short){const d=new Date(iso+'T00:00:00Z');return d.toLocaleDateString('en-GB',short?{day:'numeric',month:'short',timeZone:'UTC'}:{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});}
 function renderInsights(ins, fallback){

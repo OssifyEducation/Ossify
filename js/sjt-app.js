@@ -107,6 +107,18 @@
     updateSummary();
   }
 
+  // Save the answer for the dashboard's Professional Dilemmas progress bar.
+  // The server marks it again with the same rules; a failure never interrupts practice.
+  function recordAnswer(id, response) {
+    var sb = window.sb;
+    if (!sb || !LOADED || window.OSSIFY_SJT_QUESTIONS) return;
+    try {
+      sb.rpc("record_sjt_practice_answer", { p_item: id, p_response: response.slice() })
+        .then(function (r) { if (r && r.error && window.console) console.warn("Could not save PD progress:", r.error.message); },
+              function () {});
+    } catch (e) {}
+  }
+
   // ── Session lifecycle ───────────────────────────────────────────────────
   function startSession() {
     if (!LOADED) return;
@@ -293,6 +305,7 @@
     S.results[q.id] = SJT.scoreResponse(q, draft);
     S.results[q.id].submittedAt = Date.now();
     save(); render();
+    recordAnswer(q.id, draft);
     var r = S.results[q.id];
     announce(showMarks() ? "Submitted. " + r.marks + " of " + r.max + " marks." : "Answer saved.");
     if (showMarks()) { var rv = document.querySelector(".review"); if (rv) rv.scrollIntoView({ behavior: "smooth", block: "start" }); }
