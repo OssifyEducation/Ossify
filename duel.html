@@ -96,6 +96,19 @@
 .nudge-row input:focus{border-color:var(--pu-mid);}
 .nudge-msg{flex-basis:100%;font-size:12px;}
 .nudge-msg.err{color:var(--red);}
+
+/* Head-to-Head answer options: tinted so they stand out from the card */
+.dq-opt{display:flex;align-items:flex-start;gap:13px;width:100%;padding:13px 16px;background:#f6f1ff;border:1px solid #dccdf6;border-radius:10px;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:14px;line-height:1.55;color:var(--pu-dark);transition:background .15s,border-color .15s,box-shadow .15s;}
+.dq-opt:hover{background:#eee5ff;border-color:var(--pu-light);}
+.dq-opt:focus-visible{outline:2px solid var(--pu-mid);outline-offset:2px;}
+.dq-opt.on{background:var(--pu-pale);border-color:var(--pu-mid);box-shadow:0 0 0 1px var(--pu-mid);}
+.dq-ltr{font-size:11.5px;font-weight:700;color:var(--pu-mid);background:#fff;border:1px solid #dccdf6;border-radius:6px;min-width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.dq-opt.on .dq-ltr{background:var(--pu-mid);border-color:var(--pu-mid);color:#fff;}
+html[data-theme="dark"] .dq-opt{background:rgba(167,139,250,.09);border-color:rgba(167,139,250,.3);color:#ede9fe;}
+html[data-theme="dark"] .dq-opt:hover{background:rgba(167,139,250,.15);border-color:var(--pu-light);}
+html[data-theme="dark"] .dq-opt.on{background:rgba(167,139,250,.22);border-color:var(--pu-light);box-shadow:0 0 0 1px var(--pu-light);}
+html[data-theme="dark"] .dq-ltr{background:transparent;border-color:rgba(167,139,250,.35);color:#c4b5fd;}
+html[data-theme="dark"] .dq-opt.on .dq-ltr{background:var(--pu-light);border-color:var(--pu-light);color:#1d1630;}
 </style>
 <link rel="stylesheet" href="css/ossify-dark.css">
 </head>
@@ -404,8 +417,8 @@ function renderDuelQ(idx){
         <div style="font-size:15px;line-height:1.72;color:var(--ink);margin-bottom:20px;">${esc(q.stem)}</div>
         <div id="duelOpts" style="display:flex;flex-direction:column;gap:7px;margin-bottom:18px;">
           ${(q.options||[]).map((opt,i)=>`
-            <button onclick="duelSelect(${i})" data-idx="${i}" style="display:flex;align-items:flex-start;gap:13px;width:100%;padding:13px 16px;background:#fff;border:1px solid var(--lav-border);border-radius:10px;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:13.5px;color:var(--ink);transition:all .15s;">
-              <span style="font-size:11.5px;font-weight:700;color:var(--pu-mid);background:var(--pu-pale);border-radius:6px;min-width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">${LETTERS[i]}</span>
+            <button type="button" class="dq-opt" onclick="duelSelect(${i})" data-idx="${i}">
+              <span class="dq-ltr">${LETTERS[i]}</span>
               <span>${esc(opt)}</span>
             </button>`).join('')}
         </div>
@@ -420,11 +433,8 @@ function renderDuelQ(idx){
 
 function duelSelect(idx){
   duelPending=idx;
-  document.querySelectorAll('#duelOpts button').forEach((btn,i)=>{
-    const l=btn.querySelector('span'); const on=i===idx;
-    btn.style.borderColor=on?'var(--pu-mid)':'var(--lav-border)';
-    btn.style.background=on?'var(--pu-ultra)':'#fff';
-    if(l){l.style.background=on?'var(--pu-mid)':'var(--pu-pale)';l.style.color=on?'#fff':'var(--pu-mid)';}
+  document.querySelectorAll('#duelOpts .dq-opt').forEach((btn,i)=>{
+    btn.classList.toggle('on',i===idx); btn.setAttribute('aria-pressed',String(i===idx));
   });
   const sub=document.getElementById('duelSubmit');
   if(sub){sub.disabled=false;sub.style.opacity='1';}
