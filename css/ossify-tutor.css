@@ -126,6 +126,12 @@
 /* Clue expanded detail */
 .clue-det-tp, .dist-det-tp{display:none;font-size:12.5px;color:var(--muted);line-height:1.65;padding:6px 12px 10px;border-top:0.5px solid var(--lav-border);}
 .clue-det-tp.open, .dist-det-tp.open{display:block;}
+/* js/ossify-tutor.js (tpClueRowHtml) outputs these class names. Without these rules the
+   clue/distractor explanations were always open and unstyled. Rows open on click (.open). */
+.clue-tag-tp.tag-tp-clue{background:#fef3c7;color:#854d0e;border:0.5px solid #fcd34d;}
+.clue-tag-tp.tag-tp-dist{background:#dbeafe;color:#1e40af;border:0.5px solid #93c5fd;}
+.clue-detail-tp{display:none;font-size:12.5px;color:var(--muted);line-height:1.65;padding:4px 12px 10px 12px;margin:0 0 4px;}
+.clue-row-tp.open + .clue-detail-tp{display:block;}
 
 /* Splash icon (JS generates splash-icon, CSS has splash-ico) */
 .splash-icon{font-size:42px;margin-bottom:16px;}

@@ -72,6 +72,8 @@ BTS = British Thoracic Society. (optional preamble line)
 
 **Tooltip:** Global `<div id="stemTip">` at bottom of body, `position:fixed`. Positioned by JS `mousemove` handler to follow cursor and flip if near viewport edge. **Never CSS-only `position:absolute`** (gets clipped by card boundaries).
 
+**Clue/distractor panel rows** (below the answers): `tpClueRowHtml()` outputs `.clue-row-tp` + `.clue-detail-tp` with tags `.tag-tp-clue` (yellow) / `.tag-tp-dist` (blue). Explanations are hidden until the row is clicked (`.clue-row-tp.open + .clue-detail-tp`). Styled in `css/ossify-tutor.css` (fixed 19 Oct 2026; before that the class names didn't match and every explanation showed open and unstyled).
+
 **`.stem-tip` spans** inside highlighted elements hold the tooltip text but are `display:none !important` — their text is read by JS, never rendered inline.
 
 ---
