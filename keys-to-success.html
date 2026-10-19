@@ -96,10 +96,25 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
 .ks-section{margin-bottom:20px;padding-left:72px;}
 .ks-section-lbl{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:8px;}
 .ks-section p{font-size:15px;color:var(--moss);line-height:1.85;}
+.kts-bullets{list-style:none;padding:0;margin:2px 0 0;display:flex;flex-direction:column;gap:9px;}
+.kts-bullets li{position:relative;padding-left:20px;font-size:14px;line-height:1.7;color:var(--moss);}
+.kts-bullets li::before{content:"";position:absolute;left:4px;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--pu-light);}
+.kts-bullets li strong{color:var(--pu-dark);font-weight:600;}
 .ks-tip{background:var(--pu-pale);border-left:3px solid var(--pu-mid);padding:14px 18px;border-radius:0 10px 10px 0;margin-left:72px;margin-top:6px;}
 .ks-tip-label{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--pu-mid);margin-bottom:6px;}
 .ks-tip p{font-size:13.5px;color:var(--pu-dark);line-height:1.65;}
 
+@media (max-width:640px){
+  .kts-nav{padding:10px 18px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
+  .kts-nav::-webkit-scrollbar{display:none;}
+  .kts-nav a{white-space:nowrap;flex-shrink:0;}
+  .kts-body{padding:8px 18px 32px;}
+  .ks-block{padding:32px 0;}
+  .ks-section{padding-left:0;}
+  .ks-tip{margin-left:0;}
+  .ks-section p{font-size:14.5px;line-height:1.75;}
+}
+@media (max-width:760px){.n-links{display:none!important;}.n-auth a{white-space:nowrap;}}
 </style>
 </head>
 <body>
@@ -251,10 +266,10 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
     <div class="ks-section">
       <div class="ks-section-lbl">Practical strategies</div>
         <ul class="kts-bullets">
-          <li>Brief daily mindfulness or breathing practice. Even five minutes of diaphragmatic breathing reduces cortisol measurably.</li>
-          <li>Maintain physical exercise throughout your preparation period. The evidence for its positive effects on memory consolidation and anxiety reduction is robust.</li>
-          <li>Maintain social connection. Isolation during revision is a risk factor for anxiety, not a sign of commitment and will make this time period harder.</li>
-          <li>Reframe exam anxiety as excitement. Research shows that reappraising anxiety as excitement, rather than trying to suppress it, improves performance on cognitively demanding tasks.</li>
+          <li><strong>Brief daily mindfulness or breathing practice.</strong> Even five minutes of diaphragmatic breathing reduces cortisol measurably.</li>
+          <li><strong>Maintain physical exercise throughout your preparation period.</strong> The evidence for its positive effects on memory consolidation and anxiety reduction is robust.</li>
+          <li><strong>Maintain social connection.</strong> Isolation during revision is a risk factor for anxiety, not a sign of commitment and will make this time period harder.</li>
+          <li><strong>Reframe exam anxiety as excitement.</strong> Research shows that reappraising anxiety as excitement, rather than trying to suppress it, improves performance on cognitively demanding tasks.</li>
         </ul>
     </div>
     <div class="ks-tip"><div class="ks-tip-label">Quick tip</div><p>Before your exam, try the simple reframe: "I am excited." It sounds trivial, but it may just make the difference.</p></div>
