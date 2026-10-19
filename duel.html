@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
+<script src="js/ossify-duel-alert.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 
@@ -261,6 +262,7 @@ async function init(){
   hasAccess=access===true;
   if(!hasAccess){renderGate();return;}
   renderUsernameNudge();
+  if(window.OssifyDuelAlert)OssifyDuelAlert.preload();   // ready the clash sound for "Send challenge"
   await loadDuels();
   subscribeRealtime();
   // "Start the duel" from the dashboard alert opens straight into that duel
@@ -342,6 +344,7 @@ function selectUser(i){
 // ── Send challenge → challenger plays first ──────────────────────────────────
 async function sendChallenge(){
   if(!selectedUser)return;
+  if(window.OssifyDuelAlert)OssifyDuelAlert.clash();   // sword clash as the challenge is sent
   const btn=document.getElementById('challengeBtn');
   btn.textContent='Setting up…'; btn.disabled=true; showErr('');
   const{data:duelId,error}=await sb.rpc('create_duel',{p_opponent:selectedUser.id});
