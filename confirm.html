@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Confirming your account — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--ink:#0a0f1a;--slate:#4a5568;--muted:#718096;--border:rgba(10,15,26,0.09);--surface:#fff;--surface2:#f8f9fc;--gold:#7c5cbf;--gold2:#a78bfa;--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--rose:#c0392b;--font-d:'Fraunces',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--r:14px;--r-sm:9px;--shadow:0 4px 20px rgba(0,0,0,0.08);}
+:root{--ink:#3d1f7a;--slate:#6f6395;--muted:#765ea6;--border:rgba(180,150,220,0.28);--surface:#fff;--surface2:#f0eaff;--gold:#7c5cbf;--gold2:#a78bfa;--gold-glow:rgba(184,134,11,0.18);--teal:#0d7377;--rose:#c0392b;--font-d:'Fraunces',Georgia,serif;--font-b:'Inter',system-ui,sans-serif;--r:14px;--r-sm:9px;--shadow:0 18px 40px -24px rgba(61,31,122,.45);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;}
 body{background:var(--surface2);font-family:var(--font-b);font-size:15px;color:var(--ink);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 800px 600px at 30% 20%,rgba(184,134,11,0.05) 0%,transparent 70%),radial-gradient(ellipse 600px 500px at 80% 80%,rgba(13,115,119,0.04) 0%,transparent 70%);pointer-events:none;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 800px 600px at 30% 20%,rgba(167,139,250,0.18) 0%,transparent 70%),radial-gradient(ellipse 600px 500px at 80% 80%,rgba(244,114,182,0.08) 0%,transparent 70%);pointer-events:none;}
 
 .wrap{width:100%;max-width:480px;position:relative;z-index:1;text-align:center;}
 
-.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:36px;}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:28px;}
+.logo svg{display:block;}
 .logo-mark{width:38px;height:38px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;font-weight:700;}
 .logo-name{font-family:var(--font-d);font-size:24px;font-weight:600;color:var(--ink);}
 
@@ -39,8 +40,8 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .success-name{font-weight:600;color:#7c5cbf;}
 
 .btn{display:inline-flex;align-items:center;gap:7px;padding:13px 30px;border-radius:7px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;}
-.btn-dark{background:var(--ink);color:#fff;}
-.btn-dark:hover{background:#1a2235;transform:translateY(-1px);box-shadow:var(--shadow);}
+.btn-dark{background:#7c5cbf;color:#fff;}
+.btn-dark:hover{background:#3d1f7a;transform:translateY(-1px);box-shadow:var(--shadow);}
 
 .divider{height:1px;background:var(--border);margin:24px 0;}
 
@@ -64,10 +65,18 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 <body>
 <div class="wrap">
 
-  <a href="index.html" class="logo">
-    <div class="confirm-logo"><svg width="110" height="52" viewBox="0 0 110 52" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="-1,10 10,5 21,10 10,15" fill="rgba(255,255,255,0.75)"/><line x1="21" y1="10" x2="21" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="21" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text></svg></div>
+  <a href="index.html" class="logo"><svg width="110" height="52" viewBox="0 0 110 52" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ossify"><polygon points="-1,10 10,5 21,10 10,15" fill="#7c5cbf"/><line x1="21" y1="10" x2="21" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/><circle cx="21" cy="19.5" r="2" fill="#f472b6"/><text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#3d1f7a">Ossify</text></svg></a>
 
-    <!-- SUCCESS STATE -->
+  <div class="card">
+
+    <!-- LOADING STATE -->
+    <div class="state active" id="stateLoading">
+      <div class="spinner"></div>
+      <div class="loading-title">Confirming your account…</div>
+      <div class="loading-sub">This only takes a moment.</div>
+    </div>
+
+<!-- SUCCESS STATE -->
     <div class="state" id="stateSuccess">
       <div class="success-ico">✅</div>
       <div class="success-title">You're confirmed, <span class="success-name" id="successName">Doctor</span>.</div>

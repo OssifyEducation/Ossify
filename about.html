@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Ossify</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <style>
 
 :root{
@@ -96,6 +96,21 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
 .team-sec blockquote{font-family:var(--font-serif);font-size:clamp(20px,2.5vw,28px);font-style:italic;color:rgba(255,255,255,0.6);max-width:660px;margin:0 auto 20px;line-height:1.5;position:relative;}
 .team-sec p{font-size:15px;color:rgba(255,255,255,0.35);max-width:540px;margin:0 auto 10px;line-height:1.7;position:relative;}
 
+@media (max-width:760px){
+  .n-links{display:none!important;}
+  .n-auth a{white-space:nowrap;}
+  nav{padding-left:16px!important;padding-right:16px!important;gap:10px;}
+  .n-login,.n-signup{padding:8px 12px!important;font-size:13px!important;}
+  .page-hero{padding:52px 20px 44px;}
+  .page-hero p{font-size:15px;}
+  footer{padding:32px 20px;}
+  .about-body-sec{padding:40px 20px;}
+  .values-sec{padding:44px 20px;}
+  .values-grid{grid-template-columns:1fr;gap:12px;margin-top:24px;}
+  .val-card{padding:20px;}
+  .team-sec{padding:48px 20px;}
+  .team-orb{width:280px;height:280px;}
+}
 </style>
 </head>
 <body>

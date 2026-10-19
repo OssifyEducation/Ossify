@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MSRA FAQ — Ossify</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <style>
 
 :root{
@@ -106,6 +106,22 @@ footer{background:var(--pu-dark);padding:36px 48px;display:flex;align-items:cent
 .res-box a{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--pu-mid);text-decoration:none;padding:4px 0;}
 .res-box a svg{width:12px;height:12px;fill:none;stroke:var(--pu-mid);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 
+@media (max-width:760px){
+  .n-links{display:none!important;}
+  .n-auth a{white-space:nowrap;}
+  nav{padding-left:16px!important;padding-right:16px!important;gap:10px;}
+  .n-login,.n-signup{padding:8px 12px!important;font-size:13px!important;}
+  .page-hero{padding:52px 20px 44px;}
+  .page-hero p{font-size:15px;}
+  footer{padding:32px 20px;}
+  .faq-layout{grid-template-columns:1fr;padding:28px 20px 40px;}
+  .faq-sidebar{padding-right:0;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:6px;}
+  .faq-sidebar-title{width:100%;margin-bottom:4px;}
+  .faq-sidebar > a{border:0.5px solid var(--lav-border);border-radius:20px;padding:5px 12px;font-size:12px;margin:0;background:rgba(255,255,255,.6);}
+  .faq-sidebar .res-box{width:100%;margin-top:10px;}
+  .faq-main{border-left:none;padding-left:0;}
+}
+.faq-section{scroll-margin-top:80px;}
 </style>
 </head>
 <body>
