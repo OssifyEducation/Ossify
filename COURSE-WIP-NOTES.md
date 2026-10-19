@@ -14,7 +14,7 @@ you run the site locally, so you can keep building it.
 
 ## What stays live for the beta
 
-Dashboard, Practice, Weekly Challenge, Head-to-Head, Leaderboard, Glossary, My Profile,
+Dashboard, Practice, Weekly Challenge, Head-to-Head, Leaderboard, My Profile,
 plus all the public/marketing pages (home, about, pricing, etc.).
 
 ## How it was hidden (two changes only)
@@ -22,7 +22,9 @@ plus all the public/marketing pages (home, about, pricing, etc.).
 1. **Sidebar nav** — the **Course**, **Domains** and **Search** items were removed from the
    "Learn" section on every live page:
    `account, acronyms, contact, dashboard, duel, leaderboard, weekly`
-   (Glossary was left in place, so the "Learn" section still exists.)
+   (Update 19 Oct 2026: the Glossary has since been parked too, see `archive/glossary/README.md`.
+   The live pages no longer have a "Learn" section at all, so when restoring the course
+   links, add back a whole `<div class="sb-sec"><div class="sb-lbl">Learn</div> ... </div>` block.)
 
 2. **Redirect guard** — a small script was added at the top of each hidden page's `<head>`:
 

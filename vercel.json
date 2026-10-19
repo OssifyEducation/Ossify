@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/acronyms.html", "destination": "/dashboard.html", "permanent": false },
+    { "source": "/acronyms", "destination": "/dashboard.html", "permanent": false }
+  ]
+}

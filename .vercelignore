@@ -7,3 +7,5 @@ tests/
 # Database schema and internal docs are not part of the website.
 supabase/
 *.md
+# Features parked for later (kept in the repo, not served). See archive/*/README.md.
+archive/
