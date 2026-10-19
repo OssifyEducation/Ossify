@@ -11,6 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
 <script src="js/ossify-duel-alert.js"></script>
+<script src="js/ossify-weekly-alert.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 
@@ -226,6 +227,7 @@ async function init(){
   const user=session.user;
   // Head-to-Head "Challenge requested" alert (live while here; otherwise on next visit)
   if(window.OssifyDuelAlert)OssifyDuelAlert.start(sb,user.id);
+  if(window.OssifyWeeklyAlert)OssifyWeeklyAlert.start(sb);
   const meta=user.user_metadata||{};
   // Prefer stored surname; fall back to last word of full_name for legacy accounts
   const surname=meta.surname||(meta.full_name?.trim().split(' ').slice(-1)[0])||'';
@@ -338,6 +340,7 @@ document.getElementById('mainContent').innerHTML=`
       <a href="duel.html" class="ha-g"><svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:rgba(255,255,255,0.65);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Challenge Someone</a>
     </div>
   </div>
+  <div id="wkStrip"></div>
   <div class="stats">
     <div class="sc"><div class="sc-stripe" style="background:var(--pu-mid);"></div><div class="sc-ico" style="background:var(--pu-pale);"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:var(--pu-dark);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="20 6 9 17 4 12"/></svg></div><div class="sc-val">${answered}</div><div class="sc-lbl">Questions answered</div></div>
     <div class="sc"><div class="sc-stripe" style="background:${accA>=60?'var(--pu-mid)':accA>=40?'var(--pu-light)':'var(--pk-mid)'};"></div><div class="sc-ico" style="background:${accA>=60?'var(--pu-pale)':accA>=40?'var(--pu-pale)':'var(--pk-pale)'};"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:${accA>=60?'var(--pu-dark)':accA>=40?'var(--pu-mid)':'var(--red)'};stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div><div class="sc-val">${answered?accuracy+'%':'—'}</div><div class="sc-lbl">Accuracy</div><div class="sc-note" style="color:${answered?(accA>=60?'var(--pu-mid)':accA>=40?'var(--pu-light)':'var(--red)'):'var(--muted)'};">${answered?`${correct} correct`:'No answers yet'}</div></div>
@@ -348,6 +351,7 @@ document.getElementById('mainContent').innerHTML=`
   ${txCard}
   ${renderInsights(ins, {answered, correct, accuracy})}
 `
+  if(window.OssifyWeeklyAlert)OssifyWeeklyAlert.strip(sb,document.getElementById('wkStrip'));
 }
 
 // ════════════════════════════════════════════════════════════════════════════
