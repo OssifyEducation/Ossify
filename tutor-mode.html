@@ -209,7 +209,12 @@ async function init() {
   else if (p.get('id'))       url += `&id=eq.${encodeURIComponent(p.get('id'))}`;
   else                        url += '&order=id.asc&limit=1';
   try {
-    const rows = await fetch(url,{headers:{apikey:SUPA_KEY,Authorization:`Bearer ${SUPA_KEY}`}}).then(r=>r.json());
+    // The question bank needs a signed-in account: use the saved Ossify session.
+    let token = null;
+    try { token = JSON.parse(localStorage.getItem('sb-judtpdikbidvccclftvq-auth-token') || 'null')?.access_token || null; } catch (e) {}
+    if (!token) { showError('Please sign in to Ossify to view this question.'); return; }
+    const rows = await fetch(url,{headers:{apikey:SUPA_KEY,Authorization:`Bearer ${token}`}}).then(r=>r.json());
+    if (!Array.isArray(rows)) { showError('Please sign in to Ossify again to view this question.'); return; }
     if (!rows.length) { showError('Question not found.'); return; }
     const row = rows[0];
     document.getElementById('loading').style.display='none';
