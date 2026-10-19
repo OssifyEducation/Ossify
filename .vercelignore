@@ -9,3 +9,5 @@ supabase/
 *.md
 # Features parked for later (kept in the repo, not served). See archive/*/README.md.
 archive/
+# SJT practice bank: served from the database to signed-in users only (scripts/seed-sjt-practice.js)
+js/sjt-questions.js

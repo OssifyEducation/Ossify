@@ -1,5 +1,7 @@
 /* Ossify — Professional Dilemmas (SJT) Topic Mode UI.
- * Depends on: js/sjt-engine.js (OssifySJT), js/sjt-ui.js (OssifySJTUI), js/sjt-questions.js (OSSIFY_SJT_QUESTIONS).
+ * Depends on: js/sjt-engine.js (OssifySJT), js/sjt-ui.js (OssifySJTUI) and a signed-in
+ * Supabase client in window.sb. The practice bank is loaded from get_sjt_practice_bank()
+ * (signed-in users only); it is no longer shipped as a public file.
  * Presentation only: all validation and marking goes through OssifySJT.
  */
 (function () {
@@ -8,13 +10,33 @@
   var UI = window.OssifySJTUI;
   var esc = UI.esc, paras = UI.paras, rankingControl = UI.rankingControl, mcControl = UI.mcControl,
       lockedAnswer = UI.lockedAnswer, marksPill = UI.marksPill, reviewHtml = UI.reviewHtml;
-  var BANK = window.OSSIFY_SJT_QUESTIONS || [];
-  var BY_ID = {};
-  BANK.forEach(function (q) { BY_ID[q.id] = q; });
+  var BANK = [], BY_ID = {}, VALID = [];
+  var LOADED = false, LOAD_FAILED = false;
   var STORE_KEY = "ossify_sjt_session_v1";
-  var bankErrors = SJT.validateBank(BANK);
-  if (bankErrors.length && window.console) console.error("SJT bank validation failed:", bankErrors);
-  var VALID = BANK.filter(function (q) { return SJT.validateQuestion(q).length === 0; });
+  function setBank(list) {
+    BANK = Array.isArray(list) ? list : [];
+    BY_ID = {};
+    BANK.forEach(function (q) { BY_ID[q.id] = q; });
+    var bankErrors = SJT.validateBank(BANK);
+    if (bankErrors.length && window.console) console.error("SJT bank validation failed:", bankErrors);
+    VALID = BANK.filter(function (q) { return SJT.validateQuestion(q).length === 0; });
+    LOADED = true; LOAD_FAILED = false;
+  }
+
+  // Practice questions come from the database, for signed-in users only.
+  function loadBank() {
+    if (window.OSSIFY_SJT_QUESTIONS) { setBank(window.OSSIFY_SJT_QUESTIONS); updateSummary(); return; }   // local testing only
+    var sb = window.sb;
+    function fail() { LOAD_FAILED = true; updateSummary(); }
+    if (!sb) { fail(); return; }
+    sb.auth.getSession().then(function (r) {
+      if (!(r && r.data && r.data.session)) { location.href = "login.html"; return; }
+      return sb.rpc("get_sjt_practice_bank").then(function (res) {
+        if (res.error || !Array.isArray(res.data)) { if (window.console) console.error("SJT bank load failed:", res.error); fail(); return; }
+        setBank(res.data); updateSummary();
+      });
+    }).catch(fail);
+  }
 
   // ── Setup state ─────────────────────────────────────────────────────────
   var countChoice = 5;       // number | "all" | "custom"
@@ -65,6 +87,8 @@
 
   function updateSummary() {
     var req = requested(), avail = VALID.length, box = $("selSummary"), btn = $("startBtn");
+    if (LOAD_FAILED) { box.innerHTML = 'We couldn’t load the questions. <a href="sjt.html">Try again</a>'; btn.disabled = true; return; }
+    if (!LOADED) { box.innerHTML = "Loading questions…"; btn.disabled = true; return; }
     if (!avail) { box.innerHTML = "No questions are available yet."; btn.disabled = true; return; }
     if (req === null) { box.innerHTML = "Enter a whole number from " + SJT.CUSTOM_MIN + " to " + SJT.CUSTOM_MAX + "."; btn.disabled = true; return; }
     btn.disabled = false;
@@ -85,6 +109,7 @@
 
   // ── Session lifecycle ───────────────────────────────────────────────────
   function startSession() {
+    if (!LOADED) return;
     var req = requested();
     if (req === null) { $("customCount").dataset.touched = "1"; validateCustom(); $("customCount").focus(); return; }
     var seed = (Date.now() ^ Math.floor(Math.random() * 1e9)) >>> 0;
@@ -104,7 +129,10 @@
     if (S.finishedAt) renderSummary(); else render();
   }
 
-  function resumeSession() { S = load(); if (S) enterSession(); }
+  function resumeSession() {
+    if (!LOADED) { setTimeout(resumeSession, 300); return; }   // wait for the bank
+    S = load(); if (S) enterSession();
+  }
   function discardSession() {
     clearStore(); S = null;
     $("resumeBanner").hidden = true;
@@ -348,7 +376,7 @@
 
   // ── Wiring ──────────────────────────────────────────────────────────────
   function wire() {
-    renderCountGrid(); updateSummary();
+    renderCountGrid(); updateSummary(); loadBank();
     $("countGrid").addEventListener("click", function (e) { var b = e.target.closest(".count-btn"); if (b) selectCount(b.dataset.v); });
     $("countGrid").addEventListener("keydown", function (e) {
       var keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };

@@ -147,10 +147,9 @@
 
 <script src="js/sjt-engine.js"></script>
 <script src="js/sjt-ui.js"></script>
-<script src="js/sjt-questions.js"></script>
 <script src="js/sjt-app.js"></script>
 <script>
-// Sidebar user info (optional: the SJT bank itself needs no network)
+// Supabase client: the practice bank (js/sjt-app.js) and sidebar user info need the signed-in session
 var sb = null;
 try { sb = window.supabase.createClient('https://judtpdikbidvccclftvq.supabase.co', 'sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj'); } catch (e) {}
 function ossifySignOut(){ if (sb) sb.auth.signOut().then(function(){ location.href='login.html'; }); else location.href='login.html'; }
