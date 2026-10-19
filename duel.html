@@ -266,8 +266,18 @@ async function init(){
   await loadDuels();
   subscribeRealtime();
   // "Start the duel" from the dashboard alert opens straight into that duel
-  const playId=new URLSearchParams(location.search).get('play');
-  if(playId){history.replaceState(null,'','duel.html');startTurn(playId);}
+  const qs=new URLSearchParams(location.search);
+  const playId=qs.get('play'), rematchId=qs.get('rematch');
+  if(playId||rematchId)history.replaceState(null,'','duel.html');
+  if(playId)startTurn(playId);
+  else if(rematchId&&rematchId!==myId){
+    selectedUser={id:rematchId,name:qs.get('name')||'your opponent'};
+    document.getElementById('challengeBar').style.display='flex';
+    document.getElementById('challengeName').textContent=selectedUser.name;
+    const btn=document.getElementById('challengeBtn');
+    btn.textContent='Send challenge'; btn.disabled=false;
+    document.getElementById('challengeBar').scrollIntoView({block:'center'});
+  }
 }
 
 function renderGate(){
@@ -462,7 +472,19 @@ async function finishDuel(){
       <button onclick="location.reload()" style="margin-top:10px;margin-left:8px;background:none;border:0.5px solid var(--lav-border);border-radius:9px;padding:10px 16px;cursor:pointer;color:var(--muted);">Back to duels</button>`;
     return;
   }
+  const duelId=play.duelId;
   showDuelReveal(res);
+  if(res.completed&&window.OssifyDuelAlert){
+    const d=(window._duels||[]).find(x=>x.id===duelId)||{};
+    const iAmChallenger=res.role==='challenger';
+    OssifyDuelAlert.result({
+      duel_id:duelId,
+      outcome:res.winner_id==null?'draw':(res.winner_id===myId?'won':'lost'),
+      my_score:iAmChallenger?res.challenger_score:res.opponent_score,
+      their_score:iAmChallenger?res.opponent_score:res.challenger_score,
+      total:res.total, opponent_id:d.other_id, opponent_name:d.other_name, opponent_user:d.other_username
+    },{source:'duel'});
+  }
 }
 
 // ── Reveal ────────────────────────────────────────────────────────────────────
@@ -544,6 +566,7 @@ async function loadDuels(){
   const{data:duels,error}=await sb.rpc('get_my_duels',{p_limit:30});
   if(error){container.innerHTML=`<div class="empty-state">Couldn't load your duels. ${esc(error.message)}</div>`;return;}
   const n=duels?.length||0;
+  window._duels=duels||[];
   document.getElementById('duelsCount').textContent=n+' total';
   if(!n){container.innerHTML='<div class="empty-state">No duels yet. Challenge someone to get started.</div>';return;}
   container.innerHTML=duels.map(d=>{
