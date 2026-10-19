@@ -205,6 +205,40 @@ h1.hero-h1 em{font-style:italic;color:var(--pu-light);}
   footer{padding:28px 20px!important;}
 }
 
+
+/* ── Revise together: Head-to-Head + Weekly Challenge ── */
+.together{padding:72px 48px;background:#fff;}
+.rt-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px;}
+.rt-card{background:var(--pu-ultra);border:0.5px solid var(--lav-border);border-radius:16px;padding:24px;display:flex;flex-direction:column;}
+.rt-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.rt-ico{width:42px;height:42px;border-radius:12px;background:var(--pu-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rt-ico svg{width:21px;height:21px;fill:none;stroke:#fde68a;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.rt-title{font-family:var(--font-serif);font-size:21px;font-weight:500;color:var(--pu-dark);line-height:1.2;}
+.rt-body{font-size:14px;color:var(--moss);line-height:1.7;margin-bottom:18px;}
+.rt-demo{margin-top:auto;background:#fff;border:0.5px solid var(--lav-border);border-radius:12px;padding:14px 16px;}
+.rt-demo-lbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.rt-vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;}
+.rt-player{display:flex;align-items:center;gap:9px;min-width:0;}
+.rt-player.right{flex-direction:row-reverse;text-align:right;}
+.rt-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:600;color:#fff;flex-shrink:0;}
+.rt-pname{font-size:12.5px;font-weight:600;color:var(--pu-dark);white-space:nowrap;}
+.rt-pscore{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.rt-x{font-family:var(--font-serif);font-style:italic;font-size:15px;color:var(--pu-light);}
+.rt-win{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:#166534;background:#dcfce7;border-radius:20px;padding:3px 10px;}
+.rt-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:0.5px solid var(--lav-border);font-size:12.5px;}
+.rt-row:last-child{border-bottom:none;}
+.rt-rank{width:18px;font-weight:600;color:var(--muted);text-align:center;}
+.rt-row .rt-av{width:24px;height:24px;font-size:9px;}
+.rt-row .rt-pname{flex:1;font-weight:500;}
+.rt-row.me{background:var(--pu-ultra);margin:0 -8px;padding:6px 8px;border-radius:8px;}
+.rt-you{font-size:9.5px;font-weight:600;background:var(--pu-mid);color:#fff;border-radius:10px;padding:1px 6px;margin-left:5px;}
+.rt-sc{font-weight:600;color:var(--pu-mid);font-variant-numeric:tabular-nums;}
+.rt-tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--pu-pale);color:var(--pu-mid);margin-top:14px;align-self:flex-start;}
+@media (max-width:760px){
+  .together{padding:48px 20px;}
+  .rt-grid{grid-template-columns:1fr;gap:12px;margin-top:24px;}
+  .rt-card{padding:20px 18px;}
+}
 /* ── Try a question (live Tutor Mode, uses css/ossify-tutor.css + js/ossify-tutor.js) ── */
 .tryq{scroll-margin-top:84px;max-width:860px;margin:0 0 64px;background:var(--pu-ultra,#f5f0ff);border:1px solid #ece4fb;border-radius:18px;padding:26px 28px 28px;box-shadow:0 24px 60px -36px rgba(61,31,122,.45);}
 .tryq-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap;}
@@ -380,6 +414,41 @@ h1.hero-h1 em{font-style:italic;color:var(--pu-light);}
       <div class="feat-body">Covers all 12 CPS topic areas and all three PD competency domains. Mapped to Foundation (FY2) level practice.</div>
       <div class="feat-tag">NICE aligned</div>
     </div></div>
+</section>
+
+<section class="together" aria-labelledby="togetherTitle">
+  <div class="sec-inner">
+    <div class="eyebrow">Revise together</div>
+    <h2 id="togetherTitle" class="section-title">Revise with your <em>colleagues.</em></h2>
+    <div class="section-sub">Revising for the MSRA can be lonely. Test yourself against friends and the rest of the Ossify community.</div>
+    <div class="rt-grid">
+      <div class="rt-card">
+        <div class="rt-top"><div class="rt-ico"><svg viewBox="0 0 24 24"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" y1="19" x2="19" y2="13"/><line x1="16" y1="16" x2="20" y2="20"/><line x1="19" y1="21" x2="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" y1="14" x2="9" y2="18"/><line x1="7" y1="17" x2="4" y2="20"/><line x1="3" y1="19" x2="5" y2="21"/></svg></div><div class="rt-title">Head-to-Head</div></div>
+        <div class="rt-body">Challenge a colleague to the same 10 questions. You each play in your own time, within 3 days. The higher score wins, and if you draw, the faster time takes it. You'll both see the correct answer to every question at the end.</div>
+        <div class="rt-demo" aria-label="Example duel result: you scored 8 out of 10 against Sam's 7 out of 10">
+          <div class="rt-demo-lbl">Duel result</div>
+          <div class="rt-vs">
+            <div class="rt-player"><div class="rt-av" style="background:#7c5cbf">AR</div><div><div class="rt-pname">You</div><div class="rt-pscore">8/10 · 6:12</div></div></div>
+            <div class="rt-x">vs</div>
+            <div class="rt-player right"><div class="rt-av" style="background:#f472b6">SP</div><div><div class="rt-pname">Dr Sam Patel</div><div class="rt-pscore">7/10 · 5:48</div></div></div>
+          </div>
+          <span class="rt-win">You win</span>
+        </div>
+        <span class="rt-tag">Challenge your friends</span>
+      </div>
+      <div class="rt-card">
+        <div class="rt-top"><div class="rt-ico"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div class="rt-title">Weekly Challenge</div></div>
+        <div class="rt-body">Ten new questions every Wednesday, the same for every doctor on Ossify. Your score goes on the board as soon as you finish. On Tuesday the challenge closes, the top doctor is crowned and the full explanations open.</div>
+        <div class="rt-demo" aria-label="Example weekly board">
+          <div class="rt-demo-lbl">This week's board</div>
+          <div class="rt-row"><span class="rt-rank">1</span><span class="rt-av" style="background:#6366f1">AK</span><span class="rt-pname">Dr Amira Khan</span><span class="rt-sc">10/10</span></div>
+          <div class="rt-row me"><span class="rt-rank">2</span><span class="rt-av" style="background:#7c5cbf">AR</span><span class="rt-pname">Dr Alex Reid<span class="rt-you">You</span></span><span class="rt-sc">9/10</span></div>
+          <div class="rt-row"><span class="rt-rank">3</span><span class="rt-av" style="background:#a78bfa">JO</span><span class="rt-pname">Dr James Okafor</span><span class="rt-sc">9/10</span></div>
+        </div>
+        <span class="rt-tag">New every Wednesday</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="about-preview">
