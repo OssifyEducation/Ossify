@@ -74,6 +74,8 @@ BTS = British Thoracic Society. (optional preamble line)
 
 **Clue/distractor panel rows** (below the answers): `tpClueRowHtml()` outputs `.clue-row-tp` + `.clue-detail-tp` with tags `.tag-tp-clue` (yellow) / `.tag-tp-dist` (blue). Explanations are hidden until the row is clicked (`.clue-row-tp.open + .clue-detail-tp`). Styled in `css/ossify-tutor.css` (fixed 19 Oct 2026; before that the class names didn't match and every explanation showed open and unstyled).
 
+**Clue/distractor panels start closed** (19 Oct 2026, Ossi's request): `tpCluePanelHtml()` wraps the rows in a `.tp-card.tp-collapsible` with the same `.panel-header` / `▼` chevron / `.panel-body` (`display:none`) as the high-yield summary and references, plus a count badge (`.tp-count`). After every answer both panels are closed and are opened from the header. Text sizes: quoted phrase 13.5px (same as the answer options), explanation 13px in `--ink` (same colour as the detailed answer explanations).
+
 **`.stem-tip` spans** inside highlighted elements hold the tooltip text but are `display:none !important` — their text is read by JS, never rendered inline.
 
 ---

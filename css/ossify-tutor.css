@@ -119,7 +119,7 @@
 .clue-tag-tp{font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;}
 .clue-tag-tp.tag-clue{background:var(--pu-pale);color:var(--pu-dark);border:0.5px solid var(--pu-light);}
 .clue-tag-tp.tag-distractor{background:var(--pk-pale);color:#9b2058;border:0.5px solid var(--pk-border);}
-.clue-label-tp{font-size:12.5px;font-weight:500;color:var(--ink);}
+.clue-label-tp{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.5;}
 .clue-chev-tp{font-size:10px;color:var(--muted);transition:transform .2s;}
 .clue-row-tp.open .clue-chev-tp{transform:rotate(90deg);}
 
@@ -130,8 +130,13 @@
    clue/distractor explanations were always open and unstyled. Rows open on click (.open). */
 .clue-tag-tp.tag-tp-clue{background:#fef3c7;color:#854d0e;border:0.5px solid #fcd34d;}
 .clue-tag-tp.tag-tp-dist{background:#dbeafe;color:#1e40af;border:0.5px solid #93c5fd;}
-.clue-detail-tp{display:none;font-size:12.5px;color:var(--muted);line-height:1.65;padding:4px 12px 10px 12px;margin:0 0 4px;}
+.clue-detail-tp{display:none;font-size:13px;color:var(--ink);line-height:1.7;padding:4px 12px 10px 12px;margin:0 0 4px;}
 .clue-row-tp.open + .clue-detail-tp{display:block;}
+/* Key clues / distractors panels: closed by default, opened from the header */
+.tp-collapsible .panel-title{color:var(--pu-dark);}
+.tp-collapsible .panel-header:focus-visible{outline:2px solid var(--pu-mid);outline-offset:-2px;}
+.tp-clue-body{padding:6px 6px 4px;}
+.tp-count{font-size:10.5px;font-weight:600;color:var(--muted);background:var(--pu-ultra);border:0.5px solid var(--lav-border);border-radius:10px;padding:1px 7px;}
 
 /* Splash icon (JS generates splash-icon, CSS has splash-ico) */
 .splash-icon{font-size:42px;margin-bottom:16px;}

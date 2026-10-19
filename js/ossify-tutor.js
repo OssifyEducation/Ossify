@@ -33,6 +33,7 @@ function togglePanel(header) {
   const isOpen = body.style.display !== 'none';
   body.style.display = isOpen ? 'none' : 'block';
   chevron.classList.toggle('open', !isOpen);
+  if (header.hasAttribute('aria-expanded')) header.setAttribute('aria-expanded', String(!isOpen));
 }
 
 function toggleOptExp(header) {
@@ -167,6 +168,19 @@ function tpClueRowHtml(c, type, idx) {
 }
 
 
+function tpCluePanelHtml(title, items, type) {
+  return `<div class="tp-card tp-collapsible">
+    <div class="panel-header" role="button" tabindex="0" aria-expanded="false" onclick="togglePanel(this)"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePanel(this);}">
+      <div class="panel-title">${title} <span class="tp-count">${items.length}</span></div>
+      <span class="panel-chevron">▼</span>
+    </div>
+    <div class="panel-body tp-clue-body" style="display:none">
+      ${items.map((c, i) => tpClueRowHtml(c, type, i)).join('')}
+    </div>
+  </div>`;
+}
+
 // opts (optional, used by exam review — practice.html passes nothing):
 //   opts.unanswered     true → banner reads "Not answered" instead of "Not quite"
 //   opts.bottomNavHtml  string → replaces the practice-page bottom navigation
@@ -245,17 +259,10 @@ function renderTutorPanels(q, selected, tc, opts) {
     distractors = (tc.this_scenario.distractors || []).map(tpParseClueStr).filter(Boolean);
   }
 
-  if (clues.length) {
-    html += `<div class="tp-card"><div class="tp-card-title">🔑 Key Diagnostic Clues</div>
-      ${clues.map((c, i) => tpClueRowHtml(c, 'clue', i)).join('')}
-    </div>`;
-  }
-
-  if (distractors.length) {
-    html += `<div class="tp-card"><div class="tp-card-title">🔵 Distractors — Why They Mislead</div>
-      ${distractors.map((d, i) => tpClueRowHtml(d, 'distractor', i)).join('')}
-    </div>`;
-  }
+  // Key clues and distractors: collapsible panels that start CLOSED after every
+  // answer (same header/chevron as the high-yield summary and references).
+  if (clues.length) html += tpCluePanelHtml('🔑 Key Diagnostic Clues', clues, 'clue');
+  if (distractors.length) html += tpCluePanelHtml('🔵 Distractors — Why They Mislead', distractors, 'distractor');
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // !! LOCKED FORMAT — do not change without explicit instruction !!
