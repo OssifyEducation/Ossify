@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script src="js/ossify-ref.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Log in — Ossify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
@@ -61,6 +62,7 @@ input::placeholder{color:var(--muted);}
       <button class="btn-submit" id="loginBtn" onclick="handleLogin()">Log in →</button>
     </div>
     <div id="signupForm" style="display:none">
+      <div id="refNote" style="display:none;background:var(--pu-pale,#ede9fe);border:0.5px solid var(--pu-light,#a78bfa);color:var(--pu-dark,#3d1f7a);border-radius:9px;padding:9px 12px;font-size:12.5px;margin-bottom:12px;"></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
         <div class="form-group"><label>First name</label><input type="text" id="signupFirstName" placeholder="Jane" autocomplete="given-name"></div>
         <div class="form-group"><label>Surname</label><input type="text" id="signupSurname" placeholder="Smith" autocomplete="family-name"></div>
@@ -112,7 +114,9 @@ async function handleSignup(){
   if(!firstName||!surname||!email||!password)return showError('Please fill in all fields.');
   if(password.length<8)return showError('Password must be at least 8 characters.');
   const btn=document.getElementById('signupBtn');btn.disabled=true;btn.textContent='Creating account…';
-  const{data,error}=await sb.auth.signUp({email,password,options:{data:{first_name:firstName,surname:surname,full_name:firstName+' '+surname}}});
+  const refCode=(window.OssifyRef&&OssifyRef.get())||null;
+  const meta={first_name:firstName,surname:surname,full_name:firstName+' '+surname}; if(refCode)meta.referral_code=refCode;
+  const{data,error}=await sb.auth.signUp({email,password,options:{data:meta}});
   if(error){showError(error.message);btn.disabled=false;btn.textContent='Create account →';}
   else if(data.user&&!data.session){showSuccess('Account created! Check your email to confirm, then log in.');btn.disabled=false;btn.textContent='Create account →';}
   else window.location.href='dashboard.html';
@@ -125,6 +129,7 @@ async function handleForgot(){
 }
 document.addEventListener('keydown',e=>{if(e.key!=='Enter')return;if(document.getElementById('loginForm').style.display!=='none')handleLogin();else if(document.getElementById('signupForm').style.display!=='none')handleSignup();});
 
+(function(){var c=window.OssifyRef&&OssifyRef.get();var n=document.getElementById('refNote');if(c&&n){n.textContent='Referral code '+c+' applied.';n.style.display='block';}})();
 </script>
 </body>
 </html>

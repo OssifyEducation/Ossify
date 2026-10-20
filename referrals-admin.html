@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Referrals admin — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--pu-dark:#3d1f7a;--pu-mid:#7c5cbf;--pu-light:#a78bfa;--pu-pale:#ede9fe;--pu-ultra:#f5f0ff;--pk-pale:#fce7f0;--pk-border:#f0a8c8;--red:#c0305a;
+  --lav:#f0eaff;--lav-border:rgba(180,150,220,0.28);--ink:#3d1f7a;--moss:#6f6395;--muted:#765ea6;--font-serif:'Fraunces',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);background:var(--lav);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;}
+.hdr{background:var(--pu-dark);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.hdr h1{font-family:var(--font-serif);font-weight:500;font-size:19px;color:#fff;}
+.hdr h1 span{font-family:var(--font-sans);font-size:12px;color:rgba(255,255,255,.55);margin-left:8px;font-weight:500;}
+.hdr a{font-size:12.5px;color:rgba(255,255,255,.7);text-decoration:none;margin-left:14px;}
+.hdr a:hover{color:#fff;}
+.wrap{max-width:1180px;margin:0 auto;padding:24px;}
+.msg{background:#fff;border:0.5px solid var(--lav-border);border-radius:14px;padding:28px;text-align:center;font-size:14px;color:var(--moss);line-height:1.7;}
+.msg a{color:var(--pu-mid);font-weight:600;}
+.totals{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px;}
+.tot{background:#fff;border:0.5px solid var(--lav-border);border-radius:12px;padding:14px 16px;}
+.tot b{display:block;font-family:var(--font-serif);font-size:24px;font-weight:500;color:var(--pu-dark);font-variant-numeric:tabular-nums;}
+.tot span{font-size:11.5px;color:var(--muted);}
+.tot.hl{border-color:var(--pu-mid);box-shadow:0 0 0 1px var(--pu-mid);}
+.card{background:#fff;border:0.5px solid var(--lav-border);border-radius:14px;margin-bottom:18px;overflow:hidden;}
+.card-hdr{padding:14px 18px;border-bottom:0.5px solid var(--lav-border);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.card-title{font-size:15px;font-weight:600;color:var(--pu-dark);}
+.card-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.filters{display:flex;gap:4px;flex-wrap:wrap;}
+.chip{font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;border:0.5px solid var(--lav-border);background:#fff;color:var(--moss);cursor:pointer;font-family:var(--font-sans);}
+.chip[aria-pressed="true"]{background:var(--pu-mid);color:#fff;border-color:var(--pu-mid);}
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{text-align:left;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:10px 12px;border-bottom:0.5px solid var(--lav-border);white-space:nowrap;background:var(--pu-ultra);}
+td{padding:10px 12px;border-bottom:0.5px solid rgba(180,150,220,.15);vertical-align:top;color:var(--ink);}
+tr:last-child td{border-bottom:none;}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.who b{display:block;font-weight:600;}
+.who span{color:var(--muted);font-size:11.5px;}
+.code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--pu-ultra);border:0.5px solid var(--lav-border);border-radius:6px;padding:1px 6px;white-space:nowrap;}
+.pill{display:inline-block;font-size:11px;font-weight:600;border-radius:20px;padding:2px 9px;white-space:nowrap;}
+.pill.owed{background:#fef3c7;color:#92400e;}
+.pill.review{background:#dbeafe;color:#1e40af;}
+.pill.paid{background:#dcfce7;color:#166534;}
+.pill.void{background:#f1f5f9;color:#64748b;text-decoration:line-through;}
+.pill.partner{background:var(--pu-pale);color:var(--pu-dark);}
+.pill.user{background:#f1f5f9;color:#475569;}
+.pill.off{background:var(--pk-pale);color:var(--red);}
+.acts{display:flex;gap:5px;flex-wrap:wrap;}
+.btn{font-size:12px;font-weight:600;border-radius:8px;padding:6px 11px;border:none;cursor:pointer;font-family:var(--font-sans);background:var(--pu-mid);color:#fff;white-space:nowrap;}
+.btn:hover{background:var(--pu-dark);}
+.btn.ghost{background:#fff;color:var(--pu-dark);border:0.5px solid var(--lav-border);}
+.btn.ghost:hover{border-color:var(--pu-light);}
+.note{font-size:11.5px;color:var(--muted);margin-top:3px;}
+.empty{padding:24px;text-align:center;font-size:13px;color:var(--muted);}
+.form{display:grid;grid-template-columns:1fr 1.4fr 1.4fr .6fr auto;gap:10px;padding:16px 18px;align-items:end;}
+.form label{display:block;font-size:11.5px;font-weight:600;color:var(--muted);margin-bottom:5px;}
+.form input{width:100%;padding:9px 12px;border:1px solid var(--lav-border);border-radius:8px;font-size:13.5px;font-family:var(--font-sans);color:var(--ink);}
+.form input:focus{outline:none;border-color:var(--pu-mid);}
+.form-msg{padding:0 18px 14px;font-size:12.5px;}
+.form-msg.err{color:var(--red);} .form-msg.ok{color:#166534;}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--pu-dark);color:#fff;font-size:13px;padding:10px 16px;border-radius:10px;display:none;z-index:50;}
+@media (max-width:860px){.totals{grid-template-columns:repeat(2,1fr);}.form{grid-template-columns:1fr 1fr;}.wrap{padding:16px;}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <h1>Ossify <span>Referrals &amp; affiliates</span></h1>
+  <div><a href="admin.html">Content admin</a><a href="dashboard.html">Dashboard</a></div>
+</div>
+<div class="wrap" id="main"><div class="msg">Loading…</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// Admin for the referral programme (supabase/migrations/20261020_referral_programme.sql).
+// Access is checked by the database (app_admins), not by this page.
+const sb=window.supabase.createClient('https://judtpdikbidvccclftvq.supabase.co','sb_publishable_-lNlSUZo3vinNc6RK3bwfg_rybh6Zfj');
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const gbp=p=>p==null?'—':'£'+(Number(p)/100).toFixed(2);
+const day=t=>t?new Date(t).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
+let data=null, filter='owed';
+
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(t._h);t._h=setTimeout(()=>t.style.display='none',3000);}
+function friendly(e){const m=(e&&e.message)||'';
+  if(m.includes('forbidden'))return'Only Ossify admins can do this.';
+  if(m.includes('code_taken'))return'That code is already in use.';
+  if(m.includes('invalid_code'))return'Codes are 3–24 letters, numbers or dashes, starting with a letter or number.';
+  if(m.includes('name_required'))return'Please enter the partner’s name.';
+  if(m.includes('invalid_pct'))return'The rate must be between 0 and 100.';
+  if(m.includes('invalid_amount'))return'The amount can’t be negative.';
+  return'Something went wrong: '+m;}
+
+async function load(){
+  const{data:{session}}=await sb.auth.getSession();
+  if(!session){$('main').innerHTML='<div class="msg">Please <a href="login.html">log in</a> with an admin account, then come back to this page.</div>';return;}
+  const{data:d,error}=await sb.rpc('admin_referral_overview');
+  if(error){$('main').innerHTML=`<div class="msg">${(error.message||'').includes('forbidden')?'This page is only for Ossify admins. You’re signed in as '+esc(session.user.email)+'.':'Couldn’t load the referral data: '+esc(error.message)}</div>`;return;}
+  data=d; render();
+}
+
+function render(){
+  const t=data.totals||{}, cm=data.commissions||[], codes=data.codes||[];
+  const counts={owed:0,review:0,paid:0,void:0,all:cm.length}; cm.forEach(c=>counts[c.status]++);
+  const rows=cm.filter(c=>filter==='all'||c.status===filter);
+  $('main').innerHTML=`
+  <div class="totals">
+    <div class="tot"><b>${t.signups||0}</b><span>Sign-ups through links</span></div>
+    <div class="tot"><b>${t.subscribers||0}</b><span>Became subscribers</span></div>
+    <div class="tot hl"><b>${gbp(t.owed_pence||0)}</b><span>Commission to pay</span></div>
+    <div class="tot"><b>${gbp(t.paid_pence||0)}</b><span>Commission paid</span></div>
+    <div class="tot"><b>${t.review||0}</b><span>Need a price (unknown plan)</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div><div class="card-title">Commissions</div><div class="card-sub">Recorded automatically when a referred account is switched to an active subscription. Pay by bank transfer, then mark as paid.</div></div>
+      <div class="filters">${[['owed','To pay'],['review','Needs a price'],['paid','Paid'],['void','Void'],['all','All']].map(([k,l])=>`<button class="chip" aria-pressed="${filter===k}" onclick="setFilter('${k}')">${l} ${counts[k]}</button>`).join('')}</div>
+    </div>
+    <div class="tbl-wrap">${rows.length?`<table>
+      <thead><tr><th>Status</th><th>Pay to</th><th>Referred</th><th>Plan</th><th class="num">Sale</th><th class="num">Rate</th><th class="num">Commission</th><th>Date</th><th></th></tr></thead>
+      <tbody>${rows.map(c=>`<tr>
+        <td><span class="pill ${c.status}">${{owed:'To pay',review:'Needs a price',paid:'Paid',void:'Void'}[c.status]}</span>${c.paid_at?`<div class="note">${day(c.paid_at)}</div>`:''}</td>
+        <td class="who"><b>${esc(c.referrer_name||'—')}</b><span>${esc(c.referrer_email||'no email')}</span><div><span class="code">${esc(c.code)}</span> <span class="pill ${c.kind}">${c.kind==='partner'?'Partner':'User'}</span></div></td>
+        <td class="who"><b>${esc(c.referred_name||'—')}</b><span>${esc(c.referred_email||'')}</span></td>
+        <td>${esc(c.plan||'unknown')}</td>
+        <td class="num">${gbp(c.sale_pence)}</td>
+        <td class="num">${Number(c.commission_pct)}%</td>
+        <td class="num"><b>${gbp(c.commission_pence)}</b></td>
+        <td>${day(c.created_at)}${c.note?`<div class="note">${esc(c.note)}</div>`:''}</td>
+        <td><div class="acts">${actions(c)}</div></td>
+      </tr>`).join('')}</tbody></table>`:`<div class="empty">Nothing here.</div>`}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr"><div><div class="card-title">Links and partners</div><div class="card-sub">Partner codes, plus any user link that has had a visit or a sign-up. Change a rate or pause a link here.</div></div></div>
+    <div class="tbl-wrap">${codes.length?`<table>
+      <thead><tr><th>Code</th><th>Owner</th><th class="num">Rate</th><th class="num">Visits</th><th class="num">Sign-ups</th><th class="num">Subscribers</th><th class="num">To pay</th><th class="num">Paid</th><th></th></tr></thead>
+      <tbody>${codes.map(c=>`<tr>
+        <td><span class="code">${esc(c.code)}</span> ${c.active?'':'<span class="pill off">Paused</span>'}</td>
+        <td class="who"><b>${esc(c.name||'—')}</b><span>${esc(c.email||'')}</span> <span class="pill ${c.kind}">${c.kind==='partner'?'Partner':'User'}</span></td>
+        <td class="num">${Number(c.commission_pct)}%</td>
+        <td class="num">${c.visits}</td><td class="num">${c.signups}</td><td class="num">${c.subscribers}</td>
+        <td class="num"><b>${gbp(c.owed_pence)}</b></td><td class="num">${gbp(c.paid_pence)}</td>
+        <td><div class="acts">
+          <button class="btn ghost" onclick="copyLink('${esc(c.code)}')">Copy link</button>
+          <button class="btn ghost" onclick="setRate('${esc(c.code)}',${Number(c.commission_pct)})">Rate</button>
+          <button class="btn ghost" onclick="toggleCode('${esc(c.code)}',${!c.active})">${c.active?'Pause':'Resume'}</button>
+        </div></td></tr>`).join('')}</tbody></table>`:`<div class="empty">No links have been used yet.</div>`}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr"><div><div class="card-title">Add a partner link</div><div class="card-sub">For a society, teaching group or anyone you agree a deal with. Their link will be <b>${esc(location.origin)}/?ref=CODE</b>.</div></div></div>
+    <div class="form">
+      <div><label for="pCode">Code</label><input id="pCode" placeholder="LEEDS-MEDSOC" maxlength="24" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9-]/g,'')"></div>
+      <div><label for="pName">Partner name</label><input id="pName" placeholder="Leeds Medical Society"></div>
+      <div><label for="pEmail">Contact email (for payment)</label><input id="pEmail" type="email" placeholder="treasurer@example.org"></div>
+      <div><label for="pPct">Rate %</label><input id="pPct" type="number" min="0" max="100" step="0.5" value="${Number(data.default_commission_pct||20)}"></div>
+      <div><button class="btn" style="padding:10px 16px" onclick="createPartner()">Create link</button></div>
+    </div>
+    <div class="form-msg" id="pMsg"></div>
+  </div>
+  <div class="card-sub" style="padding:0 4px 24px">Plan prices used for commission: ${(data.prices||[]).filter(p=>p.plan!=='12month').map(p=>`${esc(p.label)} ${gbp(p.price_pence)}`).join(' · ')}.</div>`;
+}
+
+function actions(c){
+  const id=c.id;
+  if(c.status==='owed') return `<button class="btn" onclick="setStatus(${id},'paid')">Mark paid</button><button class="btn ghost" onclick="setStatus(${id},'void')">Void</button>`;
+  if(c.status==='review') return `<button class="btn" onclick="setAmount(${id})">Set amount</button><button class="btn ghost" onclick="setStatus(${id},'void')">Void</button>`;
+  return `<button class="btn ghost" onclick="setStatus(${id},'owed')">Undo</button>`;
+}
+function setFilter(k){filter=k;render();}
+async function call(fn,args,ok){const{error}=await sb.rpc(fn,args);if(error){toast(friendly(error));return false;}if(ok)toast(ok);await load();return true;}
+async function setStatus(id,status){
+  let note=null;
+  if(status==='paid'){note=prompt('Add a note for your records (optional), e.g. "Bank transfer 20 Oct":','');if(note===null)return;}
+  if(status==='void'){note=prompt('Why is this being voided? (e.g. refunded)','');if(note===null)return;}
+  await call('admin_set_commission',{p_id:id,p_status:status,p_amount_pence:null,p_note:note},{paid:'Marked as paid',void:'Voided',owed:'Moved back to “to pay”'}[status]);
+}
+async function setAmount(id){
+  const v=prompt('Commission amount in pounds (e.g. 5 or 4.50):','');if(v===null)return;
+  const n=Math.round(parseFloat(String(v).replace(/[£,\s]/g,''))*100);
+  if(!(n>=0)){toast('Please enter an amount in pounds.');return;}
+  await call('admin_set_commission',{p_id:id,p_status:null,p_amount_pence:n,p_note:'Amount set by admin'},'Amount saved');
+}
+async function setRate(code,cur){
+  const v=prompt(`Commission rate for ${code} (%):`,cur);if(v===null)return;
+  const n=parseFloat(v);if(!(n>=0&&n<=100)){toast('The rate must be between 0 and 100.');return;}
+  await call('admin_update_referral_code',{p_code:code,p_pct:n,p_active:null},'Rate updated. It applies to future purchases.');
+}
+async function toggleCode(code,active){await call('admin_update_referral_code',{p_code:code,p_pct:null,p_active:active},active?'Link resumed':'Link paused. New sign-ups won’t be linked to it.');}
+function copyLink(code){const l=location.origin+'/?ref='+code;(navigator.clipboard?navigator.clipboard.writeText(l):Promise.reject()).then(()=>toast('Copied '+l),()=>prompt('Copy this link:',l));}
+async function createPartner(){
+  const m=$('pMsg');m.className='form-msg';m.textContent='';
+  const args={p_code:$('pCode').value,p_label:$('pName').value,p_contact_email:$('pEmail').value,p_pct:parseFloat($('pPct').value)};
+  const{data:r,error}=await sb.rpc('admin_create_partner_code',args);
+  if(error){m.className='form-msg err';m.textContent=friendly(error);return;}
+  toast('Partner link created: '+location.origin+'/?ref='+r.code); await load();
+}
+load();
+</script>
+</body>
+</html>
