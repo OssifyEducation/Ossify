@@ -242,11 +242,23 @@ async function submitForm(){
   const email=document.getElementById('cfEmail').value.trim();
   const subject=document.getElementById('cfSubject').value;
   const msg=document.getElementById('cfMsg').value.trim();
-  // Insert into contact_submissions table (create if not exists, or just store locally)
-  const{error}=await sb.from('contact_submissions').insert({name,email,subject,message:msg,submitted_at:new Date().toISOString()}).catch(()=>({error:null}));
-  // Show success regardless (form sends even if table doesn't exist yet)
-  document.getElementById('cfForm').style.display='none';
-  document.getElementById('cfSuccess').classList.add('show');
+  // Saved on Ossify's server and emailed to info@ossify.co.uk (Edge Function: contact-email).
+  // Only say "sent" when the server confirms it; otherwise keep the message and offer the email address.
+  let res=null;
+  try{ res=await sb.functions.invoke('contact-email',{body:{name,email,subject,message:msg}}); }catch(e){ res={error:e}; }
+  const ok=res&&!res.error&&res.data&&res.data.ok;
+  if(ok){
+    document.getElementById('cfForm').style.display='none';
+    document.getElementById('cfSuccess').classList.add('show');
+    return;
+  }
+  let why='We couldn’t send your message just now.';
+  try{ const ctx=res&&res.error&&res.error.context; const j=ctx&&typeof ctx.json==='function'?await ctx.json():null;
+    if(j&&j.error==='too_many') why='You’ve sent several messages in the last hour, so please wait a little before sending another.'; }catch(_){}
+  alertErr.innerHTML=why+' Your message is still here. Please try again, or email us directly at <a href="mailto:info@ossify.co.uk">info@ossify.co.uk</a>.';
+  alertErr.classList.add('show');
+  btn.disabled=false;
+  btn.innerHTML='<svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send message';
 }
 
 init();
