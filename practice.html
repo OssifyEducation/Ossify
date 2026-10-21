@@ -256,7 +256,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
 .chip-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;}
 .count-btn{padding:7px 4px;border:0.5px solid var(--lav-border);background:var(--surface);border-radius:8px;font-size:12.5px;font-weight:600;color:var(--pu-dark);cursor:pointer;font-family:var(--font-sans);transition:background .15s,border-color .15s;}
 .chip-grid-2 .count-btn{font-size:12px;font-weight:500;}
-.count-btn:hover:not(:disabled){border-color:var(--pu-light);background:var(--pu-ultra);}
+.count-btn:hover:not(:disabled):not([aria-checked="true"]):not([aria-pressed="true"]){border-color:var(--pu-light);background:var(--pu-ultra);}
 .count-btn[aria-checked="true"]{background:var(--pu-mid);border-color:var(--pu-mid);color:#fff;}
 .count-btn.wide{grid-column:span 2;}
 .count-btn:disabled,.seg-btn:disabled{opacity:.45;cursor:not-allowed;}
@@ -286,7 +286,41 @@ html[data-theme="dark"]{--surface:#1d1630;}
 .mode-link .btn-mock:hover{background:var(--pu-dark);}
 .splash.cps .splash-foot{font-size:12px;color:var(--muted);line-height:1.6;margin-top:4px;}
 .splash.cps .splash-foot a{color:var(--pu-mid);font-weight:600;text-decoration:none;}
+.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;}
+.spec-grid .count-btn,.chip-grid-2 .count-btn{font-size:11.5px;font-weight:500;padding:6px 4px;line-height:1.25;}
+.count-btn[aria-pressed="true"]{background:var(--pu-mid);border-color:var(--pu-mid);color:#fff;}
+.lbl-note{text-transform:none;letter-spacing:0;font-weight:500;color:var(--muted);opacity:.85;}
+#splash{scroll-margin-top:70px;}
+.seg.src .seg-btn{font-size:11.5px;}
+.spec-progress{margin-top:16px;background:var(--lav-card);border:0.5px solid var(--lav-border);border-radius:14px;padding:22px 26px;}
+.sp-hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+.sp-title{font-size:11px;font-weight:700;color:var(--pu-dark);text-transform:uppercase;letter-spacing:1.5px;}
+.sp-sub{font-size:11.5px;color:var(--muted);}
+.sp-row{padding:12px 0;border-top:0.5px solid var(--lav-border);}
+.sp-row:first-of-type{border-top:none;padding-top:2px;}
+.sp-top{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.sp-num{width:20px;height:20px;border-radius:50%;background:var(--pu-pale);color:var(--pu-mid);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sp-name{font-size:13.5px;font-weight:600;color:var(--pu-dark);flex:1;min-width:0;}
+.sp-acc{font-size:11.5px;font-weight:700;border-radius:20px;padding:2px 9px;white-space:nowrap;}
+.sp-acc.good{background:var(--teal-l);color:var(--teal-d);}
+.sp-acc.mid{background:#fdf3d8;color:#7a5500;}
+.sp-acc.low{background:var(--pk-pale,#fce7f0);color:#c0305a;}
+.sp-acc.none{background:var(--pu-pale);color:var(--muted);}
+.sp-bar{height:8px;background:var(--pu-pale);border-radius:6px;overflow:hidden;}
+.sp-fill{height:100%;background:linear-gradient(90deg,var(--pu-mid),var(--pu-light));border-radius:6px;transition:width .4s ease;}
+.sp-meta{font-size:11.5px;color:var(--moss);margin-top:6px;}
+@media (min-width:861px){ .config-panel .start-btn{position:sticky;bottom:12px;z-index:2;box-shadow:0 0 0 12px var(--lav-card),0 -14px 18px 6px var(--lav-card);} }
+.mock-tab{display:none;}
+.tb-short{display:none;}
 @media (max-width:860px){
+  .mock-tab{display:inline-block;}
+  .splash.cps{display:none;}
+  body.mock-open .splash.cps{display:block;}
+  body.mock-open .mode-btn.active:not(.mock-tab){background:transparent;box-shadow:none;color:var(--muted);}
+  .tb-full{display:none;}
+  .tb-short{display:inline;}
+  .spec-progress{padding:18px;}
+  .spec-progress{margin-top:12px;}
   .splash.cps{padding:26px 20px!important;}
   .splash.cps h2{font-size:26px;}
   .fmt-grid{grid-template-columns:1fr;}
@@ -346,7 +380,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
 
 <div class="main">
   <div class="topbar">
-    <div class="tb-title">Clinical Problem Solving</div>
+    <div class="tb-title"><span class="tb-full">Clinical Problem Solving</span><span class="tb-short">CPS</span></div>
     <div class="tb-r">
       <span class="session-meta" id="sessionMeta"></span>
       <span class="xp-total" id="xpTotal" style="display:none" title="Your total XP"></span>
@@ -355,6 +389,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
         <svg class="mode-lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
         <button class="mode-btn" id="examModeBtn" onclick="setMode('exam')" aria-pressed="false">Topic Mode</button>
         <button class="mode-btn active" id="tutorModeBtn" onclick="setMode('tutor')" aria-pressed="true">Tutor Mode</button>
+        <button class="mode-btn mock-tab" id="mockTabBtn" type="button" onclick="toggleMockTab()" aria-pressed="false">Mock Exam</button>
       </div>
       <button class="btn-save-later" id="saveLaterBtn" onclick="saveForLater()">
         <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
@@ -377,15 +412,16 @@ html[data-theme="dark"]{--surface:#1d1630;}
       <div class="config-hdr with-tag"><div class="config-title">Configure</div><span class="cps-tag">CPS</span></div>
       <div class="config-body">
         <div class="filter-label">Question source</div>
-        <div class="seg stack" role="radiogroup" aria-label="Question source" data-for="sourceFilter"><button type="button" role="radio" class="seg-btn" data-v="all">Whole question bank</button><button type="button" role="radio" class="seg-btn" data-v="weak">My weak areas</button><button type="button" role="radio" class="seg-btn" data-v="revision">My revision queue</button></div>
+        <div class="seg src" role="radiogroup" aria-label="Question source" data-for="sourceFilter"><button type="button" role="radio" class="seg-btn" data-v="all" title="The whole question bank">Whole bank</button><button type="button" role="radio" class="seg-btn" data-v="weak" title="My weak areas">Weak areas</button><button type="button" role="radio" class="seg-btn" data-v="revision" title="My revision queue">Revision</button></div>
         <select class="filter-select chip-select" id="sourceFilter" onchange="onSourceChange()">
           <option value="all">Whole question bank</option>
           <option value="weak">My weak areas</option>
           <option value="revision">My revision queue</option>
         </select>
         <div class="source-hint" id="sourceHint" aria-live="polite"></div>
-        <div class="filter-label">Specialty</div>
-        <select class="filter-select" id="topicFilter">
+        <div class="filter-label">Specialty <span class="lbl-note">· pick any</span></div>
+        <div class="spec-grid" role="group" aria-label="Specialties" data-multi="topics" data-sel="topicFilter"><button type="button" class="count-btn wide" data-v="" aria-pressed="true">All specialties</button><button type="button" class="count-btn" data-v="Cardiovascular" aria-pressed="false" title="Cardiovascular">Cardiovascular</button><button type="button" class="count-btn" data-v="Dermatology / ENT / Eyes" aria-pressed="false" title="Dermatology / ENT / Eyes">Derm / ENT / Eyes</button><button type="button" class="count-btn" data-v="Endocrinology / Metabolic" aria-pressed="false" title="Endocrinology / Metabolic">Endocrine</button><button type="button" class="count-btn" data-v="Gastroenterology / Nutrition" aria-pressed="false" title="Gastroenterology / Nutrition">Gastro / Nutrition</button><button type="button" class="count-btn" data-v="Infectious Disease / Haematology / Immunology / Allergies / Genetics" aria-pressed="false" title="Infectious Disease / Haematology / Immunology / Allergies / Genetics">Infection / Haem / Immuno</button><button type="button" class="count-btn" data-v="Musculoskeletal" aria-pressed="false" title="Musculoskeletal">Musculoskeletal</button><button type="button" class="count-btn" data-v="Paediatrics" aria-pressed="false" title="Paediatrics">Paediatrics</button><button type="button" class="count-btn" data-v="Pharmacology &amp; Therapeutics" aria-pressed="false" title="Pharmacology &amp; Therapeutics">Pharmacology</button><button type="button" class="count-btn" data-v="Psychiatry / Neurology" aria-pressed="false" title="Psychiatry / Neurology">Psych / Neuro</button><button type="button" class="count-btn" data-v="Renal / Urology" aria-pressed="false" title="Renal / Urology">Renal / Urology</button><button type="button" class="count-btn" data-v="Reproductive" aria-pressed="false" title="Reproductive">Reproductive</button><button type="button" class="count-btn" data-v="Respiratory" aria-pressed="false" title="Respiratory">Respiratory</button></div>
+        <select class="filter-select chip-select" id="topicFilter">
           <option value="">All specialties</option>
           <option>Cardiovascular</option>
           <option>Dermatology / ENT / Eyes</option>
@@ -407,8 +443,8 @@ html[data-theme="dark"]{--surface:#1d1630;}
           <option value="SBA">SBA only</option>
           <option value="EMQ">EMQ only</option>
         </select>
-        <div class="filter-label">Domain</div>
-        <div class="chip-grid-2" role="radiogroup" aria-label="Domain" data-for="domainFilter"><button type="button" role="radio" class="count-btn" data-v="">All domains</button><button type="button" role="radio" class="count-btn" data-v="Diagnosis">Diagnosis</button><button type="button" role="radio" class="count-btn" data-v="Management">Management</button><button type="button" role="radio" class="count-btn" data-v="Emergency">Emergency</button><button type="button" role="radio" class="count-btn" data-v="Prescribing">Prescribing</button><button type="button" role="radio" class="count-btn" data-v="Investigation">Investigation</button></div>
+        <div class="filter-label">Domain <span class="lbl-note">· pick any</span></div>
+        <div class="chip-grid-2" role="group" aria-label="Domains" data-multi="domains" data-sel="domainFilter"><button type="button" class="count-btn wide" data-v="" aria-pressed="true">All domains</button><button type="button" class="count-btn" data-v="Diagnosis" aria-pressed="false">Diagnosis</button><button type="button" class="count-btn" data-v="Management" aria-pressed="false">Management</button><button type="button" class="count-btn" data-v="Emergency" aria-pressed="false">Emergency</button><button type="button" class="count-btn" data-v="Prescribing" aria-pressed="false">Prescribing</button><button type="button" class="count-btn" data-v="Investigation" aria-pressed="false">Investigation</button></div>
         <select class="filter-select chip-select" id="domainFilter">
           <option value="">All domains</option>
           <option value="Diagnosis">Diagnosis</option>
@@ -449,7 +485,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
             <button class="rb-btn-discard" onclick="discardSavedSession()">Discard</button>
           </div>
         </div>
-        <div class="mode-link"><span><strong>Ready for exam conditions?</strong> Sit a full timed exam: 97 questions in 75 minutes, marked when you finish.</span><a class="btn-mock" href="exam.html">Timed exam →</a></div>
+        <div class="mode-link"><span><strong>Ready for exam conditions?</strong> Sit a full timed exam: 97 questions in 75 minutes, marked when you finish.</span><a class="btn-mock" href="exam.html">Mock exam →</a></div>
         <div class="splash-kicker">MSRA · Paper 2</div>
         <h2>Clinical Problem Solving</h2>
         <p class="splash-lede">Practise the clinical paper across all twelve specialties. Choose your questions in the Configure box, then hit <strong>Start session</strong>. In <strong>Tutor Mode</strong> you see the full clinical reasoning after every answer; in <strong>Topic Mode</strong> you answer the whole set first and review at the end.</p>
@@ -465,8 +501,9 @@ html[data-theme="dark"]{--surface:#1d1630;}
             <div class="fmt-marks">One correct answer per scenario</div>
           </div>
         </div>
-        <p class="splash-foot">The real paper has 97 questions in 75 minutes, roughly 46 seconds each. Practice sessions are untimed so you can think each one through; the <a href="exam.html">timed exam</a> runs to the real clock. Preparing for Paper 1? <a href="sjt.html">Practise Professional Dilemmas →</a></p>
+        <p class="splash-foot">The real paper has 97 questions in 75 minutes, roughly 46 seconds each. Practice sessions are untimed so you can think each one through; the <a href="exam.html">mock exam</a> runs to the real clock. Preparing for Paper 1? <a href="sjt.html">Practise Professional Dilemmas →</a></p>
       </div>
+      <section class="spec-progress" id="specProgress" aria-label="Your progress in the chosen specialties" hidden></section>
     </main>
   </div>
 </div>
@@ -677,9 +714,8 @@ async function startSession() {
   progressSaved = false;
   sessionStartTime = Date.now();
   sessionXp = 0; lastAnswerAt = null;
-  const topic  = document.getElementById('topicFilter').value;
+  const topics = selTopics.slice(), domains = selDomains.slice();
   const type   = document.getElementById('typeFilter').value;
-  const domain = document.getElementById('domainFilter').value;
   const count  = parseInt(document.getElementById('countFilter').value);
   sessionSource = (document.getElementById('sourceFilter') || {}).value || 'all';
 
@@ -691,7 +727,7 @@ async function startSession() {
       main.innerHTML = `<div class="splash"><h2>Sign in to use this</h2><p>Weak areas and the revision queue are built from your own answers.</p></div>`;
       return;
     }
-    let qs = sessionSource === 'all' ? await fetchQuestions({ topic, type, domain, count }) : await fetchPersonal(sessionSource, count);
+    let qs = sessionSource === 'all' ? await buildBespokeSet({ topics, type, domains, count }) : await fetchPersonal(sessionSource, count);
     if (!qs.length && sessionSource !== 'all') {
       main.innerHTML = sessionSource === 'revision'
         ? `<div class="splash"><h2>Your revision queue is empty</h2><p>Questions you get wrong first time will appear here, ready to retry. Nice work.</p></div>`
@@ -1102,14 +1138,15 @@ function showSaveExit(show) {
 // ── Session save / resume (localStorage) ────────────────────────────────────
 function saveCurrentSession() {
   if (!questions.length) return false;
-  const topic  = document.getElementById('topicFilter')?.value  || '';
+  const topic  = selTopics.join(', ');
   const type   = document.getElementById('typeFilter')?.value   || '';
-  const domain = document.getElementById('domainFilter')?.value || '';
+  const domain = selDomains.join(', ');
+  const topics = selTopics.slice(), domains = selDomains.slice();
   const state = {
     savedAt: new Date().toISOString(),
     questions, answers, currentIdx, mode,
     setId: currentSetId,
-    topic, type, domain,
+    topic, type, domain, topics, domains,
     answeredCount: Object.keys(answers).filter(k => answers[k] !== null).length,
     totalCount: questions.length,
   };
@@ -1135,9 +1172,9 @@ async function resumeSession() {
     sessionFinished = false;
     sessionStartTime = Date.now();
     // Restore filter UI
-    if (s.topic)  document.getElementById('topicFilter').value  = s.topic;
-    if (s.type)   document.getElementById('typeFilter').value   = s.type;
-    if (s.domain) document.getElementById('domainFilter').value = s.domain;
+    selTopics  = Array.isArray(s.topics)  ? s.topics.slice()  : (s.topic  ? [s.topic]  : []);
+    selDomains = Array.isArray(s.domains) ? s.domains.slice() : (s.domain ? [s.domain] : []);
+    if (s.type) document.getElementById('typeFilter').value = s.type;
     syncModeButtons();
     updateSetLock();
     showSaveExit(true);
@@ -1303,7 +1340,14 @@ window.OSSIFY_PAGE_SHORTCUTS = [['A','Choose an answer (A–J)'], ['Enter','Conf
 })();
 
 
-// ── Configure buttons: drive the (hidden) selects so the existing session logic is unchanged ──
+// ── Configure buttons ───────────────────────────────────────────────────────
+// Single-choice groups (source, type, count) drive their hidden <select>.
+// Specialty and domain are multi-select; their choices live in these arrays,
+// kept in the order they were picked (the progress card stacks in that order).
+var selTopics = [], selDomains = [], topicStats = null;
+const TOPIC_LABEL = {};
+document.querySelectorAll('[data-multi="topics"] [data-v]').forEach(b => { if (b.dataset.v) TOPIC_LABEL[b.dataset.v] = b.textContent; });
+
 function syncChips() {
   document.querySelectorAll('[data-for]').forEach(group => {
     const sel = document.getElementById(group.dataset.for); if (!sel) return;
@@ -1312,15 +1356,70 @@ function syncChips() {
       b.setAttribute('aria-checked', on); b.tabIndex = on ? 0 : -1; b.disabled = sel.disabled;
     });
   });
+  document.querySelectorAll('[data-multi]').forEach(group => {
+    const arr = group.dataset.multi === 'topics' ? selTopics : selDomains;
+    const dis = document.getElementById(group.dataset.sel).disabled;
+    group.querySelectorAll('button').forEach(b => {
+      b.setAttribute('aria-pressed', b.dataset.v === '' ? arr.length === 0 : arr.includes(b.dataset.v));
+      b.disabled = dis;
+    });
+  });
+  renderSummary();
+  renderProgress();
+}
+
+function equalSplit(count, n) {
+  if (count <= 0) return Array(n).fill(0);
+  const q = Array(n).fill(Math.floor(count / n));
+  const order = [...Array(n).keys()].sort(() => Math.random() - .5);
+  const extra = count - q.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < extra; i++) q[order[i]]++;
+  return q;
+}
+
+function renderSummary() {
   const s = document.getElementById('selSummary'); if (!s) return;
   const v = id => document.getElementById(id).value;
-  const n = v('countFilter') === '0' ? 'All matching questions' : v('countFilter') + ' questions';
+  const count = parseInt(v('countFilter'));
+  const n = count === 0 ? 'All matching questions' : count + ' questions';
   const src = v('sourceFilter');
-  const what = src === 'weak' ? 'from your weak areas' : src === 'revision' ? 'from your revision queue'
-    : [v('topicFilter') || 'All specialties', v('typeFilter') || 'SBA + EMQ', v('domainFilter') || 'all domains'].join(' · ');
+  let what;
+  if (src === 'weak') what = 'from your weak areas';
+  else if (src === 'revision') what = 'from your revision queue';
+  else {
+    const typ = v('typeFilter') || 'SBA + EMQ';
+    const dom = selDomains.length ? selDomains.join(', ') : 'all domains';
+    if (selTopics.length > 1) {
+      const split = equalSplit(count, selTopics.length);
+      const each = count === 0 ? 'all from each' : (Math.min(...split) === Math.max(...split) ? split[0] + ' from each' : 'about ' + Math.floor(count / selTopics.length) + ' from each');
+      what = selTopics.length + ' specialties, ' + each + ', mixed at random<br>' + typ + ' · ' + dom;
+    } else {
+      what = (selTopics[0] ? TOPIC_LABEL[selTopics[0]] : 'All specialties') + ' · ' + typ + ' · ' + dom;
+    }
+  }
   const m = typeof mode !== 'undefined' && mode === 'exam' ? 'Topic Mode: answers revealed at the end.' : 'Tutor Mode: explanations after each answer.';
-  s.innerHTML = '<strong>' + n + '</strong> ' + (src === 'all' ? '<br>' : '') + what + '<span class="note">' + m + '</span>';
+  s.innerHTML = '<strong>' + n + '</strong><br>' + what + '<span class="note">' + m + '</span>';
 }
+
+function renderProgress() {
+  const el = document.getElementById('specProgress'); if (!el) return;
+  if (!selTopics.length || document.getElementById('sourceFilter').value !== 'all') { el.hidden = true; return; }
+  el.hidden = false;
+  const rows = selTopics.map((t, i) => {
+    const st = (topicStats || []).find(x => x.topic === t) || { bank_total: 0, attempted: 0, correct: 0 };
+    const total = st.bank_total || 0, done = Math.min(st.attempted || 0, total || Infinity), right = st.correct || 0;
+    const pct = total ? Math.round(done / total * 100) : 0;
+    const acc = done ? Math.round(right / done * 100) : null;
+    const cls = acc === null ? 'none' : acc >= 70 ? 'good' : acc >= 50 ? 'mid' : 'low';
+    return '<div class="sp-row"><div class="sp-top"><span class="sp-num">' + (i + 1) + '</span><span class="sp-name">' + t.replace(/&/g, '&amp;') + '</span>'
+      + '<span class="sp-acc ' + cls + '">' + (acc === null ? 'Not started' : acc + '% correct') + '</span></div>'
+      + '<div class="sp-bar" role="progressbar" aria-label="' + t.replace(/"/g, '') + ' questions answered" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct + '"><div class="sp-fill" style="width:' + pct + '%"></div></div>'
+      + '<div class="sp-meta">' + done + ' of ' + total + ' questions answered (' + pct + '%)</div></div>';
+  }).join('');
+  el.innerHTML = '<div class="sp-hd"><span class="sp-title">Your progress</span><span class="sp-sub">In the order you chose them</span></div>' + rows;
+}
+
+// Clicks
 document.querySelectorAll('[data-for]').forEach(group => {
   group.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b || b.disabled) return;
@@ -1333,10 +1432,76 @@ document.querySelectorAll('[data-for]').forEach(group => {
     e.preventDefault(); const nb = bs[(i + (['ArrowRight','ArrowDown'].includes(e.key) ? 1 : bs.length - 1)) % bs.length]; nb.click(); nb.focus();
   });
 });
-document.getElementById('topicFilter').addEventListener('change', syncChips);
+document.querySelectorAll('[data-multi]').forEach(group => {
+  group.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || b.disabled) return;
+    const isTopics = group.dataset.multi === 'topics';
+    let arr = isTopics ? selTopics : selDomains;
+    const v = b.dataset.v;
+    if (v === '') arr = [];
+    else if (arr.includes(v)) arr = arr.filter(x => x !== v);
+    else arr = arr.concat(v);
+    if (isTopics) selTopics = arr; else selDomains = arr;
+    syncChips();
+  });
+});
+
+// ── Build a bespoke set: equal share per specialty, EMQ sets kept together ──
+function toGroups(qs) {
+  const groups = []; let i = 0;
+  while (i < qs.length) {
+    const q = qs[i];
+    if (q.type === 'EMQ') {
+      const sid = q.tutor_content && q.tutor_content.set_id; const g = [q]; let j = i + 1;
+      while (j < qs.length && qs[j].type === 'EMQ' && qs[j].tutor_content && qs[j].tutor_content.set_id === sid) g.push(qs[j++]);
+      groups.push(g); i = j;
+    } else { groups.push([q]); i++; }
+  }
+  return groups;
+}
+function shuffled(a) { a = a.slice(); for (let k = a.length - 1; k > 0; k--) { const r = Math.floor(Math.random() * (k + 1)); [a[k], a[r]] = [a[r], a[k]]; } return a; }
+function takeGroups(groups, quota) {
+  if (quota <= 0) return groups;
+  const out = [], used = new Set(); let left = quota;
+  groups.forEach((g, i) => { if (left && g.length <= left) { out.push(g); used.add(i); left -= g.length; } });
+  groups.forEach((g, i) => { if (left && !used.has(i)) { out.push(g.slice(0, left)); left -= Math.min(left, g.length); } });
+  return out;
+}
+async function buildBespokeSet({ topics, type, domains, count }) {
+  const buckets = topics.length ? topics : [''];
+  const doms = domains.length ? domains : [''];
+  const quotas = equalSplit(count, buckets.length);
+  const perTopic = await Promise.all(buckets.map(async (topic, i) => {
+    const lists = await Promise.all(doms.map(domain => fetchQuestions({ topic, type, domain, count: quotas[i] > 0 ? quotas[i] + 4 : 0 })));
+    const seen = new Set(), rows = [];
+    lists.forEach(l => l.forEach(r => { if (!seen.has(r.id)) { seen.add(r.id); rows.push(r); } }));
+    return takeGroups(shuffled(toGroups(rows)), quotas[i]);
+  }));
+  const qs = shuffled(perTopic.flat()).flat();
+  if (count > 0 && qs.length && qs.length < count) setTimeout(() => showToast('Only ' + qs.length + ' questions matched your choices, so this set is shorter.'), 600);
+  return qs;
+}
+
+// ── Mobile "Mock Exam" tab: shows the mock exam box under Start session ──
+function toggleMockTab(force) {
+  const open = typeof force === 'boolean' ? force : !document.body.classList.contains('mock-open');
+  document.body.classList.toggle('mock-open', open);
+  const b = document.getElementById('mockTabBtn');
+  b.classList.toggle('active', open); b.setAttribute('aria-pressed', open);
+  if (open) { const s = document.getElementById('splash'); if (s) setTimeout(() => s.scrollIntoView({ behavior: 'smooth', block: 'start' }), 30); }
+}
+
+// Keep everything in step with the existing page logic
+document.getElementById('topicFilter').addEventListener('change', e => { if (e.target.value && !selTopics.includes(e.target.value)) { selTopics = [e.target.value]; syncChips(); } });
+if (document.getElementById('topicFilter').value) selTopics = [document.getElementById('topicFilter').value]; // ?topic= deep link
 { const _osc = onSourceChange; onSourceChange = function () { _osc(); syncChips(); }; }
-{ const _usl = updateSetLock; updateSetLock = function () { _usl(); syncChips(); }; }
-if (typeof setMode === 'function') { const _sm = setMode; setMode = function (m) { const r = _sm(m); syncChips(); return r; }; }
+{ const _usl = updateSetLock; updateSetLock = function () { _usl(); syncChips(); if (setLocked()) toggleMockTab(false); }; }
+{ const _sm = setMode; setMode = function (m) { const r = _sm(m); toggleMockTab(false); syncChips(); return r; }; }
+{ const _rs = resumeSession; resumeSession = async function () { const r = await _rs(); syncChips(); return r; }; }
+(async () => {
+  try { const { data } = await sb.rpc('get_dashboard_insights'); topicStats = (data && data.topics) || null; } catch (_) {}
+  renderProgress();
+})();
 syncChips();
 </script>
 <div id="stemTip" style="
