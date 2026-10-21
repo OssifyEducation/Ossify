@@ -624,6 +624,10 @@
     $("finishBack").addEventListener("click", closeFinish);
     $("finishModal").addEventListener("click", function (e) { if (e.target === $("finishModal")) closeFinish(); });
     document.addEventListener("keydown", onKey);
+    document.addEventListener("sjt:rank", function (e) {   // drag-and-drop ranking (js/sjt-ui.js)
+      if (phase !== "exam") return;
+      setAnswer(e.detail.draft); announce(e.detail.msg);
+    });
     init().catch(function (e) { notice("Something went wrong", e.message || String(e), '<button class="btn-primary" type="button" onclick="location.reload()">Reload</button>'); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", wire); else wire();

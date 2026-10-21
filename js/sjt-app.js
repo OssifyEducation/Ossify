@@ -389,6 +389,12 @@
 
   // ── Wiring ──────────────────────────────────────────────────────────────
   function wire() {
+    // Drag-and-drop ranking (js/sjt-ui.js) reports the new order here
+    document.addEventListener("sjt:rank", function (e) {
+      if (!S || S.viewSummary) return;
+      var q = currentQ(); if (!q || S.results[q.id]) return;
+      setDraft(e.detail.draft); announce(e.detail.msg);
+    });
     renderCountGrid(); updateSummary(); loadBank();
     $("countGrid").addEventListener("click", function (e) { var b = e.target.closest(".count-btn"); if (b) selectCount(b.dataset.v); });
     $("countGrid").addEventListener("keydown", function (e) {
