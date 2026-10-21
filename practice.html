@@ -247,6 +247,52 @@ html[data-theme="dark"] .cancel-card{background:#1d1630;}
   .result-card{padding:28px 20px!important;}
 }
 @media (max-width:420px){ .q-grid{grid-template-columns:repeat(8,1fr);} .tb-title{font-size:15px!important;} }
+
+/* ── Configure chips + splash, matched to Professional Dilemmas (css/sjt.css) ── */
+:root{--surface:#fff;}
+html[data-theme="dark"]{--surface:#1d1630;}
+.chip-select{display:none!important;}
+.count-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
+.chip-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;}
+.count-btn{padding:7px 4px;border:0.5px solid var(--lav-border);background:var(--surface);border-radius:8px;font-size:12.5px;font-weight:600;color:var(--pu-dark);cursor:pointer;font-family:var(--font-sans);transition:background .15s,border-color .15s;}
+.chip-grid-2 .count-btn{font-size:12px;font-weight:500;}
+.count-btn:hover:not(:disabled){border-color:var(--pu-light);background:var(--pu-ultra);}
+.count-btn[aria-checked="true"]{background:var(--pu-mid);border-color:var(--pu-mid);color:#fff;}
+.count-btn.wide{grid-column:span 2;}
+.count-btn:disabled,.seg-btn:disabled{opacity:.45;cursor:not-allowed;}
+.seg{display:flex;background:var(--pu-pale);border-radius:8px;padding:3px;gap:3px;}
+.seg-btn{flex:1;padding:6px 4px;border:none;border-radius:6px;background:none;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;font-family:var(--font-sans);}
+.seg-btn[aria-checked="true"]{background:var(--surface);color:var(--pu-dark);font-weight:600;box-shadow:0 1px 2px rgba(61,31,122,.08);}
+.seg.stack{flex-direction:column;}
+.seg.stack .seg-btn{text-align:left;padding:7px 10px;}
+.sel-summary{margin-top:14px;padding:10px 12px;background:var(--pu-ultra);border:0.5px solid var(--lav-border);border-radius:9px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+.sel-summary strong{color:var(--pu-dark);}
+.sel-summary .note{display:block;margin-top:4px;color:var(--muted);font-size:11.5px;}
+.cps-tag{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--teal-d);background:var(--teal-l);border-radius:5px;padding:2px 7px;}
+.config-hdr.with-tag{display:flex;align-items:center;justify-content:space-between;}
+.splash.cps{text-align:left;padding:36px 36px 30px;}
+.splash.cps h2{font-weight:400;font-size:32px;margin-bottom:12px;letter-spacing:-.3px;}
+.splash.cps p{max-width:none;margin:0;}
+.splash-kicker{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.splash.cps .splash-lede{font-size:15px;line-height:1.7;color:var(--ink);max-width:620px;margin-bottom:22px;}
+.fmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.fmt{background:var(--surface);border:0.5px solid var(--lav-border);border-radius:12px;padding:16px 18px;}
+.fmt-hd{font-size:13px;font-weight:700;color:var(--pu-dark);margin-bottom:6px;}
+.splash.cps .fmt p{font-size:13px;line-height:1.6;color:var(--moss);margin-bottom:10px;}
+.fmt-marks{font-size:11.5px;font-weight:600;color:var(--teal-d);}
+.mode-link{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--surface);border:0.5px solid var(--lav-border);border-radius:11px;padding:12px 16px;margin:0 0 16px;font-size:13px;color:var(--ink);line-height:1.5;text-align:left;}
+.mode-link strong{color:var(--pu-dark);}
+.mode-link .btn-mock{padding:10px 22px;background:var(--pu-mid);color:#fff;border-radius:9px;font-size:13.5px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .15s;}
+.mode-link .btn-mock:hover{background:var(--pu-dark);}
+.splash.cps .splash-foot{font-size:12px;color:var(--muted);line-height:1.6;margin-top:4px;}
+.splash.cps .splash-foot a{color:var(--pu-mid);font-weight:600;text-decoration:none;}
+@media (max-width:860px){
+  .splash.cps{padding:26px 20px!important;}
+  .splash.cps h2{font-size:26px;}
+  .fmt-grid{grid-template-columns:1fr;}
+  .count-grid{grid-template-columns:repeat(6,1fr);}
+  .count-btn.wide{grid-column:span 1;}
+}
 </style>
 <link rel="stylesheet" href="css/ossify-tutor.css">
 <link rel="stylesheet" href="css/ossify-dark.css">
@@ -300,7 +346,7 @@ html[data-theme="dark"] .cancel-card{background:#1d1630;}
 
 <div class="main">
   <div class="topbar">
-    <div class="tb-title">Practice</div>
+    <div class="tb-title">Clinical Problem Solving</div>
     <div class="tb-r">
       <span class="session-meta" id="sessionMeta"></span>
       <span class="xp-total" id="xpTotal" style="display:none" title="Your total XP"></span>
@@ -328,10 +374,11 @@ html[data-theme="dark"] .cancel-card{background:#1d1630;}
 
   <div class="content">
     <aside class="config-panel">
-      <div class="config-hdr"><div class="config-title">Configure</div></div>
+      <div class="config-hdr with-tag"><div class="config-title">Configure</div><span class="cps-tag">CPS</span></div>
       <div class="config-body">
         <div class="filter-label">Question source</div>
-        <select class="filter-select" id="sourceFilter" onchange="onSourceChange()">
+        <div class="seg stack" role="radiogroup" aria-label="Question source" data-for="sourceFilter"><button type="button" role="radio" class="seg-btn" data-v="all">Whole question bank</button><button type="button" role="radio" class="seg-btn" data-v="weak">My weak areas</button><button type="button" role="radio" class="seg-btn" data-v="revision">My revision queue</button></div>
+        <select class="filter-select chip-select" id="sourceFilter" onchange="onSourceChange()">
           <option value="all">Whole question bank</option>
           <option value="weak">My weak areas</option>
           <option value="revision">My revision queue</option>
@@ -354,13 +401,15 @@ html[data-theme="dark"] .cancel-card{background:#1d1630;}
           <option>Respiratory</option>
         </select>
         <div class="filter-label">Question type</div>
-        <select class="filter-select" id="typeFilter">
+        <div class="seg" role="radiogroup" aria-label="Question type" data-for="typeFilter"><button type="button" role="radio" class="seg-btn" data-v="">Both</button><button type="button" role="radio" class="seg-btn" data-v="SBA">SBA</button><button type="button" role="radio" class="seg-btn" data-v="EMQ">EMQ</button></div>
+        <select class="filter-select chip-select" id="typeFilter">
           <option value="">SBA + EMQ</option>
           <option value="SBA">SBA only</option>
           <option value="EMQ">EMQ only</option>
         </select>
         <div class="filter-label">Domain</div>
-        <select class="filter-select" id="domainFilter">
+        <div class="chip-grid-2" role="radiogroup" aria-label="Domain" data-for="domainFilter"><button type="button" role="radio" class="count-btn" data-v="">All domains</button><button type="button" role="radio" class="count-btn" data-v="Diagnosis">Diagnosis</button><button type="button" role="radio" class="count-btn" data-v="Management">Management</button><button type="button" role="radio" class="count-btn" data-v="Emergency">Emergency</button><button type="button" role="radio" class="count-btn" data-v="Prescribing">Prescribing</button><button type="button" role="radio" class="count-btn" data-v="Investigation">Investigation</button></div>
+        <select class="filter-select chip-select" id="domainFilter">
           <option value="">All domains</option>
           <option value="Diagnosis">Diagnosis</option>
           <option value="Management">Management</option>
@@ -368,13 +417,17 @@ html[data-theme="dark"] .cancel-card{background:#1d1630;}
           <option value="Prescribing">Prescribing</option>
           <option value="Investigation">Investigation</option>
         </select>
-        <div class="filter-label">Count</div>
-        <select class="filter-select" id="countFilter">
+        <div class="filter-label">Number of questions</div>
+        <div class="count-grid" role="radiogroup" aria-label="Number of questions" data-for="countFilter"><button type="button" role="radio" class="count-btn" data-v="10" aria-label="10 questions">10</button><button type="button" role="radio" class="count-btn" data-v="20" aria-label="20 questions">20</button><button type="button" role="radio" class="count-btn" data-v="40" aria-label="40 questions">40</button><button type="button" role="radio" class="count-btn" data-v="60" aria-label="60 questions">60</button><button type="button" role="radio" class="count-btn" data-v="97" aria-label="97 questions, the length of the real paper">97</button><button type="button" role="radio" class="count-btn" data-v="0" aria-label="All matching questions">All</button></div>
+        <select class="filter-select chip-select" id="countFilter">
           <option value="10">10 questions</option>
           <option value="20">20 questions</option>
           <option value="40">40 questions</option>
+          <option value="60">60 questions</option>
+          <option value="97">97 questions</option>
           <option value="0">All matching</option>
         </select>
+        <div class="sel-summary" id="selSummary" aria-live="polite"></div>
         <button class="start-btn" id="startBtn" onclick="startSession()">Start session</button>
         <p class="set-lock-note" id="setLockNote">A set is in progress. Finish it, save it for later or cancel it to change these settings or the mode.</p>
       </div>
@@ -385,7 +438,7 @@ html[data-theme="dark"] .cancel-card{background:#1d1630;}
     </aside>
 
     <main class="q-area" id="mainArea">
-      <div class="splash" id="splash">
+      <div class="splash cps" id="splash">
         <div id="resumeBanner" class="resume-banner" style="display:none">
           <div class="rb-info">
             <strong>You have a saved session</strong>
@@ -396,11 +449,23 @@ html[data-theme="dark"] .cancel-card{background:#1d1630;}
             <button class="rb-btn-discard" onclick="discardSavedSession()">Discard</button>
           </div>
         </div>
-        <div class="splash-ico">🩺</div>
-        <h2>MSRA Practice</h2>
-        <p>Choose your specialty, type, and count on the left, then hit <strong style="color:var(--pu-mid)">Start session</strong>.</p>
-        <p style="font-size:12px;color:var(--muted);margin-top:8px;">Tutor mode reveals full clinical reasoning after every answer.</p>
-        <p style="font-size:12.5px;margin-top:14px;">Preparing for Paper 1? <a href="sjt.html" style="color:var(--pu-mid);font-weight:600;text-decoration:none">Practise Professional Dilemmas →</a></p>
+        <div class="mode-link"><span><strong>Ready for exam conditions?</strong> Sit a full timed exam: 97 questions in 75 minutes, marked when you finish.</span><a class="btn-mock" href="exam.html">Timed exam →</a></div>
+        <div class="splash-kicker">MSRA · Paper 2</div>
+        <h2>Clinical Problem Solving</h2>
+        <p class="splash-lede">Practise the clinical paper across all twelve specialties. Choose your questions in the Configure box, then hit <strong>Start session</strong>. In <strong>Tutor Mode</strong> you see the full clinical reasoning after every answer; in <strong>Topic Mode</strong> you answer the whole set first and review at the end.</p>
+        <div class="fmt-grid">
+          <div class="fmt">
+            <div class="fmt-hd">Single best answer (SBA)</div>
+            <p>A clinical scenario with one question. Several options may be reasonable; choose the single best one.</p>
+            <div class="fmt-marks">One correct answer per question</div>
+          </div>
+          <div class="fmt">
+            <div class="fmt-hd">Extended matching (EMQ)</div>
+            <p>A theme with a shared list of options and several short scenarios. Each option may be used once, more than once or not at all.</p>
+            <div class="fmt-marks">One correct answer per scenario</div>
+          </div>
+        </div>
+        <p class="splash-foot">The real paper has 97 questions in 75 minutes, roughly 46 seconds each. Practice sessions are untimed so you can think each one through; the <a href="exam.html">timed exam</a> runs to the real clock. Preparing for Paper 1? <a href="sjt.html">Practise Professional Dilemmas →</a></p>
       </div>
     </main>
   </div>
@@ -1237,6 +1302,42 @@ window.OSSIFY_PAGE_SHORTCUTS = [['A','Choose an answer (A–J)'], ['Enter','Conf
   } catch(_) {}
 })();
 
+
+// ── Configure buttons: drive the (hidden) selects so the existing session logic is unchanged ──
+function syncChips() {
+  document.querySelectorAll('[data-for]').forEach(group => {
+    const sel = document.getElementById(group.dataset.for); if (!sel) return;
+    group.querySelectorAll('button').forEach(b => {
+      const on = b.dataset.v === sel.value;
+      b.setAttribute('aria-checked', on); b.tabIndex = on ? 0 : -1; b.disabled = sel.disabled;
+    });
+  });
+  const s = document.getElementById('selSummary'); if (!s) return;
+  const v = id => document.getElementById(id).value;
+  const n = v('countFilter') === '0' ? 'All matching questions' : v('countFilter') + ' questions';
+  const src = v('sourceFilter');
+  const what = src === 'weak' ? 'from your weak areas' : src === 'revision' ? 'from your revision queue'
+    : [v('topicFilter') || 'All specialties', v('typeFilter') || 'SBA + EMQ', v('domainFilter') || 'all domains'].join(' · ');
+  const m = typeof mode !== 'undefined' && mode === 'exam' ? 'Topic Mode: answers revealed at the end.' : 'Tutor Mode: explanations after each answer.';
+  s.innerHTML = '<strong>' + n + '</strong> ' + (src === 'all' ? '<br>' : '') + what + '<span class="note">' + m + '</span>';
+}
+document.querySelectorAll('[data-for]').forEach(group => {
+  group.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || b.disabled) return;
+    const sel = document.getElementById(group.dataset.for);
+    sel.value = b.dataset.v; sel.dispatchEvent(new Event('change')); syncChips();
+  });
+  group.addEventListener('keydown', e => {
+    if (!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(e.key)) return;
+    const bs = [...group.querySelectorAll('button:not(:disabled)')]; const i = bs.indexOf(document.activeElement); if (i < 0) return;
+    e.preventDefault(); const nb = bs[(i + (['ArrowRight','ArrowDown'].includes(e.key) ? 1 : bs.length - 1)) % bs.length]; nb.click(); nb.focus();
+  });
+});
+document.getElementById('topicFilter').addEventListener('change', syncChips);
+{ const _osc = onSourceChange; onSourceChange = function () { _osc(); syncChips(); }; }
+{ const _usl = updateSetLock; updateSetLock = function () { _usl(); syncChips(); }; }
+if (typeof setMode === 'function') { const _sm = setMode; setMode = function (m) { const r = _sm(m); syncChips(); return r; }; }
+syncChips();
 </script>
 <div id="stemTip" style="
   position:fixed;display:none;z-index:9999;
