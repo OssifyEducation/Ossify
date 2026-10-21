@@ -310,6 +310,14 @@ html[data-theme="dark"]{--surface:#1d1630;}
 .sp-fill{height:100%;background:linear-gradient(90deg,var(--pu-mid),var(--pu-light));border-radius:6px;transition:width .4s ease;}
 .sp-meta{font-size:11.5px;color:var(--moss);margin-top:6px;}
 @media (min-width:861px){ .config-panel .start-btn{position:sticky;bottom:12px;z-index:2;box-shadow:0 0 0 12px var(--lav-card),0 -14px 18px 6px var(--lav-card);} }
+.count-btn.full{grid-column:1/-1;}
+.custom-wrap{margin-top:8px;}
+.custom-wrap input{width:100%;padding:8px 10px;border:1px solid var(--lav-border);border-radius:8px;font-size:13.5px;font-family:var(--font-sans);background:var(--surface);color:var(--ink);}
+.custom-wrap input:focus{outline:none;border-color:var(--pu-mid);}
+.custom-wrap input[aria-invalid="true"]{border-color:var(--red,#c0305a);}
+.custom-wrap input:disabled{opacity:.5;cursor:not-allowed;}
+.custom-msg{font-size:11.5px;color:var(--red,#c0305a);margin-top:5px;min-height:0;}
+.custom-msg:empty{display:none;}
 .mock-tab{display:none;}
 .tb-short{display:none;}
 @media (max-width:860px){
@@ -454,7 +462,12 @@ html[data-theme="dark"]{--surface:#1d1630;}
           <option value="Investigation">Investigation</option>
         </select>
         <div class="filter-label">Number of questions</div>
-        <div class="count-grid" role="radiogroup" aria-label="Number of questions" data-for="countFilter"><button type="button" role="radio" class="count-btn" data-v="10" aria-label="10 questions">10</button><button type="button" role="radio" class="count-btn" data-v="20" aria-label="20 questions">20</button><button type="button" role="radio" class="count-btn" data-v="40" aria-label="40 questions">40</button><button type="button" role="radio" class="count-btn" data-v="60" aria-label="60 questions">60</button><button type="button" role="radio" class="count-btn" data-v="97" aria-label="97 questions, the length of the real paper">97</button><button type="button" role="radio" class="count-btn" data-v="0" aria-label="All matching questions">All</button></div>
+        <div class="count-grid" role="radiogroup" aria-label="Number of questions" data-for="countFilter"><button type="button" role="radio" class="count-btn" data-v="10" aria-label="10 questions">10</button><button type="button" role="radio" class="count-btn" data-v="20" aria-label="20 questions">20</button><button type="button" role="radio" class="count-btn" data-v="40" aria-label="40 questions">40</button><button type="button" role="radio" class="count-btn" data-v="60" aria-label="60 questions">60</button><button type="button" role="radio" class="count-btn" data-v="97" aria-label="97 questions, the length of the real paper">97</button><button type="button" role="radio" class="count-btn" data-v="0" aria-label="All matching questions">All</button><button type="button" role="radio" class="count-btn full" data-v="custom" aria-label="Custom number of questions">Custom</button></div>
+        <div class="custom-wrap" id="customWrap" hidden>
+          <label for="customCount" class="sr-only">Custom number of questions (1 to 200)</label>
+          <input id="customCount" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="Type a number, 1–200" aria-describedby="customMsg">
+          <div class="custom-msg" id="customMsg" aria-live="polite"></div>
+        </div>
         <select class="filter-select chip-select" id="countFilter">
           <option value="10">10 questions</option>
           <option value="20">20 questions</option>
@@ -462,6 +475,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
           <option value="60">60 questions</option>
           <option value="97">97 questions</option>
           <option value="0">All matching</option>
+          <option value="custom">Custom</option>
         </select>
         <div class="sel-summary" id="selSummary" aria-live="polite"></div>
         <button class="start-btn" id="startBtn" onclick="startSession()">Start session</button>
@@ -716,7 +730,7 @@ async function startSession() {
   sessionXp = 0; lastAnswerAt = null;
   const topics = selTopics.slice(), domains = selDomains.slice();
   const type   = document.getElementById('typeFilter').value;
-  const count  = parseInt(document.getElementById('countFilter').value);
+  const count  = getCount() || 10;
   sessionSource = (document.getElementById('sourceFilter') || {}).value || 'all';
 
   const main = document.getElementById('mainArea');
@@ -1345,6 +1359,23 @@ window.OSSIFY_PAGE_SHORTCUTS = [['A','Choose an answer (A–J)'], ['Enter','Conf
 // Specialty and domain are multi-select; their choices live in these arrays,
 // kept in the order they were picked (the progress card stacks in that order).
 var selTopics = [], selDomains = [], topicStats = null;
+const CUSTOM_MAX = 200;
+// The chosen number of questions: a preset, 0 for "All", or the typed custom number (null if that isn't valid yet)
+function getCount() {
+  const v = document.getElementById('countFilter').value;
+  if (v !== 'custom') return parseInt(v, 10);
+  const raw = (document.getElementById('customCount').value || '').trim();
+  const n = /^\d+$/.test(raw) ? parseInt(raw, 10) : NaN;
+  return n >= 1 && n <= CUSTOM_MAX ? n : null;
+}
+function validateCustom(show) {
+  const inp = document.getElementById('customCount'), msg = document.getElementById('customMsg');
+  const bad = document.getElementById('countFilter').value === 'custom' && getCount() === null;
+  const visible = bad && (show || inp.value.trim() !== '');
+  inp.setAttribute('aria-invalid', visible);
+  msg.textContent = visible ? 'Enter a whole number from 1 to ' + CUSTOM_MAX + '.' : '';
+  return !bad;
+}
 const TOPIC_LABEL = {};
 document.querySelectorAll('[data-multi="topics"] [data-v]').forEach(b => { if (b.dataset.v) TOPIC_LABEL[b.dataset.v] = b.textContent; });
 
@@ -1364,6 +1395,9 @@ function syncChips() {
       b.disabled = dis;
     });
   });
+  const cf = document.getElementById('countFilter'), cw = document.getElementById('customWrap');
+  cw.hidden = cf.value !== 'custom';
+  document.getElementById('customCount').disabled = cf.disabled;
   renderSummary();
   renderProgress();
 }
@@ -1380,8 +1414,9 @@ function equalSplit(count, n) {
 function renderSummary() {
   const s = document.getElementById('selSummary'); if (!s) return;
   const v = id => document.getElementById(id).value;
-  const count = parseInt(v('countFilter'));
-  const n = count === 0 ? 'All matching questions' : count + ' questions';
+  const c = getCount();
+  const count = c === null ? 0 : c;
+  const n = c === null ? 'Custom: type a number' : count === 0 ? 'All matching questions' : count + (count === 1 ? ' question' : ' questions');
   const src = v('sourceFilter');
   let what;
   if (src === 'weak') what = 'from your weak areas';
@@ -1445,6 +1480,20 @@ document.querySelectorAll('[data-multi]').forEach(group => {
     syncChips();
   });
 });
+
+(() => {
+  const inp = document.getElementById('customCount');
+  inp.addEventListener('input', () => { inp.value = inp.value.replace(/[^0-9]/g, ''); validateCustom(false); renderSummary(); });
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); startSession(); } });
+  document.querySelector('[data-for="countFilter"]').addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (b && b.dataset.v === 'custom' && !b.disabled) setTimeout(() => { inp.focus(); validateCustom(false); }, 0);
+  });
+})();
+{ const _ss = startSession; startSession = async function () {
+    if (!validateCustom(true)) { document.getElementById('customCount').focus(); return; }
+    return _ss.apply(this, arguments);
+}; }
 
 // ── Build a bespoke set: equal share per specialty, EMQ sets kept together ──
 function toGroups(qs) {
