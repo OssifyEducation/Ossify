@@ -34,8 +34,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font-sans);color:var(--ink);background:var(--lav);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased;}
-.sb{width:220px;flex-shrink:0;background:var(--pu-mid);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;}
-.sb::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:#9b6fd4;opacity:0.25;pointer-events:none;}
+.sb{width:220px;flex-shrink:0;background:var(--pu-mid);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;}
+.sb::before{content:"";position:absolute;right:0;top:0;width:140px;height:140px;background:radial-gradient(circle 90px at 90px 50px,#9b6fd4 calc(100% - .5px),transparent 100%);opacity:0.25;pointer-events:none;}
 .sb::after{content:"";position:absolute;left:-20px;bottom:80px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;}
 .sb::-webkit-scrollbar{width:3px;}
 .sb::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);}
