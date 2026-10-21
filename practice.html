@@ -318,6 +318,8 @@ html[data-theme="dark"]{--surface:#1d1630;}
 .custom-wrap input:disabled{opacity:.5;cursor:not-allowed;}
 .custom-msg{font-size:11.5px;color:var(--red,#c0305a);margin-top:5px;min-height:0;}
 .custom-msg:empty{display:none;}
+.custom-msg .use-all{display:inline-block;margin-top:6px;padding:5px 11px;border:none;border-radius:7px;background:var(--pu-mid);color:#fff;font-size:12px;font-weight:600;font-family:var(--font-sans);cursor:pointer;}
+.custom-msg .use-all:hover{background:var(--pu-dark);}
 .mock-tab{display:none;}
 .tb-short{display:none;}
 @media (max-width:860px){
@@ -464,8 +466,8 @@ html[data-theme="dark"]{--surface:#1d1630;}
         <div class="filter-label">Number of questions</div>
         <div class="count-grid" role="radiogroup" aria-label="Number of questions" data-for="countFilter"><button type="button" role="radio" class="count-btn" data-v="10" aria-label="10 questions">10</button><button type="button" role="radio" class="count-btn" data-v="20" aria-label="20 questions">20</button><button type="button" role="radio" class="count-btn" data-v="40" aria-label="40 questions">40</button><button type="button" role="radio" class="count-btn" data-v="60" aria-label="60 questions">60</button><button type="button" role="radio" class="count-btn" data-v="97" aria-label="97 questions, the length of the real paper">97</button><button type="button" role="radio" class="count-btn" data-v="0" aria-label="All matching questions">All</button><button type="button" role="radio" class="count-btn full" data-v="custom" aria-label="Custom number of questions">Custom</button></div>
         <div class="custom-wrap" id="customWrap" hidden>
-          <label for="customCount" class="sr-only">Custom number of questions (1 to 200)</label>
-          <input id="customCount" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="Type a number, 1–200" aria-describedby="customMsg">
+          <label for="customCount" class="sr-only">Custom number of questions</label>
+          <input id="customCount" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="Type a number" aria-describedby="customMsg">
           <div class="custom-msg" id="customMsg" aria-live="polite"></div>
         </div>
         <select class="filter-select chip-select" id="countFilter">
@@ -1359,22 +1361,58 @@ window.OSSIFY_PAGE_SHORTCUTS = [['A','Choose an answer (A–J)'], ['Enter','Conf
 // Specialty and domain are multi-select; their choices live in these arrays,
 // kept in the order they were picked (the progress card stacks in that order).
 var selTopics = [], selDomains = [], topicStats = null;
-const CUSTOM_MAX = 200;
-// The chosen number of questions: a preset, 0 for "All", or the typed custom number (null if that isn't valid yet)
+// How many questions match the current choices (null = not known yet, or no limit applies)
+var availableCount = null, availKey = '', availTimer = null, customTouched = false;
+function refreshAvailable() {
+  clearTimeout(availTimer);
+  availTimer = setTimeout(async () => {
+    const src = document.getElementById('sourceFilter').value;
+    const type = document.getElementById('typeFilter').value;
+    const key = JSON.stringify([src, selTopics.slice().sort(), type, selDomains.slice().sort()]);
+    if (key === availKey) return;
+    availKey = key;
+    if (src !== 'all') { availableCount = null; updateCustomHint(); return; }
+    try {
+      const { data, error } = await sb.rpc('count_matching_questions', { p_topics: selTopics, p_type: type, p_domains: selDomains });
+      if (key !== availKey) return;                       // choices changed while we waited
+      availableCount = error ? null : (data || []).reduce((a, r) => a + (r.available || 0), 0);
+    } catch (_) { availableCount = null; }
+    updateCustomHint();
+  }, 200);
+}
+function updateCustomHint() {
+  const inp = document.getElementById('customCount');
+  inp.placeholder = availableCount ? 'Type a number (up to ' + availableCount + ')' : 'Type a number';
+  validateCustom(false); renderSummary();
+}
+// The chosen number of questions: a preset, 0 for "All", or the typed custom number (null if it isn't a number yet)
 function getCount() {
   const v = document.getElementById('countFilter').value;
   if (v !== 'custom') return parseInt(v, 10);
   const raw = (document.getElementById('customCount').value || '').trim();
-  const n = /^\d+$/.test(raw) ? parseInt(raw, 10) : NaN;
-  return n >= 1 && n <= CUSTOM_MAX ? n : null;
+  return /^\d+$/.test(raw) && parseInt(raw, 10) >= 1 ? parseInt(raw, 10) : null;
 }
+function useAllQuestions() {
+  document.getElementById('countFilter').value = '0';
+  syncChips();
+  const b = document.querySelector('[data-for="countFilter"] [data-v="0"]'); if (b) b.focus();
+}
+// Red message only for: empty box, letters, or more than the questions available
 function validateCustom(show) {
   const inp = document.getElementById('customCount'), msg = document.getElementById('customMsg');
-  const bad = document.getElementById('countFilter').value === 'custom' && getCount() === null;
-  const visible = bad && (show || inp.value.trim() !== '');
-  inp.setAttribute('aria-invalid', visible);
-  msg.textContent = visible ? 'Enter a whole number from 1 to ' + CUSTOM_MAX + '.' : '';
-  return !bad;
+  if (document.getElementById('countFilter').value !== 'custom') { inp.setAttribute('aria-invalid', false); msg.innerHTML = ''; return true; }
+  const raw = inp.value.trim();
+  let text = '', valid = true;
+  if (!raw) { valid = false; if (show || customTouched) text = 'Type how many questions you want.'; }
+  else if (!/^\d+$/.test(raw)) { valid = false; text = 'Use numbers only.'; }
+  else if (parseInt(raw, 10) < 1) { valid = false; text = 'Choose at least 1 question.'; }
+  else if (availableCount !== null && parseInt(raw, 10) > availableCount) {
+    valid = false;
+    text = 'Only ' + availableCount + ' question' + (availableCount === 1 ? '' : 's') + ' match your choices.<br><button type="button" class="use-all" onclick="useAllQuestions()">Use all ' + availableCount + ' questions</button>';
+  }
+  inp.setAttribute('aria-invalid', !!text);
+  msg.innerHTML = text;
+  return valid;
 }
 const TOPIC_LABEL = {};
 document.querySelectorAll('[data-multi="topics"] [data-v]').forEach(b => { if (b.dataset.v) TOPIC_LABEL[b.dataset.v] = b.textContent; });
@@ -1400,6 +1438,7 @@ function syncChips() {
   document.getElementById('customCount').disabled = cf.disabled;
   renderSummary();
   renderProgress();
+  refreshAvailable();
 }
 
 function equalSplit(count, n) {
@@ -1416,7 +1455,7 @@ function renderSummary() {
   const v = id => document.getElementById(id).value;
   const c = getCount();
   const count = c === null ? 0 : c;
-  const n = c === null ? 'Custom: type a number' : count === 0 ? 'All matching questions' : count + (count === 1 ? ' question' : ' questions');
+  const n = c === null ? 'Custom: type a number' : count === 0 ? 'All matching questions' + (availableCount ? ' (' + availableCount + ')' : '') : count + (count === 1 ? ' question' : ' questions');
   const src = v('sourceFilter');
   let what;
   if (src === 'weak') what = 'from your weak areas';
@@ -1483,7 +1522,7 @@ document.querySelectorAll('[data-multi]').forEach(group => {
 
 (() => {
   const inp = document.getElementById('customCount');
-  inp.addEventListener('input', () => { inp.value = inp.value.replace(/[^0-9]/g, ''); validateCustom(false); renderSummary(); });
+  inp.addEventListener('input', () => { customTouched = true; validateCustom(false); renderSummary(); });
   inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); startSession(); } });
   document.querySelector('[data-for="countFilter"]').addEventListener('click', e => {
     const b = e.target.closest('button');
@@ -1520,13 +1559,34 @@ async function buildBespokeSet({ topics, type, domains, count }) {
   const buckets = topics.length ? topics : [''];
   const doms = domains.length ? domains : [''];
   const quotas = equalSplit(count, buckets.length);
-  const perTopic = await Promise.all(buckets.map(async (topic, i) => {
-    const lists = await Promise.all(doms.map(domain => fetchQuestions({ topic, type, domain, count: quotas[i] > 0 ? quotas[i] + 4 : 0 })));
+  const fetchAll = async (topic, n) => {
+    const lists = await Promise.all(doms.map(domain => fetchQuestions({ topic, type, domain, count: n })));
     const seen = new Set(), rows = [];
     lists.forEach(l => l.forEach(r => { if (!seen.has(r.id)) { seen.add(r.id); rows.push(r); } }));
+    return rows;
+  };
+  const per = await Promise.all(buckets.map(async (topic, i) => {
+    const rows = await fetchAll(topic, quotas[i] > 0 ? quotas[i] + 4 : 0);
     return takeGroups(shuffled(toGroups(rows)), quotas[i]);
   }));
-  const qs = shuffled(perTopic.flat()).flat();
+  // If a specialty has fewer questions than its share, top up from the others, taking turns
+  if (count > 0) {
+    let short = count - per.reduce((a, g) => a + g.flat().length, 0);
+    if (short > 0) {
+      const used = new Set(per.flat(2).map(q => q.id));
+      const spare = await Promise.all(buckets.map(async (topic, i) =>
+        per[i].flat().length >= quotas[i] ? shuffled(toGroups((await fetchAll(topic, 0)).filter(q => !used.has(q.id)))) : []));
+      let added = true;
+      while (short > 0 && added) {
+        added = false;
+        for (let i = 0; i < buckets.length && short > 0; i++) {
+          const g = spare[i].shift(); if (!g) continue;
+          const take = g.slice(0, short); per[i].push(take); short -= take.length; added = true;
+        }
+      }
+    }
+  }
+  const qs = shuffled(per.flat()).flat();
   if (count > 0 && qs.length && qs.length < count) setTimeout(() => showToast('Only ' + qs.length + ' questions matched your choices, so this set is shorter.'), 600);
   return qs;
 }
