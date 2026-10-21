@@ -266,6 +266,7 @@ html[data-theme="dark"] .ks-modal{background-color:#1d1630;}
   .topbar > :first-child{flex-shrink:0;}
 }
 @media (prefers-reduced-motion:reduce){.sb{transition:none!important;}}
+aside.sb:focus,aside.sb:focus-visible{outline:none!important;}
 html[data-theme="dark"] .nav-burger{background:#1d1630;}
 @media (max-width:860px){
   .content{padding-left:12px!important;padding-right:12px!important;}
