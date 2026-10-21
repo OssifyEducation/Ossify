@@ -111,7 +111,7 @@
         "</tbody></table>" + (s.note ? '<div class="rr-note">' + s.note + "</div>" : "") + "</section>";
     }).join("");
     return '<details class="rr">' +
-      '<summary aria-label="Reference ranges"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v6L4 18a2 2 0 0 0 1.8 3h12.4A2 2 0 0 0 20 18l-5-10V2"/><line x1="8" y1="2" x2="16" y2="2"/><line x1="7" y1="14" x2="17" y2="14"/></svg>Reference ranges<svg class="rr-chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>' +
+      '<summary aria-label="Reference ranges">Reference ranges<svg class="rr-chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>' +
       '<div class="rr-panel" role="region" aria-label="Laboratory reference ranges">' +
       '<div class="rr-hd"><span class="rr-title">Reference ranges</span><span class="rr-sub">Adults · UK units</span><button type="button" class="rr-x" aria-label="Close reference ranges">×</button></div>' +
       '<div class="rr-jump">' + jump + "</div>" + body +

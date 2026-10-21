@@ -11,6 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
 <script src="js/ossify-tutor.js"></script>
+<script src="js/ossify-refranges.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 /* ── Weekly Challenge: lobby ─────────────────────────────────────────────── */
@@ -509,7 +510,7 @@ function renderQ(confirm){
     </div>
     <div class="wq-dots">${dots}</div>
     <article class="wq-card">
-      <div class="wq-meta"><span class="wq-num">Question ${att.i+1} of ${n}</span>${q.paper?`<span class="wq-topic">${esc(q.paper)}</span>`:''}</div>
+      <div class="wq-meta"><span class="wq-num">Question ${att.i+1} of ${n}</span><span style="display:flex;align-items:center;gap:8px;margin-left:auto;">${q.paper?`<span class="wq-topic">${esc(q.paper)}</span>`:''}${ossifyRefRanges()}</span></div>
       <div class="wq-stem">${esc(q.stem)}</div>
       <div class="wq-opts" role="group" aria-label="Answer options">
         ${q.options.map((o,k)=>`<button class="wq-opt" aria-pressed="${sel===k}" onclick="pick(${k})"><span class="wq-ltr">${LETTERS[k]}</span><span>${esc(o)}</span></button>`).join('')}
@@ -617,6 +618,7 @@ function renderReview(){
       ${q.topic||q.paper?`<span class="badge badge-topic">${esc(q.topic||q.paper)}</span>`:''}
       <span class="badge badge-type">${esc(q.type)}</span>
       ${q.domain?`<span class="badge badge-domain">${esc(q.domain)}</span>`:''}
+      ${ossifyRefRanges()}
     </div>
     ${played?`<dl class="rv-sum">
       <div class="${s==='correct'?'is-right':s==='wrong'?'is-wrong':'is-none'}"><dt>Your answer</dt><dd>${s==='none'?'Not answered':esc(ans(sel))}</dd></div>
