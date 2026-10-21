@@ -14,6 +14,7 @@
 <script src="js/ossify-tutor.js"></script>
 <script src="js/ossify-refranges.js"></script>
 <script src="js/ossify-saved.js"></script>
+<script src="js/ossify-flags.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 :root{
@@ -918,6 +919,7 @@ function submitExam(reason) {
         window.removeEventListener('beforeunload', beforeUnloadGuard);
         clearLocal(exam.id);
         reviewData = data;
+        if (flags.size && window.OssifyFlags) OssifyFlags.addMany([...flags]);   // exam flags join your flagged questions
         phase = 'results';
         renderResults(true);
         return;
