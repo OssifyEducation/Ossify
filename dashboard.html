@@ -99,6 +99,15 @@
 .st-cov{height:4px;border-radius:4px;background:rgba(61,31,122,.08);overflow:hidden;margin-top:5px;}
 .st-cov span{display:block;height:100%;background:var(--pu-mid);border-radius:4px;}
 .st-meta{font-size:10.5px;color:var(--muted);}
+.st-bars{display:flex;flex-direction:column;gap:7px;margin-top:6px;}
+.st-row{display:flex;flex-direction:column;gap:1px;}
+.st-lbl{display:flex;justify-content:space-between;gap:6px;font-size:10.5px;color:var(--muted);}
+.st-lbl b{color:var(--pu-dark);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.st-row .st-cov{height:5px;margin-top:3px;}
+.st-ratio{height:5px;margin:3px 0 0;}
+html[data-theme="dark"] .st-lbl b{color:#ede9fe;}
+.st-short{display:none;}
+@media (max-width:640px){.st-long{display:none;}.st-short{display:inline;}}
 .st-strong{background:#ecfdf5;border-color:#a7f3d0;} .st-strong .st-band{color:#166534;}
 .st-good{background:#f0fdfa;border-color:#99f6e4;}   .st-good .st-band{color:var(--teal-d);}
 .st-fair{background:#fffbeb;border-color:#fde68a;}   .st-fair .st-band{color:#92400e;}
@@ -484,8 +493,12 @@ function renderInsights(ins, fallback){
       <span class="st-name" title="${escD(t.topic)}">${escD(SHORT[t.topic]||t.topic)}</span>
       <span class="st-acc">${accT!==null&&t.attempted>=MIN_FOR_ACC?accT+'%':accT!==null?accT+'%<small>*</small>':'—'}</span>
       <span class="st-band">${b.label}</span>
-      <span class="st-cov" aria-hidden="true"><span style="width:${cov}%"></span></span>
-      <span class="st-meta">${t.attempted} / ${t.bank} answered</span></a>`;}).join('');
+      <span class="st-bars">
+        <span class="st-row"><span class="st-lbl"><span>Answered</span><b>${t.attempted} / ${t.bank}</b></span>
+          <span class="st-cov" aria-hidden="true"><span style="width:${cov}%"></span></span></span>
+        <span class="st-row"><span class="st-lbl"><span><span class="st-long">Correct / incorrect</span><span class="st-short">Right / wrong</span></span><b>${accT===null?'—':accT+'% / '+(100-accT)+'%'}</b></span>
+          <span class="pd-ratio st-ratio" aria-hidden="true">${accT===null?'':`<span class="pd-ok" style="width:${accT}%"></span><span class="pd-bad" style="width:${100-accT}%"></span>`}</span></span>
+      </span></a>`;}).join('');
   const map=`<div class="sec-row"><div class="sec-h">Specialty strength map</div><a href="practice.html" class="sec-a">Practise any specialty →</a></div>
     <div class="st-grid">${tiles}</div>
     <div class="st-key" aria-hidden="true"><span><i class="st-strong"></i>Strong ≥80%</span><span><i class="st-good"></i>Good 65–79%</span><span><i class="st-fair"></i>Building 50–64%</span><span><i class="st-focus"></i>Focus &lt;50%</span><span><i class="st-early"></i>* fewer than ${MIN_FOR_ACC} answered</span></div>`;
