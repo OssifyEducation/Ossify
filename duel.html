@@ -241,8 +241,8 @@ function setUserInfo(name,uname){
 
 // Server error codes → plain English
 const ERRS={
-  duel_requires_subscription:'Head-to-Head duels are part of a paid plan.',
-  opponent_no_access:'That player doesn\'t have duel access yet — they need a paid plan.',
+  duel_requires_subscription:'Head-to-Head isn\'t available on your account right now. Contact us if you think this is a mistake.',
+  opponent_no_access:'That player can\'t take part in duels yet.',
   invalid_opponent:'You can\'t challenge that player.',
   duel_already_open:'You already have an open duel with this player. Finish or cancel it first.',
   too_many_challenges:'You\'ve sent a lot of challenges today — try again tomorrow.',
@@ -293,9 +293,9 @@ async function init(){
 function renderGate(){
   const grid=document.querySelector('.duel-grid');
   if(grid)grid.outerHTML=`<div class="free-gate">
-    <h3>Head-to-Head is a paid feature</h3>
-    <p>Upgrade to challenge colleagues to 10-question duels, earn XP for every win and unlock the Duel Victor badge.</p>
-    <a href="pricing.html" class="btn-cta" style="display:inline-flex;text-decoration:none;">View pricing →</a>
+    <h3>Head-to-Head isn't available on your account</h3>
+    <p>If you think this is a mistake, please get in touch and we'll sort it out.</p>
+    <a href="contact.html" class="btn-cta" style="display:inline-flex;text-decoration:none;">Contact us →</a>
   </div>`;
 }
 

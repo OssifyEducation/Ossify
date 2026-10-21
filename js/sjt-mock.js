@@ -80,7 +80,7 @@
     if (!sb) { notice("Mock exams are unavailable", "The page couldn't connect to Ossify. Check your connection and reload."); return; }
     var sess = (await sb.auth.getSession()).data.session;
     if (!sess) {
-      notice("Sign in to sit a mock", "Mock exams are timed and marked on Ossify's server, so your answers and results are saved to your account. They are part of a paid plan. Sign in to start, or practise by topic for free.",
+      notice("Sign in to sit a mock", "Mock exams are timed and marked on Ossify's server, so your answers and results are saved to your account. Sign in to start, or practise by topic instead.",
         '<div class="sum-acts"><a class="btn-primary" href="login.html">Sign in</a><a class="btn-ghost" href="sjt.html">Practise by topic instead</a></div>');
       return;
     }
@@ -143,7 +143,7 @@
         status = mine.length ? '<span class="mk-status done">Best ' + pct1(best) + "% · " + plural(mine.length, "attempt") + "</span>" : '<span class="mk-status">Not attempted</span>';
         btn = paid
           ? '<button class="btn-primary" type="button" data-act="start" data-mock="' + m + '"' + (active ? " disabled" : "") + ">" + (mine.length ? "Sit again" : "Start " + mockName(m)) + "</button>"
-          : '<a class="btn-ghost" href="pricing.html">Unlock with a paid plan</a>';
+          : '<a class="btn-ghost" href="contact.html">Not available: contact us</a>';
       }
       return '<div class="mk-card' + (avail[m] ? "" : " off") + '"><div class="mk-card-hd"><span class="mk-name">' + mockName(m) + "</span>" + status + "</div>" +
         '<div class="mk-spec">50 scenarios · 95 minutes<br>25 ranking · 25 multiple choice</div>' + btn + "</div>";
@@ -159,8 +159,7 @@
       '<div class="splash-kicker">MSRA · Paper 1 · Exam conditions</div>' +
       '<h2 id="mkTitle">Professional Dilemmas mock exams</h2>' +
       '<p class="splash-lede">Each mock is a full paper: <strong>50 scenarios in 95 minutes</strong>, half ranking and half multiple choice, spread across professional integrity, coping with pressure, and empathy and sensitivity. You get no feedback until you finish. Then you see your marks by attribute and the full explanation for every scenario.</p>' +
-      (paid ? "" : '<div class="mk-gate"><div><strong>Mock exams are part of a paid plan.</strong> Upgrade to sit all four full papers under exam conditions, with marks by attribute and a full review of every scenario. Topic Mode stays free.</div><a class="btn-primary" href="pricing.html">View pricing →</a></div>') +
-      '<div class="mk-grid">' + cards + "</div>" +
+            '<div class="mk-grid">' + cards + "</div>" +
       '<ul class="mk-rules">' +
       "<li>The clock starts when you press Start and keeps running if you close the page, just as the real paper would.</li>" +
       "<li>Answers save as you go. You can move between questions, flag them and change answers until time runs out.</li>" +
@@ -180,8 +179,8 @@
     } catch (e) {
       if (btn) { btn.disabled = false; btn.textContent = "Start " + mockName(m); }
       if (/subscription_required/.test(e.message)) {
-        notice("Mock exams are part of a paid plan", "Your account doesn't have an active subscription, so a new mock can't be started. Any results you already have stay available to review.",
-          '<div class="sum-acts"><a class="btn-primary" href="pricing.html">View pricing</a><a class="btn-ghost" href="sjt-mock.html">Back to mock exams</a></div>');
+        notice("Mock exams aren't available on your account", "A new mock can't be started right now. Any results you already have stay available to review. If you think this is a mistake, please contact us.",
+          '<div class="sum-acts"><a class="btn-primary" href="contact.html">Contact us</a><a class="btn-ghost" href="sjt-mock.html">Back to mock exams</a></div>');
         return;
       }
       notice("Couldn't start the mock", /mock_unavailable/.test(e.message) ? "This mock isn't available yet." : "Check your connection and try again. (" + e.message + ")",

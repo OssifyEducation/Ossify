@@ -389,7 +389,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
         <svg class="mode-lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
         <button class="mode-btn" id="examModeBtn" onclick="setMode('exam')" aria-pressed="false">Topic Mode</button>
         <button class="mode-btn active" id="tutorModeBtn" onclick="setMode('tutor')" aria-pressed="true">Tutor Mode</button>
-        <button class="mode-btn mock-tab" id="mockTabBtn" type="button" onclick="toggleMockTab()" aria-pressed="false">Mock Exam</button>
+        <button class="mode-btn mock-tab" id="mockTabBtn" type="button" onclick="toggleMockTab()" aria-pressed="false">Timed Exam</button>
       </div>
       <button class="btn-save-later" id="saveLaterBtn" onclick="saveForLater()">
         <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
@@ -485,7 +485,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
             <button class="rb-btn-discard" onclick="discardSavedSession()">Discard</button>
           </div>
         </div>
-        <div class="mode-link"><span><strong>Ready for exam conditions?</strong> Sit a full timed exam: 97 questions in 75 minutes, marked when you finish.</span><a class="btn-mock" href="exam.html">Mock exam →</a></div>
+        <div class="mode-link"><span><strong>Ready for exam conditions?</strong> Sit a full timed exam: 97 questions in 75 minutes, marked when you finish.</span><a class="btn-mock" href="exam.html">Timed exam →</a></div>
         <div class="splash-kicker">MSRA · Paper 2</div>
         <h2>Clinical Problem Solving</h2>
         <p class="splash-lede">Practise the clinical paper across all twelve specialties. Choose your questions in the Configure box, then hit <strong>Start session</strong>. In <strong>Tutor Mode</strong> you see the full clinical reasoning after every answer; in <strong>Topic Mode</strong> you answer the whole set first and review at the end.</p>
@@ -501,7 +501,7 @@ html[data-theme="dark"]{--surface:#1d1630;}
             <div class="fmt-marks">One correct answer per scenario</div>
           </div>
         </div>
-        <p class="splash-foot">The real paper has 97 questions in 75 minutes, roughly 46 seconds each. Practice sessions are untimed so you can think each one through; the <a href="exam.html">mock exam</a> runs to the real clock. Preparing for Paper 1? <a href="sjt.html">Practise Professional Dilemmas →</a></p>
+        <p class="splash-foot">The real paper has 97 questions in 75 minutes, roughly 46 seconds each. Practice sessions are untimed so you can think each one through; the <a href="exam.html">timed exam</a> runs to the real clock. Preparing for Paper 1? <a href="sjt.html">Practise Professional Dilemmas →</a></p>
       </div>
       <section class="spec-progress" id="specProgress" aria-label="Your progress in the chosen specialties" hidden></section>
     </main>
@@ -1482,7 +1482,7 @@ async function buildBespokeSet({ topics, type, domains, count }) {
   return qs;
 }
 
-// ── Mobile "Mock Exam" tab: shows the mock exam box under Start session ──
+// ── Mobile "Timed Exam" tab: shows the timed exam box under Start session ──
 function toggleMockTab(force) {
   const open = typeof force === 'boolean' ? force : !document.body.classList.contains('mock-open');
   document.body.classList.toggle('mock-open', open);
