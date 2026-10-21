@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="js/ossify-theme.js"></script>
+<script src="js/ossify-shortcuts.js" defer></script>
+<script src="js/ossify-mobile.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saved summaries — Ossify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/ossify-user.js"></script>
+<link rel="stylesheet" href="css/ossify.css">
+<link rel="stylesheet" href="css/ossify-tutor.css">
+<link rel="stylesheet" href="css/ossify-dark.css">
+<link rel="stylesheet" href="css/saved.css">
+</head>
+<body>
+
+<aside class="sb">
+  <div class="sb-logo" onclick="location.href='dashboard.html'" title="Go to dashboard">
+    <svg width="90" height="42" viewBox="0 0 110 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="-1,10 10,5 21,10 10,15" fill="rgba(255,255,255,0.75)"/>
+      <line x1="21" y1="10" x2="21" y2="18" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="21" cy="19.5" r="2" fill="#f472b6"/>
+      <text x="0" y="38" font-family="Georgia,serif" font-size="28" font-weight="400" fill="#ffffff">Ossify</text>
+    </svg>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Overview</div>
+  <a class="nv" href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+  <a class="nv" href="leaderboard.html"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Leaderboard</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Revision</div>
+  <a class="nv" href="practice.html"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Clinical Problem Solving</a>
+  <a class="nv" href="sjt.html"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg>Professional Dilemmas</a>
+  <a class="nv" href="exam.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>Timed Exam</a>
+  <a class="nv" href="weekly.html"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Weekly Challenge<span class="nv-new">NEW</span></a>
+  <a class="nv" href="duel.html"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Head-to-Head</a>
+  <a class="nv on" aria-current="page" href="saved.html"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>Saved summaries</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Account</div>
+  <a class="nv" href="account.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
+    <a class="nv" href="account.html#refer"><svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Refer &amp; earn</a>
+  </div>
+  <div class="sb-sec">
+  <div class="sb-lbl">Help</div>
+  <a class="nv" href="keys-to-success.html"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Keys to Success</a>
+  <a class="nv" href="faq.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>MSRA FAQ</a>
+  <a class="nv" href="contact.html"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Us</a>
+  </div>
+  <div class="sb-foot">
+    <div class="sb-av-row">
+      <div class="sb-av" id="userAv"></div>
+      <div>
+        <div class="sb-uname" id="userName"></div>
+        <div class="sb-usub" id="userSub"></div>
+      </div>
+    </div>
+    <button class="sb-signout" onclick="ossifySignOut()">Sign out</button>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="tb-title">Saved summaries</div>
+    <div class="tb-r"><button type="button" class="sv-print" onclick="window.print()"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span>Print or save as PDF</span></button></div>
+  </div>
+  <main class="sv-wrap" id="svRoot" aria-busy="true"><div class="sv-loading">Loading your saved summaries…</div></main>
+</div>
+
+<script src="js/ossify-tutor.js"></script>
+<script src="js/ossify-saved.js"></script>
+<script src="js/saved.js"></script>
+</body>
+</html>

@@ -239,6 +239,7 @@ function renderTutorPanels(q, selected, tc, opts) {
       html += `<div class="hys-panel">
         <div class="panel-header" onclick="togglePanel(this)">
           <div class="panel-title teal">⚡ High-yield summary</div>
+          ${typeof ossifyHysSaveBtn === 'function' && q ? ossifyHysSaveBtn(q.id) : ''}
           <span class="panel-chevron">▼</span>
         </div>
         <div class="panel-body" style="display:none">
