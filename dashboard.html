@@ -82,13 +82,39 @@
 .next-why{font-size:11.5px;color:var(--muted);margin-top:1px;}
 .next-go{font-size:12px;font-weight:600;color:var(--pu-mid);white-space:nowrap;}
 .trend-wrap{width:100%;}
-.trend-svg{width:100%;height:150px;display:block;}
-.trend-svg .ax{font-size:9.5px;fill:var(--muted);font-family:var(--font-sans);}
-.trend-svg .ax-acc{fill:var(--teal-d);}
-.trend-legend{display:flex;gap:14px;font-size:11px;color:var(--muted);align-items:center;}
+.trend-chart{position:relative;width:100%;}
+.trend-chart svg{display:block;width:100%;overflow:visible;}
+.tr-grid{stroke:var(--lav-border);stroke-width:1;shape-rendering:crispEdges;}
+.tr-grid.base{stroke:rgba(61,31,122,.18);}
+.tr-ax{font:500 11px var(--font-sans);fill:var(--muted);font-variant-numeric:tabular-nums;}
+.tr-ax.pct{fill:var(--teal-d);}
+.trend-legend .lg-hint{display:inline;}
+.trend-legend .lg-short{display:none;}
+@media (max-width:640px){.trend-hdr{flex-direction:column;align-items:flex-start;gap:10px;}.trend-legend{gap:4px 14px;}.trend-legend .lg-long{display:none;}.trend-legend .lg-short{display:inline;}}
+.tr-bar{fill:var(--pu-light);opacity:.55;transition:opacity .12s,fill .12s;}
+.tr-bar.empty{fill:var(--pu-pale);opacity:1;}
+.tr-bar.on{opacity:1;fill:var(--pu-mid);}
+.tr-line{fill:none;stroke:var(--teal-d);stroke-width:2.25;stroke-linejoin:round;stroke-linecap:round;}
+.tr-line.gap{stroke-dasharray:3 4;stroke-width:1.5;opacity:.6;}
+.tr-dot{fill:#fff;stroke:var(--teal-d);stroke-width:2;transition:r .12s;}
+html[data-theme="dark"] .tr-dot{fill:#1d1630;}
+.tr-dot.on{fill:var(--teal-d);}
+.tr-guide{stroke:var(--pu-mid);stroke-width:1;stroke-dasharray:2 3;opacity:0;}
+.tr-guide.on{opacity:.45;}
+.tr-hit{fill:transparent;cursor:pointer;}
+.tr-tip{position:absolute;z-index:5;pointer-events:none;transform:translate(-50%,calc(-100% - 10px));background:var(--pu-dark);color:#fff;border-radius:9px;padding:8px 11px;font:12px/1.45 var(--font-sans);white-space:nowrap;box-shadow:0 8px 22px rgba(61,31,122,.28);opacity:0;transition:opacity .1s;}
+.tr-tip.show{opacity:1;}
+.tr-tip::after{content:"";position:absolute;left:var(--arrow,50%);bottom:-5px;width:10px;height:10px;background:var(--pu-dark);transform:translateX(-50%) rotate(45deg);border-radius:2px;}
+.tr-tip b{display:block;font-weight:600;margin-bottom:3px;}
+.tr-tip span{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.85);}
+.tr-tip i{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0;}
+.tr-tip .k1{background:var(--pu-light);} .tr-tip .k2{background:#5eead4;border-radius:50%;}
+.tr-tip small{display:block;color:rgba(255,255,255,.55);font-size:11px;margin-top:2px;}
+.trend-legend{display:flex;gap:16px;font-size:11.5px;color:var(--muted);align-items:center;flex-wrap:wrap;}
 .trend-legend span{display:flex;align-items:center;gap:6px;}
 .lg-bar{width:10px;height:10px;border-radius:2px;background:var(--pu-light);display:inline-block;}
-.lg-line{width:14px;height:2px;background:var(--teal-d);display:inline-block;}
+.lg-line{width:16px;height:2px;background:var(--teal-d);display:inline-block;position:relative;}
+.lg-line::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border:2px solid var(--teal-d);background:#fff;border-radius:50%;transform:translate(-50%,-50%);}
 .st-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:10px;margin-bottom:10px;}
 .st-tile{display:flex;flex-direction:column;gap:3px;padding:13px 14px 12px;border-radius:13px;border:0.5px solid var(--lav-border);background:var(--lav-card);text-decoration:none;color:inherit;transition:transform .18s cubic-bezier(.2,.7,.2,1),box-shadow .18s;}
 .st-tile:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(61,31,122,.45);}
@@ -402,21 +428,60 @@ function ring(pct,big,small,label,color){
     <div class="ring-lbl">${escD(label)}</div></div>`;
 }
 function trendSvg(daily){
-  const W=640,H=150,P={l:26,r:34,t:12,b:22};
-  const n=daily.length, maxA=Math.max(5,...daily.map(d=>d.answered));
-  const bw=(W-P.l-P.r)/n;
-  const y=v=>P.t+(H-P.t-P.b)*(1-v/maxA);
-  const ya=v=>P.t+(H-P.t-P.b)*(1-v/100);
-  const bars=daily.map((d,i)=>{const h=(H-P.t-P.b)*d.answered/maxA;
-    return `<rect x="${(P.l+i*bw+bw*0.18).toFixed(1)}" y="${(H-P.b-h).toFixed(1)}" width="${(bw*0.64).toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${d.answered?'var(--pu-light)':'var(--pu-pale)'}"><title>${escD(fmtDay(d.day))}: ${d.answered} answered${d.answered?`, ${Math.round(d.correct/d.answered*100)}% correct`:''}</title></rect>`;}).join('');
-  const pts=daily.map((d,i)=>d.answered>=3?[P.l+i*bw+bw/2, ya(d.correct/d.answered*100)]:null).filter(Boolean);
-  const line=pts.length>1?`<polyline points="${pts.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="var(--teal-d)" stroke-width="2" stroke-linejoin="round"/>`:'';
-  const dots=pts.map(p=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="#fff" stroke="var(--teal-d)" stroke-width="2"/>`).join('');
-  const ticks=[0,Math.round(maxA/2),maxA].map(v=>`<text x="${P.l-6}" y="${(y(v)+3).toFixed(1)}" text-anchor="end" class="ax">${v}</text>`).join('');
-  const yr=pts.length?[0,50,100].map(v=>`<text x="${W-P.r+6}" y="${(ya(v)+3).toFixed(1)}" class="ax ax-acc">${v}%</text>`).join(''):'';
-  const xl=[0,Math.floor(n/2),n-1].map(i=>`<text x="${(P.l+i*bw+bw/2).toFixed(1)}" y="${H-6}" text-anchor="middle" class="ax">${escD(fmtDay(daily[i].day,true))}</text>`).join('');
-  return `<svg viewBox="0 0 ${W} ${H}" class="trend-svg" preserveAspectRatio="none" aria-hidden="true"><line x1="${P.l}" x2="${W-P.r}" y1="${H-P.b}" y2="${H-P.b}" stroke="var(--lav-border)"/>${bars}${line}${dots}${ticks}${yr}${xl}</svg>`;
+  // Drawn at the card's real width (no stretching) once it is on the page; redrawn on resize.
+  window.__trendDaily=daily; setTimeout(drawTrend,0);
+  return '<div class="trend-chart" id="trendChart"></div>';
 }
+function drawTrend(){
+  const el=document.getElementById('trendChart'), daily=window.__trendDaily; if(!el||!daily) return;
+  const n=daily.length, W=Math.max(280,Math.round(el.clientWidth)), H=W<520?200:230;
+  const P={l:42,r:8,t:14,b:30}, iw=W-P.l-P.r, ih=H-P.t-P.b, bw=iw/n;
+  const maxA=Math.max(5,...daily.map(d=>d.answered));
+  const cx=i=>P.l+i*bw+bw/2, yA=v=>P.t+ih*(1-v/maxA), yP=v=>P.t+ih*(1-v/100);
+  const barW=Math.min(18,Math.max(4,bw*0.62));
+  let g='';
+  // left axis: % correct, with light gridlines
+  [0,25,50,75,100].forEach(v=>{const y=Math.round(yP(v))+.5;
+    g+=`<line class="tr-grid${v===0?' base':''}" x1="${P.l}" x2="${W-P.r}" y1="${y}" y2="${y}"/><text class="tr-ax pct" x="${P.l-8}" y="${y+4}" text-anchor="end">${v}%</text>`;});
+  // bars: questions answered (scaled to the busiest day)
+  daily.forEach((d,i)=>{const x=(cx(i)-barW/2).toFixed(1);
+    if(d.answered){const y=yA(d.answered);g+=`<rect class="tr-bar" data-i="${i}" x="${x}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${(P.t+ih-y).toFixed(1)}" rx="3"/>`;}
+    else g+=`<rect class="tr-bar empty" data-i="${i}" x="${x}" y="${(P.t+ih-2).toFixed(1)}" width="${barW.toFixed(1)}" height="2" rx="1"/>`;});
+  // hover guide lines
+  daily.forEach((d,i)=>{g+=`<line class="tr-guide" data-i="${i}" x1="${cx(i).toFixed(1)}" x2="${cx(i).toFixed(1)}" y1="${P.t}" y2="${P.t+ih}"/>`;});
+  // accuracy line (days with 3+ answers); dashed across days without enough answers
+  const pts=daily.map((d,i)=>d.answered>=3?{i,x:cx(i),y:yP(d.correct/d.answered*100)}:null).filter(Boolean);
+  for(let k=1;k<pts.length;k++){const a=pts[k-1],b=pts[k];
+    g+=`<line class="tr-line${b.i-a.i>1?' gap':''}" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}"/>`;}
+  pts.forEach(p=>{g+=`<circle class="tr-dot" data-i="${p.i}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4"/>`;});
+  // date labels: one a week, ending today
+  for(let i=n-1;i>=0;i-=7){g+=`<text class="tr-ax" x="${cx(i).toFixed(1)}" y="${H-8}" text-anchor="middle">${i===n-1?'Today':escD(fmtDay(daily[i].day,true))}</text>`;}
+  // hover / tap targets, one per day
+  daily.forEach((d,i)=>{g+=`<rect class="tr-hit" data-i="${i}" x="${(P.l+i*bw).toFixed(1)}" y="${P.t}" width="${bw.toFixed(1)}" height="${ih}"/>`;});
+  el.innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true">${g}</svg><div class="tr-tip" role="status" aria-live="polite"></div>`;
+  const tip=el.querySelector('.tr-tip'), svg=el.querySelector('svg');
+  let cur=-1;
+  function show(i){
+    if(i===cur) return; cur=i;
+    svg.querySelectorAll('.on').forEach(x=>x.classList.remove('on'));
+    svg.querySelectorAll(`[data-i="${i}"]`).forEach(x=>{if(!x.classList.contains('tr-hit'))x.classList.add('on');});
+    const d=daily[i], pct=d.answered?Math.round(d.correct/d.answered*100):null;
+    tip.innerHTML=`<b>${escD(fmtDay(d.day))}</b>`+(d.answered
+      ?`<span><i class="k1"></i>${d.answered} question${d.answered===1?'':'s'} answered</span><span><i class="k2"></i>${d.correct} correct · ${pct}%</span>`+(d.answered<3?'<small>Accuracy is plotted on days with 3+ answers</small>':'')
+      :'<span>No questions answered</span>');
+    const top=Math.min(d.answered?yA(d.answered):P.t+ih, d.answered>=3?yP(pct):P.t+ih);
+    tip.classList.add('show');
+    const tw=tip.offsetWidth, x=cx(i), left=Math.max(tw/2+2,Math.min(W-tw/2-2,x));
+    tip.style.left=left+'px'; tip.style.top=Math.max(top,tip.offsetHeight+14)+'px';
+    tip.style.setProperty('--arrow',(50+(x-left)/tw*100)+'%');
+  }
+  function hide(){cur=-1;tip.classList.remove('show');svg.querySelectorAll('.on').forEach(x=>x.classList.remove('on'));}
+  svg.addEventListener('pointermove',e=>{const r=e.target.closest&&e.target.closest('.tr-hit');if(r)show(+r.dataset.i);});
+  svg.addEventListener('pointerdown',e=>{const r=e.target.closest&&e.target.closest('.tr-hit');if(r)show(+r.dataset.i);});
+  svg.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')hide();});
+  document.addEventListener('pointerdown',e=>{if(!el.contains(e.target))hide();});
+}
+let __trendRT; window.addEventListener('resize',()=>{clearTimeout(__trendRT);__trendRT=setTimeout(drawTrend,120);});
 // ── Professional Dilemmas progress: one bar for the whole practice bank ──
 // "Correct" is the share of available marks scored (ranking questions give
 // partial credit for near misses), banded like the specialty tiles.
@@ -483,8 +548,8 @@ function renderInsights(ins, fallback){
   const tAns=daily.reduce((s,d)=>s+d.answered,0), tCor=daily.reduce((s,d)=>s+d.correct,0), act=daily.filter(d=>d.answered).length;
   const busiest=daily.reduce((m,d)=>d.answered>(m?.answered||0)?d:m,null);
   const summary=tAns?`${tAns} question${tAns===1?'':'s'} on ${act} day${act===1?'':'s'} · ${Math.round(tCor/tAns*100)}% correct${busiest?` · busiest: ${fmtDay(busiest.day)} (${busiest.answered})`:''}`:'No questions answered in the last 30 days yet.';
-  const trend=`<div class="card" style="margin-bottom:14px"><div class="card-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pu-mid);"><polyline points="3 17 9 11 13 15 21 7"/></svg>Last 30 days</div><div class="card-sub">${escD(summary)}</div></div>
-      ${tAns?`<div class="trend-legend" aria-hidden="true"><span><i class="lg-bar"></i>Questions answered</span><span><i class="lg-line"></i>Accuracy (days with 3+)</span></div>`:''}</div>
+  const trend=`<div class="card" style="margin-bottom:14px"><div class="card-hdr trend-hdr"><div><div class="card-title"><svg viewBox="0 0 24 24" style="stroke:var(--pu-mid);"><polyline points="3 17 9 11 13 15 21 7"/></svg>Last 30 days</div><div class="card-sub">${escD(summary)}</div></div>
+      ${tAns?`<div class="trend-legend" aria-hidden="true"><span><i class="lg-bar"></i>Questions answered</span><span><i class="lg-line"></i>% correct (days with 3+ answers)</span><span class="lg-hint"><span class="lg-long">Hover over a day for details</span><span class="lg-short">Tap a day for details</span></span></div>`:''}</div>
     <div class="card-body">${tAns?`<div class="trend-wrap" role="img" aria-label="${escD('Last 30 days: '+summary)}">${trendSvg(daily)}</div>`
       :`<div class="trend-empty"><div class="te-line" aria-hidden="true"></div><div class="te-txt">Your daily activity and accuracy will appear here once you start answering questions.</div></div>`}</div></div>`;
   // ── strength map
