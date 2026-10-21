@@ -130,6 +130,7 @@
         </details>
         <p class="splash-foot">The real paper has 50 scenarios in 95 minutes, roughly 1 minute 54 seconds each. Topic Mode is untimed so you can think each one through; the <a href="sjt-mock.html">mock exams</a> are timed like the real paper.</p>
       </section>
+      <section class="pp-card" id="pdProgress" aria-label="Your Professional Dilemmas progress" hidden></section>
     </main>
   </div>
 </div>
@@ -164,6 +165,30 @@ function ossifySignOut(){ if (sb) sb.auth.signOut().then(function(){ location.hr
     document.getElementById('userName').textContent = nm;
     document.getElementById('userSub').textContent = 'Ossify member';
   } catch (e) {}
+})();
+
+// ── Your progress: the same Professional Dilemmas bar as the dashboard ──
+// "Correct" is the share of available marks scored (ranking questions give partial credit for near misses).
+(async function loadPdProgress() {
+  var el = document.getElementById('pdProgress'); if (!el || !sb) return;
+  var p = null;
+  try { var r = await sb.rpc('get_sjt_practice_progress'); if (!r.error) p = r.data; } catch (e) {}
+  if (!p || !el.isConnected) return;
+  var total = Number(p.bank_total) || 0, n = Number(p.answered) || 0, m = Number(p.marks) || 0, mx = Number(p.max_marks) || 0;
+  var pct = mx ? Math.round(m / mx * 100) : null;
+  var cov = total ? Math.min(100, Math.round(n / total * 100)) : 0;
+  var b = !n ? { key: 'none', label: 'Not started' } : n < 5 ? { key: 'early', label: 'Early data' }
+        : pct >= 80 ? { key: 'strong', label: 'Strong' } : pct >= 65 ? { key: 'good', label: 'Good' } : pct >= 50 ? { key: 'fair', label: 'Building' } : { key: 'focus', label: 'Focus area' };
+  el.innerHTML = '<div class="pp-hd"><span class="pp-title">Your progress</span><span class="pp-sub">Practice questions</span></div>' +
+    '<div class="pp-tile pp-' + b.key + '" role="group" aria-label="' + n + ' of ' + total + ' practice questions answered' + (pct !== null ? ', ' + pct + '% correct' : '') + '">' +
+      '<div class="pp-head"><span class="pp-acc">' + (pct === null ? '—' : pct + '%') + (pct !== null && n < 5 ? '<small>*</small>' : '') + '</span><span class="pp-band">' + b.label + '</span></div>' +
+      '<div class="pp-bars">' +
+        '<div class="pp-row"><div class="pp-lbl"><span>Questions answered</span><b>' + n + ' / ' + total + '</b></div><span class="pp-cov" aria-hidden="true"><span style="width:' + cov + '%"></span></span></div>' +
+        '<div class="pp-row"><div class="pp-lbl"><span>Correct vs incorrect</span><b>' + (pct === null ? 'Not started' : pct + '% / ' + (100 - pct) + '%') + '</b></div>' +
+          '<span class="pp-ratio" aria-hidden="true">' + (pct === null ? '' : '<span class="pp-ok" style="width:' + pct + '%"></span><span class="pp-bad" style="width:' + (100 - pct) + '%"></span>') + '</span>' +
+          '<span class="pp-meta">' + (pct === null ? 'Answer a practice question to see your split.' : 'Share of the available marks you scored. Ranking questions give credit for near misses.') + (pct !== null && n < 5 ? ' *Based on fewer than 5 answers.' : '') + '</span></div>' +
+      '</div></div>';
+  el.hidden = false;
 })();
 </script>
 </body>
