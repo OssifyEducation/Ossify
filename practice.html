@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
 <script src="js/ossify-tutor.js"></script>
+<script src="js/ossify-refranges.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 :root{
@@ -851,6 +852,7 @@ function renderQuestion(i) {
     <span class="badge badge-topic">${q.topic}</span>
     <span class="badge badge-type">${q.type}</span>
     <span class="badge badge-domain">${q.domain}</span>
+    ${ossifyRefRanges()}
   </div>`;
 
   // EMQ set header

@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/ossify-user.js"></script>
 <script src="js/ossify-tutor.js"></script>
+<script src="js/ossify-refranges.js"></script>
 <link rel="stylesheet" href="css/ossify.css">
 <style>
 :root{
@@ -660,6 +661,7 @@ function renderExamQuestion(i, animate = true) {
   let html = `<article class="qcard${animate ? ' q-in' : ''}" aria-labelledby="qTitle">
     <div class="qhead">
       <h1 class="qnum" id="qTitle">Question ${i + 1} <span>of ${exam.total}</span></h1>
+      ${ossifyRefRanges()}
       <button class="flag-btn" aria-pressed="${flags.has(q.id)}" onclick="toggleFlag()" ${locked ? 'disabled' : ''}>
         <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
         ${flags.has(q.id) ? 'Flagged' : 'Flag for review'}</button>
